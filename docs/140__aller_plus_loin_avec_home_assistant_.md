@@ -1,1 +1,0 @@
-# ────────── Aller plus loin avec Home Assistant ──────────

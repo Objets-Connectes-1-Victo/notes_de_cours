@@ -1,7 +1,7 @@
 # 420-3A4-VI : Objets connectés 1 — Notes de cours
 
-La navigation et le contenu proviennent du fichier exporté original. Si l'affichage n'est pas optimal, ouvrir la version "Original HTML (raw)" dans la navigation.
+Bienvenue. Cette documentation a été convertie depuis un export HTML. Tous les contenus et médias nécessaires sont fournis localement dans le dossier `docs/`.
 
-<iframe src="NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025.html" width="100%" height="1200" style="border: none;"></iframe>
+Utilisez la navigation à gauche pour parcourir les chapitres.
 
-<!--Si besoin, la page originale se trouve dans le même dossier: NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025.html -->
+Si vous constatez des liens cassés ou des images manquantes, signalez-les et je les corrigerai.
