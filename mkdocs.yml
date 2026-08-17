@@ -1,29 +1,12 @@
-site_name: "Notes de cours - Objets connectés 1 (420-3A4-VI)"
+site_name: "Notes de cours - Objets connectes 1 (420-3A4-VI)"
 theme:
   name: material
   language: fr
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Passer au mode sombre
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Passer au mode clair
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.top
     - navigation.indexes
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-
 extra_css:
   - stylesheets/extra.css
 
@@ -50,20 +33,15 @@ plugins:
 
 nav:
   - Notes de cours: index.md
-  - Chapitres regroupés:
-    - "Chapitres 1–10": "001_010_merged.md"
-    - "Chapitres 11–20": "011_020_merged.md"
-    - "Chapitres 21–30": "021_030_merged.md"
-    - "Chapitres 31–40": "031_040_merged.md"
-    - "Chapitres 41–50": "041_050_merged.md"
-    - "Chapitres 51–60": "051_060_merged.md"
-    - "Chapitres 61–70": "061_070_merged.md"
-    - "Chapitres 71–80": "071_080_merged.md"
-    - "Chapitres 81–90": "081_090_merged.md"
-    - "Chapitres 91–100": "091_100_merged.md"
-    - "Chapitres 101–110": "101_110_merged.md"
-    - "Chapitres 111–120": "111_120_merged.md"
-    - "Chapitres 121–130": "121_130_merged.md"
-    - "Chapitres 131–140": "131_140_merged.md"
-    - "Chapitres 141–150": "141_150_merged.md"
-    - "Chapitres 151–151": "151_151_merged.md"
+  - Chapitres regroupes:    - "Chapitres 001-010": "001_010_merged.md"
+    - "Chapitres 011-020": "011_020_merged.md"
+    - "Chapitres 021-030": "021_030_merged.md"
+    - "Chapitres 031-040": "031_040_merged.md"
+    - "Chapitres 041-050": "041_050_merged.md"
+    - "Chapitres 051-060": "051_060_merged.md"
+    - "Chapitres 061-070": "061_070_merged.md"
+    - "Chapitres 071-080": "071_080_merged.md"
+    - "Chapitres 081-090": "081_090_merged.md"
+    - "Chapitres 091-100": "091_100_merged.md"
+    - "Chapitres 101-108": "101_108_merged.md"
+
