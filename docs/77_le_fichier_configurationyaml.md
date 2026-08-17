@@ -1,4 +1,3 @@
-<a id="fiche-le_format_yaml"></a>
 # 68. Le fichier configuration.yaml
 
 ## 68.1 Le format YAML
@@ -36,7 +35,7 @@ On peut également retrouver des paires clé-valeur au format cle: valeur.
 
 YAML
 
-nom_du_bloc:  
+nom\_du\_bloc:  
   - item1: valeur1  
     autrecleitem1: autrevaleuritem1  
   - item2: valeur2  
@@ -62,8 +61,8 @@ Dans les deux cas, on peut ajouter un trait d'union après le caractère afin d'
 
 YAML
 
-value_template: >-  
-  {% if is_state('input_boolean.porte_virtuelle', 'on') %}  
+value\_template: >-  
+  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
     Ouverte  
   {% else %}  
     Fermée  
@@ -80,13 +79,13 @@ Ce fichier est utilisé par le logiciel domotique Home Assistant.
 Fichier configuration.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)  
-default_config:
+default\_config:
 
  
 
 # SMTP  
 notify:  
-  - name: courriel_administrateur  
+  - name: courriel\_administrateur  
     platform: smtp  
     sender: homeassistant@mondomaine.com  
     server: mail.mondomaine.com  
@@ -94,13 +93,13 @@ notify:
     port: 587  
     encryption: starttls  
     username: homeassistant@mondomaine.com  
-    password: mot_de_passse_en_clair  
-    sender_name: Home Assistant  
+    password: mot\_de\_passse\_en\_clair  
+    sender\_name: Home Assistant  
     recipient: destinataire@sondomaine.com  
    
 # Text to speech  
 tts:  
-  - platform: google_translate
+  - platform: google\_translate
 
  
 
@@ -123,7 +122,7 @@ provider: virtualbox
 
  
 
-authorize: ~/.ssh/id_rsa.pub
+authorize: ~/.ssh/id\_rsa.pub
 
  
 
@@ -132,7 +131,7 @@ backup: true
  
 
 keys:  
-    - ~/.ssh/id_rsa
+    - ~/.ssh/id\_rsa
 
  
 
@@ -172,7 +171,7 @@ databases:
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons File Editor et <a href="fiche-travailler_avec_le_module_complementaire_studio_code_server.md#travailler_avec_le_module_complementaire_studio_code_server">Studio Code Server</a>.
+Parmi ceux-ci, notons File Editor et [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne].
 
 Je vous montre ici comment installer File Editor.
 
@@ -200,8 +199,6 @@ Une fois le module installé, cliquez sur Démarrer.
 Le module complémentaire est prêt à être utilisé. Vous pourrez revenir à cet écran à tout moment à partir de l'option de menu Paramètres / Modules complémentaires / Clic sur la tuile File editor.
 
 Pour un accès plus rapide, vous pouvez activer l'option Ajouter à la barre latérale.
-<a id="fiche-Editer_le_fichier_configuration_yaml"></a>
-<a id="fiche-travailler_avec_le_module_complementaire_studio_code_server"></a>
 
 ## Édition d'un fichier
 
@@ -218,13 +215,13 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 * Rendez-vous dans le menu Paramètres / Modules complémentaires / Tuile File editor / onglet Configuration.
 * Au-dessus de la zone Ignore Pattern, enlever .storage.
 
-<a href="fiche-Editer_le_fichier_configuration_yaml.md#Editer_le_fichier_configuration_yaml">Dans une prochaine fiche</a>, je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
+[apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,Dans une prochaine fiche][/apical\_lien\_interne], je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
 ## 68.3 Travailler avec le module complémentaire Studio Code Server
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons <a href="fiche-travailler_avec_le_module_complementaire_file_editor.md#travailler_avec_le_module_complementaire_file_editor">File Editor</a> et Studio Code Server.
+Parmi ceux-ci, notons [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,File Editor][/apical\_lien\_interne] et Studio Code Server.
 
 Je vous montre ici comment installer Studio Code Server.
 
@@ -275,7 +272,7 @@ Le fichier configuration.yaml permet d'effectuer une foule de configurations dan
 
 Physiquement, il est placé dans le dossier /mnt/data/supervisor/homeassistant/configuration.yaml. Mais il est plus simple de travailler dans l'interface Web pour y accéder.
 
-Pour l'éditer, <a href="fiche-travailler_avec_le_module_complementaire_file_editor.md#travailler_avec_le_module_complementaire_file_editor">ouvrez l'extension File editor</a> ou <a href="fiche-travailler_avec_le_module_complementaire_studio_code_server.md#travailler_avec_le_module_complementaire_studio_code_server">Studio Code Server</a>.
+Pour l'éditer, [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,ouvrez l'extension File editor][/apical\_lien\_interne] ou [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne].
 
 Cette démonstration est réalisée à l'aide de File editor.
 
@@ -283,7 +280,7 @@ Cliquez sur l'icône de chemise à gauche de la barre bleue.
 
 ![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Interface.png)
 
-Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant (<a href="fiche-dossier_config.md#dossier_config">aussi appelé dossier config</a>). C'est justement là que se trouve notre fichier.
+Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant ([apical\_lien\_interne][dossier\_config,aussi appelé dossier config][/apical\_lien\_interne]). C'est justement là que se trouve notre fichier.
 
 Cliquez sur le fichier configuration.yaml.
 
@@ -294,13 +291,13 @@ Voici le contenu initial de ce fichier.
 Fichier configuration.yaml
 
 # Loads default set of integrations. Do not remove.  
-default_config:
+default\_config:
 
  
 
 # Load frontend themes from the themes folder  
 frontend:  
-  themes: !include_dir_merge_named themes
+  themes: !include\_dir\_merge\_named themes
 
  
 
@@ -310,7 +307,7 @@ scene: !include scenes.yaml
 
 ## Chargement des configurations par défaut
 
-La toute première ligne du fichier, default_config:, permet de charger [les configurations par défaut de Home Assistant](https://www.home-assistant.io/integrations/default_config/).
+La toute première ligne du fichier, default\_config:, permet de charger [les configurations par défaut de Home Assistant](https://www.home-assistant.io/integrations/default_config/).
 
 ## Chargement d'autres fichiers YAML
 
@@ -322,9 +319,9 @@ C'est ce qui est fait par défaut avec les fichiers automations.yaml, scripts.ya
 
 Il est possible d'ajouter des instructions dans le fichier configuration.yaml, notamment pour :
 
-* ajouter des capteurs <a href="fiche-configurer_un_capteur_virtuel.md#configurer_un_capteur_virtuel">virtuels</a>
-* effectuer des configurations pour pouvoir <a href="fiche-configurer_home_assistant_pour_l_envoi_de_courriel.md#configurer_home_assistant_pour_l_envoi_de_courriel">envoyer du courriel</a>
-* effectuer des configurations  pour <a href="fiche-publication_et_abonnement_mqtt_avec_home_assistant.md#publication_et_abonnement_mqtt_avec_home_assistant">s'abonner à un canal MQTT</a>
+* ajouter des capteurs [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,virtuels][/apical\_lien\_interne]
+* effectuer des configurations pour pouvoir [apical\_lien\_interne][configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel,envoyer du courriel][/apical\_lien\_interne]
+* effectuer des configurations  pour [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,s'abonner à un canal MQTT,abonnement][/apical\_lien\_interne]
 * etc.
 
 Chacune des configurations doit être placée dans une section avec un nom unique.
@@ -335,8 +332,8 @@ Le code peut être ajouté à différents endroits dans le fichier. J'ai choisi 
 
 Fichier configuration.yaml
 
-input_boolean:  
-  porte_virtuelle:  
+input\_boolean:  
+  porte\_virtuelle:  
     name: Porte virtuelle  
     icon: mdi:door
 
@@ -344,12 +341,12 @@ Puisque le nom de la section doit être unique, ceci n'est pas valide :
 
 Fichier configuration.yaml
 
-input_boolean:  
-  porte_virtuelle:  
+input\_boolean:  
+  porte\_virtuelle:  
     name: Porte virtuelle  
     icon: mdi:door  
-input_boolean:  
-  ventilateur_virtuel:  
+input\_boolean:  
+  ventilateur\_virtuel:  
     name: Ventilateur virtuel  
     icon: mdi:fan
 
@@ -357,18 +354,17 @@ Lorsque plusieurs configurations doivent faire partie d'une même section, il fa
 
 Fichier configuration.yaml
 
-input_boolean:  
-  porte_virtuelle:  
+input\_boolean:  
+  porte\_virtuelle:  
     name: Porte virtuelle  
     icon: mdi:door  
-  ventilateur_virtuel:  
+  ventilateur\_virtuel:  
     name: Ventilateur virtuel  
     icon: mdi:fan
 
 N'oubliez pas d'enregistrer vos modifications en cliquant sur l'icône de disquette dans le haut de l'écran ou en appuyant sur Ctrl+S (Windows) ou ⌘ Cmd+S (macOS).
 
 La couleur rouge indique que les modifications n'ont pas été enregistrées.
-<a id="rechargement"></a>
 
 ![Icône Enregistrer](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Save.png)
 
@@ -376,7 +372,7 @@ La couleur rouge indique que les modifications n'ont pas été enregistrées.
 
 Avant de poursuivre, il est important de vérifier votre travail.
 
-Suivez les conseils « <a href="fiche-validation_des_configurations.md#validation_des_configurations">validation_des_configurations</a> » pour vous assurer que vos configurations sont valides.
+Suivez les conseils « [apical\_lien\_interne]validation\_des\_configurations[/apical\_lien\_interne] » pour vous assurer que vos configurations sont valides.
 
 ## Pour que les configurations soient prises en compte
 
@@ -398,7 +394,7 @@ Parfois, un redémarrage de Home Assistant sera nécessaire : Paramètres / Syst
 
 ## 68.5 Validation des configurations
 
-Une fois vos configurations en place <a href="fiche-Editer_le_fichier_configuration_yaml.md#Editer_le_fichier_configuration_yaml">dans le fichier configuration.yaml</a>, il faut s'assurer que le tout soit valide avant de poursuivre.
+Une fois vos configurations en place [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,dans le fichier configuration.yaml][/apical\_lien\_interne], il faut s'assurer que le tout soit valide avant de poursuivre.
 
 Si vous essayez un redémarrage alors que le fichier de configuration n'est pas valide, Home Assistant ne le permettra pas.
 
@@ -436,7 +432,7 @@ Un clic sur cette pastille nous confirme que la notification concerne une erreur
 
 ## Console Home Assistant
 
-Le fichier de configurations peut également être validé <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">à la console Home Assistant</a>.
+Le fichier de configurations peut également être validé [apical\_lien\_interne][la\_console\_home\_assistant,à la console Home Assistant][/apical\_lien\_interne].
 
 Entrez la commande suivante :
 
@@ -481,7 +477,6 @@ Failed config
 could not find expected ':'  
  in "/config/configuration.yaml", line 13, column 18
 
-<a id="chapitre-les_icones_002"></a>
  
 
 Successful config (partial)

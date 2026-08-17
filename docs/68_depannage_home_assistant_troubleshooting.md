@@ -1,11 +1,10 @@
-<a id="fiche-erreur_wlan0_link_is_not_ready"></a>
 # 60. Dépannage Home Assistant (troubleshooting)
 
 ## 60.1 Erreur « wlan0: link is not ready »
 
 ### Problème :
 
-Lorsque vous démarrez votre Raspberry Pi qui contient une installation de Home Assistant, vous obtenez à la console le message « IPv6: ADDRCONF (NETDEV_UP): wlan0: link is not ready - brcmfmac: brcmf_cfg80211_set_power_mgmt: power save enabled ».
+Lorsque vous démarrez votre Raspberry Pi qui contient une installation de Home Assistant, vous obtenez à la console le message « IPv6: ADDRCONF (NETDEV\_UP): wlan0: link is not ready - brcmfmac: brcmf\_cfg80211\_set\_power\_mgmt: power save enabled ».
 
 Il est possible que ce message à la console n'empêche pas le logiciel de fonctionner et donc que l'interface soit fonctionnelle dans votre navigateur. Cependant, ceci pourrai causer des problèmes plus tard alors il vaut mieux trouver une solution.
 
@@ -17,7 +16,7 @@ Ce message peut parfois apparaître après le message « [WARN] Home Assistant 
 
 ### Contexte :
 
-* Home Assistant 32 bits pour Raspberry Pi 3 (fichier d'installation hassos_rpi3-4.16.img.gz)
+* Home Assistant 32 bits pour Raspberry Pi 3 (fichier d'installation hassos\_rpi3-4.16.img.gz)
 * HassOS 4.16
 * Raspberry Pi 3B
 
@@ -55,7 +54,7 @@ D'abord, essayez de brancher le Raspberry Pi au routeur à l'aide d'un câble RJ
 * Dans ce fichier, le id doit être identique au nom du fichier (my-network).
 * Les sauts de lignes doivent être codés en Linux (LF) et non en Windows (CRLF).
 * Notez que le Raspberry Pi 3 ne supporte que le Wi-Fi 2.4 GHz alors que le Raspberry Pi 4 supporte également le 5 GHz.
-* Une fois le fichier my-network complété,<a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">retirez la clé de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
+* Une fois le fichier my-network complété,[apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirez la clé de l'ordinateur de façon sécuritaire][/apical\_lien\_interne], insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
 
 Fichier network/my-network
 
@@ -124,7 +123,7 @@ Lorsque vous tentez d'afficher l'interface Web de Home Assistant dans votre navi
 
 Vous obtenez le même résultat peu importe la forme de l'URL utilisée : http://homeassistant.local:8123, http://homeassistant:8123 ou http://192.168.1.145:8123 (où 192.168.1.145 doit être remplacé par l'adresse IP du Pi).
 
-Souvent, ceci se traduit par l'affichage du message « Ce site est inaccessible. 206.167.1.145 a mis trop de temps à répondre. Voici quelques conseils : Vérifier la connexion Vérifier le proxy et le pare-feu ERR_CONNECTION_TIMED_OUT ».
+Souvent, ceci se traduit par l'affichage du message « Ce site est inaccessible. 206.167.1.145 a mis trop de temps à répondre. Voici quelques conseils : Vérifier la connexion Vérifier le proxy et le pare-feu ERR\_CONNECTION\_TIMED\_OUT ».
 
 ![Ce site est inaccessible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CeSiteEstInaccessible.png)
 
@@ -268,7 +267,7 @@ Résultat à l'écran
 
 MacBook-Pro-de-MonNom:~ monnom$ diskutil unmountDisk /dev/disk2  
 Unmount of all volumes on disk2 was successful  
-MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
+MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos\_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
 Password:  
 dd: /dev/rdisk2: Device not configured  
 421+0 records in  
@@ -307,7 +306,7 @@ Lorsque vous tentez de flasher une image sur une carte micro SD à l'aide de la 
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
+MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos\_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
 Password:  
 dd: /dev/rdisk2: Operation not permitted
 
@@ -339,7 +338,7 @@ Quand vous cliquez sur le point bleu, vous obtenez un log des opérations effect
 
 ### Contexte :
 
-* Home Assistant 64 bits pour Raspberry Pi 3 (fichier d'installation haos_rpi3-64-6.4.img)
+* Home Assistant 64 bits pour Raspberry Pi 3 (fichier d'installation haos\_rpi3-64-6.4.img)
 * HassOS 6.4
 * Raspberry Pi 3B
 
@@ -475,14 +474,14 @@ Effacez tous les caractères spéciaux.
 
 ### Problème :
 
-Lorsque vous tentez de copier un fichier entre Home Assistant et votre ordinateur à l'aide de la commande scp, vous obtenez le message  « kex_exchange_identification: read: Connection reset by peer. Connection reset by 192.168.1.145 port 22 ».
+Lorsque vous tentez de copier un fichier entre Home Assistant et votre ordinateur à l'aide de la commande scp, vous obtenez le message  « kex\_exchange\_identification: read: Connection reset by peer. Connection reset by 192.168.1.145 port 22 ».
 
 Pourtant, vous pouvez vous brancher via ssh sans mot de passe. Logiquement, scp devrait aussi fonctionner.
 
 Terminal
 
 scp root@192.169.1.145:/chemin/fichier.extension /dossierlocal  
-kex_exchange_identification: read: Connection reset by peer  
+kex\_exchange\_identification: read: Connection reset by peer  
 Connection reset by 192.168.1.145 port 22
 
 ### Contexte :
@@ -513,7 +512,7 @@ Lorsque vous tentez d'accéder à la base de données de Home Assistant, vous ob
 
 Terminal
 
-sqlite3 /mnt/data/supervisor/homeassistant/home-assistant_v2.db  
+sqlite3 /mnt/data/supervisor/homeassistant/home-assistant\_v2.db  
 bash: sqlite3: command not found
 
 ### Contexte :
@@ -663,14 +662,14 @@ Dans mon installation, j'ai trouvé ceci :
 Résultat à l'écran
 
 Error handling request  
-2 février 2021, 14:46:14 – (ERREUR) components/tuya/config_flow.py
+2 février 2021, 14:46:14 – (ERREUR) components/tuya/config\_flow.py
 
 Un clic sur cette erreur donne plus de détails.
 
 Résultat à l'écran
 
 Logger: aiohttp.server  
-Source: components/tuya/config_flow.py:74  
+Source: components/tuya/config\_flow.py:74  
 First occurred: 2 février 2021, 14:46:14 (1 occurrences)  
 Last logged: 2 février 2021, 14:46:14
 
@@ -679,24 +678,24 @@ Last logged: 2 février 2021, 14:46:14
 Error handling request  
 Traceback (most recent call last):  
  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen  
- httplib_response = self._make_request(  
- File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 382, in _make_request  
- self._validate_conn(conn)  
- File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1010, in _validate_conn  
+ httplib\_response = self.\_make\_request(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 382, in \_make\_request  
+ self.\_validate\_conn(conn)  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1010, in \_validate\_conn  
  conn.connect()  
  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 416, in connect  
- self.sock = ssl_wrap_socket(  
- File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket  
- ssl_sock = _ssl_wrap_socket_impl(  
- File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl  
- return ssl_context.wrap_socket(sock, server_hostname=server_hostname)  
- File "/usr/local/lib/python3.9/ssl.py", line 500, in wrap_socket  
- return self.sslsocket_class._create(  
- File "/usr/local/lib/python3.9/ssl.py", line 1040, in _create  
- self.do_handshake()  
- File "/usr/local/lib/python3.9/ssl.py", line 1309, in do_handshake  
- self._sslobj.do_handshake()  
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate is not yet valid (_ssl.c:1129)
+ self.sock = ssl\_wrap\_socket(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl\_.py", line 449, in ssl\_wrap\_socket  
+ ssl\_sock = \_ssl\_wrap\_socket\_impl(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl\_.py", line 493, in \_ssl\_wrap\_socket\_impl  
+ return ssl\_context.wrap\_socket(sock, server\_hostname=server\_hostname)  
+ File "/usr/local/lib/python3.9/ssl.py", line 500, in wrap\_socket  
+ return self.sslsocket\_class.\_create(  
+ File "/usr/local/lib/python3.9/ssl.py", line 1040, in \_create  
+ self.do\_handshake()  
+ File "/usr/local/lib/python3.9/ssl.py", line 1309, in do\_handshake  
+ self.\_sslobj.do\_handshake()  
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE\_VERIFY\_FAILED] certificate verify failed: certificate is not yet valid (\_ssl.c:1129)
 
  
 
@@ -758,7 +757,7 @@ Branchez la clé puis redémarrez le système.
 
 ### Problème :
 
-Lorsque vous accédez à l'écran Paramètres / Appareils et services / onglet Intégrations, la tuile Z-Wave JS affiche le message « Réessayer la configuration: Failed to get the Z-Wave JS add-on info: Addon core_zwafe_js with version latest does not exist in the store ».
+Lorsque vous accédez à l'écran Paramètres / Appareils et services / onglet Intégrations, la tuile Z-Wave JS affiche le message « Réessayer la configuration: Failed to get the Z-Wave JS add-on info: Addon core\_zwafe\_js with version latest does not exist in the store ».
 
 Ceci fait en sorte que la clé USB Z-Wave n'est plus capable de communiquer avec vos périphériques.
 
@@ -790,8 +789,8 @@ Un clic sur le lien vers les journaux affiche ceci :
 
 Résultat à l'écran
 
-Logger: homeassistant.config_entries  
-Source: components/tuya/__init__.py:66  
+Logger: homeassistant.config\_entries  
+Source: components/tuya/\_\_init\_\_.py:66  
 First occurred: 08:02:52 (1 occurrences)  
 Last logged: 08:02:52
 
@@ -800,10 +799,10 @@ Last logged: 08:02:52
 Error setting up entry mon.nom@mondomaine.com for tuya  
   
 Traceback (most recent call last):  
-  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 304, in async_setup  
-    result = await component.async_setup_entry(hass, self) # type: ignore  
-  File "/usr/src/homeassistant/homeassistant/components/tuya/__init__.py", line 66, in async_setup_entry  
-    hass.data[DOMAIN].pop(entry.entry_id)  
+  File "/usr/src/homeassistant/homeassistant/config\_entries.py", line 304, in async\_setup  
+    result = await component.async\_setup\_entry(hass, self) # type: ignore  
+  File "/usr/src/homeassistant/homeassistant/components/tuya/\_\_init\_\_.py", line 66, in async\_setup\_entry  
+    hass.data[DOMAIN].pop(entry.entry\_id)  
 KeyError: '72aa04c596019d1d5ace2615ecdab696'
 
 ### Contexte :
@@ -884,13 +883,13 @@ ssh root@192.168.1.145 -p 22222
 
 ### Autre cause possible :
 
-Le fichier authorized_keys n'utilise pas le bon encodage. Ce pourrait être le cas notamment si vous avez utilisé le bloc notes de Windows pour le créer.
+Le fichier authorized\_keys n'utilise pas le bon encodage. Ce pourrait être le cas notamment si vous avez utilisé le bloc notes de Windows pour le créer.
 
 ### Solution proposée :
 
-Supprimez le fichier authorized_keys de la clé USB.
+Supprimez le fichier authorized\_keys de la clé USB.
 
-Créez un nouveau fichier authorized_keys sur la clé mais cette fois, utilisez un éditeur plus adapté à ce type de tâche, par exemple Geany.
+Créez un nouveau fichier authorized\_keys sur la clé mais cette fois, utilisez un éditeur plus adapté à ce type de tâche, par exemple Geany.
 
 Suivez les étapes de la section suivante pour y copier la clé publique SSH.
 
@@ -900,21 +899,21 @@ La clé publique SSH générée par votre système Windows a mal été copiée s
 
 Fenêtre Git Bash
 
-cat /c/Users/MonNom/.ssh/id_rsa.pub > /d/authorized_keys
+cat /c/Users/MonNom/.ssh/id\_rsa.pub > /d/authorized\_keys
 
 ou :
 
 PowerShell
 
-cat C:\Users\MonNom\.ssh\id_rsa.pub > D:\authorized_keys
+cat C:\Users\MonNom\.ssh\id\_rsa.pub > D:\authorized\_keys
 
 Notamment, il peut y avoir un caractère de fin de ligne après la clé publique, ce qui empêche son bon fonctionnement.
 
-Il peut également y avoir deux caractères identifiés par des rectangles au début du fichier authorized_keys.
+Il peut également y avoir deux caractères identifiés par des rectangles au début du fichier authorized\_keys.
 
 ![Caractères spéciaux](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SSH-CaracteresSpeciauxDebutAuthorizedKeys.png)
 
-Ce sera la même chose si vous éditez le fichier authorized_keys directement sur le Pi (vi /root/.ssh/authorized_keys) et que vous voyez des caractères qui ressemblaient à du chinois :-o
+Ce sera la même chose si vous éditez le fichier authorized\_keys directement sur le Pi (vi /root/.ssh/authorized\_keys) et que vous voyez des caractères qui ressemblaient à du chinois :-o
 
 ![authorized_keys caractères chinois](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SSH-AuthorizedKeysIllisible.png)
 
@@ -925,31 +924,31 @@ Je vous propose deux techniques pour copier correctement la clé publique SSH su
 La première technique est dite headless, c'est-à-dire que vous n'avez pas besoin de brancher clavier ni écran au Raspberry Pi :
 
 * Rebranchez la clé USB sur votre ordinateur.
-* Affichez le contenu du fichier id_rsa.pub à l'écran.
+* Affichez le contenu du fichier id\_rsa.pub à l'écran.
 
   PowerShell
 
-  cat C:\Users\MonNom\.ssh\id_rsa.pub
-* Si un fichier authorized_keys était déjà présent sur la clé USB, détruisez-le.
-* Créez un fichier texte vierge sur la clé USB dont l'encodage est UTF-8 sans BOM et nommez-le authorized_keys (aucune extension). Attention : n'utilisez pas le bloc notes de Windows pour créer ce fichier. Utilisez un éditeur plus adapté à ce type de tâche, par exemple Geany.
+  cat C:\Users\MonNom\.ssh\id\_rsa.pub
+* Si un fichier authorized\_keys était déjà présent sur la clé USB, détruisez-le.
+* Créez un fichier texte vierge sur la clé USB dont l'encodage est UTF-8 sans BOM et nommez-le authorized\_keys (aucune extension). Attention : n'utilisez pas le bloc notes de Windows pour créer ce fichier. Utilisez un éditeur plus adapté à ce type de tâche, par exemple Geany.
 * Copiez-collez dans ce fichier la clé qui a été affichée à l'aide de la commande cat.
 * Branchez la clé USB sur le Raspberry Pi et redémarrez le système. Le fichier sera automatiquement copié dans le dossier /root/.ssh.
 
 Deuxième technique (requiert clavier et écran) :
 
 * Sur Home Assistant, installez le module complémentaire File Editor.
-* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized_keys.
+* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized\_keys.
 * Sur votre système Windows, à l'aide d'une fenêtre PowerShell, affichez la valeur de votre clé publique SSH.
 
   PowerShell
 
-  cat C:\Users\MonNom\.ssh\id_rsa.pub
-* Dans File Editor, éditez votre nouveau fichier authorized_keys et collez-y la valeur de la clé publique.
+  cat C:\Users\MonNom\.ssh\id\_rsa.pub
+* Dans File Editor, éditez votre nouveau fichier authorized\_keys et collez-y la valeur de la clé publique.
 * Puisque File Editor n'a pas accès aux dossiers situés en dehors de la racine du site Web, vous devrez déplacer le fichier à l'aide du clavier branché au Raspberry Pi.
 
   Terminal HassOS
 
-  cp /mnt/data/supervisor/homeassistant/authorized_keys /root/.ssh
+  cp /mnt/data/supervisor/homeassistant/authorized\_keys /root/.ssh
 
 Avec l'une ou l'autre de ces techniques, vous devriez maintenant avoir accès à votre Pi via SSH.
 
@@ -1037,11 +1036,11 @@ Vous n'avez pas activé le mode avancé pour l'usager avec lequel vous êtes aut
 
   ![Module complémentaire SQLite](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ModuleComplementaireSQLite.png)
 
-## 60.24 Erreur « ERR_CONNECTION_REFUSED  »
+## 60.24 Erreur « ERR\_CONNECTION\_REFUSED  »
 
 ### Problème :
 
-Lorsque vous tentez de vous connecter à l'interface Web de Home Assistant, vous obtenez un message du genre « Ce site est inaccessible. 192.168.1.145 n'autorise pas la connexion. ERR_CONNECTION_REFUSED ».
+Lorsque vous tentez de vous connecter à l'interface Web de Home Assistant, vous obtenez un message du genre « Ce site est inaccessible. 192.168.1.145 n'autorise pas la connexion. ERR\_CONNECTION\_REFUSED ».
 
 ![ERR_CONNECTION_REFUSED](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ERR_CONNECTION_REFUSED.png)
 
@@ -1075,12 +1074,12 @@ Résultat à l'écran
 ...  
 22-11-07 08:12:07 INFO (MainThread) [supervisor.resolution.evaluate] Starting system evaluation with state CoreState.RUNNING  
 22-11-07 08:12:08 ERROR (MainThread) [supervisor.homeassistant.core] Home Assistant has crashed!  
-22-11-07 08:12:08 INFO (SyncWorker_3) [supervisor.docker.interface] Cleaning homeassistant application  
-22-11-07 08:12:08 INFO (MainThread) [supervisor.homeassistant.module] Update pulse/client.config: /data/tmp/homeassistant_pulse  
+22-11-07 08:12:08 INFO (SyncWorker\_3) [supervisor.docker.interface] Cleaning homeassistant application  
+22-11-07 08:12:08 INFO (MainThread) [supervisor.homeassistant.module] Update pulse/client.config: /data/tmp/homeassistant\_pulse  
 22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.evaluate] System evaluation complete  
 22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.fixup] Starting system autofix at state CoreState.RUNNING  
 22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.fixup] System autofix complete  
-22-11-07 08:12:09 INFO (SyncWorker_2) [supervisor.docker.homeassistant] Starting Home Assistant ghcr.io/home-assistant/raspberrypi4-64-homeassistant with version 2022.11.1  
+22-11-07 08:12:09 INFO (SyncWorker\_2) [supervisor.docker.homeassistant] Starting Home Assistant ghcr.io/home-assistant/raspberrypi4-64-homeassistant with version 2022.11.1  
 22-11-07 08:12:09 INFO (MainThread) [supervisor.homeassistant.core] Wait until Home Assistant is ready  
 22-11-07 08:12:19 ERROR (MainThread) [supervisor.homeassistant.core] Home Assistant has crashed!  
 22-11-07 08:12:19 ERROR (MainThread) [supervisor.homeassistant.core] Watchdog restart of Home Assistant failed!
@@ -1093,9 +1092,9 @@ Terminal
 
 # ha core check  
 Error: Testing configuration at /config  
-ERROR:homeassistant.util.json:Could not parse JSON content: /config/.storage/core.device_registry  
+ERROR:homeassistant.util.json:Could not parse JSON content: /config/.storage/core.device\_registry  
 Traceback (most recent call last):  
-  File "/usr/src/homeassistant/homeassistant/util/json.py", line 39, in load_json  
+  File "/usr/src/homeassistant/homeassistant/util/json.py", line 39, in load\_json  
     return orjson.loads(fdesc.read()) # type: ignore[no-any-return]  
 orjson.JSONDecodeError: unexpected character: line 455 column 20 (char 12223)  
 Fatal error while loading config: unexpected character: line 455 column 20 (char 12223)  
@@ -1107,7 +1106,7 @@ Failed config
 
 Successful config (partial
 
-Dans cet exemple, on voit que le fichier core.device_registry contient une configuration invalide.
+Dans cet exemple, on voit que le fichier core.device\_registry contient une configuration invalide.
 
 Je me rappelais avoir modifié ce fichier lors de ma dernière session de travail alors j'ai pu le remettre dans son état original.
 
@@ -1170,13 +1169,13 @@ Dans la version 2023.10.5, le fichier contenait les lignes suivantes :
 Fichier configuration.yaml
 
 # Loads default set of integrations. Do not remove.  
-default_config:
+default\_config:
 
  
 
 # Load frontend themes from the themes folder  
 frontend:  
- themes: !include_dir_merge_named themes
+ themes: !include\_dir\_merge\_named themes
 
  
 

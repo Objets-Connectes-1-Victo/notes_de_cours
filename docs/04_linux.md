@@ -1,6 +1,4 @@
-<a id="fiche-les_touches_de_clavier_avec_linux"></a>
 # 3. Linux
-<a id="fiche-quelle_version_de_linux_est_installee"></a>
 
 ## 3.1 Les touches de clavier avec Linux
 
@@ -32,16 +30,15 @@ Sous Raspberry Pi OS 10 (Buster), on obtient ceci :
 
 Résultat à l'écran
 
-<a id="fiche-Rechercher_un_fichier"></a>
 Linux gateway 5.10.17-v7+ #1403 SMP Mon Feb 22 11:29:51 GMT 2021 armv7l GNU/Linux
 
-## lsb_release
+## lsb\_release
 
-La commande [lsb_release](https://www.commandlinux.com/man-page/man1/lsb_release.1.html) (Linux Standard Base Release) permet d'obtenir spécifiquement la distribution Linux et son numéro de version.
+La commande [lsb\_release](https://www.commandlinux.com/man-page/man1/lsb_release.1.html) (Linux Standard Base Release) permet d'obtenir spécifiquement la distribution Linux et son numéro de version.
 
 Linux
 
-lsb_release -a
+lsb\_release -a
 
 Note : si vous obtenez le message « lsb-release: command not found », vous devrez d'abord installer ce module à l'aide de la commande sudo apt install lsb-release.
 
@@ -102,8 +99,6 @@ find ~ -mtime -1
 ou depuis 5 minutes :
 
 Commande Linux
-<a id="fiche-installation_de_home_assistant_et_premier_acces"></a>
-<a id="fiche-quelques_commandes_linux_utiles"></a>
 
 find ~ -mmin -5
 
@@ -148,8 +143,7 @@ Il ne s'agit pas de commandes de base mais bien de commandes moins connues ou pl
 | grep id  ChaletsController.php | Rechercher toutes les lignes du fichier ChaletsController.php qui contiennent la chaîne "id" (grep = Global Regular Expression Print)  La commande grep est souvent utilisée à la suite d'une autre commande en séparant les deux par un pipe (|). De cette façon, la première commande n'affichera que les lignes qui contiennent la chaîne recherchée. |
 | find -type f | xargs grep allo | Rechercher dans tous les fichiers du répertoire courant la chaîne "allo"  L'utilisation de xargs peut être optionnelle. Cependant, si find trouve plus de fichiers que grep ne peut en prendre, xargs découpera la sortie de find pour appeler grep plusieurs fois en ne dépassant pas la longueur de commande maximale. |
 | find -type f -print 0 | xargs -0 grep unechaine | Pour manipuler les fichiers comprenant des espaces |
-<a id="fiche-Eteindre_un_systeme_linux_de_facon_securitaire"></a>
-| find ~ -name preferences.txt 2>/dev/null | <a href="fiche-Rechercher_un_fichier.md#Rechercher_un_fichier">Rechercher un fichier</a> dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
+| find ~ -name preferences.txt 2>/dev/null | [apical\_lien\_interne][Rechercher\_un\_fichier,Rechercher un fichier][/apical\_lien\_interne] dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
 | ll | awk '$6=="Feb" ' | Afficher tous les fichiers modifiés en février - 6e colonne lors de l'affichage long |
 | find ~ -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 10 | Retrouve les 10 plus récents fichiers dans le dossier personnel et dans ses sous-dossiers. |
 
@@ -169,9 +163,7 @@ Il n'est pas recommandé de fermer un ordinateur qui roule sous Linux en le déb
 
 De plus, si l'ordinateur est en train de travailler, il pourrait y avoir une perte de données.
 
-<a id="fiche-trouver_l_adresse_ip_de_home_assistant"></a>
 Pire encore, ceci pourrait corrompre le système de fichiers.
-<a id="raspi"></a>
 
 ## Interface graphique
 
@@ -187,7 +179,7 @@ Lorsque vous entrez une de ces commandes, la LED verte clignote une dizaine de f
 
 Il ne faut pas retirer le câble d'alimentation tant que la LED verte n'est pas éteinte.
 
-Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, vous verrez ceci à l'écran :
+Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,via SSH][/apical\_lien\_interne], vous verrez ceci à l'écran :
 
 Terminal
 
@@ -268,125 +260,9 @@ Le système Linux peut également être redémarré à l'aide de la combinaison 
 L'ajout d'un simple interrupteur d'alimentation sur le câble du Pi n'est pas suffisant, il faut faire un shutdown propre afin de terminer correctement tous les processus avant de couper l'alimentation.
 
 Il est tout de même possible de créer un bouton qui lancera les signaux d'arrêt pour les processus et tout le tralala avant de couper l'alimentation.
-<a id="cookie-consent-banner"></a>
-<a id="popupbienvenue"></a>
-<a id="soumettreauthentification"></a>
-<a id="resterconnecte"></a>
-<a id="login"></a>
-<a id="messageauthentification"></a>
-<a id="formulaireauthentification"></a>
-<a id="deconnecter"></a>
-<a id="prenomnomfamille"></a>
-<a id="menuusager"></a>
-<a id="popupauthentification"></a>
-<a id="soumettrerecherche"></a>
-<a id="rechercher"></a>
-<a id="popuprecherche"></a>
-<a id="chapitre-plugin_personnalise_pour_jeedom"></a>
-<a id="chapitre-developper_son_propre_objet_connecte_pour_jeedom"></a>
-<a id="fiche-connecter_le_pi_a_un_autre_des_reseaux_listes_dans_wpa_supplicant_conf"></a>
-<a id="chapitre-configurations_reseau_avec_dhcpcd_wpa_supplicant"></a>
-<a id="chapitre-aller_plus_loin_avec_linux_et_le_raspberry_pi"></a>
-<a id="fiche-la_securite_avec_mqtt"></a>
-<a id="fiche-url_d_un_objet_connecte_jeedom"></a>
-<a id="chapitre-exercice_17_optionnel"></a>
-<a id="chapitre-historisation_des_donnees_002"></a>
-<a id="fiche-Autres_operations_interessantes"></a>
-<a id="fiche-les_dates_avec_sqlite"></a>
-<a id="fiche-fonctions_sqlite_pour_manipuler_du_texte"></a>
-<a id="fiche-fonctions_sqlite_pour_manipuler_des_nombres"></a>
-<a id="fiche-La_ligne_de_commande_SQLite"></a>
-<a id="fiche-Installation_de_SQLite"></a>
-<a id="fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see"></a>
-<a id="fiche-automatisation_qui_tient_compte_de_la_presence"></a>
-<a id="fiche-envoyer_une_notification_a_l_application_mobile"></a>
-<a id="fiche-automatisation_qui_envoie_un_courriel"></a>
-<a id="fiche-automatisation_qui_tient_compte_de_l_heure"></a>
-<a id="fiche-modeles_qui_manipulent_des_positions_gps"></a>
-<a id="chapitre-depannage_sur_les_automatisations_troubleshooting"></a>
-<a id="chapitre-le_soleil_et_la_meteo_sous_home_assistant"></a>
-<a id="fiche-lancer_une_automatisation_a_l_aide_d_un_bouton"></a>
-<a id="chapitre-exercice_12_005"></a>
-<a id="fiche-assigner_un_appareil_a_une_piece"></a>
-<a id="fiche-validation_des_configurations"></a>
-<a id="fiche-travailler_avec_le_module_complementaire_file_editor"></a>
-<a id="fiche-reinstaller_home_assistant_a_partir_d_une_sauvegarde"></a>
-<a id="fiche-erreur_dd_dev_rdisk2_device_not_configured"></a>
-<a id="fiche-editeur_vi"></a>
-<a id="fiche-integration_tp-link_kasa_smart_pour_ajouter_une_prise_kasa_a_home_assistant"></a>
-<a id="fiche-liste_de_verification_pour_home_assistant"></a>
-<a id="fiche-les_fichiers_et_dossiers_de_home_assistant"></a>
 
-<a id="fiche-ajuster_la_date_et_l_heure_de_home_assistant"></a>
-<a id="fiche-configurer_l_acces_au_reseau_dans_home_assistant"></a>
-<a id="fiche-Eteindre_home_assistant_de_facon_securitaire"></a>
-<a id="fiche-la_console_home_assistant"></a>
 De nombreux tutoriels couvrent déjà cette option :
-<a id="chapitre-exercice_9_009"></a>
-<a id="fiche-travailler_avec_le_plugin_bluetooth_advertisement_blea"></a>
-<a id="fiche-arreter_correctement_un_scenario_avec_boucle_infinie"></a>
-<a id="fiche-tuer_un_processus_linux"></a>
-<a id="fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio"></a>
-<a id="chapitre-scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio"></a>
-<a id="fiche-tester_les_broches_du_gpio"></a>
-<a id="fiche-les_resistances"></a>
-<a id="fiche-brancher_une_del_au_raspberry_pi"></a>
-<a id="chapitre-exercice_5_006"></a>
-<a id="chapitre-exercice_4"></a>
-<a id="fiche-scenarios_avec_la_meteo"></a>
-<a id="fiche-scenario_avec_plusieurs_declencheurs_ou_programmations"></a>
-<a id="fiche-creer_un_scenario_programme"></a>
-<a id="fiche-equipement_virtuel_qui_incremente_une_variable"></a>
-<a id="chapitre-les_equipements_virtuels_dans_jeedom"></a>
-<a id="fiche-travailler_avec_la_meteo_sous_jeedom"></a>
-<a id="fiche-configurer_la_page_de_synthese"></a>
-<a id="fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom"></a>
-<a id="fiche-modifier_le_port_utilise_pour_acceder_a_jeedom"></a>
-<a id="fiche-application_mobile_officielle_pour_acceder_a_jeedom_a_distance"></a>
-<a id="chapitre-autres_aspects_interessants_avec_jeedom"></a>
-<a id="fiche-configurer_la_cle_usb_z-wave_sur_jeedom"></a>
-<a id="chapitre-commencer_a_travailler_avec_jeedom"></a>
-<a id="fiche-prises_wi-fi_vs_z-wave_vs_zigbee"></a>
-<a id="fiche-precautions_avant_l_achat_d_un_objet_connecte"></a>
-<a id="chapitre-les_appareils_domotiques"></a>
-<a id="fiche-interface_rfxcom"></a>
-<a id="fiche-la_cle_usb_z-wave"></a>
-<a id="fiche-le_protocole_zigbee"></a>
-<a id="fiche-le_protocole_z-wave"></a>
-<a id="fiche-installation_de_jeedom_sans_clavier_ni_ecran"></a>
-<a id="chapitre-jeedom_au_coeur_de_votre_systeme_domotique"></a>
-<a id="fiche-un_raspberry_pi_comme_unite_centrale"></a>
-<a id="fiche-passer_un_parametre_a_un_script_bash"></a>
-<a id="chapitre-depannage_python_troubleshooting_002"></a>
-<a id="fiche-La_syntaxe_Python_vs_autres_langages"></a>
-<a id="fiche-erreurs_frequentes_002"></a>
-<a id="fiche-forcer_l_arret_d_un_script"></a>
-<a id="fiche-les_tableaux_listes_et_tuples"></a>
-<a id="fiche-A_quel_endroit_python_recherche-t-il_les_modules"></a>
-<a id="fiche-Shebang_ou_hash_bang"></a>
-<a id="fiche-Python_2_X_vs_3_X"></a>
-<a id="fiche-erreur_authentication_token_manipulation_error"></a>
-<a id="fiche-warning_remote_host_identification_has_changed"></a>
-<a id="fiche-erreur_le_fichier_release_n_est_pas_encore_valide"></a>
-<a id="fiche-effectuer_une_impression_d_ecran_sous_raspbian"></a>
-<a id="fiche-retrouver_le_modele_exact_du_raspberry_pi"></a>
-<a id="fiche-verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___"></a>
-<a id="fiche-mot_de_passe_sur_raspberry_pi_os"></a>
-<a id="fiche-realvnc_pour_prendre_controle_du_raspberry_pi_a_distance"></a>
-<a id="fiche-outil_de_capture_video_et_logiciel_obs_pour_utiliser_l_ecran_d_un_ordina___"></a>
-<a id="fiche-copie_de_securite_de_la_carte_micro_sd_du_raspberry_pi"></a>
-<a id="fiche-comment_fonctionne_l_authentification_via_ssh"></a>
-<a id="fiche-mode_verbeux_lors_d_une_connexion_ssh"></a>
-<a id="motdepasse"></a>
-<a id="fiche-activer_ssh_sur_le_raspberry_pi"></a>
 
-<a id="fiche-systemctl"></a>
-<a id="fiche-Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu"></a>
-<a id="fiche-commandes_reseau_ifconfig"></a>
-<a id="fiche-encodage_des_fins_de_lignes_crlf_vs_lf"></a>
-<a id="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur"></a>
-<a id="fiche-lister_l_historique_des_commandes_entrees_au_terminal"></a>
-<a id="fiche-les_variables_d_environnement_linux"></a>
 * <https://www.quartoknows.com/page/raspberry-pi-bouton-darret>
 * <https://magpi.raspberrypi.org/articles/off-switch-raspberry-pi>
 * <https://core-electronics.com.au/tutorials/how-to-make-a-safe-shutdown-button-for-raspberry-pi.html>
@@ -397,7 +273,6 @@ De nombreux tutoriels couvrent déjà cette option :
 «  3 commands to reboot Linux (plus 4 more ways to do it safely) ». opensource.com. <https://opensource.com/article/19/7/reboot-linux>
 
 « 5 Ways to Shut Down Your Linux Computer From the Command Line ». Make Use Of. <https://www.makeuseof.com/tag/ways-shut-down-linux-command-line/>
-<a id="fiche-Qu_est-ce_que_SQLite"></a>
 
 « Understanding Shutdown, Poweroff, Halt and Reboot Commands in Linux ». TecMint. <https://www.tecmint.com/shutdown-poweroff-halt-and-reboot-commands-in-linux/>
 
@@ -420,30 +295,30 @@ Sur mon Raspberry Pi, j'obtiens ceci :
 Résultat à l'écran
 
 SHELL=/bin/bash  
-NO_AT_BRIDGE=1  
+NO\_AT\_BRIDGE=1  
 PWD=/home/pi  
 LOGNAME=pi  
-XDG_SESSION_TYPE=tty  
+XDG\_SESSION\_TYPE=tty  
 HOME=/home/pi  
-LANG=en_GB.UTF-8  
-LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\*.tar=01;31:\*.tgz=01;31:\*.arc=01;31:\*.arj=01;31:\*.taz=01;31:\*.lha=01;31:\*.lz4=01;31:\*.lzh=01;31:\*.lzma=01;31:\*.tlz=01;31:\*.txz=01;31:\*.tzo=01;31:\*.t7z=01;31:\*.zip=01;31:\*.z=01;31:\*.dz=01;31:\*.gz=01;31:\*.lrz=01;31:\*.lz=01;31:\*.lzo=01;31:\*.xz=01;31:\*.zst=01;31:\*.tzst=01;31:\*.bz2=01;31:\*.bz=01;31:\*.tbz=01;31:\*.tbz2=01;31:\*.tz=01;31:\*.deb=01;31:\*.rpm=01;31:\*.jar=01;31:\*.war=01;31:\*.ear=01;31:\*.sar=01;31:\*.rar=01;31:\*.alz=01;31:\*.ace=01;31:\*.zoo=01;31:\*.cpio=01;31:\*.7z=01;31:\*.rz=01;31:\*.cab=01;31:\*.wim=01;31:\*.swm=01;31:\*.dwm=01;31:\*.esd=01;31:\*.jpg=01;35:\*.jpeg=01;35:\*.mjpg=01;35:\*.mjpeg=01;35:\*.gif=01;35:\*.bmp=01;35:\*.pbm=01;35:\*.pgm=01;35:\*.ppm=01;35:\*.tga=01;35:\*.xbm=01;35:\*.xpm=01;35:\*.tif=01;35:\*.tiff=01;35:\*.png=01;35:\*.svg=01;35:\*.svgz=01;35:\*.mng=01;35:\*.pcx=01;35:\*.mov=01;35:\*.mpg=01;35:\*.mpeg=01;35:\*.m2v=01;35:\*.mkv=01;35:\*.webm=01;35:\*.ogm=01;35:\*.mp4=01;35:\*.m4v=01;35:\*.mp4v=01;35:\*.vob=01;35:\*.qt=01;35:\*.nuv=01;35:\*.wmv=01;35:\*.asf=01;35:\*.rm=01;35:\*.rmvb=01;35:\*.flc=01;35:\*.avi=01;35:\*.fli=01;35:\*.flv=01;35:\*.gl=01;35:\*.dl=01;35:\*.xcf=01;35:\*.xwd=01;35:\*.yuv=01;35:\*.cgm=01;35:\*.emf=01;35:\*.ogv=01;35:\*.ogx=01;35:\*.aac=00;36:\*.au=00;36:\*.flac=00;36:\*.m4a=00;36:\*.mid=00;36:\*.midi=00;36:\*.mka=00;36:\*.mp3=00;36:\*.mpc=00;36:\*.ogg=00;36:\*.ra=00;36:\*.wav=00;36:\*.oga=00;36:\*.opus=00;36:\*.spx=00;36:\*.xspf=00;36:  
-SSH_CONNECTION=172.19.33.164 51551 192.168.29.11 22  
-NVM_DIR=/home/pi/.nvm  
-XDG_SESSION_CLASS=user  
+LANG=en\_GB.UTF-8  
+LS\_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\*.tar=01;31:\*.tgz=01;31:\*.arc=01;31:\*.arj=01;31:\*.taz=01;31:\*.lha=01;31:\*.lz4=01;31:\*.lzh=01;31:\*.lzma=01;31:\*.tlz=01;31:\*.txz=01;31:\*.tzo=01;31:\*.t7z=01;31:\*.zip=01;31:\*.z=01;31:\*.dz=01;31:\*.gz=01;31:\*.lrz=01;31:\*.lz=01;31:\*.lzo=01;31:\*.xz=01;31:\*.zst=01;31:\*.tzst=01;31:\*.bz2=01;31:\*.bz=01;31:\*.tbz=01;31:\*.tbz2=01;31:\*.tz=01;31:\*.deb=01;31:\*.rpm=01;31:\*.jar=01;31:\*.war=01;31:\*.ear=01;31:\*.sar=01;31:\*.rar=01;31:\*.alz=01;31:\*.ace=01;31:\*.zoo=01;31:\*.cpio=01;31:\*.7z=01;31:\*.rz=01;31:\*.cab=01;31:\*.wim=01;31:\*.swm=01;31:\*.dwm=01;31:\*.esd=01;31:\*.jpg=01;35:\*.jpeg=01;35:\*.mjpg=01;35:\*.mjpeg=01;35:\*.gif=01;35:\*.bmp=01;35:\*.pbm=01;35:\*.pgm=01;35:\*.ppm=01;35:\*.tga=01;35:\*.xbm=01;35:\*.xpm=01;35:\*.tif=01;35:\*.tiff=01;35:\*.png=01;35:\*.svg=01;35:\*.svgz=01;35:\*.mng=01;35:\*.pcx=01;35:\*.mov=01;35:\*.mpg=01;35:\*.mpeg=01;35:\*.m2v=01;35:\*.mkv=01;35:\*.webm=01;35:\*.ogm=01;35:\*.mp4=01;35:\*.m4v=01;35:\*.mp4v=01;35:\*.vob=01;35:\*.qt=01;35:\*.nuv=01;35:\*.wmv=01;35:\*.asf=01;35:\*.rm=01;35:\*.rmvb=01;35:\*.flc=01;35:\*.avi=01;35:\*.fli=01;35:\*.flv=01;35:\*.gl=01;35:\*.dl=01;35:\*.xcf=01;35:\*.xwd=01;35:\*.yuv=01;35:\*.cgm=01;35:\*.emf=01;35:\*.ogv=01;35:\*.ogx=01;35:\*.aac=00;36:\*.au=00;36:\*.flac=00;36:\*.m4a=00;36:\*.mid=00;36:\*.midi=00;36:\*.mka=00;36:\*.mp3=00;36:\*.mpc=00;36:\*.ogg=00;36:\*.ra=00;36:\*.wav=00;36:\*.oga=00;36:\*.opus=00;36:\*.spx=00;36:\*.xspf=00;36:  
+SSH\_CONNECTION=172.19.33.164 51551 192.168.29.11 22  
+NVM\_DIR=/home/pi/.nvm  
+XDG\_SESSION\_CLASS=user  
 TERM=xterm-256color  
 USER=pi  
 SHLVL=1  
-NVM_CD_FLAGS=  
-XDG_SESSION_ID=c4  
-XDG_RUNTIME_DIR=/run/user/1000  
-SSH_CLIENT=172.19.33.164 51551 22  
+NVM\_CD\_FLAGS=  
+XDG\_SESSION\_ID=c4  
+XDG\_RUNTIME\_DIR=/run/user/1000  
+SSH\_CLIENT=172.19.33.164 51551 22  
 PATH=/home/pi/.nvm/versions/node/v10.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games  
-NVM_BIN=/home/pi/.nvm/versions/node/v10.19.0/bin  
+NVM\_BIN=/home/pi/.nvm/versions/node/v10.19.0/bin  
 MAIL=/var/mail/pi  
-SSH_TTY=/dev/pts/1  
+SSH\_TTY=/dev/pts/1  
 TEXTDOMAIN=Linux-PAM  
 OLDPWD=/home/pi/dev  
-_=/usr/bin/printenv
+\_=/usr/bin/printenv
 
 ## Afficher la valeur d'une seule variable
 
@@ -498,7 +373,6 @@ source ~/.bashrc
 Certaines variables peuvent contenir plusieurs valeurs séparées par deux points (:). C'est le cas, par exemple, avec la variable PATH.
 
 Pour ajouter une valeur à la fin des valeurs existante, procédez comme suit :
-<a id="fiche-qu_est-ce_qu_un_objet_connecte"></a>
 
 Terminal
 
@@ -508,8 +382,6 @@ export PATH=$PATH:dossier/sousdossier
 
 « How to Set and List Environment Variables in Linux ». Linuxize. <https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/>
 
-<a id="titreh1"></a>
-<a id="dernierespagesvisitees"></a>
 ## 3.7 Lister l'historique des commandes entrées au Terminal
 
 Lorsque vous travaillez dans une fenêtre Terminal sous Linux, il est très pratique d'utiliser les touches Flèche haut et Flèche bas pour réafficher les dernières commandes entrées.
@@ -559,9 +431,8 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un <a href="fiche-activer_ssh_sur_le_raspberry_pi.md#activer_ssh_sur_le_raspberry_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un [apical\_lien\_interne][activer\_ssh\_sur\_le\_raspberry\_pi,le serveur SSH doit être activé][/apical\_lien\_interne] sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
-<a id=""piversordi"></a>
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
 
 Le format de la commande scp est :
@@ -571,14 +442,12 @@ Syntaxe sur le terminal de l'ordinateur
 scp source cible
 
 Pour identifier la machine distante, on fera précéder la source ou la cible, selon le cas, par usager@adresse IP de la machine distante, suivi de deux points. Des exemples sont donnés dans les sections qui suivent.
-<a id="versordi"></a>
 
 ### Copie de l'ordinateur vers le Raspberry Pi
 
 Pour copier un fichier à partir de l'ordinateur vers le Pi, la machine distante sera la cible.
 
 Entrez cette commande en prenant soin de changer pi pour le nom de votre usager sur Raspberry Pi OS et l'adresse IP pour celle du Pi.
-<a id="fiche-exemple_d_automatisation_avec_un_modele"></a>
 
 Terminal de l'ordinateur
 
@@ -607,10 +476,8 @@ scp -r /dossierlocal pi@192.168.1.145:/dossierdistant
 Pour copier le dossier du Pi vers l'ordinateur :
 
 Terminal de l'ordinateur
-<a id="chapitre-aller_plus_loin_avec_les_scenarios_suite"></a>
 
 scp -r pi@192.168.1.145:/dossierdistant /dossierlocal
-<a id="fiche-envoyer_un_courriel_avec_jeedom"></a>
 
 ### Accès qui nécessite un port particulier
 
@@ -634,9 +501,7 @@ Lors de l'utilisation de la commande scp, le serveur SSH pourrait être configur
 
 Vous le saurez si vous obtenez le message d'erreur suivant :
 
-<a id="fiche-qu_est-ce_qu_un_systeme_domotique"></a>
 sh: /usr/libexec/sftp-server: not found  
-<a id="chapitre-quelques_trucs_pour_vous_aider_dans_ce_cours"></a>
 scp: Connection closed
 
 Vous pourrez régler le problème en ajoutant l'option -O.
@@ -652,16 +517,14 @@ scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.exten
 ## Copie à l'aide d'une clé USB
 
 Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :
-<a id="fiche-passerelle_et_protocoles_de_communication"></a>
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,via SSH][/apical\_lien\_interne], soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
     Terminal
 
-<a id="fiche-verifier_l_etat_de_la_connexion_sans_fil"></a>
     sudo mkdir /mnt/cleusb
   + Vous pouvez maintenant monter la clé. Généralement, elle est reconnue comme /dev/sda1 mais elle pourrait être autre chose, par exemple /dev/sdb1.
 
@@ -723,7 +586,6 @@ Par exemple, si vous tentez d'exécuter un fichier bash avec un encodage de fins
 Résultat à l'écran
 
 /bin/bash^M: bad interpreter: No such file or directory
-<a id="fiche-nmap"></a>
 
 ### Vérifier les caractères de fin de ligne
 
@@ -835,7 +697,7 @@ Dans le résultat obtenu à l'écran présenté plus bas, on voit que dans la pl
 
 192.168.1.1 est l'adresse locale du routeur (default gateway). Une autre des adresses correspond à l'ordinateur que vous utilisez.
 
-Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">connecter via SSH</a> avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
+Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,connecter via SSH][/apical\_lien\_interne] avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
 
 Résultat à l'écran
 
@@ -965,9 +827,6 @@ sudo apt install net-tools
 
 Après cela, la commande sera reconnue.
 
-<a id="navbarResponsive"></a>
-<a id="mainNav"></a>
-<a id="messtyles"></a>
 ## Informations sur le réseau
 
 Pour connaître les configurations réseau, notamment l'adresse IP de l'ordinateur, lancez la commande ifconfig sans aucun paramètre :
@@ -993,7 +852,6 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
 lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536  
           inet 127.0.0.1 netmask 255.0.0.0  
           inet6 ::1 prefixlen 128 scopeid 0x10<host>  
-<a id="fiche-copier_une_image_du_systeme_d_exploitation_sur_une_carte_microsd_flasher"></a>
           loop txqueuelen 1000 (Local Loopback)  
           RX packets 0 bytes 0 (0.0 B)  
           RX errors 0 dropped 0 overruns 0 frame 0  
@@ -1099,8 +957,8 @@ monnom@MacBook-Pro-de-MonNom ~ %diskutil list
 
 /dev/disk2 (external, physical):  
  #: TYPE NAME SIZE IDENTIFIER  
- 0: FDisk_partition_scheme \*31.9 GB disk2  
- 1: Windows_FAT_32 ⁨boot⁩ 268.4 MB disk2s1  
+ 0: FDisk\_partition\_scheme \*31.9 GB disk2  
+ 1: Windows\_FAT\_32 ⁨boot⁩ 268.4 MB disk2s1  
  2: Linux ⁨⁩ 31.6 GB disk2s2
 
 On voit ici que le point de montage est disk2 puisqu'il s'agit d'un périphérique externe dont la capacité correspond à la carte.
@@ -1117,9 +975,9 @@ diskutil unmountDisk /dev/diskN
 
 sudo dd bs=1m if=*chemin*/nom-du-fichier.img of=/dev/rdiskN conv=sync
 
-Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier_le_chemin_d_un_fichier.md#copier_le_chemin_d_un_fichier">copier_le_chemin_d_un_fichier</a>.
+Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : [apical\_lien\_interne]copier\_le\_chemin\_d\_un\_fichier[/apical\_lien\_interne].
 
-Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">copie_integrale_d_un_disque_avec_la_commande_dd</a>.
+Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : [apical\_lien\_interne]copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd[/apical\_lien\_interne].
 
 ## Etcher
 
@@ -1319,7 +1177,6 @@ Si, une fois le fuseau horaire ajusté, la date et/ou l'heure ne correspondent p
 
 Pour ajuster la date et l'heure avec la commande date :
 
-<a id="fiche-editeur_nano"></a>
 Terminal
 
 sudo date -s "AAAA-MM-JJ HH:mm:ss"
@@ -1362,7 +1219,6 @@ Pour le lancer, il suffit d'entrer la commande nano suivie par le nom du fichier
 Terminal
 
 nano monfichier.txt
-<a id="fiche-Editeur_vim"></a>
 
 Si le fichier n'est pas dans le dossier courant, il est possible d'entrer le chemin complet avant le nom du fichier.
 
@@ -1402,7 +1258,7 @@ Voici quelques raccourcis qui pourraient vous être utiles :
 * Ctrl + O : enregistrer sans sortir de Nano (c'est la lettre O et non le chiffre)
 * Ctrl + X : sortir de nano (si des modifications sont en cours, il vous demandera si vous désirez enregistrer)
 * Ctrl + K : effacer la ligne courante (Kut)
-* Ctrl + _ : aller à une ligne et possiblement à une colonne donnée
+* Ctrl + \_ : aller à une ligne et possiblement à une colonne donnée
 * Ctrl + W : rechercher du texte
 * Ctrl + \ : rechercher et remplacer
 * Ctrl + C : afficher le numéro de ligne et de colonne du curseur
@@ -1422,7 +1278,6 @@ Dans cette fiche :
 
 ## vim
 
-<a id="fiche-nmcli_l_outil_en_ligne_de_commande_du_networkmanager"></a>
 vim, le successeur de vi, est un éditeur très ancien et très peu convivial mais très puissant. Tout utilisateur Linux doit en avoir une connaissance de base car il est profondément ancré dans le monde Linux. Il est encore, de nos jours, utilisé par la plupart des administrateurs de systèmes Linux.
 
 Pour lancer cet éditeur, entrez la commande vim suivie du nom du fichier. Si aucun fichier ne correspond au nom demandé, un fichier vierge sera créé lorsque le travail sera enregistré.
@@ -1431,7 +1286,7 @@ Ex :
 
 Commande Linux
 
-vim nom_fichier
+vim nom\_fichier
 
 ## Mode commande vs mode insertion
 
@@ -1460,9 +1315,9 @@ Voici quelques commandes utiles. Pour entrer ces commandes, vous devez d'abord v
 | :n ou nG | Se place sur la ligne n Ex : :5 -> va à la ligne 5 |
 | :set number | Affiche les numéros de lignes |
 | :set nonu | Enlève l'affichage des numéros de lignes |
-| :debut,fin s/chaîne_ori/chaine_modif/g ou  :debut,fin s/chaîne_ori/chaine_modif/c | Remplace le texte globalement ou avec demande de confirmation Aucun espace dans toute la commande  Utiliser le signe $ pour représenter la dernière ligne du fichier  Le s signifie Substitute  Le g signifie Globalement  Le c signifie Confirmation  Ex: :1,$s/allo/salut/g -> remplace tous les allo par des salut |
+| :debut,fin s/chaîne\_ori/chaine\_modif/g ou  :debut,fin s/chaîne\_ori/chaine\_modif/c | Remplace le texte globalement ou avec demande de confirmation Aucun espace dans toute la commande  Utiliser le signe $ pour représenter la dernière ligne du fichier  Le s signifie Substitute  Le g signifie Globalement  Le c signifie Confirmation  Ex: :1,$s/allo/salut/g -> remplace tous les allo par des salut |
 | :!commande | Lance une commande au shell Ex : :!date -> affiche la date du jour |
-| :!lp nom_fichier | Imprime le fichier (il faut spécifier son nom puisqu'il s'agit d'une commande au shell) |
+| :!lp nom\_fichier | Imprime le fichier (il faut spécifier son nom puisqu'il s'agit d'une commande au shell) |
 | Y | Y majuscule : Yank : copie une ligne |
 | Y3Y | Copie 3 lignes |
 | dd | Coupe une ligne |
@@ -1479,7 +1334,7 @@ Voici quelques commandes utiles. Pour entrer ces commandes, vous devez d'abord v
 | Ctrl+[ | Annule une commande partiellement formée |
 | Ctrl+g | Affiche nom du fichier et position du curseur (Ctrl+l pour enlever l'affichage) |
 | . | Répète la dernière opération |
-| :flèche_haut | Historique des commandes |
+| :flèche\_haut | Historique des commandes |
 
 Vous pouvez également copier un bloc de texte à l'aide des fonctionnalités standard du shell (prendre en bloc pour copier puis cliquer à l'aide du bouton du centre pour coller).
 
@@ -1493,7 +1348,7 @@ man vim
 
 Network Manager est un outil de gestion de réseaux pour les systèmes Linux.
 
-Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous <a href="fiche-installation_de_raspberry_pi_os.md#installation_de_raspberry_pi_os">Raspberry Pi OS</a> mais il l'est sous <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">HassOS</a>.
+Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous [apical\_lien\_interne][installation\_de\_raspberry\_pi\_os,Raspberry Pi OS][/apical\_lien\_interne] mais il l'est sous [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,HassOS][/apical\_lien\_interne].
 
 Lorsque Network Manager est installé, plusieurs opérations sur le réseau peuvent être réalisées dans une fenêtre Terminal grâce à la commande nmcli.
 
@@ -1509,7 +1364,6 @@ Je vous en présente ici quelques-unes.
 | nmcli con  ou  nmcli con show | Affiche la liste des profils de connexion, dont leur nom qui est utilisé dans plusieurs commandes plus bas | nmcli con | NAME            UUID             TYPE        DEVICE  my-network   a983c...829   ethernet   eth0  hotspot         4deea...6ed   wifi          -- |
 | nmcli device wifi rescan | Effectue une nouvelle recherche des réseaux Wi-Fi (n'affiche rien à l'écran, faire suivre de nmcli device wifi pour voir la nouvelle liste des réseaux connus). | nmcli device wifi rescan  nmcli device wifi |  |
 | nmcli device wifi connect | Connecte le système à un réseau Wi-Fi à l'aide de son SSID et de son mot de passe. | nmcli device wifi connect "ssid-du-reseau" password "mot-de-passe-en-clair" |  |
-<a id="chapitre-raspberry_pi_002"></a>
 | nmcli con add | Crée un nouveau profil de connexion. | nmcli con add type wifi con-name wifi-maison ssid "nom-du-reseau"  OU  nmcli con add type ethernet con-name cable-maison |  |
 | nmcli con delete | Supprime un profil de connexion (supprime le fichier correspondant dans le dossier /etc/NetworkManager/system-connections). | nmcli con delete id "nom-du-profil" |  |
 | nmcli con up profil-connexion | Active une connexion à partir de son profil de connexion. | nmcli con up "nom-du-profil" |  |

@@ -1,4 +1,3 @@
-<a id="fiche-consulter_les_fichiers_journaux"></a>
 # 37. Les fichiers journaux de Jeedom (log files)
 
 ## 37.1 Consulter les fichiers journaux
@@ -12,7 +11,6 @@ Plusieurs faits peuvent générer une écriture dans un des fichiers journaux (l
 * Exécution d'une commande
 * Événement particulier
 * etc.
-<a id="zwave"></a>
 
 ## Consulter les fichiers journaux
 
@@ -27,7 +25,6 @@ Heureusement, pour consulter les fichiers journaux, l'interface d'administration
 
 ## Données des capteurs Z-Wave
 
-<a id="pre_globallog"></a>
 Les données des capteurs Z-Wave peuvent être retrouvées dans différents fichiers journaux.
 
 ### event
@@ -45,7 +42,6 @@ Vous obtiendrez le même résultat à partir du menu Analyse / Logs en sélecti
 Journal event
 
 ```
-<a id="fiche-configurer_les_fichiers_journaux"></a>
 0247|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Température] valeur : 17.5°C 0248|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Humidité] valeur : 95% 0249|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Pression] valeur : 1005Pa 0250|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Vitesse du vent] valeur : 5.184km/h 0251|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Direction du vent] valeur : 117° 0252|[2023-08-30 08:00:03]INFO : Evènement sur la commande [Dehors][Victoriaville][Pluie] valeur : 0mm 0253|[2023-08-30 08:00:04]INFO : Evènement sur la commande [Dehors][Victoriaville][Température Max] valeur : 20.2°C 0254|[2023-08-30 08:00:04]INFO : Evènement sur la commande [Dehors][Victoriaville][Pluie] valeur : 10.47mm 0255|[2023-08-30 08:00:04]INFO : Evènement sur la commande [Dehors][Victoriaville][Température Min +1] valeur : 7.1°C 0256|[2023-08-30 08:00:04]INFO : Evènement sur la commande [Dehors][Victoriav 0257|[2023-08-30 11:09:52]INFO : Evènement sur la commande [Cuisine][Capteur Zooz 4-en-1][Présence] valeur : 0 0258|[2023-08-30 11:10:18]INFO : Evènement sur la commande [Cuisine][Capteur Zooz 4-en-1][Présence] valeur : 1 0259|[2023-08-30 11:10:30]INFO : Evènement sur la commande [Cuisine][Capteur Zooz 4-en-1][Présence] valeur : 0 0260|[2023-08-30 11:12:49]INFO : Evènement sur la commande [Cuisine][Capteur Zooz 4-en-1][Présence] valeur : 1 0261|[2023-08-30 11:12:51]INFO : Exécution de la commande [Salon][Porte virtuelle][Fermée] avec les paramètres {"user_login":"admin","user_id":"1"} 0262|[2023-08-30 11:12:51]INFO : Evènement sur la commande [Salon][Porte virtuelle][État] valeur : 0 0263|[2023-08-30 11:12:52]INFO : Exécution du scénario [Aucun][Aucun][Porte fermée éteint lumière] déclenché par : [Salon][Porte virtuelle][État] 0264|[2023-08-30 11:12:52]INFO : Exécution de la commande [Salon][Prise ZLink][Éteindre] avec les paramètres {"background":"0"} 0265|[2023-08-30 11:12:57]INFO : Exécution de la commande [Salon][Porte virtuelle][Ouverte] avec les paramètres {"user_login":"admin","user_id":"1"} 0266|[2023-08-30 11:12:57]INFO : Evènement sur la commande [Salon][Porte virtuelle][État] valeur : 1 0267|[2023-08-30 11:12:57]INFO : Exécution du scénario [Aucun][Aucun][Porte ouverte allume lumière] déclenché par : [Salon][Porte virtuelle][État] 0268|[2023-08-30 11:12:57]INFO : Exécution de la commande [Salon][Prise ZLink][Allumer] avec les paramètres {"background":"0"}
 ```
 
@@ -57,7 +53,6 @@ Tous les logs d'exécution des scénarios sont placés dans le dossier /var/www/
 
 Pour consulter ces fichiers, ouvrez le scénario désiré puis cliquez sur l'icône Log dans le haut de l'écran.
 
-<a id="niveaudefaut"></a>
 ![Log d'exécution du scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogExecutionDeScenario.png)
 
 ![Log d'un scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogScenarioProgramme.png)
@@ -87,7 +82,6 @@ Il est conseillé de configurer le niveau de log par défaut à Debug pendant qu
 Une fois que le système est bien rhodé, il est possible de le mettre à Warning afin de diminuer encore la quantité d'informations inscrites dans les fichiers journaux.
 
 ## Niveau de log par catégorie de message
-<a id="chapitre-aller_plus_loin_avec_les_scenarios"></a>
 
 Plus bas, vous pouvez sélectionner le niveau de log pour chaque catégorie de message : sénarios, plugins, market, API, connexion, etc.
 

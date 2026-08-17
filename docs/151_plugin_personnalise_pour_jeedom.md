@@ -1,8 +1,5 @@
-<a id="fiche-creer_un_plugin_personnalise_pour_jeedom"></a>
 # 131. Plugin personnalisé pour Jeedom
 
-<a id="textefiche"></a>
-<a id="iconesfiche"></a>
 ## 131.1 Créer un plugin personnalisé pour Jeedom
 
 Information à venir...

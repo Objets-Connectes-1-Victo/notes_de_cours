@@ -1,6 +1,4 @@
-<a id="fiche-copie_de_securite_de_jeedom"></a>
 # 16. Pour vous assurer de ne rien perdre en cas de problème
-<a id="manuelle"></a>
 
 ## 16.1 Copie de sécurité de Jeedom
 
@@ -55,10 +53,9 @@ Comme pour les sauvegardes manuelles, le fichier de sauvegarde sera enregistré 
 Résultat à l'écran
 
 pi@raspberrypi:~ $ ls /var/www/html/backup  
-backup-mon_jeedom-4.1.25-2021-09-04-00h36.tar.gz  
-backup-mon_jeedom-4.1.25-2021-09-05-00h36.tar.gz  
-<a id="restaurer"></a>
-backup-mon_jeedom-4.1.25-2021-09-06-00h36.tar.gz
+backup-mon\_jeedom-4.1.25-2021-09-04-00h36.tar.gz  
+backup-mon\_jeedom-4.1.25-2021-09-05-00h36.tar.gz  
+backup-mon\_jeedom-4.1.25-2021-09-06-00h36.tar.gz
 
 ## Configurer les sauvegardes
 
@@ -69,9 +66,8 @@ Il est possible d'apporter des précisions sur la façon dont les sauvegardes se
   ![Sauvegardes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Sauvegarde.png)
 * De là, vous pouvez configurer les sauvegardes automatiques.
   + Il est possible de modifier le nom du dossier qui contiendra les sauvegardes par défaut : backup).
-<a id="fiche-copier_automatiquement_le_fichier_de_sauvegarde_sur_votre_ordinateur"></a>
   + Le nombre de sauvegardes conservées sur le Pi dépend des configurations Rétention temporelle (jours) et Taille totale maximale (Mo).
-  + Il est possible de copier automatiquement les sauvegardes dans l'infonuagique. Cette solution requiert cependant un paiement mensuel de 2 euros. Par contre, <a href="fiche-copier_automatiquement_le_fichier_de_sauvegarde_sur_votre_ordinateur.md#copier_automatiquement_le_fichier_de_sauvegarde_sur_votre_ordinateur">je vous montre ici une technique pour télécharger les sauvegardes sans frais sur votre ordinateur</a>.
+  + Il est possible de copier automatiquement les sauvegardes dans l'infonuagique. Cette solution requiert cependant un paiement mensuel de 2 euros. Par contre, [apical\_lien\_interne][copier\_automatiquement\_le\_fichier\_de\_sauvegarde\_sur\_votre\_ordinateur,je vous montre ici une technique pour télécharger les sauvegardes sans frais sur votre ordinateur][/apical\_lien\_interne].
 
 ## Restaurer une sauvegarde
 
@@ -86,13 +82,13 @@ Pas de problème, la restauration est très simple si vous avez en main le fichi
 
   Terminal de votre ordinateur
 
-  scp /dossierlocal/backup-mon_jeedom-4.1.25-2021-09-06-00h36.tar.gz pi@192.168.1.145:
+  scp /dossierlocal/backup-mon\_jeedom-4.1.25-2021-09-06-00h36.tar.gz pi@192.168.1.145:
 
   Une fois copié sur le Pi, il devra être déplacé dans le dossier /var/www/html/backup.
 
   Terminal du Raspberry Pi
 
-  sudo mv backup-mon_jeedom-4.1.25-2021-09-06-00h36.tar.gz /var/www/html/backup
+  sudo mv backup-mon\_jeedom-4.1.25-2021-09-06-00h36.tar.gz /var/www/html/backup
 * Dans Jeedom, rendez-vous dans le menu Réglages / Système / Sauvegardes.
 * Dans la zone Sauvegardes locales, section Sauvegardes disponibles, sélectionnez la sauvegarde désirée dans la liste déroulante.
 * Cliquez sur Restaurer la sauvegarde. Jeedom affichera l'état d'avancement dans la fenêtre Informations.
@@ -116,11 +112,11 @@ Ce que je vous propose est encore plus simple : une copie vers votre ordinateur
 * Créez un petit fichier bash pour automatiser cette tâche.
   + Le nom du fichier de sauvegarde est toujours le même à l'exception de la date du jour. L'heure pourra aussi être différente mais si vous vous en tenez aux sauvegardes lancées automatiquement, elle sera toujours la même à une ou deux minutes près.
 
-    Le fichier bash devra donc monter le nom du fichier de sauvegarde à partir de la date du jour. Vous pouvez vous inspirer du <a href="fiche-script_pour_faciliter_la_copie_de_securite.md#script_pour_faciliter_la_copie_de_securite">script pour faciliter la copie de sécurité dans le nuage</a>.
+    Le fichier bash devra donc monter le nom du fichier de sauvegarde à partir de la date du jour. Vous pouvez vous inspirer du [apical\_lien\_interne][script\_pour\_faciliter\_la\_copie\_de\_securite,script pour faciliter la copie de sécurité dans le nuage][/apical\_lien\_interne].
 
-    Je vous conseille de vérifier la présence du fichier de sauvegarde sur le Raspberry Pi (sous Windows : if exist fichier.extension, sous Mac : if [ -e fichier.extension ]). En effet, si la sauvegarde n'a pas pu être effectuée exactement à la minute programmée, le nom du fichier sera légèrement différent (ex : backup-mon_jeedom-4.1.25-2021-09-06-00h3**7**.tar.gz au lieu de backup-mon_jeedom-4.1.25-2021-09-06-00h3**6**.tar.gz)
-  + Le fichier bash se chargera de lancer <a href="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur.md#copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">la commande scp pour copier un fichier du Pi vers votre ordinateur</a>.
-  + Puisque la commande scp demande un mot de passe pour accéder au Pi, assurez-vous d'avoir <a href="fiche-permettre_le_branchement_ssh_sans_demander_le_mot_de_passe_a_chaque_fois.md#permettre_le_branchement_ssh_sans_demander_le_mot_de_passe_a_chaque_fois">copié la clé publique SSH sur votre Pi</a> afin que le mot de passe ne soit plus demandé.
+    Je vous conseille de vérifier la présence du fichier de sauvegarde sur le Raspberry Pi (sous Windows : if exist fichier.extension, sous Mac : if [ -e fichier.extension ]). En effet, si la sauvegarde n'a pas pu être effectuée exactement à la minute programmée, le nom du fichier sera légèrement différent (ex : backup-mon\_jeedom-4.1.25-2021-09-06-00h3**7**.tar.gz au lieu de backup-mon\_jeedom-4.1.25-2021-09-06-00h3**6**.tar.gz)
+  + Le fichier bash se chargera de lancer [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,la commande scp pour copier un fichier du Pi vers votre ordinateur,versordi][/apical\_lien\_interne].
+  + Puisque la commande scp demande un mot de passe pour accéder au Pi, assurez-vous d'avoir [apical\_lien\_interne][permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois,copié la clé publique SSH sur votre Pi][/apical\_lien\_interne] afin que le mot de passe ne soit plus demandé.
 * Une fois le fichier bash écrit et testé, configurez le système d'exploitation de votre ordinateur pour que le fichier soit lancé automatiquement à la fréquence que vous désirez.
   + Sous Windows :
     - Planificateur de tâches / Action / Créer une tâche de base.
@@ -132,7 +128,7 @@ Ce que je vous propose est encore plus simple : une copie vers votre ordinateur
       Prenez soin de remplacer monScript.bash le nom de votre script ainsi que C:\chemin\du\script par le chemin du dosiser qui contient ce script.
 
       Pour plus d'info : <https://www.pcastuces.com/pratique/astuces/5515.htm>.
-  + Sous Mac, j'ai écrit une fiche sur le sujet : <a href="fiche-lancer_une_tache_de_facon_automatique_crontab.md#lancer_une_tache_de_facon_automatique_crontab">lancer_une_tache_de_facon_automatique_crontab</a>.
+  + Sous Mac, j'ai écrit une fiche sur le sujet : [apical\_lien\_interne]lancer\_une\_tache\_de\_facon\_automatique\_crontab[/apical\_lien\_interne].
 * Évidemment, votre ordinateur personnel devra être ouvert et branché sur le même réseau que le Raspberry Pi pour que la copie fonctionne.
 
 ##

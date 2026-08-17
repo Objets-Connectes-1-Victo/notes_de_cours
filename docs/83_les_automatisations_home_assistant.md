@@ -1,4 +1,3 @@
-<a id="fiche-ajouter_une_automatisation_a_l_aide_de_l_interface_graphique"></a>
 # 74. Les automatisations Home Assistant
 
 ## 74.1 Ajouter une automatisation à l'aide de l'interface graphique
@@ -18,7 +17,6 @@ Vous obtenez l'écran de configuration de l'automatisation avec ses zones Quand,
 
 ![Nouvelle automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvelleAutomatisation.png)
 
-<a id="modele"></a>
 ## Déclencheurs : Quand
 
 Dans la zone Quand, cliquez sur Ajouter un déclencheur puis choisissez le type du déclencheur.
@@ -33,7 +31,6 @@ Notez que si vous n'entrez rien dans les zones De et À, le déclenchement se pr
 
 La zone Pendant (ou for: en YAML) indique que le déclencheur doit avoir été dans cet état pendant une durée minimale pour être pris en compte.
 
-<a id="demarrage"></a>
 ![Déclencheur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurDetecteurMouvement.png)
 
 ### Déclenchement lorsqu'une valeur numérique est > ou <
@@ -107,15 +104,15 @@ Fichier automations.yaml
   description: ''  
   trigger:  
   - platform: state  
-    entity_id:  
-    - binary_sensor.5_in_1_pir_motion_sensor_motion_detection  
+    entity\_id:  
+    - binary\_sensor.5\_in\_1\_pir\_motion\_sensor\_motion\_detection  
     from: 'off'  
     to: 'on'  
   condition: []  
   action:  
-  - type: turn_on  
-    device_id: f138a74f3ea6ca3212b26d1e92b8cb10  
-    entity_id: light.dimmable_smart_plug  
+  - type: turn\_on  
+    device\_id: f138a74f3ea6ca3212b26d1e92b8cb10  
+    entity\_id: light.dimmable\_smart\_plug  
     domain: light  
   mode: single
 
@@ -130,19 +127,18 @@ Fichier automations.yaml
 « Automation Trigger ». Home Assistant. <https://www.home-assistant.io/docs/automation/trigger/>
 
 « Automation conditions ». Home Assistant. <https://www.home-assistant.io/docs/scripts/conditions/>
-<a id="fiche-les_capteurs_virtuels_dans_les_automatisations"></a>
 
 « Automation actions ». Home Assistant. <https://www.home-assistant.io/docs/automation/action/>
 
 ## 74.2 Lancer une automatisation à l'aide d'un bouton
 
-Il est intéressant d'ajouter <a href="fiche-creer_un_tableau_de_bord_personnalise.md#creer_un_tableau_de_bord_personnalise">un bouton</a> au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
+Il est intéressant d'ajouter [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,un bouton,bouton][/apical\_lien\_interne] au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
 
 Il est possible de configurer le bouton pour tenir compte ou non des conditions de l'automatisation.
 
 Pour y arriver :
 
-* <a href="fiche-creer_un_tableau_de_bord_personnalise.md#creer_un_tableau_de_bord_personnalise">Éditez le tableau de bord</a> et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
+* [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,Éditez le tableau de bord][/apical\_lien\_interne] et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
 * Ajoutez une carte de type bouton.
 * Pour ce qu'on veut faire ici, il est inutile de choisir une entité au début de la carte. S'il y en a une qui apparaît par défaut, cliquez sur le X pour la supprimer.
 * Si désiré, indiquez quel nom doit apparaître sur la carte.
@@ -159,19 +155,19 @@ Voici ce que ceci donnera en YAML :
 
 YAML
 
-show_name: true  
-show_icon: true  
+show\_name: true  
+show\_icon: true  
 type: button  
 name: Allumer lumière quand mouvement détecté  
 icon: mdi:home-automation  
-tap_action:  
+tap\_action:  
   action: perform-action  
-  perform_action: automation.trigger  
+  perform\_action: automation.trigger  
   target:  
-    entity_id: automation.allumer_lumiere_quand_mouvement_detecte  
+    entity\_id: automation.allumer\_lumiere\_quand\_mouvement\_detecte  
   data:  
-    skip_condition: true  
-icon_height: 40px
+    skip\_condition: true  
+icon\_height: 40px
 
 ## 74.3 Les capteurs virtuels dans les automatisations
 
@@ -185,7 +181,6 @@ Le déclenchement à l'aide d'un capteur virtuel est réalisé à l'aide de la m
 
 ![Entité / État](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-EntiteEtat.png)
 
-<a id="fiche-script_vs_automatisation"></a>
 Vous aurez ensuite la possibilité de choisir le capteur virtuel puis, si requis, le changement d'état qui doit déclencher l'automatisation (De et À).
 
 ![Déclencheur virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatation-DeclencheurVirtuel.png)
@@ -254,28 +249,27 @@ Voici un exemple de script :
 
 Fichier scripts.yaml
 
-tele_et_lumiere:  
+tele\_et\_lumiere:  
   sequence:  
-  - action: input_boolean.turn_on  
+  - action: input\_boolean.turn\_on  
     metadata: {}  
     data: {}  
     target:  
-    entity_id: input_boolean.lumiere_salon  
-  - action: input_boolean.turn_on  
+    entity\_id: input\_boolean.lumiere\_salon  
+  - action: input\_boolean.turn\_on  
     metadata: {}  
     target:  
-    entity_id: input_boolean.prise_intelligente_tele  
+    entity\_id: input\_boolean.prise\_intelligente\_tele  
   - delay:  
     hours: 0  
     minutes: 5  
     seconds: 0  
     milliseconds: 0  
-  - action: input_boolean.turn_off  
+  - action: input\_boolean.turn\_off  
     metadata: {}  
     data: {}  
-<a id="fiche-trace_d_une_automatisation"></a>
     target:  
-    entity_id: input_boolean.lumiere_salon  
+    entity\_id: input\_boolean.lumiere\_salon  
   alias: Télé et lumière  
   description: ''
 
@@ -289,7 +283,7 @@ Pour lancer un script, vous avez plusieurs options, notamment :
 
 * À l'aide du menu Paramètres / Automatisations et scènes / onglet Scripts / clic sur les trois points verticaux à droite du script désiré / Exécuter.
 * En utilisant le script comme action dans une automatisation (Autres actions / Script / Exécuter).
-* Sur le tableau de bord, à l'aide d'une <a href="fiche-lancer_une_automatisation_a_l_aide_d_un_bouton.md#lancer_une_automatisation_a_l_aide_d_un_bouton">carte de type bouton</a> qui effectue l'action de lancer le script.
+* Sur le tableau de bord, à l'aide d'une [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,carte de type bouton][/apical\_lien\_interne] qui effectue l'action de lancer le script.
 
 ## 74.5 Trace d'une automatisation
 

@@ -1,5 +1,3 @@
-<a id="fiche-erreur_controller_is_busy"></a>
-<a id="chapitre-depannage_jeedom_troubleshooting"></a>
 # 17. Dépannage Jeedom (troubleshooting)
 
 ## 17.1 Erreur « Controller is busy »
@@ -144,7 +142,7 @@ ERROR: The certificate of ‘raw.githubusercontent.com’ doesn't have a known i
 Pendant l'installation, plusieurs messages d'erreur peuvent apparaître, par exemple :
 
 * E: Release file for http://archive.raspberrypi.org/debian/dists/buster/InRelease is not valid yet (invalid for another 188d 0h 2min 42s)
-* E: Failed to fetch http://raspbian.raspberrypi.org/raspbian/pool/main/m/mariadb-10.3/mariadb-server_10.3.27-0+deb10u1_all.deb 404 Not Found [IP: 93.93.128.193 80]
+* E: Failed to fetch http://raspbian.raspberrypi.org/raspbian/pool/main/m/mariadb-10.3/mariadb-server\_10.3.27-0+deb10u1\_all.deb 404 Not Found [IP: 93.93.128.193 80]
 * E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
 * Ne peut installer mariadb-client mariadb-common mariadb-server - Annulation
 
@@ -384,11 +382,11 @@ dmesg | grep tty
 Résultat à l'écran
 
 pi@jeedom:~ $ dmesg | grep tty  
-[ 0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc_mem.mem_base=0x3f000000 vc_mem.mem_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait  
+[ 0.000000] Kernel command line: coherent\_pool=1M 8250.nr\_uarts=0 snd\_bcm2835.enable\_compat\_alsa=0 snd\_bcm2835.enable\_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc\_mem.mem\_base=0x3f000000 vc\_mem.mem\_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait  
 [ 0.001837] printk: console [tty1] enabled  
-[ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base_baud = 0) is a PL011 rev2  
-[ 5.314135] cdc_acm 1-1.3:1.0: ttyACM0: USB ACM device  
-[ 159.584503] cdc_acm 1-1.3:1.0: ttyACM0: USB ACM device
+[ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base\_baud = 0) is a PL011 rev2  
+[ 5.314135] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device  
+[ 159.584503] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device
 
 Le port à utiliser apparaîtra sur la dernière ligne.
 

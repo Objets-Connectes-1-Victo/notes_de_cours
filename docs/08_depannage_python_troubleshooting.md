@@ -1,4 +1,3 @@
-<a id="fiche-erreur_syntaxerror_invalid_character_in_identifier"></a>
 # 7. Dépannage Python (troubleshooting)
 
 ## 7.1 Erreur « SyntaxError: invalid character in identifier »

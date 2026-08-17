@@ -1,4 +1,3 @@
-<a id="fiche-en_resume_018"></a>
 # 12. La domotique
 
 ## 12.1 En résumé...
@@ -9,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Qu est-ce qu un objet connecte {#qu_est-ce_qu_un_objet_connecte}
+## [apical\_lien\_interne]qu\_est-ce\_qu\_un\_objet\_connecte[/apical\_lien\_interne]
 
 Un objet connecté, parfois appelé appareil connecté ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajouté des composantes qui lui permettent d'envoyer ou de recevoir des données au serveur auquel il est connecté.
 
@@ -17,17 +16,17 @@ Les objects connectés font partie d'une grande famille qu'on appelle Internet d
 
 ![Apple Watch](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/AppleWatch.png) ![Prise intelligente Wi-Fi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseIntelligenteWiFi.png) ![Penne dormant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PenneDormantIntelligent.png)
 
-## Qu est-ce qu un systeme domotique {#qu_est-ce_qu_un_systeme_domotique}
+## [apical\_lien\_interne]qu\_est-ce\_qu\_un\_systeme\_domotique[/apical\_lien\_interne]
 
 Un système domotique, c’est différent d’une série d’objets connectés. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
 
 ![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
-## Systeme domotique cle en main vs diy {#systeme_domotique_cle_en_main_vs_diy}
+## [apical\_lien\_interne]systeme\_domotique\_cle\_en\_main\_vs\_diy[/apical\_lien\_interne]
 
-Lorsque les données sont transmises dans l'infonuagique, attention aux <a href="fiche-systeme_domotique_cle_en_main_vs_diy.md#systeme_domotique_cle_en_main_vs_diy">trous de sécurité</a>.
+Lorsque les données sont transmises dans l'infonuagique, attention aux [apical\_lien\_interne][systeme\_domotique\_cle\_en\_main\_vs\_diy,trous de sécurité,securite][/apical\_lien\_interne].
 
-## Un raspberry pi comme unite centrale {#un_raspberry_pi_comme_unite_centrale}
+## [apical\_lien\_interne]un\_raspberry\_pi\_comme\_unite\_centrale[/apical\_lien\_interne]
 
 Vous aurez besoin de :
 
@@ -40,7 +39,7 @@ Vous aurez besoin de :
 
 ![Mon boîtier Raspberry Pi en Lego](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/BoitierRaspberryPiLegos-1.png)
 
-## Bien traiter son raspberry pi {#bien_traiter_son_raspberry_pi}
+## [apical\_lien\_interne]bien\_traiter\_son\_raspberry\_pi[/apical\_lien\_interne]
 
 Protéger le Pi avec un boîtier.
 
@@ -68,7 +67,7 @@ Arrêter le Pi de la bonne façon.
 
 ![Éteindre Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EteindreDeFaconSecurisee.png)
 
-## Quelques logiciels de domotique interessants {#quelques_logiciels_de_domotique_interessants}
+## [apical\_lien\_interne]quelques\_logiciels\_de\_domotique\_interessants[/apical\_lien\_interne]
 
 Jeedom
 
@@ -78,7 +77,7 @@ Home Assistant
 
 ![Installation Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/InstallationHomeAssistant.png)
 
-## Ifttt {#ifttt}
+## [apical\_lien\_interne]ifttt[/apical\_lien\_interne]
 
 IFTTT signifie IF This, Then That.
 
@@ -88,7 +87,7 @@ Il peut être utililisé par-dessus une boîte domotique via une extension ou en
 
 IFTTT fonctionne avec le principe d'un déclencheur (trigger), le this et d'une action, le that. Par exemple, le déclencheur pourrait être l'envoi d'un courriel dont le titre est « J'ai froid » et l'action serait de démarrer le chauffage.
 
-## Installation de jeedom et premier acces {#installation_de_jeedom_et_premier_acces}
+## [apical\_lien\_interne]installation\_de\_jeedom\_et\_premier\_acces[/apical\_lien\_interne]
 
 Suivez bien les étapes!
 
@@ -127,7 +126,7 @@ Je vous les résume ici.
   sudo reboot
 * Accéder à Jeedom à partir de l'ordinateur en entrant l'adreses IP dans un navigateur. L'ordinateur doit être connecté au réseau Domotique-Pedago si le Pi est configuré pour communiquer en Wi-Fi ou sur CEGEPVICTO si le Pi est câblé vers le commutateur dédié.
 
-## Copie de securite de jeedom {#copie_de_securite_de_jeedom}
+## [apical\_lien\_interne]copie\_de\_securite\_de\_jeedom[/apical\_lien\_interne]
 
 La sauvegarde permet de remettre rapidement Jeedom en état de marche si un problème survenait.
 
@@ -171,7 +170,7 @@ Voici une définition intéressante de l'Internet des Objets[2](https://jpdias.m
 
 La domotique est un ensemble de composantes et de techniques qui permettent d'automatiser et de contrôler à distance différents systèmes dans une maison.
 
-Mais attention : un système domotique, c’est différent d’une série d’<a href="fiche-qu_est-ce_qu_un_objet_connecte.md#qu_est-ce_qu_un_objet_connecte">objets connectés</a>. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
+Mais attention : un système domotique, c’est différent d’une série d’[apical\_lien\_interne][qu\_est-ce\_qu\_un\_objet\_connecte,objets connectés][/apical\_lien\_interne]. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
 
 ## La boîte domotique (hub)
 
@@ -186,7 +185,6 @@ La boîte domotique sera composée de :
 * Une unité centrale
 * Un logiciel de domotique
 * Une passerelle (gateway)
-<a id="fiche-systeme_domotique_cle_en_main_vs_diy"></a>
 
 ## Le système domotique
 
@@ -198,15 +196,13 @@ Le système domotique complet comprendra :
 
 Différents protocoles de communication seront utilisés pour assurer la communication entre la boîte domotique et les appareils connectés.
 
-<a id="chapitre-l_unite_centrale_du_systeme_domotique"></a>
-<a id="securite"></a>
 ![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
 ## 12.4 Système domotique clé en main vs DIY
 
 De nombreux acteurs sur le marché offrent des solutions domotiques clé en main. Ces solutions sont généralement stables, efficaces et sécuritaires. Cependant, elles sont coûteuses à l'achat et plusieurs nécessitent par la suite des frais mensuels.
 
-Si vous êtes le moindrement <a href="fiche-pourquoi_effectuer_une_veille_technologique.md#pourquoi_effectuer_une_veille_technologique">geek</a>, vous aimerez certainement monter votre propre système domotique. Certains ne nécessitent aucune programmation, seulement de la configuration. D'autres doivent être programmés de toutes pièces alors qu'une troisième catégorie utilise des modules existants et vous permet d'y ajouter vos propres modules.
+Si vous êtes le moindrement [apical\_lien\_interne][pourquoi\_effectuer\_une\_veille\_technologique,geek,geek][/apical\_lien\_interne], vous aimerez certainement monter votre propre système domotique. Certains ne nécessitent aucune programmation, seulement de la configuration. D'autres doivent être programmés de toutes pièces alors qu'une troisième catégorie utilise des modules existants et vous permet d'y ajouter vos propres modules.
 
 Attention : lors du choix du logiciel de domotique à utiliser, vérifiez bien les frais encourus. Certains sont complètement libres (Open Source) alors que d'autres vous demanderont de sortir votre porte feuille, mais à moindre coût que pour une solution clé en main.
 

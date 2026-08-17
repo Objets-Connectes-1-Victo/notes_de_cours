@@ -1,6 +1,4 @@
-<a id="fiche-la_guerre_des_notes"></a>
 # 105. Exercice 22 - OPTIONNEL
-<a id="chapitre-pour_le_prochain_cours_045"></a>
 
 ## 105.1 La guerre des notes!
 

@@ -1,4 +1,3 @@
-<a id="fiche-s_organiser_pour_mieux_s_y_retrouver"></a>
 # 11. Quelques trucs pour vous aider dans ce cours
 
 ## 11.1 S'organiser pour mieux s'y retrouver
@@ -13,7 +12,6 @@ Pour vous inspirer, j'ai trouvé quelques citations sur l'organisation.
 | --- | --- | --- |
 | La variété, c'est de l'organisation ; l'uniformité, c'est du mécanisme. La variété, c'est la vie ; l'uniformité, c'est la mort. | La raison d'être d'une organisation est de permettre à des gens ordinaires de faire des choses extraordinaires. | J'ai construit mon organisation sur la peur. |
 | - [Benjamin Constant, Artiste, écrivain, Homme politique, Romancier (1767 - 1830)](https://citation-celebre.leparisien.fr/citations/61384) | - [Peter Drucker, Artiste, écrivain, Enseignant (1909 - 2005)](https://citation-celebre.leparisien.fr/citations/65630)  Bon, on parle ici d'une organisation dans le sens de groupement plutôt que de la façon dont les choses sont structurées mais la citation fonctionne avec les deux contextes. | - [Al Capone, Criminel, Gangster, Homme d'affaire, Hors-la-loi (1899 - 1947)](https://citation-celebre.leparisien.fr/citations/106218)  Oups, oubliez-la, elle ne va pas dans le bon sens ;-) |
-<a id="fiche-ecouter_le_prof_sans_cellulaire"></a>
 
 ## Comment s'organiser dans les notes de cours?
 
@@ -33,7 +31,6 @@ Voici quelques autres suggestions pour vous aider à vous organiser.
 * Petite astuce : vous pouvez travailler avec plusieurs navigateurs pour vous y retrouver plus facilement. Par exemple, ouvrez l'exercice dans Chrome, 2 ou 3 pages théoriques principales dans FireFox et les pages que vous utilisez moins souvent dans Edge.
 * Si vous trouvez que vous avez trop d'onglets ouverts, ne vous gênez pas pour en refermer afin que ce soit plus confortable pour vous. Après tout, vous pouvez réouvrir n'importe quelle page rapidement à l'aide de l'historique à droite de l'écran.
 * Au besoin, ajoutez des pages à vos favoris pour les retrouver rapidement. Saviez-vous que l'étoile dans le haut d'Apical permet d'ajouter la page à gauche de l'écran?
-<a id="chapitre-la_domotique"></a>
 * Utilisez l'outil de recherche d'Apical pour retrouver de l'information ou la solution à un message d'erreur.
 
 ## 11.2 Écouter le prof sans cellulaire

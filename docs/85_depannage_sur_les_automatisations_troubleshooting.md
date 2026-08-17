@@ -1,4 +1,3 @@
-<a id="fiche-erreur_message_malformed_integration_not_found"></a>
 # 76. Dépannage sur les automatisations (troubleshooting)
 
 ## 76.1 Erreur « Message malformed: Integration '' not found »

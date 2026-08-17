@@ -1,4 +1,3 @@
-<a id="fiche-explorer_la_base_de_donnees_et_les_statistiques_de_home_assistant"></a>
 # 95. Exercice 17 - OPTIONNEL
 
 ## 95.1 Explorer la base de données et les statistiques de Home Assistant
@@ -7,9 +6,8 @@
 
 1. Installez le module complémentaire SQLite Web.
 2. Explorez les différentes tables de la base de données de Home Assistant. Listez deux tables qui sont liées entre elles et fournissez le nom de la clé primiare d'une table qui correspond à la clé étrangère dans l'autre table.
-3. <a href="fiche-contenu_de_la_base_de_donnees_de_home_assistant.md#contenu_de_la_base_de_donnees_de_home_assistant">Copiez la base de données de Home Assistant vers votre ordinateur</a>. Faites une impression d'écran qui montre clairement ce fichier sur votre ordinateur. On doit également voir sa date et sa taille. Nommez ce fichier au format NomPrenom-scp.png.
+3. [apical\_lien\_interne][contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant,Copiez la base de données de Home Assistant vers votre ordinateur,copie][/apical\_lien\_interne]. Faites une impression d'écran qui montre clairement ce fichier sur votre ordinateur. On doit également voir sa date et sa taille. Nommez ce fichier au format NomPrenom-scp.png.
 4. Modifiez les configurations pour que les données soient conservées dans la table states pendant 14 jours. Les données doivent être enregistrées au fur et à mesure, plusieurs fois par secondes si requis. Faites une impression d'écran des configurations que vous avez ajoutées pour y parvenir. Nommez le fichier au format NomPrenom-config.png.
-<a id="chapitre-exercice_18_005"></a>
 
 ## Deuxième partie
 
@@ -24,7 +22,7 @@ Pour chaque réponse, on doit voir clairement le numéro de la question.
 1. À la ligne de commande, faites afficher la date et l'heure actuelle du système à l'aide d'une requête SQLite (à vous de trouver comment!) puis vérifiez si cette heure correspond à l'heure UTC ou à l'heure réelle en comparant avec l'heure de votre poste de travail. Comme réponse, inscrivez la requête ainsi que « heure UTC » ou « heure locale ».
 2. Entrez les commandes SQLite pour assurer que les données des requêtes SQL apparaîssent en colonnes et que le nom de chaque champ soit affiché.
 3. Pour chacune des tables de la base de données, faites afficher les 10 derniers enregistrements ajoutés (l'identifiant fera foi de l'ordre d'enregistrement).
-4. Pour chaque entité du système, on retrouve <a href="fiche-qu_est-ce_qu_une_entite.md#qu_est-ce_qu_une_entite">un identifiant</a> en toutes lettres, par exemple sensor.neo_capteur_5_en_1_illuminance.
+4. Pour chaque entité du système, on retrouve [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,un identifiant,identifiant][/apical\_lien\_interne] en toutes lettres, par exemple sensor.neo\_capteur\_5\_en\_1\_illuminance.
 
    Pour connaître cet identifiant, rendez-vous dans l'onglet Aperçu, cliquez sur l'entité désirée puis sur l'onglet Paramètres. L'identifiant est affiché dans la case ID d'entité.
 

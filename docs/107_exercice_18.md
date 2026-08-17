@@ -1,4 +1,3 @@
-<a id="fiche-reveil_depart_retour_coucher"></a>
 # 96. Exercice 18
 
 ## 96.1 Réveil, départ, retour, coucher
@@ -9,11 +8,10 @@ Cet exercice se déroule en deux parties.
 
 Si vous n'avez pas réalisé l'exercice optionnel sur la base de données Home Assistant, vous devez au moins réaliser les étapes suivantes.
 
-1. <a href="fiche-contenu_de_la_base_de_donnees_de_home_assistant.md#contenu_de_la_base_de_donnees_de_home_assistant">Installez le module complémentaire SQLite Web</a>.
+1. [apical\_lien\_interne][contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant,Installez le module complémentaire SQLite Web,web][/apical\_lien\_interne].
 2. Faites afficher le contenu de la table states.
-3. <a href="fiche-contenu_de_la_base_de_donnees_de_home_assistant.md#contenu_de_la_base_de_donnees_de_home_assistant">À la ligne de commande SQLite</a>, faites afficher les 10 derniers enregistrements ajoutés à la table statistics_meta (l'identifiant fera foi de l'ordre d'enregistrement).
-4. <a href="fiche-contenu_de_la_base_de_donnees_de_home_assistant.md#contenu_de_la_base_de_donnees_de_home_assistant">Copiez la base de données de Home Assistant vers votre ordinateur</a>.
-<a id="chapitre-pour_le_prochain_cours_deux_cours_010"></a>
+3. [apical\_lien\_interne][contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant,À la ligne de commande SQLite,hassos][/apical\_lien\_interne], faites afficher les 10 derniers enregistrements ajoutés à la table statistics\_meta (l'identifiant fera foi de l'ordre d'enregistrement).
+4. [apical\_lien\_interne][contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant,Copiez la base de données de Home Assistant vers votre ordinateur,terminal][/apical\_lien\_interne].
 
 ## Partie 2
 

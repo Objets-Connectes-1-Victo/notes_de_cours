@@ -1,6 +1,4 @@
-<a id="fiche-icones_material_design_dans_home_assistant"></a>
 # 69. Les icônes
-<a id="chapitre-les_capteurs_virtuels"></a>
 
 ## 69.1 Icônes Material Design dans Home Assistant
 

@@ -1,6 +1,4 @@
-<a id="fiche-installation_du_moteur_dans_le_store"></a>
 # 117. Installer un store contrôlé à distance
-<a id="chapitre-les_servomoteurs"></a>
 
 ## 117.1 Installation du moteur dans le store
 

@@ -1,4 +1,3 @@
-<a id="fiche-fonctionnement_d_un_servomoteur"></a>
 # 118. Les servomoteurs
 
 ## 118.1 Fonctionnement d'un servomoteur

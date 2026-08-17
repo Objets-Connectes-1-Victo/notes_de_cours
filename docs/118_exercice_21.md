@@ -1,6 +1,4 @@
-<a id="fiche-communication_jeedom_home_assistant_via_l_api"></a>
 # 104. Exercice 21
-<a id="chapitre-exercice_22_optionnel"></a>
 
 ## 104.1 Communication Jeedom - Home Assistant via l'API
 

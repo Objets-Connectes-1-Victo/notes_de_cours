@@ -1,4 +1,3 @@
-<a id="fiche-en_resume_025"></a>
 # 29. Jeedom Market
 
 ## 29.1 En résumé...
@@ -9,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Telecharger des plugins sur le market {#telecharger_des_plugins_sur_le_market}
+## [apical\_lien\_interne]telecharger\_des\_plugins\_sur\_le\_market[/apical\_lien\_interne]
 
 Trois étapes pour les plugins :
 
@@ -17,7 +16,7 @@ Trois étapes pour les plugins :
 * Activer le plugin.
 * Parfois, il faut créer un nouvel équipement, par exemple Météo Victoriaville.
 
-## Le centre de messages de jeedom {#le_centre_de_messages_de_jeedom}
+## [apical\_lien\_interne]le\_centre\_de\_messages\_de\_jeedom[/apical\_lien\_interne]
 
 Carré orange : message
 
@@ -27,28 +26,25 @@ Cliquer sur le carré pour plus d'informations.
 
 ![Notifications](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Notifications.png)
 
-## Travailler avec le plugin virtuel {#travailler_avec_le_plugin_virtuel}
+## [apical\_lien\_interne]travailler\_avec\_le\_plugin\_virtuel[/apical\_lien\_interne]
 
 Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pour tester des scénarios.
 
 ![Porte virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-TuilePorteVirtuelle-2.png)
-<a id="fiche-configurer_l_historique_des_commandes"></a>
-<a id="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom"></a>
 
-## Creer un scenario provoque {#creer_un_scenario_provoque}
+## [apical\_lien\_interne]creer\_un\_scenario\_provoque[/apical\_lien\_interne]
 
  Les scénarios permettent d'automatiser des comportements, par exemple ouvrir la lumière de la cuisine quand la porte s'ouvre.
 
 Un scénario provoqué survient lorsqu'une action survient. Dans cet exemple, c'est lorsque la porte s'ouvre.
 
-## Creer un scenario programme {#creer_un_scenario_programme}
+## [apical\_lien\_interne]creer\_un\_scenario\_programme[/apical\_lien\_interne]
 
 Un scénario programmé survient à un moment donné, par exemple le 29 août 2025 à 10h00, à tous les samedis à 9h00, etc.
 
-## Envoyer un courriel avec jeedom {#envoyer_un_courriel_avec_jeedom}
+## [apical\_lien\_interne]envoyer\_un\_courriel\_avec\_jeedom[/apical\_lien\_interne]
 
 Il est possible qu'un scénario envoie un courriel.
-<a id="fiche-supprimer_les_boites_jeedom_inutiles_dans_market"></a>
 
 ## 29.2 Télécharger des plugins sur le Market
 
@@ -58,11 +54,11 @@ La plupart sont gratuits mais certains sont payants, à petit prix.
 
 Le fonctionnement de base est toujours le même :
 
-* Accédez à l'<a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">interface d'administration de Jeedom</a>.
+* Accédez à l'[apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,interface d'administration de Jeedom,acceder][/apical\_lien\_interne].
 * Rendez-vous dans le menu Plugins / Gestion des plugins.
 
   ![Menu Plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MenuPlugins.png)
-* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « <a href="fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market.md#brancher_un_jeedom_existant_sur_un_nouveau_compte_market">brancher_un_jeedom_existant_sur_un_nouveau_compte_market</a> ».  
+* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [apical\_lien\_interne]brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market[/apical\_lien\_interne] ».  
 
   ![Gestion des plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-GestionDesPlugins.png)
 * Dans la fenêtre Market, naviguez parmi les top et nouveautés ou sélectionnez une catégorie. Vous pouvez également entrez un mot-clé pour vous aider à trouver le plugin désiré.
@@ -77,9 +73,8 @@ Le fonctionnement de base est toujours le même :
 * Une fois le plugin activé et correctement configuré, vous aurez probablement une nouvelle option de menu sous Plugins.
 
   ![Nouvelle option de menu](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-NouveauMenuPlugin.png)
-* Certains plugins, par exemple <a href="fiche-configurer_la_cle_usb_z-wave_sur_jeedom.md#configurer_la_cle_usb_z-wave_sur_jeedom">la clé Z-Wave</a> que vous trouverez sous le menu Protocole domotique ou encore <a href="fiche-travailler_avec_la_meteo_sous_jeedom.md#travailler_avec_la_meteo_sous_jeedom">le plugin Weather</a> que vous trouverez sous le menu Météo, vous demandent de créer un nouvel équipement.
+* Certains plugins, par exemple [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom,la clé Z-Wave][/apical\_lien\_interne] que vous trouverez sous le menu Protocole domotique ou encore [apical\_lien\_interne][travailler\_avec\_la\_meteo\_sous\_jeedom,le plugin Weather][/apical\_lien\_interne] que vous trouverez sous le menu Météo, vous demandent de créer un nouvel équipement.
 
-<a id="fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market"></a>
   C'est dans cet équipement que des informations supplémentaires devront être entrées ou que des actions devront être posées, par exemple effectuer le pairage avec des objets connectés Z-Wave ou préciser la ville pour laquelle la météo doit être donnée.
 
 ## 29.3 Supprimer les boîtes Jeedom inutiles dans Market
@@ -93,7 +88,7 @@ Message : Vous avez un trop grand nombre de systeme jeedom déclaré, veuillez e
 
 Si, comme moi, vous installez parfois des boîtes Jeedom vierges afin d'y faire des tests, vous pourrez facilement régler le problème en supprimant les boîtes Jeedom inutiles.
 
-Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom et le compte Market. La boîte demeurera fonctionnelle mais vous ne pourrez plus y ajouter de plugins à partir du Market tant qu'il n'y aura pas <a href="fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market.md#brancher_un_jeedom_existant_sur_un_nouveau_compte_market">un nouveau compte Market associé à la boîte</a>.
+Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom et le compte Market. La boîte demeurera fonctionnelle mais vous ne pourrez plus y ajouter de plugins à partir du Market tant qu'il n'y aura pas [apical\_lien\_interne][brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market,un nouveau compte Market associé à la boîte][/apical\_lien\_interne].
 
 * Rendez-vous sur le site Web de Jeedom Market : [https://market.jeedom.com](https://market.jeedom.com/).
 * Cliquez sur Se connecter puis entrez vos informations d'authentification.
@@ -101,7 +96,6 @@ Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom
 * Choisissez l'onglet Mes boxs.
 * Vous obtenez la liste des boîtes Jeedom qui utilisent ce compte Market. Vous pouvez supprimer les boîtes inutiles en cliquant sur le - à droite des boîtes concernées.
 
-<a id="chapitre-messages_et_mises_a_jour"></a>
   ![Liste des boîtes Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Market-ListeDesBoites.png)
 * N'oubliez pas de cliquer sur Sauvegarder.
 
@@ -109,7 +103,7 @@ Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom
 
 Si Jeedom Market vous empêche d'installer de nouveaux plugins, c'est peut-être parce que vous avez atteint votre limite quand au nombre de boîtes Jeedom.
 
-La première chose à vérifier, c'est le nombre de boîtes Jeedom effectivement associées à ce compte Jeedom Market et de <a href="fiche-supprimer_les_boites_jeedom_inutiles_dans_market.md#supprimer_les_boites_jeedom_inutiles_dans_market">supprimer les boîtes inutiles</a>.
+La première chose à vérifier, c'est le nombre de boîtes Jeedom effectivement associées à ce compte Jeedom Market et de [apical\_lien\_interne][supprimer\_les\_boites\_jeedom\_inutiles\_dans\_market,supprimer les boîtes inutiles][/apical\_lien\_interne].
 
 Dans le cas où vous désirez conserver toutes les boîtes existantes, il vous reste l'option de vous créer un nouveau compte Jeedom puis d'asocier votre boîte Jeedom excédentaire sur ce compte.
 

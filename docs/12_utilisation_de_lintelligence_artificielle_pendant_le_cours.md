@@ -1,4 +1,3 @@
-<a id="fiche-niveaux_d_utilisation_de_l_ia_autorises_dans_ce_cours"></a>
 # 10. Utilisation de l'intelligence artificielle pendant le cours
 
 ## 10.1 Niveaux d'utilisation de l'IA autorisés dans ce cours
@@ -21,7 +20,7 @@ Dans cette fiche :
 
 Il est essentiel pour une technicienne ou un technicien en informatique de développer les processus mentaux qui lui permettent de comprendre du code, bien sûr, mais aussi d'en développer et d'en déboguer.
 
-Même plus : la technicienne ou le technicien doit être en mesure de juger de la <a href="fiche-les_qualites_d_un_bon_programme_php.md#les_qualites_d_un_bon_programme_php">qualité du code</a>. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
+Même plus : la technicienne ou le technicien doit être en mesure de juger de la [apical\_lien\_interne][les\_qualites\_d\_un\_bon\_programme\_php,qualité du code][/apical\_lien\_interne]. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
 
 Pourquoi ces exigences? Eh bien parce que si vous n'y répondez pas, vous serez limités par ce que les outils d'IA générative vous proposeront. Vous pourriez même être carrément remplacés par ces outils.
 
@@ -109,7 +108,6 @@ Le niveau 3 consiste à demander aux outils d'IA générative de vous aider à �
 En fait, il ne s'agit pas de leur demander de tout coder à votre place. On peut demander de fournir des suggestions de structure ou de coder de petites sections d'une application. Vous devez demeurer l'auteur principal de votre code.
 
 Afin de garantir que vous continuez d'apprendre correctement, il est suggéré de créer d'abord vous-mêmes une version du code puis de demander à l'IA de l'améliorer.
-<a id="fiche-effets_de_l_ia_sur_la_productivite_et_sur_l_apprentissage"></a>
 
 ## Importance de citer les sources
 

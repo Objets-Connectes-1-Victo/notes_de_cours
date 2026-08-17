@@ -1,4 +1,3 @@
-<a id="fiche-ping_vers_le_raspberry_pi_ne_fonctionne_pas"></a>
 # 5. Dépannage sur le Raspberry Pi (troubleshooting)
 
 ## 5.1 ping vers le Raspberry Pi ne fonctionne pas
@@ -12,65 +11,10 @@ Lorsque vous essayez de faire un ping vers le Raspberry Pi à partir de votre or
 * MacOS Mojave
 * Raspberry Pi 3B+
 * Raspbian 10 (Buster)
-<a id="chapitre-les_scripts_bash"></a>
 
 ### Cause possible :
 
-<a id="chapitre-exercice_15_003"></a>
-<a id="chapitre-depannage_sur_les_positions_gps_troubleshooting"></a>
-<a id="chapitre-exercice_13_003"></a>
-<a id="fiche-automatisation_ne_s_enregistre_pas"></a>
-<a id="chapitre-exercice_10_006"></a>
-<a id="fiche-erreur_echec_de_l_appel_du_service_update_install"></a>
-<a id="fiche-erreur_404_not_found"></a>
-<a id="fiche-erreur_system_is_not_healthy"></a>
-<a id="fiche-erreur_err_connection_refused"></a>
-<a id="fiche-module_complementaire_non_trouve"></a>
-<a id="fiche-erreur_response_error_401"></a>
-<a id="fiche-erreur_system_is_not_ready_with_state_setup"></a>
-<a id="fiche-erreur_permission_denied_publickey"></a>
-<a id="fiche-erreur_tuya_Echec_de_la_configuration"></a>
-<a id="fiche-erreur_reessayer_la_configuration_failed_to_get_the_z-wave_js_add-on_info"></a>
-<a id="fiche-erreur_z-wave_js_reessayer_la_configuration_none"></a>
-<a id="fiche-erreur_z-wave_js_reessayer_la_configuration_cannot_connect_to_host"></a>
-<a id="fiche-erreur_unknown_error_occured"></a>
-<a id="fiche-erreur_entite_non_disponible_actuellement"></a>
-<a id="fiche-erreur_unknown_error_see_supervisor"></a>
-<a id="fiche-option_pour_verifier_les_configurations_non_disponible"></a>
-<a id="fiche-erreur_sqlite3_command_not_found"></a>
-<a id="fiche-scp_ne_fonctionne_pas_alors_qu_il_est_possible_de_se_brancher_via_ssh"></a>
-<a id="fiche-erreur_incomprehensible_dans_configuration_yaml"></a>
-<a id="fiche-erreur_z-wave_js_server_version_is_incompatible"></a>
-<a id="fiche-Ecran_preparing_home_assistant_reste_affiche_a_l_infini"></a>
-<a id="fiche-erreur_dd_dev_rdisk2_operation_not_permitted"></a>
-<a id="fiche-impossible_d_obtenir_l_interface_web_de_home_assistant_sur_mon_ordinateur"></a>
-<a id="fiche-Ecran_noir"></a>
-<a id="chapitre-exercice_8_005"></a>
-<a id="fiche-erreur_runtimeerror_no_access_to_dev_mem_try_running_as_root"></a>
-<a id="fiche-erreur_127_not_found"></a>
-<a id="chapitre-exercice_1_005"></a>
-<a id="fiche-erreur_le_driver_z-wave_n_est_pas_initialise"></a>
-<a id="fiche-erreur_sqlstate_hy000_1045_access_denied_for_user_jeedom_localhost_using___"></a>
-<a id="fiche-j_obtiens_l_identifiant_d_une_commande_plutot_que_sa_valeur"></a>
-<a id="fiche-erreur_impossible_de_contacter_le_serveur_z-wave"></a>
-<a id="fiche-erreur_Echec_lors_du_telechargement_du_fichier"></a>
-<a id="fiche-erreur_release_file_for_http_archive_raspberrypi_org_debian_dists_buster___"></a>
-<a id="fiche-erreur_forbidden"></a>
-<a id="fiche-erreur_pendant_l_installation_de_jeedom_avec_wget"></a>
-<a id="fiche-impossible_d_ajouter_un_objet_connecte_z-wave"></a>
 L'adresse IP utilisée n'est pas la bonne.
-<a id="fiche-erreur_valueerror_channel_must_be_an_integer_or_list_tuple_of_integers"></a>
-<a id="chapitre-python"></a>
-<a id="fiche-erreur_usr_libexec_sftp-server_not_found"></a>
-<a id="fiche-erreur_sap_driver_initialization_failed"></a>
-<a id="fiche-erreur_could_not_get_lock_var_lib_dpkg_lock-frontend_open_11_resource_te___"></a>
-<a id="fiche-erreur_under-voltage_detected"></a>
-<a id="fiche-erreur_rejected_request_from_rfc1918_ip_to_public_server_address"></a>
-<a id="fiche-erreur_connection_refused"></a>
-<a id="fiche-aucun_acces_reseau_message_network_is_unreachable"></a>
-<a id="fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill_002"></a>
-<a id="fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill"></a>
-<a id="fiche-le_pi_n_a_que_l_adresse_127_0_0_1"></a>
 
 ### Solution proposée :
 
@@ -138,7 +82,6 @@ Il y a une configuration du réseau qui empêche les communications pair-à-pair
 ### Solution proposée :
 
 Validez les configurations du réseau avec le gestionnaire du réseau.
-<a id="fiche-le_pi_n_a_aucune_adresse_ip"></a>
 
 ### En dernier recours
 
@@ -174,10 +117,10 @@ Pour configurer le Wi-Fi sans interface graphique, suivez ces instructions.
 
 Elles permettent de faire la configuration sans nécessiter écran ni clavier.
 
-Notez que vous pourriez également effectuer les configurations directement sur le Pi en éditant plutôt le fichier /etc/wpa_supplicant/wpa_supplicant.conf.
+Notez que vous pourriez également effectuer les configurations directement sur le Pi en éditant plutôt le fichier /etc/wpa\_supplicant/wpa\_supplicant.conf.
 
 * Insérez la carte micro SD dans votre ordinateur.
-* Créez un fichier nommé [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de la partition boot.
+* Créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de la partition boot.
 
   Sous Windows, utilisez l'utilitaire de texte de votre choix.
 
@@ -186,16 +129,16 @@ Notez que vous pourriez également effectuer les configurations directement sur 
   Terminal
 
   cd /Volumes/boot  
-  sudo nano wpa_supplicant.conf
+  sudo nano wpa\_supplicant.conf
 
-  Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa_supplicant la première fois que le Pi sera démarré.
+  Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa\_supplicant la première fois que le Pi sera démarré.
 * Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder. Si vous n'êtes pas au Canada, changez CA pour le [code à 2 lettres de votre pays](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
-  Fichier wpa_supplicant.conf
+  Fichier wpa\_supplicant.conf
 
   country=CA  
-  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-  update_config=1
+  ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+  update\_config=1
 
    
 
@@ -205,7 +148,7 @@ Notez que vous pourriez également effectuer les configurations directement sur 
   }
 * Il est possible de configurer plusieurs réseaux si tel est votre besoin. Simplement ajouter une autre section network. Par exemple, pour pemettre de se brancher à un réseau non sécurisé (sans mot de passe) :
 
-  Fichier wpa_supplicant.conf
+  Fichier wpa\_supplicant.conf
 
   ...  
     
@@ -215,7 +158,7 @@ Notez que vous pourriez également effectuer les configurations directement sur 
     
   network={  
       ssid="NOM-DU-RESEAU"  
-      key_mgmt=NONE  
+      key\_mgmt=NONE  
   }
 * Si vous avez utilisé nano pour éditer le fichier, appuyez sur Ctrl + X puis O (ou  Y si votre OS est en anglais) pour enregistrer les modifications.
 * Redémarrez ensuite le Pi.
@@ -232,9 +175,9 @@ Remarquez que sur certains réseaux, le 2.4 GHz et le 5 GHz portent le même nom
 
 ### Autre cause possible :
 
-Le fichier wpa_supplicant.conf cause problème pour une raison inconnue.
+Le fichier wpa\_supplicant.conf cause problème pour une raison inconnue.
 
-Ceci fait en sorte que lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa_supplicant ».
+Ceci fait en sorte que lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa\_supplicant ».
 
 ![Could not communicate with wpa_supplicant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CouldNotCommunicateWithWpaSupplicant.png)
 
@@ -244,17 +187,17 @@ Dans certains cas, vous pourriez avoir plutôt le message « No wireless interf
 
 ### Solution proposée :
 
-Supprimez le fichier wpa_supplicant.conf :
+Supprimez le fichier wpa\_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
+sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Recréez ce fichier comme suit :
 
 Terminal
 
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Inscrivez-y les informations pour votre réseau Wi-Fi tel que montré plus haut puis redémarrez le Pi.
 
@@ -309,7 +252,7 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
+sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
 ## 5.3 Le Pi n'a que l'adresse 127.0.0.1
 
@@ -394,13 +337,13 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
+sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
-## 5.5 Aucun accès au réseau (message Could not communicate with wpa_supplicant)
+## 5.5 Aucun accès au réseau (message Could not communicate with wpa\_supplicant)
 
 ### Problème :
 
-Lorsque vous démarrez votre Raspberry Pi, vous n'obtenez aucune adresse IP. Lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa_supplicant ».
+Lorsque vous démarrez votre Raspberry Pi, vous n'obtenez aucune adresse IP. Lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa\_supplicant ».
 
 ![Could not communicate with wpa_supplicant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CouldNotCommunicateWithWpaSupplicant.png)
 
@@ -414,29 +357,29 @@ Dans certains cas, vous pourriez avoir plutôt le message « No wireless interf
 
 ### Cause possible :
 
-Le fichier wpa_supplicant.conf cause problème pour une raison inconnue.
+Le fichier wpa\_supplicant.conf cause problème pour une raison inconnue.
 
 ### Solution proposée :
 
-Supprimez le fichier wpa_supplicant.conf :
+Supprimez le fichier wpa\_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
+sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Recréez ce fichier comme suit :
 
 Terminal
 
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Inscrivez-y les informations pour votre réseau Wi-Fi.
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 country=CA  
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-update_config=1
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1
 
  
 
@@ -469,7 +412,7 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
+sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
 ## 5.6 Aucun accès réseau (message Network is unreachable)
 
@@ -521,7 +464,7 @@ Les configurations du réseau sans fil ne sont pas correctes.
 
 Attention : cette solution s'applique à un réseau géré par dhcpcd. Depuis Raspberry Pi OS Bookworm en 2023, le gestionnaire de réseau par défaut est plutôt Network Manager.
 
-Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot.
+Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot.
 
 Sous Windows, utilisez l'utilitaire de texte de votre choix.
 
@@ -530,7 +473,7 @@ Sous Mac ou Linux, utilisez ces commandes :
 Terminal
 
 cd /Volumes/boot  
-sudo nano wpa_supplicant.conf
+sudo nano wpa\_supplicant.conf
 
 Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder.
 
@@ -538,11 +481,11 @@ Si vous utilisez un Raspberry Pi 3B+ ou moins récent, vous devez utiliser un Wi
 
 Même avec le Raspberry Pi 4, il arrive que le Wi-Fi de 5 GHz soit moins stable. Choisir un Wi-Fi de 2.4 GHz pourrait régler le problème.
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 country=CA  
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-update_config=1
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1
 
  
 
@@ -667,7 +610,6 @@ sudo fail2ban-client set sshd unbanip 192.168.1.150
 « How to Unban an IP properly with Fail2Ban ». Server Fault. <https://serverfault.com/questions/285256/how-to-unban-an-ip-properly-with-fail2ban>
 
 ## 5.8 Erreur « Le fichier Release n'est pas encore valide »
-<a id="fiche-erreur_failed_to_install_add-on"></a>
 
 ### Problème :
 
@@ -693,7 +635,6 @@ L'horloge du Raspberry Pi n'est pas bien configurée.
 Mettez l'horloge à jour à l'aide de la commande suivante, en remplaçant A:M:J HH:mm:ss par la date et l'heure voulues :
 
 Terminal
-<a id="fiche-message_digital_power_saving_mode_a_l_ecran"></a>
 
 sudo timedatectl set-time 'A:M:J HH:mm:ss'
 
@@ -757,12 +698,12 @@ Terminal
 
 sudo nano /boot/config.txt
 
-Vous devez enlever le # devant la ligne hdmi_force_hotplug afin d'activer cette configuration.
+Vous devez enlever le # devant la ligne hdmi\_force\_hotplug afin d'activer cette configuration.
 
 Fichier /boot/config.txt
 
 # uncomment if hdmi display is not detected and composite is being output  
-hdmi_force_hotplug=1
+hdmi\_force\_hotplug=1
 
 ![Fichier /boot/config.txt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-ActiverHDMI.png)
 
@@ -770,20 +711,20 @@ Pour sortir de Nano en enregistrant les modifications, appuyez sur Ctrl + o, app
 
 Vous devrez redémarrer le Pi pour que les nouvelles configurations soient prises en compte.
 
-Si ça ne fonctionne pas, enlevez le # devant une seconde configuration : hdmi_drive=2. Enregistrez puis redémarrez le Pi.
+Si ça ne fonctionne pas, enlevez le # devant une seconde configuration : hdmi\_drive=2. Enregistrez puis redémarrez le Pi.
 
 Fichier /boot/config.txt
 
 # uncomment to force a HDMI mode rather than DVI. This can make audio work in  
 # DMT (computer monitor) modes  
-hdmi_drive=2
+hdmi\_drive=2
 
-Si le problème n'est toujours pas réglé, éditez à nouveau le fichier /boot/config.txt et cette fois, enlevez le # devant la configuration hdmi_safe = 1. Remettez un # devant les deux autres lignes.
+Si le problème n'est toujours pas réglé, éditez à nouveau le fichier /boot/config.txt et cette fois, enlevez le # devant la configuration hdmi\_safe = 1. Remettez un # devant les deux autres lignes.
 
 Fichier /boot/config.txt
 
 # uncomment if you get no picture on HDMI for a default "safe" mode  
-hdmi_safe=1
+hdmi\_safe=1
 
 Si tout se passe bien, vous devriez voir l'affichage du Raspberry Pi mais en très gros et légèrement déformé. Même si l'affichage n'est pas intéressant, ceci indique que le signal peut se rendre, donc il n'y a pas un problème de câble et on sait que le Pi est capable d'envoyer un signal assez fort.
 
@@ -815,8 +756,8 @@ It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is  
 SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
 Please contact your system administrator.  
-Add correct host key in /Users/monnom/.ssh/known_hosts to get rid of this message.  
-Offending ECDSA key in /Users/monnom/.ssh/known_hosts:10  
+Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.  
+Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10  
 ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.  
 Host key verification failed.
 
@@ -826,11 +767,11 @@ Host key verification failed.
 
 ### Cause possible :
 
-Il y a un problème avec le fichier known_hosts car les clés SSH ont changé.
+Il y a un problème avec le fichier known\_hosts car les clés SSH ont changé.
 
 ### Solution proposée :
 
-Retirez l'information sur cette adresse IP du fichier known_hosts comme suit en prenant soin d'ajuster l'adresse IP du Pi.
+Retirez l'information sur cette adresse IP du fichier known\_hosts comme suit en prenant soin d'ajuster l'adresse IP du Pi.
 
 Terminal de l'ordinateur
 
@@ -850,8 +791,8 @@ Résultat à l'écran
 
 MacBook-Pro-de-MonNom:~ monnom$ ssh-keygen -R 192.168.1.145  
 # Host 192.168.1.145 found: line 10  
-/Users/monnom/.ssh/known_hosts updated.  
-Original contents retained as /Users/monnom/.ssh/known_hosts.old  
+/Users/monnom/.ssh/known\_hosts updated.  
+Original contents retained as /Users/monnom/.ssh/known\_hosts.old  
 MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145  
 The authenticity of host '192.168.1.145 (192.168.1.145)' can't be established.  
 ECDSA key fingerprint is SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
@@ -880,7 +821,7 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">la technique présentée ici</a>.
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,la technique présentée ici,acceder][/apical\_lien\_interne].
 
 ## 5.12 Erreur « Under-voltage detected! »
 

@@ -1,4 +1,3 @@
-<a id="fiche-erreur_permission_denied"></a>
 # 51. Dépannage sur le contrôle GPIO avec Jeedom
 
 ## 51.1 Erreur « Permission denied »

@@ -1,6 +1,4 @@
-<a id="fiche-combat_des_pouces_mqtt"></a>
 # 110. Exercice 24
-<a id="chapitre-pour_le_prochain_cours_054"></a>
 
 ## 110.1 Combat des pouces MQTT
 
@@ -26,4 +24,4 @@ Important : un abonnement à un canal MQTT doit absolument être réalisé à l'
    9. La boîte B doit être abonnée à ce canal et afficher sur son tableau de bord la valeur reçue.
    10. Testez l'effet des deux boutons sur la valeur du compteur. Au besoin, ajustez le délai avant l'incrémentation afin que les deux boîtes aient une chance égale.
    11. Quand le compteur atteint la valeur 20, c'est le joueur de la boîte A qui gagne. Quand il atteint la valeur 0, c'est le joueur de la boîte B qui gagne.
-   12. La boîte du joueur qui gagne enverra automatiquement une notification à son application mobile (ou une notification persistante : persistent_notification.create) pour dire qu'il a gagné.
+   12. La boîte du joueur qui gagne enverra automatiquement une notification à son application mobile (ou une notification persistante : persistent\_notification.create) pour dire qu'il a gagné.

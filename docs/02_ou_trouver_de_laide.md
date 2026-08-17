@@ -1,6 +1,4 @@
-<a id="fiche-Horaire_et_coordonnees_de_Christiane_Lagace_sess--002"></a>
 # 2. Où trouver de l'aide
-<a id="fiche-horaire_et_coordonnees_de_sebastien_trottier_session_d_automne"></a>
 
 ## 2.1 Horaire et coordonnées de Christiane Lagacé - session d'automne
 
@@ -23,7 +21,6 @@
 
 Je suis très souvent à mon bureau entre mes cours, même en dehors des périodes marquées « Disponible ».
 
-<a id="fiche-site_web_du_departement"></a>
 Vous pouvez simplement passer me voir ou encore me contacter via Teams, ça me fera plaisir de vous aider!
 
 ## 2.2 Horaire et coordonnées de Sébastien Trottier - session d'automne
@@ -44,7 +41,6 @@ Vous pouvez simplement passer me voir ou encore me contacter via Teams, ça me f
 | 15h15  à  16h05 | - | - | - | - | - |
 | 16h15  à  17h05 | - | - | - | - | - |
 | 17h15  à  18h05 |  |  |  |  |  |
-<a id="chapitre-chapitres_de_reference_004"></a>
 
 Les périodes de disponibilité sont données à titre indicatif. De plus, je pourrais être disponible en dehors des périodes de disponibilité. Veuillez prendre rendez-vous pour vous assurer de ma présence!
 

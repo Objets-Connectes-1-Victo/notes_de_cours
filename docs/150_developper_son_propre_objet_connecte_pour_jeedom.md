@@ -1,4 +1,3 @@
-<a id="fiche-les_micro-controleur_sde_type_esp8266"></a>
 # 130. Développer son propre objet connecté pour Jeedom
 
 ## 130.1 Les micro-contrôleurs de type ESP8266

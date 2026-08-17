@@ -1,11 +1,10 @@
-<a id="fiche-erreur_aucune_entite_correspondante_trouvee"></a>
 # 86. Dépannage sur les positions GPS (troubleshooting)
 
 ## 86.1 Erreur « Aucune entité correspondante trouvée »
 
 ### Problème :
 
-Lorsque vous créez une automatisation qui tient compte de la position d'un capteur virtuel de type device_tracker, la section Entité avec emplacement, qui apparaît notamment quand on ajoute un déclencheur ou une condition de type zone, ne montre pas votre capteur virtuel.
+Lorsque vous créez une automatisation qui tient compte de la position d'un capteur virtuel de type device\_tracker, la section Entité avec emplacement, qui apparaît notamment quand on ajoute un déclencheur ou une condition de type zone, ne montre pas votre capteur virtuel.
 
 Elle n'affiche que vos capteurs de positionnement réels, par exemple un téléphone ou la personne associée à ce téléphone.
 
@@ -28,7 +27,7 @@ Lorsque vous avez initialisé la position du capteur virtuel, vous avez utilisé
 Initialisez la position du capteur virtuel à l'aide d'une position GPS :
 
 * Rendez-vous dans le menu Outils de développement / onglet Services (ou Action selon votre version de Home Assistant).
-* Choisissez le service device_tracker.see. Vous verrez apparaître à l'écran Dispoitif de suivi: See.
+* Choisissez le service device\_tracker.see. Vous verrez apparaître à l'écran Dispoitif de suivi: See.
 * Cochez GPS Coordinates.
 * Retrouvez les coordonnées GPS désirées. Vous pouvez trouver les coordonnées GPS d'un point en faisant un clic droit à l'endroit désiré sur Google Maps
 

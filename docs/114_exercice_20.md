@@ -1,6 +1,4 @@
-<a id="fiche-un_retour_a_jeedom"></a>
 # 101. Exercice 20
-<a id="chapitre-pour_le_prochain_cours_052"></a>
 
 ## 101.1 Un retour à Jeedom
 

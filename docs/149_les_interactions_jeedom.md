@@ -1,4 +1,3 @@
-<a id="fiche-qu_est-ce_qu_une_interaction"></a>
 # 129. Les interactions Jeedom
 
 ## 129.1 Qu'est-ce qu'une interaction?

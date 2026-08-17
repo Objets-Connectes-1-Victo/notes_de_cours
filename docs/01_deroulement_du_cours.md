@@ -1,6 +1,4 @@
-<a id="fiche-salut_004"></a>
 # 1. Déroulement du cours
-<a id="fiche-plan_de_cours_005"></a>
 
 ## 1.1 Salut!
 
@@ -449,7 +447,6 @@ Teams, Apical
 
 Home Assistant : <https://www.home-assistant.io/>  
  Jeedom : <https://www.jeedom.com/fr/>  
-<a id="chapitre-ou_trouver_de_l_aide_004"></a>
  MQTT : <https://mqtt.org/>
 
 ## Matériel requis

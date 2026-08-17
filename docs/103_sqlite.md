@@ -1,4 +1,3 @@
-<a id="fiche-en_resume_041"></a>
 # 92. SQLite
 
 ## 92.1 En résumé...
@@ -9,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Qu est-ce que SQLite {#Qu_est-ce_que_SQLite}
+## [apical\_lien\_interne]Qu\_est-ce\_que\_SQLite[/apical\_lien\_interne]
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -19,7 +18,7 @@ Une base de données est constituée d'un simple fichier stocké localement. Il 
 
 SQLite est installé nativement sur macOS. Sous Windows, il faut procéder à son installation.
 
-## La ligne de commande SQLite {#La_ligne_de_commande_SQLite}
+## [apical\_lien\_interne]La\_ligne\_de\_commande\_SQLite[/apical\_lien\_interne]
 
 Pour lancer la ligne de commande SQLite :
 
@@ -55,9 +54,9 @@ Ligne de commande SQLite
 
 .exit
 
-## Contenu de la base de donnees de home assistant {#contenu_de_la_base_de_donnees_de_home_assistant}
+## [apical\_lien\_interne]contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant[/apical\_lien\_interne]
 
-Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant_v2.db.
+Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
 
 Elle peut être explorée via l'interface Web de Home Assistant grâce au module complémentaire SQLite Web.
 
@@ -139,7 +138,7 @@ Si la base de données est utilisée par une application native, son fichier ser
 
 ## 92.3 Installation de SQLite
 
-Pour travailler avec une base de données <a href="fiche-Qu_est-ce_que_SQLite.md#Qu_est-ce_que_SQLite">SQLite</a>, il n'y a aucun serveur à installer. Tout se déroule localement.
+Pour travailler avec une base de données [apical\_lien\_interne][Qu\_est-ce\_que\_SQLite,SQLite][/apical\_lien\_interne], il n'y a aucun serveur à installer. Tout se déroule localement.
 
 Il faut par contre que le service et les outils pour SQLite soient installés afin que le système d'exploitation sache comment interagir avec une base de données SQLite.
 
@@ -162,7 +161,7 @@ Pour le vérifier :
 
     Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-    Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">créer une nouvelle base de données</a>, soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">ouvrir une base de données existante</a>.
+    Pour travailler avec une vraie base de données, il faudra soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,créer une nouvelle base de données,nouvelle][/apical\_lien\_interne], soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,ouvrir une base de données existante,existante][/apical\_lien\_interne].
 
     Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
@@ -198,7 +197,7 @@ Pour installer SQLite sous Windows :
 
   Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-  Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">créer une nouvelle base de données</a>, soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">ouvrir une base de données existante</a>.
+  Pour travailler avec une vraie base de données, il faudra soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,créer une nouvelle base de données,nouvelle][/apical\_lien\_interne], soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,ouvrir une base de données existante,existante][/apical\_lien\_interne].
 
   Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
@@ -222,7 +221,7 @@ Pour installer SQLite sous Windows :
 
 La ligne de commande SQLite est l'endroit où vous pouvez entrer les requêtes SQL pour effectuer les opérations CRUD sur vos données.
 
-Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord <a href="fiche-Installation_de_SQLite.md#Installation_de_SQLite">installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH</a>).
+Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord [apical\_lien\_interne][Installation\_de\_SQLite,installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH][/apical\_lien\_interne]).
 
 Sous macOS et sous Linux, tout est disponible dès le départ.
 
@@ -235,7 +234,6 @@ Sous macOS et sous Linux, tout est disponible dès le départ.
 * Vous obtiendrez l'invite sqlite>, qui vous invite à entrer vos commandes.
 
   ![Ligne de commande SQLite sous Mac](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SQLite-LigneDeCommandeSousMac-TransientInMemoryDatabase(1).png)
-<a id="nouvelle"></a>
 
 ## Deux types de commandes permises
 
@@ -305,7 +303,6 @@ Attention : la base de données sera créée dans le dossier courant (celui aff
 
 Terminal
 
-<a id="existante"></a>
 sqlite3 \Users\votrenom\Documents\mabd.db
 
 ### Travail dans la base de données temporaire
@@ -450,7 +447,7 @@ Voici les principales fonctions qui vous aideront dans vos manipulations de date
 
 | Fonction | Utilité | Exemple |
 | --- | --- | --- |
-| [datetime](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-datetime-function/) | Manipule des dates incluant l'heure.  Entre autres, elle permet d'obtenir la date et l'heure actuelle. | UPDATE donnees(date_modification) VALUES(datetime('now','localtime')); |
+| [datetime](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-datetime-function/) | Manipule des dates incluant l'heure.  Entre autres, elle permet d'obtenir la date et l'heure actuelle. | UPDATE donnees(date\_modification) VALUES(datetime('now','localtime')); |
 | [date](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-date-function/) | Manipule des dates.  Entre autres, permet de transformer une chaîne en date afin d'effectuer des calculs. | SELECT id, nomfamille, prenom FROM etudiants WHERE naissance < date('2002-10-01'); |
 | julianday | Retourne le nombre de jours entre une date butoir et une date. | SELECT id, nomfamille, prenom FROM employes WHERE julianday('now') - julianday(embauche) >= 365; |
 
@@ -477,9 +474,8 @@ Ligne de commande SQLite
 .tables
 
 SQLite
-<a id="formater"></a>
 
-SELECT name FROM sqlite_master WHERE type='table';
+SELECT name FROM sqlite\_master WHERE type='table';
 
 ## Nettoyer la fenêtre de commande SQLite
 
@@ -540,10 +536,9 @@ Ligne de commande SQLite
 
 .schema *nomtable*
 
-<a id="chapitre-la_base_de_donnees_home_assistant"></a>
 SQLite
 
-SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = '*nomtable*';
+SELECT sql FROM sqlite\_master WHERE type = 'table' AND tbl\_name = '*nomtable*';
 
 ## Afficher les requêtes qui permettent de recréer la table et d'y insérer les données
 

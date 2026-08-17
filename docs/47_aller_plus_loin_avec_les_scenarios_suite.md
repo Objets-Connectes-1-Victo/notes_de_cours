@@ -1,6 +1,4 @@
-<a id="fiche-bloc_de_code_qui_lance_une_commande_de_type_action"></a>
 # 42. Aller plus loin avec les scénarios (suite)
-<a id="fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord"></a>
 
 ## 42.1 Bloc de code qui lance une commande de type action
 
@@ -15,7 +13,6 @@ Ceci sera réalisé en exécutant la commande de type action configurée dans l'
 Bloc de code du scénario (PHP)
 
 $cmd = cmd::byString('#[Cuisine][Lumière][Allumer]#');  
-<a id="fiche-scenario_qui_execute_une_requete_sql"></a>
  $cmd->execCmd();
 
 ## 42.2 Scénario qui affiche une information dans le tableau de bord
@@ -41,7 +38,6 @@ Bloc de code du scénario (PHP)
 $valeur = ...;  
 $cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');  
  $cmd->event($valeur);
-<a id="chapitre-exercice_6_007"></a>
 
 Puisque la commande est configurée pour être affichée sur le Dashboard, la valeur enregistrée par le scénario sera automatiquement visible.
 
@@ -51,9 +47,9 @@ Dans un scénario, une action de type bloc de code permet d'exécuter du code PH
 
 Il est donc possible d'exécuter une requête SQL et de faire différents traitements selon les résultats obtenus, par exemple :
 
-* <a href="fiche-scenario_qui_ajoute_une_entree_dans_le_fichier_journal.md#scenario_qui_ajoute_une_entree_dans_le_fichier_journal">enregistrer dans un fichier journal</a> l'ensemble des températures de la veille;
-* <a href="fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord.md#scenario_qui_affiche_une_information_dans_le_tableau_de_bord">afficher dans le tableau de bord</a> la plus grande et la plus petite température enregistrée la veille;
-* <a href="fiche-bloc_de_code_qui_lance_une_commande_de_type_action.md#bloc_de_code_qui_lance_une_commande_de_type_action">allumer un voyant lumineux</a> (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
+* [apical\_lien\_interne][scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal,enregistrer dans un fichier journal][/apical\_lien\_interne] l'ensemble des températures de la veille;
+* [apical\_lien\_interne][scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord,afficher dans le tableau de bord][/apical\_lien\_interne] la plus grande et la plus petite température enregistrée la veille;
+* [apical\_lien\_interne][bloc\_de\_code\_qui\_lance\_une\_commande\_de\_type\_action,allumer un voyant lumineux][/apical\_lien\_interne] (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
 
 Dans ce premier exemple, le scénario ajoute une entrée dans le fichier journal du scénario pour chaque information retrouvée dans la BD.
 
@@ -65,8 +61,8 @@ $sql = "SELECT ...";
  
 
 try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);  
-    //$scenario->setLog(print_r($resultat, true));   // pour voir les données brutes dans cette variable
+    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
+    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
 
  
 
@@ -88,8 +84,8 @@ $sql = "SELECT COUNT(\*) AS alias ...";
  
 
 try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);  
-    //$scenario->setLog(print_r($resultat, true));   // pour voir les données brutes dans cette variable
+    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
+    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
 
  
 

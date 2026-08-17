@@ -1,6 +1,5 @@
 # 57. Examen 1
 
-<a id="fiche-consignes_pour_l_examen_008"></a>
 ## 57.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
 
 Vous est-il déjà arrivé de vivre une coupure d'Internet pendant un examen ou de constater que le serveur qui héberge les notes de cours avait un problème technique?
@@ -15,7 +14,6 @@ La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout
 
 * Imprimez la page au format PDF.
 * Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
-<a id="fiche-grille_de_correction_007"></a>
 
 ## 57.2 Consignes pour l'examen
 
@@ -30,7 +28,6 @@ Cet examen est basé sur le travail que vous avez fait en classe depuis le débu
 * Vous n’avez pas droit aux outils de communication comme les textos, le chat, le courriel, les blogues, les forums, les dépôts de fichiers (ex : GitHub, Google Drive) ou tout autre outil permettant de communiquer avec d’autres personnes participant ou non à cet examen. Vous n'avez pas droit aux générateurs de code ni à l'IA. Vous pouvez consulter des sites Web, à condition qu'ils n'aient pas été modifiés en fonction de l'examen, mais vous ne pouvez pas y ajouter ou modifier des questions, commentaires ou autres informations.
 * Toute tentative d’utiliser un outil de communication ou autre matériel proscrit constitue un plagiat.
 
-<a id="chapitre-semaine_7_005"></a>
 Bonne chance !
 
 ## 57.3 Grille de correction

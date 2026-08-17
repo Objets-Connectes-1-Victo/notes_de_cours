@@ -1,5 +1,4 @@
-<a id="fiche-configurer_le_reseau_a_l_aide_de_dhcpcd"></a>
-# 120. Configurations réseau avec dhcpcd (wpa_supplicant)
+# 120. Configurations réseau avec dhcpcd (wpa\_supplicant)
 
 ## 120.1 Configurer le réseau à l'aide de dhcpcd
 
@@ -15,8 +14,7 @@ Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire 
 
 Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
 
-Pour configurer le réseau avec NetworkManager, référez-vous à la fiche <a href="fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi.md#configurer_le_reseau_wi-fi_sur_le_raspberry_pi">sur NetworkManager</a>.
-<a id="surcartedhcpcd"></a>
+Pour configurer le réseau avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,sur NetworkManager][/apical\_lien\_interne].
 
 ## Configurer le réseau à l'aide de dhcpcd
 
@@ -24,29 +22,29 @@ Si le système d'exploitation du Raspberry Pi utilise dhcpcd, voici les instruct
 
 Après le démarrage du Raspberry Pi, accédez au Terminal à l'aide d'un écran ou via SSH.
 
-Vous trouverez le fichier wpa_supplicant.conf dans le dossier /etc/wpa_supplicant.
+Vous trouverez le fichier wpa\_supplicant.conf dans le dossier /etc/wpa\_supplicant.
 
 Avant de poursuivre, prenez une copie de sécurité du fichier. De cette façon, vous pourrez remettre les configurations originales en place en cas de problème.
 
 Terminal
 
-sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant_backup.conf
+sudo cp /etc/wpa\_supplicant/wpa\_supplicant.conf /etc/wpa\_supplicant/wpa\_supplicant\_backup.conf
 
-Pour éditer le fichier wpa_supplicant.conf, entrez la commande :
+Pour éditer le fichier wpa\_supplicant.conf, entrez la commande :
 
 Terminal
 
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder.
 
 Si vous n'êtes pas au Canada, changez CA pour le [code à 2 lettres de votre pays](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 country=CA  
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-update_config=1  
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1  
   
 network={  
     ssid="NOM-DU-RESEAU"  
@@ -55,18 +53,18 @@ network={
 
 ou, pour pemettre de se brancher à un réseau non sécurisé (sans mot de passe) :
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 ...  
   
 network={  
     ssid="NOM-DU-RESEAU"  
-    key_mgmt=NONE  
+    key\_mgmt=NONE  
 }
 
 Il est possible de configurer plusieurs réseaux si tel est votre besoin. Simplement ajouter une autre section network. Le système se branchera au réseau le plus puissant à moins que vous ajoutiez une priorité à l'aide de priority=1, priority=2, etc., le plus gros chiffre ayant la plus haute priorité.
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 ...  
   
@@ -84,7 +82,7 @@ Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est 
 
 Il est possible de configurer le réseau sans fil directement sur la carte micro SD. Cette méthode permet une configuration headless, c'est-à-dire que vous n'avez pas besoin de brancher écran et clavier sur le Pi. Vous n'avez pas non plus besoin de vous brancher au Pi via SSH.
 
-Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot (ou bootfs, selon votre système).
+Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot (ou bootfs, selon votre système).
 
 Sous Windows, utilisez l'utilitaire de texte de votre choix.
 
@@ -93,19 +91,19 @@ Sous Mac ou Linux, utilisez ces commandes :
 Terminal
 
 cd /Volumes/boot  
-sudo nano wpa_supplicant.conf
+sudo nano wpa\_supplicant.conf
 
-Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa_supplicant la première fois que le Pi sera démarré.
+Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa\_supplicant la première fois que le Pi sera démarré.
 
 Entrez les configurations requises dans ce fichier, [comme expliqué plus haut](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dhcpcd).
 
 ## Pour plus d'information
 
-« wpa_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
+« wpa\_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
 
-## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa_supplicant.conf
+## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
 
-Il est possible de définir plusieurs réseaux dans le fichier wpa_supplicant.conf.
+Il est possible de définir plusieurs réseaux dans le fichier wpa\_supplicant.conf.
 
 Ceci est pratique par exemple si vous devez travailler avec le Raspberry Pi à différents endroits, par exemple au travail et à la maison.
 
@@ -113,7 +111,7 @@ C'est également intéressant si un même espace de travail offre plusieurs rés
 
 Le Pi se connectera généralement au réseau qui offre le meilleur signal.
 
-Il est possible de connecter le Pi à l'un ou à l'autre de ces réseaux sans avoir à modifier le fichier wpa_supplicant.conf ni à redémarrer le Pi.
+Il est possible de connecter le Pi à l'un ou à l'autre de ces réseaux sans avoir à modifier le fichier wpa\_supplicant.conf ni à redémarrer le Pi.
 
 ## Définir plusieurs réseaux
 
@@ -121,15 +119,15 @@ Pour définir les réseaux, lancez cette commande :
 
 Terminal
 
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
 
 Vous pourrez définir dans ce fichier autant de réseaux que désiré :
 
-Fichier wpa_supplicant.conf
+Fichier wpa\_supplicant.conf
 
 country=CA  
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
-update_config=1  
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1  
   
 network={  
     ssid="NOM-DU-RESEAU"  
@@ -145,7 +143,7 @@ network={
   
 network={  
     ssid="UN-RESEAU-NON-SECURISE"  
-    key_mgmt=NONE  
+    key\_mgmt=NONE  
 }
 
 ## Lister les réseaux configurés
@@ -154,11 +152,11 @@ Pour vous connecter à un réseau donné, vous aurez besoin de la liste des rés
 
 Terminal
 
-wpa_cli list_networks
+wpa\_cli list\_networks
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ wpa_cli list_networks  
+pi@raspberrypi:~ $ wpa\_cli list\_networks  
 Selected interface 'p2p-dev-wlan0'  
 network id / ssid / bssid / flags  
 0      NOM-DU-RESEAU any  
@@ -171,7 +169,7 @@ Vous devez utilisler l'identifiant du réseau afin de le sélectionner.
 
 Terminal
 
-wpa_cli -i wlan0 select_network 1
+wpa\_cli -i wlan0 select\_network 1
 
 Le système répondra simplement OK.
 
@@ -209,7 +207,7 @@ wlan0   IEEE 802.11 ESSID:"UN-AUTRE-RESEAU"
 
 Notez que la connexion au réseau pourrait prendre un peu de temps. Si vous obtenez ESSID:off/any au lieu du nom du réseau, réessayez dans quelques instants, tout pourrait rentrer dans l'ordre.
 
-Si vous n'arrivez pas à vous connecter à ce réseau, c'est peut-être parce que le nom du réseau ou le mot de passe ne sont pas bien entrés dans wpa_supplilcant.conf ou encore que le réseau n'est pas disponible pour le moment.
+Si vous n'arrivez pas à vous connecter à ce réseau, c'est peut-être parce que le nom du réseau ou le mot de passe ne sont pas bien entrés dans wpa\_supplilcant.conf ou encore que le réseau n'est pas disponible pour le moment.
 
 ### Adresse IP
 
@@ -246,7 +244,6 @@ DHCPREQUEST for 192.168.1.6 on wlan0 to 255.255.255.255 port 67
 DHCPACK of 192.168.1.6 from 192.168.1.1  
 Too few arguments.  
 Too few arguments.  
-<a id="surlepiavant2023"></a>
 bound to 192.168.1.6 -- renewal in 1880 seconds.
 
 ## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd
@@ -263,8 +260,7 @@ Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire 
 
 Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
 
-Pour configurer une adresse IP statique avec NetworkManager, référez-vous à la fiche <a href="fiche-donner_une_adresse_ip_statique_au_raspberry_pi.md#donner_une_adresse_ip_statique_au_raspberry_pi">sur NetworkManager</a>.
-<a id="autrereseauavant2023"></a>
+Pour configurer une adresse IP statique avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,sur NetworkManager,surlepi][/apical\_lien\_interne].
 
 Sinon, les configurations avec dhcpcd sont expliquées ici. Continuez votre lecture!
 
@@ -279,7 +275,7 @@ Pour configurer l'adresse IP statique du Pi avec dhcpcd :
   sudo nano /etc/dhcpcd.conf
 * Le fichier donne un exemple de configuration dans la section Example static IP configuration. Il vous suffit d'enlever les # devant les lignes puis d'entrer les valeurs désirées.
   + interface : eth0 pour le réseau câblé, wlan0 pour le sans fil
-  + static ip_address : l'adresse statique désirée. Cette adresse peut être n'importe quoi dans la plage 192.168.1.2 à 192.168.1.254 (la plage disponible peut être différente selon les configurations de votre réseau).
+  + static ip\_address : l'adresse statique désirée. Cette adresse peut être n'importe quoi dans la plage 192.168.1.2 à 192.168.1.254 (la plage disponible peut être différente selon les configurations de votre réseau).
 
     Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
 
@@ -287,9 +283,9 @@ Pour configurer l'adresse IP statique du Pi avec dhcpcd :
 
     On ajoutera /24 à la fin pour indiquer que les 3 premiers octets sont le masque de sous-réseau.
   + static routers : adresse IP locale du routeur. Si vous avez utilisé le masque /24, il s'agit des 3 premiers nombres de l'adresse IP avec un 1 comme dernier nombre (ex : 192.168.1.1)
-  + static domain_name_servers : entrez l'adresse IP du ou des serveurs de noms de domaine (en anglais : nameserver, DNS) de votre réseau suivie de 8.8.8.8 (serveur DNS de Google). Les différentes adresses doivent être séparées par un espace.
+  + static domain\_name\_servers : entrez l'adresse IP du ou des serveurs de noms de domaine (en anglais : nameserver, DNS) de votre réseau suivie de 8.8.8.8 (serveur DNS de Google). Les différentes adresses doivent être séparées par un espace.
 
-    Pour connaître les serveurs de noms de domaine utilisés par votre ordinateur, <a href="fiche-donner_une_adresse_ip_statique_au_raspberry_pi.md#donner_une_adresse_ip_statique_au_raspberry_pi">suivez ce lien</a>.
+    Pour connaître les serveurs de noms de domaine utilisés par votre ordinateur, [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,suivez ce lien,dns][/apical\_lien\_interne].
 
     Fichier resolv.conf
 
@@ -298,9 +294,9 @@ Pour configurer l'adresse IP statique du Pi avec dhcpcd :
      
 
     interface wlan0  
-    static ip_address=192.168.1.145/24  
+    static ip\_address=192.168.1.145/24  
     static routers=192.168.1.1  
-    static domain_name_servers=999.999.999.999 8.8.8.8
+    static domain\_name\_servers=999.999.999.999 8.8.8.8
 
 Pour enregistrer les modifications au fichier dhcpcd.conf, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais) pour enregistrer les modifications.
 
@@ -326,18 +322,17 @@ interface wlan0
   
 # Configurations pour le réseau nommé ecole  
 ssid ecole  
-static ip_address=192.168.1.145/24  
+static ip\_address=192.168.1.145/24  
 static routers=192.168.1.1  
-static domain_name_servers=999.999.999.999 8.8.8.8
+static domain\_name\_servers=999.999.999.999 8.8.8.8
 
  
 
 # Configurations pour le réseau nommé maison  
 ssid maison  
-<a id="dhcpavant2023"></a>
-static ip_address=10.0.0.28/24  
+static ip\_address=10.0.0.28/24  
 static routers=10.0.0.1  
-static domain_name_servers=999.999.999.999 8.8.8.8
+static domain\_name\_servers=999.999.999.999 8.8.8.8
 
 ### Configuration selon l'adresse du routeur
 
@@ -353,18 +348,18 @@ arping 10.0.0.1
   
 # Configurations si l'adresse 192.168.1.1 a été rejointe par arping  
 profile 192.168.1.1  
-static ip_address=192.168.1.145/24  
+static ip\_address=192.168.1.145/24  
 static routers=192.168.1.1  
-static domain_name_servers=999.999.999.999 8.8.8.8  
+static domain\_name\_servers=999.999.999.999 8.8.8.8  
   
 # Configurations si l'adresse 10.0.0.1 a été rejointe par arping  
 profile 10.0.0.1  
-static ip_address=10.0.0.28/24  
+static ip\_address=10.0.0.28/24  
 static routers=10.0.0.1  
-static domain_name_servers=999.999.999.999 8.8.8.8
+static domain\_name\_servers=999.999.999.999 8.8.8.8
 
 ## Revenir à une adresse IP fournie par DHCP
 
 Remarquez que pour revenir à une adresse IP fournie par le serveur DHCP, il suffit de remettre ces lignes en commentaire en ajoutant le symbole # au début de chaque ligne.
 
-Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez <a href="fiche-trouver_l_adresse_ip_du_raspberry_pi.md#trouver_l_adresse_ip_du_raspberry_pi">vérifier l'adresse IP</a> en branchant un écran sur le Pi.
+Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,vérifier l'adresse IP][/apical\_lien\_interne] en branchant un écran sur le Pi.

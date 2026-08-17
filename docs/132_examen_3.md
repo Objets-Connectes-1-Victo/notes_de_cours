@@ -1,6 +1,4 @@
-<a id="fiche-Pour_vous_assurer_d_avoir_en_main_tout_ce_qu_il_vo"></a>
 # 116. Examen 3
-<a id="fiche-consignes_pour_l_examen_010"></a>
 
 ## 116.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
 
@@ -15,7 +13,6 @@ Dans la liste des formations, cliquez sur l'icône qui permet d'afficher toute l
 La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout de même deux options pour conserver les notes de cours :
 
 * Imprimez la page au format PDF.
-<a id="fiche-grille_de_correction_006"></a>
 * Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
 
 ## 116.2 Consignes pour l'examen
@@ -30,7 +27,6 @@ Cet examen est basé sur le travail que vous avez fait en classe. Il consiste à
 * Dans tout le code que vous écrirez, vous devez respecter les techniques, les pratiques et les normes enseignées. Plusieurs sont implicites, par exemple ajouter suffisamment de commentaires, ne pas effectuer de code inutile, etc.
 * Vous n’avez pas droit aux outils de communication comme les textos, le chat, le courriel, les blogues, les forums, les dépôts de fichiers (ex : GitHub, Google Drive) ou tout autre outil permettant de communiquer avec d’autres personnes participant ou non à cet examen. Vous n'avez pas droit aux générateurs de code ni à l'IA. Vous pouvez consulter des sites Web, à condition qu'ils n'aient pas été modifiés en fonction de l'examen, mais vous ne pouvez pas y ajouter ou modifier des questions, commentaires ou autres informations.
 * Toute tentative d’utiliser un outil de communication ou autre matériel proscrit, ou de ne pas citer vos sources pour du code trouvé sur le Web, constitue un plagiat.
-<a id="chapitre-chapitres_supplementaires"></a>
 
 Bonne chance !
 
