@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Qu est-ce qu un objet connecte {#qu_est-ce_qu_un_objet_connecte}
+## qu est-ce qu un objet connecte {#qu_est-ce_qu_un_objet_connecte}
 
 Un objet connecté, parfois appelé appareil connecté ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajouté des composantes qui lui permettent d'envoyer ou de recevoir des données au serveur auquel il est connecté.
 
@@ -17,17 +17,17 @@ Les objects connectés font partie d'une grande famille qu'on appelle Internet d
 
 ![Apple Watch](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/AppleWatch.png) ![Prise intelligente Wi-Fi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseIntelligenteWiFi.png) ![Penne dormant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PenneDormantIntelligent.png)
 
-## Qu est-ce qu un systeme domotique {#qu_est-ce_qu_un_systeme_domotique}
+## qu est-ce qu un systeme domotique {#qu_est-ce_qu_un_systeme_domotique}
 
 Un système domotique, c’est différent d’une série d’objets connectés. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
 
 ![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
-## Systeme domotique cle en main vs diy {#systeme_domotique_cle_en_main_vs_diy}
+## systeme domotique cle en main vs diy {#systeme_domotique_cle_en_main_vs_diy}
 
 Lorsque les données sont transmises dans l'infonuagique, attention aux <a href="fiche-systeme_domotique_cle_en_main_vs_diy.md#systeme_domotique_cle_en_main_vs_diy">trous de sécurité</a>.
 
-## Un raspberry pi comme unite centrale {#un_raspberry_pi_comme_unite_centrale}
+## un raspberry pi comme unite centrale {#un_raspberry_pi_comme_unite_centrale}
 
 Vous aurez besoin de :
 
@@ -40,7 +40,7 @@ Vous aurez besoin de :
 
 ![Mon boîtier Raspberry Pi en Lego](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/BoitierRaspberryPiLegos-1.png)
 
-## Bien traiter son raspberry pi {#bien_traiter_son_raspberry_pi}
+## bien traiter son raspberry pi {#bien_traiter_son_raspberry_pi}
 
 Protéger le Pi avec un boîtier.
 
@@ -68,7 +68,7 @@ Arrêter le Pi de la bonne façon.
 
 ![Éteindre Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EteindreDeFaconSecurisee.png)
 
-## Quelques logiciels de domotique interessants {#quelques_logiciels_de_domotique_interessants}
+## quelques logiciels de domotique interessants {#quelques_logiciels_de_domotique_interessants}
 
 Jeedom
 
@@ -78,7 +78,7 @@ Home Assistant
 
 ![Installation Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/InstallationHomeAssistant.png)
 
-## Ifttt {#ifttt}
+## ifttt {#ifttt}
 
 IFTTT signifie IF This, Then That.
 
@@ -88,7 +88,7 @@ Il peut être utililisé par-dessus une boîte domotique via une extension ou en
 
 IFTTT fonctionne avec le principe d'un déclencheur (trigger), le this et d'une action, le that. Par exemple, le déclencheur pourrait être l'envoi d'un courriel dont le titre est « J'ai froid » et l'action serait de démarrer le chauffage.
 
-## Installation de jeedom et premier acces {#installation_de_jeedom_et_premier_acces}
+## installation de jeedom et premier acces {#installation_de_jeedom_et_premier_acces}
 
 Suivez bien les étapes!
 
@@ -127,7 +127,7 @@ Je vous les résume ici.
   sudo reboot
 * Accéder à Jeedom à partir de l'ordinateur en entrant l'adreses IP dans un navigateur. L'ordinateur doit être connecté au réseau Domotique-Pedago si le Pi est configuré pour communiquer en Wi-Fi ou sur CEGEPVICTO si le Pi est câblé vers le commutateur dédié.
 
-## Copie de securite de jeedom {#copie_de_securite_de_jeedom}
+## copie de securite de jeedom {#copie_de_securite_de_jeedom}
 
 La sauvegarde permet de remettre rapidement Jeedom en état de marche si un problème survenait.
 

@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Telecharger des plugins sur le market {#telecharger_des_plugins_sur_le_market}
+## telecharger des plugins sur le market {#telecharger_des_plugins_sur_le_market}
 
 Trois étapes pour les plugins :
 
@@ -17,7 +17,7 @@ Trois étapes pour les plugins :
 * Activer le plugin.
 * Parfois, il faut créer un nouvel équipement, par exemple Météo Victoriaville.
 
-## Le centre de messages de jeedom {#le_centre_de_messages_de_jeedom}
+## le centre de messages de jeedom {#le_centre_de_messages_de_jeedom}
 
 Carré orange : message
 
@@ -27,7 +27,7 @@ Cliquer sur le carré pour plus d'informations.
 
 ![Notifications](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Notifications.png)
 
-## Travailler avec le plugin virtuel {#travailler_avec_le_plugin_virtuel}
+## travailler avec le plugin virtuel {#travailler_avec_le_plugin_virtuel}
 
 Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pour tester des scénarios.
 
@@ -35,17 +35,17 @@ Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pou
 <a id="fiche-configurer_l_historique_des_commandes"></a>
 <a id="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom"></a>
 
-## Creer un scenario provoque {#creer_un_scenario_provoque}
+## creer un scenario provoque {#creer_un_scenario_provoque}
 
  Les scénarios permettent d'automatiser des comportements, par exemple ouvrir la lumière de la cuisine quand la porte s'ouvre.
 
 Un scénario provoqué survient lorsqu'une action survient. Dans cet exemple, c'est lorsque la porte s'ouvre.
 
-## Creer un scenario programme {#creer_un_scenario_programme}
+## creer un scenario programme {#creer_un_scenario_programme}
 
 Un scénario programmé survient à un moment donné, par exemple le 29 août 2025 à 10h00, à tous les samedis à 9h00, etc.
 
-## Envoyer un courriel avec jeedom {#envoyer_un_courriel_avec_jeedom}
+## envoyer un courriel avec jeedom {#envoyer_un_courriel_avec_jeedom}
 
 Il est possible qu'un scénario envoie un courriel.
 <a id="fiche-supprimer_les_boites_jeedom_inutiles_dans_market"></a>

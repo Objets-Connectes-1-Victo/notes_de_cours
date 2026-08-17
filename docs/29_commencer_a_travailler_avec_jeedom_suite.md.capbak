@@ -9,17 +9,17 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Le dashboard jeedom {#le_dashboard_jeedom}
+## le dashboard jeedom {#le_dashboard_jeedom}
 
 Le dashboard permet de voir en un seul endroit l'état de nos objets connectés et la possibilité de leur envoyer un ordre.
 
 ![Dashboard](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard.png)
 
-## Ajouter un appareil connecte z-wave a jeedom {#ajouter_un_appareil_connecte_z-wave_a_jeedom}
+## ajouter un appareil connecte z-wave a jeedom {#ajouter_un_appareil_connecte_z-wave_a_jeedom}
 
 Bien suivre ces étapes!
 
-## Configurer une tuile {#configurer_une_tuile}
+## configurer une tuile {#configurer_une_tuile}
 
 Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « <a href="fiche-le_noeud_n_a_pas_encore_de_commande.md#le_noeud_n_a_pas_encore_de_commande">le_noeud_n_a_pas_encore_de_commande</a> ».
 
@@ -27,7 +27,7 @@ Vous pouvez, pour chaque tuile, déterminer ce qui doit être affiché et commen
 
 N'hésitez pas à explorer!
 
-## Travailler avec la meteo sous jeedom {#travailler_avec_la_meteo_sous_jeedom}
+## travailler avec la meteo sous jeedom {#travailler_avec_la_meteo_sous_jeedom}
 
 Bien suivre ces étapes!
 

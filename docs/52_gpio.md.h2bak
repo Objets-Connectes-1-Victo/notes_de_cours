@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Qu est-ce que le gpio {#qu_est-ce_que_le_gpio}
+## <a href="fiche-qu_est-ce_que_le_gpio.md#qu_est-ce_que_le_gpio">qu_est-ce_que_le_gpio</a>
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -19,7 +19,7 @@ Il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC c
 
 ![Schéma officicel GPIO Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png)
 
-## Brancher une del au raspberry pi {#brancher_une_del_au_raspberry_pi}
+## <a href="fiche-brancher_une_del_au_raspberry_pi.md#brancher_une_del_au_raspberry_pi">brancher_une_del_au_raspberry_pi</a>
 
 La planche de maquettage :
 
@@ -50,7 +50,7 @@ Important ! Sens de la DEL :
 
 ![Photo du montage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png)
 
-## La base des scripts avec rpi gpio {#la_base_des_scripts_avec_rpi_gpio}
+## <a href="fiche-la_base_des_scripts_avec_rpi_gpio.md#la_base_des_scripts_avec_rpi_gpio">la_base_des_scripts_avec_rpi_gpio</a>
 
 Il y a un <a href="fiche-Qu_est-ce_que_Python.md#Qu_est-ce_que_Python">chapitre de référence sur Python</a> au début de la formation.
 
@@ -105,7 +105,7 @@ Terminal
 
 python3 monscript.py
 
-## Lancer un script python avec le plugin script {#lancer_un_script_python_avec_le_plugin_script}
+## <a href="fiche-lancer_un_script_python_avec_le_plugin_script.md#lancer_un_script_python_avec_le_plugin_script">lancer_un_script_python_avec_le_plugin_script</a>
 
 Voir détails sur la fiche.
 <a id="schema"></a>

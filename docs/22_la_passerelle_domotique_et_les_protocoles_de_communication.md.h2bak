@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Adresse IP statique {#donner_une_adresse_ip_statique_au_raspberry_pi}
+## <a href="fiche-donner_une_adresse_ip_statique_au_raspberry_pi.md#donner_une_adresse_ip_statique_au_raspberry_pi">Adresse IP statique</a>
 
 Terminal
 
@@ -17,19 +17,19 @@ sudo nmtui
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
-## Le protocole z-wave {#le_protocole_z-wave}
+## <a href="fiche-le_protocole_z-wave.md#le_protocole_z-wave">le_protocole_z-wave</a>
 
 Z-Wave est un protocole de communication sans fil destiné principalement à la domotique.
 
 Portée théorique de 100 à 200 mètres selon la génération.
 
-## Le protocole zigbee {#le_protocole_zigbee}
+## <a href="fiche-le_protocole_zigbee.md#le_protocole_zigbee">le_protocole_zigbee</a>
 
 Le protocole ZigBee a été développé pour les milieux industriels afin de faciliter la transmission de données en milieu difficile.
 
 Moins grande portée que Z-Wave : 10 à 100 mètres.
 
-## Precautions avant l achat d un objet connecte {#precautions_avant_l_achat_d_un_objet_connecte}
+## <a href="fiche-precautions_avant_l_achat_d_un_objet_connecte.md#precautions_avant_l_achat_d_un_objet_connecte">precautions_avant_l_achat_d_un_objet_connecte</a>
 
 Vérifier :
 
@@ -37,7 +37,7 @@ Vérifier :
 * Fréquence
 * Compatibilité avec la boîte domotique
 
-## Objets pour representer la maison {#objets_pour_representer_la_maison}
+## <a href="fiche-objets_pour_representer_la_maison.md#objets_pour_representer_la_maison">objets_pour_representer_la_maison</a>
 
 Dans Jeedom, la notion d'objet permet de regrouper les appareils connectés.
 
@@ -57,7 +57,7 @@ Si vous avez des objets à l'exterieur de la maison, une autre configuration pou
 * Ensuite, un objet Maison et un objet Dehors qui ont Tout comme parent
 * Et ensuite, les objets sont organisés par étages et/ou par pièces.
 
-## Configurer la cle usb z-wave sur jeedom {#configurer_la_cle_usb_z-wave_sur_jeedom}
+## <a href="fiche-configurer_la_cle_usb_z-wave_sur_jeedom.md#configurer_la_cle_usb_z-wave_sur_jeedom">configurer_la_cle_usb_z-wave_sur_jeedom</a>
 
 Bien suivre ces étapes!
 

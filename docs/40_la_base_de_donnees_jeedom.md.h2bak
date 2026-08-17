@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Retrouver le mot de passe de la base de donnees jeedom {#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom}
+## <a href="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom.md#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom">retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom</a>
 
 Rendez-vous dans le menu Réglages / Système / Configuration / >_ OS/DB.
 
@@ -17,7 +17,7 @@ Tel qu'indiqué au bas de l'écran, le code d'usager MySQL est jeedom. Le mot d
 
 ![Mot de passe de la BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MotDePasseBD.png)
 
-## Contenu de la base de donnees de jeedom {#contenu_de_la_base_de_donnees_de_jeedom}
+## <a href="fiche-contenu_de_la_base_de_donnees_de_jeedom.md#contenu_de_la_base_de_donnees_de_jeedom">contenu_de_la_base_de_donnees_de_jeedom</a>
 
 Jeedom utilise une BD MySQL que vous pouvez manipuler dans dans la console MySQL.
 
@@ -82,7 +82,7 @@ Il est également possible de consulter la base de données directement dans Jee
 
   ![Administration BD dans Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ContenuTableWidgets.png)
 
-## Consulter les fichiers journaux {#consulter_les_fichiers_journaux}
+## <a href="fiche-consulter_les_fichiers_journaux.md#consulter_les_fichiers_journaux">consulter_les_fichiers_journaux</a>
 
 Rendez-vous dans le menu Analyse / Logs.
 
@@ -98,7 +98,7 @@ Rendez-vous dans le menu Analyse / Logs.
 
   ![Log temps réel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogTempsReel.png)
 
-## Scenario qui ajoute une entree dans le fichier journal {#scenario_qui_ajoute_une_entree_dans_le_fichier_journal}
+## <a href="fiche-scenario_qui_ajoute_une_entree_dans_le_fichier_journal.md#scenario_qui_ajoute_une_entree_dans_le_fichier_journal">scenario_qui_ajoute_une_entree_dans_le_fichier_journal</a>
 
 Très pratique pour faire un suivi de ce qui se passe ou pour déboguer un scénario.
 
@@ -106,7 +106,7 @@ Trois techniques différentes sont illustrées dans cet exemple.
 
 ![Scénario qui écrit dans un log](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioEcritureLog.png)
 
-## Scenario qui inscrit dans un fichier journal une valeur retrouvee automa {#scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___}
+## <a href="fiche-scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___.md#scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___">scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___</a>
 
 Inscrire la valeur d'un capteur :
 
