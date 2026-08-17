@@ -13,7 +13,7 @@ Jeedom peut être installé gratuitement sur un Raspberry Pi en version DIY. Il 
 
 Dans la version DIY, en plus des modules existants, vous pouvez programmer vos propres modules Jeedom en PHP : <https://www.jeedom.com/site/fr/dev.html>.
 
-Jeedom vous intéresse? Commencez ici : <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">installation\_de\_jeedom\_et\_premier\_acces</a>.
+Jeedom vous intéresse? Commencez ici : <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">installation_de_jeedom_et_premier_acces</a>.
 
 ## Home Assistant
 
@@ -21,7 +21,7 @@ Home Assistant est un excellent logiciel domotique à code source ouvert qui peu
 
 Il peut tourner par-dessus le système d'exploitation de votre choix (on parlera alors de [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer)), par-desssus Raspberry Pi OS (on parlera de [Home Assistant Core](https://www.home-assistant.io/docs/installation/raspberry-pi/)) ou, selon la technique recommandée, par-dessus le système d'exploitation Home Assistant Operating System, aussi appelé HassOS ou Hass.io. Ce système d'exploitation est basé sur resinOS.
 
-Pour vous lancer avec Home Assistant, suivez le guide : <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">installation\_de\_home\_assistant\_et\_premier\_acces</a>.
+Pour vous lancer avec Home Assistant, suivez le guide : <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">installation_de_home_assistant_et_premier_acces</a>.
 <a id="fiche-ifttt"></a>
 
 ## Autres logiciels
@@ -50,7 +50,7 @@ IFTTT fonctionne avec le principe d'un déclencheur (trigger), le this et d'une 
 
 ## IFTTT vs boîte domotique
 
-Dans la plupart des boîtes domotiques, par exemple <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">Jeedom</a> ou <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">Home Assistant</a>, le système de scénarios, parfois appelés automatisation, est plus puissant que IFTTT.
+Dans la plupart des boîtes domotiques, par exemple <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">Jeedom</a> ou <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">Home Assistant</a>, le système de scénarios, parfois appelés automatisation, est plus puissant que IFTTT.
 
 Cependant, IFTTT n'est pas sans intérêt puisqu'il peut être utililisé par-dessus une boîte domotique via une extension ou encore de façon autonome, appuyé par une application du genre de [Smart Life](https://ifttt.com/smartlife).
 

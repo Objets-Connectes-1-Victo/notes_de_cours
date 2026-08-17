@@ -1,0 +1,230 @@
+site_name: "Notes de cours - Objets connectés 1 (420-3A4-VI)"
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Passer au mode sombre
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Passer au mode clair
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji
+
+plugins:
+  - search
+
+nav:
+  - Accueil: index.md
+  - Divers:
+    - "1. Déroulement du cours": "01_deroulement_du_cours.md"
+    - "2. Où trouver de l'aide": "02_ou_trouver_de_laide.md"
+    - "────────── Chapitres de référence ──────────": "03__chapitres_de_reference_.md"
+    - "3. Linux": "04_linux.md"
+    - "4. Raspberry Pi": "05_raspberry_pi.md"
+    - "5. Dépannage sur le Raspberry Pi (troubleshooting)": "06_depannage_sur_le_raspberry_pi_troubleshooting.md"
+    - "6. Python": "07_python.md"
+    - "7. Dépannage Python (troubleshooting)": "08_depannage_python_troubleshooting.md"
+    - "8. Les scripts bash": "09_les_scripts_bash.md"
+  - "────────── Semaine 1 ──────────":
+    - "────────── Semaine 1 ──────────": "10__semaine_1_.md"
+    - "9. Situation du cours dans le programme d'études": "11_situation_du_cours_dans_le_programme_detudes.md"
+    - "10. Utilisation de l'intelligence artificielle pendant le cours": "12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md"
+    - "11. Quelques trucs pour vous aider dans ce cours": "13_quelques_trucs_pour_vous_aider_dans_ce_cours.md"
+    - "12. La domotique": "14_la_domotique.md"
+    - "13. L'unité centrale du système domotique (Raspberry Pi)": "15_lunite_centrale_du_systeme_domotique_raspberry_pi.md"
+    - "14. Le logiciel de domotique": "16_le_logiciel_de_domotique.md"
+    - "15. Jeedom au coeur de votre système domotique": "17_jeedom_au_coeur_de_votre_systeme_domotique.md"
+    - "16. Pour vous assurer de ne rien perdre en cas de problème": "18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md"
+    - "17. Dépannage Jeedom (troubleshooting)": "19_depannage_jeedom_troubleshooting.md"
+    - "18. Exercice 1": "20_exercice_1.md"
+    - "19. Pour le prochain cours": "21_pour_le_prochain_cours.md"
+    - "20. La passerelle domotique et les protocoles de communication": "22_la_passerelle_domotique_et_les_protocoles_de_communication.md"
+    - "21. Les appareils domotiques": "23_les_appareils_domotiques.md"
+    - "22. Commencer à travailler avec Jeedom": "24_commencer_a_travailler_avec_jeedom.md"
+    - "23. Autres aspects intéressants avec Jeedom": "25_autres_aspects_interessants_avec_jeedom.md"
+    - "24. Exercice 2": "26_exercice_2.md"
+    - "25. Pour le prochain cours": "27_pour_le_prochain_cours.md"
+  - "────────── Semaine 2 ──────────":
+    - "────────── Semaine 2 ──────────": "28__semaine_2_.md"
+    - "26. Commencer à travailler avec Jeedom (suite)": "29_commencer_a_travailler_avec_jeedom_suite.md"
+    - "27. Exercice 3": "30_exercice_3.md"
+    - "28. Pour le prochain cours": "31_pour_le_prochain_cours.md"
+    - "29. Jeedom Market": "32_jeedom_market.md"
+    - "30. Messages et mises à jour": "33_messages_et_mises_a_jour.md"
+    - "31. Les équipements virtuels dans Jeedom": "34_les_equipements_virtuels_dans_jeedom.md"
+    - "32. Les scénarios Jeedom": "35_les_scenarios_jeedom.md"
+    - "33. L'envoi de courriel dans Jeedom": "36_lenvoi_de_courriel_dans_jeedom.md"
+    - "34. Exercice 4": "37_exercice_4.md"
+    - "35. Pour le prochain cours (deux cours)": "38_pour_le_prochain_cours_deux_cours.md"
+  - "────────── Semaine 3 ──────────":
+    - "────────── Semaine 3 ──────────": "39__semaine_3_.md"
+    - "36. La base de données Jeedom": "40_la_base_de_donnees_jeedom.md"
+    - "37. Les fichiers journaux de Jeedom (log files)": "41_les_fichiers_journaux_de_jeedom_log_files.md"
+    - "38. Aller plus loin avec les scénarios": "42_aller_plus_loin_avec_les_scenarios.md"
+    - "39. Exercice 5": "43_exercice_5.md"
+    - "40. Pour le prochain cours": "44_pour_le_prochain_cours.md"
+  - "────────── Semaine 4 ──────────":
+    - "────────── Semaine 4 ──────────": "45__semaine_4_.md"
+    - "41. Historisation des données": "46_historisation_des_donnees.md"
+    - "42. Aller plus loin avec les scénarios (suite)": "47_aller_plus_loin_avec_les_scenarios_suite.md"
+    - "43. Exercice 6": "48_exercice_6.md"
+    - "44. Pour le prochain cours": "49_pour_le_prochain_cours.md"
+    - "45. Examen formatif formel": "50_examen_formatif_formel.md"
+  - "────────── Semaine 5 ──────────":
+    - "────────── Semaine 5 ──────────": "51__semaine_5_.md"
+    - "46. GPIO": "52_gpio.md"
+    - "47. Scripts Python pour envoyer et recevoir du signal sur le GPIO": "53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md"
+    - "48. Exercice 7": "54_exercice_7.md"
+    - "49. Pour le prochain cours": "55_pour_le_prochain_cours.md"
+    - "50. Contrôle GPIO avec Jeedom": "56_controle_gpio_avec_jeedom.md"
+    - "51. Dépannage sur le contrôle GPIO avec Jeedom": "57_depannage_sur_le_controle_gpio_avec_jeedom.md"
+    - "52. Exercice 8": "58_exercice_8.md"
+    - "53. Pour le prochain cours": "59_pour_le_prochain_cours.md"
+    - "54. Détecteur de présence sous Jeedom": "60_detecteur_de_presence_sous_jeedom.md"
+    - "55. Exercice 9": "61_exercice_9.md"
+    - "56. Pour le prochain cours": "62_pour_le_prochain_cours.md"
+  - "────────── Semaine 6 ──────────":
+    - "────────── Semaine 6 ──────────": "63__semaine_6_.md"
+    - "57. Examen 1": "64_examen_1.md"
+  - "────────── Semaine 7 ──────────":
+    - "────────── Semaine 7 ──────────": "65__semaine_7_.md"
+    - "58. Home Assistant au coeur de votre système domotique": "66_home_assistant_au_coeur_de_votre_systeme_domotique.md"
+    - "59. Chapitre de référence pour Home Assistant": "67_chapitre_de_reference_pour_home_assistant.md"
+    - "60. Dépannage Home Assistant (troubleshooting)": "68_depannage_home_assistant_troubleshooting.md"
+    - "61. Exercice 10": "69_exercice_10.md"
+    - "62. Pour le prochain cours": "70_pour_le_prochain_cours.md"
+    - "63. Commencer à travailler avec Home Assistant": "71_commencer_a_travailler_avec_home_assistant.md"
+    - "64. Sauvegarde de Home Assistant": "72_sauvegarde_de_home_assistant.md"
+    - "65. Exercice 11": "73_exercice_11.md"
+    - "66. Pour le prochain cours": "74_pour_le_prochain_cours.md"
+  - "67. Semaine de relâche!":
+    - "67. Semaine de relâche!": "75_semaine_de_relache.md"
+  - "────────── Semaine 8 ──────────":
+    - "────────── Semaine 8 ──────────": "76__semaine_8_.md"
+    - "68. Le fichier configuration.yaml": "77_le_fichier_configurationyaml.md"
+    - "69. Les icônes": "78_les_icones.md"
+    - "70. Les capteurs virtuels": "79_les_capteurs_virtuels.md"
+    - "71. Les tableaux de bord": "80_les_tableaux_de_bord.md"
+    - "72. Exercice 12": "81_exercice_12.md"
+    - "73. Pour le prochain cours": "82_pour_le_prochain_cours.md"
+    - "74. Les automatisations Home Assistant": "83_les_automatisations_home_assistant.md"
+    - "75. Le soleil et la météo sous Home Assistant": "84_le_soleil_et_la_meteo_sous_home_assistant.md"
+    - "76. Dépannage sur les automatisations (troubleshooting)": "85_depannage_sur_les_automatisations_troubleshooting.md"
+    - "77. Exercice 13": "86_exercice_13.md"
+    - "78. Pour le prochain cours": "87_pour_le_prochain_cours.md"
+  - "────────── Semaine 9 ──────────":
+    - "────────── Semaine 9 ──────────": "88__semaine_9_.md"
+    - "79. Les modèles Home Assistant": "89_les_modeles_home_assistant.md"
+    - "80. Exercice 14": "90_exercice_14.md"
+    - "81. Pour le prochain cours": "91_pour_le_prochain_cours.md"
+    - "82. Déboguer Home Assistant": "92_deboguer_home_assistant.md"
+    - "83. Automatisations qui tiennent compte de l'heure": "93_automatisations_qui_tiennent_compte_de_lheure.md"
+    - "84. Notification par courriel": "94_notification_par_courriel.md"
+    - "85. Dépannage sur l'envoi de courriel (troubleshooting)": "95_depannage_sur_lenvoi_de_courriel_troubleshooting.md"
+    - "86. Dépannage sur les positions GPS (troubleshooting)": "96_depannage_sur_les_positions_gps_troubleshooting.md"
+    - "87. Exercice 15": "97_exercice_15.md"
+    - "88. Pour le prochain cours": "98_pour_le_prochain_cours.md"
+    - "89. Détecteur de présence sous Home Assistant": "99_detecteur_de_presence_sous_home_assistant.md"
+    - "90. Exercice 16": "100_exercice_16.md"
+    - "91. Pour le prochain cours": "101_pour_le_prochain_cours.md"
+  - "────────── Semaine 10 ──────────":
+    - "────────── Semaine 10 ──────────": "102__semaine_10_.md"
+    - "92. SQLite": "103_sqlite.md"
+    - "93. La base de données Home Assistant": "104_la_base_de_donnees_home_assistant.md"
+    - "94. Historisation des données": "105_historisation_des_donnees.md"
+    - "95. Exercice 17 - OPTIONNEL": "106_exercice_17_optionnel.md"
+    - "96. Exercice 18": "107_exercice_18.md"
+    - "97. Pour le prochain cours (deux cours)": "108_pour_le_prochain_cours_deux_cours.md"
+  - "────────── Semaine 11 ──────────":
+    - "────────── Semaine 11 ──────────": "109__semaine_11_.md"
+    - "98. Exercice 19": "110_exercice_19.md"
+    - "99. Pour le prochain cours": "111_pour_le_prochain_cours.md"
+  - "────────── Semaine 12 ──────────":
+    - "────────── Semaine 12 ──────────": "112__semaine_12_.md"
+    - "100. Examen 2": "113_examen_2.md"
+    - "101. Exercice 20": "114_exercice_20.md"
+    - "102. Pour le prochain cours": "115_pour_le_prochain_cours.md"
+  - "────────── Semaine 13 ──────────":
+    - "────────── Semaine 13 ──────────": "116__semaine_13_.md"
+    - "103. Communication Home Assistant - Jeedom via l'API": "117_communication_home_assistant_jeedom_via_lapi.md"
+    - "104. Exercice 21": "118_exercice_21.md"
+    - "105. Exercice 22 - OPTIONNEL": "119_exercice_22_optionnel.md"
+    - "106. Pour le prochain cours": "120_pour_le_prochain_cours.md"
+    - "107. MQTT": "121_mqtt.md"
+    - "108. Exercice 23": "122_exercice_23.md"
+    - "109. Pour le prochain cours": "123_pour_le_prochain_cours.md"
+  - "────────── Semaine 14 ──────────":
+    - "────────── Semaine 14 ──────────": "124__semaine_14_.md"
+    - "110. Exercice 24": "125_exercice_24.md"
+    - "111. Pour le prochain cours": "126_pour_le_prochain_cours.md"
+    - "112. Format JSON dans un modèle": "127_format_json_dans_un_modele.md"
+    - "113. Exercice 25": "128_exercice_25.md"
+    - "114. Pour le prochain cours (deux cours)": "129_pour_le_prochain_cours_deux_cours.md"
+    - "115. Simulation d'examen": "130_simulation_dexamen.md"
+  - "────────── Semaine 15 ──────────":
+    - "────────── Semaine 15 ──────────": "131__semaine_15_.md"
+    - "116. Examen 3": "132_examen_3.md"
+    - "────────── Chapitres supplémentaires ──────────": "133__chapitres_supplementaires_.md"
+    - "117. Installer un store contrôlé à distance": "134_installer_un_store_controle_a_distance.md"
+    - "118. Les servomoteurs": "135_les_servomoteurs.md"
+    - "────────── Aller plus loin avec Linux et le Raspberry Pi ──────────": "136__aller_plus_loin_avec_linux_et_le_raspberry_pi_.md"
+    - "119. Divers Linux et Raspberry Pi": "137_divers_linux_et_raspberry_pi.md"
+    - "120. Configurations réseau avec dhcpcd (wpa\_supplicant)": "138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md"
+    - "121. Raspberry Pi comme simple serveur HTTP": "139_raspberry_pi_comme_simple_serveur_http.md"
+    - "────────── Aller plus loin avec Home Assistant ──────────": "140__aller_plus_loin_avec_home_assistant_.md"
+    - "122. Les scripts Python avec Home Assistant": "141_les_scripts_python_avec_home_assistant.md"
+    - "123. Appeler un script Python dans Home Assistant": "142_appeler_un_script_python_dans_home_assistant.md"
+    - "124. Les thèmes dans Home Assistant": "143_les_themes_dans_home_assistant.md"
+    - "125. Les watchdog Home Assistant": "144_les_watchdog_home_assistant.md"
+    - "────────── Aller plus loin avec Jeedom ──────────": "145__aller_plus_loin_avec_jeedom_.md"
+    - "126. IFTTT": "146_ifttt.md"
+    - "127. Interagir avec un objet connecté via son URL sous Jeedom": "147_interagir_avec_un_objet_connecte_via_son_url_sous_jeedom.md"
+    - "128. Personnalisation de l'interface Jeedom": "148_personnalisation_de_linterface_jeedom.md"
+    - "129. Les interactions Jeedom": "149_les_interactions_jeedom.md"
+    - "130. Développer son propre objet connecté pour Jeedom": "150_developper_son_propre_objet_connecte_pour_jeedom.md"
+    - "131. Plugin personnalisé pour Jeedom": "151_plugin_personnalise_pour_jeedom.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-btn-accept-all.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-btn-accept-some.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-btn-reject-all.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-analytics.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-marketing.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-necessary.md"
+    - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-preferences.md"
+    - "Notes de cours — Objets connectés 1 (420‑3A4‑VI)": "index.md"
+
+

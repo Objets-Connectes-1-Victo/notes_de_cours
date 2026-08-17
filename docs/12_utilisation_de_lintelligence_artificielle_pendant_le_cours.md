@@ -21,7 +21,7 @@ Dans cette fiche :
 
 Il est essentiel pour une technicienne ou un technicien en informatique de développer les processus mentaux qui lui permettent de comprendre du code, bien sûr, mais aussi d'en développer et d'en déboguer.
 
-Même plus : la technicienne ou le technicien doit être en mesure de juger de la <a href="fiche-les\_qualites\_d\_un\_bon\_programme\_php.md#les\_qualites\_d\_un\_bon\_programme\_php">qualité du code</a>. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
+Même plus : la technicienne ou le technicien doit être en mesure de juger de la <a href="fiche-les_qualites_d_un_bon_programme_php.md#les_qualites_d_un_bon_programme_php">qualité du code</a>. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
 
 Pourquoi ces exigences? Eh bien parce que si vous n'y répondez pas, vous serez limités par ce que les outils d'IA générative vous proposeront. Vous pourriez même être carrément remplacés par ces outils.
 

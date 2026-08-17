@@ -18,13 +18,13 @@ Pour permettre à Home Assistant d'utiliser l'intégration Python Scripts, il su
 
 Fichier configuration.yaml
 
-python\_script:
+python_script:
 
 ## Création du script Python
 
-Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">module complémentaire File Editor</a>.
+Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le <a href="fiche-travailler_avec_le_module_complementaire_file_editor.md#travailler_avec_le_module_complementaire_file_editor">module complémentaire File Editor</a>.
 
-Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python\_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
+Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
 
 ## Lancer le script Python
 
@@ -41,9 +41,9 @@ YAML
   trigger:  
   - ...  
   action:  
-  - service: python\_script.nom\_du\_fichier\_python  
+  - service: python_script.nom_du_fichier_python  
     target:  
-      entity\_id: sensor.cleaning\_ladies\_time\_at\_house  
+      entity_id: sensor.cleaning_ladies_time_at_house  
     data:  
       variable: donnee  
 <a id="chapitre-les_themes_dans_home_assistant"></a>
@@ -51,17 +51,17 @@ YAML
 
 ## Code Python
 
-Le code Python récupérera le entity\_id comme suit :
+Le code Python récupérera le entity_id comme suit :
 
 Python
 
-entity\_id = data.get("entity\_id")
+entity_id = data.get("entity_id")
 
 Si vous avez passé des variables dans la zone data, elle seront récupérées comme suit :
 
 Python
 
-ma\_variable = data.get("variable", valeur\_par\_defaut)
+ma_variable = data.get("variable", valeur_par_defaut)
 
 Le code Python peut appeler différents services dans Home Assistant.
 
@@ -69,12 +69,12 @@ Pour appeler un service :
 
 Python
 
-service\_data = {"variable": donnee, "variable2": donnee2}  
-hass.services.call("domaine", "service", service\_data, False)
+service_data = {"variable": donnee, "variable2": donnee2}  
+hass.services.call("domaine", "service", service_data, False)
 
-Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input\_text.set\_value, le domaine est input\_text.
+Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input_text.set_value, le domaine est input_text.
 
-Le service est la partie après le point, par exemple set\_value.
+Le service est la partie après le point, par exemple set_value.
 
 ...
 

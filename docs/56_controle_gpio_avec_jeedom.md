@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">lancer\_un\_script\_python\_avec\_le\_plugin\_script</a>
+## <a href="fiche-lancer_un_script_python_avec_le_plugin_script.md#lancer_un_script_python_avec_le_plugin_script">lancer_un_script_python_avec_le_plugin_script</a>
 
 Une fois le script Python écrit et testé à la ligne de commande, on peut le faire exécuter par Jeedom à l'aide du plugin Script.
 
@@ -31,7 +31,7 @@ Donnez un nom à la commande (ex : Lancer).
 
 Le type doit être à Action.
 
-Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom\_du\_script.PY.
+Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom_du_script.PY.
 
 * Vous devez préciser le chemin complet du script.
 * Le nom du fichier doit se terminer par .PY en majuscules (ou autre extension de votre choix) car l'extension .py est automatiquement interprétée par Jeedom comme du Python 2.
@@ -45,7 +45,7 @@ Le script Python, qui est une commande d'un équipement au yeux de Jeedom, peut 
 ![Scénario qui lance un script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiLanceUnScript.png)
 <a id="fiche-lancer_un_script_python_avec_le_plugin_script"></a>
 
-## <a href="fiche-arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie.md#arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie">arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie</a>
+## <a href="fiche-arreter_correctement_un_scenario_avec_boucle_infinie.md#arreter_correctement_un_scenario_avec_boucle_infinie">arreter_correctement_un_scenario_avec_boucle_infinie</a>
 
 Si un scénario lance un script Python qui fait clignoter une DEL (donc avec boucle infinie), on pourra arrêter le clignotement à l'aide d'un autre scénario qui se charge de :
 
@@ -97,17 +97,17 @@ Plusieurs types de scripts sont supportés :
 * XML
 * JSON
 
-Pour lancer une commande ou une série de commandes qui contrôlent une LED, un <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">script Python</a> est un excellent choix.
+Pour lancer une commande ou une série de commandes qui contrôlent une LED, un <a href="fiche-la_base_des_scripts_avec_rpi_gpio.md#la_base_des_scripts_avec_rpi_gpio">script Python</a> est un excellent choix.
 
 Pour éditer ce script, vous avez le choix entre :
 
 * écrire le fichier directement sur le Pi par exemple avec l'éditeur nano
 * l'écrire directement dans Jeedom
-* l'écrire sur votre ordinateur personnel puis de le <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier").
+* l'écrire sur votre ordinateur personnel puis de le <a href="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur.md#copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier").
 
 Attention : si vous éditez le script sur un ordinateur Windows, les caractères de fin de ligne ne sont pas reconnus par Linux et Jeedom réagira en vous disant que le fichier n'existe pas.
 
-Vous devez absolument <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">changer l'encodage des fins de lignes</a> afin que Linux puisse utiliser le fichier.
+Vous devez absolument <a href="fiche-encodage_des_fins_de_lignes_crlf_vs_lf.md#encodage_des_fins_de_lignes_crlf_vs_lf">changer l'encodage des fins de lignes</a> afin que Linux puisse utiliser le fichier.
 
 Dans le cas d'un script Python 3, le nom du fichier doit se terminer par .PY en majuscules (ou autre extension de votre choix) car l'extension .py est automatiquement interprétée par Jeedom comme du Python 2.
 
@@ -115,13 +115,13 @@ Pour renommer votre script :
 
 Terminal du Raspberry Pi
 
-mv /home/pi/mon\_script.py /home/pi/mon\_script.PY
+mv /home/pi/mon_script.py /home/pi/mon_script.PY
 
 ## Emplacement des scripts
 
 Le script Python peut être placé n'importe où sur le Raspberry Pi.
 
-Sachez que si le script est placé dans le dossier /var/www/html ou dans un de ses sous-dossiers, il fera automatiquement partie de <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">la copie de sécurité de Jeedom</a>.
+Sachez que si le script est placé dans le dossier /var/www/html ou dans un de ses sous-dossiers, il fera automatiquement partie de <a href="fiche-copie_de_securite_de_jeedom.md#copie_de_securite_de_jeedom">la copie de sécurité de Jeedom</a>.
 
 Mais j'avoue que pour fins de simplicité, je place souvent mes scripts sous /home/pi (le dossier personnel de l'usager pi) puisque c'est le dossier qui apparaît lorsqu'on accède au Terminal à partir d'un clavier et d'un écran branchés au Pi ou via SSH.
 
@@ -157,7 +157,7 @@ Il est possible d'éditer le script directement dans Jeedom en cliquant sur l'ic
 
 Dans cette démonstration, j'utilise un script existant.
 
-Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom\_du\_script.PY.
+Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom_du_script.PY.
 
 Vous devez préciser le chemin complet du script.
 
@@ -167,7 +167,7 @@ Après avoir sauvegardé, vous pouvez cliquer sur le bouton Tester afin de voir 
 
 ## Lancer le script à partir d'un scénario
 
-Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désormais être utilisé au même titre que n'importe quelle autre commande <a href="fiche-creer\_un\_scenario\_provoque.md#creer\_un\_scenario\_provoque">dans vos scénarios Jeedom</a>!
+Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désormais être utilisé au même titre que n'importe quelle autre commande <a href="fiche-creer_un_scenario_provoque.md#creer_un_scenario_provoque">dans vos scénarios Jeedom</a>!
 
 ![Scénario qui lance un script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiLanceUnScript.png)
 
@@ -177,7 +177,7 @@ Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désorm
 
 Dans le cas d'un script Python 3, il faut changer l'extension du fichier pour .PY (en majuscules).
 
-Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fichier Python 2 et Jeedom ajoutera automatiquement la commande python devant la commande entrée. Vous obtiendrez alors un message d'erreur du genre « Erreur sur python sudo python3 /home/pi/allumer\_led.py 2>&1 valeur retournée : 2. Détails : python: can't open file 'sudo': [Errno 2] No such file or directory ».
+Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fichier Python 2 et Jeedom ajoutera automatiquement la commande python devant la commande entrée. Vous obtiendrez alors un message d'erreur du genre « Erreur sur python sudo python3 /home/pi/allumer_led.py 2>&1 valeur retournée : 2. Détails : python: can't open file 'sudo': [Errno 2] No such file or directory ».
 
 ![can't open file 'sudo': [Errno 2] No such file or directory](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurNomFichierPython3.png)
 
@@ -185,7 +185,7 @@ Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fic
 
 Pour qu'un script Python puisse interagir avec le GPIO, vous devez précéder la commande par sudo.
 
-Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur python3 /home/pi/allumer\_led.PY 2>&1 valeur retournée : 1. Détails : Traceback (most recent call last): File "/home/pi/allumer\_led.PY", line 23, in GPIO.setup(led, GPIO.OUT) RuntimeError: No access to /dev/mem Try running as root! ».
+Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur python3 /home/pi/allumer_led.PY 2>&1 valeur retournée : 1. Détails : Traceback (most recent call last): File "/home/pi/allumer_led.PY", line 23, in GPIO.setup(led, GPIO.OUT) RuntimeError: No access to /dev/mem Try running as root! ».
 
 ![RuntimeError: No access to /dev/mem Try running as root!](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-PluginScript-ErreurTryRunningAsRoot.png)
 
@@ -193,15 +193,15 @@ Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur pyt
 
 Vous devez spécifier le chemin complet du script.
 
-Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sudo python3 allumer\_led.PY 2>&1 valeur retournée : 2. Détails : python3: can't open file 'allumer\_led.PY': [Errno 2] No such file or directory ».
+Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sudo python3 allumer_led.PY 2>&1 valeur retournée : 2. Détails : python3: can't open file 'allumer_led.PY': [Errno 2] No such file or directory ».
 
 ![can't open file 'allumer_led.PY': [Errno 2] No such file or directory](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurCheminNonPrecise.png)
 
 ### Droits d'exécution ou python3
 
-Un script Python peut être exécuté de deux façons : en faisant précéder son nom par python3 ou <a href="fiche-La\_protection\_des\_fichiers.md#La\_protection\_des\_fichiers">en donnant des droits d'exécution au fichier</a>.
+Un script Python peut être exécuté de deux façons : en faisant précéder son nom par python3 ou <a href="fiche-La_protection_des_fichiers.md#La_protection_des_fichiers">en donnant des droits d'exécution au fichier</a>.
 
-Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n'avez pas fait précéder son nom par python3 dans la commande sous Jeedom, vous obtiendrez un message du genre « Erreursur sudo /home/pi/allumer\_led.PY 2>&1 valeur retournée : 1. Détails :sudo /home/pi/allumer\_led.PY: command not found ».
+Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n'avez pas fait précéder son nom par python3 dans la commande sous Jeedom, vous obtiendrez un message du genre « Erreursur sudo /home/pi/allumer_led.PY 2>&1 valeur retournée : 1. Détails :sudo /home/pi/allumer_led.PY: command not found ».
 
 ![(image)](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurSiPasExecutable.png)
 
@@ -213,11 +213,11 @@ Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n
 
 Règle générale, avec le plugin Scripts dans Jeedom, il faut éviter de lancer des scripts qui contiennent une boucle sans fin.
 
-Parfois, cependant, la tâche à réaliser nécessite une telle boucle, par exemple <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">pour faire clignoter une DEL branchée au GPIO</a>.
+Parfois, cependant, la tâche à réaliser nécessite une telle boucle, par exemple <a href="fiche-la_base_des_scripts_avec_rpi_gpio.md#la_base_des_scripts_avec_rpi_gpio">pour faire clignoter une DEL branchée au GPIO</a>.
 
 Rappelez-vous que lorsqu'on lance le script Python à la ligne de commande, il faut appuyer sur Ctrl+C pour l'arrêter. Mais quand c'est Jeedom qui le lance, ceci n'est pas possible.
 
-Ceci pose problème dans un système domotique qui doit démarrer ou arrêter le clignotement à l'aide de scénarios. En effet, tant que le clignotement est en cours, aucun autre script Python ne peut travailler avec la broche utilisée, même pas pour lui envoyer le signal de s'éteindre. Si vous tentez de le faire, vous obtiendrez une erreur du genre « ... File "/home/pi/mon\_script.PY", line 34, in GPIO.setup(del, GPIO.OUT) ... lgpio.error: 'GPIO not allocated'».
+Ceci pose problème dans un système domotique qui doit démarrer ou arrêter le clignotement à l'aide de scénarios. En effet, tant que le clignotement est en cours, aucun autre script Python ne peut travailler avec la broche utilisée, même pas pour lui envoyer le signal de s'éteindre. Si vous tentez de le faire, vous obtiendrez une erreur du genre « ... File "/home/pi/mon_script.PY", line 34, in GPIO.setup(del, GPIO.OUT) ... lgpio.error: 'GPIO not allocated'».
 
 Pour qu'un scénario puisse arrêter correctement le clignotement, il doit :
 
@@ -276,16 +276,16 @@ Pour l'éteindre, vous avez deux choix :
 
 <a id="chapitre-depannage_sur_le_controle_gpio_avec_jeedom"></a>
   ou
-* lancer le <a href="fiche-script\_pour\_reinitialiser\_toutes\_les\_broches\_programmables\_du\_gpio.md#script\_pour\_reinitialiser\_toutes\_les\_broches\_programmables\_du\_gpio">script Python qui se charge de réinitialiser toutes les broches</a>
+* lancer le <a href="fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio.md#script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio">script Python qui se charge de réinitialiser toutes les broches</a>
 
 ## 50.4 Lancer un script Python avec paramètre à partir de Jeedom
 
-Un script Python peut <a href="fiche-passer\_un\_parametre\_a\_un\_script\_python.md#passer\_un\_parametre\_a\_un\_script\_python">recevoir des paramètres</a>.
+Un script Python peut <a href="fiche-passer_un_parametre_a_un_script_python.md#passer_un_parametre_a_un_script_python">recevoir des paramètres</a>.
 
 Le plugin Script de Jeedom permet de lancer un script Python en lui passant un ou plusieurs paramètres.
 
 Il suffit d'entrer dans la case Requête une chaîne au format :
 
-sudo python3 /chemin/nom\_script.PY paramètre
+sudo python3 /chemin/nom_script.PY paramètre
 
 ![paramètres](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Script-parametres.png)

@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">Adresse IP statique</a>
+## <a href="fiche-donner_une_adresse_ip_statique_au_raspberry_pi.md#donner_une_adresse_ip_statique_au_raspberry_pi">Adresse IP statique</a>
 
 Terminal
 
@@ -17,19 +17,19 @@ sudo nmtui
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
-## <a href="fiche-le\_protocole\_z-wave.md#le\_protocole\_z-wave">le\_protocole\_z-wave</a>
+## <a href="fiche-le_protocole_z-wave.md#le_protocole_z-wave">le_protocole_z-wave</a>
 
 Z-Wave est un protocole de communication sans fil destiné principalement à la domotique.
 
 Portée théorique de 100 à 200 mètres selon la génération.
 
-## <a href="fiche-le\_protocole\_zigbee.md#le\_protocole\_zigbee">le\_protocole\_zigbee</a>
+## <a href="fiche-le_protocole_zigbee.md#le_protocole_zigbee">le_protocole_zigbee</a>
 
 Le protocole ZigBee a été développé pour les milieux industriels afin de faciliter la transmission de données en milieu difficile.
 
 Moins grande portée que Z-Wave : 10 à 100 mètres.
 
-## <a href="fiche-precautions\_avant\_l\_achat\_d\_un\_objet\_connecte.md#precautions\_avant\_l\_achat\_d\_un\_objet\_connecte">precautions\_avant\_l\_achat\_d\_un\_objet\_connecte</a>
+## <a href="fiche-precautions_avant_l_achat_d_un_objet_connecte.md#precautions_avant_l_achat_d_un_objet_connecte">precautions_avant_l_achat_d_un_objet_connecte</a>
 
 Vérifier :
 
@@ -37,7 +37,7 @@ Vérifier :
 * Fréquence
 * Compatibilité avec la boîte domotique
 
-## <a href="fiche-objets\_pour\_representer\_la\_maison.md#objets\_pour\_representer\_la\_maison">objets\_pour\_representer\_la\_maison</a>
+## <a href="fiche-objets_pour_representer_la_maison.md#objets_pour_representer_la_maison">objets_pour_representer_la_maison</a>
 
 Dans Jeedom, la notion d'objet permet de regrouper les appareils connectés.
 
@@ -57,7 +57,7 @@ Si vous avez des objets à l'exterieur de la maison, une autre configuration pou
 * Ensuite, un objet Maison et un objet Dehors qui ont Tout comme parent
 * Et ensuite, les objets sont organisés par étages et/ou par pièces.
 
-## <a href="fiche-configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom.md#configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom">configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom</a>
+## <a href="fiche-configurer_la_cle_usb_z-wave_sur_jeedom.md#configurer_la_cle_usb_z-wave_sur_jeedom">configurer_la_cle_usb_z-wave_sur_jeedom</a>
 
 Bien suivre ces étapes!
 
@@ -65,10 +65,10 @@ Bien suivre ces étapes!
 
 Les appareils branchés à un système domotique peuvent communiquer à l'aide de [différentes normes et protocoles de communication](https://fr.wikipedia.org/wiki/Domotique#Technologies_radios) :
 
-* <a href="fiche-le\_protocole\_z-wave.md#le\_protocole\_z-wave">Z-Wave</a>
-* <a href="fiche-le\_protocole\_zigbee.md#le\_protocole\_zigbee">Zigbee</a>
+* <a href="fiche-le_protocole_z-wave.md#le_protocole_z-wave">Z-Wave</a>
+* <a href="fiche-le_protocole_zigbee.md#le_protocole_zigbee">Zigbee</a>
 * <a href="fiche-mqtt.md#mqtt">MQTT</a>
-* <a href="fiche-interface\_rfxcom.md#interface\_rfxcom">RFXCOM</a>
+* <a href="fiche-interface_rfxcom.md#interface_rfxcom">RFXCOM</a>
 * Wi-Fi
 * Bluetooth
 * etc.
@@ -166,7 +166,7 @@ Les objets connectés ZigBee sont généralement moins dispendieux que les Z-Wav
 
 ## 20.5 La clé USB Z-Wave
 
-Pour que le Raspberry Pi, en tant qu'<a href="fiche-un\_raspberry\_pi\_comme\_unite\_centrale.md#un\_raspberry\_pi\_comme\_unite\_centrale">unité centrale de votre système domotique</a>, puisse émettre et recevoir des signaux avec <a href="fiche-le\_protocole\_z-wave.md#le\_protocole\_z-wave">le protocole Z-Wave</a>, il faut lui ajouter un petit quelque chose : une clé USB Z-Wave ou encore une carte d'extension.
+Pour que le Raspberry Pi, en tant qu'<a href="fiche-un_raspberry_pi_comme_unite_centrale.md#un_raspberry_pi_comme_unite_centrale">unité centrale de votre système domotique</a>, puisse émettre et recevoir des signaux avec <a href="fiche-le_protocole_z-wave.md#le_protocole_z-wave">le protocole Z-Wave</a>, il faut lui ajouter un petit quelque chose : une clé USB Z-Wave ou encore une carte d'extension.
 
 ## Clé USB Z-Wave
 
@@ -231,7 +231,7 @@ Il ne faut pas confondre l'agent Mosquitto avec le site Web [https://test.mosqui
 
 Attention : les informations qui transigent sur https://test.mosquitto.org sont publiques! De plus, la communication n'est pas fiable, le serveur peut arrêter de fonctionner à tout moment. C'est un serveur de test.
 
-Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT <a href="fiche-la\_securite\_avec\_mqtt.md#la\_securite\_avec\_mqtt">soit correctement configuré</a>.
+Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT <a href="fiche-la_securite_avec_mqtt.md#la_securite_avec_mqtt">soit correctement configuré</a>.
 
 ## Exemple de fonctionnement
 
@@ -258,7 +258,7 @@ Pour qu'un canal existe, il suffit qu'un publieur et un abonné l'utilisent. Il 
 
 [Le nom d'un canal](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/) contient généralement plusieurs niveaux afin de bien organiser les canaux que l'agent MQTT doit gérer.
 
-Le nom sera sous la forme : un\_niveau/un\_sous\_niveau/un\_nom.
+Le nom sera sous la forme : un_niveau/un_sous_niveau/un_nom.
 
 Il sera écrit entièrement en lettre minuscules avec possiblement des barres de soulignement pour séparer les mots.
 

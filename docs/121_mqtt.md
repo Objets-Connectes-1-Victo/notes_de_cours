@@ -29,7 +29,7 @@ Il ne faut pas confondre l'agent Mosquitto avec le site Web [https://test.mosqui
 
 Attention : les informations qui transigent sur https://test.mosquitto.org sont publiques! De plus, la communication n'est pas fiable, le serveur peut arrêter de fonctionner à tout moment. C'est un serveur de test.
 
-Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT <a href="fiche-la\_securite\_avec\_mqtt.md#la\_securite\_avec\_mqtt">soit correctement configuré</a>.
+Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT <a href="fiche-la_securite_avec_mqtt.md#la_securite_avec_mqtt">soit correctement configuré</a>.
 
 ## Exemple de fonctionnement
 
@@ -56,7 +56,7 @@ Pour qu'un canal existe, il suffit qu'un publieur et un abonné l'utilisent. Il 
 
 [Le nom d'un canal](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/) contient généralement plusieurs niveaux afin de bien organiser les canaux que l'agent MQTT doit gérer.
 
-Le nom sera sous la forme : un\_niveau/un\_sous\_niveau/un\_nom.
+Le nom sera sous la forme : un_niveau/un_sous_niveau/un_nom.
 
 Il sera écrit entièrement en lettre minuscules avec possiblement des barres de soulignement pour séparer les mots.
 
@@ -203,7 +203,7 @@ Pour installer l'intégration MQTT dans Home Assistant :
 
 La configuration du client MQTT consiste principalement à indiquer les coordonnées de l'agent MQTT à utiliser.
 
-Les configurations du client MQTT seront enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.config\_entries.
+Les configurations du client MQTT seront enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.config_entries.
 
 Une fois le client correctement configuré, Home Assistant pourra publier sur des canaux et à s'abonner à d'autres canaux sur ce même agent.
 
@@ -251,11 +251,11 @@ Avec ce type d'installation, un autre système pourra utiliser cet agent à l'ai
 
 #### Mot de passe de l'agent MQTT sur Home Assistant
 
-Dans l'écran de configuration de l'agent MQTT, si vous cliquez sur l'icône pour voir le mot de passe, vous verrez apparaître \_\_\*\*password\_not\_changed\*\*\_\_.
+Dans l'écran de configuration de l'agent MQTT, si vous cliquez sur l'icône pour voir le mot de passe, vous verrez apparaître __\*\*password_not_changed\*\*__.
 
-Pour retrouver le mot de passe, vous devez consulter le fichier /mnt/data/supervisor/homeassistant/.storage/core.config\_entries).
+Pour retrouver le mot de passe, vous devez consulter le fichier /mnt/data/supervisor/homeassistant/.storage/core.config_entries).
 
-Fichier /mnt/data/supervisor/homeassistant/.storage/core.config\_entries
+Fichier /mnt/data/supervisor/homeassistant/.storage/core.config_entries
 
 ...{"broker":"core-mosquitto","discovery":true,"password":"Ath4Goh4Ierai0ahWaeSiejeaquat8ailohk7raiyoo4xeeLe6TooKo8aejo3sha","port":1883,"username":"homeassistant"} ...
 
@@ -326,7 +326,7 @@ Ceci est utile seulement pour tester MQTT.
   
 Avec cette technique, si votre boîte Home Assistant est redémarrée, elle ne réagira plus aux messages reçus sur ce canal.   
   
-Pour un vrai abonnement MQTT, il faut utiliser la <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">technique officielle</a>.
+Pour un vrai abonnement MQTT, il faut utiliser la <a href="fiche-publication_et_abonnement_mqtt_avec_home_assistant.md#publication_et_abonnement_mqtt_avec_home_assistant">technique officielle</a>.
 
 Dans la zone Écouter un sujet, entrez le nom du canal désiré.
 
@@ -349,11 +349,11 @@ Par exemple, pour écouter tout ce qui se dit sur le canal jeedom, peu importe l
 
 ## Abonnement et publication
 
-Les techniques pour utiliser le client MQTT sont détaillées dans la fiche « <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">publication\_et\_abonnement\_mqtt\_avec\_home\_assistant</a> ».
+Les techniques pour utiliser le client MQTT sont détaillées dans la fiche « <a href="fiche-publication_et_abonnement_mqtt_avec_home_assistant.md#publication_et_abonnement_mqtt_avec_home_assistant">publication_et_abonnement_mqtt_avec_home_assistant</a> ».
 
 ## 107.4 Publication et abonnement MQTT avec Home Assistant
 
-Une fois que vous avez <a href="fiche-client\_mqtt\_dans\_home\_assistant.md#client\_mqtt\_dans\_home\_assistant">installé un client MQTT</a> sur Home Assistant et que vous avez configuré l'agent MQTT à utiliser, vous pouvez débuter le processus de publication et d'abonnement MQTT.
+Une fois que vous avez <a href="fiche-client_mqtt_dans_home_assistant.md#client_mqtt_dans_home_assistant">installé un client MQTT</a> sur Home Assistant et que vous avez configuré l'agent MQTT à utiliser, vous pouvez débuter le processus de publication et d'abonnement MQTT.
 
 Dans cette fiche :
 
@@ -374,7 +374,7 @@ Il est également possible de la tester à l'aide du menu Outils développement 
 Vous devrez spécifier ces informations :
 
 * Sujet (Topic) : nom du canal
-* Charge utile (Payload) : information à publier codée en dur ou <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">à l'aide d'un modèle</a>.
+* Charge utile (Payload) : information à publier codée en dur ou <a href="fiche-les_modeles_dans_home_assistant.md#les_modeles_dans_home_assistant">à l'aide d'un modèle</a>.
 
   Dans le fichier automation.yaml, lorsque vous utilisez un modèle, n'oubliez pas les apostrophes ou guillemets alentour du modèle.
 
@@ -382,19 +382,19 @@ Vous devrez spécifier ces informations :
 
   Modèle
 
-  payload: '{{ states(''sensor.5\_in\_1\_pir\_motion\_sensor\_illuminance'') }}'
+  payload: '{{ states(''sensor.5_in_1_pir_motion_sensor_illuminance'') }}'
 
-  Dans le fichier automation.yaml ou dans l'interface graphique, lorsque les données sont publiées <a href="fiche-format\_json\_dans\_un\_modele.md#format\_json\_dans\_un\_modele">au format JSON</a>, il ne faut pas entourer le modèle de guillemets ou d'apostrophes (dans cet exemple, il n'y a pas de guillemets alentour de state\_attr('domaine.identifiant\_objet', 'attribut1')).
+  Dans le fichier automation.yaml ou dans l'interface graphique, lorsque les données sont publiées <a href="fiche-format_json_dans_un_modele.md#format_json_dans_un_modele">au format JSON</a>, il ne faut pas entourer le modèle de guillemets ou d'apostrophes (dans cet exemple, il n'y a pas de guillemets alentour de state_attr('domaine.identifiant_objet', 'attribut1')).
 
   Modèle
 
   {%  
       set valeurs = {  
-          "premierattribut":state\_attr('domaine.identifiant\_objet', 'attribut1'),  
-          "deuxiemeattribut": state\_attr('domaine.identifiant\_objet', 'attribut2')  
+          "premierattribut":state_attr('domaine.identifiant_objet', 'attribut1'),  
+          "deuxiemeattribut": state_attr('domaine.identifiant_objet', 'attribut2')  
       }  
   %}  
-  {{ valeurs | to\_json }}
+  {{ valeurs | to_json }}
 * QoS : <a href="fiche-mqtt.md#mqtt">Qualité du service</a>
 * Retenir (Retain) : Activez cette option pour que le message soit <a href="fiche-mqtt.md#mqtt">retenu</a>.
 
@@ -415,7 +415,7 @@ Fichier configuration.yaml
 mqtt:  
   sensor:  
     - name: "nom de l'équipement"  
-      state\_topic: "un\_niveau/un\_sous\_niveau/un\_nom"
+      state_topic: "un_niveau/un_sous_niveau/un_nom"
 
 Attention : cette syntaxe est obsolète :
 
@@ -424,13 +424,13 @@ Fichier configuration.yaml
 sensor:  
   - platform: mqtt  
     name: "nom de l'équipement"  
-    state\_topic: "un\_niveau/un\_sous\_niveau/un\_nom"
+    state_topic: "un_niveau/un_sous_niveau/un_nom"
 
 ## Entité créée
 
 L'abonnement à un canal crée un nouvel équipement qui contient une entité pour donner accès à la dernière valeur reçue.
 
-L'attribut name sera utilisé pour générer l'identifiant de l'entité. Home Assistant remplacera les espaces par des barres de soulignement et les caractères spéciaux par leur équivalent dans les caractères de base. Ainsi, « nom de l'équipement » sera utilisé pour créer l'entité sensor.nom\_de\_l\_equipement.
+L'attribut name sera utilisé pour générer l'identifiant de l'entité. Home Assistant remplacera les espaces par des barres de soulignement et les caractères spéciaux par leur équivalent dans les caractères de base. Ainsi, « nom de l'équipement » sera utilisé pour créer l'entité sensor.nom_de_l_equipement.
 
 <a id="chapitre-exercice_23_004"></a>
 Dans cette impression d'écran, l'entité a été utilisée pour afficher sur le tableau de bord la dernière valeur reçue sur ce canal.

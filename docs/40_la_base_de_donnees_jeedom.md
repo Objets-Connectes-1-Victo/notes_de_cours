@@ -9,15 +9,15 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom.md#retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom">retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom</a>
+## <a href="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom.md#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom">retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom</a>
 
-Rendez-vous dans le menu Réglages / Système / Configuration / >\_ OS/DB.
+Rendez-vous dans le menu Réglages / Système / Configuration / >_ OS/DB.
 
 Tel qu'indiqué au bas de l'écran, le code d'usager MySQL est jeedom. Le mot de passe apparaît à sa droite.
 
 ![Mot de passe de la BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MotDePasseBD.png)
 
-## <a href="fiche-contenu\_de\_la\_base\_de\_donnees\_de\_jeedom.md#contenu\_de\_la\_base\_de\_donnees\_de\_jeedom">contenu\_de\_la\_base\_de\_donnees\_de\_jeedom</a>
+## <a href="fiche-contenu_de_la_base_de_donnees_de_jeedom.md#contenu_de_la_base_de_donnees_de_jeedom">contenu_de_la_base_de_donnees_de_jeedom</a>
 
 Jeedom utilise une BD MySQL que vous pouvez manipuler dans dans la console MySQL.
 
@@ -36,7 +36,7 @@ Résultat à l'écran
 
 MariaDB [jeedom]> SHOW TABLES;  
 +--------------------+  
-| Tables\_in\_jeedom   |  
+| Tables_in_jeedom   |  
 +--------------------+  
 | cache              |  
 | cmd                |  
@@ -78,11 +78,11 @@ MariaDB [jeedom]>
 Il est également possible de consulter la base de données directement dans Jeedom :
 
 * Réglages / Système / Configuration
-* Dans l'onglet \_OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
+* Dans l'onglet _OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
 
   ![Administration BD dans Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ContenuTableWidgets.png)
 
-## <a href="fiche-consulter\_les\_fichiers\_journaux.md#consulter\_les\_fichiers\_journaux">consulter\_les\_fichiers\_journaux</a>
+## <a href="fiche-consulter_les_fichiers_journaux.md#consulter_les_fichiers_journaux">consulter_les_fichiers_journaux</a>
 
 Rendez-vous dans le menu Analyse / Logs.
 
@@ -98,7 +98,7 @@ Rendez-vous dans le menu Analyse / Logs.
 
   ![Log temps réel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogTempsReel.png)
 
-## <a href="fiche-scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal.md#scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal">scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal</a>
+## <a href="fiche-scenario_qui_ajoute_une_entree_dans_le_fichier_journal.md#scenario_qui_ajoute_une_entree_dans_le_fichier_journal">scenario_qui_ajoute_une_entree_dans_le_fichier_journal</a>
 
 Très pratique pour faire un suivi de ce qui se passe ou pour déboguer un scénario.
 
@@ -106,7 +106,7 @@ Trois techniques différentes sont illustrées dans cet exemple.
 
 ![Scénario qui écrit dans un log](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioEcritureLog.png)
 
-## <a href="fiche-scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_.md#scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_">scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_</a>
+## <a href="fiche-scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___.md#scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___">scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___</a>
 
 Inscrire la valeur d'un capteur :
 
@@ -129,14 +129,14 @@ log::add('alertes', 'ALERT', "Valeur du déclencheur : $value");
 
 ## 36.2 Retrouver le mot de passe de la base de données Jeedom
 
-Il y a toujours une façon de <a href="fiche-reinitialiser\_le\_mot\_de\_passe\_mysql\_de\_jeedom.md#reinitialiser\_le\_mot\_de\_passe\_mysql\_de\_jeedom">réinitialiser le mot de passe</a> pour accéder à une base de données MySQL, en autant qu'on ait un accès à une fenêtre Terminal sur le serveur MySQL, en l'occurence le Raspberry Pi.
+Il y a toujours une façon de <a href="fiche-reinitialiser_le_mot_de_passe_mysql_de_jeedom.md#reinitialiser_le_mot_de_passe_mysql_de_jeedom">réinitialiser le mot de passe</a> pour accéder à une base de données MySQL, en autant qu'on ait un accès à une fenêtre Terminal sur le serveur MySQL, en l'occurence le Raspberry Pi.
 
 Mais avant de se lancer dans de telles manipulations, il est préférable d'essayer de travailler avec le mot de passe actuel, qui est facile à trouver.
 
 Le mot de passe de la base de données peut être retrouvé à partir de l'interface d'administration de Jeedom.
 
-* Ouvrez <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">l'interface d'administration de Jeedom</a>.
-* Rendez-vous dans le menu Réglages / Système / Configuration / >\_ OS/DB.
+* Ouvrez <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">l'interface d'administration de Jeedom</a>.
+* Rendez-vous dans le menu Réglages / Système / Configuration / >_ OS/DB.
 * Tel qu'indiqué au bas de l'écran, le code d'usager MySQL est jeedom. Le mot de passe apparaît à sa droite.
 
   ![Mot de passe de la BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MotDePasseBD.png)
@@ -154,8 +154,8 @@ Je vous propose deux manipulations à effecture sur le serveur de base de donné
 
 Si vous souhaitez modifier le mot de passe de l'usager jeedom sous MySQL alors que vous connaissez son mot de passe actuel, suivez ces étapes.
 
-* Connectez-vous au Raspberry Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou encore en y branchant un clavier et un écran.
-* Lancez la ligne de commande MySQL puis entrez <a href="fiche-retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom.md#retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom">le mot de passe actuel</a> lorsque demandé.
+* Connectez-vous au Raspberry Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a> ou encore en y branchant un clavier et un écran.
+* Lancez la ligne de commande MySQL puis entrez <a href="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom.md#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom">le mot de passe actuel</a> lorsque demandé.
 
   Terminal
 
@@ -178,11 +178,11 @@ Si vous souhaitez modifier le mot de passe de l'usager jeedom sous MySQL alors q
 
 ## Réinitialisation du mot de passe
 
-Avant de tenter une réinitialisation du mot de passe pour accéder à la base de données MySQL de Jeedom, sachez qu'il est possible de <a href="fiche-retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom.md#retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom">retrouver ce mot de passe directement dans la console d'administration de Jeedom</a>.
+Avant de tenter une réinitialisation du mot de passe pour accéder à la base de données MySQL de Jeedom, sachez qu'il est possible de <a href="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom.md#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom">retrouver ce mot de passe directement dans la console d'administration de Jeedom</a>.
 
 Si vous devez tout de même réinitialiser le mot de passe, voici comment y parvenir.
 
-* Connectez-vous au Raspberry Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou encore en y branchant un clavier et un écran.
+* Connectez-vous au Raspberry Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a> ou encore en y branchant un clavier et un écran.
 * Prenez une copie de sécurité du fichier de configuration de MySQL.
 
   Terminal
@@ -249,7 +249,7 @@ Si vous devez tout de même réinitialiser le mot de passe, voici comment y parv
 
 ## Dire à Jeedom quel est le nouveau mot de passe
 
-À ce stade, si vous tentez d'accéder à <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">l'interface d'administration de Jeedom</a>, vous obtiendrez le message « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) ». Il faut donc effectuer une manipulation supplémentaire pour que Jeedom utilise le nouveau mot de passe.
+À ce stade, si vous tentez d'accéder à <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">l'interface d'administration de Jeedom</a>, vous obtiendrez le message « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) ». Il faut donc effectuer une manipulation supplémentaire pour que Jeedom utilise le nouveau mot de passe.
 
 * Prenez une copie de sécurité du fichier que vous devrez modifier.
 
@@ -313,10 +313,10 @@ Lorsque j'apprends à utiliser un nouveau système, j'aime bien comprendre ce qu
 
 Je vous propose ici quelques manipulations pour explorer la base de données de Jeedom.
 
-Attention : si vous effectuez des manipulations autres que des SELECT, vous risquez d'endommager votre système. C'est une bonne idée d'effectuer une <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">copie de sécurité de Jeedom</a> avant de vous lancer.
+Attention : si vous effectuez des manipulations autres que des SELECT, vous risquez d'endommager votre système. C'est une bonne idée d'effectuer une <a href="fiche-copie_de_securite_de_jeedom.md#copie_de_securite_de_jeedom">copie de sécurité de Jeedom</a> avant de vous lancer.
 
-* Accédez à la ligne de commande du Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
-* Vous devez avoir en main le mot de passe de l'usager jeedom sur le serveur MySQL. Si vous ne le connaissez pas, suivez les instructions ici : <a href="fiche-retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom.md#retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom">retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom</a>.
+* Accédez à la ligne de commande du Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
+* Vous devez avoir en main le mot de passe de l'usager jeedom sur le serveur MySQL. Si vous ne le connaissez pas, suivez les instructions ici : <a href="fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom.md#retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom">retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom</a>.
 * Dans une fenêtre Terminal sur le Pi, lancez la commande suivante puis entrez le mot de passe lorsque MySQL vous le demandera.
 
   Terminal
@@ -358,7 +358,7 @@ Attention : si vous effectuez des manipulations autres que des SELECT, vous risq
   +--------------------+  
   | Database           |  
   +--------------------+  
-  | information\_schema |  
+  | information_schema |  
   | jeedom             |  
   +--------------------+  
   2 rows in set (0.002 sec)
@@ -381,7 +381,7 @@ Attention : si vous effectuez des manipulations autres que des SELECT, vous risq
 
   MariaDB [jeedom]> SHOW TABLES;  
   +--------------------+  
-  | Tables\_in\_jeedom   |  
+  | Tables_in_jeedom   |  
   +--------------------+  
   | cache              |  
   | cmd                |  
@@ -452,7 +452,7 @@ Notez que vous pourriez avoir quelques tables en plus ou en moins selon les plug
   | 17 |      1 | cache    | persist     | \*/30 \* \* \* \*       |      30 |      0 |               1 | NULL             |    0 |  
   | 18 |      1 | history  | archive     | 00 5 \* \* \*         |     240 |      0 |               1 | NULL             |    0 |  
   | 19 |      1 | plugin   | heartbeat   | \*/5 \* \* \* \*        |      10 |      0 |               1 | NULL             |    0 |  
-  | 20 |      1 | weather  | pull        | 23 19 05 09 \* 2021 |      60 |      0 |               1 | {"weather\_id":3} |    0 |  
+  | 20 |      1 | weather  | pull        | 23 19 05 09 \* 2021 |      60 |      0 |               1 | {"weather_id":3} |    0 |  
   +----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+  
   20 rows in set (0.002 sec)
 
@@ -466,10 +466,10 @@ Notez que vous pourriez avoir quelques tables en plus ou en moins selon les plug
 Jeedom vous permet d'effectuer certaines manipulations de la base de données directement dans son interface Web.
 
 * Dans l'interface Web de Jeedom, rendez-vous dans le menu Réglages / Système / Configuration.
-* Dans l'onglet \_OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
+* Dans l'onglet _OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
 
   ![Administration Base de données](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AdministrationBaseDeDonnees.png)
-* L'interface permet d'effectuer certaines opérations sur la base de données. Attention : certaines opérations modifieront les données alors vous devez être prudents avant de cliquer sur les différents boutons. C'est une bonne idée d'effectuer une <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">copie de sécurité de Jeedom</a> avant de tenter des manipulations.
+* L'interface permet d'effectuer certaines opérations sur la base de données. Attention : certaines opérations modifieront les données alors vous devez être prudents avant de cliquer sur les différents boutons. C'est une bonne idée d'effectuer une <a href="fiche-copie_de_securite_de_jeedom.md#copie_de_securite_de_jeedom">copie de sécurité de Jeedom</a> avant de tenter des manipulations.
 * L'interface permet d'effectuer facilement un SELECT sur une table données. Voici par exemple le contenu de la table widgets.
 <a id="chapitre-les_fichiers_journaux_de_jeedom_log_files"></a>
 
@@ -479,7 +479,7 @@ Jeedom vous permet d'effectuer certaines manipulations de la base de données di
 
 Petit truc pour explorer la base de données à l'aide d'un outil graphique :
 
-* <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">Effectuez une copie de sécurité de Jeedom</a>.
+* <a href="fiche-copie_de_securite_de_jeedom.md#copie_de_securite_de_jeedom">Effectuez une copie de sécurité de Jeedom</a>.
 * Téléchargez la copie sur votre poste de travail puis décompressez le fichier.
 * Créez une base de données vide sur votre poste de travail à l'aide de phpMyAdmin ou d'un autre outil de votre choix (vous devez avoir un serveur MySQL qui roule).
 * Remplissez la base de données à l'aide du script SQL qui se trouve dans la copie de sécurité que vous venez de télécharger.

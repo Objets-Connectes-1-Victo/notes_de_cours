@@ -9,23 +9,23 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">installation\_de\_home\_assistant\_et\_premier\_acces</a>
+## <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">installation_de_home_assistant_et_premier_acces</a>
 
 Bien suivre les étapes sur cette fiche!
 
-## <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">la\_console\_home\_assistant</a>
+## <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">la_console_home_assistant</a>
 
 La console Home Assistant se reconnaît à l'invite ha >.
 
 Résultat à l'écran
 
 Waiting for the Home Assistant CLI to be ready...  
- \_    \_                                         \_     \_              \_  
-| |  | |                          /\           (\_)   | |            | |  
-| |\_\_| | \_\_\_  \_ \_\_ \_\_\_   \_\_\_     /  \   \_\_\_ \_\_\_ \_ \_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_  
-|  \_\_  |/ \_ \| '\_ \ \_ \ / \_ \   / /\ \ / \_\_/ \_\_| / \_\_| \_\_/ \_\ | '\_ \| \_\_|  
-| |  | | (\_) | | | | | | \_\_ /  / \_\_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_  
-|\_|  |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| /\_/    \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+ _    _                                         _     _              _  
+| |  | |                          /\           (_)   | |            | |  
+| |__| | ___  _ __ ___   ___     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_  
+|  __  |/ _ \| '_ \ _ \ / _ \   / /\ \ / __/ __| / __| __/ _\ | '_ \| __|  
+| |  | | (_) | | | | | | __ /  / ____ \\__ \__ \ \__ \ || (_| | | | | |_  
+|_|  |_|\___/|_| |_| |_|\___| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|  
   
 Welcome on Home Assistant command line.  
 Waiting for Supervisor to start up...  
@@ -80,7 +80,7 @@ ha > login
   
 #
 
-## <a href="fiche-Eteindre\_home\_assistant\_de\_facon\_securitaire.md#Eteindre\_home\_assistant\_de\_facon\_securitaire">Eteindre\_home\_assistant\_de\_facon\_securitaire</a>
+## <a href="fiche-Eteindre_home_assistant_de_facon_securitaire.md#Eteindre_home_assistant_de_facon_securitaire">Eteindre_home_assistant_de_facon_securitaire</a>
 
 Pour arrêter ou redémarrer le système complet :
 
@@ -115,7 +115,7 @@ Terminal HassOS
 
 ha core restart
 
-## <a href="fiche-dossier\_config.md#dossier\_config">dossier\_config</a>
+## <a href="fiche-dossier_config.md#dossier_config">dossier_config</a>
 
 Sur le Web, on parle souvent du dossier config de Home Assistant. C'est celui qui contient le fichier configuration.yaml. Son emplacement sera différent selon le type d'installation de Home Assistant.
 
@@ -152,7 +152,7 @@ Voici les sections couvertes dans cette procédure :
 
 ## Préparer le Raspberry Pi
 
-Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : <a href="fiche-un\_raspberry\_pi\_comme\_unite\_centrale.md#un\_raspberry\_pi\_comme\_unite\_centrale">un\_raspberry\_pi\_comme\_unite\_centrale</a>.
+Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : <a href="fiche-un_raspberry_pi_comme_unite_centrale.md#un_raspberry_pi_comme_unite_centrale">un_raspberry_pi_comme_unite_centrale</a>.
 
 ## Préparer la carte micro SD
 
@@ -191,9 +191,9 @@ Il s'agit de placer les fichiers de configuration sur une clé USB qui répond �
   + Sous Windows, l'utilitaire par défaut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voir <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
   + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
 * La clé doit posséder un volume nommé CONFIG (en majuscules).
-* Les fichiers de configuration doivent comporter des <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
+* Les fichiers de configuration doivent comporter des <a href="fiche-encodage_des_fins_de_lignes_crlf_vs_lf.md#encodage_des_fins_de_lignes_crlf_vs_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
 
-Les configurations disponibles <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">sont détaillées sur cette fiche</a>.
+Les configurations disponibles <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">sont détaillées sur cette fiche</a>.
 
 Voici un exemple de base :
 
@@ -251,11 +251,11 @@ dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
 addr-gen-mode=stable-privacy  
 method=auto
 
-Remarquez que le réseau sans fil et l'adresse IP statique peuvent aussi <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">être configurés via l'interface Web de Home Assistant</a> une fois que l'installation est terminée (vous aurez cependant besoin initialement d'une connection réseau câblée).
+Remarquez que le réseau sans fil et l'adresse IP statique peuvent aussi <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">être configurés via l'interface Web de Home Assistant</a> une fois que l'installation est terminée (vous aurez cependant besoin initialement d'une connection réseau câblée).
 
 ### Activation du SSH
 
-Pour pouvoir vous connecter au Raspberry Pi via SSH et ainsi avoir un accès complet du système de fichiers du Raspberry Pi, vous devez générer sur votre ordinateur la paire de clés publique et privée puis copier la clé publique dans un fichier nommmé authorized\_keys à la racine du [volume CONFIG](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb).
+Pour pouvoir vous connecter au Raspberry Pi via SSH et ainsi avoir un accès complet du système de fichiers du Raspberry Pi, vous devez générer sur votre ordinateur la paire de clés publique et privée puis copier la clé publique dans un fichier nommmé authorized_keys à la racine du [volume CONFIG](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb).
 
 Suivez bien les instructions qui suivent, un petit écart fera en sorte que ça ne fonctionne pas!
 
@@ -273,7 +273,7 @@ ls ~/.ssh
 
 Nous allons utiliser l'algorithme Ed25519 qui est l'[algorithme recommandé de nos jours](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
 
-La clé publique est stockée dans le fichier id\_ed25519.pub et la clé privée, dans le fichier id\_ed25519.
+La clé publique est stockée dans le fichier id_ed25519.pub et la clé privée, dans le fichier id_ed25519.
 
 Si les clés n'existent pas, vous devez les générer les clés à l'aide de cette commande :
 
@@ -281,11 +281,11 @@ Terminal sur l'ordinateur
 
 ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
 
-Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id\_ed25519, sous Mac : /Users/monnom/.ssh/id\_ed25519).
+Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id_ed25519, sous Mac : /Users/monnom/.ssh/id_ed25519).
 
 Afin d'augmenter la sécurité, vous pouvez entrer un mot de passe lorsqu'on vous demande un passphrase. Par contre, ceci obligera à entrer ce mot de passe à chaque connexion. Vous pouvez donc appuyer sur Entrée sans entrer de mot de passe.
 
-#### Fichier authorized\_keys
+#### Fichier authorized_keys
 
 Il faut maintenant copier la clé publique dans un fichier à la racine du [volume CONFIG](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb).
 
@@ -297,7 +297,7 @@ Sous macOS ou Linux, le fichier sera créé et rempli par cette commande :
 
 Terminal sur l'ordinateur
 
-cat /Users/monnom/.ssh/id\_ed25519.pub > /Volumes/CONFIG/authorized\_keys
+cat /Users/monnom/.ssh/id_ed25519.pub > /Volumes/CONFIG/authorized_keys
 
 ##### Windows
 
@@ -305,19 +305,19 @@ Sous Windows, la redirection (caractère >) cause parfois un mauvais fonctionnem
 
 Il est donc préférable de procéder comme suit :
 
-* Créez un fichier texte vierge sur la clé USB dont l'encodage est ANSI ou UTF-8 <a href="fiche-encodage\_utf-8\_sans\_bom.md#encodage\_utf-8\_sans\_bom">sans BOM</a> et nommez-le authorized\_keys (aucune extension).
+* Créez un fichier texte vierge sur la clé USB dont l'encodage est ANSI ou UTF-8 <a href="fiche-encodage_utf-8_sans_bom.md#encodage_utf-8_sans_bom">sans BOM</a> et nommez-le authorized_keys (aucune extension).
 
   Attention : vous devez utiliser un éditeur adapté à ce type de tâche, par exemple Geany.
 
   + Ne créez pas le fichier en faisant un clic droit dans l'explorateur de fichiers / Nouveau fichier.
   + N'utilisez pas non plus le bloc notes de Windows pour créer ce fichier.
-  + Ne renommez pas le fichier id\_ed25519.pub en authorized\_keys.
-* Affichez le contenu du fichier id\_ed25519.pub à l'écran.
+  + Ne renommez pas le fichier id_ed25519.pub en authorized_keys.
+* Affichez le contenu du fichier id_ed25519.pub à l'écran.
 
   PowerShell
 
-  cat C:\Users\MonNom\.ssh\id\_ed25519.pub
-* Copiez-collez dans ce fichier la clé qui a été affichée à l'aide de la commande cat. Important : il faut copier le contenu du fichier et non copier le fichier lui-même car celui qui demeure sous Windows utilisera les caractères de saut de ligne de Windows (CR LF) et celui qui ira sur le système Linux <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">utilisera les sauts de ligne de Linux (LF)</a>.
+  cat C:\Users\MonNom\.ssh\id_ed25519.pub
+* Copiez-collez dans ce fichier la clé qui a été affichée à l'aide de la commande cat. Important : il faut copier le contenu du fichier et non copier le fichier lui-même car celui qui demeure sous Windows utilisera les caractères de saut de ligne de Windows (CR LF) et celui qui ira sur le système Linux <a href="fiche-encodage_des_fins_de_lignes_crlf_vs_lf.md#encodage_des_fins_de_lignes_crlf_vs_lf">utilisera les sauts de ligne de Linux (LF)</a>.
 
 ## Démarrer le Raspberry Pi
 
@@ -326,7 +326,7 @@ Le système d'exploitation est maintenant installé et les configurations de bas
 Passons maintenant à l'installation de Home Assistant.
 
 * Coupez l'alimentation du Raspberry Pi si ce n'est pas déjà fait.
-* <a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">Retirez la carte micro SD de l'ordinateur de façon sécuritaire</a> puis insérez-la dans le Raspberry Pi.
+* <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">Retirez la carte micro SD de l'ordinateur de façon sécuritaire</a> puis insérez-la dans le Raspberry Pi.
 * Si requis, insérez également dans le Pi la clé USB qui contient vos configurations SSH, d'adresse IP et/ou de réseau sans fil.
 * Mettez le Pi sous tension.
 
@@ -336,7 +336,7 @@ Sur certains réseaux, le service NTP (protocole de diffusion du temps en résea
 
 Si vous avez un doute sur les configurations de votre réseau, branchez un clavier et un écran au Pi.
 
-Remarquez que si vous ne disposez pas d'un écran et d'un clavier, il est possible d'effectuer certaines vérifications à l'aide d'une <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">connexion SSH</a> mais le tout est plus facile avec écran et clavier.
+Remarquez que si vous ne disposez pas d'un écran et d'un clavier, il est possible d'effectuer certaines vérifications à l'aide d'une <a href="fiche-se_brancher_a_home_assistant_via_ssh.md#se_brancher_a_home_assistant_via_ssh">connexion SSH</a> mais le tout est plus facile avec écran et clavier.
 
 Vous devriez voir cet écran dès que HassOS est rendu assez loin dans son travail d'installation.
 
@@ -344,15 +344,15 @@ Résultat à l'écran
 
 Waiting for the Home Assistant CLI to be ready...  
   
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+       ▄██▄           _   _   
+     ▄██████▄        | | | | ___  _ __ ___   ___   
+   ▄████▀▀████▄      | |_| |/ _ \| '_ ` _ \ / _ \   
+ ▄█████    █████▄    |  _  | (_) | | | | | |  __/   
+▄██████▄  ▄██████▄   |_| |_|\___/|_| |_| |_|\___|          _   
+████████  ██▀  ▀██      / \   ___ ___(_)___| |_ __ _ _ __ | |_   
+███▀▀███  ██   ▄██     / _ \ / __/ __| / __| __/ _` | '_ \| __|  
+██    ██  ▀ ▄█████    / ___ \\__ \__ \ \__ \ || (_| | | | | |_   
+███▄▄ ▀█  ▄███████   /_/   \_\___/___/_|___/\__\__,_|_| |_|\__|  
 ▀█████▄   ███████▀  
   
 Welcome on Home Assistant command line interface.  
@@ -432,7 +432,7 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
   my-network-cegep       bdc2edc4-2543-4d11-b8b3-cfb6b0b18b0e    wifi        wlan0  
   my-network-maison      84cd8755-2349-464e-9540-6df10ba7aef6    wifi        --
 
-  Si vous n'obtenez aucune ligne avec eth0 et aucune ligne avec wlan0, ou si malgré tout vous n'arrivez pas à faire un ping vers google.com, référez-vous à la fiche « <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant</a> » pour régler le problème.
+  Si vous n'obtenez aucune ligne avec eth0 et aucune ligne avec wlan0, ou si malgré tout vous n'arrivez pas à faire un ping vers google.com, référez-vous à la fiche « <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">configurer_l_acces_au_reseau_dans_home_assistant</a> » pour régler le problème.
 
 ### Installation automatique de Home Assistant
 
@@ -463,7 +463,7 @@ Pendant que HassOS installe Home Assistant, vous obtiendrez un message à cet e
 
 Pendant l'installation, vous pouvez cliquer sur Afficher les détails afin de voir la journalisation (log) des opérations en cours.
 
-Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">à partir du terminal HassOS</a> à l'aide de cette commande :
+Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">à partir du terminal HassOS</a> à l'aide de cette commande :
 
 Terminal HassOS
 
@@ -474,7 +474,7 @@ Dans le terminal HassOS, Vous saurez que l'installation est terminée quand vous
 Résultat à l'écran
 
 INFO (MainThread) [supervisor.homeassistant.core] Detect a running Home Assistant instance  
-INFO (SyncWorker\_2) [supervisor.docker.interface] Cleanup images: ['ghcr.io/home-assistant/raspberrypi3-homeassistant:landingpage']
+INFO (SyncWorker_2) [supervisor.docker.interface] Cleanup images: ['ghcr.io/home-assistant/raspberrypi3-homeassistant:landingpage']
 
 Dans l'interface Web, vous saurez que l'installation est terminée quand vous verrez l'écran de bienvenue.![Premier écran](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PremierEcran.png)
 
@@ -515,7 +515,7 @@ Résultat à l'écran
 
  
 
-authorized\_keys
+authorized_keys
 
 Si les fichiers de configuration ne sont pas présents dans ces dossiers, c'est que le système n'a pas reconnu la clé ou encore que ses fichiers n'ont pas été reconnus comme étant des fichiers de configuration.
 
@@ -530,7 +530,7 @@ Une fois les problèmes identifiés et corrigés, attendez d'abord que l'install
 
 Rebranchez la clé USB sur le Raspberry Pi puis entrez la commande reboot dans le terminal HassOS. Si tout est correct, les fichiers seront cette fois copiés sur le Pi.
 
-Quand vous avez la confirmation que le fichier authorized\_keys a été correctement copié, vous pouvez tenter de vous <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">connecter au Raspberry Pi via SSH</a> :
+Quand vous avez la confirmation que le fichier authorized_keys a été correctement copié, vous pouvez tenter de vous <a href="fiche-se_brancher_a_home_assistant_via_ssh.md#se_brancher_a_home_assistant_via_ssh">connecter au Raspberry Pi via SSH</a> :
 
 Terminal de l'ordinateur
 
@@ -550,7 +550,7 @@ ssh root@192.168.1.145 -p 22222
 
 ## 58.3 Le terminal HassOS et la console Home Assistant
 
-En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">avec une des adresses données ici</a>.
+En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">avec une des adresses données ici</a>.
 
 Cependant, plusieurs opérations intéressantes peuvent être réalisées dans le terminal HassOS, par exemple accéder au système de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le système d'exploitation.
 
@@ -583,7 +583,7 @@ Les détails de la console Home Assistant [sont donnés plus bas](https://apical
 
 ### Branchement SSH
 
-Si vous vous connectez au Pi <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">via SSH</a>, vous accédez directement au Terminal HassOS.
+Si vous vous connectez au Pi <a href="fiche-se_brancher_a_home_assistant_via_ssh.md#se_brancher_a_home_assistant_via_ssh">via SSH</a>, vous accédez directement au Terminal HassOS.
 
 Les détails du Terminal HassOS [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos).
 
@@ -599,15 +599,15 @@ Résultat à l'écran
 
 Waiting for the Home Assistant CLI to be ready...  
   
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+       ▄██▄           _   _   
+     ▄██████▄        | | | | ___  _ __ ___   ___   
+   ▄████▀▀████▄      | |_| |/ _ \| '_ ` _ \ / _ \   
+ ▄█████    █████▄    |  _  | (_) | | | | | |  __/   
+▄██████▄  ▄██████▄   |_| |_|\___/|_| |_| |_|\___|          _   
+████████  ██▀  ▀██      / \   ___ ___(_)___| |_ __ _ _ __ | |_   
+███▀▀███  ██   ▄██     / _ \ / __/ __| / __| __/ _` | '_ \| __|  
+██    ██  ▀ ▄█████    / ___ \\__ \__ \ \__ \ || (_| | | | | |_   
+███▄▄ ▀█  ▄███████   /_/   \_\___/___/_|___/\__\__,_|_| |_|\__|  
 ▀█████▄   ███████▀  
   
 Welcome on Home Assistant command line interface.  
@@ -751,7 +751,7 @@ Dans le cas où vous êtes branchés via SSH, la commande exit mettra fin à la 
 
 Comme pour tout système Linux, il n'est pas souhaitable de fermer Home Assistant simplement en débranchant le Raspberry Pi.
 
-Je vous propose ici différentes techniques pour arrêter le système ou pour redémarrer le système complet ou encore une de ses <a href="fiche-les\_couches\_logicielles\_de\_home\_assistant.md#les\_couches\_logicielles\_de\_home\_assistant">couches logicielles</a>.
+Je vous propose ici différentes techniques pour arrêter le système ou pour redémarrer le système complet ou encore une de ses <a href="fiche-les_couches_logicielles_de_home_assistant.md#les_couches_logicielles_de_home_assistant">couches logicielles</a>.
 
 ## Arrêt
 
@@ -769,7 +769,7 @@ Cliquez sur Options avancées / Arrêter le système.
 
 ### Terminal HassOS
 
-Il est également possible d'éteindre le Raspberry Pi à partir du <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a> à l'aide de cette commande :
+Il est également possible d'éteindre le Raspberry Pi à partir du <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a> à l'aide de cette commande :
 
 Terminal HassOS
 

@@ -4,7 +4,7 @@
 
 ## 47.1 Langages et bibliothèques pour communiquer avec le GPIO
 
-Il est possible de communiquer avec le <a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">GPIO</a> à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
+Il est possible de communiquer avec le <a href="fiche-qu_est-ce_que_le_gpio.md#qu_est-ce_que_le_gpio">GPIO</a> à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
 
 Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 
@@ -13,7 +13,7 @@ Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 * pigpio : <http://abyz.me.uk/rpi/pigpio/python.html> (Python)
 * Wiring Pi : <http://wiringpi.com/reference/> (peut être utilisé avec plusieurs langages)
 
-La bibliothèque RPi.GPIO sera utilisée dans <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">les fiches qui suivent</a> pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
+La bibliothèque RPi.GPIO sera utilisée dans <a href="fiche-installation_de_la_bibliotheque_rpi_gpio.md#installation_de_la_bibliotheque_rpi_gpio">les fiches qui suivent</a> pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
 
 ## 47.2 Installation de la bibliothèque RPi.GPIO
 
@@ -67,16 +67,16 @@ sudo apt update && sudo apt install python-rpi.gpio python3-rpi.gpio
 
 ## 47.3 La base des scripts avec RPi.GPIO
 
-Le script Python qui sera en charge d'envoyer ou de recevoir un signal des <a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">broches GPIO</a> du Raspberry Pi peut être écrit :
+Le script Python qui sera en charge d'envoyer ou de recevoir un signal des <a href="fiche-qu_est-ce_que_le_gpio.md#qu_est-ce_que_le_gpio">broches GPIO</a> du Raspberry Pi peut être écrit :
 
 * directement sur le Pi à l'aide d'un éditeur comme nano.
 * sur l'ordinateur à l'aide de l'éditeur de votre choix, par exemple Geany ou PyCharm.
 
-La bibliothèque <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">RPi.GPIO</a> sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
+La bibliothèque <a href="fiche-installation_de_la_bibliotheque_rpi_gpio.md#installation_de_la_bibliotheque_rpi_gpio">RPi.GPIO</a> sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
 
 Notez que si vous utilisez un éditeur comme PyCharm sur votre ordinateur, il vous donnera des erreurs si votre code utilise des bibliothèques qui sont sur le Pi mais pas sur votre ordinateur. Vous pourrez ignorer ces erreurs.
 
-Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">le copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
+Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez <a href="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur.md#copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">le copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
 
 ## Nom du fichier
 
@@ -87,7 +87,7 @@ Le nom du fichier peut :
 * être tout en minuscules (ex : monscript.py)
 
   ou
-* utiliser la casse serpent (ex : mon\_script.py)
+* utiliser la casse serpent (ex : mon_script.py)
 
 ## Entête du script Python
 
@@ -95,7 +95,7 @@ Lançons-nous dans la programmation!
 
 Tout programme Python doit débuter par une ligne, qu'on appellera shebang ou hash bang.
 
-Le <a href="fiche-Shebang\_ou\_hash\_bang.md#Shebang\_ou\_hash\_bang">shebang</a> permet de spécifier quel interpréteur doit être utilisé.
+Le <a href="fiche-Shebang_ou_hash_bang.md#Shebang_ou_hash_bang">shebang</a> permet de spécifier quel interpréteur doit être utilisé.
 
 Python
 
@@ -185,7 +185,7 @@ Et pour éviter un état flottant :
 
 Python
 
-GPIO.setup(bouton, GPIO.IN, pull\_up\_down=GPIO.PUD\_DOWN)
+GPIO.setup(bouton, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 ## Envoi d'un signal
 
@@ -234,21 +234,21 @@ La définition de la fonction commence par le mot-clé def et tout le corps de l
 
 Python
 
-def bouton\_presse(channel):  
+def bouton_presse(channel):  
     print("Le bouton est enfoncé!")
 
 Pour associer l'événement à la fonction de rappel :
 
 Python
 
-GPIO.add\_event\_detect(bouton,GPIO.RISING,callback=bouton\_presse)
+GPIO.add_event_detect(bouton,GPIO.RISING,callback=bouton_presse)
 
 ou
 
 Python
 
-GPIO.add\_event\_detect(bouton, GPIO.RISING)  
-GPIO.add\_event\_callback(bouton, bouton\_presse)
+GPIO.add_event_detect(bouton, GPIO.RISING)  
+GPIO.add_event_callback(bouton, bouton_presse)
 
 ## Réinitialisation des ports
 
@@ -369,7 +369,7 @@ python3 monscript.py
 <a id="fiche-passer_un_parametre_a_un_script_python"></a>
 ## 47.4 Script pour réinitialiser toutes les broches programmables du GPIO
 
-Si vous travaillez avec la bibliothèque <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">RPi.GPIO</a>, vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
+Si vous travaillez avec la bibliothèque <a href="fiche-installation_de_la_bibliotheque_rpi_gpio.md#installation_de_la_bibliotheque_rpi_gpio">RPi.GPIO</a>, vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
 
 Il est donc bon de terminer vos scripts par un appel à cette méthode.
 
@@ -412,7 +412,7 @@ print('Sens actuel des broches (numérotation physique) :')
  
 
 for i in broches:  
-    sens = GPIO.gpio\_function(i)  
+    sens = GPIO.gpio_function(i)  
   
     # On réassigne le même sens que la broche avait car le cleanup n'a d'effet que pour les broches affectées par le script  
     if sens == 1:  
@@ -447,9 +447,9 @@ L'élément 1 est le premier argument, l'élément 2 est le second argument et a
 
 Python
 
-nom\_script = sys.argv[0]  
-premier\_parametre = sys.argv[1]  
-deuxieme\_parametre = sys.argv[2]
+nom_script = sys.argv[0]  
+premier_parametre = sys.argv[1]  
+deuxieme_parametre = sys.argv[2]
 
 ## Si aucun paramètre n'est passé (paramètre optionnel)
 
@@ -506,10 +506,10 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 
 |  | Python | JavaScript | PHP | C# |
 | --- | --- | --- | --- | --- |
-| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine\_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
+| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
 | Booléens | True  False    Sensible à la casse | true  false    Sensible à la casse | True ou true ou TRUE  False ou false ou FALSE    Insensible à la casse | true  false    Certaines fonctions C# retournent cependant True ou False...    bool valeur = true;  Console.WriteLine(valeur); // True |
 | Opérateurs booléens | and  or  not | &&  ||  ! | && ou and  || ou or  ! | &&  ||  ! |
-| Concaténation | nom\_complet = prenom + ' ' + nom\_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
+| Concaténation | nom_complet = prenom + ' ' + nom_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
 | Incrémentation | i += 1 | i += 1; ([affectation après addition](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Addition_assignment))  i++ ([opérateur d'incrémentation en suffixe](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Increment))  ++i (opérateur d'incrémentation en préfixe) | $i += 1;  $i++ ([post-incrémente](https://www.php.net/manual/fr/language.operators.increment.php))  ++$i (pré-incrémente) | i += 1;  i++  ++i |
 | Conversion de type | nombre= int(saisie) | nombre = parseInt(saisie); | $nombre = (int)$saisie;  ou  $nombre = intval($saisie); | nombre = Convert.ToInt32(saisie);  ou  Int32.TryParse(saisie, out nombre); |
 | Affichage à l'écran | print(nom)  ou, pour éviter les sauts de ligne :  print(nom, end='')    On peut interpréter des variables dans une chaîne : print(f"Votre score est {score}") | L'affichage se fait à l'aide de manipulations du DOM :  balise.innerHTML = nom;    Si on utilise jQuery :  $(balise).html(nom);    Pour afficher à la console :  console.log(nom);    Pour afficher dans une fenêtre popup :  window.alert(nom); | echo $nom; | Dans une page Web :  Response.Write(nom);    À la console :  Console.WriteLine(nom); |
@@ -521,11 +521,11 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 | Boucles while | while x < 10:      ... | while (x < 10) {      ...  } | while (x < 10) {      ...  } | while (x < 10) {      ...  } |
 | Boucles sur un nombre déterminé d'itérations | for i in range(10):      ...    La boucle pourrait commencer à une autre valeur que 0, il est possible de spécifier le départ, la fin (exclue de la boucle) et la valeur du saut :  for i in range(1, 10, 1)      ... | for (i = 0; i < 10; i++) {      ...  } | for ($i = 0; $i < 10; $i++) {      ...  } | for (i = 0; i < 10; i++)  {      ...  } |
 | Boucles sur les éléments d'un tableau | valeurs = ['a', 'b', 'c']  for valeur in valeurs:      ... | var valeurs = ['a', 'b', 'c'];    for (var valeur in valeurs) {      ...  } | $valeurs = ['a', 'b', 'c'];    foreach ($valeurs as $valeur) {      ...  } | string[] valeurs = {"a", "b", "c"};    foreach (int valeur in valeurs)  {      ...  } |
-| Opérateur ternaire (inline if) | valeur\_si\_vrai if condition else valeur\_si\_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
+| Opérateur ternaire (inline if) | valeur_si_vrai if condition else valeur_si_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
 | Exceptions | try:      ...  except TypeException as e:      ... # traitement d'une exception précise  except Exception as e:      ... # traitement des autres exceptions  else:      ... # traitement si pas d'exception  finally:      ... # traitement si exception ou non | try {      ...  } catch (e) {      if (e instanceof TypeException) {          ... // traitement d'une exception précise      } else {          ... // traitement des autres exceptions      }  }  finally {      ... // traitement si exception ou non  } | try {      ...  } catch (TypeException $e) {      ... // traitement d'une exception précise  } catch (Throwable $e) {      ... // traitement des autres exceptions si PHP 7  } catch (Exception $e) {      ... // traitement des autres exceptions si PHP 5.X  } finally {      ... // traitement si exception ou non  } | try  {      ...  }  catch (TypeException)  {      ... // traitement d'une exception précise  }  catch (Exception e)  {      ... // traitement des autres exceptions  }  finally  {      ... // traitement si exception ou non  } |
 | Commentaires | # | //  /\* ... \*/ | #  //  /\* ... \*/ | //  /\* ... \*/ |
-| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma\_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
-| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP\_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
+| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
+| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
 | Valeur nulle | variable = None | let variable = null; | $variable = NULL; | string variable = null; |
 |  | Python | JavaScript | PHP | C# |
 
@@ -533,13 +533,13 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 |  | [Python](https://www.python.org/dev/peps/pep-0008/) | [JavaScript](https://google.github.io/styleguide/jsguide.html) | [PHP](http://www.php-fig.org/psr/psr-1/) | [C#](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions) |
 | --- | --- | --- | --- | --- |
-| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse\_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console\_sans\_bd et dans un autre projet graphique\_sans\_bd. |  |  |  |
+| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console_sans_bd et dans un autre projet graphique_sans_bd. |  |  |  |
 | Espaces de noms | toutenminuscules |  |  |  |
-| Fichiers | toutenminuscules  ou  casse\_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
-| Noms de variables | casse\_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
+| Fichiers | toutenminuscules  ou  casse_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
+| Noms de variables | casse_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
 | Noms de classes | CassePascal | CassePascal | CassePascal | CassePascal |
-| Noms de fonctions | casse\_serpent | casseChameau | casseChameau | CassePascal |
-| Noms de constantes | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | CassePascal |
+| Noms de fonctions | casse_serpent | casseChameau | casseChameau | CassePascal |
+| Noms de constantes | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | CassePascal |
 |  | Python | JavaScript | PHP | C# |
 
 ## Pour plus d'information
@@ -574,7 +574,7 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un <a href="fiche-activer_ssh_sur_le_raspberry_pi.md#activer_ssh_sur_le_raspberry_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
 
@@ -662,7 +662,7 @@ scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.exten
 Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
@@ -704,7 +704,7 @@ Pour tuer un processus au terminal, vous pouvez utiliser la commande [pkill](ht
 
 Terminal du Raspberry Pi
 
-sudo pkill -f mon\_script.py
+sudo pkill -f mon_script.py
 
 Une autre approche consiste à utiliser le numéro de processus.
 
@@ -712,22 +712,22 @@ Ce numéro peut être trouvé à l'aide de la commande ps.
 
 Terminal du Raspberry Pi
 
-ps -ef mon\_script.py
+ps -ef mon_script.py
 
 Notez qu'il est possible de faire afficher les en-têtes de colonnes comme suit :
 
 Terminal du Raspberry Pi
 
-ps -ef | head -1;ps -ef mon\_script.py
+ps -ef | head -1;ps -ef mon_script.py
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon\_script.py  
+monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon_script.py  
 UID     PID     PPID   C   TIME   TTY          TIME   CMD  
- 501   84833    33164   0   8:49   ttys006   0:00.00   grep mon\_script.py  
- 501   84730   80397   0   8:49   ttys007   0:14.34   /.../Python mon\_script.py
+ 501   84833    33164   0   8:49   ttys006   0:00.00   grep mon_script.py  
+ 501   84730   80397   0   8:49   ttys007   0:14.34   /.../Python mon_script.py
 
-Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon\_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.
+Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.
 
 La ou les autres lignes correspondent à des scripts en cours d'exécution. Le numéro de processus apparaît dans le seconde colonne.
 

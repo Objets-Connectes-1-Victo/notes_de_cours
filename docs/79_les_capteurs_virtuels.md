@@ -11,24 +11,24 @@ Ou encore, vous désirez tester une automatisation basée sur la température et
 
 Les capteurs virtuels vous permettront de faire vos tests facilement.
 
-Les capteurs virtuels permettent également d'étendre les fonctionnalités de Home Assistant, par exemple <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">créer une automatisation qui tient compte de l'heure</a>.
+Les capteurs virtuels permettent également d'étendre les fonctionnalités de Home Assistant, par exemple <a href="fiche-automatisation_qui_tient_compte_de_l_heure.md#automatisation_qui_tient_compte_de_l_heure">créer une automatisation qui tient compte de l'heure</a>.
 
 Il est possible de créer un capteur virtuel à l'aide de l'interface graphique ou à l'aide du fichier configuration.yaml.
 
-Peu importe la technique utilisée, les capteurs virtuels seront enregistrés avec les autres entités dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry.
+Peu importe la technique utilisée, les capteurs virtuels seront enregistrés avec les autres entités dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity_registry.
 
 ## Création d'un capteur virtuel à l'aide de l'interface graphique
 
 Les capteurs virtuels peuvent être créés à l'aide de l'interface graphique de Home Assistant.
 
-En plus du fichier core.entity\_registry, les capteurs ajoutés via l'interface graphique seront enregistrés dans le dossier /mnt/data/supervisor/homeassistant/.storage, dans un fichier qui porte le nom du type de capteur virtuel (input\_boolean, input\_datetime, input\_number, etc.).
+En plus du fichier core.entity_registry, les capteurs ajoutés via l'interface graphique seront enregistrés dans le dossier /mnt/data/supervisor/homeassistant/.storage, dans un fichier qui porte le nom du type de capteur virtuel (input_boolean, input_datetime, input_number, etc.).
 
 Pour créer un capteur virtuel à l'aide de l'interface graphique :
 
 * Paramètres / Appareils et services / Onglet Entrées (en anglais, ce sera Helpers) / Créer une entrée.
 * Sélectionnez le type désiré (faites défiler les options au besoin).
 
-  Un des types très utilisés est l'interrupteur, qui correspond au input\_boolean. Ceci crée un virtuel qui peut avoir deux états, par exemple allumé/éteint, ouvert/fermé, levé/baissé, etc.
+  Un des types très utilisés est l'interrupteur, qui correspond au input_boolean. Ceci crée un virtuel qui peut avoir deux états, par exemple allumé/éteint, ouvert/fermé, levé/baissé, etc.
 
   ![Ajouter une entrée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUneEntree.png)
 * Le capteur apparaîtra comme suit dans la page Aperçu et on pourra changer son état afin de faire réagir les automatisations qui l'utilisent.
@@ -37,7 +37,7 @@ Pour créer un capteur virtuel à l'aide de l'interface graphique :
 
 ## Création d'un capteur virtuel à l'aide du fichier configuration.yaml
 
-Vous pouvez également créer vos capteurs virtuels en entrant directement des lignes de code dans <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">le fichier configuration.yaml</a>.
+Vous pouvez également créer vos capteurs virtuels en entrant directement des lignes de code dans <a href="fiche-Editer_le_fichier_configuration_yaml.md#Editer_le_fichier_configuration_yaml">le fichier configuration.yaml</a>.
 
 Cette technique vous offre plus d'options.
 
@@ -46,12 +46,12 @@ Notez que seul les capteurs virtuels créés par code apparaîtront dans ce fich
 Fichier configuration.yaml
 
 # Capteurs virtuels  
-input\_boolean:  
-  porte\_virtuelle:  
+input_boolean:  
+  porte_virtuelle:  
     name: Porte virtuelle  
     icon: mdi:door
 
-Comme pour toute modification directement dans le fichier de configuration, un <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">rechargement</a> sera nécessaire pour que ce capteur virtuel soit visible dans la page Aperçu.
+Comme pour toute modification directement dans le fichier de configuration, un <a href="fiche-Editer_le_fichier_configuration_yaml.md#Editer_le_fichier_configuration_yaml">rechargement</a> sera nécessaire pour que ce capteur virtuel soit visible dans la page Aperçu.
 <a id="chapitre-les_tableaux_de_bord"></a>
 
 ### Propriétés des capteurs virtuels
@@ -59,32 +59,32 @@ Comme pour toute modification directement dans le fichier de configuration, un 
 Pour chaque capteur, on spécifie :
 
 * son type :
-  + [input\_boolean](https://www.home-assistant.io/integrations/input_boolean/)
-  + [input\_select](https://www.home-assistant.io/integrations/input_select/)
-  + [input\_datetime](https://www.home-assistant.io/integrations/input_datetime/)
-  + [input\_number](https://www.home-assistant.io/integrations/input_number/)
-  + [input\_text](https://www.home-assistant.io/integrations/input_text/)
+  + [input_boolean](https://www.home-assistant.io/integrations/input_boolean/)
+  + [input_select](https://www.home-assistant.io/integrations/input_select/)
+  + [input_datetime](https://www.home-assistant.io/integrations/input_datetime/)
+  + [input_number](https://www.home-assistant.io/integrations/input_number/)
+  + [input_text](https://www.home-assistant.io/integrations/input_text/)
 * son identifiant (unique, composé uniquement de lettres minuscules, de chiffres et de barres de soulignement)
 * son nom tel qu'il apparaîtra dans Aperçu
-* sa valeur initiale au démarrage de Home Assistant (note : les input\_boolean utilisent on et off)
-* son icône, choisie dans <a href="fiche-icones\_material\_design\_dans\_home\_assistant.md#icones\_material\_design\_dans\_home\_assistant">la bibliothèque Material Design</a>
-* autres configurations propres au type de capteur virtuel (ex : liste des options disponibles pour input\_select)
+* sa valeur initiale au démarrage de Home Assistant (note : les input_boolean utilisent on et off)
+* son icône, choisie dans <a href="fiche-icones_material_design_dans_home_assistant.md#icones_material_design_dans_home_assistant">la bibliothèque Material Design</a>
+* autres configurations propres au type de capteur virtuel (ex : liste des options disponibles pour input_select)
 
 Il est possible de définir plusieurs capteurs virtuels du même type en les plaçant dans le même bloc.
 
 Fichier configuration.yaml
 
 # Capteurs virtuels  
-input\_boolean:  
-  porte\_virtuelle:  
+input_boolean:  
+  porte_virtuelle:  
     name: Porte virtuelle  
     icon: mdi:door  
-  presence\_maman:  
+  presence_maman:  
     name: Présence de maman  
     icon: mdi:face-profile-woman  
   
-input\_number:  
-  temperature\_virtuelle:  
+input_number:  
+  temperature_virtuelle:  
     name: Température virtuelle  
     initial: 20  
     min: -35  

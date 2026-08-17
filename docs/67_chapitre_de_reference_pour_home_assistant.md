@@ -3,7 +3,7 @@
 
 ## 59.1 Les couches logicielles de Home Assistant
 
-Lorsque vous installez Home Assistant sur un Raspberry Pi <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">selon la méthode recommandée</a>, vous obtenez un système avec trois couches logicielles :
+Lorsque vous installez Home Assistant sur un Raspberry Pi <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">selon la méthode recommandée</a>, vous obtenez un système avec trois couches logicielles :
 
 * Host : le système d'exploitation, Home Assistant Operating System (HassOS)
 * Supervisor : le superviseur, responsable de la gestion du système d'exploitation et notamment des modules complémentaires (add-ons)
@@ -25,7 +25,7 @@ Dans les versions plus récentes de Home Assistant, on peut encore voir ces couc
 
 Pour utiliser votre système domotique Home Assistant installé sur un Raspberry Pi, la méthode de connexion au réseau privilégiée est une connexion câblée puisqu'elle est plus stable qu'une connexion sans fil.
 
-Lorsque vous branchez le Pi au réseau câblé, aucune configuration particulière n'est requise, sauf si vous désirez fournir une [adresse IP statique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ipstatique) ou encore si les configurations de votre réseau nécessitent que vous fournissiez l'<a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">adresse d'un serveur DNS</a>.
+Lorsque vous branchez le Pi au réseau câblé, aucune configuration particulière n'est requise, sauf si vous désirez fournir une [adresse IP statique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ipstatique) ou encore si les configurations de votre réseau nécessitent que vous fournissiez l'<a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">adresse d'un serveur DNS</a>.
 
 Bien entendu, il est également possible d'utiliser un réseau sans fil.
 
@@ -48,7 +48,7 @@ Les configurations réseau de Home Assistant peuvent être réalisées à l'aide
   + Sous Windows, l'utilitaire par défaut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voir <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
   + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
 * La clé doit posséder un volume nommé CONFIG (en majuscules).
-* Important : les fichiers de configuration doivent comporter des <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
+* Important : les fichiers de configuration doivent comporter des <a href="fiche-encodage_des_fins_de_lignes_crlf_vs_lf.md#encodage_des_fins_de_lignes_crlf_vs_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
 
 Les informations de connexion de votre réseau doivent être inscrites dans un fichier de configuration nommé my-network (aucune extension) placé dans un dossier nommé network sur la clé USB.
 
@@ -152,7 +152,7 @@ Les serveurs DNS permettent de traduire un nom de domaine vers l'adresse IP qui 
 
 On utilise généralement les serveurs DNS de Google (8.8.8.8 et 8.8.4.4) ainsi que ceux utilisés par votre ordinateur. Les adresses doivent être séparées par des points-virgules.
 
-Pour connaître les serveurs DNS utilisés par votre ordinateur, <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">suivez ce lien</a>.
+Pour connaître les serveurs DNS utilisés par votre ordinateur, <a href="fiche-donner_une_adresse_ip_statique_au_raspberry_pi.md#donner_une_adresse_ip_statique_au_raspberry_pi">suivez ce lien</a>.
 
 La configuration du DNS sur Home Assistant peut être effectuée comme suit, où la série de x sera remplacée par l'adresse IP du serveur DNS.
 
@@ -177,15 +177,15 @@ Remarquez que si vous avez configuré une adresse IP statique dans un fichier de
 
 Un redémarrage du Raspberry Pi est nécessaire pour que les fichiers de configuration soient pris en compte.
 
-Attention : on parle ici d'un démarrage complet du Raspberry Pi (dans le <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>, entrer la commande reboot).
+Attention : on parle ici d'un démarrage complet du Raspberry Pi (dans le <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>, entrer la commande reboot).
 
 La clé USB pourra être retirée après le redémarrage du Pi puisque le système se charge de copier les fichiers de configuration dans le dossier /etc/NetworkManager/system-connections.
 
 ## Fichiers de configuration directement dans le terminal HassOS
 
-Une fois qu'ils ont été copiés sur le Pi après un redémarrage, les fichiers de configuration réseau peuvent être édités à partir du <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
+Une fois qu'ils ont été copiés sur le Pi après un redémarrage, les fichiers de configuration réseau peuvent être édités à partir du <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>.
 
-Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur\_vim.md#Editeur\_vim">éditeur vim</a>.
+Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur_vim.md#Editeur_vim">éditeur vim</a>.
 
 Pour éditer un fichier avec vi :
 
@@ -208,7 +208,7 @@ Notez que le fait de supprimer un fichier de configuration de ce dossier fait en
 
 ## Commandes au terminal HassOS
 
-Les configurations réseau peuvent être effectuées dans le <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
+Les configurations réseau peuvent être effectuées dans le <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>.
 
 D'abord, pour connaître la liste des réseaux sans fil disponibles, entrez la commande nmcli device wifi.
 
@@ -286,15 +286,15 @@ Résultat à l'écran
 
  
 
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+       ▄██▄           _   _   
+     ▄██████▄        | | | | ___  _ __ ___   ___   
+   ▄████▀▀████▄      | |_| |/ _ \| '_ ` _ \ / _ \   
+ ▄█████    █████▄    |  _  | (_) | | | | | |  __/   
+▄██████▄  ▄██████▄   |_| |_|\___/|_| |_| |_|\___|          _   
+████████  ██▀  ▀██      / \   ___ ___(_)___| |_ __ _ _ __ | |_   
+███▀▀███  ██   ▄██     / _ \ / __/ __| / __| __/ _` | '_ \| __|  
+██    ██  ▀ ▄█████    / ___ \\__ \__ \ \__ \ || (_| | | | | |_   
+███▄▄ ▀█  ▄███████   /_/   \_\___/___/_|___/\__\__,_|_| |_|\__|  
 ▀█████▄   ███████▀  
   
 Welcome on Home Assistant command line interface.
@@ -324,7 +324,7 @@ Si vous optez pour la configuration Web, vous devrez d'abord brancher le Pi à u
 
 Si vous aviez entré les configurations réseau [à l'aide d'une clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb), il est également possible d'utiliser la configuration Web pour les ajuster après coup.
 
-* <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">Accédez à l'interface Web de Home Assistant</a>.
+* <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">Accédez à l'interface Web de Home Assistant</a>.
 * Rendez-vous dans le menu Paramètres / Système / Réseau.
 
   ![Configurer les interfaces réseau](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerLesInterfacesReseau.png)
@@ -356,9 +356,9 @@ Le fichier de configuration doit être placé sur une clé USB qui répond à de
   + Sous Windows, l'utilitaire par défaut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voir <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
   + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
 * La clé doit posséder un volume nommé CONFIG (en majuscules).
-* Les fichiers de configuration doivent comporter des <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
+* Les fichiers de configuration doivent comporter des <a href="fiche-encodage_des_fins_de_lignes_crlf_vs_lf.md#encodage_des_fins_de_lignes_crlf_vs_lf">sauts de ligne correctement encodés pour Linux (LF)</a>.
 
-Les configurations disponibles <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">sont détaillées sur cette fiche</a>.
+Les configurations disponibles <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">sont détaillées sur cette fiche</a>.
 
 Voici un exemple qui permet de configurer l'adresse IP statique.
 
@@ -407,9 +407,9 @@ dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4
 
 ## Terminal HassOS
 
-Une fois qu'ils ont été copiés sur le Pi après un redémarrage, les fichiers de configuration réseau, qui permettent également de spécifier une adresse iP statique, peuvent être édités directement à partir du <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
+Une fois qu'ils ont été copiés sur le Pi après un redémarrage, les fichiers de configuration réseau, qui permettent également de spécifier une adresse iP statique, peuvent être édités directement à partir du <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>.
 
-Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur\_vim.md#Editeur\_vim">éditeur vim</a>.
+Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur_vim.md#Editeur_vim">éditeur vim</a>.
 
 Pour éditer un fichier avec vi :
 
@@ -435,7 +435,7 @@ Notez que le fait de supprimer un fichier de configuration de ce dossier fait en
 
 Il est possible de configurer l'adresse IP directement à partir de l'interface graphique de Home Assistant. Évidemment, l'adresse utilisée initialement aura été fournie par DHCP.
 
-* <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">Accédez à l'interface Web de Home Assistant</a>.
+* <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">Accédez à l'interface Web de Home Assistant</a>.
 * Rendez-vous dans le menu Paramètres / Système / Réseau.
 
   ![Configurer les interfaces réseau](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerLesInterfacesReseau.png)
@@ -448,27 +448,27 @@ Il est possible de configurer l'adresse IP directement à partir de l'interface 
 
 Je vous présente ici la technique pour se brancher à Home Assistant via SSH afin d'avoir accès à un maximum de fonctionnalités.
 
-Notez qu'il est possible de configurer l'accès SSH <a href="fiche-module\_complementaire\_terminal\_ssh\_pour\_home\_assistant.md#module\_complementaire\_terminal\_ssh\_pour\_home\_assistant">à l'aide du module complémentaire Terminal et SSH</a>. Cependant, ceci ne donne pas tous les accès dont un développeur pourrait avoir besoin. Entre autres, ce module ne permet pas de gérer les configurations réseau à l'aide de la commande nmcli ni de copier des fichiers entre l'ordinateur et le Raspberry Pi à l'aide de scp.
+Notez qu'il est possible de configurer l'accès SSH <a href="fiche-module_complementaire_terminal_ssh_pour_home_assistant.md#module_complementaire_terminal_ssh_pour_home_assistant">à l'aide du module complémentaire Terminal et SSH</a>. Cependant, ceci ne donne pas tous les accès dont un développeur pourrait avoir besoin. Entre autres, ce module ne permet pas de gérer les configurations réseau à l'aide de la commande nmcli ni de copier des fichiers entre l'ordinateur et le Raspberry Pi à l'aide de scp.
 
 Voici donc comment accéder à un vrai terminal via SSH.
 
 ## Activation SSH
 
-Lors de l'installation de Home Assistant, vous avez peut-être déjà créé le fichier authorized\_keys installé sur une clé USB.
+Lors de l'installation de Home Assistant, vous avez peut-être déjà créé le fichier authorized_keys installé sur une clé USB.
 
-Si vous ne l'avez pas fait, effectuez la <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">procédure de création du fichier authorized\_keys sur la clé USB</a>, insérer la clé USB dans le Pi puis redémarrez Home Assistant.
+Si vous ne l'avez pas fait, effectuez la <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">procédure de création du fichier authorized_keys sur la clé USB</a>, insérer la clé USB dans le Pi puis redémarrez Home Assistant.
 
 Ceci aura pour effet de :
 
-* Copier le fichier authorized\_keys dans le dossier /root/.ssh.
-* Donner les droits de lecture et d'écriture à l'usager propriétaire de ce fichier (comme si vous aviez fait chmod 600 authorized\_keys).
+* Copier le fichier authorized_keys dans le dossier /root/.ssh.
+* Donner les droits de lecture et d'écriture à l'usager propriétaire de ce fichier (comme si vous aviez fait chmod 600 authorized_keys).
 * Activer le serveur SSH (comme si vous aviez fait systemctl start dropbear).
 
 Une fois le redémarrage complété, la clé USB peut être retirée et elle ne sera plus nécessaire.
 
 ## Pourquoi faut-il copier seulement la clé publique sur le Pi?
 
-Pour répondre à cette question, consultez cette fiche : « <a href="fiche-comment\_fonctionne\_l\_authentification\_via\_ssh.md#comment\_fonctionne\_l\_authentification\_via\_ssh">comment\_fonctionne\_l\_authentification\_via\_ssh</a> ».
+Pour répondre à cette question, consultez cette fiche : « <a href="fiche-comment_fonctionne_l_authentification_via_ssh.md#comment_fonctionne_l_authentification_via_ssh">comment_fonctionne_l_authentification_via_ssh</a> ».
 
 ## Connexion au Pi
 
@@ -486,7 +486,7 @@ ssh root@192.168.1.145 -p 22222
 
 Vous n'avez pas de mot de passe à entrer puisque vous utiliser le système de clés SSH.
 
-Vous avez désormais accès au <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
+Vous avez désormais accès au <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>.
 
 Résultat à l'écran
 
@@ -504,19 +504,19 @@ Parfois, sous Windows, la copie de la clé SSH publique ne fonctionne pas correc
 
 Si vous n'y êtes pas arrivés, je vous propose une façon détournée pour copier cette clé publique. Vous aurez besoin de brancher un clavier et un écran au Raspberry Pi pour effectuer ces manipulations.
 
-* Sur Home Assistant, installez le <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">module complémentaire File Editor</a>.
-* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized\_keys. Il sera placé <a href="fiche-dossier\_config.md#dossier\_config">dans le dossier config</a>, c'est-à-dire /mnt/data/supervisor/homeassistant.
+* Sur Home Assistant, installez le <a href="fiche-travailler_avec_le_module_complementaire_file_editor.md#travailler_avec_le_module_complementaire_file_editor">module complémentaire File Editor</a>.
+* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized_keys. Il sera placé <a href="fiche-dossier_config.md#dossier_config">dans le dossier config</a>, c'est-à-dire /mnt/data/supervisor/homeassistant.
 * Sur votre système Windows, à l'aide d'une fenêtre PowerShell, affichez la valeur de votre clé publique SSH.
 
   PowerShell
 
-  cat C:\Users\MonNom\.ssh\id\_ed25519.pub
-* Dans File Editor, éditez votre nouveau fichier authorized\_keys et collez-y la valeur de la clé publique. Elle devrait commencer par ssh-ed25519 et se terminer par le courriel utilisé dans la commande ssh-keygen.
+  cat C:\Users\MonNom\.ssh\id_ed25519.pub
+* Dans File Editor, éditez votre nouveau fichier authorized_keys et collez-y la valeur de la clé publique. Elle devrait commencer par ssh-ed25519 et se terminer par le courriel utilisé dans la commande ssh-keygen.
 * Puisque File Editor n'a pas accès aux dossiers situés en dehors de la racine du site Web, vous devrez déplacer le fichier à l'aide du clavier branché au Raspberry Pi.
 
   Terminal HassOS
 
-  cp /mnt/data/supervisor/homeassistant/authorized\_keys /root/.ssh
+  cp /mnt/data/supervisor/homeassistant/authorized_keys /root/.ssh
 * Vous devriez maintenant avoir accès à votre Pi via SSH.
 
   PowerShell
@@ -544,7 +544,7 @@ Dans cette fiche :
 
 ## Retrouver la date, l'heure et le fuseau horaire au terminal
 
-Pour connaître la date du système, <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">ouvrez le terminal HassOS</a> puis entrez la commande date.
+Pour connaître la date du système, <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">ouvrez le terminal HassOS</a> puis entrez la commande date.
 
 Résultat à l'écran
 
@@ -576,7 +576,7 @@ Pour connaître - et possiblement modifier - le fuseau horaire via l'interface g
 
 ### Date et l'heure
 
-La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une <a href="fiche-afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord.md#afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord">configuration time\_date</a>.
+La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une <a href="fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord.md#afficher_la_date_et_l_heure_dans_le_tableau_de_bord">configuration time_date</a>.
 
 ![Capteur virtuel date and time](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CapteurVirtuelDateAndTime.png)
 
@@ -586,7 +586,7 @@ Avec une installation sur un Raspberry Pi, c'est un système de synchronisation 
 
 Ceci est nécessaire puisque à la base, le Raspberry Pi ne contient pas d'horloge en temps réel (RTC ou, en anglais, Real Time Clock).
 
-Une horloge mal synchronisée peut poser toutes sortes de problèmes dans Home Assistant. Dans le pire des cas, c'est l'installation elle-même qui ne fonctionnera pas puisque le certificat SSL pour télécharger Home Assistant sera considéré invalide (erreur « Can't fetch Whoami data: Cannot connect to host whoami.home-assistant.io:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE\_VERIFY\_FAILED] certificate verify failed: certificate is not yet valid (\_ssl.c:1129)')] » dans le log lors de l'installation).
+Une horloge mal synchronisée peut poser toutes sortes de problèmes dans Home Assistant. Dans le pire des cas, c'est l'installation elle-même qui ne fonctionnera pas puisque le certificat SSL pour télécharger Home Assistant sera considéré invalide (erreur « Can't fetch Whoami data: Cannot connect to host whoami.home-assistant.io:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate is not yet valid (_ssl.c:1129)')] » dans le log lors de l'installation).
 
 Il faut donc faire le nécessaire pour synchroniser l'horloge correctement.
 
@@ -636,19 +636,19 @@ Si vous avez besoin de connaître la version de Home Assistant ou de son systèm
 
 Dans l'interface graphique de Home Assistant, rendez-vous dans le menu Paramètres / À propos.
 
-Cet écran affiche la version <a href="fiche-les\_couches\_logicielles\_de\_home\_assistant.md#les\_couches\_logicielles\_de\_home\_assistant">de chaque couche logiciel de Home Assistant</a>.
+Cet écran affiche la version <a href="fiche-les_couches_logicielles_de_home_assistant.md#les_couches_logicielles_de_home_assistant">de chaque couche logiciel de Home Assistant</a>.
 
 ![Écran À propos](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-APropos.png)
 
 ## Ligne de commande
 
-Dans le <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>, entrez cette commande :
+Dans le <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS</a>, entrez cette commande :
 
 Ligne de ccommande Home Assistant
 
 ha info
 
-La version <a href="fiche-les\_couches\_logicielles\_de\_home\_assistant.md#les\_couches\_logicielles\_de\_home\_assistant">de chaque couche logiciel de Home Assistant</a> apparaît à l'écran.
+La version <a href="fiche-les_couches_logicielles_de_home_assistant.md#les_couches_logicielles_de_home_assistant">de chaque couche logiciel de Home Assistant</a> apparaît à l'écran.
 
 Résultat à l'écran
 
@@ -663,7 +663,7 @@ features:
 - network  
 - hostname  
 - timedate  
-- os\_agent  
+- os_agent  
 - haos  
 - resolved  
 - journal  
@@ -674,11 +674,11 @@ homeassistant: 2023.10.1
 hostname: homeassistant  
 logging: info  
 machine: raspberrypi4-64  
-operating\_system: Home Assistant OS 16.2  
+operating_system: Home Assistant OS 16.2  
 state: running  
 supervisor: 2025.10.0  
 supported: true  
-supported\_arch:  
+supported_arch:  
 - aarch64  
 - armv7  
 - armhf  
@@ -710,15 +710,15 @@ Waiting for the Home Assistant CLI to be ready...
 
  
 
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+       ▄██▄           _   _   
+     ▄██████▄        | | | | ___  _ __ ___   ___   
+   ▄████▀▀████▄      | |_| |/ _ \| '_ ` _ \ / _ \   
+ ▄█████    █████▄    |  _  | (_) | | | | | |  __/   
+▄██████▄  ▄██████▄   |_| |_|\___/|_| |_| |_|\___|          _   
+████████  ██▀  ▀██      / \   ___ ___(_)___| |_ __ _ _ __ | |_   
+███▀▀███  ██   ▄██     / _ \ / __/ __| / __| __/ _` | '_ \| __|  
+██    ██  ▀ ▄█████    / ___ \\__ \__ \ \__ \ || (_| | | | | |_   
+███▄▄ ▀█  ▄███████   /_/   \_\___/___/_|___/\__\__,_|_| |_|\__|  
 ▀█████▄   ███████▀  
   
 Welcome on Home Assistant command line interface.
@@ -753,15 +753,15 @@ ha > banner
 
  
 
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+       ▄██▄           _   _   
+     ▄██████▄        | | | | ___  _ __ ___   ___   
+   ▄████▀▀████▄      | |_| |/ _ \| '_ ` _ \ / _ \   
+ ▄█████    █████▄    |  _  | (_) | | | | | |  __/   
+▄██████▄  ▄██████▄   |_| |_|\___/|_| |_| |_|\___|          _   
+████████  ██▀  ▀██      / \   ___ ___(_)___| |_ __ _ _ __ | |_   
+███▀▀███  ██   ▄██     / _ \ / __/ __| / __| __/ _` | '_ \| __|  
+██    ██  ▀ ▄█████    / ___ \\__ \__ \ \__ \ || (_| | | | | |_   
+███▄▄ ▀█  ▄███████   /_/   \_\___/___/_|___/\__\__,_|_| |_|\__|  
 ▀█████▄   ███████▀  
   
 Welcome on Home Assistant command line interface.
@@ -811,7 +811,7 @@ docker:
    dns: 172.30.32.3  
    gateway: 172.30.32.1  
    interface: hassio  
-host\_internet: true  
+host_internet: true  
 interfaces:  
 - connected: true  
   enabled: true  
@@ -842,7 +842,7 @@ Terminal HassOS
 
 nmcli con show
 
-Vous devriez obtenir une liste de configurations, notamment my-network (si vous avez <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">configuré le réseau lors de l'installation de Home Assistant</a>).
+Vous devriez obtenir une liste de configurations, notamment my-network (si vous avez <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">configuré le réseau lors de l'installation de Home Assistant</a>).
 
 Résultat à l'écran
 
@@ -915,22 +915,22 @@ locals:
 - dns://8.8.8.8  
 mdns: true  
 servers: []  
-update\_available: false  
+update_available: false  
 version: 2025.08.0  
-version\_latest: 2025.08.0
+version_latest: 2025.08.0
 
 ## Retrouver l'adresse IP par programmation
 
-Si vous ajoutez l'intégration [Adresse IP locale](https://www.home-assistant.io/integrations/local_ip) (local\_ip) à Home Assistant, vous pourrez retrouver l'adresse IP locale par programmation.
+Si vous ajoutez l'intégration [Adresse IP locale](https://www.home-assistant.io/integrations/local_ip) (local_ip) à Home Assistant, vous pourrez retrouver l'adresse IP locale par programmation.
 
-Une fois l'intégration installée, l'adresse IP de Home Assistant pourra être retrouvée à l'aide d'un <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèle</a>.
+Une fois l'intégration installée, l'adresse IP de Home Assistant pourra être retrouvée à l'aide d'un <a href="fiche-les_modeles_dans_home_assistant.md#les_modeles_dans_home_assistant">modèle</a>.
 
-Ce modèle pourra être utilisé dans des automatisations, par exemple pour <a href="fiche-configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel.md#configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel">l'envoyer par courriel</a> lors du <a href="fiche-ajouter\_une\_automatisation\_a\_l\_aide\_de\_l\_interface\_graphique.md#ajouter\_une\_automatisation\_a\_l\_aide\_de\_l\_interface\_graphique">démarrage de Home Assistant</a>.
+Ce modèle pourra être utilisé dans des automatisations, par exemple pour <a href="fiche-configurer_home_assistant_pour_l_envoi_de_courriel.md#configurer_home_assistant_pour_l_envoi_de_courriel">l'envoyer par courriel</a> lors du <a href="fiche-ajouter_une_automatisation_a_l_aide_de_l_interface_graphique.md#ajouter_une_automatisation_a_l_aide_de_l_interface_graphique">démarrage de Home Assistant</a>.
 
 <a id="fiche-qu_est-ce_qu_une_entite"></a>
 Modèle Home Assistant
 
-{{ states('sensor.local\_ip') }}
+{{ states('sensor.local_ip') }}
 
 ## Pour plus d'information
 
@@ -949,10 +949,10 @@ N'hésitez pas à la consulter au besoin afin de mieux vous y retrouver!
 | /etc/NetworkManager/system-connections | Contient les connexions réseau (les fichiers du dossier network de la clé USB y ont été copiés). |  |
 | /mnt/data/supervisor/homeassistant/home-assistant.log | Fichier journal principal de Home Assistant. |  |
 | /mnt/data/supervisor/backup | Contient les sauvegardes Home Assistant. Pour chaque sauvegarde, le nom du fichier est en fait un slug sous forme de nombre alphanumérique, par exemple 6a4451b2.tar. |  |
-| /root/.ssh/authorized\_keys | Contient les clés SSH publiques (notamment celle qui était dans le  fichier authorized\_keys de la clé USB). |  |
+| /root/.ssh/authorized_keys | Contient les clés SSH publiques (notamment celle qui était dans le  fichier authorized_keys de la clé USB). |  |
 | /mnt/data/supervisor/homeassistant/.storage | Contient les configurations faites par l'interface graphique. |  |
-| /mnt/data/supervisor/homeassistant/.storage/core.device\_registry | Contient les informations sur les appareils (les objets connectés) ajoutés à Home Assistant. |  |
-| /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry | Contient les informations sur les entités créées dans Home Assistant. Les virtuels y figureront, qu'ils aient été créés à l'aide de l'interface graphique ou directement dans configuration.yaml. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.device_registry | Contient les informations sur les appareils (les objets connectés) ajoutés à Home Assistant. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.entity_registry | Contient les informations sur les entités créées dans Home Assistant. Les virtuels y figureront, qu'ils aient été créés à l'aide de l'interface graphique ou directement dans configuration.yaml. |  |
 | /mnt/data/supervisor/homeassistant/www | Les fichiers placés dans ce dossier sont accessibles sur le Web à partir d'une adresse du genre http://192.168.1.145:8123/local/monimage.png dans le navigateur ou /local/monimage.png dans les automatisations et dans le tableau de bord.  Notez que le dossier www n'est pas présent lors de l'installation initiale. Il faut le créer et redémarrer le système. |  |
 
 ## 59.9 Qu'est-ce qu'une entité?
@@ -968,7 +968,7 @@ Chaque entité peut apparaître dans le tableau de bord, être utilisée dans un
 
 Souvent, pour un seul objet connecté (on l'appelle appareil dans Home Assistant), il y aura plusieurs entités. Par exemple, un capteur 5-en-1 aura une entité pour chacun de ses capteurs et probablement d'autres entités, par exemple un détecteur du niveau de la pile ou même un détecteur pour la version du micrologiciel de l'objet connecté.
 
-Les informations sur les entités sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.device\_registry.
+Les informations sur les entités sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.device_registry.
 
 ## Identifiant d'entité
 
@@ -976,10 +976,10 @@ Un peu partout dans Home Assistant, notamment dans les automatisation, vous trav
 
 Cet identifiant est composé de deux morceaux :
 
-* Le domaine : chaîne qui représente de quel type d'entité il s'agit, par exemple sensor, zone, sun, person, input\_number, device\_tracker
+* Le domaine : chaîne qui représente de quel type d'entité il s'agit, par exemple sensor, zone, sun, person, input_number, device_tracker
 * L'identifiant de l'objet : chaîne qui représente l'objet de façon unique pour un domaine donné
 
-L'identifiant de l'entité apparaît donc sous la forme domaine.identifiant\_objet.
+L'identifiant de l'entité apparaît donc sous la forme domaine.identifiant_objet.
 
 On peut voir l'identifiant à partir de l'onglet Aperçu, clic sur l'entité désirée / icône Paramètres (engrenage).
 
@@ -993,7 +993,7 @@ Lorsque vous accédez à l'interface Web de Home Assistant, vous devez entrer un
 
 ![Login](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Login.png)
 
-Si vous avez oublié ces informations, il est possible de les réinitialiser à condition d'avoir un accès direct au Raspberry Pi à l'aide d'un clavier et d'un écran ou <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">à un branchement via SSH</a>.
+Si vous avez oublié ces informations, il est possible de les réinitialiser à condition d'avoir un accès direct au Raspberry Pi à l'aide d'un clavier et d'un écran ou <a href="fiche-se_brancher_a_home_assistant_via_ssh.md#se_brancher_a_home_assistant_via_ssh">à un branchement via SSH</a>.
 
 Notez que si vous avez encore les accès requis pour vous connecter avec un compte d'administrateur, il est préférable de modifier le mot de passe via l'interface Web : Paramètres / Personnes / Clic sur l'usager à modifier / Changer le mot de passe.
 
@@ -1016,19 +1016,19 @@ Entrez cette commande à la console Home Assistant :
 
 Console Home Assistant
 
-auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+auth reset --username nom_usager --password nouveau_mot_de_passe_en_clair
 
 ou celle-ci dans le terminal HassOS (invite #) :
 
 Terminal
 
-ha auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+ha auth reset --username nom_usager --password nouveau_mot_de_passe_en_clair
 
 ## Code d'usager oublié
 
 Dans le cas où vous ne connaissez aucun code d'usager, il est possible de remédier à la situation en éditant directement certains fichiers sur le Raspberry Pi à partir du terminal HassOS.
 
-Sur HassOS, il est possible d'éditer les fichiers à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur\_vim.md#Editeur\_vim">éditeur vim</a>.
+Sur HassOS, il est possible d'éditer les fichiers à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur_vim.md#Editeur_vim">éditeur vim</a>.
 
 Pour éditer un fichier avec vi :
 
@@ -1058,9 +1058,9 @@ Fichier person
         "items": [  
           {  
             "name": "Nom complet",  
-            "user\_id": "f2cd12cfc6424f518721196496cce50f",  
-            "device\_trackers": [],  
-            "id": "nom\_usager"  
+            "user_id": "f2cd12cfc6424f518721196496cce50f",  
+            "device_trackers": [],  
+            "id": "nom_usager"  
           }  
         ]  
     }  
@@ -1072,25 +1072,25 @@ Fichier auth
  "credentials": [  
   {  
     "id": "dbc82e9608534610afd72541f4c9f7a7",  
-    "user\_id": "f2cd12cfc6424f518721196496cce50f",  
-    "auth\_provider\_type": "homeassistant",  
-    "auth\_provider\_id": null,  
+    "user_id": "f2cd12cfc6424f518721196496cce50f",  
+    "auth_provider_type": "homeassistant",  
+    "auth_provider_id": null,  
     "data": {  
-        "username": "nom\_usager"  
+        "username": "nom_usager"  
     }  
   }  
  ],  
 ...
 
-Fichier auth\_provider.homeassistant
+Fichier auth_provider.homeassistant
 
 {  
     "version": 1,  
-    "key": "auth\_provider.homeassistant",  
+    "key": "auth_provider.homeassistant",  
     "data": {  
         "users": [  
           {  
-            "username": "nom\_usager",  
+            "username": "nom_usager",  
             "password": "JDJiJDEyJC9vSzlBamlOWE5wOTJheWdidHBJM3VKSTRONkdQbElBZnZUQmZzdWZxelBFbDkwRno1MWZh"  
           }  
         ]  
@@ -1116,7 +1116,7 @@ Ceci détruira tous les usagers et vous ramènera à l'écran qui vous demande d
 Pour réinitialiser la phase de préparation, vous devez simplement supprimer ces fichiers :
 
 * /mnt/data/supervisor/homeassistant/.storage/auth
-* /mnt/data/supervisor/homeassistant/.storage/auth\_provider.homeassistant
+* /mnt/data/supervisor/homeassistant/.storage/auth_provider.homeassistant
 * /mnt/data/supervisor/homeassistant/.storage/onboarding
 * /mnt/data/supervisor/homeassistant/.storage/hassio
 * /mnt/data/supervisor/homeassistant/.storage/cloud
@@ -1132,7 +1132,7 @@ Vous n'arrivez pas à accéder à l'interface Web de Home Assistant? Ou le syst�
 <a id="dns"></a>
 ## Le Raspberry Pi a-t-il accès à internet?
 
-Pour vérifier si le Raspberry Pi a accès à internet, ouvrez le <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal Linux HassOS</a> puis entrez cette commande :
+Pour vérifier si le Raspberry Pi a accès à internet, ouvrez le <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal Linux HassOS</a> puis entrez cette commande :
 
 Terminal
 
@@ -1203,9 +1203,9 @@ Résultat à l'écran
 
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
 PING 192.168.1.145 (192.168.1.145): 56 data bytes  
-64 bytes from 192.168.1.145: icmp\_seq=0 ttl=64 time=56.139 ms  
-64 bytes from 192.168.1.145: icmp\_seq=1 ttl=64 time=14.215 ms  
-64 bytes from 192.168.1.145: icmp\_seq=2 ttl=64 time=13.288 ms
+64 bytes from 192.168.1.145: icmp_seq=0 ttl=64 time=56.139 ms  
+64 bytes from 192.168.1.145: icmp_seq=1 ttl=64 time=14.215 ms  
+64 bytes from 192.168.1.145: icmp_seq=2 ttl=64 time=13.288 ms
 
 Si l'ordinateur ne réussit pas à rejoindre l'adresse du Pi :
 
@@ -1213,9 +1213,9 @@ Résultat à l'écran
 
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
 PING 192.168.1.145 (192.168.1.145): 56 data bytes  
-Request timeout for icmp\_seq 0  
-Request timeout for icmp\_seq 1  
-Request timeout for icmp\_seq 2
+Request timeout for icmp_seq 0  
+Request timeout for icmp_seq 1  
+Request timeout for icmp_seq 2
 
 Pistes de solution :
 
@@ -1234,9 +1234,9 @@ Vous devez alors utiliser un URL qui contient l'adresse IP du Pi que vous souhai
 
 Si le Raspberry Pi est branché au réseau à l'aide d'un câble RJ-45, qu'il n'a pas besoin d'adresse IP statique ni de serveur DNS spécifique, vous n'avez pas besoin de configurer l'accès au réseau.
 
-Dans le cas contraire, les configurations d'accès au réseau peuvent être réalisées <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">à l'aide d'une clé USB</a> branchée au Raspberry Pi lors du démarrage.
+Dans le cas contraire, les configurations d'accès au réseau peuvent être réalisées <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">à l'aide d'une clé USB</a> branchée au Raspberry Pi lors du démarrage.
 
-Elles peuvent également être réalisées <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">au terminal HassOS</a> ou encore <a href="fiche-configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant.md#configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant">via l'interface Web</a>.
+Elles peuvent également être réalisées <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">au terminal HassOS</a> ou encore <a href="fiche-configurer_l_acces_au_reseau_dans_home_assistant.md#configurer_l_acces_au_reseau_dans_home_assistant">via l'interface Web</a>.
 
 Une fois les configurations réalisées, que ce soit à l'aide d'une clé USB, au terminal ou via l'interface Web, elles sont stockées dans des fichiers que vous retrouverez dans le dossier /etc/NetworkManager/system-connections.
 
@@ -1248,7 +1248,7 @@ Si vous avez configuré un accès au réseau et que vous ne retrouvez pas de fic
 
 ### Éditer les configurations
 
-Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur\_vim.md#Editeur\_vim">éditeur vim</a>.
+Vous pouvez afficher leur contenu à l'aide de la commande cat et les éditer à l'aide de l'éditeur vi, un proche parent de l'<a href="fiche-Editeur_vim.md#Editeur_vim">éditeur vim</a>.
 
 Pour éditer un fichier avec vi :
 
@@ -1314,9 +1314,9 @@ La date du système se synchronise automatiquement avec un service NTP (protoc
 
 Si ce service ne réussit pas à faire son travail, ceci pourrait compromettre le bon fonctionnement de Home Assistant.
 
-Pour vérifier la date du système, <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">ouvrez le terminal HassOS</a> puis entrez la commande date. La date sera affichée au format UTC.
+Pour vérifier la date du système, <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">ouvrez le terminal HassOS</a> puis entrez la commande date. La date sera affichée au format UTC.
 
-La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une <a href="fiche-afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord.md#afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord">configuration time\_date</a>.
+La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une <a href="fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord.md#afficher_la_date_et_l_heure_dans_le_tableau_de_bord">configuration time_date</a>.
 
 Si la date n'est pas correctement synchronisée, effectuez les vérifications suivantes :
 
@@ -1555,16 +1555,16 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
   monnom@MacBook-Pro-de-MonNom ~ %kasa  
   No host name given, trying discovery..  
   Discovering devices on 255.255.255.255 for 3 seconds  
-  == TP-LINK\_Smart Plug\_1AF1 - KP400(US) ==  
+  == TP-LINK_Smart Plug_1AF1 - KP400(US) ==  
           Host: 192.168.0.1   
           Device state: OFF  
     
           == Plugs ==   
-          \* Socket 'Kasa\_Smart Plug\_1AF1\_0' state: OFF on\_since: None  
-          \* Socket 'Kasa\_Smart Plug\_1AF1\_1' state: OFF on\_since: None  
+          \* Socket 'Kasa_Smart Plug_1AF1_0' state: OFF on_since: None  
+          \* Socket 'Kasa_Smart Plug_1AF1_1' state: OFF on_since: None  
     
           == Generic information ==  
-          Time:         2000-01-01 16:01:23 (tz: {'index': 6, 'err\_code': 0}  
+          Time:         2000-01-01 16:01:23 (tz: {'index': 6, 'err_code': 0}  
           Hardware:     3.0  
           Software:     1.0.2 Build 210105 Rel.165938  
           MAC (rssi):   14:EB:C6:89:1B:F1 (-30)  
@@ -1576,7 +1576,7 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
           On since: None  
     
           == Modules ==  
-          + <Module Antitheft (anti\_theft) for 192.168.0.1>  
+          + <Module Antitheft (anti_theft) for 192.168.0.1>  
           + <Module Schedule (schedule) for 192.168.0.1>  
           + <Module Usage (schedule) for 192.168.0.1>  
           + <Module Time (time) for 192.168.0.1>  
@@ -1597,8 +1597,8 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
 
    
 
-          WifiNetwork(ssid='mon-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)  
-          WifiNetwork(ssid='un-autre-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)
+          WifiNetwork(ssid='mon-reseau', key_type=3, cipher_type=None, bssid=None, channel=None, rssi=None)  
+          WifiNetwork(ssid='un-autre-reseau', key_type=3, cipher_type=None, bssid=None, channel=None, rssi=None)
 * Vous pouvez désormais brancher la prise au réseau désiré.
 
   Terminal de l'ordinateur
@@ -1609,7 +1609,7 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
 
 Maintenant que la prise Kasa a un accès Wi-Fi, poursuivons avec l'installation de l'intégration TP-Link Kasa Smart.
 
-* Ouvrez <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">l'interface Web de Home Assistant</a>.
+* Ouvrez <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">l'interface Web de Home Assistant</a>.
 * Rendez-vous dans le menu Paramètres / Appareils et services / onglet Intégrations.
 * Cliquez sur Ajouter une intégration.
 * Dans la zone de recherche, entrez kasa puis cliquez sur TP-Link Kasa Smart.
@@ -1628,7 +1628,7 @@ Maintenant que la prise Kasa a un accès Wi-Fi, poursuivons avec l'installation 
 
 <a id="chapitre-depannage_home_assistant_troubleshooting"></a>
   ![Intégration Kasa](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationKasa-3.png)
-* Si vous n'avez pas <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">créé un tableau de bord personnalisé</a>, Home Assistant a automatiquement ajouté la prise Kasa au tableau de bord et vous pouvez désormais la contrôler. Ici, on voit deux entités puisque ma prise est double.
+* Si vous n'avez pas <a href="fiche-creer_un_tableau_de_bord_personnalise.md#creer_un_tableau_de_bord_personnalise">créé un tableau de bord personnalisé</a>, Home Assistant a automatiquement ajouté la prise Kasa au tableau de bord et vous pouvez désormais la contrôler. Ici, on voit deux entités puisque ma prise est double.
 
   ![Prise Kasa dans Aperçu](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PriseKasaDansApercu.png)
 * Dans le cas où vous avez un tableau de bord personnalisé, Home Assistant ne fait plus automatiquement les ajouts. Vous devez donc ajouter une carte pour que votre prise apparaisse.
@@ -1645,7 +1645,7 @@ Maintenant que la prise Kasa a un accès Wi-Fi, poursuivons avec l'installation 
 
 ## 59.14 Éditeur vi
 
-L'éditeur vi, disponible sur HassOS, est un proche parent de l'<a href="fiche-Editeur\_vim.md#Editeur\_vim">éditeur vim</a>.
+L'éditeur vi, disponible sur HassOS, est un proche parent de l'<a href="fiche-Editeur_vim.md#Editeur_vim">éditeur vim</a>.
 
 Pour éditer un fichier avec vi :
 

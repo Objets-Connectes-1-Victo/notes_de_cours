@@ -28,15 +28,15 @@
    | 2021-09-24 07:10:00 | 0       | 112 | Power 8        | 15 | Prise intelligente Zooz |
 7. Raffinez cette requête afin qu'elle affiche les unes à la suite des autres les informations de l'équipement tirées de la table history ET les informations tirées de la table historyArch, le tout en ordre de date. Notez que puisque votre système domotique est rarement branché de soir, il se peut que votre table d'archive soit pratiquement vide. Prenez cette requête en note dans votre fichier texte.
 8. Copiez le résultat de la requête au bas du fichier texte. Notez que si vous travaillez en ligne de commande MySQL, pour pouvoir copier du texte en provenance du Pi vers votre ordinateur, vous devez travailler en SSH.
-9. Créez un nouveau scénario qui <a href="fiche-scenario\_qui\_execute\_une\_requete\_sql.md#scenario\_qui\_execute\_une\_requete\_sql">effectue une requête SQL</a> pour retrouver la plus haute température enregistrée hier et qui <a href="fiche-scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord.md#scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord">affiche cette information dans le tableau de bord</a>.
+9. Créez un nouveau scénario qui <a href="fiche-scenario_qui_execute_une_requete_sql.md#scenario_qui_execute_une_requete_sql">effectue une requête SQL</a> pour retrouver la plus haute température enregistrée hier et qui <a href="fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord.md#scenario_qui_affiche_une_information_dans_le_tableau_de_bord">affiche cette information dans le tableau de bord</a>.
 
    Ce scénario sera lancé à tous les jours 10 minutes après la tâche d'archivage. Vous devrez retrouver dans la table cron l'heure programmée pour la tâche history archive et entrer cette valeur plus 10 minutes dans le déclencheur du scénario.
 
    Afin de vous laisser vous concentrer sur le bloc de code PHP plutôt que sur la requête SQL, je vous fournis la requête à utiliser. Vous devrez évidemment ajuster le nom de votre équipement.
 
    SELECT MAX(historyArch.value) AS max FROM historyArch   
-   INNER JOIN cmd ON cmd\_id = cmd.id   
-   INNER JOIN eqLogic ON eqLogic\_id = eqLogic.id   
+   INNER JOIN cmd ON cmd_id = cmd.id   
+   INNER JOIN eqLogic ON eqLogic_id = eqLogic.id   
    WHERE eqLogic.name = 'Capteur 5-en-1 Neo'   
    AND cmd.name = 'Température'   
    AND DATE(historyArch.datetime) = CURDATE() - INTERVAL 1 DAY

@@ -11,13 +11,13 @@ Ceci est réalisé en ajoutant cette ligne dans le fichier configuration.yaml.
 
 Fichier configuration.yaml
 
-python\_script:
+python_script:
 
 Un redémarrage du système est requis pour que ce soit disponible mais attendez, un redémarrage sera également requis à une prochaine étape.
 
 ## Dossier qui contient les scripts
 
-Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier python\_scripts sous /mnt/data/supervisor/homeassistant.
+Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier python_scripts sous /mnt/data/supervisor/homeassistant.
 
 Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier config (c'est ce dossier qui représente /mnt/data/supervisor/homeassistant dans l'interface Web).
 
@@ -27,7 +27,7 @@ Vous pouvez également créer le dossier directement au terminal HassOS.
 
 Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
 
-Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">à l'aide de scp</a>.
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python_scripts sur le Pi <a href="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur.md#copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">à l'aide de scp</a>.
 
 Son nom doit se terminer par l'extension .py.
 
@@ -49,7 +49,7 @@ Dans cet exemple, j'ai inscrit la valeur du paramètre en dur mais il aurait ét
 
 configuration.yaml
 
-service: python\_script.test  
+service: python_script.test  
 data:  
   nom: 'Annie'
 
@@ -66,7 +66,7 @@ Il est désormais possible d'utiliser votre script Python dans une automatisatio
 
 Créez votre automatisation, définissez le déclencheur et possiblement les conditions puis comme action, choisissez Appeler un service.
 
-Dans la liste déroulante des services, vous aurez accès au service dont le nom correspond à la ligne service que vous avez écrite plus tôt dans configuration.yaml (ici : python\_script.test).
+Dans la liste déroulante des services, vous aurez accès au service dont le nom correspond à la ligne service que vous avez écrite plus tôt dans configuration.yaml (ici : python_script.test).
 
 <a id="chapitre-appeler_un_script_python_dans_home_assistant"></a>
 ![service python_script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationAvecPythonScript.png)

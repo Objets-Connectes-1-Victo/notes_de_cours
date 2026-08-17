@@ -3,28 +3,28 @@
 
 ## 83.1 Afficher la date et l'heure dans le tableau de bord
 
-Avant de vous lancer dans les <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">automatisations qui tiennent compte de l'heure</a> il est intéressant d'ajouter une configuration qui affiche la date et l'heure actuelles dans Home Assistant.
+Avant de vous lancer dans les <a href="fiche-automatisation_qui_tient_compte_de_l_heure.md#automatisation_qui_tient_compte_de_l_heure">automatisations qui tiennent compte de l'heure</a> il est intéressant d'ajouter une configuration qui affiche la date et l'heure actuelles dans Home Assistant.
 
 En effet, si vous désirez éteindre les lumières à 22h00, vous devez vous assurer que l'heure de Home Assistant est la même que la vôtre.
 
-L'affichage de la date et de l'heure actuelles est réalisé en ajoutant un capteur virtuel de type sensor. Attention : ce capteur est différent des <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">capteurs virtuels de type input\_datetime qui permettent de saisir la date et l'heure</a>!
+L'affichage de la date et de l'heure actuelles est réalisé en ajoutant un capteur virtuel de type sensor. Attention : ce capteur est différent des <a href="fiche-configurer_un_capteur_virtuel.md#configurer_un_capteur_virtuel">capteurs virtuels de type input_datetime qui permettent de saisir la date et l'heure</a>!
 
-La configuration sera ajoutée par code <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">dans le fichier configuration.yaml</a>.
+La configuration sera ajoutée par code <a href="fiche-Editer_le_fichier_configuration_yaml.md#Editer_le_fichier_configuration_yaml">dans le fichier configuration.yaml</a>.
 
-Il n'est pas nécessaire d'ajouter toutes les options d'affichage (display\_options) mais elles sont listées ici pour illustrer les options disponibles.
+Il n'est pas nécessaire d'ajouter toutes les options d'affichage (display_options) mais elles sont listées ici pour illustrer les options disponibles.
 
 Fichier configuration.yaml
 
 sensor:  
-  - platform: time\_date  
-    display\_options:  
+  - platform: time_date  
+    display_options:  
       - 'time'  
       - 'date'  
-      - 'date\_time'  
-      - 'date\_time\_utc'  
-      - 'date\_time\_iso'  
-      - 'time\_date'  
-      - 'time\_utc'
+      - 'date_time'  
+      - 'date_time_utc'  
+      - 'date_time_iso'  
+      - 'time_date'  
+      - 'time_utc'
 
 Après un redémarrage de Home Asssistant, vous verrez dans l'onglet Aperçu une entité pour chaque option d'affichage configurée.
 
@@ -35,11 +35,11 @@ Pour ma part, j'aime travailler avec les options suivantes :
 Fichier configuration.yaml
 
 sensor:  
-  - platform: time\_date  
-    display\_options:  
+  - platform: time_date  
+    display_options:  
       - 'time'  
       - 'date'  
-      - 'date\_time'
+      - 'date_time'
 
 ## Pour plus d'information
 
@@ -55,13 +55,13 @@ Je vous présente ici quelques techniques. À vous de les tester afin de trouver
 
 ## Capteur virtuel
 
-Le déclencheur peut utiliser <a href="fiche-afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord.md#afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord">un capteur virtuel qui affiche la date et l'heure actuelles</a> (sensor.date\_time, sensor.time, etc.) ou encore <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">un capteur virtuel de type input\_datetime qui permet de saisir une date et/ou une heure</a>.
+Le déclencheur peut utiliser <a href="fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord.md#afficher_la_date_et_l_heure_dans_le_tableau_de_bord">un capteur virtuel qui affiche la date et l'heure actuelles</a> (sensor.date_time, sensor.time, etc.) ou encore <a href="fiche-configurer_un_capteur_virtuel.md#configurer_un_capteur_virtuel">un capteur virtuel de type input_datetime qui permet de saisir une date et/ou une heure</a>.
 
 Notez que pour utiliser sensor.xxx, vous devez avoir fait les ajouts requis dans le fichier configuration.yaml.
 
 Dans les deux cas, le type de déclencheur sera Entité / État.
 
-Dans la zone Entité, choisissez sensor.time pour utiliser l'heure actuelle ou input\_datetime.heure (au autre nom selon votre capteur virtuel) pour une heure saisie à l'écran.
+Dans la zone Entité, choisissez sensor.time pour utiliser l'heure actuelle ou input_datetime.heure (au autre nom selon votre capteur virtuel) pour une heure saisie à l'écran.
 
 Entrez ensuite, dans la zone À, l'heure à laquelle vous désirez que le déclencheur lance l'action.
 

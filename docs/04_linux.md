@@ -35,13 +35,13 @@ Résultat à l'écran
 <a id="fiche-Rechercher_un_fichier"></a>
 Linux gateway 5.10.17-v7+ #1403 SMP Mon Feb 22 11:29:51 GMT 2021 armv7l GNU/Linux
 
-## lsb\_release
+## lsb_release
 
-La commande [lsb\_release](https://www.commandlinux.com/man-page/man1/lsb_release.1.html) (Linux Standard Base Release) permet d'obtenir spécifiquement la distribution Linux et son numéro de version.
+La commande [lsb_release](https://www.commandlinux.com/man-page/man1/lsb_release.1.html) (Linux Standard Base Release) permet d'obtenir spécifiquement la distribution Linux et son numéro de version.
 
 Linux
 
-lsb\_release -a
+lsb_release -a
 
 Note : si vous obtenez le message « lsb-release: command not found », vous devrez d'abord installer ce module à l'aide de la commande sudo apt install lsb-release.
 
@@ -149,7 +149,7 @@ Il ne s'agit pas de commandes de base mais bien de commandes moins connues ou pl
 | find -type f | xargs grep allo | Rechercher dans tous les fichiers du répertoire courant la chaîne "allo"  L'utilisation de xargs peut être optionnelle. Cependant, si find trouve plus de fichiers que grep ne peut en prendre, xargs découpera la sortie de find pour appeler grep plusieurs fois en ne dépassant pas la longueur de commande maximale. |
 | find -type f -print 0 | xargs -0 grep unechaine | Pour manipuler les fichiers comprenant des espaces |
 <a id="fiche-Eteindre_un_systeme_linux_de_facon_securitaire"></a>
-| find ~ -name preferences.txt 2>/dev/null | <a href="fiche-Rechercher\_un\_fichier.md#Rechercher\_un\_fichier">Rechercher un fichier</a> dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
+| find ~ -name preferences.txt 2>/dev/null | <a href="fiche-Rechercher_un_fichier.md#Rechercher_un_fichier">Rechercher un fichier</a> dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
 | ll | awk '$6=="Feb" ' | Afficher tous les fichiers modifiés en février - 6e colonne lors de l'affichage long |
 | find ~ -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 10 | Retrouve les 10 plus récents fichiers dans le dossier personnel et dans ses sous-dossiers. |
 
@@ -187,7 +187,7 @@ Lorsque vous entrez une de ces commandes, la LED verte clignote une dizaine de f
 
 Il ne faut pas retirer le câble d'alimentation tant que la LED verte n'est pas éteinte.
 
-Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, vous verrez ceci à l'écran :
+Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, vous verrez ceci à l'écran :
 
 Terminal
 
@@ -420,30 +420,30 @@ Sur mon Raspberry Pi, j'obtiens ceci :
 Résultat à l'écran
 
 SHELL=/bin/bash  
-NO\_AT\_BRIDGE=1  
+NO_AT_BRIDGE=1  
 PWD=/home/pi  
 LOGNAME=pi  
-XDG\_SESSION\_TYPE=tty  
+XDG_SESSION_TYPE=tty  
 HOME=/home/pi  
-LANG=en\_GB.UTF-8  
-LS\_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\*.tar=01;31:\*.tgz=01;31:\*.arc=01;31:\*.arj=01;31:\*.taz=01;31:\*.lha=01;31:\*.lz4=01;31:\*.lzh=01;31:\*.lzma=01;31:\*.tlz=01;31:\*.txz=01;31:\*.tzo=01;31:\*.t7z=01;31:\*.zip=01;31:\*.z=01;31:\*.dz=01;31:\*.gz=01;31:\*.lrz=01;31:\*.lz=01;31:\*.lzo=01;31:\*.xz=01;31:\*.zst=01;31:\*.tzst=01;31:\*.bz2=01;31:\*.bz=01;31:\*.tbz=01;31:\*.tbz2=01;31:\*.tz=01;31:\*.deb=01;31:\*.rpm=01;31:\*.jar=01;31:\*.war=01;31:\*.ear=01;31:\*.sar=01;31:\*.rar=01;31:\*.alz=01;31:\*.ace=01;31:\*.zoo=01;31:\*.cpio=01;31:\*.7z=01;31:\*.rz=01;31:\*.cab=01;31:\*.wim=01;31:\*.swm=01;31:\*.dwm=01;31:\*.esd=01;31:\*.jpg=01;35:\*.jpeg=01;35:\*.mjpg=01;35:\*.mjpeg=01;35:\*.gif=01;35:\*.bmp=01;35:\*.pbm=01;35:\*.pgm=01;35:\*.ppm=01;35:\*.tga=01;35:\*.xbm=01;35:\*.xpm=01;35:\*.tif=01;35:\*.tiff=01;35:\*.png=01;35:\*.svg=01;35:\*.svgz=01;35:\*.mng=01;35:\*.pcx=01;35:\*.mov=01;35:\*.mpg=01;35:\*.mpeg=01;35:\*.m2v=01;35:\*.mkv=01;35:\*.webm=01;35:\*.ogm=01;35:\*.mp4=01;35:\*.m4v=01;35:\*.mp4v=01;35:\*.vob=01;35:\*.qt=01;35:\*.nuv=01;35:\*.wmv=01;35:\*.asf=01;35:\*.rm=01;35:\*.rmvb=01;35:\*.flc=01;35:\*.avi=01;35:\*.fli=01;35:\*.flv=01;35:\*.gl=01;35:\*.dl=01;35:\*.xcf=01;35:\*.xwd=01;35:\*.yuv=01;35:\*.cgm=01;35:\*.emf=01;35:\*.ogv=01;35:\*.ogx=01;35:\*.aac=00;36:\*.au=00;36:\*.flac=00;36:\*.m4a=00;36:\*.mid=00;36:\*.midi=00;36:\*.mka=00;36:\*.mp3=00;36:\*.mpc=00;36:\*.ogg=00;36:\*.ra=00;36:\*.wav=00;36:\*.oga=00;36:\*.opus=00;36:\*.spx=00;36:\*.xspf=00;36:  
-SSH\_CONNECTION=172.19.33.164 51551 192.168.29.11 22  
-NVM\_DIR=/home/pi/.nvm  
-XDG\_SESSION\_CLASS=user  
+LANG=en_GB.UTF-8  
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:\*.tar=01;31:\*.tgz=01;31:\*.arc=01;31:\*.arj=01;31:\*.taz=01;31:\*.lha=01;31:\*.lz4=01;31:\*.lzh=01;31:\*.lzma=01;31:\*.tlz=01;31:\*.txz=01;31:\*.tzo=01;31:\*.t7z=01;31:\*.zip=01;31:\*.z=01;31:\*.dz=01;31:\*.gz=01;31:\*.lrz=01;31:\*.lz=01;31:\*.lzo=01;31:\*.xz=01;31:\*.zst=01;31:\*.tzst=01;31:\*.bz2=01;31:\*.bz=01;31:\*.tbz=01;31:\*.tbz2=01;31:\*.tz=01;31:\*.deb=01;31:\*.rpm=01;31:\*.jar=01;31:\*.war=01;31:\*.ear=01;31:\*.sar=01;31:\*.rar=01;31:\*.alz=01;31:\*.ace=01;31:\*.zoo=01;31:\*.cpio=01;31:\*.7z=01;31:\*.rz=01;31:\*.cab=01;31:\*.wim=01;31:\*.swm=01;31:\*.dwm=01;31:\*.esd=01;31:\*.jpg=01;35:\*.jpeg=01;35:\*.mjpg=01;35:\*.mjpeg=01;35:\*.gif=01;35:\*.bmp=01;35:\*.pbm=01;35:\*.pgm=01;35:\*.ppm=01;35:\*.tga=01;35:\*.xbm=01;35:\*.xpm=01;35:\*.tif=01;35:\*.tiff=01;35:\*.png=01;35:\*.svg=01;35:\*.svgz=01;35:\*.mng=01;35:\*.pcx=01;35:\*.mov=01;35:\*.mpg=01;35:\*.mpeg=01;35:\*.m2v=01;35:\*.mkv=01;35:\*.webm=01;35:\*.ogm=01;35:\*.mp4=01;35:\*.m4v=01;35:\*.mp4v=01;35:\*.vob=01;35:\*.qt=01;35:\*.nuv=01;35:\*.wmv=01;35:\*.asf=01;35:\*.rm=01;35:\*.rmvb=01;35:\*.flc=01;35:\*.avi=01;35:\*.fli=01;35:\*.flv=01;35:\*.gl=01;35:\*.dl=01;35:\*.xcf=01;35:\*.xwd=01;35:\*.yuv=01;35:\*.cgm=01;35:\*.emf=01;35:\*.ogv=01;35:\*.ogx=01;35:\*.aac=00;36:\*.au=00;36:\*.flac=00;36:\*.m4a=00;36:\*.mid=00;36:\*.midi=00;36:\*.mka=00;36:\*.mp3=00;36:\*.mpc=00;36:\*.ogg=00;36:\*.ra=00;36:\*.wav=00;36:\*.oga=00;36:\*.opus=00;36:\*.spx=00;36:\*.xspf=00;36:  
+SSH_CONNECTION=172.19.33.164 51551 192.168.29.11 22  
+NVM_DIR=/home/pi/.nvm  
+XDG_SESSION_CLASS=user  
 TERM=xterm-256color  
 USER=pi  
 SHLVL=1  
-NVM\_CD\_FLAGS=  
-XDG\_SESSION\_ID=c4  
-XDG\_RUNTIME\_DIR=/run/user/1000  
-SSH\_CLIENT=172.19.33.164 51551 22  
+NVM_CD_FLAGS=  
+XDG_SESSION_ID=c4  
+XDG_RUNTIME_DIR=/run/user/1000  
+SSH_CLIENT=172.19.33.164 51551 22  
 PATH=/home/pi/.nvm/versions/node/v10.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games  
-NVM\_BIN=/home/pi/.nvm/versions/node/v10.19.0/bin  
+NVM_BIN=/home/pi/.nvm/versions/node/v10.19.0/bin  
 MAIL=/var/mail/pi  
-SSH\_TTY=/dev/pts/1  
+SSH_TTY=/dev/pts/1  
 TEXTDOMAIN=Linux-PAM  
 OLDPWD=/home/pi/dev  
-\_=/usr/bin/printenv
+_=/usr/bin/printenv
 
 ## Afficher la valeur d'une seule variable
 
@@ -559,7 +559,7 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un <a href="fiche-activer_ssh_sur_le_raspberry_pi.md#activer_ssh_sur_le_raspberry_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
 <a id=""piversordi"></a>
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
@@ -655,7 +655,7 @@ Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes
 <a id="fiche-passerelle_et_protocoles_de_communication"></a>
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
@@ -835,7 +835,7 @@ Dans le résultat obtenu à l'écran présenté plus bas, on voit que dans la pl
 
 192.168.1.1 est l'adresse locale du routeur (default gateway). Une autre des adresses correspond à l'ordinateur que vous utilisez.
 
-Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">connecter via SSH</a> avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
+Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous <a href="fiche-se_brancher_au_raspberry_pi_via_ssh.md#se_brancher_au_raspberry_pi_via_ssh">connecter via SSH</a> avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
 
 Résultat à l'écran
 
@@ -1099,8 +1099,8 @@ monnom@MacBook-Pro-de-MonNom ~ %diskutil list
 
 /dev/disk2 (external, physical):  
  #: TYPE NAME SIZE IDENTIFIER  
- 0: FDisk\_partition\_scheme \*31.9 GB disk2  
- 1: Windows\_FAT\_32 ⁨boot⁩ 268.4 MB disk2s1  
+ 0: FDisk_partition_scheme \*31.9 GB disk2  
+ 1: Windows_FAT_32 ⁨boot⁩ 268.4 MB disk2s1  
  2: Linux ⁨⁩ 31.6 GB disk2s2
 
 On voit ici que le point de montage est disk2 puisqu'il s'agit d'un périphérique externe dont la capacité correspond à la carte.
@@ -1117,9 +1117,9 @@ diskutil unmountDisk /dev/diskN
 
 sudo dd bs=1m if=*chemin*/nom-du-fichier.img of=/dev/rdiskN conv=sync
 
-Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier\_le\_chemin\_d\_un\_fichier.md#copier\_le\_chemin\_d\_un\_fichier">copier\_le\_chemin\_d\_un\_fichier</a>.
+Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier_le_chemin_d_un_fichier.md#copier_le_chemin_d_un_fichier">copier_le_chemin_d_un_fichier</a>.
 
-Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd</a>.
+Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">copie_integrale_d_un_disque_avec_la_commande_dd</a>.
 
 ## Etcher
 
@@ -1402,7 +1402,7 @@ Voici quelques raccourcis qui pourraient vous être utiles :
 * Ctrl + O : enregistrer sans sortir de Nano (c'est la lettre O et non le chiffre)
 * Ctrl + X : sortir de nano (si des modifications sont en cours, il vous demandera si vous désirez enregistrer)
 * Ctrl + K : effacer la ligne courante (Kut)
-* Ctrl + \_ : aller à une ligne et possiblement à une colonne donnée
+* Ctrl + _ : aller à une ligne et possiblement à une colonne donnée
 * Ctrl + W : rechercher du texte
 * Ctrl + \ : rechercher et remplacer
 * Ctrl + C : afficher le numéro de ligne et de colonne du curseur
@@ -1431,7 +1431,7 @@ Ex :
 
 Commande Linux
 
-vim nom\_fichier
+vim nom_fichier
 
 ## Mode commande vs mode insertion
 
@@ -1460,9 +1460,9 @@ Voici quelques commandes utiles. Pour entrer ces commandes, vous devez d'abord v
 | :n ou nG | Se place sur la ligne n Ex : :5 -> va à la ligne 5 |
 | :set number | Affiche les numéros de lignes |
 | :set nonu | Enlève l'affichage des numéros de lignes |
-| :debut,fin s/chaîne\_ori/chaine\_modif/g ou  :debut,fin s/chaîne\_ori/chaine\_modif/c | Remplace le texte globalement ou avec demande de confirmation Aucun espace dans toute la commande  Utiliser le signe $ pour représenter la dernière ligne du fichier  Le s signifie Substitute  Le g signifie Globalement  Le c signifie Confirmation  Ex: :1,$s/allo/salut/g -> remplace tous les allo par des salut |
+| :debut,fin s/chaîne_ori/chaine_modif/g ou  :debut,fin s/chaîne_ori/chaine_modif/c | Remplace le texte globalement ou avec demande de confirmation Aucun espace dans toute la commande  Utiliser le signe $ pour représenter la dernière ligne du fichier  Le s signifie Substitute  Le g signifie Globalement  Le c signifie Confirmation  Ex: :1,$s/allo/salut/g -> remplace tous les allo par des salut |
 | :!commande | Lance une commande au shell Ex : :!date -> affiche la date du jour |
-| :!lp nom\_fichier | Imprime le fichier (il faut spécifier son nom puisqu'il s'agit d'une commande au shell) |
+| :!lp nom_fichier | Imprime le fichier (il faut spécifier son nom puisqu'il s'agit d'une commande au shell) |
 | Y | Y majuscule : Yank : copie une ligne |
 | Y3Y | Copie 3 lignes |
 | dd | Coupe une ligne |
@@ -1479,7 +1479,7 @@ Voici quelques commandes utiles. Pour entrer ces commandes, vous devez d'abord v
 | Ctrl+[ | Annule une commande partiellement formée |
 | Ctrl+g | Affiche nom du fichier et position du curseur (Ctrl+l pour enlever l'affichage) |
 | . | Répète la dernière opération |
-| :flèche\_haut | Historique des commandes |
+| :flèche_haut | Historique des commandes |
 
 Vous pouvez également copier un bloc de texte à l'aide des fonctionnalités standard du shell (prendre en bloc pour copier puis cliquer à l'aide du bouton du centre pour coller).
 
@@ -1493,7 +1493,7 @@ man vim
 
 Network Manager est un outil de gestion de réseaux pour les systèmes Linux.
 
-Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous <a href="fiche-installation\_de\_raspberry\_pi\_os.md#installation\_de\_raspberry\_pi\_os">Raspberry Pi OS</a> mais il l'est sous <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">HassOS</a>.
+Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous <a href="fiche-installation_de_raspberry_pi_os.md#installation_de_raspberry_pi_os">Raspberry Pi OS</a> mais il l'est sous <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">HassOS</a>.
 
 Lorsque Network Manager est installé, plusieurs opérations sur le réseau peuvent être réalisées dans une fenêtre Terminal grâce à la commande nmcli.
 

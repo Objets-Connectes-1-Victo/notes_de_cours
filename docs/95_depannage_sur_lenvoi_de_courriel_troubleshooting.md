@@ -5,7 +5,7 @@
 
 ### Problème :
 
-Lorsque vous utilisez le menu Outils de développement / Services afin de tester votre configuration SMTP pour envoyer du courriel avec Home Assistant, vous obtenez le message « Échec d'appel du service "notify/courriel\_administrateur". Unable to find service notify/courriel\_administrateur ».
+Lorsque vous utilisez le menu Outils de développement / Services afin de tester votre configuration SMTP pour envoyer du courriel avec Home Assistant, vous obtenez le message « Échec d'appel du service "notify/courriel_administrateur". Unable to find service notify/courriel_administrateur ».
 
 ![Échec d'appel du service ](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-UnableToFindServiceNotify.png)
 

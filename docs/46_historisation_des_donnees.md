@@ -9,7 +9,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-configurer\_l\_historique\_des\_commandes.md#configurer\_l\_historique\_des\_commandes">configurer\_l\_historique\_des\_commandes</a>
+## <a href="fiche-configurer_l_historique_des_commandes.md#configurer_l_historique_des_commandes">configurer_l_historique_des_commandes</a>
 
 Pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -51,9 +51,9 @@ Voici un extrait de la table history pour la commande dont l'id est 49, un capte
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;  
+MariaDB [jeedom]> select \* from history where cmd_id = 49;  
 +--------+---------------------+----------------+  
-| cmd\_id | datetime            | value          |  
+| cmd_id | datetime            | value          |  
 +--------+---------------------+----------------+  
 |     49 | 2021-09-23 16:15:00 | 1485.75        |  
 |     49 | 2021-09-23 16:20:00 | 1445.5         |  
@@ -92,7 +92,7 @@ MariaDB [jeedom]> SELECT \* FROM cron;
 | 18 |      1 | history | archive    | 00 5 \* \* \*        |     240 |      0 |               1 | NULL             |    0 |  
 ...
 
-## <a href="fiche-scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord.md#scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord">scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord</a>
+## <a href="fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord.md#scenario_qui_affiche_une_information_dans_le_tableau_de_bord">scenario_qui_affiche_une_information_dans_le_tableau_de_bord</a>
 
 Il faut créer un virtuel avec au moins une commande de type info.
 
@@ -104,7 +104,7 @@ $valeur = ...;
 $cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');  
 $cmd->event($valeur);
 
-## <a href="fiche-scenario\_qui\_execute\_une\_requete\_sql.md#scenario\_qui\_execute\_une\_requete\_sql">scenario\_qui\_execute\_une\_requete\_sql</a>
+## <a href="fiche-scenario_qui_execute_une_requete_sql.md#scenario_qui_execute_une_requete_sql">scenario_qui_execute_une_requete_sql</a>
 
 Bloc de code du scénario (PHP)
 
@@ -114,8 +114,8 @@ $sql = "SELECT ...";
  
 
 try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
-    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
+    $resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);  
+    //$scenario->setLog(print_r($resultat, true));   // pour voir les données brutes dans cette variable
 
  
 
@@ -129,7 +129,7 @@ try {
 
 ## 41.2 Configurer l'historique des commandes
 
-Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles <a href="fiche-selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile.md#selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile">l'historisation a été activée</a>, Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
+Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles <a href="fiche-selectionner_les_commandes_a_afficher_sur_une_tuile.md#selectionner_les_commandes_a_afficher_sur_une_tuile">l'historisation a été activée</a>, Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
 
 Rappel : pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -177,9 +177,9 @@ Voici un extrait de la table history pour la commande dont l'id est 49, un capte
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;  
+MariaDB [jeedom]> select \* from history where cmd_id = 49;  
 +--------+---------------------+----------------+  
-| cmd\_id | datetime            | value          |  
+| cmd_id | datetime            | value          |  
 +--------+---------------------+----------------+  
 |     49 | 2021-09-23 16:15:00 | 1485.75        |  
 |     49 | 2021-09-23 16:20:00 | 1445.5         |  

@@ -174,10 +174,10 @@ Pour configurer le Wi-Fi sans interface graphique, suivez ces instructions.
 
 Elles permettent de faire la configuration sans nécessiter écran ni clavier.
 
-Notez que vous pourriez également effectuer les configurations directement sur le Pi en éditant plutôt le fichier /etc/wpa\_supplicant/wpa\_supplicant.conf.
+Notez que vous pourriez également effectuer les configurations directement sur le Pi en éditant plutôt le fichier /etc/wpa_supplicant/wpa_supplicant.conf.
 
 * Insérez la carte micro SD dans votre ordinateur.
-* Créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de la partition boot.
+* Créez un fichier nommé [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de la partition boot.
 
   Sous Windows, utilisez l'utilitaire de texte de votre choix.
 
@@ -186,16 +186,16 @@ Notez que vous pourriez également effectuer les configurations directement sur 
   Terminal
 
   cd /Volumes/boot  
-  sudo nano wpa\_supplicant.conf
+  sudo nano wpa_supplicant.conf
 
-  Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa\_supplicant la première fois que le Pi sera démarré.
+  Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa_supplicant la première fois que le Pi sera démarré.
 * Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder. Si vous n'êtes pas au Canada, changez CA pour le [code à 2 lettres de votre pays](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
-  Fichier wpa\_supplicant.conf
+  Fichier wpa_supplicant.conf
 
   country=CA  
-  ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
-  update\_config=1
+  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+  update_config=1
 
    
 
@@ -205,7 +205,7 @@ Notez que vous pourriez également effectuer les configurations directement sur 
   }
 * Il est possible de configurer plusieurs réseaux si tel est votre besoin. Simplement ajouter une autre section network. Par exemple, pour pemettre de se brancher à un réseau non sécurisé (sans mot de passe) :
 
-  Fichier wpa\_supplicant.conf
+  Fichier wpa_supplicant.conf
 
   ...  
     
@@ -215,7 +215,7 @@ Notez que vous pourriez également effectuer les configurations directement sur 
     
   network={  
       ssid="NOM-DU-RESEAU"  
-      key\_mgmt=NONE  
+      key_mgmt=NONE  
   }
 * Si vous avez utilisé nano pour éditer le fichier, appuyez sur Ctrl + X puis O (ou  Y si votre OS est en anglais) pour enregistrer les modifications.
 * Redémarrez ensuite le Pi.
@@ -232,9 +232,9 @@ Remarquez que sur certains réseaux, le 2.4 GHz et le 5 GHz portent le même nom
 
 ### Autre cause possible :
 
-Le fichier wpa\_supplicant.conf cause problème pour une raison inconnue.
+Le fichier wpa_supplicant.conf cause problème pour une raison inconnue.
 
-Ceci fait en sorte que lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa\_supplicant ».
+Ceci fait en sorte que lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa_supplicant ».
 
 ![Could not communicate with wpa_supplicant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CouldNotCommunicateWithWpaSupplicant.png)
 
@@ -244,17 +244,17 @@ Dans certains cas, vous pourriez avoir plutôt le message « No wireless interf
 
 ### Solution proposée :
 
-Supprimez le fichier wpa\_supplicant.conf :
+Supprimez le fichier wpa_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
 
 Recréez ce fichier comme suit :
 
 Terminal
 
-sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 Inscrivez-y les informations pour votre réseau Wi-Fi tel que montré plus haut puis redémarrez le Pi.
 
@@ -309,7 +309,7 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
 
 ## 5.3 Le Pi n'a que l'adresse 127.0.0.1
 
@@ -394,13 +394,13 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
 
-## 5.5 Aucun accès au réseau (message Could not communicate with wpa\_supplicant)
+## 5.5 Aucun accès au réseau (message Could not communicate with wpa_supplicant)
 
 ### Problème :
 
-Lorsque vous démarrez votre Raspberry Pi, vous n'obtenez aucune adresse IP. Lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa\_supplicant ».
+Lorsque vous démarrez votre Raspberry Pi, vous n'obtenez aucune adresse IP. Lorsque vous faites sudo raspi-config pour configurer le Wi-Fi, vous obtenez le message « Could not communicate with wpa_supplicant ».
 
 ![Could not communicate with wpa_supplicant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CouldNotCommunicateWithWpaSupplicant.png)
 
@@ -414,29 +414,29 @@ Dans certains cas, vous pourriez avoir plutôt le message « No wireless interf
 
 ### Cause possible :
 
-Le fichier wpa\_supplicant.conf cause problème pour une raison inconnue.
+Le fichier wpa_supplicant.conf cause problème pour une raison inconnue.
 
 ### Solution proposée :
 
-Supprimez le fichier wpa\_supplicant.conf :
+Supprimez le fichier wpa_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
 
 Recréez ce fichier comme suit :
 
 Terminal
 
-sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 Inscrivez-y les informations pour votre réseau Wi-Fi.
 
-Fichier wpa\_supplicant.conf
+Fichier wpa_supplicant.conf
 
 country=CA  
-ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
-update\_config=1
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+update_config=1
 
  
 
@@ -469,7 +469,7 @@ Si le problème persiste, entrez la commande suivante pour réinitialiser le ré
 
 Terminal
 
-sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan0
 
 ## 5.6 Aucun accès réseau (message Network is unreachable)
 
@@ -521,7 +521,7 @@ Les configurations du réseau sans fil ne sont pas correctes.
 
 Attention : cette solution s'applique à un réseau géré par dhcpcd. Depuis Raspberry Pi OS Bookworm en 2023, le gestionnaire de réseau par défaut est plutôt Network Manager.
 
-Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot.
+Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot.
 
 Sous Windows, utilisez l'utilitaire de texte de votre choix.
 
@@ -530,7 +530,7 @@ Sous Mac ou Linux, utilisez ces commandes :
 Terminal
 
 cd /Volumes/boot  
-sudo nano wpa\_supplicant.conf
+sudo nano wpa_supplicant.conf
 
 Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder.
 
@@ -538,11 +538,11 @@ Si vous utilisez un Raspberry Pi 3B+ ou moins récent, vous devez utiliser un Wi
 
 Même avec le Raspberry Pi 4, il arrive que le Wi-Fi de 5 GHz soit moins stable. Choisir un Wi-Fi de 2.4 GHz pourrait régler le problème.
 
-Fichier wpa\_supplicant.conf
+Fichier wpa_supplicant.conf
 
 country=CA  
-ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
-update\_config=1
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+update_config=1
 
  
 
@@ -757,12 +757,12 @@ Terminal
 
 sudo nano /boot/config.txt
 
-Vous devez enlever le # devant la ligne hdmi\_force\_hotplug afin d'activer cette configuration.
+Vous devez enlever le # devant la ligne hdmi_force_hotplug afin d'activer cette configuration.
 
 Fichier /boot/config.txt
 
 # uncomment if hdmi display is not detected and composite is being output  
-hdmi\_force\_hotplug=1
+hdmi_force_hotplug=1
 
 ![Fichier /boot/config.txt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-ActiverHDMI.png)
 
@@ -770,20 +770,20 @@ Pour sortir de Nano en enregistrant les modifications, appuyez sur Ctrl + o, app
 
 Vous devrez redémarrer le Pi pour que les nouvelles configurations soient prises en compte.
 
-Si ça ne fonctionne pas, enlevez le # devant une seconde configuration : hdmi\_drive=2. Enregistrez puis redémarrez le Pi.
+Si ça ne fonctionne pas, enlevez le # devant une seconde configuration : hdmi_drive=2. Enregistrez puis redémarrez le Pi.
 
 Fichier /boot/config.txt
 
 # uncomment to force a HDMI mode rather than DVI. This can make audio work in  
 # DMT (computer monitor) modes  
-hdmi\_drive=2
+hdmi_drive=2
 
-Si le problème n'est toujours pas réglé, éditez à nouveau le fichier /boot/config.txt et cette fois, enlevez le # devant la configuration hdmi\_safe = 1. Remettez un # devant les deux autres lignes.
+Si le problème n'est toujours pas réglé, éditez à nouveau le fichier /boot/config.txt et cette fois, enlevez le # devant la configuration hdmi_safe = 1. Remettez un # devant les deux autres lignes.
 
 Fichier /boot/config.txt
 
 # uncomment if you get no picture on HDMI for a default "safe" mode  
-hdmi\_safe=1
+hdmi_safe=1
 
 Si tout se passe bien, vous devriez voir l'affichage du Raspberry Pi mais en très gros et légèrement déformé. Même si l'affichage n'est pas intéressant, ceci indique que le signal peut se rendre, donc il n'y a pas un problème de câble et on sait que le Pi est capable d'envoyer un signal assez fort.
 
@@ -815,8 +815,8 @@ It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is  
 SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
 Please contact your system administrator.  
-Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.  
-Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10  
+Add correct host key in /Users/monnom/.ssh/known_hosts to get rid of this message.  
+Offending ECDSA key in /Users/monnom/.ssh/known_hosts:10  
 ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.  
 Host key verification failed.
 
@@ -826,11 +826,11 @@ Host key verification failed.
 
 ### Cause possible :
 
-Il y a un problème avec le fichier known\_hosts car les clés SSH ont changé.
+Il y a un problème avec le fichier known_hosts car les clés SSH ont changé.
 
 ### Solution proposée :
 
-Retirez l'information sur cette adresse IP du fichier known\_hosts comme suit en prenant soin d'ajuster l'adresse IP du Pi.
+Retirez l'information sur cette adresse IP du fichier known_hosts comme suit en prenant soin d'ajuster l'adresse IP du Pi.
 
 Terminal de l'ordinateur
 
@@ -850,8 +850,8 @@ Résultat à l'écran
 
 MacBook-Pro-de-MonNom:~ monnom$ ssh-keygen -R 192.168.1.145  
 # Host 192.168.1.145 found: line 10  
-/Users/monnom/.ssh/known\_hosts updated.  
-Original contents retained as /Users/monnom/.ssh/known\_hosts.old  
+/Users/monnom/.ssh/known_hosts updated.  
+Original contents retained as /Users/monnom/.ssh/known_hosts.old  
 MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145  
 The authenticity of host '192.168.1.145 (192.168.1.145)' can't be established.  
 ECDSA key fingerprint is SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
@@ -880,7 +880,7 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">la technique présentée ici</a>.
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">la technique présentée ici</a>.
 
 ## 5.12 Erreur « Under-voltage detected! »
 
