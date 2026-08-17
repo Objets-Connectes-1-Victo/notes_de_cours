@@ -1,0 +1,3994 @@
+
+<!-- removed chapitre 57 -->
+
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Semaine 7 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+<!-- --- split --- -->
+
+# 58. Home Assistant au coeur de votre systÃ¨me domotique
+
+## 58.1 En rÃ©sumÃ©...
+
+Voici un rÃ©sumÃ© des informations essentielles du ou des prochains chapitres.
+
+Notez que certaines fiches, qui font partie intÃ©grante du cours, pourraient ne pas figurer dans ce rÃ©sumÃ©.
+
+Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
+
+## [apical\_lien\_interne]installation\_de\_home\_assistant\_et\_premier\_acces[/apical\_lien\_interne]
+
+Bien suivre les Ã©tapes sur cette fiche!
+
+## [apical\_lien\_interne]la\_console\_home\_assistant[/apical\_lien\_interne]
+
+La console Home Assistant se reconnaÃ®t Ã  l'inviteÂ ha >.
+
+RÃ©sultat Ã  l'Ã©cran
+
+Waiting for the Home Assistant CLI to be ready...  
+Â \_Â  Â  \_Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â \_Â  Â  Â \_Â  Â  Â  Â  Â  Â  Â  \_  
+| |Â  | |Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  /\Â  Â  Â  Â  Â  Â (\_)Â  Â | |Â  Â  Â  Â  Â  Â  | |  
+| |\_\_| | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_Â  Â  Â /Â  \Â  Â \_\_\_ \_\_\_ \_ \_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_  
+|Â  \_\_Â  |/ \_ \| '\_ \ \_ \ / \_ \Â  Â / /\ \ / \_\_/ \_\_| / \_\_| \_\_/ \_\ | '\_ \| \_\_|  
+| |Â  | | (\_) | | | | | | \_\_ /Â  / \_\_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_  
+|\_|Â  |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| /\_/Â  Â  \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+  
+Welcome on Home Assistant command line.  
+Waiting for Supervisor to start up...  
+System information  
+Â  IPv4 Addresses for eth0:  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 9.0  
+Â  Home Assistant Core:Â  Â  Â 2022.9.7  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+ha >
+
+Cette console vous donne accÃ¨s Ã  certaines commandes spÃ©cialisÃ©es pour Home Assistant.
+
+Le terminal HassOS se reconnaÃ®t Ã  l'invite #.
+
+RÃ©sultat Ã  l'Ã©cran
+
+monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222  
+Welcome to Home Assistant OS.
+
+ 
+
+Use `ha` to access the Home Assistant CLI.  
+#
+
+Le terminal HassOS est en fait un terminal Linux spÃ©cialisÃ©.
+
+Pour entrer une commande Home Assistant dans un terminal HassOS, faire prÃ©cÃ©der son nom par ha.
+
+Terminal HassOS
+
+haÂ network info
+
+Le mÃªme rÃ©sultat serait obtenu dans la console Home Assistant comme suitÂ :
+
+Console Home Assistant
+
+network info
+
+Pour accÃ©der au terminal HassOS Ã  partir de la console Home Assistant, entrez la commandeÂ login.
+
+Aucun code d'usager ni mot de passe ne vous sera demandÃ©.
+
+RÃ©sultat Ã  l'Ã©cran
+
+ha > login  
+  
+#
+
+## [apical\_lien\_interne]Eteindre\_home\_assistant\_de\_facon\_securitaire[/apical\_lien\_interne]
+
+Pour arrÃªter ou redÃ©marrer le systÃ¨me complet :
+
+Rendez-vous dans le menuÂ ParamÃ¨tresÂ /Â SystÃ¨meÂ /Â MatÃ©riel.
+
+Dans le coin supÃ©rieur droit, cliquez sur les trois points verticaux.
+
+![RedÃ©marrer l'hÃ´te](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RedemarrerLHote.png)
+
+ou
+
+Terminal HassOS
+
+halt
+
+ou
+
+Terminal HassOS
+
+reboot
+
+Pour redÃ©marrer seulement le coeur de Home AssistantÂ :
+
+* Rendez-vous dans le menuÂ ParamÃ¨tresÂ /Â SystÃ¨me.
+* Cliquez sur le lienÂ RedÃ©marrerÂ qui apparaÃ®t dans le coin supÃ©rieur gauche de l'Ã©cran.
+
+![RedÃ©marrer](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RedemarrerSeulementHA.png)
+
+ou
+
+Terminal HassOS
+
+ha core restart
+
+## [apical\_lien\_interne]dossier\_config[/apical\_lien\_interne]
+
+Sur le Web, on parle souvent du dossier config de Home Assistant. C'est celui qui contient le fichier configuration.yaml. Son emplacement sera diffÃ©rent selon le type d'installation de Home Assistant.
+
+Avec HassOS, il s'agit en fait du dossierÂ /mnt/data/supervisor/homeassistant.
+
+Ainsi, si on vous demande de placer un fichier dans le dossierÂ config/www, il faut plutÃ´t le placer dans le dossierÂ /mnt/data/supervisor/homeassistant/www.
+
+## 58.2 Installation de Home Assistant et premier accÃ¨s
+
+Home Assistant est un excellent logiciel domotique Ã  code source ouvert qui peut Ãªtre installÃ© entre autres sur un Raspberry Pi.
+
+Dans les faits, il peutÂ :
+
+* tourner par-dessus le systÃ¨me d'exploitation de votre choixÂ (on parlera de Home Assistant Core)
+* tourner par-desssus un systÃ¨me Linux de votre choix, par exemple Raspberry Pi OS (on parlera alors de Home Assistant Supervised)
+* tourner dans un conteneur Docker que vous gÃ©rez vous-mÃªmes (on parlera de Home Assistant Container)
+* selon la technique recommandÃ©e, tourner par-dessus le systÃ¨me d'exploitation Home Assistant Operating System ou HassOS pour les intimes, autrefois appelÃ© Hass.io. HassOS est un systÃ¨me d'exploitation GNU/Linux lÃ©ger spÃ©cifiquement conÃ§u pour exÃ©cuter des conteneurs Docker sur des systÃ¨mes embarquÃ©s. Auparavant, il Ã©tait basÃ© sur [resinOS](https://www.balena.io/blog/introducing-resinos/). Aujourd'hui, il est bÃ¢ti Ã  partir de [Buildroot](https://buildroot.org/).
+
+Nous travaillerons ici avec la version installÃ©e sur HassOS.
+
+Pour installer Home Assistant selon cette technique, il faut installer une image de HassOS sur la carte micro SD. L'image est disponible directement dans [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager).
+
+Une fois le Pi dÃ©marrÃ©, HassOS tÃ©lÃ©chargera puis installera automatiquement la toute derniÃ¨re version de Home Assistant.
+
+Notez que la procÃ©dure d'installation de Home Assistant est dite headless, c'est-Ã -dire queÂ vous n'avez pas besoin de brancher Ã©cran ni clavier au Raspberry Pi. La seule utilitÃ© d'un Ã©cran serait de voir l'Ã©tat d'avancement de l'installation, mais ce n'est pas nÃ©cessaire.
+
+Voici les sections couvertes dans cette procÃ©dureÂ :
+
+* [PrÃ©parer la carte micro SD](#carte)
+* [Configurations initiales (clÃ© USB)](#usb)
+* [DÃ©marrer le Raspberry Pi](#demarrer)
+* [AccÃ©der Ã  Home Assistant](#acceder)
+* [VÃ©rifier la prÃ©sence des fichiers de configuration de la clÃ© USB](#presence)
+
+## PrÃ©parer le Raspberry Pi
+
+Commencez par prendre connaissance deÂ la fiche suivante afin d'acquÃ©rir les bonnes composantes de baseÂ : [apical\_lien\_interne][un\_raspberry\_pi\_comme\_unite\_centrale][/apical\_lien\_interne].
+
+## PrÃ©parer la carte micro SD
+
+Pour installer le systÃ¨me d'exploitation HassOS sur votre Rapsberry PiÂ :
+
+* InsÃ©rez la carte micro SD dans votre ordinateur.
+* Si ce n'est pas dÃ©jÃ  fait, installez [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager) sur votre ordinateur puis lancez cette application.
+* Cliquez sur Choisir l'OS.
+* Cliquez sur Other specific-purpose OS.
+
+  ![Other specific-purpose OS](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-OtherSpecificPurposeOS.png)
+* Choisissez Home assistants and home automation.
+
+  ![Home assistants and home automation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantsAndHomeAutomation.png)
+* Cliquez sur Home Assistant.
+
+  ![Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistant.png)
+* Finalement, choisissez la version qui correspond Ã  votre Raspberry Pi.
+
+  ![Home Assistant pour Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantPourRaspberryPi4.png)
+* SpÃ©cifiez sur quelle carte l'image doit Ãªtre installÃ©e puis cliquez sur Ã‰crire.
+* Une fois l'image en place sur la carte micro SD, vous pourriez avoir Ã  l'Ã©cran un message du genre Â«Â Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateur.Â Â» ou, en anglais Â« The disk you connected cannot be read on this computer Â».
+* Ceci est normal, cliquez sur Ignorer.
+
+  ![Le disque que vous avez insÃ©rÃ© nâ€™est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LeDisqueQueVousAvezInsereNEstPasLisibleParCetOrdinateur.png) ![Le disque que vous avez insÃ©rÃ© nâ€™est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Mac-LeDisqueQueVousAvezAttacheNEstPasLisibleParCetOrdinateur-BigSur.png)
+
+## Configurations initiales (clÃ© USB)
+
+Vous l'avez peut-Ãªtre remarquÃ©, lors de l'installation de Home Assistant, Raspberry Pi Imager ne vous a pas offert l'option MODIFIER RÃ‰GLAGES. En effet, cette option n'est disponible que lors de l'installation de Raspberry Pi OS.
+
+Une technique diffÃ©rente a Ã©tÃ© prÃ©vue pour effectuer les configurations initiales, par exemple le rÃ©seau sans fil, le serveur DNS et l'adresse IP statique.
+
+Il s'agit de placer les fichiers de configuration sur une clÃ© USB qui rÃ©pond Ã  des rÃ¨gles prÃ©cisesÂ :
+
+* La clÃ© doit Ãªtre vierge et Ãªtre formatÃ©e en FAT32Â :
+  + Sous Windows, l'utilitaire par dÃ©faut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voirÂ <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
+  + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
+* La clÃ© doit possÃ©der un volume nommÃ© CONFIG (en majuscules).
+* Les fichiers de configuration doivent comporter des [apical\_lien\_interne][encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf,sauts de ligne correctement encodÃ©s pour Linux (LF)][/apical\_lien\_interne].
+
+Les configurations disponibles [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,sont dÃ©taillÃ©es sur cette fiche,sansfilusb][/apical\_lien\_interne].
+
+Voici un exemple de baseÂ :
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=[votre-uuid-ici](https://www.uuidgenerator.net/)  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=wpa-psk  
+psk=MOT-DE-PASSE-DU-RESEAU  
+  
+[ipv4]  
+method=auto  
+  
+[ipv6]  
+addr-gen-mode=stable-privacy  
+method=auto
+
+Et voici un exemple avec adresse IP statique :
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=[votre-uuid-ici](https://www.uuidgenerator.net/)  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=wpa-psk  
+psk=MOT-DE-PASSE-DU-RESEAU  
+  
+[ipv4]  
+method=manual  
+address=192.168.1.145/24;192.168.1.1  
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;  
+  
+[ipv6]  
+addr-gen-mode=stable-privacy  
+method=auto
+
+Remarquez que le rÃ©seau sans fil et l'adresse IP statique peuvent aussi [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,Ãªtre configurÃ©s via l'interface Web de Home Assistant,web][/apical\_lien\_interne] une fois que l'installation est terminÃ©e (vous aurez cependant besoin initialement d'une connection rÃ©seau cÃ¢blÃ©e).
+
+### Activation du SSH
+
+Pour pouvoir vous connecter au Raspberry Pi via SSH et ainsi avoir un accÃ¨s complet du systÃ¨me de fichiers du Raspberry Pi, vous devez gÃ©nÃ©rer sur votre ordinateur la paire de clÃ©s publique et privÃ©e puis copier la clÃ© publique dans un fichier nommmÃ© authorized\_keys Ã  la racine du [volume CONFIG](#usb).
+
+Suivez bien les instructions qui suivent, un petit Ã©cart fera en sorte que Ã§a ne fonctionne pas!
+
+#### GÃ©nÃ©rer les clÃ©s SSH
+
+Sous Mac ou Linux, travaillez directement dans une fenÃªtre Terminal.
+
+Sous Windows, pour effectuer les mÃªmes manipulations, vous devez ouvrir une fenÃªtre Terminal (et non CMD) ou PowerShell. Vous pouvez Ã©galement installer la console Git Bash (<https://git-scm.com/downloads>).
+
+Pour vÃ©rifier si les clÃ©s SSH ont dÃ©jÃ  Ã©tÃ© gÃ©nÃ©rÃ©es, entrez cette commande sur votre ordinateurÂ :
+
+Terminal sur l'ordinateur
+
+ls ~/.ssh
+
+Nous allons utiliser l'algorithme Ed25519 qui est l'[algorithme recommandÃ© de nos jours](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
+
+La clÃ© publique est stockÃ©e dans le fichierÂ id\_ed25519.pubÂ et la clÃ© privÃ©e, dans le fichierÂ id\_ed25519.
+
+Si les clÃ©s n'existent pas, vous devez les gÃ©nÃ©rer les clÃ©s Ã  l'aide de cette commandeÂ :
+
+Terminal sur l'ordinateur
+
+ssh-keygen -tÂ ed25519Â -C 'moncourriel@mondomaine.com'
+
+Acceptez l'emplacement par dÃ©faut (sous WindowsÂ :Â C:\Users\MonNom\.ssh\id\_ed25519, sous MacÂ :Â /Users/monnom/.ssh/id\_ed25519).
+
+Afin d'augmenter la sÃ©curitÃ©, vous pouvez entrer un mot de passe lorsqu'on vous demande un passphrase. Par contre, ceci obligera Ã  entrer ce mot de passe Ã  chaque connexion. Vous pouvez donc appuyer surÂ EntrÃ©eÂ sans entrer de mot de passe.
+
+#### Fichier authorized\_keys
+
+Il faut maintenant copier la clÃ© publique dans un fichier Ã  la racine du [volume CONFIG](#usb).
+
+La technique sera diffÃ©rente selon votre systÃ¨me d'exploitation.
+
+##### MacOS ou Linux
+
+Sous macOS ou Linux, le fichier sera crÃ©Ã© et rempli par cette commandeÂ :
+
+Terminal sur l'ordinateur
+
+cat /Users/monnom/.ssh/id\_ed25519.pub > /Volumes/CONFIG/authorized\_keys
+
+##### Windows
+
+Sous Windows, la redirection (caractÃ¨re >) cause parfois un mauvais fonctionnement (saut de ligne superflu Ã  la fin de la clÃ©, caractÃ¨res reprÃ©sentÃ©s par des rectangles en dÃ©but de fichier, caractÃ¨res qui ressemblent Ã  du chinois).
+
+Il est donc prÃ©fÃ©rable de procÃ©der comme suitÂ :
+
+* CrÃ©ez un fichier texte vierge sur la clÃ© USB dont l'encodage est ANSI ou UTF-8 [apical\_lien\_interne][encodage\_utf-8\_sans\_bom,sans BOM][/apical\_lien\_interne] et nommez-le authorized\_keys (aucune extension).
+
+  AttentionÂ : vous devez utiliser un Ã©diteur adaptÃ© Ã  ce type de tÃ¢che, par exemple Geany.
+
+  + Ne crÃ©ez pas le fichier en faisant un clic droit dans l'explorateur de fichiers / Nouveau fichier.
+  + N'utilisez pas non plus le bloc notes de Windows pour crÃ©er ce fichier.
+  + Ne renommez pas le fichier id\_ed25519.pub en authorized\_keys.
+* Affichez le contenu du fichier id\_ed25519.pub Ã  l'Ã©cran.
+
+  PowerShell
+
+  cat C:\Users\MonNom\.ssh\id\_ed25519.pub
+* Copiez-collez dans ce fichier la clÃ© qui a Ã©tÃ© affichÃ©e Ã  l'aide de la commande cat. ImportantÂ : il faut copier le contenu du fichier et non copier le fichier lui-mÃªme car celui qui demeure sous Windows utilisera les caractÃ¨res de saut de ligne de Windows (CR LF) et celui qui ira sur le systÃ¨me Linux [apical\_lien\_interne][encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf,utilisera les sauts de ligne de Linux (LF)][/apical\_lien\_interne].
+
+## DÃ©marrer le Raspberry Pi
+
+Le systÃ¨me d'exploitation est maintenant installÃ© et les configurations de bases sont rÃ©alisÃ©es.
+
+Passons maintenant Ã  l'installation de Home Assistant.
+
+* Coupez l'alimentation du Raspberry Pi si ce n'est pas dÃ©jÃ  fait.
+* [apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,Retirez la carte micro SD de l'ordinateur de faÃ§on sÃ©curitaire][/apical\_lien\_interne] puis insÃ©rez-la dans le Raspberry Pi.
+* Si requis, insÃ©rez Ã©galement dans le Pi la clÃ© USB qui contient vos configurations SSH, d'adresse IP et/ou de rÃ©seau sans fil.
+* Mettez le Pi sous tension.
+
+### VÃ©rifier la date du systÃ¨me
+
+Sur certains rÃ©seaux, le service NTP (protocole de diffusion du temps en rÃ©seau ou, en anglais, Network Time Protocol) ne fonctionne pas, ce qui empÃªche le Pi d'avoir la bonne date et la bonne heure. Ceci peut empÃªcher le bon fonctionnement de l'installation.
+
+Si vous avez un doute sur les configurations de votre rÃ©seau, branchez un clavier et un Ã©cran au Pi.
+
+Remarquez que si vous ne disposez pas d'un Ã©cran et d'un clavier, il est possible d'effectuer certaines vÃ©rifications Ã  l'aide d'uneÂ [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,connexion SSH][/apical\_lien\_interne] mais le tout est plus facile avec Ã©cran et clavier.
+
+Vous devriez voir cet Ã©cran dÃ¨s que HassOS est rendu assez loin dans son travail d'installation.
+
+RÃ©sultat Ã  l'Ã©cran
+
+Waiting for the Home Assistant CLI to be ready...  
+  
+Â  Â  Â  Â â–„â–ˆâ–ˆâ–„Â  Â  Â  Â  Â  Â \_Â  Â \_   
+Â  Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  Â  | | | | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_   
+Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
+Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  |Â  \_Â  | (\_) | | | | | |Â  \_\_/   
+â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|Â  Â  Â  Â  Â  \_   
+â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆâ–€Â  â–€â–ˆâ–ˆÂ  Â  Â  / \Â  Â \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
+â–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆÂ  Â â–„â–ˆâ–ˆÂ  Â  Â / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
+â–ˆâ–ˆÂ  Â  â–ˆâ–ˆÂ  â–€ â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
+â–ˆâ–ˆâ–ˆâ–„â–„ â–€â–ˆÂ  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â /\_/Â  Â \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+â–€â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–€  
+  
+Welcome on Home Assistant command line interface.  
+Waiting for Supervisor to start...
+
+ 
+
+Home Assistant Supervisor is running!  
+System information  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+Â  IPv4 Adresses for end0: 192.168.1.140/24  
+Â  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 16.2  
+Â  Home Assistant Core:Â  Â  Â landingpage  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+System is ready! Use browser or app to configure.  
+ha >
+
+Ã€ partir de l'invite ha >, passez au terminal HassOS :
+
+Console Home Assistant
+
+login
+
+Lorsque vous voyez l'invite #, vous pouvez entrer cette commandeÂ :
+
+Terminal HassOS
+
+date
+
+La date pourrait Ãªtre au format UTC (Coordinated Universal Time) ou encore dans le fuseau horaire configurÃ©.
+
+Si la date n'est pas valide, prenez le temps de l'ajuster. On commence par dÃ©finir le fuseau horaire puis on entre la date et l'heure selon ce fuseau.
+
+Terminal HassOS
+
+export TZ=America/Montreal  
+date -s "2025-10-13 13:50:00"
+
+### VÃ©rifier les configurations rÃ©seau
+
+Pour installer Home Assistant, HassOS aura besoin d'accÃ©der Ã  Internet.
+
+Prenez le temps de vÃ©rifier si vos configurations sont bonnesÂ :
+
+* AccÃ©dez au terminal HassOS comme vous l'avez fait pour vÃ©rifier la date.
+* Tentez de rejoindre l'adresse IP de Google.
+
+  Terminal HassOS
+
+  ping 8.8.8.8
+* Si vous obtenez le message 8.8.8.8 is alive!, vous pouvez vÃ©rifier si le DNS fonctionne en tentant de rejoindre le domaine de Google.
+
+  Terminal HassOS
+
+  ping google.com
+* Si vous obtenez le message google.com is alive!, vous savez que votre accÃ¨s au rÃ©seau est bien configurÃ©.
+* Pour rÃ©gler un problÃ¨me de rÃ©seau, vÃ©rifiez Ã  quel rÃ©seau vous Ãªtes branchÃ©s.
+
+  Terminal HassOS
+
+  nmcli con show
+
+  Si le sans fil est correctement configurÃ©, vous devriez avoir au moins une ligne dont la premiÃ¨re colonne affiche le nom de votre fichier de configuration rÃ©seau et dont la derniÃ¨re colonne affiche wlan0.
+
+  Le rÃ©seau peut Ã©galement Ãªtre disponible par cÃ¢ble. Vous aurez alors une ligne dont la premiÃ¨re colonne affiche Wired connection 1 et la derniÃ¨re, end0.
+
+  RÃ©sultat Ã  l'Ã©cran
+
+  NAMEÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â UUIDÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  TYPEÂ  Â  Â  Â  DEVICE   
+  Wired connection 1Â  Â  Â 85f43ecc-5f84-303c-8510-755f0b81e131Â  Â  ethernetÂ  Â  end0   
+  my-network-cegepÂ  Â  Â  Â bdc2edc4-2543-4d11-b8b3-cfb6b0b18b0eÂ  Â  wifiÂ  Â  Â  Â  wlan0  
+  my-network-maisonÂ  Â  Â  84cd8755-2349-464e-9540-6df10ba7aef6Â  Â  wifiÂ  Â  Â  Â  --
+
+  Si vous n'obtenez aucune ligne avec eth0 et aucune ligne avec wlan0, ou si malgrÃ© tout vous n'arrivez pas Ã  faire un ping vers google.com, rÃ©fÃ©rez-vous Ã  la fiche Â«Â [apical\_lien\_interne]configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant[/apical\_lien\_interne]Â Â» pour rÃ©gler le problÃ¨me.
+
+### Installation automatique de Home Assistant
+
+DÃ¨s que le Pi est branchÃ©, qu'il a un accÃ¨s rÃ©seau et que son horloge est correctement configurÃ©e, HassOS pourra finaliser l'installation.
+
+Soyez patients, cette opÃ©ration peut prendre jusqu'Ã  20 minutes!
+
+Pendant que l'installation est en cours, Vous pouvezÂ [accÃ©der Ã  l'interface Web de Home Assistant](#acceder)Â pour voir la progression (voir dÃ©tails plus bas).
+
+Une fois l'installation complÃ©tÃ©e, vous pouvez retirer la clÃ© USB qui contient les configurations. Vous n'en aurez plus besoin puisque les fichiers qu'elle contient ont Ã©tÃ© copiÃ©s sur le Pi.
+
+## AccÃ©der Ã  Home Assistant
+
+L'accÃ¨s se fait via un navigateur sur votre ordinateur ou via l'application Home Assistant sur votre tÃ©lÃ©phone.
+
+Dans votre navigateur ou dans l'application Home Assistant, entrez l'un des URL suivantsÂ :
+
+* http://homeassistant.local:8123
+* http://homeassistant:8123
+* http://192.168.1.145:8123 (remplacez 192.168.1.145 par l'adresse IP du Pi)
+
+Notez que si vous travaillez dans un environnement qui comprend plusieurs installations de Home Assistant, par exemple une salle de classe, seule la version avec l'adresse IP fonctionnera.
+
+Pendant queÂ HassOS installe Home Assistant, vous obtiendrez un message Ã  cet effetÂ :
+
+![Preparing Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EcranPreparingHomeAssistant.png)
+
+Pendant l'installation, vous pouvez cliquer sur Afficher les dÃ©tails afin de voir la journalisation (log) des opÃ©rations en cours.
+
+Les informations qui apparaissent sont Ã©galement enregistrÃ©es dans un fichier journal que vous pouvez consulter [apical\_lien\_interne][la\_console\_home\_assistant,Ã  partir du terminal HassOS][/apical\_lien\_interne] Ã  l'aide de cette commandeÂ :
+
+Terminal HassOS
+
+ha supervisor logs
+
+Dans le terminal HassOS, Vous saurez que l'installation est terminÃ©e quand vous verrez des lignes de ce genre au bas du fichier journal.
+
+RÃ©sultat Ã  l'Ã©cran
+
+INFO (MainThread) [supervisor.homeassistant.core] Detect a running Home Assistant instance  
+INFO (SyncWorker\_2) [supervisor.docker.interface] Cleanup images: ['ghcr.io/home-assistant/raspberrypi3-homeassistant:landingpage']
+
+Dans l'interface Web, vous saurez que l'installation est terminÃ©e quand vous verrez l'Ã©cran de bienvenue.![Premier Ã©cran](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PremierEcran.png)
+
+Cliquez sur CrÃ©er ma maison connectÃ©e puis suivez les Ã©tapes pour finaliser la configuration initiale de Home Assistant.
+
+## VÃ©rifier la prÃ©sence des fichiers de configuration de la clÃ© USB
+
+Si vous avez utilisÃ© une clÃ© USB pour fournir des fichiers de configuration Ã  Home Assistant, le systÃ¨me les aura copiÃ©s sur le Pi lors du dÃ©marrage.
+
+Notez que la clÃ© USB n'a plus besoin d'Ãªtre branchÃ©e au Pi Ã  cette Ã©tape.
+
+Pour vÃ©rifier la prÃ©sence des fichiers de configuration rÃ©seauÂ :
+
+Terminal HassOS
+
+ls /etc/NetworkManager/system-connections
+
+Les fichiers que vous aviez placÃ©s dans le dossier network de la clÃ© USB devraient avoir Ã©tÃ©Â copiÃ©s ici.
+
+RÃ©sultat Ã  l'Ã©cran
+
+ha > login  
+#Â ls /etc/NetworkManager/system-connections
+
+ 
+
+my-network-cegepÂ  Â my-network-maison
+
+Pour vÃ©rifier la prÃ©sence de la clÃ© SSHÂ :
+
+Terminal HassOS
+
+ls /root/.ssh
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ls /root/.ssh
+
+ 
+
+authorized\_keys
+
+Si les fichiers de configuration ne sont pas prÃ©sents dans ces dossiers, c'est que le systÃ¨me n'a pas reconnu la clÃ© ou encore que ses fichiers n'ont pas Ã©tÃ© reconnus comme Ã©tant des fichiers de configuration.
+
+Pistes de vÃ©rificationsÂ :
+
+* Quand vous branchez la clÃ© dans votre ordinateur, est-ce que le volume s'appelle CONFIG en majuscules?
+* Est-ce que la clÃ© est formatÃ©e en FAT32?
+* Est-ce que les noms de fichiers et de dossiers correspondent Ã  ce qui est mentionnÃ© dans la procÃ©dure?
+* Est-ce que les caractÃ¨res de fin de ligne ont Ã©tÃ© correctement configurÃ©s dans les fichiers?
+
+Une fois les problÃ¨mes identifiÃ©s et corrigÃ©s, attendez d'abord que l'installation de Home Assistant soit terminÃ©e.
+
+Rebranchez la clÃ© USB sur le Raspberry Pi puis entrez la commande reboot dans le terminal HassOS. Si tout est correct, les fichiers seront cette fois copiÃ©s sur le Pi.
+
+Quand vous avez la confirmation que le fichier authorized\_keys a Ã©tÃ© correctement copiÃ©, vous pouvez tenter de vousÂ [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,connecter au Raspberry Pi via SSH][/apical\_lien\_interne]Â :
+
+Terminal de l'ordinateur
+
+ssh root@192.168.1.145 -p 22222
+
+## Pour plus d'information
+
+Â«Â NetworkÂ Â». Github - home-assistant/operating-system. <https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md>
+
+Â«Â Debugging the Home Assistant Operating SystemÂ Â». Home Assistant. <https://developers.home-assistant.io/docs/operating-system/debugging/>
+
+Â«Â FAQÂ Â». Home Assistant. <https://www.home-assistant.io/faq>
+
+Â«Â Why does Home Assistant have so many names?Â Â». Home Assistant Guide. <https://home-assistant-guide.com/2020/09/22/why-does-home-assistant-have-so-many-names/>
+
+Â«Â Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes)Â Â». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
+
+## 58.3 Le terminal HassOS et la console Home Assistant
+
+En gÃ©nÃ©ral, il n'est pas nÃ©cessaire d'accÃ©der au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,avec une des adresses donnÃ©es ici,acceder][/apical\_lien\_interne].
+
+Cependant, plusieurs opÃ©rations intÃ©ressantes peuvent Ãªtre rÃ©alisÃ©es dans le terminal HassOS, par exemple accÃ©der au systÃ¨me de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le systÃ¨me d'exploitation.
+
+Dans cette ficheÂ :
+
+* [Console Home Assistant vs Terminal HassOS](#vs)
+  + [Branchement avec clavier et Ã©cran](#clavier)
+  + [Branchement SSH](#ssh)
+* [Console Home Assistant](#consoleha)
+  + [Quelques commandes utiles](#commandesconsoleha)
+  + [Passer de la console Home Assistant au terminal HassOS](#consolehavsterminal)
+* [Terminal HassOS](#terminalhassos)
+  + [Quelques commandes utiles](#commandesterminalhassos)
+  + [Effectuer une commande Home Assistant dans terminal HassOS](#commandeha)
+  + [Passer du terminal HassOS vers la console Home Assistant](#terminalvsconsoleha)
+
+## Console Home Assistant vs Terminal HassOS
+
+La console Home Assistant et le terminal HassOS sont deux environnements en ligne de commande qui vous permettent d'effectuer diffÃ©rentes opÃ©rations sur le Raspberry Pi et sur Home Assistant.
+
+Attention : aucun code d'accÃ¨s n'est demandÃ© pour accÃ©der Ã  la console Home Assistant ou au terminal HassOS Ã  partir d'un clavier et d'un Ã©cran branchÃ©s directement sur le Raspberry Pi.   
+  
+Donc, quiconque a accÃ¨s physique au Pi pourra contrÃ´ler le systÃ¨me!
+
+### Branchement avec clavier et Ã©cran
+
+Si vous branchez un clavier et un Ã©cran au Raspberry Pi, vous verrez Ã  l'Ã©cran la console Home Assistant.
+
+Les dÃ©tails de la console Home Assistant [sont donnÃ©s plus bas](#consoleha).
+
+### Branchement SSH
+
+Si vous vous connectez au Pi [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,via SSH][/apical\_lien\_interne], vous accÃ©dez directement au Terminal HassOS.
+
+Les dÃ©tails du Terminal HassOSÂ [sont donnÃ©s plus bas](#terminalhassos).
+
+## Console Home Assistant
+
+La console Home Assistant permet d'entrer des commandes propres Ã  Home Assistant.
+
+On l'appelle aussiÂ Home Assistant Command Line Interface ou Home Assistant CLI.
+
+Elle se reconnaÃ®t Ã  l'invite ha >.
+
+RÃ©sultat Ã  l'Ã©cran
+
+Waiting for the Home Assistant CLI to be ready...  
+  
+Â  Â  Â  Â â–„â–ˆâ–ˆâ–„Â  Â  Â  Â  Â  Â \_Â  Â \_   
+Â  Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  Â  | | | | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_   
+Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
+Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  |Â  \_Â  | (\_) | | | | | |Â  \_\_/   
+â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|Â  Â  Â  Â  Â  \_   
+â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆâ–€Â  â–€â–ˆâ–ˆÂ  Â  Â  / \Â  Â \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
+â–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆÂ  Â â–„â–ˆâ–ˆÂ  Â  Â / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
+â–ˆâ–ˆÂ  Â  â–ˆâ–ˆÂ  â–€ â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
+â–ˆâ–ˆâ–ˆâ–„â–„ â–€â–ˆÂ  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â /\_/Â  Â \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+â–€â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–€  
+  
+Welcome on Home Assistant command line interface.  
+Waiting for Supervisor to start...
+
+ 
+
+Home Assistant Supervisor is running!  
+System information  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+Â  IPv4 Adresses for end0: 192.168.1.140/24  
+Â  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 16.2  
+Â  Home Assistant Core:Â  Â  Â landingpage  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+System is ready! Use browser or app to configure.  
+ha >
+
+Cette console vous donne accÃ¨s Ã  certaines commandes spÃ©cialisÃ©es pour Home Assistant.
+
+Entrez la commande help pour avoir la liste des commandes disponibles.
+
+Console Home Assistant
+
+help
+
+### Quelques commandes utiles
+
+Voici quelques commandes Home Assistant utiles.
+
+* banner (pour faire afficher l'Ã©cran d'accueil avec les adresses IP)
+* login (pour passer au terminal HassOS)
+* network info (informations sur le rÃ©seau)
+* info (pour connaÃ®tre la version de diffÃ©rentes couches de Home Assistant)
+* core restart (pour redÃ©marrer seulement le coeur de Home Assistant)
+* core update (pour mettre Ã  jour le coeur de Home Assistant)
+* core check (pour vÃ©rifier l'Ã©tat du coeur de Home Assistant)
+* backups new --name nomdubackup (pour effectuer une sauvegarde de Home Assistant)
+
+Pour plus de dÃ©tails :Â <https://www.home-assistant.io/common-tasks/os/>
+
+### Passer de la console Home Assistant au terminal HassOS
+
+Pour accÃ©der au terminal HassOS Ã  partir de la console Home Assistant, entrez la commande login.
+
+Aucun code d'usager ni mot de passe ne vous sera demandÃ©.
+
+RÃ©sultat Ã  l'Ã©cran
+
+ha > login  
+  
+#
+
+## Terminal HassOS
+
+Le terminal HassOS est un terminal Linux.
+
+Les commandes qui y sont disponibles sont passablement diffÃ©rentes de celles qui sont disponibles sur d'autres distributions Linux puisque HassOS est un systÃ¨me d'exploitation optimisÃ© pour Home Assistant.
+
+Le terminal HassOS se reconnaÃ®t Ã  l'invite #.
+
+RÃ©sultat Ã  l'Ã©cran
+
+monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222  
+Welcome to Home Assistant OS.
+
+ 
+
+Use `ha` to access the Home Assistant CLI.  
+#
+
+HassOS utilise l'interprÃ©teur de commande /bin/ash.
+
+Selon WikipÃ©dia[1](https://fr.wikipedia.org/wiki/Almquist_shell)Â :
+
+> Almquist shell (aussi connu sous le nom de A Shell ou ash) est un interprÃ©teur de commandes dÃ©rivÃ© du Bourne shell du SystÃ¨me V Release 4 (SVR4), dÃ©veloppÃ© Ã  l'origine par Kenneth Almquist. C'est un Shell Unix petit, rapide et compatible avec la norme POSIX, et c'est pourquoi il est trÃ¨s utilisÃ© dans les systÃ¨mes d'exploitation embarquÃ©s.
+
+Pour connaÃ®tre la liste des commandes disponiblesÂ :
+
+Terminal HassOS
+
+ls /bin
+
+### Quelques commandes utiles
+
+Voici quelques commandes utiles Ã  effectuer sur le terminal HassOSÂ :
+
+* ls, cp, mv, rm, mkdir (commandes habituelles pour gÃ©rer fichiers et dossiers)
+* halt (pour arrÃªter complÃ¨tement le systÃ¨me)
+* date (pour connaÃ®tre ou ajuster la date du systÃ¨me d'exploitation)
+* journalctl (pour voir les messages enregistrÃ©s dans un fichier journal donnÃ©)
+* vi (pour Ã©diter un fichier)
+* nmcli con show (pour voir les informations sur les connexions rÃ©seau)
+* ssh -V (pour connaÃ®tre le nom du serveur SSH et sa version)
+* docker ps (pour afficher la liste des conteneurs Docker)
+* lsusb (pour voir si la clÃ© USB Z-Wave est reconnue)
+
+### Effectuer une commande Home Assistant dans terminal HassOS
+
+Si vous Ãªtes dans le terminal HassOS et que vous dÃ©sirez entrer une commande spÃ©cifique Ã  Home Assistant, il est possible de le faire sans sortir du terminal HassOS.
+
+Il suffit de faire prÃ©cÃ©der la commande par ha.
+
+Terminal HassOS
+
+ha network info
+
+Le mÃªme rÃ©sultat serait obtenu dans la console Home Assistant comme suitÂ :
+
+Console Home Assistant
+
+netword info
+
+### Passer du terminal HassOS vers la console Home Assistant
+
+Si vous souhaitez retourner Ã  la console Home Assistant alors que vous travaillez directement sur le Raspberry Pi Ã  l'aide d'un clavier et d'un Ã©cran, vous pouvez entrer cette commandeÂ :
+
+Terminal HassOS
+
+exit
+
+Dans le cas oÃ¹ vous Ãªtes branchÃ©s via SSH, la commande exit mettra fin Ã  la session SSH.
+
+## Source
+
+1. Â«Â Almquist shellÂ Â». WikipÃ©dia. <https://fr.wikipedia.org/wiki/Almquist_shell>
+
+## Pour plus d'information
+
+Â«Â Common tasks - Operating SystemÂ Â». Home Assistant. <https://www.home-assistant.io/common-tasks/os/>
+
+## 58.4 Ã‰teindre ou redÃ©marrer Home Assistant de faÃ§on sÃ©curitaire
+
+Comme pour tout systÃ¨me Linux, il n'est pas souhaitable de fermer Home Assistant simplement en dÃ©branchant le Raspberry Pi.
+
+Je vous propose ici diffÃ©rentes techniques pour arrÃªter le systÃ¨me ou pour redÃ©marrer le systÃ¨me complet ou encore une de sesÂ [apical\_lien\_interne][les\_couches\_logicielles\_de\_home\_assistant,couches logicielles][/apical\_lien\_interne].
+
+## ArrÃªt
+
+### Interface graphique
+
+Rendez-vous dans le menu ParamÃ¨tres / SystÃ¨me.
+
+Dans le coin supÃ©rieur droit, cliquez sur l'icÃ´ne de dÃ©marrage.
+
+![IcÃ´ne de dÃ©marrage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssisstant-IconeDemarrage.png)
+
+Cliquez sur Options avancÃ©esÂ /Â ArrÃªter le systÃ¨me.
+
+![Options avancÃ©es](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IconeDemarrageOptionsAvancees.png)
+
+### Terminal HassOS
+
+Il est Ã©galement possible d'Ã©teindre le Raspberry Pi Ã  partir du [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS][/apical\_lien\_interne] Ã  l'aide de cette commandeÂ :
+
+Terminal HassOS
+
+halt
+
+## RedÃ©marrage de Home Assistant
+
+Certaines opÃ©rations nÃ©cessitent un redÃ©marrage de Home Assistant mais pas du Raspberry Pi complet.
+
+### Interface graphique
+
+Pour redÃ©marrer seulement le coeur de Home Assistant :
+
+* Rendez-vous dans le menu ParamÃ¨tres / SystÃ¨me.
+* Dans le coin supÃ©rieur droit, cliquez sur l'icÃ´ne de dÃ©marrage.
+* Cliquez sur RedÃ©marrer Home Assistant.
+
+### Terminal HassOS
+
+Pour redÃ©marrer seulement le coeur de Home AssistantÂ :
+
+Terminal HassOS
+
+ha core restart
+
+## RedÃ©marrage complet
+
+Si l'opÃ©ration nÃ©cessite un redÃ©marrage complet du Raspberry Pi, suivez ces Ã©tapes.
+
+### Interface graphique
+
+Pour redÃ©marrer complÃ¨tement le Raspberry PiÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tres / SystÃ¨me.
+* Dans le coin supÃ©rieur droit, cliquez sur l'icÃ´ne de dÃ©marrage.
+* Cliquez sur Options avancÃ©esÂ /Â RedÃ©marrer le systÃ¨me.
+
+### Terminal HassOS
+
+Pour redÃ©marrer le systÃ¨me completÂ :
+
+Terminal HassOS
+
+reboot
+
+## 58.5 Dossier config
+
+Dans la documentation officielle de Home Assistant et dans des groupes de discussion, vous verrez probablement Ã  quelques occasions des instructions qui demandent de placer un fichier dans le dossier config.
+
+Ce dossier est celui qui contient le fichier configuration.yaml. Selon le type d'installation que vous avez effectuÃ©, il peut Ãªtre situÃ© Ã  diffÃ©rents endroits.
+
+Par exemple, si vous avez installÃ© Home Assistant par-dessus le systÃ¨me d'exploitation HassOS, tel que recommandÃ©, le dossier config est en fait /mnt/data/supervisor/homeassistant.
+
+Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutÃ´t le placer dans le dossier /mnt/data/supervisor/homeassistant/www.
+
+C'est bon Ã  savoir!
+
+<!-- --- split --- -->
+
+# 59. Chapitre de rÃ©fÃ©rence pour Home Assistant
+
+## 59.1 Les couches logicielles de Home Assistant
+
+Lorsque vous installez Home Assistant sur un Raspberry Pi [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,selon la mÃ©thode recommandÃ©e][/apical\_lien\_interne], vous obtenez un systÃ¨me avec trois couches logiciellesÂ :
+
+* Host : le systÃ¨me d'exploitation, Home Assistant Operating System (HassOS)
+* Supervisor : le superviseur, responsable de la gestion du systÃ¨me d'exploitation et notamment des modules complÃ©mentaires (add-ons)
+* Core : le coeur de Home Assistant, responsable de la domotique en tant que telle
+
+Dans une ancienne version de Home Assistant, on pouvait voir ces couches. Cet Ã©cran n'est plus disponible mais j'ai conservÃ© l'image puisqu'elle illustre bien les couches dont il est question ici.
+
+![Core Supervisor Host](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CoreSupervisorHost.png)
+
+Dans les versions plus rÃ©centes de Home Assistant, on peut encore voir ces couches quand on se rend dans le menu ParamÃ¨tres / Ã€ propos.
+
+![Ã€ propos](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-APropos.png)
+
+## Pour plus d'information
+
+Â«Â DevelppersÂ - ArchitectureÂ Â». Home Assistant. <https://developers.home-assistant.io/docs/architecture_index>
+
+## 59.2 Configurer l'accÃ¨s au rÃ©seau dans Home Assistant
+
+Pour utiliser votre systÃ¨me domotique Home Assistant installÃ© sur un Raspberry Pi, la mÃ©thode de connexion au rÃ©seau privilÃ©giÃ©e est une connexion cÃ¢blÃ©e puisqu'elle est plus stable qu'une connexion sans fil.
+
+Lorsque vous branchez le Pi au rÃ©seau cÃ¢blÃ©, aucune configuration particuliÃ¨re n'est requise, sauf si vous dÃ©sirez fournir une [adresse IP statique](#ipstatique) ou encore si les configurations de votre rÃ©seau nÃ©cessitent que vous fournissiez l'[apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,adresse d'un serveur DNS,dns][/apical\_lien\_interne].
+
+Bien entendu, il est Ã©galement possible d'utiliser un rÃ©seau sans fil.
+
+Je vous explique ici comment rÃ©aliser ces configurations, que ce soit pour un rÃ©seau cÃ¢blÃ© ou pour un rÃ©seau sans fil, Ã  l'aide de diffÃ©rentes approchesÂ :
+
+* [Fichiers de configuration sur une clÃ© USB](#usb)
+* [Fichiers de configuration directement dans le terminal HassOS](#hassos)
+* [Commandes au terminal HassOS](#terminal)
+* [Interface Web](#web)
+
+## Fichiers de configuration sur une clÃ© USB
+
+![Volume CONFIG](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomVolumeCONFIG-Windows.png)![Volume CONFIG](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomVolumeCONFIG-Mac.png)
+
+Les configurations rÃ©seau de Home Assistant peuvent Ãªtre rÃ©alisÃ©es Ã  l'aide de fichiers placÃ©s sur une clÃ© USB qui rÃ©pond Ã  des rÃ¨gles prÃ©cisesÂ :
+
+* La clÃ© doit Ãªtre vierge et Ãªtre formatÃ©e en FAT32Â :
+  + Sous Windows, l'utilitaire par dÃ©faut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voirÂ <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
+  + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
+* La clÃ© doit possÃ©der un volume nommÃ© CONFIG (en majuscules).
+* Important : les fichiers de configuration doivent comporter des [apical\_lien\_interne][encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf,sauts de ligne correctement encodÃ©s pour Linux (LF)][/apical\_lien\_interne].
+
+Les informations de connexion de votre rÃ©seau doivent Ãªtre inscrites dans un fichier de configuration nommÃ© my-network (aucune extension) placÃ© dans un dossier nommÃ© network sur la clÃ© USB.
+
+Dans le fichier de configuration, le id doit Ãªtre identique au nom du fichier (exÂ : my-network).
+
+Vous devez gÃ©nÃ©rer un identificateur unique (Universally Unique IDentifier, UUID) en version 4 Ã  l'aide de ce lienÂ :Â <https://www.uuidgenerator.net/>. Ce UUID sera copiÃ© dans le fichier de configuration du rÃ©seau.
+
+Notez que le Raspberry Pi 3 ne supporte que le Wi-Fi 2.4 GHz alors que le Raspberry Pi 4 supporte Ã©galement le 5 GHz. Tenez-en compte dans vos configurations!
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=votre-uuid-ici  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=wpa-psk  
+psk=MOT-DE-PASSE-DU-RESEAU  
+  
+[ipv4]  
+method=auto  
+  
+[ipv6]  
+addr-gen-mode=stable-privacy  
+method=auto
+
+Dans le cas oÃ¹ le rÃ©seau sans fil n'a pas de mot de passe, il sera configurÃ© comme suitÂ :
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=votre-uuid-ici  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=NONE  
+  
+[ipv4]  
+method=auto  
+  
+[ipv6]  
+addr-gen-mode=stable-privacy  
+method=auto
+
+### Configurations pour le rÃ©seau cÃ¢blÃ©
+
+Dans le fichier my-network, c'est la configuration type qui permet de spÃ©cifier si la configuration s'applique pour un rÃ©seau wi-fi ou pour un rÃ©seau cÃ¢blÃ©.
+
+EntrezÂ type=802-11-wireless pour un rÃ©seau wi-fi ouÂ type=802-3-ethernet pour un rÃ©seau cÃ¢blÃ©.
+
+Notez que les sections [802-11-wireless] etÂ [802-11-wireless-security] ne doivent pas faire partie d'un fichier qui configure un rÃ©seau cÃ¢blÃ©.
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=votre-uuid-ici  
+type=802-3-ethernet  
+...
+
+### Adresse IP statique
+
+L'adresse IP statique permet un fonctionnement optimal du systÃ¨me domotique.
+
+Dans le fichier my-network, remplacez la section [ipv4] par celle prÃ©sentÃ©e plus bas.
+
+Dans cette section, remplacez 192.168.1.145 par l'adresse que vous dÃ©sirez donner au Pi. Assurez-vous de choisir une adresse qui n'est pas dÃ©jÃ  asssignÃ©e dans votre rÃ©seau.
+
+Au besoin, ajustez le masque de sous-rÃ©seau, qui suit sur la mÃªme ligne (dans l'exempleÂ : /24 qui signifie que les 3 premiers octets sont le masque de sous-rÃ©seau).
+
+Selon les configurations de votre rÃ©seau, vous pourriez avoir Ã  ajuster l'adresse IP locale du routeur. Avec un masque de sous-rÃ©seau 24, on entre les 3 premiers nombres de l'adresse IP, suivi gÃ©nÃ©ralement par le chiffre 1 (dans l'exempleÂ : 192.168.1.1).
+
+Fichier network/my-network
+
+...  
+[ipv4]  
+method=manual  
+address=192.168.1.145/24;192.168.1.1  
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
+
+### Serveur DNS
+
+Les serveurs DNS permettent de traduire un nom de domaine vers l'adresse IP qui lui correspond.
+
+On utilise gÃ©nÃ©ralement les serveurs DNS de Google (8.8.8.8 et 8.8.4.4) ainsi que ceux utilisÃ©s par votre ordinateur. Les adresses doivent Ãªtre sÃ©parÃ©es par des points-virgules.
+
+Pour connaÃ®tre les serveurs DNS utilisÃ©s par votre ordinateur,Â [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,suivez ce lien,dns][/apical\_lien\_interne].
+
+La configuration du DNS sur Home Assistant peut Ãªtre effectuÃ©e comme suit, oÃ¹ la sÃ©rie de x sera remplacÃ©e par l'adresse IP du serveur DNS.
+
+Fichier network/my-network
+
+...  
+[ipv4]  
+method=auto  
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
+
+### Travailler avec plusieurs configurations rÃ©seau
+
+Si, pour une raison ou pour une autre, vous avez besoin d'accÃ©der Ã  diffÃ©rents rÃ©seaux, vous pouvez avoir autant de fichiers de configuration que dÃ©sirÃ©, par exemple my-network-maison, my-network-ecole, tous dans le dossier network.
+
+Chaque configuration devra avoir son propre UUID.
+
+La configuration id de chaque fichier doit correspondre au nom du fichier.
+
+Remarquez que si vous avez configurÃ© une adresse IP statique dans un fichier de configuration, ceci n'aura aucun impact sur les autres fichiers de configuration.
+
+### RedÃ©marrage
+
+Un redÃ©marrage du Raspberry Pi est nÃ©cessaire pour que les fichiers de configuration soient pris en compte.
+
+AttentionÂ : on parle ici d'un dÃ©marrage complet du Raspberry Pi (dans leÂ [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne], entrer la commande reboot).
+
+La clÃ© USB pourra Ãªtre retirÃ©e aprÃ¨s le redÃ©marrage du Pi puisque le systÃ¨me se charge de copier les fichiers de configuration dans le dossier /etc/NetworkManager/system-connections.
+
+## Fichiers de configuration directement dans le terminal HassOS
+
+Une fois qu'ils ont Ã©tÃ© copiÃ©s sur le Pi aprÃ¨s un redÃ©marrage, les fichiers de configuration rÃ©seau peuvent Ãªtre Ã©ditÃ©s Ã  partir duÂ [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne].
+
+Vous pouvez afficher leur contenu Ã  l'aide de la commande cat et les Ã©diter Ã  l'aide de l'Ã©diteur vi, un proche parent de l'[apical\_lien\_interne][Editeur\_vim,Ã©diteur vim][/apical\_lien\_interne].
+
+Pour Ã©diter un fichier avec viÂ :
+
+Terminal
+
+vi /etc/NetworkManager/system-connections/nom-du-fichier
+
+Ã€ son ouverture, vi vous place en mode commande. Pour passer d'un mode Ã  l'autreÂ :
+
+* en mode commandeÂ : la lettre i vous place en mode insertion, ce qui permet d'Ã©diter le texte
+* en mode insertionÂ : Ã‰chap vous place en mode commande
+
+Pour enregistrer le document puis fermer l'Ã©diteur : Ã‰chap suivi de : w qÂ (ce qui signifie Write and Quit).
+
+Pour fermer l'Ã©diteur sans enregistrerÂ : Ã‰chap suivi de : q !.
+
+Un redÃ©marrage du Pi est nÃ©cessaire pour que les modifications soient prises en compte.
+
+Notez que le fait de supprimer un fichier de configuration de ce dossier fait en sorte que lors du redÃ©marrage du systÃ¨me, il ne sera plus pris en compte Ã  moins qu'il se trouve Ã  nouveau sur une clÃ© USB branchÃ©e au Pi.
+
+## Commandes au terminal HassOS
+
+Les configurations rÃ©seau peuvent Ãªtre effectuÃ©es dans leÂ [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne].
+
+D'abord, pour connaÃ®tre la liste des rÃ©seaux sans fil disponibles, entrez la commande nmcli device wifi.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# nmcli device wifi  
+IN-USEÂ  Â BSSIDÂ  Â  Â  Â  Â  Â  Â  Â SSIDÂ  Â  Â  Â  Â  MODEÂ  Â  CHANÂ  Â RATEÂ  Â  Â  Â  Â SIGNALÂ  Â BARSÂ  Â SECURITY   
+Â  Â  Â  Â  Â 00:0C:E6:88:F6:23Â  Â RESEAUPUBLICÂ  InfraÂ  Â 6Â  Â  Â  195 Mbit/sÂ  Â 70Â  Â  Â  Â \*\*\*Â  Â  --  
+Â  Â  Â  Â  Â 00:0C:E6:88:F3:E2Â  Â MONRESEAUÂ  Â  Â InfraÂ  Â 1Â  Â  Â  195 Mbit/sÂ  Â 39Â  Â  Â  Â \*\*Â  Â  Â WPA2 802.1X   
+Â  Â  Â  Â  Â 00:0C:E6:88:F3:E1Â  Â AUTRERESEAUÂ  Â InfraÂ  Â 11Â  Â  Â 195 Mbit/sÂ  Â 35Â  Â  Â  Â \*\*Â  Â  Â WPA2 802.1X
+
+Si le rÃ©seau dÃ©sirÃ© n'apparaÃ®t pas, vous pouvez demander une relecture des rÃ©seaux Ã  l'aide de nmcli device wifi rescan.
+
+Ceci n'affichera rien Ã  l'Ã©cran mais un nouvel appel Ã  nmcli device wifi affichera la liste rafraÃ®chie.
+
+Notez que si vous dÃ©sirez effectuer des tests en vous branchant sur le partage de connexion de votre cellulaire, vous devez ouvrir l'Ã©cran de partage de connexion de votre cellulaire avant de demander la relecture.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# nmcli device wifi rescan  
+# nmcli device wifi  
+IN-USEÂ  Â BSSIDÂ  Â  Â  Â  Â  Â  Â  Â SSIDÂ  Â  Â  Â  Â  Â  Â  Â  Â MODEÂ  Â  CHANÂ  Â RATEÂ  Â  Â  Â  Â SIGNALÂ  Â BARSÂ  Â SECURITY  
+Â  Â  Â  Â  Â AA:A7:F2:3E:0D:31Â  Â iPhoneDeChristianeÂ  Â InfraÂ  Â 6Â  Â  Â  130 Mbit/sÂ  Â 97Â  Â  Â  Â \*\*\*\*Â  Â WPA2   
+Â  Â  Â  Â  Â 00:0C:E6:88:F6:23Â  Â RESEAUPUBLICÂ  Â  Â  Â  Â InfraÂ  Â 6Â  Â  Â  195 Mbit/sÂ  Â 70Â  Â  Â  Â \*\*\*Â  Â  --  
+Â  Â  Â  Â  Â 00:0C:E6:88:F3:E2Â  Â MONRESEAUÂ  Â  Â  Â  Â  Â  InfraÂ  Â 1Â  Â  Â  195 Mbit/sÂ  Â 39Â  Â  Â  Â \*\*Â  Â  Â WPA2 802.1X   
+Â  Â  Â  Â  Â 00:0C:E6:88:F3:E1Â  Â AUTRERESEAUÂ  Â  Â  Â  Â  InfraÂ  Â 11Â  Â  Â 195 Mbit/sÂ  Â 35Â  Â  Â  Â \*\*Â  Â  Â WPA2 802.1X
+
+Pour vous brancher Ã  un rÃ©seau, utilisez la commande nmcli device wifi connect. Le nom du rÃ©seau Ã  utiliser est celui affichÃ© dans la colonne SSID de la commande nmcli device wifi.
+
+Terminal
+
+nmcli device wifi connect "iPhoneDeChristiane" password "mot-de-passe-en-clair"
+
+Ceci crÃ©era un fichier dans le dossier /etc/NetworkManager/system-connections dont le nom correspond au nom du rÃ©seau avec l'extension .nmconnection.
+
+Pour vÃ©rifier Ã  quel rÃ©seau vous Ãªtes branchÃ© :
+
+Terminal
+
+nmcli con show
+
+Le rÃ©seau auquel vous Ãªtes branchÃ© n'aura pas de traits d'union dans la colonne DEVICE.
+
+RÃ©sultat Ã  l'Ã©cran
+
+NAMEÂ  Â  Â  Â  Â  Â  Â  Â  Â UUIDÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  TYPEÂ  Â  Â  DEVICE   
+my-networkÂ  Â  Â  Â  Â  Â votre-uuid-iciÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  wifiÂ  Â  Â  wlan0   
+Wired connection 1Â  Â autre-uuid-iciÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  ethernetÂ  --
+
+La connexion ainsi crÃ©Ã©e est permanente, c'est-Ã -dire qu'elle sera encore effective lors du prochain redÃ©marrage Ã  moins qu'une clÃ© USB soit branchÃ©e au Raspberry Pi pour spÃ©cifier les connexions rÃ©seau Ã  utiliser.
+
+Il est possible de supprimer le fichier de connexion afin que la connexion n'ait plus lieu.
+
+Si la connexion dÃ©sirÃ©e apparaÃ®t dans la liste mais n'est pas active (rien dans la colonne DEVICE), il est possible de l'activer comme suitÂ :
+
+Terminal
+
+nmcli con up my-network
+
+Pour connaÃ®tre l'adresse IP ainsi obtenueÂ :
+
+Terminal
+
+nmcli con show my-networkÂ  | grep address
+
+Il est Ã©galement possible de voir l'adresse en faisant rÃ©afficher la page d'accueil de la console Home Assistant.
+
+Terminal HassOS
+
+ha banner
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha banner
+
+ 
+
+Â  Â  Â  Â â–„â–ˆâ–ˆâ–„Â  Â  Â  Â  Â  Â \_Â  Â \_   
+Â  Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  Â  | | | | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_   
+Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
+Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  |Â  \_Â  | (\_) | | | | | |Â  \_\_/   
+â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|Â  Â  Â  Â  Â  \_   
+â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆâ–€Â  â–€â–ˆâ–ˆÂ  Â  Â  / \Â  Â \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
+â–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆÂ  Â â–„â–ˆâ–ˆÂ  Â  Â / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
+â–ˆâ–ˆÂ  Â  â–ˆâ–ˆÂ  â–€ â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
+â–ˆâ–ˆâ–ˆâ–„â–„ â–€â–ˆÂ  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â /\_/Â  Â \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+â–€â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–€  
+  
+Welcome on Home Assistant command line interface.
+
+ 
+
+Home Assistant Supervisor is running!  
+System information:  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+Â  IPv4 Adresses for end0: 192.168.1.140/24  
+Â  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 16.2  
+Â  Home Assistant Core:Â  Â  Â 2025.10.1  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+System is ready! Use browser or app to configure.  
+#
+
+## Interface Web
+
+Si vous optez pour la configuration Web, vous devrez d'abord brancher le Pi Ã  un rÃ©seau cÃ¢blÃ© puisque c'est le seul qui peut Ãªtre actif sans configuration.
+
+Si vous aviez entrÃ© les configurations rÃ©seauÂ [Ã  l'aide d'une clÃ© USB](#usb), il est Ã©galement possible d'utiliser la configuration Web pour les ajuster aprÃ¨s coup.
+
+* [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,AccÃ©dez Ã  l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+* Rendez-vous dans le menu ParamÃ¨tresÂ / SystÃ¨meÂ / RÃ©seau.
+
+  ![Configurer les interfaces rÃ©seau](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerLesInterfacesReseau.png)
+* Vous pouvez configurer le rÃ©seau sans fil Ã  l'aide de l'onglet wlan0Â et le rÃ©seau cÃ¢blÃ© Ã  l'aide de l'ongletÂ end0.
+* Pour vous connecter Ã  un rÃ©seau Wi-Fi, cliquez sur wlan0 puis ouvrez la section Wi-Fi pour sÃ©lectionner le rÃ©seau Ã  utiliser.
+* La section IPv4Â permet de dÃ©finir le type d'adresse IP. CochezÂ Automatique pour laisser le routeur fournir une adresse IP ou Statique pour choisir vous-mÃªme l'adresse IP dÃ©sirÃ©e.
+
+  ![IPv4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IPv4-DHCP.png)
+* Notez que si vous dÃ©sirez effectuer des tests en vous branchant sur le partage de connexion de votre cellulaire, vous devez ouvrir l'Ã©cran de partage de connexion de votre cellulaire avant de cliquer sur Rechercher les rÃ©seaux.
+
+  ![Configuration Wi-Fi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurationWiFi-Cell.png)
+* Si vous avez utilisÃ© l'interface Web pour Ã©diter une nouvelle connexion, ceci crÃ©era le fichier /etc/NetworkManager/system-connections/Supervisor wlan0.nmconnection.
+
+## 59.3 Adresse IP statique pour Home Assistant
+
+Afin d'obtenir plus de stabilitÃ©, il est recommandÃ© de donner une adresse IP statique au Raspberry Pi sur lequel roule Home Assistant.
+
+Ceci peut Ãªtre rÃ©alisÃ© de deux faÃ§onsÂ :
+
+* [Ã€ l'aide d'un fichier de configuration placÃ© sur une clÃ© USB](#usb)
+* [En Ã©ditant les fichiers de configuration directement dans le terminal HassOS](#hassos)
+* [Ã€ l'aide de l'interface graphique de Home Assistant](#graphique)
+
+## Fichier de configuration sur clÃ© USB
+
+Le fichier de configuration doit Ãªtre placÃ© sur une clÃ© USB qui rÃ©pond Ã  des rÃ¨gles prÃ©cisesÂ :
+
+* La clÃ© doit Ãªtre vierge et Ãªtre formatÃ©e en FAT32 :
+  + Sous Windows, l'utilitaire par dÃ©faut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voirÂ <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
+  + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
+* La clÃ© doit possÃ©der un volume nommÃ© CONFIG (en majuscules).
+* Les fichiers de configuration doivent comporter des [apical\_lien\_interne][encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf,sauts de ligne correctement encodÃ©s pour Linux (LF)][/apical\_lien\_interne].
+
+Les configurations disponibles [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,sont dÃ©taillÃ©es sur cette fiche,sansfilusb][/apical\_lien\_interne].
+
+Voici un exemple qui permet de configurer l'adresse IP statique.
+
+La premiÃ¨re partie de la ligne address correspond Ã  l'adresse IP statique suivie du masque de sous-rÃ©seau.
+
+AprÃ¨s le point-virgule, on retrouve l'adresse IP locale du routeur.
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=[votre-uuid-ici](https://www.uuidgenerator.net/)  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=wpa-psk  
+psk=MOT-DE-PASSE-DU-RESEAU  
+  
+[ipv4]  
+method=manual  
+address=192.168.1.145/24;192.168.1.1  
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
+
+Pour un rÃ©seau cÃ¢blÃ© :
+
+Fichier network/my-network-cable
+
+[connection]  
+id=my-network-cable  
+uuid=efb525c5-17ea-4e3d-b33c-9d79675d216f  
+type=ethernet
+
+ 
+
+[ipv4]  
+method=manual  
+address1=192.168.1.145/24;192.168.1.1  
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4
+
+## Terminal HassOS
+
+Une fois qu'ils ont Ã©tÃ© copiÃ©s sur le Pi aprÃ¨s un redÃ©marrage, les fichiers de configuration rÃ©seau, qui permettent Ã©galement de spÃ©cifier une adresse iP statique, peuvent Ãªtre Ã©ditÃ©s directement Ã  partir duÂ [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne].
+
+Vous pouvez afficher leur contenu Ã  l'aide de la commande cat et les Ã©diter Ã  l'aide de l'Ã©diteur vi, un proche parent de l'[apical\_lien\_interne][Editeur\_vim,Ã©diteur vim][/apical\_lien\_interne].
+
+Pour Ã©diter un fichier avec viÂ :
+
+Terminal
+
+vi /etc/NetworkManager/system-connections/nom-du-fichier
+
+Ã€ son ouverture, vi vous place en mode commande. Pour passer d'un mode Ã  l'autreÂ :
+
+* en mode commandeÂ : la lettre i vous place en mode insertion, ce qui permet d'Ã©diter le texte
+* en mode insertionÂ : Ã‰chap vous place en mode commande
+
+Pour enregistrer le document puis fermer l'Ã©diteur : Ã‰chap suivi de : w qÂ (ce qui signifie Write and Quit).
+
+Pour fermer l'Ã©diteur sans enregistrerÂ : Ã‰chap suivi de : q !.
+
+Un redÃ©marrage du Pi est nÃ©cessaire pour que les modifications soient prises en compte.
+
+Notez que le fait de supprimer un fichier de configuration de ce dossier fait en sorte que lors du redÃ©marrage du systÃ¨me, il ne sera plus pris en compte Ã  moins qu'il se trouve Ã  nouveau sur une clÃ© USB branchÃ©e au Pi.
+
+## Interface graphique de Home Assistant
+
+Il est possible de configurer l'adresse IP directement Ã  partir de l'interface graphique de Home Assistant. Ã‰videmment, l'adresse utilisÃ©e initialement aura Ã©tÃ© fournie par DHCP.
+
+* [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,AccÃ©dez Ã  l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+* Rendez-vous dans le menu ParamÃ¨tresÂ / SystÃ¨meÂ / RÃ©seau.
+
+  ![Configurer les interfaces rÃ©seau](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerLesInterfacesReseau.png)
+* Vous pouvez configuer le rÃ©seau sans fil Ã  l'aide de l'onglet WLAN0Â et le rÃ©seau cÃ¢blÃ© Ã  l'aide de l'onglet ETH0.
+* Cliquez sur WLAN0 ou sur ETH0 puis ouvrez la section IPv4. Vous devez cocher Statique pour entrer l'adresse IP dÃ©sirÃ©e. Attention : une fois que vous cliquerez sur Enregistrer, l'interface semblera avoir de la difficultÃ© Ã  enregistrer. En fait, c'est qu'une fois l'adresse IP changÃ©e, l'adresse IP utilisÃ©e actuellement pour accÃ©der Ã  l'interface Web de Home Assistant ne sera plus bonne. l'enregistrement. Il vous faudra entrer la nouvelle adresse IP pour poursuivre.
+
+  ![IP statique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IPv4-IPStatiqueViaWeb.png)
+
+## 59.4 Se brancher Ã  Home Assistant via SSH
+
+Je vous prÃ©sente ici la technique pour se brancher Ã  Home Assistant via SSH afin d'avoir accÃ¨s Ã  un maximum de fonctionnalitÃ©s.
+
+Notez qu'il est possible de configurer l'accÃ¨s SSH [apical\_lien\_interne][module\_complementaire\_terminal\_ssh\_pour\_home\_assistant,Ã  l'aide du module complÃ©mentaire Terminal et SSH][/apical\_lien\_interne]. Cependant, ceci ne donne pas tous les accÃ¨s dont un dÃ©veloppeur pourrait avoir besoin. Entre autres, ce module ne permet pas de gÃ©rer les configurations rÃ©seau Ã  l'aide de la commande nmcli ni de copier des fichiers entre l'ordinateur et le Raspberry Pi Ã  l'aide de scp.
+
+Voici donc comment accÃ©der Ã  un vrai terminal via SSH.
+
+## Activation SSH
+
+Lors de l'installation de Home Assistant, vous avez peut-Ãªtre dÃ©jÃ  crÃ©Ã© le fichier authorized\_keys installÃ© sur une clÃ© USB.
+
+Si vous ne l'avez pas fait, effectuez la [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,procÃ©dure de crÃ©ation du fichier authorized\_keys sur la clÃ© USB,ssh][/apical\_lien\_interne], insÃ©rer la clÃ© USB dans le Pi puis redÃ©marrez Home Assistant.
+
+Ceci aura pour effet deÂ :
+
+* CopierÂ le fichier authorized\_keysÂ dans le dossier /root/.ssh.
+* Donner les droits de lecture et d'Ã©criture Ã  l'usager propriÃ©taire de ce fichier (comme si vous aviez faitÂ chmod 600 authorized\_keys).
+* Activer le serveur SSH (comme si vous aviez faitÂ systemctl start dropbear).
+
+Une fois le redÃ©marrage complÃ©tÃ©, la clÃ© USB peut Ãªtre retirÃ©e et elle ne sera plus nÃ©cessaire.
+
+## Pourquoi faut-il copier seulement la clÃ© publique sur le Pi?
+
+Pour rÃ©pondre Ã  cette question, consultez cette ficheÂ : Â«Â [apical\_lien\_interne]comment\_fonctionne\_l\_authentification\_via\_ssh[/apical\_lien\_interne]Â Â».
+
+## Connexion au Pi
+
+Sous Linux et Mac, vous avez accÃ¨s Ã  un client SSH directement dans une fenÃªtre Terminal.
+
+Sous Windows, vous pouvez travailler avec un client SSH disponible Ã  partir d'une fenÃªtre PowerShell ou d'une console Git Bash.
+
+Je ne vous recommande pas l'utilitaire Putty puisqu'il travaille avec son propre format de clÃ©s SSH, non compatible avec le format gÃ©nÃ©rÃ© par le traditionnelÂ ssh-keygen.
+
+Le client SSH vous permet de vous connecter au Pi Ã  l'aide d'une commande entrÃ©e dans une fenÃªtre Terminal de votre ordinateur (vous devez remplacer 192.168.1.145 par l'adresse IP de votre Pi). Il faut utiliser le port 22222.
+
+Terminal (sur l'ordinateur)
+
+ssh root@192.168.1.145 -p 22222
+
+Vous n'avez pas de mot de passe Ã  entrer puisque vous utiliser le systÃ¨me de clÃ©s SSH.
+
+Vous avez dÃ©sormais accÃ¨s au [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS][/apical\_lien\_interne].
+
+RÃ©sultat Ã  l'Ã©cran
+
+monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222  
+Welcome to Home Assistant OS.
+
+ 
+
+Use `ha` to access the Home Assistant CLI.  
+#
+
+## Alternative pour les systÃ¨mes Windows
+
+Parfois, sous Windows, la copie de la clÃ© SSH publique ne fonctionne pas correctement. Ceci est souvent dÃ» Ã  une erreur de manipulation car les Ã©tapes sont trÃ¨s pointilleuses.
+
+Si vous n'y Ãªtes pas arrivÃ©s, je vous propose une faÃ§on dÃ©tournÃ©e pour copier cette clÃ© publique. Vous aurez besoin de brancher un clavier et un Ã©cran au Raspberry Pi pour effectuer ces manipulations.
+
+* Sur Home Assistant, installez le [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,module complÃ©mentaire File Editor][/apical\_lien\_interne].
+* Ã€ l'aide de ce module complÃ©mentaire, crÃ©ez un nouveau fichier nommÃ© authorized\_keys. Il sera placÃ© [apical\_lien\_interne][dossier\_config,dans le dossier config][/apical\_lien\_interne], c'est-Ã -direÂ /mnt/data/supervisor/homeassistant.
+* Sur votre systÃ¨me Windows, Ã  l'aide d'une fenÃªtre PowerShell, affichez la valeur de votre clÃ© publique SSH.
+
+  PowerShell
+
+  cat C:\Users\MonNom\.ssh\id\_ed25519.pub
+* Dans File Editor, Ã©ditez votre nouveau fichier authorized\_keys et collez-y la valeur de la clÃ© publique. Elle devrait commencer par ssh-ed25519Â et se terminer par le courriel utilisÃ© dans la commande ssh-keygen.
+* Puisque File Editor n'a pas accÃ¨s aux dossiers situÃ©s en dehors de la racine du site Web, vous devrez dÃ©placer le fichier Ã  l'aide du clavier branchÃ© au Raspberry Pi.
+
+  Terminal HassOS
+
+  cpÂ /mnt/data/supervisor/homeassistant/authorized\_keys /root/.ssh
+* Vous devriez maintenant avoir accÃ¨s Ã  votre Pi via SSH.
+
+  PowerShell
+
+  ssh root@192.168.1.145 -p 22222
+
+## Pour plus d'information
+
+Â«Â Debugging the Home Assistant Operating SystemÂ Â». Home Assistant. <https://developers.home-assistant.io/docs/operating-system/debugging/>
+
+## 59.5 Ajuster la date et l'heure de Home Assistant
+
+Je vous prÃ©sente ici comment gÃ©rer l'heure et le fuseau horaire du Raspberry Pi avec le systÃ¨me d'exploitationÂ HassOS utilisÃ© par Home Assistant.
+
+Dans cette ficheÂ :
+
+* [Retrouver la date, l'heure et le fuseau horaire au terminal](#infosterminal)
+* [Retrouver les informations dans l'interface graphique](#infosgraphique)
+  + [Fuseau horaire](#fuseaugraphique)
+  + [Date et heure](#dategraphique)
+* [Si la date ou l'heure sont erronÃ©s](#errone)
+* [Ajustements au terminal](#ajustementsterminal)
+  + [Fuseau horaire](#fuseau)
+  + [Date et l'heure](#date)
+
+## Retrouver la date, l'heure et le fuseau horaire au terminal
+
+Pour connaÃ®tre la date du systÃ¨me, [apical\_lien\_interne][la\_console\_home\_assistant,ouvrez le terminal HassOS,terminal][/apical\_lien\_interne] puis entrez la commande date.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# date  
+Wed OctÂ  8 11:51:14 EDT 2025
+
+Cette commande montre Ã©galement le fuseau horaire. Ici, EDT signifie Eastern Daylight Time, soit l'heure d'Ã©tÃ© (heure avancÃ©e) de la cÃ´te Est nord-amÃ©ricaine.
+
+Voici un autre essai, plus tard dans l'annÃ©e.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# date  
+Tue Dec 9 08:41:21 EST 2025
+
+Ici, le fuseau horaire est EST, c'est-Ã -dire Eastern Standard Time, l'heure normale de l'est.
+
+## Retrouver les informations dans l'interface graphique
+
+L'interface graphique de Home Assistant permet de retrouver les informations sur le fuseau horaire, la date et l'heure.
+
+### Fuseau horaire
+
+Pour connaÃ®tre - et possiblement modifier - le fuseau horaire via l'interface graphique, rendez-vous dans le menu ParamÃ¨tres / SystÃ¨me / GÃ©nÃ©ral.
+
+![Configuration fuseau horaire](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurationFuseauHoraire.png)
+
+### Date et l'heure
+
+La date et l'heure peuvent Ã©galement Ãªtre affichÃ©s dans l'interface Web de Home Assistant Ã  l'aide d'une [apical\_lien\_interne][afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord,configuration time\_date][/apical\_lien\_interne].
+
+![Capteur virtuel date and time](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CapteurVirtuelDateAndTime.png)
+
+## Si la date ou l'heure sont erronÃ©s
+
+Avec une installation sur un Raspberry Pi, c'est un systÃ¨me de synchronisation avec un serviceÂ NTP (protocole de diffusion du temps en rÃ©seau ou, en anglais, Network Time Protocol) qui assure que la date et l'heure du systÃ¨me correspondent Ã  la rÃ©alitÃ©.
+
+Ceci est nÃ©cessaire puisque Ã  la base, le Raspberry Pi ne contient pas d'horloge en temps rÃ©el (RTC ou, en anglais, Real Time Clock).
+
+Une horloge mal synchronisÃ©e peut poser toutes sortes de problÃ¨mes dans Home Assistant. Dans le pire des cas, c'est l'installation elle-mÃªme qui ne fonctionnera pas puisque le certificat SSL pour tÃ©lÃ©charger Home Assistant sera considÃ©rÃ© invalide (erreur Â«Â Can't fetch Whoami data: Cannot connect to host whoami.home-assistant.io:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE\_VERIFY\_FAILED] certificate verify failed: certificate is not yet valid (\_ssl.c:1129)')]Â Â» dans le log lors de l'installation).
+
+Il faut donc faire le nÃ©cessaire pour synchroniser l'horloge correctement.
+
+## Ajustements au terminal
+
+Puisque le systÃ¨me d'exploitation de Home Assistant n'est pas un Linux Â«Â rÃ©gulierÂ Â», les mÃ©thodes traditionnelles pour ajuster la date et l'heure ne fonctionnent pas toutes.
+
+### Fuseau horaire
+
+Avant de tenter d'ajuster l'heure, il faut configurer le fuseau horaire du systÃ¨me d'exploitation.
+
+Remarquez que si le fuseau horaire du systÃ¨me d'exploitation n'est pas le mÃªme que celui configurÃ© dans Home Assistant, vous pourriez obtenir des rÃ©sultats inconsistants dans Home Assistant.
+
+La seule technique que j'ai trouvÃ©e pour configurer le fuseau horaire manuellement sous HassOS consiste Ã  travailler avec la variable d'environnement TZ.
+
+Attention : cette technique a une portÃ©e rÃ©duite. La commande date donnera le bon fuseau horaire mais avec timedatectl, le fuseau horaire demeurera inchangÃ©.
+
+Terminal HassOS
+
+export TZ=America/Toronto
+
+Notez que cette modification ne sera pas permanente sauf si vous entrez cette commande dans le fichier ~/.bashrc ou, plus globalement, dans le fichier /etc/environment.
+
+### Date et l'heure
+
+Pour modifier la date et l'heure sous HassOS, la commande qui fonctionne est [date](https://man7.org/linux/man-pages/man1/date.1.html).
+
+Terminal HassOS
+
+date -s "2025-10-08 08:50:00"
+
+Notez que si vous tentez d'ajuster l'heure Ã  l'aide de la commande timedatectl, vous obtiendrez le message Â«Â Failed to set time: Automatic time synchronization is enabledÂ Â».
+
+RÃ©sultat Ã  l'Ã©cran
+
+# timedatectl set-time '2022-10-17 11:51:00'  
+Failed to set time: Automatic time synchronization is enabled
+
+## 59.6 Obtenir la version de Home Assistant installÃ©e sur mon Raspberry Pi
+
+Si vous avez besoin de connaÃ®tre la version de Home Assistant ou de son systÃ¨me d'exploitation, deux options s'offrent Ã  vousÂ :
+
+* [retrouver l'information Ã  partir de l'interface graphique](#graphique)
+* [retrouver l'information Ã  la ligne de commande](#commande)
+
+## Interface graphique
+
+Dans l'interface graphique de Home Assistant, rendez-vous dans le menu ParamÃ¨tres / Ã€ propos.
+
+Cet Ã©cran affiche la versionÂ [apical\_lien\_interne][les\_couches\_logicielles\_de\_home\_assistant,de chaque couche logiciel de Home Assistant][/apical\_lien\_interne].
+
+![Ã‰cran Ã€ propos](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-APropos.png)
+
+## Ligne de commande
+
+Dans le [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS][/apical\_lien\_interne], entrez cette commandeÂ :
+
+Ligne de ccommande Home Assistant
+
+ha info
+
+La versionÂ [apical\_lien\_interne][les\_couches\_logicielles\_de\_home\_assistant,de chaque couche logiciel de Home Assistant][/apical\_lien\_interne] apparaÃ®t Ã  l'Ã©cran.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha info  
+arch: aarch64  
+channel: stable  
+docker: 28.3.3  
+features:  
+- reboot  
+- shutdown  
+- services  
+- network  
+- hostname  
+- timedate  
+- os\_agent  
+- haos  
+- resolved  
+- journal  
+- disk  
+- mount  
+hassos: "16.2"  
+homeassistant: 2023.10.1  
+hostname: homeassistant  
+logging: info  
+machine: raspberrypi4-64  
+operating\_system: Home Assistant OS 16.2  
+state: running  
+supervisor: 2025.10.0  
+supported: true  
+supported\_arch:  
+- aarch64  
+- armv7  
+- armhf  
+timezone: America/Toronto
+
+## 59.7 Trouver l'adresse IP de Home Assistant
+
+Il n'est gÃ©nÃ©ralement pas nÃ©cessaire de connaÃ®tre l'adresse IP du Raspberry Pi pour pouvoir accÃ©der Ã  l'interface graphique de Home Assistant.
+
+En effet, Ã  moins qu'il y ait plusieurs boÃ®tes Home Assistant dans votre environnement, vous pouvez accÃ©der Ã  l'interface Web de Home Assistant Ã  l'aide de l'URL http://homeassistant.local:8123 ou http://homeassistant:8123.
+
+Par contre, l'adresse IP sera requise s'il y a plusieurs boÃ®tes Home Assistant dans votre environnement ou encore si vous dÃ©sirez vous brancher au Pi via SSH.
+
+Pour connaÃ®tre l'adresse IP du Raspberry Pi sur lequel Home Assistant est installÃ©, vous disposez de quelques optionsÂ :
+
+* Brancher un Ã©cran au Raspberry PiÂ : l'adresse IP apparaÃ®tra sur l'Ã©cran d'accueil
+* Travailler avec la console Home Assistant ou le terminal HassOS.
+* VÃ©rifier sur le routeur les pÃ©riphÃ©riques branchÃ©s au rÃ©seau.
+* Sur un rÃ©seau privÃ©, effectuer unÂ [apical\_lien\_interne][nmap,balayage du rÃ©seau avec Nmap][/apical\_lien\_interne] (risque de problÃ¨mes lÃ©gaux sur un rÃ©seau public).
+
+## Travail Ã  la console Home Assistant
+
+DÃ¨s le dÃ©marrage de Home Assistant, si vous branchez un Ã©cran au Raspberry Pi, vous verrez l'adresse IP du Pi affichÃ©e Ã  l'Ã©cran.
+
+Il est Ã©galement possible de voir l'adresse en faisant rÃ©afficher la page d'accueil de la console Home Assistant.RÃ©sultat Ã  l'Ã©cran
+
+Waiting for the Home Assistant CLI to be ready...
+
+ 
+
+Â  Â  Â  Â â–„â–ˆâ–ˆâ–„Â  Â  Â  Â  Â  Â \_Â  Â \_   
+Â  Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  Â  | | | | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_   
+Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
+Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  |Â  \_Â  | (\_) | | | | | |Â  \_\_/   
+â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|Â  Â  Â  Â  Â  \_   
+â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆâ–€Â  â–€â–ˆâ–ˆÂ  Â  Â  / \Â  Â \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
+â–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆÂ  Â â–„â–ˆâ–ˆÂ  Â  Â / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
+â–ˆâ–ˆÂ  Â  â–ˆâ–ˆÂ  â–€ â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
+â–ˆâ–ˆâ–ˆâ–„â–„ â–€â–ˆÂ  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â /\_/Â  Â \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+â–€â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–€  
+  
+Welcome on Home Assistant command line interface.
+
+ 
+
+Home Assistant Supervisor is running!  
+System information:  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+Â  IPv4 Adresses for end0: 192.168.1.140/24  
+Â  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 16.2  
+Â  Home Assistant Core:Â  Â  Â landingpage  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+System is ready! Use browser or app to configure.  
+ha >
+
+Vous pouvez faire rÃ©afficher cette information en tout temps Ã  l'aide de cette commandeÂ :
+
+Console Home Assistant
+
+banner
+
+RÃ©sultat Ã  l'Ã©cran
+
+ha > banner
+
+ 
+
+Â  Â  Â  Â â–„â–ˆâ–ˆâ–„Â  Â  Â  Â  Â  Â \_Â  Â \_   
+Â  Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  Â  | | | | \_\_\_Â  \_ \_\_ \_\_\_Â  Â \_\_\_   
+Â  Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  Â  | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
+Â â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â  |Â  \_Â  | (\_) | | | | | |Â  \_\_/   
+â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|Â  Â  Â  Â  Â  \_   
+â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆâ–€Â  â–€â–ˆâ–ˆÂ  Â  Â  / \Â  Â \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
+â–ˆâ–ˆâ–ˆâ–€â–€â–ˆâ–ˆâ–ˆÂ  â–ˆâ–ˆÂ  Â â–„â–ˆâ–ˆÂ  Â  Â / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
+â–ˆâ–ˆÂ  Â  â–ˆâ–ˆÂ  â–€ â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â  / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
+â–ˆâ–ˆâ–ˆâ–„â–„ â–€â–ˆÂ  â–„â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆÂ  Â /\_/Â  Â \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
+â–€â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–„Â  Â â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–€  
+  
+Welcome on Home Assistant command line interface.
+
+ 
+
+Home Assistant Supervisor is running!  
+System information:  
+Â  IPv4 Adresses for wlan0: 192.168.1.145/24  
+Â  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
+Â  IPv4 Adresses for end0: 192.168.1.140/24  
+Â  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
+  
+Â  OS Version:Â  Â  Â  Â  Â  Â  Â  Home Assistant OS 16.2  
+Â  Home Assistant Core:Â  Â  Â 2025.10.1  
+  
+Â  Home Assistant URL:Â  Â  Â  http://homeassistant.local:8123  
+Â  Observer URL:Â  Â  Â  Â  Â  Â  http://homeassistant.local:4357  
+  
+System is ready! Use browser or app to configure.
+
+ 
+
+ha >
+
+## network info
+
+L'invite de commande ha > vous indique que vous Ãªtes dans la console Home Assistant.
+
+Pour connaÃ®tre les informations sur le rÃ©seau, notamment l'adresse IP du Raspberry Pi, lancez la commandeÂ :
+
+Console Home Assistant
+
+network info
+
+Si vous Ãªtes dans le terminal HassOS (invite #), vous devrez ajouter ha devant la commande.
+
+Terminal HassOS
+
+ha network info
+
+RÃ©sultat Ã  l'Ã©cran
+
+ha > network info  
+docker:  
+Â  Â address: 172.30.32.0/23  
+Â  Â dns: 172.30.32.3  
+Â  Â gateway: 172.30.32.1  
+Â  Â interface: hassio  
+host\_internet: true  
+interfaces:  
+- connected: true  
+Â  enabled: true  
+Â  interface: wlan0  
+Â  ipv4:  
+Â  Â  address:  
+Â  Â  - 192.168.1.145/24  
+Â  Â  gateway: 192.168.1.1  
+Â  Â  method: auto  
+Â  Â  Â nameservers:  
+Â  Â  Â - xxx.xxx.xxx.xxx  
+Â  Â  Â - 8.8.8.8  
+Â  Â  Â - 8.8.4.4  
+Â  Â  ready: true  
+...
+
+Il est possible que plusieurs adresses IP apparaissent, par exemple une adresse pour le rÃ©seau cÃ¢blÃ© dans la section end0 et une adresse Wi-Fi dans la section wlan0.
+
+## nmcli (NetworkManager Command Line Interface)
+
+Vous pouvez obtenir encore plus d'informations sur le rÃ©seau Ã  l'aide de la commande [nmcli](https://linux.die.net/man/1/nmcli).
+
+D'abord, si vous Ãªtes dans la console Home Assistant,Â accÃ©dez au terminal HassOS en entrant la commande login.
+
+Pour voir les configurations de rÃ©seaux disponiblesÂ :
+
+Terminal HassOS
+
+nmcli con show
+
+Vous devriez obtenir une liste de configurations, notammentÂ my-network (si vous avez [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,configurÃ© le rÃ©seau lors de l'installation de Home Assistant,sansfil][/apical\_lien\_interne]).
+
+RÃ©sultat Ã  l'Ã©cran
+
+NAMEÂ  Â  Â  Â  Â  Â  Â  Â  Â UUIDÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  TYPEÂ  Â  Â  DEVICE   
+my-networkÂ  Â  Â  Â  Â  Â votre-uuid-iciÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  wifiÂ  Â  Â  wlan0   
+Wired connection 1Â  Â autre-uuid-iciÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  ethernetÂ  --
+
+ou, si aucun rÃ©seau n'a Ã©tÃ© configurÃ©Â :
+
+RÃ©sultat Ã  l'Ã©cran
+
+NAMEÂ  Â  Â  Â  Â  Â  Â  Â  Â UUIDÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  TYPEÂ  Â  Â  DEVICE   
+HassOS defaultÂ  Â  Â  Â votre-uuid-iciÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  ethernetÂ  ---
+
+Â Pour voir les dÃ©tails de la configuration my-network, par exempleÂ :
+
+Terminal HassOS
+
+nmcli con show my-network
+
+Appuyez sur la touche EntrÃ©e jusqu'Ã  l'apparition de la ligne ipV4.addresses qui vous donnera la ou les adresses IP.
+
+RÃ©sultat Ã  l'Ã©cran
+
+...  
+ipv4.method:Â  Â  Â  Â  manual  
+ipv4.dns:Â  Â  Â  Â  Â  Â --  
+ipv4.dns-search:Â  Â  --  
+ipv4.dns-options:Â  Â --  
+ipv4.dns-priority:Â  0  
+ipv4.addresses:Â  Â  Â 192.168.1.145/24  
+ipv4.gateway:Â  Â  Â  Â 192.168.1.1  
+ipv4.routes:Â  Â  Â  Â  --  
+...
+
+Il est Ã©galement possible d'obtenir seulement les adresses IP comme suitÂ :
+
+Terminal HassOS
+
+nmcli con show my-network | grep address
+
+RÃ©sultat Ã  l'Ã©cran
+
+# nmcli con show my-network |grep address  
+802-11-wireless.mac-address:Â  Â  Â  Â  Â  Â  Â  Â --  
+802-11-wireless.cloned-mac-address:Â  Â  Â  Â  --  
+802-11-wireless.generate-mac-address-mask: --  
+802-11-wireless.mac-address-blacklist:Â  Â  Â --  
+802-11-wireless.mac-address-randomization: default  
+ipv4.addresses:Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  192.168.1.145/24  
+ipv6.addresses:Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  --
+
+## Informations sur les serveurs DNS
+
+Pour connaÃ®tre la liste des serveurs DNS configurÃ©s sur le systÃ¨me, entrez cette commandeÂ :
+
+Terminal HassOS
+
+ha dns info
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha dns info  
+fallback: true  
+host: 172.30.32.3  
+llmnr: true  
+locals:  
+- dns://xxx.xxx.xxx.xxx  
+- dns://8.8.4.4  
+- dns://8.8.8.8  
+mdns: true  
+servers: []  
+update\_available: false  
+version: 2025.08.0  
+version\_latest: 2025.08.0
+
+## Retrouver l'adresse IP par programmation
+
+Si vous ajoutez l'intÃ©gration [Adresse IP locale](https://www.home-assistant.io/integrations/local_ip) (local\_ip) Ã  Home Assistant, vous pourrez retrouver l'adresse IP locale par programmation.
+
+Une fois l'intÃ©gration installÃ©e, l'adresse IP de Home Assistant pourra Ãªtre retrouvÃ©e Ã  l'aide d'unÂ [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modÃ¨le][/apical\_lien\_interne].
+
+Ce modÃ¨le pourra Ãªtre utilisÃ© dans des automatisations, par exemple pourÂ [apical\_lien\_interne][configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel,l'envoyer par courriel][/apical\_lien\_interne] lors du [apical\_lien\_interne][ajouter\_une\_automatisation\_a\_l\_aide\_de\_l\_interface\_graphique,dÃ©marrage de Home Assistant,demarrage][/apical\_lien\_interne].
+
+ModÃ¨le Home Assistant
+
+{{ states('sensor.local\_ip') }}
+
+## Pour plus d'information
+
+Â«Â How to configure and Manage Network Connections using nmcliÂ Â». The Geek Diary. <https://www.thegeekdiary.com/how-to-configure-and-manage-network-connections-using-nmcli/>
+
+## 59.8 Les fichiers et dossiers de Home Assistant
+
+Cette fiche est un document de rÃ©fÃ©rence dans lequel j'ai rÃ©pertoriÃ© quelques fichiers et dossiers utiles dans Home Assistant.
+
+N'hÃ©sitez pas Ã  la consulter au besoin afin de mieux vous y retrouver!
+
+| Fichier ou dossier | RÃ´le | Exemple de contenu |
+| --- | --- | --- |
+| /mnt/data/supervisor/homeassistant | Contient les fichiers .yaml.  C'est ce dossier qui est souvent rÃ©fÃ©rÃ© comme config dans la documentation.  Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutÃ´t le placer dans le dossierÂ /mnt/data/supervisor/homeassistant/www. |  |
+| /etc/NetworkManager/system-connections | Contient les connexions rÃ©seau (les fichiers du dossier network de la clÃ© USB y ont Ã©tÃ© copiÃ©s). |  |
+| /mnt/data/supervisor/homeassistant/home-assistant.log | Fichier journal principal de Home Assistant. |  |
+| /mnt/data/supervisor/backup | Contient les sauvegardes Home Assistant. Pour chaque sauvegarde, le nom du fichier est en fait un slug sous forme de nombre alphanumÃ©rique, par exempleÂ 6a4451b2.tar. |  |
+| /root/.ssh/authorized\_keys | Contient les clÃ©s SSH publiquesÂ (notamment celle qui Ã©tait dans leÂ  fichier authorized\_keys de la clÃ© USB). |  |
+| /mnt/data/supervisor/homeassistant/.storage | Contient les configurations faites par l'interface graphique. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.device\_registry | Contient les informations sur les appareils (les objets connectÃ©s) ajoutÃ©s Ã  Home Assistant. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry | Contient les informations sur les entitÃ©s crÃ©Ã©es dans Home Assistant. Les virtuels y figureront, qu'ils aient Ã©tÃ© crÃ©Ã©s Ã  l'aide de l'interface graphique ou directement dans configuration.yaml. |  |
+| /mnt/data/supervisor/homeassistant/www | Les fichiers placÃ©s dans ce dossier sont accessibles sur le Web Ã  partir d'une adresse du genreÂ http://192.168.1.145:8123/local/monimage.png dans le navigateur ou /local/monimage.png dans les automatisations et dans le tableau de bord.  Notez que le dossier www n'est pas prÃ©sent lors de l'installation initiale. Il faut le crÃ©er et redÃ©marrer le systÃ¨me. |  |
+
+## 59.9 Qu'est-ce qu'une entitÃ©?
+
+Quand vous travaillez avec Home Assistant, le terme entitÃ© est partout. Il importe donc de bien comprendre ce terme.
+
+Une entitÃ© (en anglaisÂ : entity) reprÃ©sente un capteur, un rÃ©cepteur, un service, une zone, une automatisation, etc.
+
+Chaque entitÃ© peut apparaÃ®tre dans le tableau de bord, Ãªtre utilisÃ©e dans une automatisation, historiser des donnÃ©es, etc.
+
+Souvent, pour un seul objet connectÃ© (on l'appelle appareil dans Home Assistant), il y aura plusieurs entitÃ©s. Par exemple, un capteur 5-en-1 aura une entitÃ© pour chacun de ses capteurs et probablement d'autres entitÃ©s, par exemple un dÃ©tecteur du niveau de la pile ou mÃªme un dÃ©tecteur pour la version du micrologiciel de l'objet connectÃ©.
+
+Les informations sur les entitÃ©s sont enregistrÃ©es dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.device\_registry.
+
+## Identifiant d'entitÃ©
+
+Un peu partout dans Home Assistant, notamment dans les automatisation, vous travaillerez avec des identifiants d'entitÃ©s (entity ID).
+
+Cet identifiant est composÃ© de deux morceauxÂ :
+
+* Le domaine : chaÃ®ne qui reprÃ©sente de quel type d'entitÃ© il s'agit, par exemple sensor, zone, sun, person, input\_number, device\_tracker
+* L'identifiant de l'objet : chaÃ®ne qui reprÃ©sente l'objet de faÃ§on unique pour un domaine donnÃ©
+
+L'identifiant de l'entitÃ© apparaÃ®t donc sous la forme domaine.identifiant\_objet.
+
+On peut voir l'identifiant Ã  partir deÂ l'ongletÂ AperÃ§u, clic sur l'entitÃ© dÃ©sirÃ©e / icÃ´ne ParamÃ¨tres (engrenage).
+
+L'identifiant de l'entitÃ© est affichÃ© dans la caseÂ ID d'entitÃ©.
+
+![ParamÃ¨tres de l'entitÃ©](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ParametresEntite.png)
+
+## 59.10 RÃ©initialiser le mot de passe de Home Assistant (et le code d'usager si dÃ©sirÃ©)
+
+Lorsque vous accÃ©dez Ã  l'interface Web de Home Assistant, vous devez entrer un code d'usager et un mot de passe avant de poursuivre.
+
+![Login](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Login.png)
+
+Si vous avez oubliÃ© ces informations, il est possible de les rÃ©initialiser Ã  condition d'avoir un accÃ¨s direct au Raspberry Pi Ã  l'aide d'un clavier et d'un Ã©cran ouÂ [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,Ã  un branchement via SSH][/apical\_lien\_interne].
+
+Notez que si vous avez encore les accÃ¨s requis pour vous connecter avec un compte d'administrateur, il est prÃ©fÃ©rable de modifier le mot de passe via l'interface WebÂ : ParamÃ¨tres / Personnes / Clic sur l'usager Ã  modifier / Changer le mot de passe.
+
+![Changer mot de passe](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChangerMotDePasse.png)
+
+## Est-ce que vous tentez d'accÃ©der au bon Home Assistant?
+
+Avant d'entreprendre la procÃ©dure de rÃ©initialisation du mot de passe, vÃ©rifiez si vous tentez de vous connecter au bon Home Assistant.
+
+En effet, dans un environnement qui comprend plusieurs installations de Home Assistant, vous pourriez Ãªtre branchÃ© sur n'importe laquelle des installations disponibles si vous avez utilisÃ© l'URL http://homeassistant.local:8123 ou encore http://homeassistant:8123.
+
+Pour vous assurer d'accÃ©der au Home Assistant dÃ©sirÃ© lorsque plusieurs sont disponibles, vous devez utiliser un URL qui contient l'adresse IP du Raspberry Pi. L'adresse sera au format http://192.168.1.145:8123 , oÃ¹ 192.168.1.145 sera remplacÃ© par l'adresse IP du Pi.
+
+## Mot de passe oubliÃ©
+
+Si vous vous rappelez du code d'usager mais que vous avez oubliÃ© le mot de passe, suivez ces instructionsÂ :
+
+Entrez cette commande Ã  la console Home AssistantÂ :
+
+Console Home Assistant
+
+auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+
+ou celle-ci dans le terminal HassOS (invite #)Â :
+
+Terminal
+
+haÂ auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+
+## Code d'usager oubliÃ©
+
+Dans le cas oÃ¹ vous ne connaissez aucun code d'usager, il est possible de remÃ©dier Ã  la situation en Ã©ditant directement certains fichiers sur le Raspberry Pi Ã  partir du terminal HassOS.
+
+Sur HassOS, il est possible d'Ã©diter les fichiers Ã  l'aide de l'Ã©diteur vi, un proche parent de l'[apical\_lien\_interne][Editeur\_vim,Ã©diteur vim][/apical\_lien\_interne].
+
+Pour Ã©diter un fichier avec viÂ :
+
+Terminal
+
+vi chemin/fichier
+
+Ã€ son ouverture, vi vous place en mode commande. Pour passer d'un mode Ã  l'autreÂ :
+
+* en mode commandeÂ : la lettre i vous place en mode insertion, ce qui permet d'Ã©diter le texte
+* en mode insertionÂ : Ã‰chap vous place en mode commande
+
+Pour enregistrer le document puis fermer l'Ã©diteur : Ã‰chap suivi de : w qÂ (ce qui signifie Write and Quit).
+
+Pour fermer l'Ã©diteur sans enregistrerÂ : Ã‰chap suivi de : q !.
+
+Les fichiers Ã  Ã©diter sont dans le dossierÂ /mnt/data/supervisor/homeassistant/.storage.
+
+Le nom d'usager apparaÃ®t Ã  3 endroitsÂ :
+
+Fichier person
+
+{  
+Â  Â  "version": 2,  
+Â  Â  "key": "person",  
+Â  Â  "data": {  
+Â  Â  Â  Â  "items": [  
+Â  Â  Â  Â  Â  {  
+Â  Â  Â  Â  Â  Â  "name": "Nom complet",  
+Â  Â  Â  Â  Â  Â  "user\_id": "f2cd12cfc6424f518721196496cce50f",  
+Â  Â  Â  Â  Â  Â  "device\_trackers": [],  
+Â  Â  Â  Â  Â  Â  "id": "nom\_usager"  
+Â  Â  Â  Â  Â  }  
+Â  Â  Â  Â  ]  
+Â  Â  }  
+}
+
+Fichier auth
+
+...  
+ "credentials": [  
+Â  {  
+Â  Â  "id": "dbc82e9608534610afd72541f4c9f7a7",  
+Â  Â  "user\_id": "f2cd12cfc6424f518721196496cce50f",  
+Â  Â  "auth\_provider\_type": "homeassistant",  
+Â  Â  "auth\_provider\_id": null,  
+Â  Â  "data": {  
+Â  Â  Â  Â  "username": "nom\_usager"  
+Â  Â  }  
+Â  }  
+ ],  
+...
+
+FichierÂ auth\_provider.homeassistant
+
+{  
+Â  Â  "version": 1,  
+Â  Â  "key": "auth\_provider.homeassistant",  
+Â  Â  "data": {  
+Â  Â  Â  Â  "users": [  
+Â  Â  Â  Â  Â  {  
+Â  Â  Â  Â  Â  Â  "username": "nom\_usager",  
+Â  Â  Â  Â  Â  Â  "password": "JDJiJDEyJC9vSzlBamlOWE5wOTJheWdidHBJM3VKSTRONkdQbElBZnZUQmZzdWZxelBFbDkwRno1MWZh"  
+Â  Â  Â  Â  Â  }  
+Â  Â  Â  Â  ]  
+Â  Â  }  
+ }
+
+Une fois les modifications effectuÃ©es, vous devezÂ redÃ©marrer Home AssistantÂ :
+
+Terminal
+
+ha core restart
+
+Si vous ne connaissez pas le mot de passe de cet usager, vous pouvez le rÃ©initialiser Ã  l'aide de la technique prÃ©sentÃ©e plus haut.
+
+Rechargez maintenant la page Web et vous serez en mesure de vous authentifier avec ce nom d'usager.
+
+## RÃ©initialiser la phase de prÃ©paration (onboarding process)
+
+Il est possible d'effectuer une action beaucoup plus drastique en supprimant complÃ¨tement certains fichiers crÃ©Ã©s pendant la phase de prÃ©paration qui est effectuÃ©e lors de l'installation de Home Assistant.
+
+Ceci dÃ©truira tous les usagers et vous ramÃ¨nera Ã  l'Ã©cran qui vous demande de crÃ©er l'usager initial.
+
+Pour rÃ©initialiser la phase de prÃ©paration, vous devez simplement supprimer ces fichiersÂ :
+
+* /mnt/data/supervisor/homeassistant/.storage/auth
+* /mnt/data/supervisor/homeassistant/.storage/auth\_provider.homeassistant
+* /mnt/data/supervisor/homeassistant/.storage/onboarding
+* /mnt/data/supervisor/homeassistant/.storage/hassio
+* /mnt/data/supervisor/homeassistant/.storage/cloud
+
+## Pour plus d'information
+
+Â«Â I'm Locked Out!Â Â». Home Assistant. <https://www.home-assistant.io/docs/locked_out/>
+
+## 59.11 Liste de vÃ©rification pour Home Assistant
+
+Vous n'arrivez pas Ã  accÃ©der Ã  l'interface Web de Home Assistant? Ou le systÃ¨me a des comportement erratiques? Je vous propose une liste de vÃ©rifications pour cerner le problÃ¨me.
+
+## Le Raspberry Pi a-t-il accÃ¨s Ã  internet?
+
+Pour vÃ©rifier si le Raspberry Pi a accÃ¨s Ã  internet, ouvrez le [apical\_lien\_interne][la\_console\_home\_assistant, terminal Linux HassOS,terminal][/apical\_lien\_interne] puis entrez cette commandeÂ :
+
+Terminal
+
+ping 8.8.8.8
+
+Si le Pi a du rÃ©seauÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ping 8.8.8.8  
+8.8.8.8 is alive!
+
+Si le Pi n'a pas accÃ¨s au rÃ©seauÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ping 8.8.8.8  
+No response from 8.8.8.8
+
+Pistes de solutionÂ :
+
+* Le cÃ¢ble rÃ©seau est-il fonctionnel?Â SuggestionÂ : branchez votre ordinateur par cÃ¢ble puis dÃ©sactivez le Wi-Fi sur votre ordinateur. Si l'ordinateur a toujours accÃ¨s au rÃ©seau, utilisez le mÃªme cÃ¢ble pour brancher le Pi.
+* Le port sur le commutateur rÃ©seau est-il fonctionnel?
+* Le rÃ©seau en tant que tel est-il fonctionnel?
+* Les configurations d'accÃ¨s au rÃ©seau (cÃ¢blÃ©es ou sans fil) sont-elles bien rÃ©alisÃ©es? [Voir plus bas comment le vÃ©rifier.](#configurationsreseau)
+
+## Le Raspberry Pi a-t-il accÃ¨s Ã  un serveur DNS
+
+Un serveur DNS est requis pour transformer les adresses du genre google.com ouÂ time.cloudflare.com en leur adresse IP.
+
+Pour vÃ©rifier si le Pi a accÃ¨s Ã  un serveur DNS, ouvrez le terminal Linux HassOS puis entrez cette commandeÂ :
+
+Terminal
+
+ping google.com
+
+Si le Pi a accÃ¨s Ã  un serveur DNS :
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ping google.com  
+google.com is alive!
+
+Si le Pi n'a pas accÃ¨s au rÃ©seauÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ping google.com  
+ping: bad address 'google.com'
+
+Pistes de solutionÂ :
+
+* Les configurations d'accÃ¨s au rÃ©seau sont-elles bien rÃ©alisÃ©es? [Voir plus bas comment le vÃ©rifier.](#configurationdns)
+
+## L'ordinateur est-il capable de rejoindre le Raspberry Pi?
+
+Pour accÃ©der Ã  l'interface Web de Home Assistant, l'ordinateur et le Pi doivent se Â«Â voirÂ Â» dans le rÃ©seau.
+
+Pour le vÃ©rifier, ouvrez une fenÃªtre Terminal sur votre ordinateur et entrez cette commande en remplaÃ§ant 192.168.1.145 par l'adresse IP du PiÂ :
+
+Terminal de l'ordinateur
+
+ping 192.168.1.145
+
+Si l'ordinateur rÃ©ussit Ã  rejoindre l'adresse du PiÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
+PING 192.168.1.145 (192.168.1.145): 56 data bytes  
+64 bytes from 192.168.1.145: icmp\_seq=0 ttl=64 time=56.139 ms  
+64 bytes from 192.168.1.145: icmp\_seq=1 ttl=64 time=14.215 ms  
+64 bytes from 192.168.1.145: icmp\_seq=2 ttl=64 time=13.288 ms
+
+Si l'ordinateur ne rÃ©ussit pas Ã  rejoindre l'adresse du PiÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
+PING 192.168.1.145 (192.168.1.145): 56 data bytes  
+Request timeout for icmp\_seq 0  
+Request timeout for icmp\_seq 1  
+Request timeout for icmp\_seq 2
+
+Pistes de solutionÂ :
+
+* Assurez-vous que le Pi a accÃ¨s Ã  internet ([voir plus haut](#internet)).
+* Assurez-vous que le Pi et l'ordinateur sont sur le mÃªme rÃ©seau.
+
+## Est-ce que vous tentez d'accÃ©der au bon Home Assistant?
+
+Pour accÃ©der Ã  l'interface Web de Home Assistant, il est possible d'utiliser l'URL http://homeassistant.local:8123 ou encore http://homeassistant:8123. Ceci est pratique puisque vous n'avez pas besoin de connaÃ®tre l'adresse IP du Raspberry Pi.
+
+Cependant,Â dans un environnement qui comprend plusieurs installations de Home Assistant, par exemple une salle de classe, une telle adresse ne vous garantit pas que vous vous connecterez au bon Raspberry Pi.
+
+Vous devez alors utiliser un URL qui contient l'adresse IP du Pi que vous souhaitez rejoindre. L'adresse sera au format http://192.168.1.145:8123 , oÃ¹ 192.168.1.145 sera remplacÃ© par l'adresse IP du Pi.
+
+## Les configurations d'accÃ¨s au rÃ©seau sont-elles bien rÃ©alisÃ©es?
+
+Si le Raspberry Pi est branchÃ© au rÃ©seau Ã  l'aide d'un cÃ¢ble RJ-45, qu'il n'a pas besoin d'adresse IP statique ni de serveur DNS spÃ©cifique, vous n'avez pas besoin de configurer l'accÃ¨s au rÃ©seau.
+
+Dans le cas contraire, les configurations d'accÃ¨s au rÃ©seau peuvent Ãªtre rÃ©alisÃ©es [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,Ã  l'aide d'une clÃ© USB,sansfil][/apical\_lien\_interne] branchÃ©e au Raspberry Pi lors du dÃ©marrage.
+
+Elles peuvent Ã©galement Ãªtre rÃ©alisÃ©es [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,au terminal HassOS,terminal][/apical\_lien\_interne] ou encore [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,via l'interface Web,web][/apical\_lien\_interne].
+
+Une fois les configurations rÃ©alisÃ©es, que ce soit Ã  l'aide d'une clÃ© USB, au terminal ou via l'interface Web, elles sont stockÃ©es dans des fichiers que vous retrouverez dans le dossier /etc/NetworkManager/system-connections.
+
+Si vous avez configurÃ© un accÃ¨s au rÃ©seau et que vous ne retrouvez pas de fichiers Ã  cet endroitÂ :
+
+* Si vous avez crÃ©Ã© les configurations Ã  l'aide d'une clÃ© USB, est-ce que la clÃ© porte le nom CONFIG en majuscules?
+* Si vous avez crÃ©Ã© les configurations Ã  l'aide d'une clÃ© USB, est-ce que la clÃ© a Ã©tÃ© formatÃ©e en FAT32?
+* Si vous avez crÃ©Ã© les configurations Ã  l'aide d'une clÃ© USB, est-ce que le fichier de configuration Ã©tait dans un sous-dossier nommÃ© network?
+
+### Ã‰diter les configurations
+
+Vous pouvez afficher leur contenu Ã  l'aide de la commande cat et les Ã©diter Ã  l'aide de l'Ã©diteur vi, un proche parent de l'[apical\_lien\_interne][Editeur\_vim,Ã©diteur vim][/apical\_lien\_interne].
+
+Pour Ã©diter un fichier avec viÂ :
+
+Terminal
+
+vi chemin/fichier
+
+Ã€ son ouverture, vi vous place en mode commande. Pour passer d'un mode Ã  l'autreÂ :
+
+* en mode commandeÂ : la lettre i vous place en mode insertion, ce qui permet d'Ã©diter le texte
+* en mode insertionÂ : Ã‰chap vous place en mode commande
+
+Pour enregistrer le document puis fermer l'Ã©diteur : Ã‰chap suivi de : w qÂ (ce qui signifie Write and Quit).
+
+Pour fermer l'Ã©diteur sans enregistrerÂ : Ã‰chap suivi de : q !.
+
+### Travailler avec plusieurs configurations
+
+Plusieurs configurations peuvent co-exister, par exemple une pour le rÃ©seau cÃ¢blÃ© et une pour le rÃ©seau sans fil ou encore, si vous dÃ©placez le Raspberry Pi pour effectuer des tests, une pour le travail et une pour la maison.
+
+S'il y a plusieurs configurations, vÃ©rifiez ceciÂ :
+
+* Est-ce que chaque configuration est placÃ©e dans un fichier qui lui est propre (ex : my-network-sansfil et my-network-rj45)?
+* Est-ce que chaque configuration a son propre UUID?
+
+### Autres vÃ©rifications
+
+* Pour la ou les configurations, est-ce que la ligne id contient EXACTEMENT le nom du fichier? Par exemple, pour le fichier my-network-sansfil, on auraÂ :
+
+  FichierÂ my-network-sansfil
+
+  [connection]  
+  id=my-network-sansfil  
+  ...
+* Si la version du Raspberry Pi est infÃ©rieure Ã  4 et que vous souhaitez utiliser une connexion Wi-Fi, est-ce que les configurations rÃ©seau sont faites pour un Wi-Fi 2.4 GHz.
+* Si une adresse IP statique a Ã©tÃ© donnÃ©e au Raspberry Pi, est-ce que cette adresse est compatible avec le rÃ©seau? Par exemple, une adresse statique du genre 192.168.1.145 ne fonctionnera pas si le rÃ©seau fonctionne avec des adresses du genre 10.0.0.xxx.
+
+  Si l'adresse est incompatible, vous avez deux optionsÂ :
+
+  + la modifier pour une adresse compatible
+
+    ou
+  + configurer l'accÃ¨s au rÃ©seau pour qu'il laisse le serveur DHCP fournir l'adresse IP.
+
+    Fichier my-network
+
+    ...  
+    [ipv4]  
+    method=auto
+* Si le rÃ©seau nÃ©cessite un serveur DNS spÃ©cifique, est-ce qu'il a Ã©tÃ© bien configurÃ©?
+
+  Fichier my-network
+
+  ...  
+  [ipv4]  
+  ...  
+  dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
+
+## Date du systÃ¨me
+
+La date du systÃ¨me se synchronise automatiquementÂ avec un serviceÂ NTP (protocole de diffusion du temps en rÃ©seau ou, en anglais,Â Network Time Protocol).
+
+Si ce service ne rÃ©ussit pas Ã  faire son travail, ceci pourrait compromettre le bon fonctionnement de Home Assistant.
+
+Pour vÃ©rifier la date du systÃ¨me, [apical\_lien\_interne][la\_console\_home\_assistant,ouvrez le terminal HassOS,terminal][/apical\_lien\_interne] puis entrez la commande date. La date sera affichÃ©e au format UTC.
+
+La date et l'heure peuvent Ã©galement Ãªtre affichÃ©s dans l'interface Web de Home Assistant Ã  l'aide d'une [apical\_lien\_interne][afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord,configuration time\_date][/apical\_lien\_interne].
+
+Si la date n'est pas correctement synchronisÃ©e, effectuez les vÃ©rifications suivantesÂ :
+
+* LeÂ Pi a-t-il accÃ¨s Ã  un serveur DNS? [Voir plus haut pour le vÃ©rifier.](#configurationdns)
+* Tentez une rÃ©initialisation Ã  l'aide de la commande ha core restart.
+
+## 59.12 IntÃ©gration Tuya pour ajouter des prises Wi-Fi Teckin dans Home Assistant
+
+![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
+
+Vous possÃ©dez une prise intelligente Wi-Fi et vous dÃ©sirez l'intÃ©grer dans votre boÃ®te domotique Home Assistant?
+
+Cela pourrait Ãªtre possible s'il existe une intÃ©gration qui fait le pont entre la marque de votre prise et Home Assistant.
+
+Remarquez que ceci implique que Home Assistant passe par un serveur externe Ã  chaque fois qu'il doit interagir avec la prise Wi-Fi. Ceci cause une latence supplÃ©mentaire, soyez-en averti!
+
+Et en cas de panne du serveur externe, Home Assistant ne pourra plus interagir avec cette prise.
+
+Vous trouverez quelques liens pour d'autres solutions [au bas de cette page](#local).
+
+Je vous prÃ©sente ici la technique pour ajouter une prise Teckin. J'ai fait mes tests avec le modÃ¨le SP10.
+
+![Prise Wi-Fi Teckin SP10](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseIntelligenteWiFiTeckinSP10.png)
+
+La technique comprend trois grandes Ã©tapesÂ :
+
+* [Configuration de la prise Wi-Fi sur votre tÃ©lÃ©phone](#telephone)
+* [Configuration d'un compte de dÃ©velopppeur chez Tuya](#tuya)
+* [Configuration de l'intÃ©gration Tuya dans Home Assistant](#homeassistant)
+
+## Configuration de la prise Wi-Fi sur votre tÃ©lÃ©phone
+
+La premiÃ¨re Ã©tape consiste Ã  prendre en main la prise intelligente tel que proposÃ© par le fabricant.
+
+Gardez en tÃªte que ceci implique que les donnÃ©es sur cette prise seront stockÃ©es sur un serveur externe. Mais gÃ©nÃ©ralement, ceci n'est pas un problÃ¨me pour une simple prise intelligente.
+
+### RÃ©seau Wi-Fi 2.4 GHz
+
+La majoritÃ© des appareils intelligents Wi-Fi fonctionnent sur un rÃ©seau 2.4 GHz car plus la frÃ©quence est basse, plus la portÃ©e est longue.
+
+Il faudra donc que votre tÃ©lÃ©phone soit connectÃ© Ã  un rÃ©seau 2.4 GHz pour rÃ©aliser le pairage.
+
+Plusieurs routeurs utilisent le mÃªme nom pour le rÃ©seau 2.4 GHz et le 5 GHz. Ils laissent le soin aux appareils de prendre celui qui leur convient. Ce sera toujours le 5 GHz, qui est plus rapide, sauf si l'appareil ne le supporte pas.
+
+Le problÃ¨me, c'est que les tÃ©lÃ©phones ne peuvent pas Ãªtre configurÃ©s pour demander du 2.4 GHz lorsque le 5 GHz est disponible.
+
+Donc, si votre routeur sans fil ne vous permet pas de choisir la frÃ©quence, vous devrez modifier ses configurations pour que les deux rÃ©seaux portent un nom diffÃ©rent, par exemple maison et maison24.
+
+Autre solution moins Ã©lÃ©ganteÂ : pour effectuer le pairage, Ã©loignez votre tÃ©lÃ©phone du routeur de faÃ§on Ã  ce que seul le 2.4 GHz ne soit disponible!
+
+Autre piste Ã  explorerÂ : pour diminuer l'efficacitÃ© de l'antenne du tÃ©lÃ©phone, ajoutez su papier d'aluminium vis-Ã -vis l'antenne (gÃ©nÃ©ralement placÃ©e dans le haut du tÃ©lÃ©phone, du cÃ´tÃ© opposÃ© Ã  la camÃ©ra). Je n'ai jamais essayÃ© mais sait-on jamais!
+
+### Pairage
+
+Si vous avez en main une prise Teckin, elle sera contrÃ´lÃ©e par l'application SmartLife.
+
+Suivez ces Ã©tapes pour rÃ©aliser le pairageÂ :
+
+* TÃ©lÃ©chargez l'application SmartLife gratuitement sur iPhone ou sur Android.
+
+  ![Smart Life](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-Application.png)
+* Dans l'Ã©cran d'accueil, cliquez sur Enregistrer pour vous crÃ©er un compte.
+
+  ![Inscription](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-Inscription.png)
+* Une fois le compte crÃ©Ã©, vous pourrez cliquez sur + pour ajouter un appareil.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil.png)
+* Indiquez quel type d'appareil vous dÃ©sirez ajouter. Ici, c'est une prise Wi-Fi.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-2.png)
+* Si votre tÃ©lÃ©phone n'est pas branchÃ© sur le 2.4 GHz, vous serez invitÃ© Ã  entrer le nom du rÃ©seau 2.4 GHz et son mot de passe.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-3.png)
+* Ã‰teignez la prise pendant 10 secondes puis allumez-la.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-4.png)
+* Appuyez sur le bouton pendant 5 secondes. Le tÃ©moin lumineux s'Ã©teindra aprÃ¨s environ 3 secondes puis, aprÃ¨s 1 seconde ou 2, se rallumera en clignotant rapidement (3 clignotements par seconde).
+
+  AttentionÂ : sur certaines prises comme la S10, c'est le bouton lui-mÃªme qui clignote alors ne le cachez pas complÃ¨tement avec votre doigt!
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-5.png)
+* L'Ã©cran suivant vous demande simplement de confirmer que le clignotement est rapide.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-6.png)
+* L'application procÃ¨de ensuite au pairage avec le prise intelligente.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-AjouterUnAppareil-7.png)
+* VoilÃ , l'application peut maintenant allumer et Ã©teindre la prise et mÃªme l'utiliser dans de petits scÃ©narios.
+
+## Compte de dÃ©velopppeur chez Tuya
+
+Les prises Teckin sont fabriquÃ©es par la compagnie Tuya Smart.
+
+Pour faire le pont entre la prise Wi-Fi et Home Assistant, il vous faut un compte dÃ©velopeur chez Tuya. Ceci est gratuit.
+
+* Rendez-vous sur le site [https://iot.tuya.com](https://iot.tuya.com/).
+* Cliquez sur Sign Up.
+
+  ![Tuya](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-SignUp.png)
+* Une fois le compte crÃ©Ã©, authentifiez-vous sur la plateforme.
+* Quand on vous demandera le type de compte, choisissez Individual Developer.
+
+  ![Account Type Settings](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-AccountTypeSettings.png)
+* Vous devez crÃ©er un projet qui servira Ã  faire le lien entre votre compteÂ de dÃ©velopppeur chez Tuya et votre compte SmartLife.
+
+  Rendez-vous dans le menu Cloud / Development.
+
+  ![Cloud / Development](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-Cloud-Development.png)
+* Cliquez sur Create Cloud Project et remplissez le formulaire.
+
+  Parmi les informations demandÃ©esÂ :
+
+  IndustryÂ : Smart Home
+
+  Development MethodÂ : Smart Home
+
+  Data CenterÂ : Vous devriez normalement choisir celui qui est le plus prÃ¨s de chez vous mais les tests que j'ai faits avec Eastern America Data Center ont Ã©chouÃ©. J'ai plutÃ´t choisi Western America Data Center mÃªme si j'habite au QuÃ©bec.
+
+  Consultez ce site pour voir quel Data Center peut desservir votre emplacementÂ :Â <https://developer.tuya.com/en/docs/iot/oem-app-data-center-distributed?id=Kafi0ku9l07qb>
+
+  ![Create Cloud Project](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-CreateCloudProject.png)
+* Dans l'Ã©cran suivant, vous devez prÃ©ciser quelles autorisations seront donnÃ©es au systÃ¨me domotique dans lequel vous allez ajouter la prise Teckin. En plus des autorisations prÃ©sentes par dÃ©faut, ajoutez Device Status Notification.
+
+  Notez que si votre Ã©cran ne propose pas les mÃªmes autorisations dans la zone de droite, c'est peut-Ãªtre parce que vous n'avez pas choisi la mÃ©thode de dÃ©veloppement Smart Home.
+
+  ![Authorize API Services](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-AuthorizeAPIServices.png)
+* Cliquez sur Authorize.
+* Rendez-vous maintenant dans l'onglet DevicesÂ puisÂ Link Tuya App Account.
+
+  ![Link Tuya App](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-LinkTuyaApp.png)
+* Cliquez sur le bouton Add App Account. Ceci fera apparaÃ®tre un code QR Ã  l'Ã©cran.
+
+  ![Scan QR Code](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-ScanQRCode.png)
+* Ouvrez l'application SmartLife sur votre cellulaire, cliquez sur Profil dans le bas Ã  droite puis sur l'icÃ´ne Scan dans le haut de l'Ã©cran.
+
+  ![Scan QR Code](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-ScanQRCode.png)
+* Ceci ouvrira la camÃ©ra du tÃ©lÃ©phone. Utilisez-la pour scanner le code QR.
+
+  C'est ici que le Data Center sÃ©lectionnÃ© lors de la crÃ©ation du projet pourrait poser problÃ¨me. Si vous obtenez le message Â«Â You cannot scan the QR code to add a device deployed in another data center.Â Â», Ã©ditez le projet pour changer le Data Center puis refaites les Ã©tapes pour scanner le code QR.
+
+  ![You cannot scan the QR code to add a device deployed in another data center.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-YouCannotScanQRCode.png)
+* Une fois le scan rÃ©ussi, cliquez sur Confirmer la connexion.
+* De retour dans l'Ã©cran My Cloud Projects, cliquez sur All Devices. Vous devriez voir les appareils que vous avez pairÃ©s dans SmartLife.
+
+  ![All devices](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-AllDevices.png)
+* Cliquez sur l'onglet Overview. Vous obtiendrez un Ã©cran qui vous donne les clÃ©s d'authorisation dont vous aurez besoin sous peu.
+
+  ![Access ID](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-AccessID.png)
+
+## IntÃ©gration Tuya dans Home Assistant
+
+Vous Ãªtes maintenant prÃªt Ã  configurer Home Assistant pour qu'il prenne le contrÃ´le de la prise Wi-Fi.
+
+* Dans Home Assistant, rendez-vous dans le menu Configuration / IntÃ©grations.
+* Cliquez sur Ajouter l'intÃ©gration puis recherchez Tuya.
+
+  ![IntÃ©gration Tuya](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationTuya.png)
+* Cliquez sur Tuya dans les rÃ©sultats de recherche.
+
+  Dans les cases Tuya IoT Access ID et Tuya IoT Access Secret, entrez les clÃ©s d'autorisation associÃ©es Ã  votre compte dÃ©veloppeur chez Tuya.
+
+  Dans les cases Nom d'utilisateur et Mot de passe, entrez vos informations d'authentification de l'application SmartLife.
+
+  Une ancienne version de l'intÃ©gration Tuya demandait d'entrer le code du pays plutÃ´t que son nom. Si c'est votre cas, la liste est disponible iciÂ : <https://countrycode.org/>.
+
+  ![IntÃ©gration Tuya](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationTuya-2.png)
+* Vos objets connectÃ©s Wi-Fi apparaissent maintenant parmi vos entitÃ©s (Configuration / EntitÃ©s). Vous pouvez donc les contrÃ´ler via Home Assistant et les utiliser dans vos automatisations au mÃªme titre que n'importe quelle autre entitÃ©.
+
+## Ajouter une prise Wi-Fi sans passer par un service infonuagique
+
+Dans certaines conditions, vous pourriez ajouter un objet connectÃ© Wi-Fi sans passer par un service infonuagique.
+
+### local Tuya
+
+La premiÃ¨re option est d'utiliser l'intÃ©gration [local Tuya](https://github.com/rospogrigio/localtuya).
+
+En fait, l'objet connectÃ© sera connu des serveurs externes mais Home Assistant y aura un accÃ¨s direct, sans nÃ©cessiter un passage dans le cloud Ã  chaque interaction entre Home Assistant et l'objet Wi-Fi.
+
+Les instructions sont iciÂ :Â <https://www.youtube.com/watch?v=vq2L9c5hDfQ>
+
+### Soudure et micrologiciel
+
+Si vous Ãªtes habiles en Ã©lectronique, il existe des techniques pour changer le micrologiciel d'un objet connectÃ© afin de le rendre disponible directement dans Home Assistant sans passer par un serveur externe.
+
+Un tutoriel sur la technique qui nÃ©cessite du soudage vous intÃ©resse? C'est par iciÂ :Â <https://www.youtube.com/watch?v=hgO2oxJZlUY>
+
+Il y a aussi moyen de remplacer le micrologiciel sans avoir Ã  effectuer de la soudure, grÃ¢ce Ã  ESPHome et Tuya-convert. Explications iciÂ :Â <https://www.esphome-devices.com/guides/tuya-convert>.
+
+## Pour plus d'information
+
+Â«Â TuyaÂ Â». Home Assistant. <https://www.home-assistant.io/integrations/tuya>
+
+## 59.13 IntÃ©gration TP-Link Kasa Smart pour ajouter une prise Kasa Ã  Home Assistant
+
+![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
+
+Les prises intelligentes Kasa peuvent Ãªtre associÃ©es Ã  Home Assistant sans avoir Ã  passer par l'application Kasa.
+
+Pour ma part, je me suis procurÃ© une prise extÃ©rieure double KP400.
+
+![Prise Kasa KP400](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseKasaKP400.png)
+
+Pour intÃ©grer cette prise Ã  Home Assistant, plusieurs Ã©tapes sont nÃ©cessairesÂ :
+
+* [Connecter la prise Ã  votre rÃ©seau Wi-Fi](#wifi)
+* [Installer l'intÃ©grationÂ TP-Link Kasa Smart](#integration)
+* [Ajouter la prise Ã  Home Assistant](#ha)
+
+## Connecter la prise Ã  votre rÃ©seau Wi-Fi
+
+* Branchez la prise Kasa dans une prise de courant. Elle devrait clignoter en vert et ambre pour indiquer que son rÃ©seau et en cours d'Ã©mission.
+* Commencez par installer le paquet python-kasa sur votre ordinateur (et non sur le Raspberry Pi). Ouvrez une fenÃªtre Terminal et lancez cette commandeÂ :
+
+  Terminal de l'ordinateur
+
+  pip install python-kasa
+
+  ou
+
+  Terminal de l'ordinateur
+
+  python3 -m pip install --user python-kasa
+
+  ou
+
+  Terminal de l'ordinateur
+
+  git clone https://github.com/python-kasa/python-kasa.git  
+  cd python-kasa/  
+  poetry install
+* Sur votre ordinateur, branchez-vous au rÃ©seau Ã©mis par la prise. Il devrait porter un nom qui commence par Â«Â TPLink-Â Â».
+* Dans une fenÃªtre Terminal, lancez la commande kasa pour dÃ©couvrir votre prise intelligente. Retenez l'adresse IP Host.
+
+  RÃ©sultat Ã  l'Ã©cran
+
+  monnom@MacBook-Pro-de-MonNom ~ %kasa  
+  No host name given, trying discovery..  
+  Discovering devices on 255.255.255.255 for 3 seconds  
+  == TP-LINK\_Smart Plug\_1AF1 - KP400(US) ==  
+  Â  Â  Â  Â  Host: 192.168.0.1   
+  Â  Â  Â  Â  Device state: OFF  
+    
+  Â  Â  Â  Â  == Plugs ==   
+  Â  Â  Â  Â  \* Socket 'Kasa\_Smart Plug\_1AF1\_0' state: OFF on\_since: None  
+  Â  Â  Â  Â  \* Socket 'Kasa\_Smart Plug\_1AF1\_1' state: OFF on\_since: None  
+    
+  Â  Â  Â  Â  == Generic information ==  
+  Â  Â  Â  Â  Time:Â  Â  Â  Â  Â 2000-01-01 16:01:23 (tz: {'index': 6, 'err\_code': 0}  
+  Â  Â  Â  Â  Hardware:Â  Â  Â 3.0  
+  Â  Â  Â  Â  Software:Â  Â  Â 1.0.2 Build 210105 Rel.165938  
+  Â  Â  Â  Â  MAC (rssi):Â  Â 14:EB:C6:89:1B:F1 (-30)  
+  Â  Â  Â  Â  Location:Â  Â  Â {'latitude': 0.0, 'longitude': 0.0}  
+  Â  Â  Â  Â Â   
+  Â  Â  Â  Â  == Device specific information ==  
+  Â  Â  Â  Â  LED state: True  
+  Â  Â  Â  Â  Childs count: 2  
+  Â  Â  Â  Â  On since: None  
+    
+  Â  Â  Â  Â  == Modules ==  
+  Â  Â  Â  Â  + <Module Antitheft (anti\_theft) for 192.168.0.1>  
+  Â  Â  Â  Â  + <Module Schedule (schedule) for 192.168.0.1>  
+  Â  Â  Â  Â  + <Module Usage (schedule) for 192.168.0.1>  
+  Â  Â  Â  Â  + <Module Time (time) for 192.168.0.1>  
+  Â  Â  Â  Â  - <Module Countdown (countdown) for 192.168.0.1>  
+  Â  Â  Â  Â  - <Module Emeter (emeter) for 192.168.0.1>
+* Entrez cette commande pour voir les rÃ©seaux Wi-Fi disponibles. Seuls les rÃ©seaux 2.4 GHz peuvent Ãªtre utilisÃ©s.
+
+  Terminal de l'ordinateur
+
+  kasa --host 192.168.0.1 wifi scan
+
+  RÃ©sultat Ã  l'Ã©cran
+
+  monnom@MacBook-Pro-de-MonNom ~ %kasa --host 192.168.0.1 wifi scan  
+  No --type defined, discovering..  
+  Scanning for wifi networks, wait a second..  
+  Found 2 wifi networks!
+
+   
+
+  Â  Â  Â  Â  WifiNetwork(ssid='mon-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)  
+  Â  Â  Â  Â  WifiNetwork(ssid='un-autre-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)
+* Vous pouvez dÃ©sormais brancher la prise au rÃ©seau dÃ©sirÃ©.
+
+  Terminal de l'ordinateur
+
+  kasa --host 192.168.0.1 wifi join mon-reseau
+
+## Installer l'intÃ©gration TP-Link Kasa Smart
+
+Maintenant que la prise Kasa a un accÃ¨s Wi-Fi, poursuivons avec l'installation de l'intÃ©gration TP-Link Kasa Smart.
+
+* Ouvrez [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+* Rendez-vous dans le menu ParamÃ¨tres / Appareils et services / onglet IntÃ©grations.
+* Cliquez sur Ajouter une intÃ©gration.
+* Dans la zone de recherche, entrez kasa puis cliquez sur TP-Link Kasa Smart.
+
+  ![IntÃ©gration Kasa](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RechercherIntegrationKasa.png)
+
+## Ajouter la prise Ã  Home Assistant
+
+* L'intÃ©gration vous offre alors de dÃ©buter la recherche. Dans l'Ã©cran suivant, vous pouvez laisser l'hÃ´te vide et cliquer sur Valider pour lancer la recherche d'appareils.
+
+  ![IntÃ©gration Kasa](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationKasa-1.png)
+* DÃ¨s que votre prise intelligente est trouvÃ©e, ses informations apparaissent Ã  l'Ã©cran. Cliquez sur Valider.
+
+  ![IntÃ©gration Kasa](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationKasa-2.png)
+* Vous obtenez ensuite la confirmation que la prise a Ã©tÃ© ajoutÃ©e. Vous pouvez indiquer dans quelle piÃ¨ce se trouve la prise puis cliquer sur Terminer.  
+
+  ![IntÃ©gration Kasa](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IntegrationKasa-3.png)
+* Si vous n'avez pasÂ [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,crÃ©Ã© un tableau de bord personnalisÃ©][/apical\_lien\_interne], Home Assistant a automatiquement ajoutÃ© la prise Kasa au tableau de bord et vous pouvez dÃ©sormais la contrÃ´ler. Ici, on voit deux entitÃ©s puisque ma prise est double.
+
+  ![Prise Kasa dans AperÃ§u](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PriseKasaDansApercu.png)
+* Dans le cas oÃ¹ vous avez un tableau de bord personnalisÃ©, Home Assistant ne fait plus automatiquement les ajouts. Vous devez donc ajouter une carte pour que votre prise apparaisse.
+
+## Pour plus d'information
+
+Â«Â TP-Link Kasa SmartÂ Â». Home Assistant. <https://www.home-assistant.io/integrations/tplink/>
+
+Â«Â python-kasaÂ Â». python-kasa. <https://python-kasa.readthedocs.io/en/latest/index.html>
+
+Â«Â Command-line usageÂ Â». python-kasa. <https://python-kasa.readthedocs.io/en/latest/cli.html>
+
+Â«Â How to setup tplink switch (HS100, HS110) without kasa appÂ Â». Salman Zari Ghanvi's Blog. <https://salmanzg.wordpress.com/2020/03/02/how-to-setup-tplink-switch-hs100-hs110-without-kasa-app/>
+
+## 59.14 Ã‰diteur vi
+
+L'Ã©diteur vi, disponible sur HassOS, est un proche parent de l'[apical\_lien\_interne][Editeur\_vim,Ã©diteur vim][/apical\_lien\_interne].
+
+Pour Ã©diter un fichier avec viÂ :
+
+Terminal
+
+vi /chemin/nom-du-fichier
+
+Ã€ son ouverture, vi vous place en mode commande. Pour passer d'un mode Ã  l'autreÂ :
+
+* en mode commandeÂ : la lettre i vous place en mode insertion, ce qui permet d'Ã©diter le texte
+* en mode insertionÂ : Ã‰chap vous place en mode commande
+
+Pour enregistrer le document puis fermer l'Ã©diteur : Ã‰chap suivi de : w qÂ (ce qui signifie Write and Quit).
+
+Pour fermer l'Ã©diteur sans enregistrerÂ : Ã‰chap suivi de : q !.
+
+<!-- --- split --- -->
+
+# 60. DÃ©pannage Home Assistant (troubleshooting)
+
+## 60.1 Erreur Â« wlan0: link is not ready Â»
+
+### ProblÃ¨me :
+
+Lorsque vous dÃ©marrez votre Raspberry Pi qui contient une installation de Home Assistant, vous obtenez Ã  la console le message Â« IPv6: ADDRCONF (NETDEV\_UP): wlan0: link is not ready - brcmfmac: brcmf\_cfg80211\_set\_power\_mgmt: power save enabled Â».
+
+Il est possible que ce message Ã  la console n'empÃªche pas le logiciel de fonctionner et donc que l'interface soit fonctionnelle dans votre navigateur. Cependant, ceci pourrai causer des problÃ¨mes plus tard alors il vaut mieux trouver une solution.
+
+![wlan0: link is not ready](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-linkIsNotReady.png)
+
+Ce message peut parfois apparaÃ®tre aprÃ¨sÂ le message Â« [WARN] Home Assistant CLI is not running! Jump into emergency console... Â».
+
+![[WARN] Home Assistant CLI is not running! Jump into emergency console...](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CLIIsNotRunning.png)
+
+### Contexte :
+
+* Home Assistant 32 bits pour Raspberry Pi 3 (fichier d'installation hassos\_rpi3-4.16.img.gz)
+* HassOS 4.16
+* Raspberry Pi 3B
+
+### Cause possible :
+
+Home Assistant n'a pas fini de se charger.
+
+### Solution proposÃ©e :
+
+Patientez! Home Assistant complÃ¨tera son dÃ©marrage puis vous pourrez accÃ©der Ã  la console.
+
+Si vous voyez l'inviteÂ de commande du terminal Linux (#) et que vous souhaitez plutÃ´t avoirÂ l'invite de commande de la console Home Assistant (haÂ >), entrez la commande exit puis vous serez invitÃ© Ã  entrer Ã  nouveau le code d'usager de la consoleÂ : root.
+
+### Autre cause possible :
+
+Le bloc d'alimentation du Raspberry Pi ne fournit pas une intensitÃ© de courant suffisante.
+
+### Solution proposÃ©e :
+
+Changez le bloc d'alimentation pour un autre qui fourni au moins 2,5 ampÃ¨res.
+
+### Autre cause possible :
+
+Le rÃ©seau sans fil n'a pas Ã©tÃ© correctement configurÃ©.
+
+### Solution proposÃ©e :
+
+D'abord, essayez de brancher le Raspberry Pi au routeur Ã  l'aide d'un cÃ¢ble RJ-45. Si cela rÃ¨gle le problÃ¨me, c'est qu'effectivement il y avait un problÃ¨me de configuration du rÃ©seau sans fil.
+
+![Volume CONFIG](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomVolumeCONFIG-Windows.png)![Volume CONFIG](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomVolumeCONFIG-Mac.png) Si l'accÃ¨s cÃ¢blÃ© fonctionne, vous devrez rÃ©viser le fichier network/my-network sur la clÃ© USBÂ :Â <https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md>.
+
+* La clÃ© doit Ãªtre vierge et Ãªtre formatÃ©e en FAT32 (sous Mac, choisissez MS-DOS (Fat) dans l'utilitaire de disque).
+* La clÃ© doit possÃ©der un volume nommÃ© CONFIG (en majuscules).
+* Les configurations doivent Ãªtre placÃ©es dans le fichier network/my-network. Le dossier network doit Ãªtre Ã  la racine de la clÃ©.
+* Dans ce fichier, le id doit Ãªtre identique au nom du fichier (my-network).
+* Les sauts de lignes doivent Ãªtre codÃ©s en Linux (LF) et non en Windows (CRLF).
+* Notez que le Raspberry Pi 3 ne supporte que le Wi-Fi 2.4 GHz alors que le Raspberry Pi 4 supporte Ã©galement le 5 GHz.
+* Une fois le fichier my-network complÃ©tÃ©,[apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirez la clÃ© de l'ordinateur de faÃ§on sÃ©curitaire][/apical\_lien\_interne], insÃ©rez-la dans le Raspberry Pi et redÃ©marrez Home Assistant.
+
+Fichier network/my-network
+
+[connection]  
+id=my-network  
+uuid=72111c67-4a5d-4d5c-925e-f8ee26efb3c3  
+type=802-11-wireless  
+  
+[802-11-wireless]  
+mode=infrastructure  
+ssid=NOM-DU-RESEAU  
+# Uncomment below if your SSID is not broadcasted  
+#hidden=true  
+  
+[802-11-wireless-security]  
+auth-alg=open  
+key-mgmt=wpa-psk  
+psk=MOT-DE-PASSE-DU-RESEAU  
+  
+[ipv4]  
+method=auto  
+  
+[ipv6]  
+addr-gen-mode=stable-privacy  
+method=auto
+
+Dans le cas oÃ¹ vous n'arrivez pas Ã  accÃ©der Ã  Home Assistant mÃªme avec un cÃ¢ble RJ-45, c'est probablement le systÃ¨me d'exploitation qui est en problÃ¨me.
+
+TÃ©lÃ©chargez Ã  nouveau l'image qui correspond Ã  votre Raspberry Pi (<https://www.home-assistant.io/hassio/installation/>) et flashez-la Ã  nouveau sur la carte micro SD.
+
+## 60.2 Ã‰cran noir
+
+### ProblÃ¨me :
+
+Lorsque vous dÃ©marrez votre Raspberry Pi qui contient une installation de Home Assistant, vous obtenez un Ã©cran noir sur l'Ã©cran branchÃ© directement sur le Pi.
+
+### Contexte :
+
+* Home Assistant 0.118.4
+* HassOS 4.16
+* Raspberry Pi 3B
+
+Cause possible :
+
+Il n'y a pas de carte micro SD dans le Pi ou la carte ne contient pas de systÃ¨me d'exploitation.
+
+### Solution proposÃ©e :
+
+Installez le systÃ¨me d'exploitation sur la carte, insÃ©rez-la dans le Pi puis rebranchez le courant.
+
+### Autre cause possible :
+
+La version de Hass.io installÃ©e ne correspond pas au modÃ¨le de votre Raspberry Pi.
+
+### Solution proposÃ©e :
+
+VÃ©rifiez le modÃ¨le exact de votre Raspberrry Pi puis tÃ©lÃ©chargez la version qui lui correspond iciÂ :Â <https://www.home-assistant.io/hassio/installation/>.
+
+![Liste des images de Hass.io](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ListeImagesHassIo.png)
+
+## 60.3 Impossible d'obtenir l'interface Web de Home Assistant sur mon ordinateur
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'afficher l'interface Web de Home Assistant dans votre navigateur, vous n'arrivez pas Ã  vous connecter.
+
+Vous obtenez le mÃªme rÃ©sultat peu importe la forme de l'URL utilisÃ©eÂ :Â http://homeassistant.local:8123,Â http://homeassistant:8123 ouÂ http://192.168.1.145:8123 (oÃ¹ 192.168.1.145 doit Ãªtre remplacÃ© par l'adresse IP du Pi).
+
+Souvent, ceci se traduit par l'affichage du message Â«Â Ce site est inaccessible.Â 206.167.1.145 a mis trop de temps Ã  rÃ©pondre. Voici quelques conseils : VÃ©rifier la connexion VÃ©rifier le proxy et le pare-feu ERR\_CONNECTION\_TIMED\_OUTÂ Â».
+
+![Ce site est inaccessible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CeSiteEstInaccessible.png)
+
+### Contexte :
+
+* Home Assistant 2021.9.7
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le Pi n'a aucun accÃ¨s au rÃ©seau.
+
+Pour confirmer que c'est bien le cas, branchez un clavier et un Ã©cran au Raspberry Pi et lancez la commande login pour accÃ©der au terminal HassOS.
+
+Entrez ensuite cette commandeÂ :
+
+Terminal
+
+ping 8.8.8.8
+
+Si le rÃ©seau fonctionne, vous verrez le message Â«Â 8.8.8.8 is alive!Â Â». Passez Ã  la prochaine cause possible.
+
+Sinon, vous verrez Â«Â No response from 8.8.8.8Â Â». Suivez les instructions dans la solution proposÃ©e qui suit.
+
+### Solution proposÃ©e :
+
+La solution la plus fiable consiste Ã  brancher le Raspberry Pi au rÃ©seau Ã  l'aide d'un cÃ¢ble RJ-45.
+
+Si vous prÃ©fÃ©rez travailler avec le rÃ©seau sans fil, voici quelques pistes pour vous aider.
+
+D'abord, il faut vÃ©rifier si le Wi-Fi est activÃ© sur le Pi.
+
+Entrez cette commande dans le terminal HassOS :
+
+Terminal
+
+nmcli radio
+
+Si le Wi-Fi est activÃ©, vous verrez enabled vis-Ã -vis la colonne WIFI. Sinon, vous verrez disabled.
+
+Terminal
+
+ha > login  
+# nmcli radio  
+WIFI-HWÂ  WIFIÂ  Â  Â  WWAN-HWÂ  WWAN   
+enabledÂ  disabledÂ  enabledÂ  enabled
+
+Si c'est votre cas, vous devez activer le Wi-FiÂ :
+
+Terminal
+
+nmcli radio wifi on
+
+Pour lister les rÃ©seaux disponiblesÂ :
+
+Terminal
+
+nmcli device wifi rescan  
+nmcli device wifi
+
+RÃ©sultat Ã  l'Ã©cran
+
+IN-USEÂ  SSIDÂ  Â  Â  Â  Â  Â MODEÂ  Â CHANÂ  RATEÂ  Â  Â  Â  SIGNALÂ  BARSÂ  SECURITY  
+Â  Â  Â  Â  mon-reseauÂ  Â  Â InfraÂ  1Â  Â  Â 270 Mbit/sÂ  69Â  Â  Â  \*\*\*Â  Â WPA WPA2
+
+Dans le cas oÃ¹ vous tentez de vous connecter Ã  l'aide duÂ partage de connexion de votre cellulaire (non conseillÃ© mais Ã§a peut Ãªtre un dÃ©panneur temporaire), vous devez ouvrir l'Ã©cran de partage de connexion sur votre cellulaire (celui dans lequel on voit le nom du rÃ©seau et le mot de passe pour la connexion) puis refaireÂ nmcli device wifi rescanÂ suivi deÂ nmcli device wifi. Vous verrez alors votre partage de connexion apparaÃ®treÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+IN-USEÂ  SSIDÂ  Â  Â  Â  Â  Â MODEÂ  Â CHANÂ  RATEÂ  Â  Â  Â  SIGNALÂ  BARSÂ  SECURITY  
+Â  Â  Â  Â  iPhoneDeAnnieÂ  InfraÂ  6Â  Â  Â 130 Mbit/sÂ  100Â  Â  Â \*\*\*\*Â  WPA2
+
+Remarque : le SSID de votre tÃ©lÃ©phone ne doit pas comprendre d'espaces pour que Ã§a fonctionne. Si le nom de votre tÃ©lÃ©phone comprend des espaces (exÂ :Â  iPhone de Annie), renommez-le (sur iPhoneÂ : RÃ©glages / GÃ©nÃ©ral / Informations / Nom).
+
+Vous pouvez maintenant vous connecter Ã  votre rÃ©seauÂ :
+
+Terminal
+
+nmcli device wifi connect "mon-reseau" password "mot-de-passe-du-reseau"
+
+RedÃ©marrez le PiÂ :
+
+Terminal
+
+reboot
+
+La connexion sans fil devrait Ãªtre complÃ¨tement fonctionnelle. Testez-le en demandant l'addresse IP du Pi directement Ã  la console Home AssistantÂ :
+
+Console Home Assistant
+
+network info
+
+### Autre cause possible :
+
+Quelque chose a Ã©tÃ© mal chargÃ© dans Home Assistant pour une raison ou pour une autre.
+
+Ceci peut se produire notamment si le rÃ©seau est diffÃ©rent de celui utilisÃ© lors de la derniÃ¨re connexion, par exemple Ã  la suite d'un changement de fournisseur Internet ou encore aprÃ¨s avoir dÃ©placÃ© le Raspberry Pi entre la maison et le travail afin d'y effectuer des tests.
+
+### Solution proposÃ©e :
+
+Entrez la commandeÂ suivante dansÂ la console Home AssistantÂ :
+
+Console Home Assistant
+
+core restart
+
+ou celle-ci dans le terminal HassOSÂ :
+
+Terminal
+
+ha core restart
+
+### Autre cause possible :
+
+Votre ordinateur n'est pas sur le mÃªme rÃ©seau que le Pi.
+
+### Solution proposÃ©e :
+
+Modifiez la connexion rÃ©seau de l'ordinateur. Par exemple, si vous avez utilisÃ© le partage de connexion de votre cellulaire pour obtenir une adresse IP pour votre Pi, vous devez Ã©galement brancher votre ordinateur sur leÂ partage de connexion de votre cellulaire.
+
+### Autre cause possible :
+
+Home Assistant n'a pas terminÃ© de se charger et ce, mÃªme si on voit l'Ã©cran d'accueil lorsqu'on y branche un Ã©cran.
+
+### Solution proposÃ©e :
+
+Patientez quelques minutes, normalement tout devrait rentrer dans l'ordre dÃ¨s que Home Assistant est prÃªt.
+
+## Pour plus d'information
+
+Â«Â Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes)Â Â». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
+
+## 60.4 Erreur Â« dd: /dev/rdisk2: Device not configured Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez de flasher une image sur une carte micro SD Ã  l'aide de la commande dd, vous obtenez le messageÂ Â«Â dd: /dev/rdisk2: Device not configuredÂ Â».
+
+RÃ©sultat Ã  l'Ã©cran
+
+MacBook-Pro-de-MonNom:~ monnom$ diskutil unmountDisk /dev/disk2  
+Unmount of all volumes on disk2 was successful  
+MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos\_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
+Password:  
+dd: /dev/rdisk2: Device not configured  
+421+0 records in  
+420+0 records out  
+440401920 bytes transferred in 60.900715 secs (7231474 bytes/sec)
+
+MÃªme si j'utiliseÂ [Balena Etcher](https://www.balena.io/etcher/)Â pour flasher la carte, j'obtiens l'erreur Â«Â ENXIO: no such device or address, read Â».
+
+![ENXIO: No such device or address, read](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Etcher-ENXIONoSuchDeviceOrAddressRead.png)
+
+De plus, sur mon Mac, j'obtiens sans cesse le message Â«Â Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateurÂ Â» (en anglaisÂ : Â«Â The disk you connected cannot be read on this computerÂ Â») pendant que la commande dd fait son travail sur la carte micro SD.
+
+![Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Mac-SerieAvertissementsLeDisqueQueVousAvezAttacheNEstPasLisibleParCetOrdinateur.png)
+
+### 
+
+### Contexte :
+
+* MacOS Big Sur (11.5.2)
+
+### Cause possible :
+
+Le lecteur de carte micro SD fait dÃ©faut.
+
+### Solution proposÃ©e :
+
+Essayez avec un autre lecteur de carte micro SD.
+
+Avec un nouveau lecteur, j'ai rÃ©ussi Ã  flasher la carte avec la commande dd et avec Etcher.
+
+## 60.5 Erreur Â« dd: /dev/rdisk2: Operation not permitted Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez de flasher une image sur une carte micro SD Ã  l'aide de la commande dd, vous obtenez le messageÂ Â« dd: /dev/rdisk2: Operation not permitted Â».
+
+RÃ©sultat Ã  l'Ã©cran
+
+MacBook-Pro-de-MonNom:~ monnom$ sudo dd bs=1m if=/Users/monnom/Downloads/haos\_rpi3-64-6.4-64bits.img of=/dev/rdisk2 conv=sync  
+Password:  
+dd: /dev/rdisk2: Operation not permitted
+
+### Contexte :
+
+* MacOS Big Sur (11.5.2)
+
+### Cause possible :
+
+Lorsque vous avez insÃ©rÃ© la carte micro SD dans votre ordinateur, vous avez cliquÃ© sur Ã‰jecter dans la boÃ®te Â«Â Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateurÂ Â» ou en anglais Â«Â The disk you connected cannot be read on this computerÂ Â», ce qui a rendu le disque non disponible pour cette opÃ©ration.
+
+![Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Mac-LeDisqueQueVousAvezAttacheNEstPasLisibleParCetOrdinateur-BigSur.png)
+
+### Solution proposÃ©e :
+
+Retirez la carte micro SD de l'ordinateur puis insÃ©rerz-la Ã  nouveau. Quand vous verrez la boÃ®te de dialogue Â«Â Le disque que vous avez attachÃ© nâ€™est pas lisible par cet ordinateurÂ Â», cliquez sur Ignorer.
+
+Vous pourrez ensuite lancer les opÃ©rations pour flasher l'image sur la carte micro SD.
+
+## 60.6 Ã‰cran "Preparing Home Assistant" reste affichÃ© Ã  l'infini
+
+### ProblÃ¨me :
+
+Lorsque vous dÃ©marrez votre Raspberry Pi qui contient une installation de Home Assistant, l'Ã©cran Preparing Home Assistant reste affichÃ© Ã  l'infini.
+
+Quand vous cliquez sur le point bleu, vous obtenez un log des opÃ©rations effectuÃ©es et des erreurs rencontrÃ©es.
+
+![Preparing Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PreparingPlante.png)
+
+### Contexte :
+
+* Home Assistant 64 bits pour Raspberry Pi 3 (fichier d'installation haos\_rpi3-64-6.4.img)
+* HassOS 6.4
+* Raspberry Pi 3B
+
+### Cause possible :
+
+Il y a un problÃ¨me d'accÃ¨s Ã  Internet.
+
+### Solution proposÃ©e :
+
+Tout d'abord, arrÃªtez votre Raspberry Pi de faÃ§on sÃ©curitaire.
+
+* Branchez un clavier et un Ã©cran au Raspberry Pi afin d'obtenir la console Home Assistant.
+* Entrez la commande suivante pour sortir de la console Home Assistant et ainsi accÃ©der au terminal Linux (HassOS).
+
+  Console Home Assistant
+
+  login
+* Vous pouvez dÃ©sormais arrÃªter le systÃ¨me de faÃ§on sÃ©curitaire.
+
+  Terminal HassOS
+
+  halt
+
+Assurez-vous ensuite que vos configurations sont correctement effectuÃ©es Ã  partir de la clÃ© USBÂ : <
+
+### Autre cause possible :
+
+Les configurations du rÃ©seau que vous utilisez ne permettent pas de synchroniser l'horloge du Raspberry Pi Ã  l'aide d'unÂ service NTP (protocole de diffusion du temps en rÃ©seau ou, en anglais, Network Time Protocol).
+
+Ceci fait en sorte que le certificat SSL pour tÃ©lÃ©charger Home Assistant est considÃ©rÃ© invalide, ce qui empÃªche de complÃ©ter l'installation.
+
+### Solution proposÃ©e :
+
+Branchez un cÃ¢ble RJ-45 au Raspberry Pi afin d'utiliser le rÃ©seau cÃ¢blÃ©. Si les configurations de ce rÃ©seau sont diffÃ©rentes, l'horloge pourrait Ãªtre correctement synchronisÃ©e.
+
+### Autre solution proposÃ©e :
+
+Si vous n'avez pas accÃ¨s Ã  un rÃ©seau cÃ¢blÃ©, il est possible de choisir un autre rÃ©seau sans fil, si disponible.
+
+Branchez un clavier et un Ã©cran sur le Raspberry Pi. Vous devriez voir l'invite de commande ha>, ce qui indique que vous Ãªtes dans la console Home Assistant.
+
+Pour sortir de la console Home Assistant et ainsi accÃ©der au terminal Linux (HassOS), entrez cette commandeÂ :
+
+Console Home Assistant
+
+login
+
+Demandez Ã  HassOS de vous lister les rÃ©seaux sans fil disponibles :
+
+Terminal HassOS
+
+nmcli device wifi
+
+RepÃ©rez le rÃ©seau souhaitÃ©. C'est la colonne SSID qui nous intÃ©resse.
+
+Pour connecter le Pi Ã  ce rÃ©seau, entrez la commandeÂ :
+
+Terminal HassOS
+
+nmcli device wifi connect "ssid-du-reseau" password "mot-de-passe-en-clair"
+
+## 60.7 Erreur Â«Â Failed to install add-on Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'installer un module complÃ©mentaire (add-on) dans Home Assistant, vous obtenez le message Â«Â Failed to install add-on. AddonManager.install blocked from execution, no host internet connectionÂ Â».
+
+![Failed to install Add-On](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FailedToInstallAddOn.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.9.7
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Il y a un problÃ¨me d'accÃ¨s Ã  Internet.
+
+### Solution proposÃ©e :
+
+Assurez-vous que vos configurations sont correctement effectuÃ©esÂ : <
+
+## 60.8 Erreur Z-Wave JS Â« Server version is incompatible Â»
+
+### ProblÃ¨me :
+
+AprÃ¨s une mise Ã  jour de Home Assistant, lorsque vous accÃ©dez Ã  l'Ã©cran Configuration / IntÃ©grations, la tuile Z-Wave JS affiche le message Â«Â RÃ©essayer la configuration: Z-Wave JS Server version is incompatible: 1.10.6 a version is required that supports at least api schema 10Â Â».
+
+![Z-Wave JS Server version is incompatible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ZWaveJSServerVersionIsIncompatible.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+L'intÃ©gration nÃ©cessite un ajustement puisqu'il y a une incompatibilitÃ© entre la version installÃ©e dans Home AssistantÂ 2021.9.7 et 2021.10.6.
+
+### Solution proposÃ©e :
+
+Patientez, la mise Ã  jour n'a propablement pas eu le temps de terminer tous les ajustements. Tout devrait rentrer dans l'ordre sous peu.
+
+## 60.9 Erreur incomprÃ©hensible dans configuration.yaml
+
+### ProblÃ¨me :
+
+AprÃ¨s avoir modifiÃ© un fichier de configuration dans Home Assistant, une validation de la configuration affiche un message qui ne semble pas avoir de sens, par exemple Â«Â Error loading /config/configuration.yaml: while scanning a simple key in "/config/configuration.yaml", line 19, column 1,Â could not find expected ':' in "/config/configuration.yaml", line 20, column 1Â Â»
+
+ou encore Â«Â Integration error: - Integration ' ' not found.Â Â»
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Vous avez copiÃ© le code Ã  partir d'internet et des caractÃ¨res spÃ©ciaux ont suivi, par exemple des espaces insÃ©cables Ã  la place de simples espaces.
+
+Ces caractÃ¨res sont d'ailleurs illustrÃ©s Ã  l'Ã©cran par des petits rectangles de couleur.
+
+![CaractÃ¨res spÃ©ciaux](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CaracteresSpeciauxDansConfigurationYaml.png)
+
+### Solution proposÃ©e :
+
+Effacez tous les caractÃ¨res spÃ©ciaux.
+
+## 60.10 scp ne fonctionne pas alors qu'il est possible de se brancher via ssh
+
+### ProblÃ¨me :
+
+Lorsque vous tentez de copier un fichier entre Home Assistant et votre ordinateur Ã  l'aide de la commande scp, vous obtenez le messageÂ  Â«Â kex\_exchange\_identification: read: Connection reset by peer.Â Connection reset by 192.168.1.145 port 22Â Â».
+
+Pourtant, vous pouvez vous brancher via ssh sans mot de passe. Logiquement, scp devrait aussi fonctionner.
+
+Terminal
+
+scp root@192.169.1.145:/chemin/fichier.extension /dossierlocal  
+kex\_exchange\_identification: read: Connection reset by peer  
+Connection reset by 192.168.1.145 port 22
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Vous travaillez dans le module complÃ©mentaire Terminal & SSH, ce qui ne vous offre pas les fonctionnalitÃ©s souhaitÃ©es.
+
+Vous savez que vous Ãªtes dans le module complÃ©mentaire quand l'invite de commande est [core-ssh ~]$.
+
+![Module complÃ©mentaire Terminal & SSH](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EcranModuleComplementaireTerminalEtSsh.png)
+
+### Solution proposÃ©e :
+
+Lancez la commande scp directement dans une fenÃªtre Terminal sur votre ordinateur.
+
+La commande utilisera les mÃªmes clÃ©s SSH que la commande ssh. (voir <#ssh>).
+
+## 60.11 Erreur Â« sqlite3: command not found Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'accÃ©der Ã  la base de donnÃ©es de Home Assistant, vous obtenez le messageÂ  Â«Â bash: sqlite3: command not foundÂ Â».
+
+Terminal
+
+sqlite3 /mnt/data/supervisor/homeassistant/home-assistant\_v2.db  
+bash: sqlite3: command not found
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Vous travaillez dans le module complÃ©mentaire Terminal & SSH, ce qui ne vous offre pas les fonctionnalitÃ©s souhaitÃ©es.
+
+Vous savez que vous Ãªtes dans le module complÃ©mentaire quand l'invite de commande est [core-ssh ~]$.
+
+![Module complÃ©mentaire Terminal & SSH](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EcranModuleComplementaireTerminalEtSsh.png)
+
+### Solution proposÃ©e :
+
+Branchez-vous au Raspberry Pi Ã  l'aide de la commande ssh afin d'avoir accÃ¨s Ã  toutes les fonctionnalitÃ©s disponibles.
+
+VoirÂ <
+
+Vous pourrez ensuite accÃ©der Ã  la base de donnÃ©es Ã  l'aide de la commande sqlite3. VoirÂ <
+
+## 60.12 Option pour vÃ©rifier les configurations non disponible
+
+### ProblÃ¨me :
+
+Lorsque vous vous rendez dans le menu Configuration / ContrÃ´le du serveur, l'option qui permet de vÃ©rifier les configurations n'est pas disponible.
+
+![Pas de validation des configurations](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PasDOptionValidationConfigurations.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le mode avancÃ© n'a pas Ã©tÃ© activÃ© pour vous.
+
+### Solution proposÃ©e :
+
+Si vous dÃ©tenez les droits d'administration, cliquez sur votre nom au bas de la colonne de gauche puis activez le mode avancÃ©.
+
+Sinon, un administrateur devra se rendre dans le menu Configuration / Personnes pour l'activer pour vous.
+
+![Mode avancÃ©](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personnes-ModeAvance.png)
+
+Une fois cette configuration rÃ©alisÃ©e, retournez dansÂ le menu Configuration / ContrÃ´le du serveur.
+
+Le bouton VÃ©rifier la configuration devrait Ãªtre disponible.
+
+![Validation des configurations disponible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-OptionValidationConfigurations.png)
+
+## 60.13 Erreur Â« Unknown error, see supervisor Â»
+
+### ProblÃ¨me :
+
+Lorsque vous effectuez une action quelconque dans Home Assistant, vous obtenez le message Â«Â Error: Unknown error, see supervisor Â».
+
+Par exemple, j'ai obtenu ceci en effectuant un ha core restart.
+
+![Unknown error, see supervisor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-UnknownErrorSeeSupervisor.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Quelque chose s'est mal passÃ©. Les causes peuvent Ãªtre nombreuses...
+
+### Solution proposÃ©e :
+
+Pour cerner la cause de l'erreur, faites afficher le fichier journal du Supervisor.
+
+Terminal
+
+ha supervisor logs
+
+Parfois, un simple redÃ©marrage du systÃ¨me rÃ¨gle le problÃ¨me.
+
+## 60.14 Erreur Â«Â EntitÃ© non disponible actuellementÂ Â»
+
+### ProblÃ¨me :
+
+Lorsque vosu accÃ©dez au tableau de bord de Home Assistant, la tuile d'une des entitÃ©s montre le message Â«Â EntitÃ© non disponible actuellementÂ Â».
+
+Par exemple, j'ai obtenu ceci en effectuant un ha core restart.
+
+![EntitÃ© non disponible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EntiteNonDisponible.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+Il y a un conflit entre la version de l'entitÃ© et la version de Home Assistantou de HassOS.
+
+### Solution proposÃ©e :
+
+Pour voir si des mises Ã  jour sont en attente, rendez-vous dans le menu Supervisor / SystÃ¨me.
+
+Les mises Ã  jour en attente seront affichÃ©es. Par exemple, si une mise Ã  jour du Core de Home Assistant est en attenteÂ :
+
+![Update pending](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-UpdatePending.png)
+
+Cliquez sur Update pour effectuer la mise Ã  jour.
+
+### Autre cause possible :
+
+La date du systÃ¨me n'est pas Ã  jour, ce qui invalide le certificat SSL qui permet d'accÃ©der Ã  un service externe.
+
+### Solution proposÃ©eÂ :
+
+Ajustez l'heure en suivant les conseils sur cette ficheÂ :Â <
+
+## 60.15 Erreur Â«Â Unknown error occuredÂ Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez de configurer l'intÃ©gration Tuya dans Home Assistant, vous obtenez l'erreur Â«Â Unknown error occuredÂ Â».
+
+![Unknown error occured](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Tuya-UnknownErrorOccured.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.10.6
+* HassOS 6.4
+* Raspberry Pi 4
+
+### Cause possible :
+
+La date du systÃ¨me n'est pas Ã  jour, ce qui invalide le certificat SSL qui permet d'accÃ©der Ã  un service externe.
+
+Pour mieux cibler le problÃ¨me et savoir si c'est votre cas, rendez-vous dans le menu Configuration / JournauxÂ et recherchez-y un message qui parle de Tuya.
+
+Dans mon installation, j'ai trouvÃ© ceciÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+Error handling request  
+2 fÃ©vrier 2021, 14:46:14 â€“ (ERREUR) components/tuya/config\_flow.py
+
+Un clic sur cette erreur donne plus de dÃ©tails.
+
+RÃ©sultat Ã  l'Ã©cran
+
+Logger: aiohttp.server  
+Source: components/tuya/config\_flow.py:74  
+First occurred: 2 fÃ©vrier 2021, 14:46:14 (1 occurrences)  
+Last logged: 2 fÃ©vrier 2021, 14:46:14
+
+ 
+
+Error handling request  
+Traceback (most recent call last):  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen  
+ httplib\_response = self.\_make\_request(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 382, in \_make\_request  
+ self.\_validate\_conn(conn)  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1010, in \_validate\_conn  
+ conn.connect()  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 416, in connect  
+ self.sock = ssl\_wrap\_socket(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl\_.py", line 449, in ssl\_wrap\_socket  
+ ssl\_sock = \_ssl\_wrap\_socket\_impl(  
+ File "/usr/local/lib/python3.9/site-packages/urllib3/util/ssl\_.py", line 493, in \_ssl\_wrap\_socket\_impl  
+ return ssl\_context.wrap\_socket(sock, server\_hostname=server\_hostname)  
+ File "/usr/local/lib/python3.9/ssl.py", line 500, in wrap\_socket  
+ return self.sslsocket\_class.\_create(  
+ File "/usr/local/lib/python3.9/ssl.py", line 1040, in \_create  
+ self.do\_handshake()  
+ File "/usr/local/lib/python3.9/ssl.py", line 1309, in do\_handshake  
+ self.\_sslobj.do\_handshake()  
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE\_VERIFY\_FAILED] certificate verify failed: certificate is not yet valid (\_ssl.c:1129)
+
+ 
+
+...
+
+C'est ici que j'ai rÃ©alisÃ© que la date du systÃ¨me Ã©tait en cause.
+
+### Solution proposÃ©e :
+
+Ajustez l'heure en suivant les conseils sur cette fiche :Â <
+
+## 60.16 Erreur Z-Wave JS Â«Â RÃ©essayer la configuration: Cannot connect to host Â»
+
+### ProblÃ¨me :
+
+Lorsque vous accÃ©dez Ã  l'Ã©cran Configuration / IntÃ©grations, la tuile Z-Wave JS affiche le message Â«Â RÃ©essayer la configuration: Cannot connect to host core-zwave-js:3000 ssl:default [Connect call failed ('172.30.33.0', 3000)] Â».
+
+Ceci fait en sorte que la clÃ© USB Z-Wave n'est plus capable de communiquer avec vos pÃ©riphÃ©riques.
+
+![Z-Wave JS RÃ©essayer la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ZWaveJS-ReessayerLaConfiguration.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.11.4
+* HassOS 6.5
+* Raspberry Pi 4
+
+### Cause possible :
+
+Un problÃ¨me est survenu pendant le dÃ©marrage de Home Assistant, possiblement dÃ» Ã  une mise Ã  jour.
+
+### Solution proposÃ©e :
+
+RedÃ©marrez le systÃ¨me, tout devrait rentrer dans l'ordre.
+
+## 60.17 Erreur Z-Wave JS Â«Â RÃ©essayer la configuration: NoneÂ Â»
+
+### ProblÃ¨me :
+
+Lorsque vous accÃ©dez Ã  l'Ã©cran Configuration / IntÃ©grations, la tuile Z-Wave JS affiche le message Â«Â RÃ©essayer la configuration: NoneÂ Â».
+
+![Tuya Ã‰chec de la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ZWaveJS-ReessayerLaConfigurationNone.png)
+
+### Contexte :
+
+* Home AssistantÂ 2021.11.4
+* HassOS 6.5
+* Raspberry Pi 4
+
+### Cause possible :
+
+La clÃ© USB Z-Wave n'est pas branchÃ©e au Raspberry Pi.
+
+### Solution proposÃ©e :
+
+Branchez la clÃ© puis redÃ©marrez le systÃ¨me.
+
+## 60.18 Erreur Z-Wave JS Â«Â RÃ©essayer la configuration: Failed to get the Z-Wave JS add-on info Â»
+
+### ProblÃ¨me :
+
+Lorsque vous accÃ©dez Ã  l'Ã©cran ParamÃ¨tres / Appareils et servicesÂ / onglet IntÃ©grations, la tuile Z-Wave JS affiche le message Â«Â RÃ©essayer la configuration: Failed to get the Z-Wave JS add-on info: Addon core\_zwafe\_js with version latest does not exist in the storeÂ Â».
+
+Ceci fait en sorte que la clÃ© USB Z-Wave n'est plus capable de communiquer avec vos pÃ©riphÃ©riques.
+
+![Z-Wave JS RÃ©essayer la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ErreurFailedToGetZWaveJSAddOnInfo.png)
+
+### Contexte :
+
+* Home AssistantÂ 2022.10.4
+* HassOS 9.2
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le rÃ©seau est lent ou il contient des rÃ¨gles qui empÃªchent Home Assistant d'accÃ©der Ã  tout ce dont il a besoin.
+
+### Solution proposÃ©e :
+
+Essayez de vous brancher Ã  un autre rÃ©seau. Souvent, un rÃ©seau cÃ¢blÃ© offre une plus grande stabilitÃ©.
+
+## 60.19 Erreur Tuya Â« Ã‰chec de la configuration Â»
+
+### ProblÃ¨me :
+
+Lorsque vous accÃ©dez Ã  l'Ã©cran Configuration / IntÃ©grations, la tuile Tuya affiche le message Â« Tuya Ã‰chec de la configuration. VÃ©rifier les journauxÂ Â» ou, en anglais Â«Â Tuya Failed to set up. Check the logsÂ Â».
+
+![Tuya Ã‰chec de la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Tuya-EchecDeLaConfiguration.png)
+
+Un clic sur le lien vers les journaux affiche ceciÂ :
+
+RÃ©sultat Ã  l'Ã©cran
+
+Logger: homeassistant.config\_entries  
+Source: components/tuya/\_\_init\_\_.py:66  
+First occurred: 08:02:52 (1 occurrences)  
+Last logged: 08:02:52
+
+ 
+
+Error setting up entry mon.nom@mondomaine.com for tuya  
+  
+Traceback (most recent call last):  
+Â  File "/usr/src/homeassistant/homeassistant/config\_entries.py", line 304, in async\_setup  
+Â  Â  result = await component.async\_setup\_entry(hass, self) # type: ignore  
+Â  File "/usr/src/homeassistant/homeassistant/components/tuya/\_\_init\_\_.py", line 66, in async\_setup\_entry  
+Â  Â  hass.data[DOMAIN].pop(entry.entry\_id)  
+KeyError: '72aa04c596019d1d5ace2615ecdab696'
+
+### Contexte :
+
+* Home AssistantÂ 2021.11.4
+* HassOS 6.5
+* Raspberry Pi 4
+
+### Cause possible :
+
+Un problÃ¨me rÃ©seautique empÃªche Home Assistant de communiquer correctement avec les serveurs de Tuya.
+
+### Solution proposÃ©e :
+
+Contactez votre gestionnaire de rÃ©seau.
+
+### Autre cause possible :
+
+Vous avez effectuÃ© une mise Ã  jour de Home Assistant et la nouvelle mise Ã  jour a une incompatibilitÃ© avec l'intÃ©gration Tuya.
+
+### Solution proposÃ©e :
+
+Attendez que Tuya fasse une mise Ã  jour.
+
+### Autre cause possible :
+
+Un ou plusieurs services chez Tuya IoT Platform sont expirÃ©s.
+
+Pour savoir si c'est votre casÂ :
+
+* Rendez-vous sur [https://iot.tuya.com](https://iot.tuya.com/) et authentifiez-vous.
+* Rendez-vous dans le menu Cloud / My Services puis cliquez sur l'onglet Subscribed Services.
+
+  ![Subscribed services](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-SubscribedServices.png)
+* VÃ©rifiez la date d'expiration qui apparaÃ®t sous chacun des services.
+
+### Solution proposÃ©e :
+
+Vous devez vous rÃ©abonner Ã  une Ã©dition d'essai puis crÃ©er un nouveau projet.
+
+Pour vous rÃ©abonnerÂ :
+
+* Rendez-vous dans Cloud / Development.
+* Ã€ cÃ´tÃ© de My Cloud Projects, cliquez sur Upgrade IoT Core Plan.
+* Cliquez sur Trial EditionÂ . Assurez-vous qu'au bas de l'Ã©cran, il est indiquÃ© que le prix est Ã  0.00$ puis cliquez sur Buy Now.
+
+  ![Renouvellement Trial](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-RenouvellementTrial.png)
+
+## 60.20 SSH : Erreur Â«Â Permission denied (publickey)Â Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'accÃ©der au terminal HassOS via SSH Ã  partir d'un ordinateur Windows, vous obtenez le messageÂ  Â«Â Permission denied (publickey)Â Â».
+
+PowerShell
+
+PS C:\Users\MonNom> ssh root@192.169.1.145 -p 22222  
+root@192.168.1.145: Permission denied (publickey).
+
+### Contexte :
+
+* Windows 10
+* Home Assistant 2022.9.7
+* HassOS 9.0
+* Raspberry Pi 4
+
+### Cause possible :
+
+Vous tentez de vous brancher avec le mauvais nom d'usager.
+
+### Solution proposÃ©e :
+
+Vous devez utiliser l'usager root.
+
+Terminal
+
+ssh root@192.168.1.145 -p 22222
+
+### Autre cause possible :
+
+Le fichier authorized\_keys n'utilise pas le bon encodage. Ce pourrait Ãªtre le cas notamment si vous avez utilisÃ© le bloc notes de Windows pour le crÃ©er.
+
+### Solution proposÃ©e :
+
+Supprimez le fichier authorized\_keys de la clÃ© USB.
+
+CrÃ©ez un nouveau fichier authorized\_keys sur la clÃ© mais cette fois, utilisez un Ã©diteur plus adaptÃ© Ã  ce type de tÃ¢che, par exemple Geany.
+
+Suivez les Ã©tapes de la section suivante pour y copier la clÃ© publique SSH.
+
+### Autre cause possible :
+
+La clÃ© publique SSH gÃ©nÃ©rÃ©e par votre systÃ¨me Windows a mal Ã©tÃ© copiÃ©e sur HassOS. Ceci peut arriver si vous avez utilisÃ© la redirection (caractÃ¨re >) pour copier la clÃ© publique sur la clÃ© USBÂ :
+
+FenÃªtre Git Bash
+
+cat /c/Users/MonNom/.ssh/id\_rsa.pub > /d/authorized\_keys
+
+ouÂ :
+
+PowerShell
+
+cat C:\Users\MonNom\.ssh\id\_rsa.pub > D:\authorized\_keys
+
+Notamment, il peut y avoir un caractÃ¨re de fin de ligne aprÃ¨s la clÃ© publique, ce qui empÃªche son bon fonctionnement.
+
+Il peut Ã©galement y avoir deux caractÃ¨res identifiÃ©s par des rectangles au dÃ©but du fichier authorized\_keys.
+
+![CaractÃ¨res spÃ©ciaux](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SSH-CaracteresSpeciauxDebutAuthorizedKeys.png)
+
+Ce sera la mÃªme chose si vous Ã©ditez le fichier authorized\_keys directement sur le Pi (vi /root/.ssh/authorized\_keys) et que vous voyez des caractÃ¨res qui ressemblaient Ã  du chinois :-o
+
+![authorized_keys caractÃ¨res chinois](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SSH-AuthorizedKeysIllisible.png)
+
+### Solution proposÃ©e :
+
+Je vous propose deux techniques pour copier correctement la clÃ© publique SSH sur le Pi.
+
+La premiÃ¨re technique est dite headless, c'est-Ã -dire que vous n'avez pas besoin de brancher clavier ni Ã©cran au Raspberry PiÂ :
+
+* Rebranchez la clÃ© USB sur votre ordinateur.
+* Affichez le contenu du fichier id\_rsa.pub Ã  l'Ã©cran.
+
+  PowerShell
+
+  cat C:\Users\MonNom\.ssh\id\_rsa.pub
+* Si un fichier authorized\_keys Ã©tait dÃ©jÃ  prÃ©sent sur la clÃ© USB, dÃ©truisez-le.
+* CrÃ©ez un fichier texte vierge sur la clÃ© USB dont l'encodage est UTF-8 sans BOM et nommez-le authorized\_keys (aucune extension). AttentionÂ : n'utilisez pas le bloc notes de Windows pour crÃ©er ce fichier. Utilisez un Ã©diteur plus adaptÃ© Ã  ce type de tÃ¢che, par exemple Geany.
+* Copiez-collez dans ce fichier la clÃ© qui a Ã©tÃ© affichÃ©e Ã  l'aide de la commande cat.
+* Branchez la clÃ© USB sur le Raspberry Pi et redÃ©marrez le systÃ¨me. Le fichier sera automatiquement copiÃ© dans le dossier /root/.ssh.
+
+DeuxiÃ¨me technique (requiert clavier et Ã©cran)Â :
+
+* Sur Home Assistant, installez le module complÃ©mentaire File Editor.
+* Ã€ l'aide de ce module complÃ©mentaire, crÃ©ez un nouveau fichier nommÃ© authorized\_keys.
+* Sur votre systÃ¨me Windows, Ã  l'aide d'une fenÃªtre PowerShell, affichez la valeur de votre clÃ© publique SSH.
+
+  PowerShell
+
+  cat C:\Users\MonNom\.ssh\id\_rsa.pub
+* Dans File Editor, Ã©ditez votre nouveau fichier authorized\_keys et collez-y la valeur de la clÃ© publique.
+* Puisque File Editor n'a pas accÃ¨s aux dossiers situÃ©s en dehors de la racine du site Web, vous devrez dÃ©placer le fichier Ã  l'aide du clavier branchÃ© au Raspberry Pi.
+
+  Terminal HassOS
+
+  cpÂ /mnt/data/supervisor/homeassistant/authorized\_keys /root/.ssh
+
+Avec l'une ou l'autre de ces techniques, vous devriez maintenant avoir accÃ¨s Ã  votre Pi via SSH.
+
+PowerShell
+
+ssh root@192.168.1.145 -p 22222
+
+## 60.21 Erreur Â«Â System is not ready with state: setupÂ Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'accÃ©der au terminal HassOS en branchant un clavier et un Ã©cran au Raspberry Pi, vous obtenez le messageÂ  Â«Â Error returned from Supervisor: System is not ready with state: setupÂ Â».
+
+![System is not ready](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemIsNotReady.png)
+
+### Contexte :
+
+* Home Assistant 2022.10.4
+* HassOS 9.2
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le rÃ©seau est lent ou il contient des rÃ¨gles qui empÃªchent Home Assistant d'accÃ©der Ã  tout ce dont il a besoin.
+
+Home Assistant met donc du temps avant d'Ãªtre prÃªt.
+
+### Solution proposÃ©e :
+
+Patientez.
+
+Vous pouvez entrer la commande banner Ã  quelques reprises.
+
+Quand le systÃ¨me sera prÃªt, vous verrez les informations sur les adresses IP apparaÃ®tre comme c'est habituellement le cas.
+
+![Commande banner](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemIsNotReady-banner.png)
+
+## 60.22 Erreur Â«Â Response error: 401Â Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'effectuer une opÃ©ration quelconque dans l'interface Web de Home Assistant, vous obtenez le messageÂ  Â«Â Response error: 401Â Â».
+
+![Response error: 401](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ResponseError401.png)
+
+### Contexte :
+
+* Home Assistant 2022.10.4
+* HassOS 9.2
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le navigateur a rencontrÃ© un problÃ¨me avec ses cookies.
+
+### Solution proposÃ©e :
+
+DÃ©connectez-vous de Home Assistant puis reconnectez-vous.
+
+## 60.23 Module complÃ©mentaire non trouvÃ©
+
+### ProblÃ¨me :
+
+Lorsque vous recherchez un module complÃ©mentaire que vous savez qui existe, vous obtenez le message Â«Â Aucun rÃ©sultat trouvÃ© dans Official add-ons. Aucun rÃ©sultat trouvÃ© dans ESPHome. Aucun rÃ©sultat trouvÃ© dans Home Assistant Community Add-ons.Â Â».
+
+![Module complÃ©mentaire non disponible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ModuleComplementaireNonDisponible.png)
+
+### Contexte :
+
+* Home Assistant 2022.10.5
+* HassOS 9.3
+* Raspberry Pi 4
+
+### Cause possible :
+
+Vous n'avez pas activÃ© le mode avancÃ© pour l'usager avec lequel vous Ãªtes authentifiÃ©.
+
+### Solution proposÃ©e :
+
+* Cliquez sur votre nom dans le bas de la colonne de gauche.
+* Activez le mode avancÃ©.
+
+  ![Mode avancÃ©](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ModeAvance.png)
+* Le module complÃ©mentaire devrait dÃ©sormais Ãªtre disponible.
+
+  ![Module complÃ©mentaire SQLite](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ModuleComplementaireSQLite.png)
+
+## 60.24 Erreur Â« ERR\_CONNECTION\_REFUSEDÂ  Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez de vous connecter Ã  l'interface Web de Home Assistant, vous obtenez un message du genre Â«Â Ce site est inaccessible. 192.168.1.145 n'autorise pas la connexion. ERR\_CONNECTION\_REFUSEDÂ Â».
+
+![ERR_CONNECTION_REFUSED](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ERR_CONNECTION_REFUSED.png)
+
+### Contexte :
+
+* Home Assistant 2022.10.5
+* HassOS 9.3
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le serveur HTTP qui permet d'accÃ©der Ã  l'interface Web de Home Assistant n'a pas Ã©tÃ© correctement dÃ©marrÃ©.
+
+Ceci pourrait Ãªtre dÃ» Ã  un fichier corrompu ou Ã  un fichier de configuration invalide.
+
+Pour savoir si c'est le casÂ :
+
+* AccÃ©dez au Terminal HassOS via SSH ou en branchant un clavier et un Ã©cran au Raspberry Pi.
+* Lancez la commande ha core restart afin de redÃ©marrer Home Assistant, vous obtenez le message Â«Â Unknown error, see supervisorÂ Â».
+
+  RÃ©sultat Ã  l'Ã©cran
+
+  # ha core restart  
+  Error: Unknown error, see supervisor
+
+Autre vÃ©rification intÃ©ressanteÂ : si vous consultez les fichiers journaux, vous voyez le message Â«Â Home Assistant has crashed!Â Â».
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha supervisor logs  
+...  
+22-11-07 08:12:07 INFO (MainThread) [supervisor.resolution.evaluate] Starting system evaluation with state CoreState.RUNNING  
+22-11-07 08:12:08 ERROR (MainThread) [supervisor.homeassistant.core] Home Assistant has crashed!  
+22-11-07 08:12:08 INFO (SyncWorker\_3) [supervisor.docker.interface] Cleaning homeassistant application  
+22-11-07 08:12:08 INFO (MainThread) [supervisor.homeassistant.module] Update pulse/client.config: /data/tmp/homeassistant\_pulse  
+22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.evaluate] System evaluation complete  
+22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.fixup] Starting system autofix at state CoreState.RUNNING  
+22-11-07 08:12:09 INFO (MainThread) [supervisor.resolution.fixup] System autofix complete  
+22-11-07 08:12:09 INFO (SyncWorker\_2) [supervisor.docker.homeassistant] Starting Home Assistant ghcr.io/home-assistant/raspberrypi4-64-homeassistant with version 2022.11.1  
+22-11-07 08:12:09 INFO (MainThread) [supervisor.homeassistant.core] Wait until Home Assistant is ready  
+22-11-07 08:12:19 ERROR (MainThread) [supervisor.homeassistant.core] Home Assistant has crashed!  
+22-11-07 08:12:19 ERROR (MainThread) [supervisor.homeassistant.core] Watchdog restart of Home Assistant failed!
+
+### Solution proposÃ©e :
+
+Pour en savoir plus sur ce qui cause le problÃ¨me, effectuez une vÃ©rification de l'Ã©tat du coeur de Home Assistant Ã  l'aide de la commande ha core check.
+
+Terminal
+
+# ha core check  
+Error: Testing configuration at /config  
+ERROR:homeassistant.util.json:Could not parse JSON content: /config/.storage/core.device\_registry  
+Traceback (most recent call last):  
+Â  File "/usr/src/homeassistant/homeassistant/util/json.py", line 39, in load\_json  
+Â  Â  return orjson.loads(fdesc.read()) # type: ignore[no-any-return]  
+orjson.JSONDecodeError: unexpected character: line 455 column 20 (char 12223)  
+Fatal error while loading config: unexpected character: line 455 column 20 (char 12223)  
+Failed config  
+Â  General Errors:   
+Â  Â  - unexpected character: line 455 column 20 (char 12223)
+
+ 
+
+Successful config (partial
+
+Dans cet exemple, on voit que le fichier core.device\_registry contient une configuration invalide.
+
+Je me rappelais avoir modifiÃ© ce fichier lors de ma derniÃ¨re session de travail alors j'ai pu le remettre dans son Ã©tat original.
+
+Le systÃ¨me peut alors Ãªtre redÃ©marrÃ© Ã  l'aide de la commande ha core restart.
+
+## 60.25 Erreur Â« System is not healthy Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'installer un module complÃ©mentaire dans Home Assistant, vous obtenez le message Â«Â Ã‰chec de l'installation de l'extension 'AddonManager.install' blocked from execution, system is not healthy - setupÂ Â».
+
+![System is not healty](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EchecDeLInstallation-SystemIsNotHealthy.png)
+
+### Contexte :
+
+* Home Assistant 2023.9.3
+* HassOS 10.5
+* Raspberry Pi 4
+
+### Cause possible :
+
+Les causes peuvent Ãªtre diverses. Pour connaÃ®tre la cause exacte, rendez-vous dans le menu ParamÃ¨tres / SystÃ¨me / Corrections.
+
+![System is not healthy](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EchecDeLInstallation-SystemIsNotHealthy-2.png)
+
+### Solution proposÃ©e :
+
+Cliquez sur la tuile de correction. Si le message affichÃ© n'est pas suffisant, cliquez sur le lien En savoir plus.
+
+Parmi les solutions les plus frÃ©quentes, tentez les opÃ©rations suivantes. RÃ©essayez l'installation entre chacune pour savoir si le problÃ¨me est rÃ©glÃ©.
+
+* ha core restart
+* ha supervisor restart
+* reboot
+* Effectuer les mises Ã  jour recommandÃ©es dans le menu ParamÃ¨tres / SystÃ¨me / Mises Ã  jour. Commencez par la mise Ã  jour du Supervisor puis du systÃ¨me d'exploitation s'il y a lieu. Notez que selon le problÃ¨me, il se peut que les mises Ã  jour ne soient pas possibles :-(
+* ha jobs options --ignore-conditions healthy
+* Si le problÃ¨me persiste aprÃ¨s toutes ces actions, la solution consiste Ã  effectuer une sauvegarde de Home Assistant, Ã  tÃ©lÃ©verser cette sauvegarde sur l'ordinateur, Ã  rÃ©installer HassOS puis Home Assistant puis Ã  remettre la sauvegarde en place.
+
+## 60.26 Erreur Â« 404: Not Found Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'accÃ©der Ã  l'interface Web de Home Assistant, vous obtenez le message Â«Â 404: Not FoundÂ Â».
+
+### Contexte :
+
+* Home Assistant 2023.10.5
+* Raspberry Pi 4
+
+### Cause possible :
+
+Le fichier configuration.yaml n'est pas valide.
+
+### Solution proposÃ©e :
+
+Remettez les lignes originales en place.
+
+Dans la version 2023.10.5, le fichier contenait les lignes suivantesÂ :
+
+Fichier configuration.yaml
+
+# Loads default set of integrations. Do not remove.  
+default\_config:
+
+ 
+
+# Load frontend themes from the themes folder  
+frontend:  
+ themes: !include\_dir\_merge\_named themes
+
+ 
+
+automation: !include automations.yaml  
+script: !include scripts.yaml  
+scene: !include scenes.yaml
+
+## 60.27 Erreur Â«Â Ã‰chec de l'appel du service update/install Â»
+
+### ProblÃ¨me :
+
+Lorsque vous tentez d'effectuer une mise Ã  jour de Home Assistant, vous obtenez le message Â«Â Ã‰chec de l'appel du service update/install. Error updating Home Assistant Operating System: 'OSManager.update' blocked from execution, supervisor needs to be updated firstÂ Â».
+
+### Contexte :
+
+* Home Assistant 2023.11.3
+* Raspberry Pi 4
+
+### Cause possible :
+
+Comme le message l'indique, il faut commencer par effectuer une mise Ã  jour du Supervisor avant d'effectuer les autres modifications.
+
+### Solution proposÃ©e :
+
+Effectuez d'abord la mise Ã  jour du Supervisor. Si l'option de mise Ã  jour du Supervisor n'apparaÃ®t pas directement dans le haut de l'Ã©cran ParamÃ¨tres, cliquez sur Afficher toutes les mises Ã  jour.
+
+<!-- --- split --- -->
+
+# 61. Exercice 10
+
+## 61.1 Installation de Home Assistant
+
+Dans cet exercice, vous allez effectuer l'installation de Home Assistant.
+
+Vous devez absolument avoir terminÃ© avant le prochain cours.
+
+1. [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,Installez Home Assistant][/apical\_lien\_interne] sur votre Raspberry Pi.
+
+   Note : lors du dÃ©marrage du Raspberry Pi, vous aurez besoin d'un rÃ©seau rapide pour finaliser l'installation.   
+   Le plus simple est de travailler avec une connexion cÃ¢blÃ©e.  
+   Il est Ã©galement possible de configurer la connexion au rÃ©seau CEGEPVICTO pour que l'installation soit plus rapide. Vous aurez donc, en plus de la connexion rÃ©seau pour Domotique-Pedago,Â [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,une connexion pour un rÃ©seau Wif-Fi sans mot de passe,none][/apical\_lien\_interne].
+2. OPTIONNEL : Donnez Ã  votre systÃ¨me [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,une adresse IP statique,ipstatique][/apical\_lien\_interne] selon les informations fournies par votre prof.
+3. AccÃ©dez [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,Ã  l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+4. Branchez-vous Ã  Home AssistantÂ [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,via SSH][/apical\_lien\_interne] puis [apical\_lien\_interne][trouver\_l\_adresse\_ip\_de\_home\_assistant,faites afficher les informations sur le rÃ©seau,networkinfo][/apical\_lien\_interne].
+5. Faites une impression d'Ã©cran qui montre l'adresse IP ainsi trouvÃ©e.
+6. [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,Ã‰teignez Home Assistant de faÃ§on sÃ©curitaire][/apical\_lien\_interne].
+7. DÃ©posez votre impression d'Ã©cran sur la plateforme Ã©lectronique du cours.
+
+Notez que les personnes qui n'auront pas remis leur impression d'Ã©cran seront contactÃ©es individuellement!!!
+
+<!-- --- split --- -->
+
+# 62. Pour le prochain cours
+
+## 62.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+<!-- --- split --- -->
+
+# 63. Commencer Ã  travailler avec Home Assistant
+
+## 63.1 En rÃ©sumÃ©...
+
+Voici un rÃ©sumÃ© des informations essentielles du ou des prochains chapitres.
+
+Notez que certaines fiches, qui font partie intÃ©grante du cours, pourraient ne pas figurer dans ce rÃ©sumÃ©.
+
+Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
+
+## [apical\_lien\_interne]configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant[/apical\_lien\_interne]
+
+Bien suivre les Ã©tapes sur cette fiche!
+
+## [apical\_lien\_interne]ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant[/apical\_lien\_interne]
+
+Bien suivre les Ã©tapes sur cette fiche!
+
+## [apical\_lien\_interne]sauvegarde\_de\_home\_assistant[/apical\_lien\_interne]
+
+Bien suivre les Ã©tapes sur cette fiche!
+
+## 63.2 Configurer la clÃ© USB Z-Wave sur Home Assistant
+
+Avant d'ajouter des pÃ©riphÃ©riques Z-Wave Ã  votre boÃ®te domotique Home Assistant, vous devez configurer la clÃ© USB Z-Wave.
+
+C'est Ã  l'aide d'une intÃ©gration que la clÃ© USB Z-Wave sera ajoutÃ©e Ã  Home Assistant.
+
+Cette procÃ©dure installera deux chosesÂ :
+
+* un module complÃ©mentaire (add-on), qui est en fait le serveur Z-Wave JS
+* [l'intÃ©gration Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/), qui est en fait une fonctionnalitÃ© dans Home Assistant.
+
+Pour configurer la clÃ© USB Z-Wave, suivez ces Ã©tapesÂ :
+
+* D'abord, assurez-vous que la clÃ© USB Z-Wave soit connectÃ©e au Raspberry Pi.
+* Rendez-vous dans le menu ParamÃ¨tres / Appareils et servicesÂ / onglet IntÃ©grations.
+* Dans cerrtains cas, l'Ã©cran vous prÃ©sentera dÃ¨s le dÃ©part l'intÃ©gration [Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/). Elle apparaÃ®tra probablement sous le nom ttyACM0 Z-Wave. Cliquez sur Configurer sur cette tuile.Â Effectuez l'installation recommandÃ©e (Recommanded installation). Vous n'avez aucune information Ã  entrer, Ã  part sÃ©lectionner le USB device path proposÃ©.
+* Si l'intÃ©gration n'apparaÃ®t pas automatiquement, vous devrez l'ajouter manuellement en cliquant sur Ajouter une intÃ©gration puis en recherchant Z-Wave. Effectuez l'installation recommandÃ©e (Recommanded installation). Vous n'avez aucune information Ã  entrer, Ã  part sÃ©lectionner le USB device path proposÃ©.
+
+  ![USB device path](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerZWaveJS.png)
+
+Vous pouvez maintenant [apical\_lien\_interne][ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant,intÃ©grer des appareils connectÃ©s Z-Wave Ã  Home Assistant][/apical\_lien\_interne].
+
+Une fois la clÃ© Z-Wave configurÃ©e, vous pouvez cliquer sur sa tuile pour voir les appareils qui y sont connectÃ©s.
+
+Par dÃ©faut, vous verrez probablement une sÃ©rie d'appareils dont le nom dÃ©bute par Node. Il s'agit d'appareils qui avaient Ã©tÃ© connectÃ©s Ã  cette clÃ© dans un ancien systÃ¨me domotique.
+
+![Node](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ZWave-Node.png)
+
+Ces appareils ne nuisent pas Ã  votre systÃ¨me mais si vous le souhaitez, il est possible de les supprimer.
+
+Attention : il ne faut pas supprimer celui qui s'appelle USB Controller.
+
+Pour supprimer unappareil dont le nom dÃ©bute par NodeÂ :
+
+* Cliquez sur la ligne de l'appareil (pas sur un des icÃ´nes d'actions).
+* Cliquez sur les trois points verticaux Ã  droite de Configurer.
+* Cliquez sur Supprimer.
+
+## 63.3 Ajouter un appareil connectÃ© Z-Wave Ã  Home Assistant
+
+Maintenant que [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,la clÃ© USB Z-Wave a Ã©tÃ© configurÃ©e][/apical\_lien\_interne], il est possible d'intÃ©grer des appareils connectÃ©s Z-Wave Ã  Home Assistant.
+
+* Si l'appareil a dÃ©jÃ  Ã©tÃ© inclus dans un systÃ¨me domotique, il faut effectuer une rÃ©initialisation de l'appareil (factory reset) sans quoi, il ne sera pas disponible pour une nouvelle inclusion. Consultez le manuel de l'appareil pour connaÃ®tre la procÃ©dure.
+* Pour inclure l'appareil dans Home Assistant, rendez-vous dans le panneau de contrÃ´le Z-WaveÂ : ParamÃ¨tres / Appareils et servicesÂ / onglet IntÃ©grations et cliquez sur la tuile Z-Wave.
+
+  ![Tuile Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TuileZWave.png)
+* Cliquez sur Ajouter un appareil.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil.png)
+* Dans l'Ã©cran qui suit, cliquez sur Rechercher l'appareil.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-2.png)
+* J-Wave JS commencera la recherche d'appareils. Par dÃ©faut, il tentera de faire l'ajout en mode sÃ©curisÃ© et basculera automatiquement en mode non sÃ©curisÃ© si l'appareil ne le supporte pas. Si vous dÃ©sirez modifier ce comportement, cliquez sur Options de sÃ©curitÃ© avancÃ©es.
+
+  ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-3.png)
+* Si vous avez cliquÃ© sur Options de sÃ©curitÃ© avancÃ©es, vous pouvez choisir la stratÃ©gie d'inclusion dÃ©sirÃ©e.
+
+  ![Choose strategy](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChooseStrategyPourPeripheriqueZWave.png)
+* Pour que votre appareil puisse Ãªtre dÃ©tectÃ©, vous devez effectuer l'opÃ©ration de pairage sur l'appareil. Il s'agit gÃ©nÃ©ralement de cliquer sur un bouton un nombre dÃ©terminÃ© de fois. Consultez le manuel de l'appareil pour connaÃ®tre la procÃ©dure.
+* Dans certains cas, vous serez invitÃ© Ã  entrer un code de sÃ©curitÃ©. Ce code devrait se trouver dans la documentation de l'appareil.Â Si l'appareil est Ã©quipÃ© d'un Ã©cran, le code apparaÃ®tra sur cet Ã©cran.
+
+  Si vous n'avez pas accÃ¨s au code de sÃ©curitÃ©, entrez une sÃ©rie de zÃ©ros puis cliquez sur Submit.
+
+  ![Enter 5 digit PIN](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PleaseEnter5DigitPIN.png)
+* DÃ¨s que Home Assistant a tout ce qu'il lui faut, une fenÃªtre vous avertira que l'appareil est en cours d'interrogation.
+* Vous serez ensuite invitÃ©s Ã  entrer le nom de l'appareil et Ã  l'associer Ã  une piÃ¨ce de la maison.
+
+  ![Nom de l'appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomDeLAppareil.png)
+
+## Tester les appareils connectÃ©s
+
+Avant d'aller plus loin, il est intÃ©ressant de tester les capteurs et les rÃ©cepteurs qui ont Ã©tÃ© ajoutÃ©s Ã  Home Assistant.
+
+Dans le menu AperÃ§u, vous pouvez voir l'Ã©tat des capteurs et vous pouvez contrÃ´ler l'Ã©tat des rÃ©cepteurs.
+
+Par exemple, le capteur 5-en-1 affiche les valeurs pour chacun de ses capteurs.
+
+Si vous mettez la main dessus afin de rÃ©duire la luminositÃ©, la valeur devrait Ãªtre ajustÃ©e quasi instantannÃ©ment.
+
+La prise intelligente, quant Ã  elle, peut Ãªtre allumÃ©e ou Ã©teinte en cliquant sur le bouton Ã  bascule.
+
+![AperÃ§u](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Apercu-DonneesObjet.png)
+
+<!-- --- split --- -->
+
+# 64. Sauvegarde de Home Assistant
+
+## 64.1 Sauvegarde de Home Assistant
+
+Une sauvegarde Home Assistant permet de remettre le systÃ¨me dans l'Ã©tat oÃ¹ il Ã©tait lorsque la sauvegarde a Ã©tÃ© rÃ©alisÃ©e.
+
+Cette fonctionnalitÃ©Â portait auparavant le nomÂ snapshot. Ces mots rÃ©fÃ¨rent donc Ã  la mÃªme chose.
+
+Pour crÃ©er une sauvegarde, rendez-vous dans le menuÂ ParamÃ¨tres / SystÃ¨meÂ / Sauvegardes puis cliquez sur Sauvegarder maintenant au bas de l'Ã©cran.
+
+Les sauvegardes Home Assistant sont protÃ©gÃ©es par une clÃ© de chiffrement. Dans l'Ã©cran qui suit, cliquez sur TÃ©lÃ©charger pour conserver une copie de cette clÃ©. Placez le fichier dans un endroit sÃ»r.
+
+![ClÃ© de chiffrement](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Sauvegarde-CleDeChiffrement.png)
+
+Le fichier de secours contiendra ceciÂ :
+
+FichierÂ home\_assistant\_backup\_emergency\_kit\_jj\_mm\_aaaa\_hh\_mm.txt
+
+Kit de secours pour Home Assistant
+
+ 
+
+Ce kit de secours contient la clÃ© de chiffrement de vos sauvegardes. Vous avez besoin de cette clÃ© pour pouvoir restaurer les sauvegardes de votre Home Assistant.
+
+ 
+
+DateÂ : 8 octobre 2025 Ã  20:15
+
+ 
+
+InstanceÂ :  
+Maison
+
+ 
+
+AdresseÂ :  
+http://192.168.1.145:8123
+
+ 
+
+ClÃ© de chiffrementÂ :  
+DDTV-CESF-QLHM-PM8S-AHHS-BF6M-5044
+
+ 
+
+Pour plus d'informations, visitez le site https://www.home-assistant.io/more-info/backup-emergency-kit
+
+Vous devez ensuite choisir entre l'option Sauvegarde automatique et Sauvegarde manuelle.
+
+La sauvegarde automatique qui crÃ©e immÃ©diatement une sauvegarde selon les configurations disponibles sur le premier Ã©cran de la page de sauvegarde.
+
+La sauvegarde manuelle vous offre de modifier les configurations pour cette fois seulement.
+
+Dans les deux cas, ceci crÃ©era un fichier de sauvegarde sur le Raspberry Pi dans le dossierÂ /mnt/data/supervisor/backup.
+
+La liste des sauvegardes existantes est disponible via le menuÂ ParamÃ¨tres / SystÃ¨meÂ / Sauvegardes.
+
+Elle peut Ã©galement Ãªtre affichÃ©e via [apical\_lien\_interne][la\_console\_home\_assistant,le terminal HassOS][/apical\_lien\_interne] Ã  l'aide de cette commandeÂ :
+
+Terminal
+
+ha backup list
+
+## Placer la sauvegarde en lieu sÃ»r
+
+Pour vous assurer de pouvoir utiliser la sauvegarde en cas de panne de votre systÃ¨me, le fichier de sauvegarde ne doit pas demeurer uniquement sur le Raspberry Pi.
+
+Il faut donc le copier sur votre ordinateur.
+
+La technique la plus simple consiste Ã  utiliser l'interface graphique. Dans le menuParamÃ¨tres / SystÃ¨meÂ / Sauvegardes, cliquez sur les trois points Ã  droite dela sauvegarde dÃ©sirÃ©e puis choisissez TÃ©lÃ©charger la sauvegarde.
+
+![TÃ©lÃ©charger la sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TelechargerLaSauvegarde.png)
+
+Vous aurez alors une copie du fichier de sauvegarde sur votre ordinateur.
+
+## Pour plus d'information
+
+Â«Â Home Assistant OS Common TasksÂ - Home Assistant OS SnapshotsÂ Â». Home Assistant. <https://www.home-assistant.io/hassio/haos_common_tasks/#home-assistant-os-snapshots>
+
+Â«Â Home Assistant Starter: Backup and RestoreÂ Â». SuburbanNeerd. <https://suburbannerd.com/hassiobackup/>
+
+## 64.2 RÃ©installer Home Assistant Ã  partir d'une sauvegarde
+
+Si vous prenez soin d'effectuer rÃ©guliÃ¨rementÂ [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,une sauvegarde de Home Assistant][/apical\_lien\_interne], vous pourrez remettre le systÃ¨me en place rapidement en cas de problÃ¨me avec votre carte micro SD.
+
+Dans le cas oÃ¹ Home Assistant est encore fonctionnel, vous pouvez procÃ©der directement Ã  l'[Ã©tape de restauration](#restauration).
+
+S'il ne fonctionne plus du tout, vous devrez d'abord effectuer une [rÃ©installation](#reinstallation).
+
+## RÃ©installation
+
+* Sur votre boÃ®te Home Assistant actuelle,Â [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,effectuez une sauvegarde complÃ¨te][/apical\_lien\_interne].
+* [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,TÃ©lÃ©chargez la sauvegarde sur votre ordinateur,telecharger][/apical\_lien\_interne].
+* Sur la carte micro SD qui contiendra une copie intÃ©grale du systÃ¨me, [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,effectuez une nouvelle installation de Home Assistant][/apical\_lien\_interne].
+* Une fois l'installation complÃ©tÃ©e,Â [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,accÃ©dez Ã  l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+* Sur l'Ã©cran d'accueil, si Home Assistant rÃ©alise que le systÃ¨me n'a pas Ã©tÃ© initialisÃ©, il vous offre soit de crÃ©er votre maison connectÃ©e, soit d'effectuer une restauration. Cliquez sur Restaurer depuis une sauvegarde.
+
+  ![Restaurer depuis une sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerDepuisUneSauvegarde.png)
+* Poursuivez avec [les Ã©tapes communes pour la rÃ©installation et la restauration](#commune).
+
+## Restauration
+
+* Alternativement, si le systÃ¨me avait dÃ©jÃ  Ã©tÃ© initialisÃ©, vous pouvez restaurer une sauvegarde Ã  partir duÂ menu ParamÃ¨tres / SystÃ¨me / SauvegardesÂ / clic sur les trois points verticaux dans le coin supÃ©rieur droit de l'Ã©cran / TÃ©lÃ©verser une sauvegarde.
+
+  ![TÃ©lÃ©verser une sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TeleverserUneSauvegarde.png)
+* Poursuivez avec [les Ã©tapes communes pour la rÃ©installation et la restauration](#commune).
+
+## Ã‰tapes communes pour la rÃ©installation et la restauration
+
+* Dans tous les cas, retrouvez le fichier de sauvegarde sur votre ordinateur. Il s'agit d'un fichier dont le nom se termine par .tar.
+
+* Home Assistant vous offrira alors de restaurer la sauvegarde complÃ¨te ou seulement une partie de celle-ci.
+
+  ![Fichier de sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerUneSauvegarde.png)
+* Si vous ciiquez sur Sauvegarde partielle, Home Assistant vous demandera de choisir quelles parties vous dÃ©sirez sauvegarder.
+
+  ![Restaurer sauvegarde partielle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerSauvegardePartielle.png)
+* Dans tous les cas, vous devrez confirmer avant de poursuivre puisque cette opÃ©ration Ã©crasera votre installation actuelle de Home Assistant.
+
+  ![Confirmation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfirmationRestaurationSauvegarde.png)
+* AprÃ¨s avoir cliquÃ© sur Restore, vous devez patienter pendant que Home Assistant remet le tout en place. L'opÃ©ration peut prendre jusqu'Ã  45 minutes [selon la documentation officielle](https://www.home-assistant.io/common-tasks/os/#estimated-duration).
+* Pendant la restauration, il est possible de voir l'avancement des travaux [apical\_lien\_interne][la\_console\_home\_assistant,dans une fenÃªtre Terminal][/apical\_lien\_interne] Ã  l'aide de la commande ha supervisor logs.
+* Ã€ la fin de l'opÃ©ration, vous aurez votre Home Assistant tel qu'il Ã©tait au moment oÃ¹ vous avez effectuÃ© cette sauvegarde.
+* Pour vous assurer que tout soit bien rÃ©initialisÃ©, prenez soin de [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,redÃ©marrer le systÃ¨me,complet][/apical\_lien\_interne].
+
+J'ai dÃ©jÃ  vu un systÃ¨me qui plantait quand on tentait de tÃ©lÃ©verser une sauvegarde, probablement dÃ» Ã  un fichier corrompu.
+
+Pas de problÃ¨me, il est possible de tÃ©lÃ©verser la sauvegarde manuellement.
+
+Terminal de l'ordinateur
+
+scp -O -P 22222 chemin/vers/sauvegarde/sur/ordinateur/personnel root@192.168.1.145:/mnt/data/supervisor/backup/
+
+AprÃ¨s un redÃ©marrage de Home Assistant, la sauvegarde est visible dans ParamÃ¨tres / SystÃ¨me / Sauvegardes. Vous pouvez cliquer sur cette sauvegarde pour accÃ©der aux options de restauration.
+
+<!-- --- split --- -->
+
+# 65. Exercice 11
+
+## 65.1 Commencer Ã  travailler avec Home Assistant
+
+1. Changez le nom de votre installation Home Assistant. Ce nom doit correspondre Ã  votre nom complet au format PrÃ©nom NomDeFamille.Â Ã€ vous de fouiller dans les options de menu pour trouver comment faire.
+2. [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,Configurez votre clÃ© Z-Wave][/apical\_lien\_interne] sur Home Assistant.
+3. [apical\_lien\_interne][ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant,Ajoutez un capteur et un rÃ©cepteur][/apical\_lien\_interne] de votre choix Ã  votre systÃ¨me.Â Rappel : les modes d'emplois de vos objets connectÃ©s sont sur Teams.
+4. Donnez un nom significatif Ã  vos appareils puis testez-les Ã  l'aide de l'Ã©cran AperÃ§u.
+5. Faites une impression d'Ã©cran de votre Ã©cran AperÃ§u.
+6. [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,CrÃ©ez une sauvegarde de Home Assistant][/apical\_lien\_interne] puis tÃ©lÃ©chargez-la sur votre poste de travail.
+7. Afin de pouvoir travailler sur votre systÃ¨me domotique Ã  la maison, vous avez deux choix. Vous devez sÃ©lectionner celui qui vous convient et effectuer les manipulations en consÃ©quence.  
+   1. Brancher le Raspberry Pi Ã  votre routeur Ã  la maison Ã  l'aide d'un cÃ¢ble RJ-45. Aucune configuration spÃ©ciale ne sera alors requise.
+   2. Connecter le Raspberry Pi Ã  votre rÃ©seau sans fil Ã  la maison ou Ã  l'aide du partage de connexion de votre cellulaire. Vous devrezÂ [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,crÃ©er un autre fichier de configuration,plusieursconfigurations][/apical\_lien\_interne] pour ce rÃ©seau.
+8. Si vous avez choisi de travailler Ã  la maison Ã  l'aide du sans fil, copiez votre fichier de configuration dans le dossier network sur une clÃ© USB correctement configurÃ©e. Branchez la clÃ© au Raspberry Pi puis redÃ©marrez-le. VÃ©rifiez que le fichier a Ã©tÃ© correctement copiÃ© dans le dossierÂ /etc/NetworkManager/system-connections.
+9. OPTIONNEL : effectuez ces manipulations pour vous brancher manuellement Ã  un autre rÃ©seau sans fil. Dans les manipulations que je vous propose, vous vous brancherez au rÃ©seau rÃ©gulier du CÃ©gep. Par contre, vous ne pourrez pas accÃ©der Ã  l'interface Web de Home Assistant Ã  partir de ce rÃ©seau.
+
+   1. Branchez clavier et Ã©cran au Raspberry Pi. Vous verrez l'invite ha >.
+   2. [apical\_lien\_interne][la\_console\_home\_assistant,AccÃ©dez au terminal HassOS,consolehavsterminal][/apical\_lien\_interne].
+   3. Demandez Ã  HassOS [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,de vous lister les rÃ©seaux sans fil disponibles,terminal][/apical\_lien\_interne].
+   4. RepÃ©rez le rÃ©seau rÃ©gulier du CÃ©gep. C'est la colonne SSID qui nous intÃ©resse.
+   5. Connectez le Pi Ã  ce rÃ©seau.
+   6. VÃ©rifiez que vous avez maintenant [apical\_lien\_interne][trouver\_l\_adresse\_ip\_de\_home\_assistant,une adresse IP][/apical\_lien\_interne] qui correspond Ã  ce rÃ©seau.
+   7. Reconnectez-vous maintenant Ã  Domotique-Pedago.
+   8. [apical\_lien\_interne][nmcli\_l\_outil\_en\_ligne\_de\_commande\_du\_networkmanager,DÃ©connectez maintenant le Wi-Fi][/apical\_lien\_interne]. Plusieurs manipulations pourraient Ãªtre requises pour que tous les rÃ©seaux sans fil soient dÃ©connectÃ©s. La banniÃ¨re de Home Assistant devrait maintenant vous donner seulement l'adresse IP du rÃ©seau filaire.
+10. [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,Ã‰teignez Home Assistant de faÃ§on sÃ©curitaire][/apical\_lien\_interne].
+11. DÃ©posez votre impression d'Ã©cran sur la plateforme Ã©lectronique du cours.
+
+
+

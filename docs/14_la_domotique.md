@@ -1,49 +1,49 @@
 # 12. La domotique
 
-## 12.1 En résumé...
+## 12.1 En r�sum�...
 
-Voici un résumé des informations essentielles du ou des prochains chapitres.
+Voici un r�sum� des informations essentielles du ou des prochains chapitres.
 
-Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne pas figurer dans ce résumé.
+Notez que certaines fiches, qui font partie int�grante du cours, pourraient ne pas figurer dans ce r�sum�.
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
 ## [apical\_lien\_interne]qu\_est-ce\_qu\_un\_objet\_connecte[/apical\_lien\_interne]
 
-Un objet connecté, parfois appelé appareil connecté ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajouté des composantes qui lui permettent d'envoyer ou de recevoir des données au serveur auquel il est connecté.
+Un objet connect�, parfois appel� appareil connect� ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajout� des composantes qui lui permettent d'envoyer ou de recevoir des donn�es au serveur auquel il est connect�.
 
-Les objects connectés font partie d'une grande famille qu'on appelle Internet des Objets ou, en anglais, Internet of Things (IoT).
+Les objects connect�s font partie d'une grande famille qu'on appelle Internet des Objets ou, en anglais, Internet of Things (IoT).
 
 ![Apple Watch](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/AppleWatch.png) ![Prise intelligente Wi-Fi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseIntelligenteWiFi.png) ![Penne dormant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PenneDormantIntelligent.png)
 
 ## [apical\_lien\_interne]qu\_est-ce\_qu\_un\_systeme\_domotique[/apical\_lien\_interne]
 
-Un système domotique, c’est différent d’une série d’objets connectés. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
+Un syst�me domotique, c'est diff�rent d'une s�rie d'objets connect�s. Avec un syst�me domotique, on a un contr�le centralis� alors qu'avec une s�rie d'objets connect�s, on aura souvent une application pour chacun des objets.
 
-![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
+![Sch�ma syst�me domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
 ## [apical\_lien\_interne]systeme\_domotique\_cle\_en\_main\_vs\_diy[/apical\_lien\_interne]
 
-Lorsque les données sont transmises dans l'infonuagique, attention aux [apical\_lien\_interne][systeme\_domotique\_cle\_en\_main\_vs\_diy,trous de sécurité,securite][/apical\_lien\_interne].
+Lorsque les donn�es sont transmises dans l'infonuagique, attention aux�[apical\_lien\_interne][systeme\_domotique\_cle\_en\_main\_vs\_diy,trous de s�curit�,securite][/apical\_lien\_interne].
 
 ## [apical\_lien\_interne]un\_raspberry\_pi\_comme\_unite\_centrale[/apical\_lien\_interne]
 
-Vous aurez besoin de :
+Vous aurez besoin de�:
 
 * Un Raspberry Pi 3 ou 4
 * Un bloc d'alimentation d'au moins 2.5A
 * Une carte micro SD (classe 10, min. 16 Go) - pour la phase de test (un disque dur est plus robuste qu'une carte micro SD)
-* Un boîtier
-* Un système d'exploitation
-* Possiblement un écran et un clavier
+* Un bo�tier
+* Un syst�me d'exploitation
+* Possiblement un �cran et un clavier
 
-![Mon boîtier Raspberry Pi en Lego](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/BoitierRaspberryPiLegos-1.png)
+![Mon bo�tier Raspberry Pi en Lego](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/BoitierRaspberryPiLegos-1.png)
 
 ## [apical\_lien\_interne]bien\_traiter\_son\_raspberry\_pi[/apical\_lien\_interne]
 
-Protéger le Pi avec un boîtier.
+Prot�ger le Pi avec un bo�tier.
 
-![Boîtiers](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-Boitiers.png)
+![Bo�tiers](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-Boitiers.png)
 
 Installer des dissipateurs thermiques.
 
@@ -55,23 +55,23 @@ Installer un ventilateur.
 
 Ne pas enrouler le fil du bloc d'alimentation.
 
-![Fil du bloc d'alimentation roulé sur lui-même](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-FilEnroule.png)
+![Fil du bloc d'alimentation roul� sur lui-m�me](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-FilEnroule.png)
 
 Attention quand il faut retirer la carte micro SD.
 
-![Compartiment de la carte micro SD brisé](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CompartimentCarteBrise.png)
+![Compartiment de la carte micro SD bris�](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-CompartimentCarteBrise.png)
 
-Arrêter le Pi de la bonne façon.
+Arr�ter le Pi de la bonne fa�on.
 
 ![sudo halt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-SudoHalt.png)
 
-![Éteindre Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EteindreDeFaconSecurisee.png)
+![�teindre Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EteindreDeFaconSecurisee.png)
 
 ## [apical\_lien\_interne]quelques\_logiciels\_de\_domotique\_interessants[/apical\_lien\_interne]
 
 Jeedom
 
-![Schéma installation Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/InstallationJeedom.png)
+![Sch�ma installation Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/InstallationJeedom.png)
 
 Home Assistant
 
@@ -79,37 +79,37 @@ Home Assistant
 
 ## [apical\_lien\_interne]ifttt[/apical\_lien\_interne]
 
-IFTTT signifie IF This, Then That.
+IFTTT signifie IF�This, Then That.
 
-Service Web gratuit qui permet d’automatiser des tâches pour des objets connectés Wi-Fi entre eux — par exemple un capteur de mouvement et une prise intelligente — ou entre les objets et des services Web — par exemple Gmail, Facebook, Google Assistant.
+Service Web gratuit qui permet d'automatiser des t�ches pour des objets connect�s Wi-Fi entre eux - par exemple un capteur de mouvement et une prise intelligente - ou entre les objets et des services Web - par exemple Gmail, Facebook, Google Assistant.
 
-Il peut être utililisé par-dessus une boîte domotique via une extension ou encore de façon autonome.
+Il peut �tre utililis� par-dessus une bo�te domotique via une extension ou encore de fa�on autonome.
 
-IFTTT fonctionne avec le principe d'un déclencheur (trigger), le this et d'une action, le that. Par exemple, le déclencheur pourrait être l'envoi d'un courriel dont le titre est « J'ai froid » et l'action serait de démarrer le chauffage.
+IFTTT fonctionne avec le principe d'un d�clencheur (trigger), le�this�et d'une action, le�that. Par exemple, le d�clencheur pourrait �tre l'envoi d'un courriel dont le titre est ��J'ai froid�� et l'action serait de d�marrer le chauffage.
 
 ## [apical\_lien\_interne]installation\_de\_jeedom\_et\_premier\_acces[/apical\_lien\_interne]
 
-Suivez bien les étapes!
+Suivez bien les �tapes!
 
-Je vous les résume ici.
+Je vous les r�sume ici.
 
-* Insérer la carte micro SD dans l'ordinateur.
-* Installer Raspberry Pi OS Lite sur la carte micro SD à l'aide de Raspberry Pi Imager. Prendre soin de configurer le nom et le mot de passe de l'usager Linux, le réseau sans fil et l'activation SSH.
+* Ins�rer la carte micro SD dans l'ordinateur.
+* Installer Raspberry Pi OS Lite sur la carte micro SD � l'aide de Raspberry Pi Imager. Prendre soin de configurer le nom et le mot de passe de l'usager Linux, le r�seau sans fil et l'activation SSH.
 * Je vous conseille d'attendre au prochain cours pour configurer l'adresse IP statique.
-* Insérer la carte micro SD dans le PI, brancher un écran au Pi puis démarrer.
-* Idéalement, brancher un câble réseau (plus stable que le Wi-Fi).
-* Vérifier l'accès au réseau.
+* Ins�rer la carte micro SD dans le PI, brancher un �cran au Pi puis d�marrer.
+* Id�alement, brancher un c�ble r�seau (plus stable que le Wi-Fi).
+* V�rifier l'acc�s au r�seau.
 
   Terminal du Raspberry Pi
 
   ping google.com
-* Mettre le système à jour (ceci pourrait être fait au prochain cours pour gagner un peu de temps).
+* Mettre le syst�me � jour (ceci pourrait �tre fait au prochain cours pour gagner un peu de temps).
 
   Terminal du Raspberry Pi
 
   sudo apt update  
   sudo apt upgrade
-* Vérifier l'adresse IP du Pi.
+* V�rifier l'adresse IP du Pi.
 
   Terminal du Raspberry Pi
 
@@ -119,95 +119,96 @@ Je vous les résume ici.
   Terminal du Raspberry Pi
 
   wget -O- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh | sudo bash
-* Redémarrez le Pi.
+* Red�marrez le Pi.
 
   Terminal du Raspberry Pi
 
   sudo reboot
-* Accéder à Jeedom à partir de l'ordinateur en entrant l'adreses IP dans un navigateur. L'ordinateur doit être connecté au réseau Domotique-Pedago si le Pi est configuré pour communiquer en Wi-Fi ou sur CEGEPVICTO si le Pi est câblé vers le commutateur dédié.
+* Acc�der � Jeedom � partir de l'ordinateur en entrant l'adreses IP dans un navigateur. L'ordinateur doit �tre connect� au r�seau Domotique-Pedago si le Pi est configur� pour communiquer en Wi-Fi ou sur CEGEPVICTO si le Pi est c�bl� vers le commutateur d�di�.
 
 ## [apical\_lien\_interne]copie\_de\_securite\_de\_jeedom[/apical\_lien\_interne]
 
-La sauvegarde permet de remettre rapidement Jeedom en état de marche si un problème survenait.
+La sauvegarde permet de remettre rapidement Jeedom en �tat de marche si un probl�me survenait.
 
-Pour lancer une sauvegarde manuelle, rendez-vous dans le menu Réglages / Système / Sauvegardes puis cliquez sur Lancer une sauvegarde.
+Pour lancer une sauvegarde manuelle, rendez-vous�dans le menu�R�glages�/�Syst�me�/�Sauvegardes�puis cliquez�sur�Lancer une sauvegarde.
 
-Il existe aussi un système de sauvegarde automatique mais ce n'est pas ce qui nous intéresse pour l'instant.
+Il existe aussi un syst�me de sauvegarde automatique mais ce n'est pas ce qui nous int�resse pour l'instant.
 
-Important : que ce soit une sauvegarde manuelle ou automatique, il faut la télécharger sur notre ordinateur pour pouvoir la réutiliser en cas de crash de Jeedom.
+Important : que ce soit une sauvegarde manuelle ou automatique, il faut la t�l�charger sur notre ordinateur pour pouvoir la r�utiliser en cas de crash de Jeedom.
 
-## 12.2 Qu'est-ce qu'un objet connecté ?
+## 12.2 Qu'est-ce qu'un objet connect� ?
 
-Un objet connecté, parfois appelé appareil connecté ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajouté des composantes qui lui permettent d'envoyer ou de recevoir des données au serveur auquel il est connecté.
+Un objet connect�, parfois appel� appareil connect� ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajout� des composantes qui lui permettent d'envoyer ou de recevoir des donn�es au serveur auquel il est connect�.
 
 C'est ainsi que les objets sont devenus intelligents.
 
-L'Office québécois de la langue française définit un objet connecté comme suit[1](http://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26544584) :
+L'Office qu�b�cois de la langue fran�aise d�finit un objet connect� comme suit[1](http://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26544584)�:
 
-> Objet qui est capable, outre sa fonction principale, d'envoyer ou de recevoir des informations par l'intermédiaire d'un réseau de télécommunication.
+> Objet qui est capable, outre sa fonction principale, d'envoyer ou de recevoir des informations par l'interm�diaire d'un r�seau de t�l�communication.
 
 ![Apple Watch](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/AppleWatch.png) ![Prise intelligente Wi-Fi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PriseIntelligenteWiFi.png) ![Penne dormant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PenneDormantIntelligent.png)
 
-## Objets connectés prêts-à-porter
+## Objets connect�s pr�ts-�-porter
 
-Les objets connectés prêts-à-porter (en anglais : wearables ou smartwear) forment un sous-ensemble des objets connectés. Il s'agit d'objets qu'une personne porte sur elle, par exemple une montre, une ceinture, des boucles d'oreille et même le tissus d'un vêtement, qui permettent de capter puis de transmettre des informations sur la condition physique de la personne.
+Les objets connect�s pr�ts-�-porter (en anglais�: wearables ou smartwear) forment un sous-ensemble des objets connect�s. Il s'agit d'objets qu'une personne porte sur elle, par exemple une montre, une ceinture, des boucles d'oreille et m�me le tissus d'un v�tement, qui permettent de capter puis de transmettre des informations sur la condition physique de la personne.
 
 ## Internet des objets
 
-Les objects connectés font partie d'une grande famille qu'on appelle Internet des Objets ou, en anglais, Internet of Things (IoT).
+Les objects connect�s font partie d'une grande famille qu'on appelle Internet des Objets ou, en anglais, Internet of Things (IoT).
 
-Voici une définition intéressante de l'Internet des Objets[2](https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html) :
+Voici une d�finition int�ressante de l'Internet des Objets[2](https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html)�:
 
 > The Internet-of-Things can be seen as the result of the interconnection via the Internet of computing devices embedded in everyday objects, enabling them to send and receive data. This paradigm-shift provoked a ripple effect transforming everyday objects into smart objects [...].
 
 ## Source
 
-1. « objet connecté ». Office québécois de la langue française. <http://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26544584>
+1. ��objet connect頻. Office qu�b�cois de la langue fran�aise. <http://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26544584>
 
-2. « Indoor Sensing Hub powered by Mozilla Things Framework ». João Pedro Dias. <https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html>
+2. ��Indoor Sensing Hub powered by Mozilla Things Framework��. Jo�o Pedro Dias. <https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html>
 
-## 12.3 Qu'est-ce qu'un système domotique ?
+## 12.3 Qu'est-ce qu'un syst�me domotique ?
 
-La domotique est un ensemble de composantes et de techniques qui permettent d'automatiser et de contrôler à distance différents systèmes dans une maison.
+La domotique est un ensemble de composantes et de techniques qui permettent d'automatiser et de contr�ler � distance diff�rents syst�mes dans une maison.
 
-Mais attention : un système domotique, c’est différent d’une série d’[apical\_lien\_interne][qu\_est-ce\_qu\_un\_objet\_connecte,objets connectés][/apical\_lien\_interne]. Avec un système domotique, on a un contrôle centralisé alors qu'avec une série d'objets connectés, on aura souvent une application pour chacun des objets.
+Mais attention�: un syst�me domotique, c'est diff�rent d'une s�rie d'[apical\_lien\_interne][qu\_est-ce\_qu\_un\_objet\_connecte,objets connect�s][/apical\_lien\_interne]. Avec un syst�me domotique, on a un contr�le centralis� alors qu'avec une s�rie d'objets connect�s, on aura souvent une application pour chacun des objets.
 
-## La boîte domotique (hub)
+## La bo�te domotique (hub)
 
-Pour qu'on parle de domotique il faut que le contrôle soit centralisé.
+Pour qu'on parle de domotique il faut que le contr�le soit centralis�.
 
-L'endroit où le contrôle centralisé s'opère s'appelle boîte domotique ou système de gestion domotique.
+L'endroit o� le contr�le centralis� s'op�re s'appelle bo�te domotique ou syst�me de gestion domotique.
 
-En France, les gens l'appellent box domotique. Et en anglais, on parle de hub, smart hub ou encore smart home hub.
+En France, les gens l'appellent�box domotique. Et en anglais, on parle de hub, smart hub ou encore smart home hub.
 
-La boîte domotique sera composée de :
+La bo�te domotique sera compos�e de :
 
-* Une unité centrale
+* Une unit� centrale
 * Un logiciel de domotique
 * Une passerelle (gateway)
 
-## Le système domotique
+## Le syst�me domotique
 
-Le système domotique complet comprendra :
+Le syst�me domotique complet comprendra�:
 
-* Une boîte domotique (unité centrale, logiciel de domotique et passerelle)
-* Des appareils connectés
-* Un ou plusieurs appareils pour contrôler le système à distance
+* Une bo�te domotique (unit� centrale, logiciel de domotique et passerelle)
+* Des appareils connect�s
+* Un ou plusieurs appareils pour contr�ler le syst�me � distance
 
-Différents protocoles de communication seront utilisés pour assurer la communication entre la boîte domotique et les appareils connectés.
+Diff�rents protocoles de communication seront utilis�s pour assurer la communication entre la bo�te domotique et les appareils connect�s.
 
-![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
+![Sch�ma syst�me domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
-## 12.4 Système domotique clé en main vs DIY
+## 12.4 Syst�me domotique cl� en main vs DIY
 
-De nombreux acteurs sur le marché offrent des solutions domotiques clé en main. Ces solutions sont généralement stables, efficaces et sécuritaires. Cependant, elles sont coûteuses à l'achat et plusieurs nécessitent par la suite des frais mensuels.
+De nombreux acteurs sur le march� offrent des solutions domotiques cl� en main. Ces solutions sont g�n�ralement stables, efficaces et s�curitaires. Cependant, elles sont co�teuses � l'achat et plusieurs n�cessitent par la suite des frais mensuels.
 
-Si vous êtes le moindrement [apical\_lien\_interne][pourquoi\_effectuer\_une\_veille\_technologique,geek,geek][/apical\_lien\_interne], vous aimerez certainement monter votre propre système domotique. Certains ne nécessitent aucune programmation, seulement de la configuration. D'autres doivent être programmés de toutes pièces alors qu'une troisième catégorie utilise des modules existants et vous permet d'y ajouter vos propres modules.
+Si vous �tes le moindrement�[apical\_lien\_interne][pourquoi\_effectuer\_une\_veille\_technologique,geek,geek][/apical\_lien\_interne], vous aimerez certainement monter votre propre syst�me domotique. Certains ne n�cessitent aucune programmation, seulement de la configuration. D'autres doivent �tre programm�s de toutes pi�ces alors qu'une troisi�me cat�gorie utilise des modules existants et vous permet d'y ajouter vos propres modules.
 
-Attention : lors du choix du logiciel de domotique à utiliser, vérifiez bien les frais encourus. Certains sont complètement libres (Open Source) alors que d'autres vous demanderont de sortir votre porte feuille, mais à moindre coût que pour une solution clé en main.
+Attention : lors du choix du logiciel de domotique � utiliser, v�rifiez bien les frais encourus. Certains sont compl�tement libres (Open Source) alors que d'autres vous demanderont de sortir votre porte feuille, mais � moindre co�t que pour une solution cl� en main.
 
-Dans tous les cas, vous devrez apporter une attention quasi maladive pour la sécurité de votre système afin de ne pas compromettre votre maison face aux personnes malveillantes. Saviez-vous que des images de caméras de surveillance dont le mot de passe n'avait pas été changé sur la plateforme Web [se sont retrouvées sur des sites pirates](https://ici.radio-canada.ca/nouvelle/1805366/webcam-camera-vie-privee-diffusion-iot)? Le fait qu'un objet connecté diffuse des informations dans l'infonuagique est certainement un facteur de risque à considérer.
+Dans tous les cas, vous devrez apporter une attention quasi maladive pour la s�curit� de votre syst�me afin de ne pas compromettre votre maison face aux personnes malveillantes. Saviez-vous que des images de cam�ras de surveillance dont le mot de passe n'avait pas �t� chang� sur la plateforme Web [se sont retrouv�es sur des sites pirates](https://ici.radio-canada.ca/nouvelle/1805366/webcam-camera-vie-privee-diffusion-iot)? Le fait qu'un objet connect� diffuse des informations dans l'infonuagique est certainement un facteur de risque � consid�rer.
 
-Quoi qu'il en soit, la domotique est un monde fascinant qui offre une infinité de possibilités.
+Quoi qu'il en soit, la domotique est un monde fascinant qui offre une infinit� de possibilit�s.
 
-Si la domotique vous interpelle, suivez-moi !
+Si la domotique vous interpelle, suivez-moi�!
+

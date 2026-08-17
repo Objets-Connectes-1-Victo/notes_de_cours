@@ -1,0 +1,1421 @@
+
+<!-- --- split --- -->
+
+# 66. Pour le prochain cours
+
+## 66.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+<!-- --- split --- -->
+
+# 67. Semaine de relÃ¢che!
+
+## 67.1 Au programme pendant la relÃ¢che
+
+![Dessin par Ãˆve Courtois](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DessinsEve-4.gif)Nous voici rendus Ã  la semaine de relÃ¢che.
+
+Vous n'avez aucune nouvelle thÃ©orie ni aucun nouvel exercice Ã  rÃ©aliser pendant cette semaine.
+
+Si vous avez accumulÃ© du retard, c'est l'occasion idÃ©ale de le rattraper.
+
+Si vous Ãªtes Ã  jour dans vos travaux, cette semaine est Ã  vous alors reposez-vous bien !
+
+<!-- --- split --- -->
+
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Semaine 8 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+<!-- --- split --- -->
+
+# 68. Le fichier configuration.yaml
+
+## 68.1 Le format YAML
+
+YAML est un format de reprÃ©sentation des donnÃ©es semblable Ã  XML ou JSON.
+
+Originalement, cet acronyme venait de Yet Another Markup Language. Ironiquement, il signifie maintenant YAml ain't Markup Language.
+
+Le format YAML ressemble Ã©normÃ©ment au JSON. En fait, YAML est un sur-ensemble de JSON.
+
+Alors que JSON est le champion comme format d'Ã©change de donnÃ©es, YAML est le prÃ©fÃ©rÃ© pour les fichiers de configuration.
+
+En effet, contrairement Ã  JSON, le format YAML permetÂ :
+
+* l'ajout de commentaires
+* les chaÃ®nes sur plusieurs lignes
+* une lecture plus facile puisqu'il utilise l'indentation plutÃ´t que les dÃ©limiteurs
+* la rÃ©fÃ©rence Ã  une autre section du mÃªme fichier Ã  l'aide d'ancres
+* etc.
+
+## Structure d'un fichier YAML
+
+Dans un fichier YAML, on retrouve une sÃ©rie de blocs de configuration.
+
+On donnera un nom Ã  chacun des blocs.
+
+Le nom d'un bloc doit respecter ces conditionsÂ :
+
+* ÃŠtre unique
+* Utiliser seulement des lettres minuscules, des chiffres et des barres de soulignement
+
+Dans un bloc, on peut retrouver des collections dans lesquelles chaque item dÃ©bute par un trait d'union.
+
+On peut Ã©galement retrouver des paires clÃ©-valeur au format cle: valeur.
+
+YAML
+
+nom\_du\_bloc:  
+Â  - item1: valeur1  
+Â  Â  autrecleitem1: autrevaleuritem1  
+Â  - item2: valeur2  
+Â  Â  autrecleitem2: autrevaleuritem2
+
+Il est possible d'imbriquer les collections et les paires clÃ©-valeur. L'indentation est la seule faÃ§on pour indiquer une imbrication.
+
+Les fichiers YAML doivent rÃ©pondre Ã  ces exigencesÂ :
+
+* utiliser des espaces (les tabulations ne fonctionnent pas)
+* dÃ©limiter le code Ã  l'aide d'indentations (gÃ©nÃ©ralement 2 ou 4 espaces pour une indentation)
+* la valeur boolÃ©enne vrai peut Ãªtre entrÃ©e avec une de ces valeurs : True, On, Yes
+* la valeur boolÃ©enne faux peut Ãªtre entrÃ©e avec une de ces valeurs: False, Off, No
+
+## Configuration sur plusieurs lignes
+
+Lorsqu'une configuration comporte plusieurs lignes, il faut utliser l'un de ces caractÃ¨resÂ :
+
+* | : signifie que les sauts de lignes sont importants dans ce qui suit
+* > : signifie que les sauts de lignes sont remplacÃ©s par des espaces. Autrement dit, la configuration pourrait Ãªtre entrÃ©e sur une seule ligne et donner le mÃªme rÃ©sultat.
+
+Dans les deux cas, on peut ajouter un trait d'union aprÃ¨s le caractÃ¨re afin d'indiquer qu'il faut enlever les sauts de ligne Ã  la fin de la chaÃ®ne.
+
+YAML
+
+value\_template: >-  
+Â  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
+Â  Â  Ouverte  
+Â  {% else %}  
+Â  Â  FermÃ©e  
+Â  {% endif %}
+
+## Quelques exemples
+
+Voici quelques exemples de fichiers de configuration YAML.
+
+### configuration.yaml
+
+Ce fichier est utilisÃ© par le logiciel domotique Home Assistant.
+
+Fichier configuration.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)  
+default\_config:
+
+ 
+
+# SMTP  
+notify:  
+Â  - name: courriel\_administrateur  
+Â  Â  platform: smtp  
+Â  Â  sender: homeassistant@mondomaine.com  
+Â  Â  server: mail.mondomaine.com  
+Â  Â Â timeout: 15  
+Â  Â  port: 587  
+Â  Â  encryption:Â starttls  
+Â  Â  username: homeassistant@mondomaine.com  
+Â  Â  password: mot\_de\_passse\_en\_clair  
+Â  Â  sender\_name: Home Assistant  
+Â  Â  recipient: destinataire@sondomaine.com  
+   
+# Text to speech  
+tts:  
+Â  - platform: google\_translate
+
+ 
+
+group: !include groups.yaml  
+automation: !include automations.yaml  
+script: !include scripts.yaml  
+scene: !include scenes.yaml
+
+### Homestead.yaml
+
+Ce fichier est utilisÃ© par les dÃ©veloppeurs Laravel pour configurer leur environnement Homestead.
+
+Fichier Homestead.yaml
+
+---  
+ip: "192.168.10.10"  
+memory: 2048  
+cpus: 1  
+provider: virtualbox
+
+ 
+
+authorize: ~/.ssh/id\_rsa.pub
+
+ 
+
+backup: true
+
+ 
+
+keys:  
+Â  Â  - ~/.ssh/id\_rsa
+
+ 
+
+folders:  
+Â  Â  - map: ~/Documents/CodeLaravel  
+Â  Â  Â  to: /home/vagrant/code
+
+ 
+
+sites:  
+Â  Â  - map: monsite.test  
+Â  Â  Â  to: /home/vagrant/code/monsite/public  
+Â  Â  Â  php : "7.4"  
+Â  Â  - map: autresite.test  
+Â  Â  Â  to: /home/vagrant/code/autresite/public  
+   
+databases:  
+Â  Â  - homestead
+
+## Pour plus d'information
+
+Â«Â YAMLÂ Â». WikipÃ©dia. <https://fr.wikipedia.org/wiki/YAML>
+
+Â«Â YAMLÂ Â». yaml.org. <https://yaml.org/>
+
+Â«Â Why JSON isn't a good configuration languageÂ Â». Lucidchart. <https://www.lucidchart.com/techblog/2018/07/16/why-json-isnt-a-good-configuration-language/>
+
+Â«Â YAML idiosyncrasiesÂ Â». SaltStack. <https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html>
+
+Â«Â YAML Style GuideÂ Â». Home Assistant. <https://developers.home-assistant.io/docs/documenting/yaml-style-guide/>
+
+Â«Â YAML MultilineÂ Â». YAML Multiline. <https://yaml-multiline.info/>
+
+Â«Â YAML Ainâ€™t Markup Language (YAMLâ„¢) version 1.2Â - ScalarsÂ Â». yaml.org. <https://yaml.org/spec/1.2.2/#23-scalars>
+
+## 68.2 Travailler avec le module complÃ©mentaire File editor
+
+Il existe quelques modules complÃ©mentaires qui permettent d'Ã©diter des fichiers Ã  partir de l'interface graphique de Home Assistant.
+
+Parmi ceux-ci, notons File Editor et [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne].
+
+Je vous montre ici comment installer File Editor.
+
+## Avantages de File Editor
+
+* TrÃ¨s rapide Ã  charger
+
+## InconvÃ©nients
+
+* Comme tout autre Ã©diteur disponible Ã  partir de l'interface Web de Home Assistant, File Editor ne peut Ã©diteur que les fichiers du dossier config (sous HassoSÂ : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
+* Ne fonctionne pas s'il n'y a pas accÃ¨s Ã  Internet (Home Assistant pourrait Ãªtre utilisÃ© avec un Intranet seulement)
+
+## Installation
+
+Pour l'installer, rendez-vous dans le menu ParamÃ¨tres / Modules complÃ©mentairesÂ puis cliquez sur Boutique des modules complÃ©mentaires au bas de l'Ã©cran.
+
+Dans la zone de recherche, tapez File editor.
+
+![Extension File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditorAddOn.png)
+
+Cliquez sur la tuile du module complÃ©mentaire puis, dans l'Ã©cran suivant, cliquez sur Installer.
+
+Une fois le module installÃ©, cliquez sur DÃ©marrer.
+
+Le module complÃ©mentaire est prÃªt Ã  Ãªtre utilisÃ©. Vous pourrez revenir Ã  cet Ã©cran Ã  tout moment Ã  partir de l'option de menu ParamÃ¨tres / Modules complÃ©mentaires / Clic sur la tuile File editor.
+
+Pour un accÃ¨s plus rapide, vous pouvez activer l'optionÂ Ajouter Ã  la barre latÃ©rale.
+
+## Ã‰dition d'un fichier
+
+Pour Ã©diter un fichier, cliquez sur Ouvrir l'interface utilisateur Web dans le coin infÃ©rieur droit.
+
+![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-OpenWebUI.png)
+
+Vous avez maintenant atteint l'Ã©cran qui permet d'ouvrir le fichier de votre choix Ã  l'aide de l'icÃ´ne de chemise, Ã  gauche de la barre bleue.
+
+![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Interface.png)
+
+Note : pour afficher les fichiers du dossier .storage dans File EditorÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tres / Modules complÃ©mentaires / Tuile File editor / onglet Configuration.
+* Au-dessus de la zone Ignore Pattern, enlever .storage.
+
+[apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,Dans une prochaine fiche][/apical\_lien\_interne], je vous explique comment utiliser File editor pour Ã©diter le fichier configuration.yaml.
+
+## 68.3 Travailler avec le module complÃ©mentaire Studio Code Server
+
+Il existe quelques modules complÃ©mentaires qui permettent d'Ã©diter des fichiers Ã  partir de l'interface graphique de Home Assistant.
+
+Parmi ceux-ci, notons [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,File Editor][/apical\_lien\_interne] et Studio Code Server.
+
+Je vous montre ici comment installer Studio Code Server.
+
+## Avantages de Studio Code Server
+
+* Fonctionne mÃªme s'il n'y a pas accÃ¨s Ã  Internet (Home Assistant pourrait Ãªtre utilisÃ© avec un Intranet seulement)
+* Coloration syntaxique
+* TrÃ¨s configurable
+
+## InconvÃ©nients
+
+* Lent Ã  charger
+* Comme tout autre Ã©diteur disponible Ã  partir de l'interface Web de Home ASsistant, Studio Code Server ne peut Ã©diteur que les fichiers du dossier config (sous HassoSÂ : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
+
+## Installation
+
+Pour l'installer, rendez-vous dans le menu ParamÃ¨tres / Modules complÃ©mentaires puis cliquez sur Boutique des modules complÃ©mentaires au bas de l'Ã©cran.
+
+Dans la zone de recherche, tapez Studio Code Server.
+
+![Module complÃ©mentaire Studio Code Server](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RechercheModuleComplementaireStudioCodeServer.png)
+
+Cliquez sur la tuile du module complÃ©mentaire trouvÃ© puis, dans l'Ã©cran suivant, cliquez sur Installer.
+
+![Installer Studio Code Server](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InstallerStudioCodeServer.png)
+
+Une fois le module installÃ©, cliquez sur DÃ©marrer.
+
+Le module complÃ©mentaire est prÃªt Ã  Ãªtre utilisÃ©. Vous pourrez revenir Ã  cet Ã©cran Ã  tout moment Ã  partir de l'option de menu ParamÃ¨tres / Modules complÃ©mentaires / Clic sur la tuile Studio Code Server.
+
+## Ã‰dition d'un fichier
+
+Pour Ã©diter un fichier, cliquez sur Ouvrir l'interface utilisateur Web dans le coin infÃ©rieur droit.
+
+![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-OpenWebUI.png)
+
+Vous avez maintenant atteint l'Ã©cran qui permet d'ouvrir le fichier de votre choix Ã  partir de la zone Explorer.
+
+![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-Interface.png)
+
+Par dÃ©faut, le module ne prÃ©sente pas de barre de menu. Pour la faire apparaÃ®tre, cliquez sur l'icÃ´ne Customize Layout puis choisissez Menu Bar.
+
+![Customize Layout](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-IconeCustomizeLayout.png)
+
+## 68.4 Ã‰diter le fichier configuration.yaml
+
+Le fichier configuration.yaml permet d'effectuer une foule de configurations dans Home Assistant.
+
+Physiquement, il est placÃ© dans le dossier /mnt/data/supervisor/homeassistant/configuration.yaml. Mais il est plus simple de travailler dans l'interface Web pour y accÃ©der.
+
+Pour l'Ã©diter,Â [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,ouvrez l'extension File editor][/apical\_lien\_interne] ou [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne].
+
+Cette dÃ©monstration est rÃ©alisÃ©e Ã  l'aide de File editor.
+
+Cliquez sur l'icÃ´ne de chemise Ã  gauche de la barre bleue.
+
+![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Interface.png)
+
+Par dÃ©faut, l'extension prÃ©sente les fichiers du dossierÂ /mnt/data/supervisor/homeassistant ([apical\_lien\_interne][dossier\_config,aussi appelÃ© dossier config][/apical\_lien\_interne]). C'est justement lÃ  que se trouve notre fichier.
+
+Cliquez sur le fichierÂ configuration.yaml.
+
+![Liste de fichiers](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-OuvrirFichier.png)
+
+Voici le contenu initial de ce fichier.
+
+Fichier configuration.yaml
+
+# Loads default set of integrations. Do not remove.  
+default\_config:
+
+ 
+
+# Load frontend themes from the themes folder  
+frontend:  
+Â  themes: !include\_dir\_merge\_named themes
+
+ 
+
+automation: !include automations.yaml  
+script: !include scripts.yaml  
+scene: !include scenes.yaml
+
+## Chargement des configurations par dÃ©faut
+
+La toute premiÃ¨re ligne du fichier, default\_config:, permet de charger [les configurations par dÃ©faut de Home Assistant](https://www.home-assistant.io/integrations/default_config/).
+
+## Chargement d'autres fichiers YAML
+
+Afin de ne pas surcharger le fichier configuration.yaml, il est possible d'Ã©crire des configurations dans d'autres fichiers YAML et de les inclure ici.
+
+C'est ce qui est fait par dÃ©faut avec les fichiers automations.yaml, scripts.yaml et scenes.yaml.
+
+## Ajout de configurations
+
+Il est possible d'ajouter des instructions dans le fichier configuration.yaml, notamment pourÂ :
+
+* ajouter des capteurs [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,virtuels][/apical\_lien\_interne]
+* effectuer des configurations pour pouvoir [apical\_lien\_interne][configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel,envoyer du courriel][/apical\_lien\_interne]
+* effectuer des configurationsÂ  pourÂ [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,s'abonner Ã  un canal MQTT,abonnement][/apical\_lien\_interne]
+* etc.
+
+Chacune des configurations doit Ãªtre placÃ©e dans une section avec unÂ nom unique.
+
+Voici, par exemple, comment ajouter un capteur virtuel qui simule une porte pouvant Ãªtre ouverte ou fermÃ©e.
+
+Le code peut Ãªtre ajoutÃ© Ã  diffÃ©rents endroits dans le fichier. J'ai choisi ici de l'ajouter au bas des instructions existantes.
+
+Fichier configuration.yaml
+
+input\_boolean:  
+Â  porte\_virtuelle:  
+Â  Â  name: Porte virtuelle  
+Â  Â  icon: mdi:door
+
+Puisque le nom de la section doit Ãªtre unique, ceci n'est pas valideÂ :
+
+Fichier configuration.yaml
+
+input\_boolean:  
+Â  porte\_virtuelle:  
+Â  Â  name: Porte virtuelle  
+Â  Â  icon: mdi:door  
+input\_boolean:  
+Â  ventilateur\_virtuel:  
+Â  Â  name: Ventilateur virtuel  
+Â  Â  icon: mdi:fan
+
+Lorsque plusieurs configurations doivent faire partie d'une mÃªme section, il faut plutÃ´t faire ceciÂ :
+
+Fichier configuration.yaml
+
+input\_boolean:  
+Â  porte\_virtuelle:  
+Â  Â  name: Porte virtuelle  
+Â  Â  icon: mdi:door  
+Â  ventilateur\_virtuel:  
+Â  Â  name: Ventilateur virtuel  
+Â  Â  icon: mdi:fan
+
+N'oubliez pas d'enregistrer vos modifications en cliquant sur l'icÃ´ne de disquette dans le haut de l'Ã©cran ou en appuyant sur Ctrl+S (Windows) ou âŒ˜ Cmd+S (macOS).
+
+La couleur rouge indique que les modifications n'ont pas Ã©tÃ© enregistrÃ©es.
+
+![IcÃ´ne Enregistrer](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Save.png)
+
+## VÃ©rification des configurations
+
+Avant de poursuivre, il est important de vÃ©rifier votre travail.
+
+Suivez les conseils Â«Â [apical\_lien\_interne]validation\_des\_configurations[/apical\_lien\_interne]Â Â» pour vous assurer que vos configurations sont valides.
+
+## Pour que les configurations soient prises en compte
+
+La plupart des modifications au fichier de configuration nÃ©cessiteront un rechargement des configurationsÂ : Outils de dÃ©veloppement / onglet YAML / Section Rechargement de la configuration YAML.
+
+![Rechargement de la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RechargementDeLaConfiguration.png)
+
+Parfois, un redÃ©marrage de Home Assistant sera nÃ©cessaire : ParamÃ¨tres / SystÃ¨me / Clic sur l'icÃ´ne de dÃ©marrage dans le haut de l'Ã©cran /Â RedÃ©marrer Home Assistant.
+
+## Pour plus d'information
+
+Â«Â Advanced ConfigurationÂ Â». Home Assistant. <https://www.home-assistant.io/getting-started/configuration/>
+
+Â«Â Default ConfigÂ Â». Home Asssistant. <https://www.home-assistant.io/integrations/default_config/>
+
+Â«Â Troubleshooting your configurationÂ Â». Home Assistant. <https://www.home-assistant.io/docs/configuration/troubleshooting/#problems-with-the-configuration>
+
+Â«Â Home Assistant configuration YAML (The beginners guide)Â Â». Siytek. <https://siytek.com/home-assistant-configuration-yaml-beginners-guide/>
+
+## 68.5 Validation des configurations
+
+Une fois vos configurations en place [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,dans le fichier configuration.yaml][/apical\_lien\_interne], il faut s'assurer que le tout soit valide avant de poursuivre.
+
+Si vous essayez un redÃ©marrage alors que le fichier de configuration n'est pas valide, Home Assistant ne le permettra pas.
+
+Dans cette impression d'Ã©cran, on voit qu'il manque le symbole deux-points (:) Ã  la ligne 12.
+
+![Ã‰chec du redÃ©marrage de Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EchecRedemarrageConfigurationNonValide.png)
+
+## Interface graphique - bouton de validation
+
+Il est possible de valider la configuration Ã  tout moment Ã  partir de l'interface graphique de Home Assistant.
+
+Rendez-vous dans le menu Outils de dÃ©veloppement / YAMLÂ puis cliquez sur le bouton VÃ©rifier la configuration.
+
+![Validation de la configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ValidationDeLaConfiguration.png)
+
+Si les configurations sont valides, vous verrez apparaÃ®tre le message Â«Â La configuration n'empÃªchera pas Home Assistant de redÃ©marrer!Â Â».
+
+![Configuration valide](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurationValide.png)
+
+S'il y a des erreurs, vous verrez plutÃ´t les mots Â«Â Configuration non valide! Â» avec une explication de l'erreur.
+
+![Erreurs de configuration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ErreurConfigurationSousBouton.png)
+
+## Interface graphique - lors du dÃ©marrage
+
+Home Assistant vÃ©rifie automatiquement la validitÃ© des configuration quand le systÃ¨me dÃ©marre.
+
+S'il trouve des erreurs, il ajoute une pastille Ã  cÃ´tÃ© du menu Notifications.
+
+![Pastille de notification](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ErreurConfiguration-1.png)
+
+Un clic sur cette pastille nous confirme que la notification concerne une erreur de configuration.
+
+![Notification configuration invalide](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ErreurConfiguration-2.png)
+
+## Console Home Assistant
+
+Le fichier de configurations peut Ã©galement Ãªtre validÃ© [apical\_lien\_interne][la\_console\_home\_assistant,Ã  la console Home Assistant][/apical\_lien\_interne].
+
+Entrez la commande suivante :
+
+Terminal HassOS
+
+ha core check
+
+Si les configurations sont valides, vous obtiendrez le message Â«Â Command completed successfullyÂ Â».
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha core check  
+Processing... Done.
+
+ 
+
+Command completed successfully.
+
+En cas d'erreur, vous obtiendrez plutÃ´t un message d'erreur.
+
+RÃ©sultat Ã  l'Ã©cran
+
+# ha core check  
+Processing... Done.
+
+ 
+
+Error: Testing configuration at /config  
+  
+ERROR:annotatedyaml.loader:while scanning a simple key  
+ in "/config/configuration.yaml", line 12, column 1  
+could not find expected ':'  
+ in "/config/configuration.yaml", line 13, column 18  
+Fatal error while loading config: while scanning a simple key  
+ in "/config/configuration.yaml", line 12, column 1  
+could not find expected ':'  
+ in "/config/configuration.yaml", line 13, column 18  
+Failed config  
+ General Errors:   
+ - while scanning a simple key  
+ in "/config/configuration.yaml", line 12, column 1  
+could not find expected ':'  
+ in "/config/configuration.yaml", line 13, column 18
+
+ 
+
+Successful config (partial)
+
+## Validateur YAML
+
+Les validateurs YAML permettent d'effectuer l'analyse syntaxique (parse) de votre code YAML afin de vous aider Ã  trouver ce qui ne va pas.
+
+Il en existe plusieurs, par exempleÂ :
+
+* <http://yaml-online-parser.appspot.com/>
+* <https://codebeautify.org/yaml-validator>
+* <http://www.yamllint.com/>
+
+Ces validateurs se concentrent sur la syntaxe YAML mais ils ne sont pas en mesure de vÃ©rifier si les configurations sont conformes Ã  ce que Home Assistant s'attend.
+
+<!-- --- split --- -->
+
+# 69. Les icÃ´nes
+
+## 69.1 IcÃ´nes Material Design dans Home Assistant
+
+Home Assistant permet d'associer une icÃ´ne Ã  diffÃ©rentes entitÃ©s.
+
+Il utilise pour celÃ  la bibliothÃ¨que Material Design.
+
+Parfois, il est possible de sÃ©lectionner l'icÃ´ne directement dans l'interface utilisateur. D'autres fois, il faut connaÃ®tre le nom de l'iccÃ´ne.
+
+Dans tous les cas, il est possible d'utiliser un site Web pour faciliter la recherche d'icÃ´nes.
+
+Les icÃ´nes Material Design sont listÃ©s sur ces sitesÂ :
+
+* <https://pictogrammers.com/library/mdi/>
+* <https://pictogrammers.github.io/@mdi/font/7.4.47/> (vous pouvez modifier la version de la bibliothÃ¨que dans l'URL)
+
+Si le site prÃ©sente les icÃ´nes avec un nom qui dÃ©bute par mdi-, il suffit de modifier dans son nom mdi- par mdi: pour que Home Assistant la reconnaisse.
+
+Sinon, il faut ajouter mdi: devant le nom.
+
+![IcÃ´nes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Icon-1.png)
+
+![IcÃ´nes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Icon-2.png)
+
+![IcÃ´nes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Icon-3.png)
+
+<!-- --- split --- -->
+
+# 70. Les capteurs virtuels
+
+## 70.1 Configurer un capteur virtuel
+
+Vous souhaitez faire des tests dans Home Assistant sans devoir vous procurer un capteur ou un rÃ©cepteur rÃ©el?
+
+Vous dÃ©sirez tester une automatisation basÃ©e sur la prÃ©sence et vous ne souhaitez pas devoir courir loin de la maison pour chacun de vos tests?
+
+Ou encore, vous dÃ©sirez tester une automatisation basÃ©e sur la tempÃ©rature et vous ne souhaitez pas devoir attendre l'hiver pour la tester?
+
+Les capteurs virtuels vous permettront de faire vos tests facilement.
+
+Les capteurs virtuels permettent Ã©galement d'Ã©tendre les fonctionnalitÃ©s de Home Assistant, par exempleÂ [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_l\_heure,crÃ©er une automatisation qui tient compte de l'heure][/apical\_lien\_interne].
+
+Il est possible de crÃ©er un capteur virtuel Ã  l'aide de l'interface graphique ou Ã  l'aide du fichier configuration.yaml.
+
+Peu importe la technique utilisÃ©e, les capteurs virtuels seront enregistrÃ©s avec les autres entitÃ©s dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry.
+
+## CrÃ©ation d'un capteur virtuel Ã  l'aide de l'interface graphique
+
+Les capteurs virtuels peuvent Ãªtre crÃ©Ã©s Ã  l'aide de l'interface graphique de Home Assistant.
+
+En plus du fichier core.entity\_registry, les capteurs ajoutÃ©s via l'interface graphique seront enregistrÃ©s dans le dossier /mnt/data/supervisor/homeassistant/.storage, dans un fichier qui porte le nom du type de capteur virtuel (input\_boolean, input\_datetime, input\_number, etc.).
+
+Pour crÃ©er un capteur virtuel Ã  l'aide de l'interface graphiqueÂ :
+
+* ParamÃ¨tres / Appareils et services / OngletÂ EntrÃ©es (en anglais, ce sera Helpers) / CrÃ©er une entrÃ©e.
+* SÃ©lectionnez le type dÃ©sirÃ© (faites dÃ©filer les options au besoin).
+
+  Un des types trÃ¨s utilisÃ©s est l'interrupteur, qui correspond au input\_boolean. Ceci crÃ©e un virtuel qui peut avoir deux Ã©tats, par exemple allumÃ©/Ã©teint, ouvert/fermÃ©, levÃ©/baissÃ©, etc.
+
+  ![Ajouter une entrÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUneEntree.png)
+* Le capteur apparaÃ®tra comme suit dans la page AperÃ§u et on pourra changer son Ã©tat afin de faire rÃ©agir les automatisations qui l'utilisent.
+
+  ![Porte virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PorteVirtuelleDansApercu.png)
+
+## CrÃ©ation d'un capteur virtuel Ã  l'aide du fichierÂ configuration.yaml
+
+Vous pouvez Ã©galement crÃ©er vos capteurs virtuels en entrant directement des lignes de code dans [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,le fichier configuration.yaml][/apical\_lien\_interne].
+
+Cette technique vous offre plus d'options.
+
+Notez que seul les capteurs virtuels crÃ©Ã©s par code apparaÃ®tront dans ce fichier. Ceux crÃ©Ã©s Ã  l'aide de l'interface graphique n'y apparaÃ®tront pas.
+
+Fichier configuration.yaml
+
+# Capteurs virtuels  
+input\_boolean:  
+Â  porte\_virtuelle:  
+Â  Â  name: Porte virtuelle  
+Â  Â  icon: mdi:door
+
+Comme pour toute modification directement dans le fichier de configuration, unÂ [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,rechargement,rechargement][/apical\_lien\_interne] sera nÃ©cessaire pour que ce capteur virtuel soit visible dans la page AperÃ§u.
+
+### PropriÃ©tÃ©s des capteurs virtuels
+
+Pour chaque capteur, on spÃ©cifieÂ :
+
+* son typeÂ :
+  + [input\_boolean](https://www.home-assistant.io/integrations/input_boolean/)
+  + [input\_select](https://www.home-assistant.io/integrations/input_select/)
+  + [input\_datetime](https://www.home-assistant.io/integrations/input_datetime/)
+  + [input\_number](https://www.home-assistant.io/integrations/input_number/)
+  + [input\_text](https://www.home-assistant.io/integrations/input_text/)
+* son identifiant (unique, composÃ© uniquement de lettres minuscules, de chiffres et de barres de soulignement)
+* son nom tel qu'il apparaÃ®tra dans AperÃ§u
+* sa valeur initiale au dÃ©marrage de Home Assistant (note : les input\_boolean utilisent on et off)
+* son icÃ´ne, choisie dans [apical\_lien\_interne][icones\_material\_design\_dans\_home\_assistant,la bibliothÃ¨que Material Design][/apical\_lien\_interne]
+* autres configurations propres au type de capteur virtuel (exÂ : liste des options disponibles pour input\_select)
+
+Il est possible de dÃ©finir plusieurs capteurs virtuels du mÃªme type en les plaÃ§ant dans le mÃªme bloc.
+
+Fichier configuration.yaml
+
+# Capteurs virtuels  
+input\_boolean:  
+Â  porte\_virtuelle:  
+Â  Â  name: Porte virtuelle  
+Â  Â  icon: mdi:door  
+Â  presence\_maman:  
+Â  Â  name: PrÃ©sence de maman  
+Â  Â  icon: mdi:face-profile-woman  
+  
+input\_number:  
+Â  temperature\_virtuelle:  
+Â  Â  name: TempÃ©rature virtuelle  
+Â  Â  initial: 20  
+Â  Â  min: -35  
+Â  Â  max: 35  
+Â  Â  step: 1  
+Â  Â  icon: mdi:thermometer
+
+<!-- --- split --- -->
+
+# 71. Les tableaux de bord
+
+## 71.1 CrÃ©er un tableau de bord personnalisÃ©
+
+Par dÃ©faut, dans Home Assistant, un tableau de bord est disponible dans le menu AperÃ§u et il contient absolument tout ce qui est ajoutÃ© Ã  Home Assistant.
+
+Ceci mÃ¨ne souvent Ã  un tableau de bord plutÃ´t encombrÃ©.
+
+Il est possible de modifier le tableau de bord original ou encore de crÃ©er des tableaux de bord supplÃ©mentaires.
+
+Les informations sur un tableau de bord sont stockÃ©es dans un fichier dont le nom est au format /mnt/data/supervisor/homeassistant/.storage/lovelace.dashboard\_nom\_du\_tableau ou, selon votre version de Home Assistant, /mnt/data/supervisor/homeassistant/.storage/lovelace.nom\_du\_tableau.
+
+Le nom de ce fichier vient du fait qu'auparavant, l'outil d'Ã©dition des tableaux de bord de Home Assistant s'appelait Lovelace.
+
+Attention : il est prÃ©fÃ©rable de ne pas modifier le tableau de bord original (celui nommÃ© AperÃ§u).  
+En effet, si vous le modifiez ou si vous y ajoutez d'autres onglets, Home Assistant n'y ajoutera plus automatiquement les entitÃ©s crÃ©Ã©es par aprÃ¨s.
+
+Si vous avez modifiÃ© le tableau de bord AperÃ§u,Â [apical\_lien\_interne][reinitialiser\_le\_tableau\_de\_bord\_apercu,il est possible de le rÃ©initialiser][/apical\_lien\_interne] afin que Home Assistant recommence Ã  le gÃ©rer automatiquement.
+
+Prenez note que les fonctionnalitÃ©s du tableau de bord ont beacoup Ã©voluÃ© depuis quelques annÃ©es. Soyez prudents lorsque vous recherchez des informations sur le Web ou Ã  l'aide d'un outil d'intelligence artificielle. Les informations trouvÃ©es pourraient ne plus Ãªtre exactes.
+
+Pour crÃ©er un nouveau tableau de bordÂ :
+
+* Cliquez sur le menu ParamÃ¨tres / Tableaux de bord.
+* Cliquez sur le bouton Ajouter un tableau de bord dans le coin infÃ©rieur droit.
+* SÃ©lectionnez le type de tableau de bord. Je vais ici faire la dÃ©monstration avec un nouveau tableau de bord vide.
+
+  ![Nouveau tableau de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CreerUnTableauDeBord.png)
+* Remplissez les informations demandÃ©es.
+
+  ![Nouveau tableau de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CreerUnTableauDeBord-2.png)
+* Le tableau de bord apparaÃ®t dÃ©sormais dans la liste des tableaux de bord. Cliquez sur Ouvrir Ã  droite de la ligne de votre nouveau tableau de bord.
+
+  ![Liste des tableaux de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ListeTableauxDeBord.png)
+* Cliquez sur le crayon dans le coin supÃ©rieur droit. La barre supÃ©rieure de l'Ã©cran est maintenant grise pour indiquer que le tableau de bord est en Ã©dition.
+
+  ![Ã‰dition](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TableauDeBordEnEdition.png)
+* Pour ajouter des cartes au tableau de bord, vous devez d'abord ajouter une section. Cliquez dans la grande zone pointillÃ©e au centre de l'Ã©cran.
+
+  ![Nouvelle section](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvelleSection.png)
+* Renommez la section. Si vous n'avez pas d'inspiration, un nom gÃ©nÃ©rique tel que Mes cartes fera l'affaire.
+* Ajoutez maintenant une carte en cliquant sur le + dans la zone pointillÃ©e.
+* L'Ã©cran vous prÃ©sente une sÃ©rie de cartes parmi lesquelles vous devez choisir.
+
+  ![Cartes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUneCarte.png)
+* Voici quelques combinaisons intÃ©ressantesÂ :
+  + La carte EntitÃ© permet d'afficher la valeur d'une entitÃ© rÃ©elle ou virtuelle. Si l'entitÃ© le permet, un clic sur la carte permettra de modifier la valeur de l'entitÃ©.
+
+    ![Carte entitÃ©](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-CarteEntite.png)
+  + La carte Bouton associÃ©e Ã  une prise intelligente (ou autre rÃ©cepteur) : vous pourrez changer l'Ã©tat du rÃ©cepteur en cliquant dessus.
+
+    ![Bouton pour prise intelligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Bouton.png)
+
+    La carte Bouton permet Ã©galement d'effecteur d'autres opÃ©rations, par exemple appeler un service (exÃ©cuter une action) ou encore [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,lancer une automatisation][/apical\_lien\_interne].
+  + La carte Capteur associÃ©e Ã  un capteur
+
+    ![Sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Sensor.png)
+  + La carte Jauge associÃ©e Ã  un capteur
+
+    ![Jauge](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Jauge.png)
+  + La carte PrÃ©vision mÃ©tÃ©o associÃ©e Ã  l'outil MÃ©tÃ©o installÃ© par dÃ©faut dans Home Assistant
+
+    ![MÃ©tÃ©o](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Meteo.png)
+  + La carte Carte associÃ©e Ã  tous les tÃ©lÃ©phones cellulaires que vous suivez
+
+    ![Carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Carte.png)
+  + Les cartes Markdown permettent d'inscrire un texte et de le formater Ã  l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,des modÃ¨les][/apical\_lien\_interne].
+
+    Pour plus d'information sur ce type de carte, consultez la fiche Â«Â [apical\_lien\_interne]les\_cartes\_de\_type\_markdown[/apical\_lien\_interne]Â Â».
+
+    ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
+  + Les cartes ConditionnelleÂ et Filtre d'entitÃ©Â pourront afficher des informations conditionnellement Ã  certains Ã©tats.
+  + Les cartes Pile horizontale, Pile verticale et Grille servent Ã  gÃ©rer la mise en forme du tableau de bord.
+  + etc.
+
+Dans l'Ã©cran avec la barre supÃ©rieure grise, vous pouvez cliquer sur les trois points verticaux et choisir Ã‰diteur de configuration afin de voir le code YAML associÃ© Ã  l'ensemble de vos tableaux de bord.
+
+Fichier /mnt/data/supervisor/homeassistant/.storage/lovelace (YAML)
+
+views:  
+Â  - title: Home  
+Â  Â  sections:  
+Â  Â  - type: grid  
+Â  Â  Â  cards:  
+Â  Â  Â  - type: heading  
+Â  Â  Â  Â  heading\_style: title  
+ Â  Â  Â  Â  heading: Mes cartes  
+Â  Â  Â  - type: entity  
+ Â  Â  Â  Â  entity: input\_number.temperature\_virtuelle  
+Â  Â  Â  - show\_name: true  
+ Â  Â  Â  Â  show\_icon: true  
+ Â  Â  Â  Â  type: button  
+ Â  Â  Â  Â  entity: light.plug\_in\_dimmer  
+Â  Â  Â  - type: sensor  
+ Â  Â  Â  Â  entity: sensor.capteur\_5\_en\_1\_air\_temperature  
+ Â  Â  Â  Â  graph: line  
+Â  Â  Â  - type: gauge  
+ Â  Â  Â  Â  entity: sensor.capteur\_5\_en\_1\_illuminance  
+Â  Â  Â  - show\_current: true  
+ Â  Â  Â  Â  show\_forecast: true  
+ Â  Â  Â  Â  type: weather-forecast  
+ Â  Â  Â  Â  entity: weather.forecast\_maison  
+ Â  Â  Â  Â  forecast\_type: daily  
+ Â  Â  Â  - type: map  
+ Â  Â  Â  Â  entities:  
+Â  Â  Â  Â  Â  Â - entity: person.christiane  
+Â  Â  Â  Â  Â  Â - entity: device\_tracker.justin  
+Â  Â  Â  Â  Â  Â - entity: zone.home  
+Â  Â  Â  Â  Â  Â - entity: zone.cegep  
+Â  Â  Â  Â  Â  Â - entity: person.yves  
+ Â  Â  Â  Â  theme\_mode: auto  
+ Â  Â  Â  - type: markdown  
+ Â  Â  Â  Â  content: |-  
+Â  Â  Â  Â  Â  Â {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}   
+Â  Â  Â  Â  Â  Â Porte virtuelle ouverte  
+Â  Â  Â  Â  Â  Â {% else %}  
+Â  Â  Â  Â  Â  Â Porte virtuelle fermÃ©e  
+Â  Â  Â  Â  Â  Â {% endif %}
+
+## 71.2 RÃ©initialiser le tableau de bord AperÃ§u
+
+Il est prÃ©fÃ©rable deÂ [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,crÃ©er un tableau de bord personnalisÃ©][/apical\_lien\_interne] plutÃ´t que de modifier le tableau de bord AperÃ§u.
+
+En effet, le tableau de bord AperÃ§u est gÃ©rÃ© par Home Assistant. DÃ¨s que vous en prenez le contrÃ´le, mÃªme si vous ne faites qu'ajouter un onglet, Home Assistant n'y ajoutera plus les nouvelles entitÃ©s crÃ©Ã©es.
+
+Home Assistant vous avertit d'ailleurs de ce fait lorsque vous cliquez sur le crayon pour modifier AperÃ§u.
+
+![Prendre le contrÃ´le](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TableauDeBord-PrendreLeControle.png)
+
+![Prendre le contrÃ´le](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TableauDeBord-PrendreLeControle-2.png)
+
+Si vous avez modifiÃ© le tableau de bord AperÃ§u, il est possible de le rÃ©initialiser.
+
+* Rendez-vous dans le menu AperÃ§u.
+* Cliquez sur le crayon.
+* Si la barre supÃ©rieur de l'Ã©cran ne devient pas immÃ©diatement grise et que vous voyez la fenÃªtreÂ Modifier le tableau de bord, c'est que vous n'avez jamais modifiÃ© ce tableau de bord. Vous n'avez rien d'autre Ã  faire.
+* Si la barre supÃ©rieure de l'Ã©cran devient grise, vous devez effectuer la rÃ©initialisation. Cliquez sur les trois points verticaux et choisissez Ã‰diteur de configuration.
+* Copiez tout le code YAML dans un fichier texte et enregistrez-le Ã  l'endroit de votre choix. Ceci vous aidera Ã  tout remettre en place au besoin.
+* Supprimez tout le code YAML puis enregistrez.
+* Le tableau de bord AperÃ§u est de nouveau gÃ©rÃ© par Home Assistant et il vous prÃ©sente les informations sur toutes vos entitÃ©s.
+
+## 71.3 Utiliser vos propres images dans un tableau de bord
+
+Lorsque vous crÃ©ez un tableau de bord personnalisÃ©, quelques types de cartes vous permettent de travailler avec vos propres images.
+
+## Images disponibles
+
+Les images que vous pouvez afficher peuvent provenir du Web et Ãªtre identifiÃ©es par un URL.
+
+Mieux encore, elles peuvent Ãªtre stockÃ©es directement sur le Pi.
+
+C'est cette derniÃ¨re alternative que nous allons utiliser ici.
+
+Pour que l'image soit disponible localement Ã  partir de Home Assistant, vous devez d'abord crÃ©er le dossier wwwÂ sousÂ /mnt/data/supervisor/homeassistantÂ .
+
+Si vous travaillez Ã  l'aide de File Editor ceci sera rÃ©alisÃ© en cliquant sur l'icÃ´ne New Folder alors que vous Ãªtes dans le dossierÂ /mnt/data/supervisor/homeassistantÂ (ceci est le dossier config).
+
+Vous pouvez Ã©galement crÃ©er le dossier directement au terminal HassOS.
+
+Dans tous les cas, il faut redÃ©marrer Home Assistant pour qu'il reconnaisse le dossier.
+
+La copie du fichier de l'image peut Ãªtre rÃ©alisÃ©e Ã  l'aide de diffÃ©rentes techniquesÂ :
+
+* Ã  l'aide de File EditorÂ : cliquez sur l'enveloppe blanche puis sÃ©lectionnez le dossier www. L'icÃ´ne Upload File vous permettra de tÃ©lÃ©verser votre image.
+
+  ![Upload file](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-UploadFile.png)
+* Ã  l'aide de la commande scpÂ :
+
+  Terminal de l'ordinateur
+
+  scp -O -P 22222 /chemin/monimage.png root@192.168.1.145:/mnt/data/supervisor/homeassistant/www
+
+Une fois l'image copiÃ©e dans ce dossier, vous pourrez y accÃ©der Ã  partir de l'URL http://192.168.1.145:8123/local/monimage.png
+
+ou, plus simplementÂ /local/monimage.png.
+
+## Carte Image
+
+Une fois que l'image est disponible sur le Pi, elle peut Ãªtre affichÃ©e sur une carte de type Image comme suit :
+
+![Carte image](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-CarteImage.png)
+
+## Carte Markdown
+
+La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grÃ¢ce auxÂ [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modÃ¨les][/apical\_lien\_interne].
+
+Dans sa forme la plus simple, la carte Markdown affichera une image comme suit. Remarquez l'utilisation du langage de balisage [Markdown](https://commonmark.org/help/) pour identifier l'image, au formatÂ :
+
+Markdown
+
+![Texte alternatif](/local/nom-image.png)
+
+Remarquez que le texte entre crochets carrÃ©s reprÃ©sente l'attribut alt de l'image.
+
+![Carte markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdownAvecImage.png)
+
+## Pour plus d'information
+
+Â«Â HTTPÂ - Hosting filesÂ Â». Home Assistant. <https://www.home-assistant.io/integrations/http#hosting-files>
+
+## 71.4 Assigner un appareil Ã  une piÃ¨ce
+
+Pour bien visualiser vos appareils dans le tableau de bord Home Assistant, il est intÃ©ressant d'assigner chacun Ã  une piÃ¨ce de la maison.
+
+![Appareils dans cuisine](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Apercu-AppareilsDansCuisine.png)
+
+Vous avez la possibilitÃ© de crÃ©er autant de piÃ¨ces que dÃ©sirÃ©Â :
+
+* Rendez-vous dans le menu ParamÃ¨tres / PiÃ¨ces, Ã©tiquettes et zones / onglet PiÃ¨ces.
+* Cliquez sur CrÃ©er une piÃ¨ce.
+* Donnez un nom Ã  la piÃ¨ce et, si dÃ©sirÃ©, ajoutez-lui une image.
+
+Ceci permet de voir un tableau de bord de tout ce qui concerne cette piÃ¨ce.
+
+## Assignation Ã  l'interface de l'interface Web
+
+Pour assigner un appareil Ã  une piÃ¨ce, la technique la plus simple est la suivanteÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tres / Appareils et servicesÂ / onglet Appareils.
+* Cliquez sur l'appareil que vous dÃ©sirez modifier.
+* Cliquez sur le crayon dans le coin supÃ©rieur droit de l'Ã©cran.
+* SÃ©lectionnez la piÃ¨ce Ã  laquelle l'appareil doit Ãªtre associÃ©.
+
+  ![Appareil assignÃ© Ã  une piÃ¨ce](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AssignerAppareilPiece.png)
+
+##
+
+## 71.5 Changer l'icÃ´ne d'une entitÃ© selon son Ã©tat
+
+Dans le tableau de bord de Home Assistant, il est possible de configurer une carte pour que son icÃ´ne soitÂ diffÃ©rente selon l'Ã©tat de l'entitÃ©.
+
+Les icÃ´nes seront choisies dans [apical\_lien\_interne][icones\_material\_design\_dans\_home\_assistant,la bibliothÃ¨que Material Design][/apical\_lien\_interne].
+
+Dans cette ficheÂ :
+
+* [Carte Markdown](#markdown)
+* [IntÃ©gration Template](#template)
+  + [Exemple avec une carte de type EntitÃ©](#entite)
+  + [Exemple avec une carte de type Bouton](#bouton)
+* [Et si on avait besoin de vÃ©rifier plus de deux Ã©tats?](#elif)
+
+## Carte Markdown
+
+La carte de type Markdown permet de spÃ©cifier des conditions Ã  l'aide d'un [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modÃ¨le][/apical\_lien\_interne].
+
+Dans sa forme la plus simple, le modÃ¨le fera afficher un texte diffÃ©rent selon l'Ã©tat. C'est dÃ©jÃ  mieux que le texte Â«Â ActivÃ©Â Â» ou Â«Â DÃ©sactivÃ©Â Â».
+
+![Ã‰tat textuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdown-Texte.png)
+
+Pour afficher une icÃ´ne, ou mieux, une icÃ´ne suivie d'un texte, entrez plutÃ´t ceci.
+
+Remarquez que la carte Markdown est capable d'interprÃ©ter du HTML.
+
+ModÃ¨le
+
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
+Â  <ha-icon icon="mdi:door-open"></ha-icon> Ouverte  
+{% else %}  
+Â  <ha-icon icon="mdi:door-closed"></ha-icon> FermÃ©e  
+{% endif %}
+
+Pour la condition, ce code utilise le langageÂ [Jinja2](https://palletsprojects.com/projects/jinja). Sa syntaxe ressemble Ã  celle de Python.
+
+La carte prendra dÃ©sormais cette apparence sur le tableau de bord.
+
+![Ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdown-IconeEtTexte-Ouverte.png) ![FermÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdown-IconeEtTexte-Fermee.png)
+
+## IntÃ©gration Template
+
+L'intÃ©gration [Template](https://www.home-assistant.io/integrations/template/), installÃ©e par dÃ©faut dans Home Assistant, est une autre solution pour crÃ©er une entitÃ© dont l'icÃ´ne pourra Ãªtre diffÃ©rente selon l'Ã©tat d'un capteur.
+
+L'utilisation de cette intÃ©gration se fait en ajoutant une entrÃ©e dans le fichier configuration.yaml avec la mention platform: template.
+
+La technique consiste Ã  ajouter une couche par-dessus un capteur. Dans le tableau de bord, on ajoutera une carte qui travaille avec cette couche plutÃ´t que directement avec le capteur.
+
+Dans l'exemple qui suit, les couleurs permettent de faire des liens entre les diffÃ©rentes parties du code.
+
+La valeur de l'entitÃ© provient d'unÂ capteur virtuel de type input\_boolean. Il s'agira du motÂ ActivÃ© ou DÃ©sactivÃ©.
+
+L'icÃ´ne de l'entitÃ© est dÃ©finie par un modÃ¨le qui rÃ©agit Ã  l'Ã©tat de ce mÃªme capteur virtuel.
+
+Fichier configuration.yaml
+
+sensor:  
+Â  - platform: template  
+Â  Â  sensors:  
+Â  Â  Â  porte\_virtuelle:  
+Â  Â  Â  Â  friendly\_name: Porte virtuelle  
+Â  Â  Â  Â Â value\_template: "{{ states('input\_boolean.porte\_virtuelle') }}"  
+Â  Â  Â  Â  icon\_template: >-  
+Â  Â  Â  Â  Â  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
+Â  Â  Â  Â  Â  Â  mdi:door-open  
+Â  Â  Â  Â  Â  {% else %}  
+Â  Â  Â  Â  Â  Â  mdi:door-closed  
+Â  Â  Â  Â  Â  {% endif %}
+
+Il est possible de modifier la valeur pour utiliser un texte plus significatif.
+
+Fichier configuration.yaml
+
+sensor:
+
+ 
+
+Â  - platform: template  
+Â  Â  sensors:  
+Â  Â  Â  porte\_virtuelle:  
+Â  Â  Â  Â  friendly\_name: Porte virtuelle  
+Â  Â  Â  Â  value\_template: >-  
+Â  Â  Â  Â  Â  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
+Â  Â  Â  Â  Â  Â  Ouverte  
+Â  Â  Â  Â  Â  {% else %}  
+Â  Â  Â  Â  Â  Â  FermÃ©e  
+Â  Â  Â  Â  Â  {% endif %}  
+Â  Â  Â  Â  icon\_template: >-  
+Â  Â  Â  Â  Â  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
+Â  Â  Â  Â  Â  Â  mdi:door-open  
+Â  Â  Â  Â  Â  {% else %}  
+Â  Â  Â  Â  Â  Â  mdi:door-closed  
+Â  Â  Â  Â  Â  {% endif %}
+
+AprÃ¨s avoir [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,rechargÃ© les configurations,rechargement][/apical\_lien\_interne], il est possible d'ajouter une carte dans le tableau de bord pour reprÃ©senter cette nouvelle entitÃ©.
+
+### Exemple avec une carte de type EntitÃ©
+
+Dans l'exemple prÃ©cÃ©dent, l'entitÃ© s'appelle porte\_virtuelleÂ et elle prend sa valeur d'une autre entitÃ© quiÂ  s'appelle elle aussiÂ porte\_virtuelle.
+
+Lors de la configuration de la carte, il faut prendre soin de choisir l'entitÃ© dont [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,le domaine,identifiant][/apical\_lien\_interne] est sensorÂ puisque c'est pour elle que l'icÃ´ne personnalisÃ©e a Ã©tÃ© dÃ©finie.
+
+![sensor.porte_virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-sensor-porte_virtuelle.png)
+
+Voici la carte d'entitÃ© dont l'icÃ´ne et la valeurs proviennent de l'entitÃ© sensor.porte\_virtuelle.
+
+![IcÃ´ne porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Sensor-IconePorteOuverte.png) ![IcÃ´ne porte fermÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Sensor-IconePorteFermee.png)
+
+En comparaison, voici ce qu'on aurait obtenu avec une carte d'entitÃ© associÃ©e Ã  l'entitÃ© input\_boolean.porte\_virtuelle.
+
+![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteOuverte.png) ![Porte fermÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteFermee.png)
+
+### Exemple avec une carte de type Bouton
+
+Un rÃ©sultat encore plus intÃ©ressant peut Ãªtre obtenu Ã  l'aide d'une carte de type Bouton.
+
+Ici aussi, il faut associer la carte Ã  l'entitÃ© sensor.porte\_virtuelle, soit celle pour laquelle l'icÃ´ne change selon l'Ã©tat.
+
+Un clic sur la carte modifiera l'Ã©tat de l'entitÃ© input\_boolean.porte\_virtuelle, ce qui affectera automatiquement la valeur et l'icÃ´ne de l'autre.
+
+![Carte bouton](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ButtonCardAvecEntiteIconeSelonEtat.png)
+
+Et voilÃ  le rÃ©sultat!
+
+![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteOuverte.png) ![Porte fermÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteFermee.png)
+
+## Et si on avait besoin de vÃ©rifier plus de deux Ã©tats?
+
+Dans les exemples prÃ©cÃ©dents, on avait toujours le choix entre deux Ã©tats. Un if et un else Ã©taient suffisants.
+
+Je vous montre ici comment faire si on doit choisir parmi trois Ã©tats diffÃ©rents.
+
+Fichier configuration.yaml
+
+icon\_template: >-  
+Â  {% if is\_state('input\_select.etat\_general', 'Excellent') %}  
+Â  Â  mdi:rocket-launch  
+Â  {% elif is\_state('input\_select.etat\_general', 'Moyen') %}  
+Â  Â  mdi:scale-balance  
+Â  {% else %}  
+Â  Â  mdi:alert  
+Â  {% endif %}
+
+## 71.6 lovelace-card-mod - Pour styliser le tableau de bord
+
+![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
+
+Le plugin [lovelace-card-mod](https://github.com/thomasloven/lovelace-card-mod) permet de styliser le tableau de bord de Home Assistant en appliquant des rÃ¨gles CSS aux cartes que vous y ajoutez.
+
+## Installation
+
+Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est pas disponible dans le terminal HassOS alors nous allons utiliser une autre procÃ©dure pour l'installerÂ :
+
+* AccÃ©dez au terminal HassOS en branchant clavier et Ã©cran au Raspberry Pi ouÂ [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,via SSH][/apical\_lien\_interne].
+* VÃ©rifiez s'il existe un dossierÂ wwwÂ sousÂ /mnt/data/supervisor/homeassistant. S'il n'existe pas, crÃ©ez-le puis redÃ©marrez le Raspberry Pi.
+* Rendez-vous sur la page GitHub de l'extensionÂ : <https://github.com/thomasloven/lovelace-card-mod>
+
+  ![Page GitHub de l'extension](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LovelaceCardMod.png)
+* Un seul fichier est requisÂ : card-mod.js. Cliquez sur ce fichier.
+
+  ![Fichier card-mod.js](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LovelaceCardMod-2.png)
+* Dans le haut de l'Ã©cran, faites un clic droit sur l'icÃ´ne de tÃ©lÃ©chargement Ã  droite deÂ Raw afin de tÃ©lÃ©charger le fichier sur votre ordinateur.
+* Ã€ l'aide de la commandeÂ [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,scp,scp][/apical\_lien\_interne] lancÃ©e dans le terminal de votre ordinateur, copiez ce fichier sur le Raspberry Pi dans le dossierÂ /mnt/data/supervisor/homeassistant/www.
+
+  Terminal de l'ordinateur
+
+  scp -O -P 22222 /chemin/card-mod.js root@192.168.1.145:/mnt/data/supervisor/homeassistant/www
+* Afin de tirer profit au maximum de card-mod.js, il faut l'installer en tant que module. Ã‰ditez le fichier configuration.yaml Ã  l'aide deÂ [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,File editor][/apical\_lien\_interne] ou deÂ [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne]. Ajoutez-y le code suivantÂ :
+
+  Fichier configuration.yaml
+
+  frontend:  
+  Â  extra\_module\_url:  
+  Â  Â  - /local/card-mod.js
+* RedÃ©marrez Home Assistant.
+
+## Utilisation
+
+Pour Ã©diter le code YAML d'une carteÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tres / Tableaux de bord.
+* Cliquez sur Ouvrir vis-Ã -vis le tableau dÃ©sirÃ©.
+* Cliquez sur le crayon dans le coin supÃ©rieur droit.
+* Cliquez sur la carte Ã  modifier.
+* Cliquez sur le bouton Afficher l'Ã©diteur de code.
+
+Dans le code YAML de la carte, ajoutez une section card\_mod.
+
+YAML
+
+card\_mod:  
+Â  style: |  
+Â  Â  ha-card {  
+Â  Â  Â  ...Â  // vos rÃ¨gles CSS ici, comme si vous Ã©ditiez le CSS d'un site Web  
+Â  Â  }
+
+## Pour plus d'information
+
+Â«Â thomasloven/lovelace-card-modÂ Â». GitHub. <https://github.com/thomasloven/lovelace-card-mod>
+
+Â«Â thomasloven/lovelace-card-modÂ - Lovelace PluginsÂ Â». GitHub . <https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins>
+
+<!-- --- split --- -->
+
+# 72. Exercice 12
+
+## 72.1 Capteurs virtuels et tableau de bord
+
+1. Ã€ l'aide de l'interface graphique, [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,crÃ©ez un capteur virtuel][/apical\_lien\_interne] pour simuler un capteur d'ouverture de porte. Il doit Ãªtre reprÃ©sentÃ© par l'icÃ´ne door.
+2. InstallezÂ [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,le module complÃ©mentaire File Editor][/apical\_lien\_interne].
+3. Afin de vous assurer d'avoir un Ã©diteur fonctionnel peu importe les conditions qui arrivent (par exemple, File Editor ne sera pas disponible s'il y a une panne Internet), installez Ã©galementÂ [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,le module complÃ©mentaire Studio Code Server][/apical\_lien\_interne].
+4. [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,Ã€ l'aide du fichier configuration.yaml][/apical\_lien\_interne], crÃ©ez un second capteur virtuel pour simuler le nombre de chats qui sont entrÃ©s dans une chatiÃ¨re. Vous pouvez utiliser le module complÃ©mentaire de votre choix pour Ã©diter le fichier configuration.yaml.
+5. Prenez soin deÂ [apical\_lien\_interne][validation\_des\_configurations,valider vos configurations][/apical\_lien\_interne] avant de [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,les recharger,recharger][/apical\_lien\_interne] (inutile de redÃ©marrer le systÃ¨me au complet).
+6. Ã€ l'aide de la technique de votre choix, crÃ©ez un rÃ©cepteur virtuel pour simuler une ampoule.
+7. [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,CrÃ©ez un tableau de bord personnalisÃ©][/apical\_lien\_interne] qui permet de **modifier** l'Ã©tat de vos capteurs virtuels. Plusieurs types de cartes peuvent faire l'affaire, Ã  vous de choisir celui qui vous convient.
+8. Dans votre tableau de bord, ajoutez uneÂ [apical\_lien\_interne][changer\_l\_icone\_d\_une\_entite\_selon\_son\_etat,carte qui affiche une icÃ´ne diffÃ©rente selon l'Ã©tat de la porte virtuelle][/apical\_lien\_interne].
+9. Dans votre tableau de bord, ajoutez une [apical\_lien\_interne][utiliser\_vos\_propres\_images\_dans\_un\_tableau\_de\_bord\_lovelace,carte qui permet d'afficher une image de vous][/apical\_lien\_interne].
+10. [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,Ã€ l'aide de la commande scp,port][/apical\_lien\_interne], copiez sur votre ordinateur le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry qui contient toutes les entitÃ©s. Notez que ce type de manipulation pourrait vous Ãªtre demandÃ© en examen.
+11. [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,CrÃ©ez une sauvegarde][/apical\_lien\_interne] de votre Home Assistant et copiez le fichier sur votre ordinateur.
+12. En prÃ©vision du prochain cours,Â [apical\_lien\_interne][service\_openweathermap,crÃ©ez-vous une clÃ© d'API OpenWeatherMap][/apical\_lien\_interne]. Vous l'utiliserez seulement dans le prochain exercice mais en la crÃ©ant tout de suite, vous serez assurÃ©s de ne pas avoir Ã  attendre le dÃ©lai d'activation.
+
+<!-- --- split --- -->
+
+# 73. Pour le prochain cours
+
+## 73.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+<!-- --- split --- -->
+
+# 74. Les automatisations Home Assistant
+
+## 74.1 Ajouter une automatisation Ã  l'aide de l'interface graphique
+
+Les automatisations (en anglaisÂ : automations) permettent de dÃ©clencher une ou plusieurs actions quand un ou plusieurs dÃ©clencheurs surviennent. Par exemple, il est possible d'allumer la lumiÃ¨re quand un mouvement est dÃ©tectÃ©.
+
+Un scÃ©nario plus poussÃ© pourrait allumer la lumiÃ¨re et envoyer une notification quand un mouvement est dÃ©tectÃ© aprÃ¨s minuit.
+
+Pour ajouter une automatisation Ã  l'aide de l'interface graphique de Home AssistantÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tres / Automatisations et scÃ¨nes / Onglet Automatisations.
+* Cliquez sur CrÃ©er une automatisationÂ puisÂ CrÃ©er une nouvelle automatisation.
+
+  ![CrÃ©er une automatisatin vide](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CreerUneAutomatisation.png)
+
+Vous obtenez l'Ã©cran de configuration de l'automatisation avec ses zones Quand, Et si et Alors faire.
+
+![Nouvelle automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvelleAutomatisation.png)
+
+## DÃ©clencheurs : Quand
+
+Dans la zone Quand, cliquez sur Ajouter un dÃ©clencheur puis choisissez le type du dÃ©clencheur.
+
+Dans le cas d'une automatisation qui allume la lumiÃ¨re quand un mouvement est dÃ©tectÃ©, c'est le changement d'Ã©tat d'une entitÃ© qui lancera l'action. Choisissez doncÂ EntitÃ© puisÂ Ã‰tat.
+
+Vous devez spÃ©cifier quelle entitÃ© lancera l'action et dans quel Ã©tat elle doit Ãªtre.
+
+Ici, c'est le dÃ©tecteur de mouvement du dÃ©tecteur 5-en-1 qui doit passer de l'Ã©tat non dÃ©tectÃ© Ã  l'Ã©tat dÃ©tectÃ©.
+
+Notez que si vous n'entrez rien dans les zones De et Ã€, le dÃ©clenchement se produira dÃ¨s qu'il y a un changement d'Ã©tat, peu importe lequel.
+
+La zoneÂ PendantÂ (ouÂ for:Â en YAML) indique que le dÃ©clencheur doit avoir Ã©tÃ© dans cet Ã©tat pendant une durÃ©e minimale pour Ãªtre pris en compte.
+
+![DÃ©clencheur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurDetecteurMouvement.png)
+
+### DÃ©clenchement lorsqu'une valeur numÃ©rique est > ou <
+
+Si le dÃ©clencheur nÃ©cessite de vÃ©rifier si une valeur numÃ©rique est supÃ©rieure ou infÃ©rieure Ã  une autre valeur, vous pouvez utiliser un dÃ©clencheur de type Ã‰tat numÃ©rique.
+
+L'interface vous offrira d'entrer la valeur au-dessus de laquelle ou au-dessous de laquelle l'entitÃ© doit Ãªtre.
+
+![Ã‰tat numÃ©rique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-Declencheur-EtatNumerique.png)
+
+### DÃ©clenchement lors du dÃ©marrage de Home Assistant
+
+Si vous dÃ©sirez que l'automatisation se lance automatiquement au dÃ©marrage de Home Assistant, vous devez choisir le dÃ©clencheur nommÃ© Home AssistantÂ dans la catÃ©gorie Autres dÃ©clencheurs.
+
+![DÃ©clencheur Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurHomeAssistant.png)
+
+### Travailler avec plusieurs dÃ©clencheurs
+
+Vous pouvez ajouter plusieurs dÃ©clencheurs. L'action sera exÃ©cutÃ©e si l'un OU l'autre des dÃ©clencheurs est activÃ©, par exemple si la porte est ouverte OU si un mouvement est dÃ©tectÃ©.
+
+## Conditions : Et si
+
+Il est possible d'ajouter une ou plusieurs conditions en plus du ou des dÃ©clencheurs.
+
+Une condition est trÃ¨s semblable Ã  un dÃ©clencheur. Cependant, la condition n'est Ã©valuÃ©e qu'une fois que l'automatisation a Ã©tÃ© dÃ©clenchÃ©e.
+
+Lorsqu'il y a une condition, l'action sera exÃ©cutÃ©e si un des dÃ©clencheurs est Ã©valuÃ© Ã  true ET si la condition est Ã©valuÃ©e Ã  true.
+
+Par dÃ©faut, s'il y a plusieurs conditions, l'action sera exÃ©cutÃ©e si un des dÃ©clencheurs est Ã©valuÃ© Ã  true ET si TOUTES les conditions sont Ã©valuÃ©es Ã  true.
+
+Â Â Â (dÃ©clencheur1 OU dÃ©clencheur2) ET condition1 ET condition2
+
+Dans le cas oÃ¹ il y a des conditions de type OUÂ :
+
+Â Â Â Â (dÃ©clencheur1 OU dÃ©clencheur2) ET (condition1 OU condition2)
+
+Ceci est expliquÃ© avec d'autres mots dans la documentation de Home Assistant[1](https://www.home-assistant.io/docs/automation/trigger)Â :
+
+> When any of the automationâ€™s triggers becomes true (trigger fires), Home Assistant will validate the conditions, if any, and call the action.
+
+Remarquez que si vous dÃ©sirez qu'une automatisation ne puisse avoir lieu que certains jours de la semaine, il faut choisir Heure et lieu.
+
+![Condition Heure et lieu](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConditionJourSemaine.png) ![Condition Jour de semaine](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConditionJourSemaine-2.png)
+
+Nous n'ajouterons pas de condition dans cet exemple.
+
+## Actions : Alors faire
+
+Il est maintenant temps de spÃ©cifier l'action ou les actions Ã  exÃ©cuter par l'automatisation.
+
+Notez qu'il pourrait y avoir plus d'une faÃ§on de configurer une mÃªme action.
+
+Dans notre exemple, nous allons choisir le type d'actionÂ AppareilÂ puisque nous dÃ©sirons modifier l'Ã©tat de la prise intelligente qui contrÃ´le la lumiÃ¨re.
+
+Choisissez ensuite quel appareil doit Ãªtre activÃ© dans la liste dÃ©roulante puis l'action qui sera exÃ©cutÃ©e sur cet appareil (ici : Activer).
+
+![Action](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-Action.png)
+
+Cliquez sur EnregistrerÂ puis donnez un nom significatif Ã  votre automatisation, par exemple Â«Â Allumer lumiÃ¨re quand mouvement dÃ©tectÃ©Â Â».
+
+Passez la main devant le dÃ©tecteur de mouvements et constatez que la lumiÃ¨re s'allume automatiquement!
+
+## Code YAML
+
+Une fois l'automatisation sauvegardÃ©e, vous verrez qu'elle a Ã©tÃ© enregistrÃ©e au format YAML dans le fichier automations.yaml, qui est d'ailleurs importÃ© dans configuration.yaml.
+
+Fichier automations.yaml
+
+- id: '1666115015224'  
+Â  alias: Allumer lumiÃ¨re quand mouvement dÃ©tectÃ©  
+Â  description: ''  
+Â  trigger:  
+Â  - platform: state  
+Â  Â  entity\_id:  
+Â  Â  - binary\_sensor.5\_in\_1\_pir\_motion\_sensor\_motion\_detection  
+Â  Â  from: 'off'  
+Â  Â  to: 'on'  
+Â  condition: []  
+Â  action:  
+Â  - type: turn\_on  
+Â  Â  device\_id: f138a74f3ea6ca3212b26d1e92b8cb10  
+Â  Â  entity\_id: light.dimmable\_smart\_plug  
+Â  Â  domain: light  
+Â  mode: single
+
+## Source
+
+1. Â« Automation Trigger Â». Home Assistant. <https://www.home-assistant.io/docs/automation/trigger>
+
+## Pour plus d'information
+
+Â«Â Automating Home AssistantÂ Â». Home Assistant. <https://www.home-assistant.io/getting-started/automation/>
+
+Â«Â Automation TriggerÂ Â». Home Assistant. <https://www.home-assistant.io/docs/automation/trigger/>
+
+Â«Â Automation conditionsÂ Â». Home Assistant. <https://www.home-assistant.io/docs/scripts/conditions/>
+
+Â«Â Automation actionsÂ Â». Home Assistant. <https://www.home-assistant.io/docs/automation/action/>
+
+## 74.2 Lancer une automatisation Ã  l'aide d'un bouton
+
+Il est intÃ©ressant d'ajouter [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,un bouton,bouton][/apical\_lien\_interne] au tableau de bord pour tester une automatisation. Ã€ ce moment, un clic sur le bouton s'ajoutera aux dÃ©clencheurs de l'automatisation.
+
+Il est possible de configurer le bouton pour tenir compte ou non des conditions de l'automatisation.
+
+Pour y arriverÂ :
+
+* [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,Ã‰ditez le tableau de bord][/apical\_lien\_interne] et choisissez dans quelle section vous dÃ©sirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommÃ©e Automatisations.
+* Ajoutez une carte de type bouton.
+* Pour ce qu'on veut faire ici, il est inutile de choisir une entitÃ© au dÃ©but de la carte. S'il y en a une qui apparaÃ®t par dÃ©faut, cliquez sur le X pour la supprimer.
+* Si dÃ©sirÃ©, indiquez quel nom doit apparaÃ®tre sur la carte.
+* Si dÃ©sirÃ©, choisissez une icÃ´ne.
+* Cliquez sur Interactions.
+* Dans la zone Comportement lors d'un appui court, sÃ©lectionnez ExÃ©cuter une action.
+* Dans la case Action, choississezÂ automation: DÃ©clencherÂ (Automation: Trigger).
+* Cliquez ensuite sur Choisir une entitÃ© et sÃ©lectionnez l'automatisation dÃ©sirÃ©e.
+* Si vous dÃ©sirez que le bouton lance l'automatisation mÃªme si les conditions de l'automatisation ne sont pas respectÃ©es, activez l'option Aucune condition.
+
+![Bouton pour lancer automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-BoutonPourLancerAutomatisation.png)
+
+Voici ce que ceci donnera en YAMLÂ :
+
+YAML
+
+show\_name: true  
+show\_icon: true  
+type: button  
+name: Allumer lumiÃ¨re quand mouvement dÃ©tectÃ©  
+icon: mdi:home-automation  
+tap\_action:  
+Â  action: perform-action  
+Â  perform\_action: automation.trigger  
+Â  target:  
+Â  Â  entity\_id: automation.allumer\_lumiere\_quand\_mouvement\_detecte  
+Â  data:  
+Â  Â  skip\_condition: true  
+icon\_height: 40px
+
+## 74.3 Les capteurs virtuels dans les automatisations
+
+## Capteur virtuel comme dÃ©clencheur
+
+La beautÃ© avec les automatisations, c'est que lorsqu'il y a plusieurs dÃ©clencheurs, Home Assistant exÃ©cutera l'action si l'un OU l'autre est activÃ©.
+
+Il est donc possible de crÃ©er l'automatisation avec comme dÃ©clencheur le capteur rÃ©el puis d'ajouter le capteur virtuel comme second dÃ©clencheur. Ceci permettra de tester l'automatisation sans avoir Ã  attendre que le capteur rÃ©el change d'Ã©tat.
+
+Le dÃ©clenchement Ã  l'aide d'un capteur virtuel est rÃ©alisÃ© Ã  l'aide de la mÃªme technique que pour un capteur rÃ©elÂ : il faut choisir le type EntitÃ© puisÂ Ã‰tatÂ (ou Ã©tat numÃ©rique selon le besoin).
+
+![EntitÃ© / Ã‰tat](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-EntiteEtat.png)
+
+Vous aurez ensuite la possibilitÃ© de choisir le capteur virtuel puis, si requis, le changement d'Ã©tat qui doit dÃ©clencher l'automatisation (De et Ã€).
+
+![DÃ©clencheur virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatation-DeclencheurVirtuel.png)
+
+## Capteur virtuel dans une action
+
+L'Ã©tat d'un capteur virtuel peut Ã©galement Ãªtre modifiÃ© Ã  partir d'une automatisation.
+
+Pour se faire, il faut utiliser le type d'action EntrÃ©es puis choisir le type d'entrÃ©e, par exemple EntrÃ©e logique. Home Assistant vous proposera ensuite les actions possibles selon le type d'entrÃ©e sÃ©lectionnÃ©.
+
+Dans la zone Cibles, cliquez sur Choisissez une entitÃ© et vous aurez la possibilitÃ© de sÃ©lectionner le capteur virtuel.
+
+![Modifier Ã©tat du capteur virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-ActionSurCapteurVirtuel.png)
+
+## 74.4 Script vs automatisation
+
+Sous Home Assistant, un script consiste en une sÃ©rie d'actions Ã  exÃ©cuter.
+
+Un script pourrait, par exemple, gÃ©rer l'Ã©clairage par rapport Ã  la tÃ©lÃ©visionÂ : allumer la lumiÃ¨re du salon, allumer le tÃ©lÃ©viseur puis, aprÃ¨s 5 minutes, Ã©teindre la lumiÃ¨re du salon.
+
+Les occupants auront donc eu le temps de profiter de la clartÃ© pour s'installer devant le tÃ©lÃ©viseur avant que la lumiÃ¨re ne s'Ã©teigne afin de ne pas gÃªner la vision.
+
+## Script vs automatisation
+
+Une automatisation, pour sa part, est un processus plus ou moins complexe qui comprendÂ :
+
+* un ou plusieurs dÃ©clencheurs;
+* optionnellement une ou plusieurs conditions;
+* une ou plusieurs actions.
+
+On pourra avoir par exemple une automatisation qui allume la lumiÃ¨re quand Annie arrive Ã  la maison entre 16h et 22hÂ :
+
+* dÃ©clencheur : Annie arrive Ã  la maison
+* condition : entre 16h et 22h
+* action : allumer la lumiÃ¨re
+
+Une automatisation pourrait mÃªme utiliser un script comme action :
+
+* dÃ©clencheur : Mouvement dÃ©tectÃ© dans le salon
+* condition : aprÃ¨s le coucher du soleil
+* action : exÃ©cuter le script qui gÃ¨re l'Ã©clairage par rapport Ã  la tÃ©lÃ©vision
+
+## CrÃ©ation d'un script Ã  l'aide de l'Ã©diteur graphique
+
+Comme pour les automatisations, les scripts peuvent Ãªtre Ã©crits Ã  l'aide d'un Ã©diteur graphique ou directement en YAML.
+
+Pour accÃ©der Ã  l'Ã©diteur graphique, rendez-vous dans ParamÃ¨tres / Automatisations et scÃ¨nesÂ / Onglet Scripts / CrÃ©er un scriptÂ / CrÃ©er un nouveau script.
+
+Vous pouvez maintenant dÃ©terminer les actions Ã  rÃ©aliser ainsi que les blocs qui permettent, par exemple, d'attendre un certain temps, de rÃ©pÃ©ter un certain nombre de fois, etc.
+
+Il faut ajouter une sÃ©quence (ou un bloc) pour chaque action Ã  rÃ©aliser.
+
+Dans cet exemple, j'ai travaillÃ© avec des virtuels.
+
+![Nouveau script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouveauScript.png)
+
+## CrÃ©ation d'un script Ã  l'aide de YAML
+
+Si vous prÃ©fÃ©rez travailler directement en YAML, vos scripts seront crÃ©Ã©s Ã  l'aide de l'intÃ©gration [Scripts](https://www.home-assistant.io/integrations/script/).
+
+Ils doivent rÃ©pondre Ã  la [syntaxe de Script](https://www.home-assistant.io/docs/scripts)Â de Home Assistant.
+
+Leur code sera Ã©crit dans le fichier scripts.yaml.
+
+Voici un exemple de scriptÂ :
+
+Fichier scripts.yaml
+
+tele\_et\_lumiere:  
+Â  sequence:  
+Â  - action: input\_boolean.turn\_on  
+Â  Â  metadata: {}  
+Â  Â  data: {}  
+Â  Â  target:  
+Â  Â  entity\_id: input\_boolean.lumiere\_salon  
+Â  - action: input\_boolean.turn\_on  
+Â  Â  metadata: {}  
+Â  Â  target:  
+Â  Â  entity\_id: input\_boolean.prise\_intelligente\_tele  
+Â  - delay:  
+Â  Â  hours: 0  
+Â  Â  minutes: 5  
+Â  Â  seconds: 0  
+Â  Â  milliseconds: 0  
+Â  - action: input\_boolean.turn\_off  
+Â  Â  metadata: {}  
+Â  Â  data: {}  
+Â  Â  target:  
+Â  Â  entity\_id: input\_boolean.lumiere\_salon  
+Â  alias: TÃ©lÃ© et lumiÃ¨re  
+Â  description: ''
+
+## Lancer un script
+
+Contrairement Ã  l'automatisation, le script ne peut pas Ãªtre dÃ©clenchÃ© automatiquement.
+
+Une fois l'action lancÃ©e, sa sÃ©quence peut comporter l'attente d'un dÃ©clencheur mais il faut d'abord que le script ait Ã©tÃ© lancÃ©.
+
+Pour lancer un script, vous avez plusieurs options, notammentÂ :
+
+* Ã€ l'aide du menu ParamÃ¨tres / Automatisations et scÃ¨nes / onglet Scripts / clic sur les trois points verticaux Ã  droite du script dÃ©sirÃ© / ExÃ©cuter.
+* En utilisant le script comme action dans une automatisation (Autres actions / Script / ExÃ©cuter).
+* Sur le tableau de bord, Ã  l'aide d'une [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,carte de type bouton][/apical\_lien\_interne] qui effectue l'action de lancer le script.
+
+## 74.5 Trace d'une automatisation
+
+Quand une automatisation est exÃ©cutÃ©e, Home Assistant conserve une trace de ce qui s'est passÃ©.
+
+Pour voir cette trace, rendez-vous dans ParamÃ¨tres / Automatisations et scÃ¨nes puis cliquez sur l'automatisation dÃ©sirÃ©e.
+
+Cliquez sur Historique des exÃ©cutionsÂ pour voir la trace de la derniÃ¨re exÃ©cution de l'automatisation.
+
+Home Assistant vous affiche alors ce qui a Ã©tÃ© exÃ©cutÃ©.
+
+Vous pouvez cliquer sur les diffÃ©rents cercles pour obtenir de l'information sur chacun.
+
+Dans cet exemple, on voit que l'action n'a pas eu lieu puisque le moment oÃ¹ le dÃ©clencheur a eu lieu (17h13) ne respectait pas la condition (entre 18h et 22h).
+
+![Trace d'une automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TraceAutomatisation.png)
+
+Les diffÃ©rents onglets montrent d'autres dÃ©tails, Ã  vous de les explorer.
+
+## Pour plus d'information
+
+Â«Â Troubleshooting AutomationsÂ Â». Home Assistant. <https://www.home-assistant.io/docs/automation/troubleshooting/>
+
+

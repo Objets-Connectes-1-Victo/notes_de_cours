@@ -1,0 +1,899 @@
+
+<!-- --- split --- -->
+
+# 101. Exercice 20
+
+## 101.1 Un retour Ã  Jeedom
+
+Dans les semaines qui suivent, vous apprendrez comment intÃ©grer dans Home Assistant des objets connectÃ©s qui sont dÃ©jÃ  associÃ©s Ã  d'autres plateformes et vice-versa.
+
+Vous aurez encore besoin de votre installation Home Assistant mais pour l'instant, vous devez effectuer une installation de Jeedom sur une seconde carte micro SD.
+
+Notez que si vous avez dÃ©jÃ  une carte qui contient une installation Jeedom, il est prÃ©fÃ©rable d'effectuer une nouvelle installation. Installer un systÃ¨me plus d'une fois est une bonne technique pour mieux comprendre le processus.
+
+Si votre seconde carte contient dÃ©jÃ  un systÃ¨me que vous dÃ©sirez conserver, crÃ©ez une sauvegarde et tÃ©lÃ©chargez le fichier sur votre ordinateur.
+
+Faites le nÃ©cessaire pour intÃ©grer un capteur et un rÃ©cepteur rÃ©els dans Jeedom.
+
+<!-- --- split --- -->
+
+# 102. Pour le prochain cours
+
+## 102.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+<!-- --- split --- -->
+
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Semaine 13 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+<!-- --- split --- -->
+
+# 103. Communication Home Assistant - Jeedom via l'API
+
+## 103.1 Home Assistant : interagir avec un objet branchÃ© sur Jeedom
+
+Certains objets connectÃ©s ne peuvent pas Ãªtre ajoutÃ©s Ã  Jeedom et d'autres ne peuvent pas Ãªtre ajoutÃ©s Ã  Home Assistant. Tout dÃ©pend des plugins ou des intÃ©grations qui existent sur l'un ou l'autre de ces produits.
+
+Peut-Ãªtre mÃªme que vous avez mis beaucoup de temps Ã  dÃ©velopper un objet personnalisÃ© sur l'une des plateformes et que vous dÃ©sirez maintenant passer Ã  l'autre sans devoir tout recommencer.
+
+GrÃ¢ce Ã  certaines techniques de communication, ce n'est pas un problÃ¨me, on pourra avoir des objets sur l'une des boÃ®tes domotiques qui sont contrÃ´lÃ©s par l'autre et vice-versa.
+
+Les deux principales techniques sontÂ :
+
+* Travailler avec un API (Application Programming Interface) (expliquÃ© dans la prÃ©sente fiche [apical\_lien\_interne][jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_,et dans la suivante][/apical\_lien\_interne])
+* [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT][/apical\_lien\_interne]
+
+Pour que la communication entre deux applications ait lieu Ã  l'aide d'un API, il faut qu'une application ait le moyen de lancer une commande sur l'autre application. Le plus souvent, cette commande passera par un URL. On dira alors qu'on travaille avec un API REST.
+
+Sous Jeedom, [apical\_lien\_interne][url\_d\_un\_objet\_connecte\_jeedom,un URL est assignÃ© Ã  chaque commande ou Ã©tat d'un objet connectÃ©][/apical\_lien\_interne]. C'est grÃ¢ce Ã  cet URL, que Home Assistant pourra rÃ©cupÃ©rer la valeur d'un capteur branchÃ© sur une boÃ®te domotique Jeedom ou encore de modifier la valeur d'un rÃ©cepteur.
+
+## RÃ©cupÃ©rer la valeur d'un capteur Jeedom dans Home Assistant
+
+Pour chaque capteur, Jeedom dÃ©finit au moins une commande de type info.
+
+Si un capteur fournit plusieurs informations, il faudra sÃ©lectionner la bonne commande.
+
+![Commande de type info](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EngrenageCommandeInfo.png)
+
+Avec l'engrenage situÃ© Ã  droite de la commande, on peut retrouver l'URL qui donne la valeur de cette commande.
+
+C'est cet URL qui est la clÃ© pour permettre Ã  un autre systÃ¨me d'accÃ©der Ã  la valeur de la commande.
+
+Pour voir la valeur de la commande dans Home Assistant, il suffit d'ajouter dans le fichier configuration.yaml un capteur de la plateforme REST et d'y coller l'URL de la commade dÃ©sirÃ©e.
+
+Fichier configuration.yaml
+
+sensor:  
+Â  - platform: rest  
+Â  Â  resource: http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=234  
+Â  Â  name: porte d'entrÃ©e Jeedom
+
+Une fois Home Assistant redÃ©marrÃ© (un rechargement des configurations n'est pas suffisant), le capteur de Jeedom pourra Ãªtre utilisÃ© au mÃªme titre que n'importe quel autre qui serait branchÃ© directement dans Home Assistant.
+
+Petit hic cependant, le dÃ©lai d'actualisation est gÃ©nÃ©ralement plus long que si le capteur Ã©tait branchÃ© directement Ã  Home Assistant. Par exemple, mes tests avec un virtuel prenaient une quinzaine de secondes avant de se rafraÃ®chir dans Home Assistant.
+
+## Modifier l'Ã©tat d'un rÃ©cepteur rÃ©el JeedomÂ dans Home Assistant
+
+Home Assistant peut modifier la valeur d'un rÃ©cepteur branchÃ© Ã  Jeedom.
+
+Il faut ici aussi ajouter un capteur dans le fichier configuration.yaml.
+
+Cette fois, l'URL correspondra Ã  une commande de type action.
+
+![Commande de type action](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EngrenageCommandeAction.png)
+
+Si, dans Jeedom, la technique pour retrouver l'URL est la mÃªme que pour une commande Info, le travail dans Home Assistant sera diffÃ©rent lorsqu'on veut envoyer un ordre.
+
+PlutÃ´t que de crÃ©er un capteur, il faut crÃ©er des commandes REST.
+
+Ici, j'ai ajoutÃ© deux commandes : une pour allumer la prise et l'autre, pour l'Ã©teindre.
+
+Fichier configuration.yaml
+
+rest\_command:  
+Â  allumer\_lumiere\_jeedom:  
+Â  Â  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=271"  
+Â  eteindre\_lumiere\_jeedom:  
+Â  Â  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=272"
+
+AprÃ¨s un redÃ©marrage de Home Assistant, il est possible d'utiliser ces commandes en tant qu'action pour interagir avec le rÃ©cepteur de Jeedom.
+
+![Configuration du bouton](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-BoutonsAllumerLumiereJeedom-config.png)
+
+## Modifier la valeur d'un virtuel
+
+La valeur d'un virtuel sur Jeedom peut Ãªtre modifiÃ©e Ã  partir de Home Assistant.
+
+AprÃ¨s avoir rÃ©cupÃ©rÃ© l'URL qui permet d'accÃ©der Ã  la valeur du virtuel, il suffit d'y ajouter &value= suivi de la valeur Ã  donner.
+
+Fichier configuration.yaml
+
+rest\_command:  
+Â  temperature\_virtuelle\_jeedom\_chaud:  
+Â  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
+
+## 103.2 Jeedom : rÃ©cupÃ©rer la valeur d'un capteur branchÃ© sur Home Assistant
+
+Vous avez un objet connectÃ© dans Home Assistant et vous dÃ©sirez l'utiliser dans Jeedom? Pas de problÃ¨me!
+
+Il est possible de configurer Home Assistant pour qu'il envoie des informations Ã  un autre systÃ¨me, par exemple Jeedom.
+
+La technique est tout Ã  fait opposÃ©e Ã  celle utilisÃ©e pour [apical\_lien\_interne][home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom,rÃ©cupÃ©rer dans Home Assistant une valeur en provenance de Jeedom][/apical\_lien\_interne].
+
+Sous Home Assistant, les objets connectÃ©s n'ont pas d'URL que l'on peut rÃ©cupÃ©rer. Il faudra plutÃ´t que Home Assistant pousse vers Jeedom la valeur souhaitÃ©e, dans un objet virtuel dont on connaÃ®tra l'URL.
+
+Home Assistant utilisera pour cela des commandes de type [REST](https://www.home-assistant.io/integrations/sensor.rest).
+
+Voici comment y parvenirÂ :
+
+* Dans Jeedom, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,crÃ©ez un Ã©quipement virtuel][/apical\_lien\_interne] qui recevra la valeur de Home Assistant.
+
+  Donnez-lui un nom clair, par exempleÂ LuminositÃ© cuisine - Home Assistant.
+
+  Dans l'onglet Commandes, cet objet virtuel devra avoir une info virtuelle pour recevoir la valeur de Home Assistant. Dans cet exemple, je l'ai simplement appelÃ©e valeur.
+
+  ![Info virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-InfoVirtuelle.png)
+* Dans Jeedom, retrouvez l'URL de cet Ã©quipement virtuel.
+* Pour tester l'URL, entrez-le dans un navigateur et ajoutez-yÂ &value= suivi de la valeur Ã  donner, que vous coderez ici en dur. Vous saurez que l'URL est bon quand le virtuel dans Jeedom affiche la valeur entrÃ©e.
+* Dans Home Assistant, ajoutez une entrÃ©e dans le fichier configuration.yaml.
+
+  Fichier configuration.yaml
+
+  rest\_command:  
+  Â  pousser\_eclairement\_vers\_jeedom:  
+  Â  Â  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=71&value={{ states('sensor.neo\_capteur\_5\_en\_1\_illuminance')}}"
+* RedÃ©marrez Home Assistant.
+* Pour tester la commande, rendez-vous dans les outils de dÃ©veloppement de Home Assistant, onglet Actions, et exÃ©cutez l'action RESTful Command: pousser\_eclairement\_vers\_jeedom.
+
+  La valeur du capteur devrait apparaÃ®tre dans l'objet virtuel sous Jeedom.
+
+  ![Tester le service](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TesterServicePousserVersJeedom.png)
+* Maintenant, il faut crÃ©er une automatisation qui va exÃ©cuter cette action dÃ¨s que la valeur du capteur change. Comme Ã§a, la valeur rÃ©elle du capteur sera toujours synchronisÃ©e avec la l'objet virtuel sous Jeedom.
+
+  ![Automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationPourEnvoyerValeurAJeedom.png)
+
+## 103.3 Jeedom : lancer une action sur un rÃ©cepteur branchÃ© sur Home Assistant
+
+Home Assistant peut permettre Ã  d'autres systÃ¨mes de lancer une commande pour interagir avec ses propres objets connectÃ©s.
+
+### ClÃ© d'API
+
+Vous devez gÃ©nÃ©rer une clÃ© d'API, que Jeedom appelle jeton d'accÃ¨s de longue durÃ©e, pour permettre Ã  Jeedom de lancer une action dans Home AssistantÂ :
+
+* Dans Home Assistant, cliquez sur votre nom au bas de la colonne de gauche, cliquez sur l'onglet SÃ©curitÃ© puis faites dÃ©filer la page jusqu'Ã  la sectionÂ Jetons d'accÃ¨s de longue durÃ©e.
+
+  ![Jeton d'accÃ¨s longue durÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-JetonDAccesLongueDuree.png)
+* Cliquez sur CrÃ©er un jeton puis donnez-lui un nom significatif, par exemple Jeedom.
+* Le jeton, dont la durÃ©e de vie est de 10 ans, ne sera affichÃ© qu'une fois Ã  l'Ã©cran. Prenez-le en note sinon il ne sera plus utilisable.
+
+  ![Jeton d'accÃ¨s longue durÃ©e](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-JetonDAccesLongueDuree-2.png)
+* Vous pouvez maintenant refermer cette fenÃªtre.
+
+### Information sur l'entitÃ© Home Assistant qui sera appelÃ©e par Jeedom
+
+Dans sa forme la plus simple, l'action agira directement sur une entitÃ©, par exemple sur l'entitÃ© light.dimmable\_smart\_plug.
+
+Il est possible de regrouper plusieurs actions dans un script Home Assistant. Ã€ ce moment, Jeedom agira sur une entitÃ© du genre script.actions\_de\_noel.
+
+Conservez l'information sur l'entitÃ© dÃ©sirÃ©e pour la prochaine Ã©tape.
+
+### Commande cURL
+
+Jeedom lancera une commande [cURL](https://curl.se/docs/manpage.html) (client URL) pour lancer l'action sur Home Assistant.
+
+cURL est un outil en ligne de commande qui permet de transfÃ©rer des donnÃ©es. Il est donc possible de transfÃ©rer des informations vers un serveur ou d'obtenir des information Ã  partir d'un serveur.
+
+Pour trouver les dÃ©tails de la commande cURL Ã  utiliser, rendez-vous dans la documentation de l'API REST de Home AssistantÂ : [https://developers.home-assistant.io/docs/api/rest/](https://developers.home-assistant.io/docs/api/rest/#:~:text=/api/services/).
+
+Faites dÃ©filer la page jusqu'Ã  la liste des URL disponibles.
+
+Cliquez sur la ligne POST qui permet d'appeler un service.
+
+![api/services](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RESTapi-ApiServices.png)
+
+Le format de la commande cURL Ã  utiliser sera affichÃ©.
+
+cURL
+
+curl \  
+Â  -H "Authorization: Bearer TOKEN" \  
+Â  -H "Content-Type: application/json" \  
+Â  -d '{"entity\_id": "switch.christmas\_lights"}' \  
+Â  http://localhost:8123/api/services/switch/turn\_on
+
+Quelques explications sur cette commandeÂ :
+
+* La barre oblique inverse Ã  la fin de chaque ligne indique que la commande se poursuit Ã  la ligne suivante. Tout ceci pourrait donc Ãªtre entrÃ© sur une seule ligne.
+* L'option -H permet d'envoyer des informations d'en-tÃªte supplÃ©mentaires (**H**eader). Ici, il faut fournir le jeton d'authentification afin de prouver que vous avez les droits requis pour cette opÃ©ration. Vous devez remplacer TOKEN par votre jeton d'accÃ¨s de longue durÃ©e.
+* La seconde option -H envoie d'autres informations d'en-tÃªte. Ici, on indique que le type d'informations envoyÃ©es au serveur est au format JSON. C'est d'ailleurs le seul format acceptÃ© par l'API de Home Assistant.
+* L'option -d permet de fournir des informations (**d**ata). Ces informations devront Ãªtre au format JSON, en cohÃ©rence avec les informations d'en-tÃªte envoyÃ©es.
+
+  Ici, on doit indiquer l'identifiant de l'entitÃ© sur laquelle on dÃ©sire travailler. RemplacezÂ switch.christmas\_lights par l'entitÃ© que vous avez notÃ©e plus tÃ´t.
+* La derniÃ¨re informations de la commande cURL indique Ã  quel serveur on s'adresse et quel service on dÃ©sire effectuer.
+
+  Remplacez localhost par l'adresse IP du Raspberry Pi qui hÃ©berge Home Assistant. N'oubliez pas de prÃ©ciser le port (8123).
+
+  Remplacez switch/turn\_on par une chaÃ®ne au format domaine/actionÂ qui reprÃ©sente l'action Ã  rÃ©aliser.
+
+  Pour connaÃ®tre les actions disponibles, vous pouvez vous rendre dans Outils de dÃ©veloppement / Actions. Remplacez le point dans le nom complet de l'action par une barre oblique. Ainsi, light.turn\_on deviendra light/turn\_on.
+
+cURL rÃ©pondra en vous donnant de l'information sur le ou les Ã©tats qui ont Ã©tÃ© modifiÃ©s par la commande.
+
+RÃ©sultat Ã  l'Ã©cran
+
+[{  
+Â  Â  "entity\_id":"light.dimmable\_smart\_plug",  
+Â  Â  "state":"on",  
+Â  Â  "attributes":{  
+Â  Â  Â  Â  "supported\_color\_modes":["brightness"],  
+Â  Â  Â  Â  "color\_mode":"brightness",  
+Â  Â  Â  Â  "brightness":139,  
+Â  Â  Â  Â  "friendly\_name":"Prise intelligente ",  
+Â  Â  Â  Â  "supported\_features":32  
+Â  Â  },  
+Â  Â  "last\_changed":"2025-11-17T20:28:08.585502+00:00",  
+Â  Â  "last\_reported":"2025-11-17T20:28:08.585502+00:00",  
+Â  Â  "last\_updated":"2025-11-17T20:28:08.585502+00:00",  
+Â  Â  "context":{  
+Â  Â  Â  Â  "id":"01KA9R1R854XR5ZRP504AN6RHZ",  
+Â  Â  Â  Â  "parent\_id":null,  
+Â  Â  Â  Â  "user\_id":"cbc1d1e7099c42129153b19c8c8fcd7c"  
+Â  Â  }  
+}]
+
+Pour tester la commande, branchez-vous en SSH sur le Raspberry Pi **qui hÃ©berge Jeedom** puis lancez-y la commande cURL qui agira sur Home Assistant. Vous devriez voir la prise de courant s'allumer!
+
+Une fois la commande cURL testÃ©e, vous Ãªtes prÃªt Ã  l'automatiser.
+
+### Script dans Jeedom
+
+Sous Jeedom, vous devez crÃ©er un script qui se chargera de lancer la commande cURLÂ :
+
+* Rendez-vous dans Plugins / Programmation / ScriptÂ (si cette option n'est pas disponible, c'est que vous devez installer le plugin Script par Jeedom SAS).
+* Cliquez sur Ajouter.
+* Donnez un nom Ã  l'Ã©quipement qui reprÃ©sente le script, par exemple GÃ©rer prise Home Assistant.
+* Activez l'Ã©quipement.
+* Dans l'onglet Commandes, cliquez sur Ajouter une commande script.
+* Dans la premiÃ¨re case, donnez un nom Ã  la commande. On utilise gÃ©nÃ©ralement un seul mot, par exemple Allumer.
+* Dans la colonne Type, choisissez Action. Laissez la case du dessous Ã  DÃ©faut.
+* Dans la colonne RequÃªte, entrez la commande cURL. Attention : les apostrophes ne fonctionnent pas. Vous devrez donc utiliser des guillemets alentour des donnÃ©es du paramÃ¨tre data (-d) et, Ã  l'intÃ©rieur du JSON fourni, ajouter des barres obliques devant chaque guillemet.   
+  ExÂ :Â -d "{\"entity\_id\": \"light.dimmable\_smart\_plug\"}"
+* Au besoin, ajoutez d'autres commandes script. Dans cet exemple, j'ai ajoutÃ© une seconde commande pour Ã©teindre la prise intelligente.
+
+  ![Script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScriptPourCurl.png)
+* Cliquez sur Sauvegarder.
+* Pour tester une commande, cliquez sur le bouton Tester Ã  sa droite. La prise intelligente branchÃ©e sur Home Assistant devrait s'allumer ou s'Ã©teindre selon la commande testÃ©e.
+* Vous pouvez dÃ©sormais utiliser ce script dans vos scÃ©narios.
+* ![Script dans scÃ©nario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScriptDansScenario.png)
+
+## Pour plus d'information
+
+Â«Â Tuto ContrÃ´ler Home Assistant par JeedomÂ Â». YouTubeÂ - La Maison de Jeed Home. <https://www.youtube.com/watch?v=h3qOeaguPl4>
+
+## 103.4 URL d'un objet connectÃ© Jeedom
+
+Lorsqu'un objet connectÃ© est pairÃ© Ã  une boÃ®te domotique Jeedom, il se voit attribuer un URL. Il est ensuite possible d'agir sur cet objet Ã  partir de cet URL.
+
+Pour connaÃ®tre l'URL d'un objet, et plus spÃ©cifiquement l'URL qui permet de lancer une commande donnÃ©e sur cet objetÂ :
+
+* Dans [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,l'interface Web de Jeedom,acceder][/apical\_lien\_interne], rendez-vous dans le menu Plugins / Protocole domotique / Z-WaveÂ (ou autre menu qui donne accÃ¨s Ã  l'Ã©quipement recherchÃ© s'il ne s'agit pas d'un objet connectÃ© Z-Wave).
+* Cliquez sur l'objet connectÃ© dÃ©sirÃ©.
+* SÃ©lectionnez l'onglet Commandes.
+* Retrouvez la commande que vous dÃ©sirez lancer Ã  l'aide d'un URL. Si vous dÃ©sirez effectuer une action sur l'objet, ce sera une commande de type Action. Si vous dÃ©sirez retrouver de l'information fournie par l'objet, ce sera une commande de type Info.
+
+  Parfois, il n'est pas facile de retrouver la commande puisque les noms ne sont pas toujours significatifs. Au besoin, cliquez sur le bouton Tester vis-Ã -vis une commande pour voir si elle a l'effet escomptÃ©. Les commandes de type Action effectueront l'action correspondante et les commandes de type Info afficheront la valeur correspondante dans le haut de l'Ã©cran.
+
+  Par exemple, pour allumer ma prise intelligente Zooz, la commande s'appelle Switch 0 On et quand je clique sur Tester vis-Ã -vis cette commande, je constate que la prise s'allume.
+
+  ![Tester](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CommandesObjetConnecte.png)
+* Une fois la commande repÃ©rÃ©e, cliquez sur le bouton d'engrenage juste Ã  sa droite.
+* Dans la fenÃªtre qui apparaÃ®t, cliquez sur l'icÃ´ne Ã  cÃ´tÃ© deÂ URL directe.
+
+  ![Configuration commande](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationCommande.png)
+* Un nouvel onglet s'ouvre dans le navigateur. L'URL qui apparaÃ®t active la commande. C'est cet URL que vous devez prendre en note pour pouvoir effectuer cette commande par programmation.
+
+## Format de l'URL
+
+Il est possible de retrouver l'URL de n'importe quelle commande si on connaÃ®t les informations suivantesÂ :
+
+* adresse IP du Raspberry Pi qui hÃ©berge Jeedom
+* clÃ© API de Jeedom, que vous pouvez retrouver dans le menu RÃ©glages / SystÃ¨me / Configuration, onglet API.
+
+  ![ClÃ© API](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CleAPI.png)
+* identifiant de la commande (ID), que l'on retrouve dans la mÃªme fenÃªtre que l'URL d'une commande.
+
+L'URL qui permet de lancer une commande sur un objet connectÃ© sera au format :
+
+http://adresse\_ip\_du\_pi/core/api/JeeApi.php?apikey=cle\_api&type=cmd&id=id\_commande
+
+Exemple :
+
+http://192.168.1.145/core/api/jeeApi.php?apikey=C6VL4SqycjFFeKixYcqiJj7Bax5e2ncI&type=cmd&id=107
+
+## URL pour modifier la valeur d'un Ã©quipement virtuel
+
+Pour tout type d'Ã©quipement, les commandes de type info servent Ã  fournir une valeur, par exemple la luminositÃ© d'un capteur de luminositÃ©.
+
+Ces valeurs ne sont en principe pas modifiÃ©es par programmation.
+
+Par contre, dans le cas d'un Ã©quipement virtuel, il peut Ãªtre intÃ©ressant de les modifier. Il faudra alors ajuster l'URL pour y parvenir.
+
+Prenons par exemple un virtuel qui sert Ã  stocker une valeur.
+
+Dans les configurations de cet Ã©quipement, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,on crÃ©era une commande,actions][/apical\_lien\_interne] de type info. C'est dans cette info que la valeur sera stockÃ©e.
+
+Ici, j'ai simplement appelÃ© cette info Ma valeur. Jeedom lui a attribuÃ© l'identifiant 74.
+
+![Virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-InfoObjetVirtuel.png)
+
+### Lire la valeur du virtuel
+
+Si je clique sur l'icÃ´ne d'engrenage pour connaÃ®tre son URL, j'obtiensÂ :
+
+http://192.168.1.145/core/api/jeeApi.php?apikey=C6VL4SqycjFFeKixYcqiJj7Bax5e2ncI&type=cmd&id=74
+
+Si j'entre cet URL dans un navigateur, j'obtiens la valeur actuelle du virtuel.
+
+### Modifier la valeur du virtuel
+
+Pour modifier sa valeur, il faut utiliser un URL au formatÂ :
+
+http://adresse\_ip\_du\_pi/core/api/JeeApi.php?id=id\_commande&apikey=cle\_api\_virtuel&type=event&plugin=virtual&value=valeur\_a\_assigner
+
+Attention : la clÃ© API est diffÃ©rente de la commande originale. Pour la retrouver, rendez-vous dans l'Ã©cranÂ RÃ©glages / SystÃ¨me / Configuration, onglet API. La clÃ© recherchÃ©e est vis-Ã -vis ClÃ© API : Virtuel.
+
+![ClÃ© API Virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CleAPIVirtuel.png)
+
+Il faut donc modifier l'URL obtenu comme suitÂ :
+
+http://192.168.1.145/core/api/jeeApi.php?id=74&apikey=axDLsOvyIXU6SY6hxJhUDco1RyTs9Q8XpZbjpdESyu3bcBFRBJSH7NylyFc54VY9&type=event&plugin=virtual&value=56
+
+<!-- --- split --- -->
+
+# 104. Exercice 21
+
+## 104.1 Communication Jeedom - Home Assistant via l'API
+
+Dans cet exercice, vous devez travailler deux par deux. L'un de vous ouvrira sa boÃ®te domotique Jeedom et l'autre ouvrira Home Assistant.
+
+Vous aurez des manipulations Ã  faire sur les deux machines mais vous ferez chaque manipulation ensemble pour vous assurer de bien comprendre les deux cÃ´tÃ©s de la mÃ©daille.
+
+1. Assurez-vous d'avoir un capteur rÃ©el et un capteur virtuel dans votre boÃ®te Jeedom.
+2. Sous Home Assistant, faites afficher dans le tableau de bord la valeur du capteur rÃ©el et celle du capteur virtuel branchÃ©s Ã  la boÃ®te Jeedom.
+3. Modifiez ces valeurs dans Jeedom (exÂ : mettez la main sur le capteur de luminositÃ© ou modifiez Ã  la main la valeur d'un virtuel) et vÃ©rifiez que les modifications sont effectives dans Home Assistant.
+4. Ã€ partir d'une commande de type action, effectuez une opÃ©ration sur un rÃ©cepteur dans Jeedom Ã  partir de Home Assistant. Par exemple, Ã©teignez une lumiÃ¨re rÃ©elle ou virtuelle.
+5. Vous devez maintenant faire l'inverse : passer des infos de Home Assistant vers Jeedom. Assurez-vous d'avoir un capteur rÃ©el et un capteur virtuel dans Home Assistant.
+6. Sous Jeedom, faites afficher dans le Dashboard la valeur du capteur rÃ©el et celle du capteur virtuel branchÃ©s Ã  la boÃ®te Home Assistant.
+7. Modifiez ces valeurs dans Home Assistant (exÂ : mettez la main sur le capteur de luminositÃ© ou modifiez Ã  la main la valeur d'un virtuel) et vÃ©rifiez que les modifications sont effectives dans Jeedom.
+8. Effectuez une opÃ©ration sur un rÃ©cepteur dans Home Assistant Ã  partir de Jeedom.
+
+<!-- --- split --- -->
+
+# 105. Exercice 22 - OPTIONNEL
+
+## 105.1 La guerre des notes!
+
+CET EXERCICE EST OPTIONNEL.
+
+Sur le Jeedom de votre professeur, un Ã©quipement virtuel porte un nom au format eleve9 oÃ¹ 9 est le numÃ©ro de votre Raspberry Pi par exemple eleve1, ..., eleve 10, etc. Cet Ã©quipement contient une commande nommÃ©e note. Votre professeur vous fournira l'id de la commande ainsi que la clÃ© d'API.
+
+1. Ã€ partir de votre Home Assistant, entrez dans cette commande la note que vous dÃ©sirez obtenir pour le cours d'objets connectÃ©s. La note doit Ãªtre un chiffre entre 0 et 100.
+2. Ã€ partir de votre Home Assistant, crÃ©ez une automatisation qui vous envoie un courriel (ou une notification, ou une Ã©criture dans un fichier journal) dÃ¨s qu'un collÃ¨gue de votre choix entre une note infÃ©rieure Ã  60 dans son objet sur Jeedom.
+3. Ã€ partir de votre Home Assistant, crÃ©ez une automatisation qui augmente votre note dÃ¨s qu'un collÃ¨gue de votre choix entre une note supÃ©rieure Ã  la vÃ´tre dans son objet sur Jeedom. Votre note sera 1 de plus que la sienne. Les notes sont plafonnÃ©es Ã  100.
+
+<!-- --- split --- -->
+
+# 106. Pour le prochain cours
+
+## 106.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+<!-- --- split --- -->
+
+# 107. MQTT
+
+## 107.1 Le protocole MQTT
+
+MQTT (Message Queuing Telemetry Transport) est un protocole de communication machine Ã  machine trÃ¨s lÃ©ger basÃ© sur TCP/IP.
+
+Il permet de transfÃ©rer des informations Ã  l'aide d'un mÃ©canismeÂ publication/abonnement (publish/subscribe).
+
+Dans le monde de la domotique, il a une application intÃ©ressanteÂ : il permet Ã  deux boÃ®tes domotiques de communiquer ensemble. Les donnÃ©es d'un capteur branchÃ© sur la boÃ®te A pourraient ainsi dÃ©clencher une action sur un rÃ©cepteur branchÃ© sur la boÃ®te B.
+
+Dans cette ficheÂ :
+
+* [Agent MQTT](#agent)
+* [Exemple de fonctionnement](#exemple)
+* [Les canaux de communication MQTT](#canal)
+* [Payload](#payload)
+* [QoS](#qos)
+* [Retain](#retain)
+* [Conditions pour qu'une communication MQTT ait lieu](#conditions)
+
+## Agent MQTT
+
+Pour gÃ©rer les communications, il faut avoir un agent MQTT (en anglais, MQTT broker), parfois appelÃ© courtier MQTT ou encoreÂ serveur MQTT.
+
+[Mosquitto](https://mosquitto.org/)Â est un agent MQTT libre et trÃ¨s rÃ©pandu. C'est d'ailleurs lui qui peut Ãªtre facilement installÃ© par diffÃ©rentes boÃ®tes domotiques comme Jeedom ou Home Assistant.
+
+Il ne faut pas confondre l'agent Mosquitto avec le site Web [https://test.mosquitto.org](https://mosquitto.org/) qui est une installation publique de ce mÃªme Mosquitto, souvent utilisÃ©e pour faire des tests.
+
+Attention : les informations qui transigent sur https://test.mosquitto.org sont publiques! De plus, la communication n'est pas fiable, le serveur peut arrÃªter de fonctionner Ã  tout moment. C'est un serveur de test.
+
+Les informations qui transigent sur un agent local sont plus sÃ©curitaires que celles qui transigent sur https://test.mosquitto.org, Ã  condition que l'agent MQTT [apical\_lien\_interne][la\_securite\_avec\_mqtt,soit correctement configurÃ©][/apical\_lien\_interne].
+
+## Exemple de fonctionnement
+
+Voici un exemple simple du fonctionnement d'une communication MQTTÂ :
+
+* Une boÃ®te domotique envoie de l'information au sujet d'un de ses objets connectÃ©s, par exemple un capteur de luminositÃ©, Ã  un agent MQTT sur un canal donnÃ©. Le systÃ¨me domotique est ici le client publieur (publisher).
+* Une autre boÃ®te domotique est abonnÃ©e Ã  ce canal. Elle recevra alors l'information sur la luminositÃ©. Une rÃ¨gle d'automatisation lui permettra d'allumer ou d'Ã©teindre une ampoule selon l'information reÃ§ue. Cette boÃ®te est le client abonnÃ© (subscriber).
+* L'information peut circuler dans les deux sens, c'est-Ã -dire que la boÃ®te de l'ampoule, qui Ã©tait le client abonnÃ© dans l'opÃ©ration prÃ©cÃ©dente, deviendra un client publieur si elle envoie de l'information au sujet de son Ã©tat Ã  l'agent MQTT sur un autre canal.
+* Les abonnÃ©s de ce canal seront informÃ©s de l'Ã©tat de l'ampoule et pourront rÃ©agir convenablement.
+
+Ce mÃ©canisme est intÃ©ressant puisqu'il peut fonctionner localement, sans devoir faire appel Ã  un service infonuagique.
+
+![MQTT](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/MQTT-publication-abonnement.png)
+
+## Les canaux de communication MQTT
+
+La communication entre le publieur et un abonnÃ© passe par un canal. On utilise parfois le terme sujet. En anglais, on dira channel ou topic.
+
+L'agent MQTT peut gÃ©rer autant de canaux que nÃ©cessaire.
+
+Le publieur dÃ©cide sur quel canal il publie l'information. L'agent enverra cette information seulement aux abonnÃ©s de ce canal. Ceci permet Ã  plusieurs publieurs d'envoyer des informations qui ne seront reÃ§ues que par ceux qui dÃ©sirent recevoir ces informations.
+
+Pour qu'un canal existe, il suffit qu'un publieur et un abonnÃ© l'utilisent. Il n'y a pas d'Ã©tape de crÃ©ation en tant que telle.
+
+[Le nom d'un canal](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/)Â contient gÃ©nÃ©ralement plusieurs niveaux afin de bien organiser les canaux que l'agent MQTT doit gÃ©rer.
+
+Le nom sera sous la formeÂ : un\_niveau/un\_sous\_niveau/un\_nom.
+
+Il sera Ã©crit entiÃ¨rement en lettre minuscules avec possiblement des barres de soulignement pour sÃ©parer les mots.
+
+Il est prÃ©fÃ©rable d'Ã©viter les espaces, les caractÃ¨res accentuÃ©s et les caractÃ¨res spÃ©ciaux dans le nom d'un canal.
+
+Voici quelques exemples valablesÂ :
+
+* maison/chambre/temperature
+* securite/porte
+* sauvegarde/homeassistant
+* homeassistant/cafetiere
+
+### CaractÃ¨res gÃ©nÃ©riques
+
+Si vous dÃ©sirez Ã©couter tout ce qui se publie sur un canal, peu importe les sous-niveaux, vous pouvez utiliser un #.
+
+Par exemple, pour Ã©couter tout ce qui se dit sur le canalÂ jeedom, peu importe les sous-niveaux, vous Ã©couterez le canalÂ jeedom/#.
+
+Pour Ã©couter tout ce qui est publiÃ© sur un agent MQTT, vous Ã©couterez le canal #.
+
+## Payload
+
+Le payload, aussi appelÃ© la charge utile ou simplement les donnÃ©es, est le corps de l'information publiÃ©e sur un canal.
+
+En fait, un message publiÃ© via MQTT contient un canal et un payload. On peut faire une comparaison avec un courriel qui contient un titre et un message.
+
+## QoS
+
+La qualitÃ© du service peut prendre les valeurs 0, 1 ou 2, la valeur 2 Ã©tant la meilleure garantie de livraison du message mais Ã©galement la plus exigente au niveau des ressources.
+
+Cette valeur peut Ãªtre configurÃ©e du cÃ´tÃ© du client publieur et du cÃ´tÃ© du client abonnÃ©.
+
+Lorsque le client abonnÃ© a une QoS infÃ©rieure Ã  celle du client publieur, c'est la plus basse valeur qui est utilisÃ©e pour envoyer l'information de l'agent MQTT vers le client abonnÃ©.
+
+<https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/>
+
+## Retain
+
+Cette option permet notamment aux nouveaux abonnÃ©s de recevoir immÃ©diatement le dernier message retenu sur ce canal.
+
+<https://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages/>
+
+## Conditions pour qu'une communication MQTT ait lieu
+
+Pour qu'une communication MQTT ait lieu, il faut :
+
+* un client publieur et un client abonnÃ© qui utilisent le mÃªmeÂ agentÂ MQTT (si l'agent est local, le publieur et l'abonnÃ© devront Ãªtre sur le mÃªme sous-rÃ©seau)
+* un client publieur et un client abonnÃ© qui utilisent le mÃªmeÂ canalÂ MQTT
+
+## Pour plus d'information
+
+Â«Â MQTTÂ Â». WikipÃ©dia. <https://fr.wikipedia.org/wiki/MQTT>
+
+Â«Â MQTT EssentialsÂ Â». HiveMQ. <https://www.hivemq.com/mqtt-essentials/>
+
+Â«Â MQTT Tutorial for Arduino, ESP8266 and ESP32Â Â». DIYI0T. <https://diyi0t.com/introduction-into-mqtt/>
+
+## 107.2 La sÃ©curitÃ© avec MQTT
+
+Le protocole MQTT peut Ãªtre trÃ¨s sÃ©curitaire s'il est bien utilisÃ©. Dans le cas contraire, il peut ouvrir la porte Ã  des attaques ou Ã  une violation de la vie privÃ©e.
+
+Voici quelques aspects Ã  prendre en considÃ©ration.
+
+## Agent MQTT utilisÃ©
+
+Les clients publieurs et les clients abonnÃ©s doivent passer par un agent MQTT pour que les informations transigent du publieur vers le ou les abonnÃ©s.
+
+Cet agent peut Ãªtre installÃ© n'importe oÃ¹Â : sur la machine du client publieur, sur la machine du client abonnÃ©, sur une machine tierce. Il est mÃªme possible d'utiliser un agent de test disponible Ã  l'adresse [https://test.mosquitto.org](https://test.mosquitto.org/).
+
+Attention si vous utilisez cet agent de testÂ : les informations qui y transigent sont publiques! Il ne faut en aucun cas l'utiliser pour autre chose que des tests.
+
+## VisibilitÃ© de l'agent MQTT sur le rÃ©seau
+
+Si l'agent MQTT est sur le mÃªme rÃ©seau que le client publieur et le client abonnÃ© et qu'ils sont protÃ©gÃ©s par un pare-feu, il n'y a pas de risque que les donnÃ©es qui transigent soient interceptÃ©es en dehors de ce rÃ©seau.
+
+Vous pourriez vous croire en sÃ©curitÃ© mais n'oubliez jamais que le pirate peut Ãªtre une personne de l'intÃ©rieur, qui a accÃ¨s Ã  ce mÃªme rÃ©seau.
+
+Dans le cas oÃ¹ un port est ouvert pour rendre l'agent disponible sur Internet, les risques d'interception sont encore plus importants.
+
+Dans tous les cas, vous devez prendre les prÃ©cautions mentionnÃ©es dans les sections qui suivent.
+
+## Mot de passe pour s'abonner Ã  un canal
+
+Lorsque vous configurez un agent MQTT, vous avez la possibilitÃ© de demander un identifiant et un mot de passe.
+
+Ceci est particuliÃ¨rement important dÃ¨s que l'agent MQTT est mis en production. Mais pour que ce soit efficace, il faut Ã©galement que la communication soit encryptÃ©e, d'oÃ¹ l'importance du point suivant.
+
+## Port utilisÃ© par l'agent MQTT
+
+Par dÃ©faut, un agent MQTT Ã©coutera sur le port TCP/IP 1883. Il s'agit d'un port [rÃ©servÃ© par l'Internet Assigned Numbers Authority (IANA) pour MQTT](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=mqtt).
+
+Ce port n'est pas sÃ©curitaire.
+
+Il est prÃ©fÃ©rable d'utiliser le portÂ 8883. Il s'agit d'un autre port rÃ©servÃ© par l'IANA pour MQTT mais cette fois, il exigeÂ une [communication avec SSL/TLS](https://obrienlabs.net/how-to-setup-your-own-mqtt-broker#setup-letsencrypt-ssl-certificate-optional). Vous aurez donc Ã  [installer un certificat TLS](http://www.steves-internet-guide.com/mosquitto-tls/). Les clients devront utiliser ce certificat pour que les communications fonctionnent.
+
+## 107.3 Client MQTT dans Home Assistant
+
+Home Assistant peut effectuer des communications [apical\_lien\_interne][mqtt,MQTT][/apical\_lien\_interne] grÃ¢ce Ã  l'[intÃ©gration MQTT](https://www.home-assistant.io/integrations/mqtt/).
+
+Cette intÃ©gration installera un client MQTT avec la possibilitÃ© d'installer Ã©galement un agent.
+
+RappelÂ : pour qu'une communication MQTT ait lieu, il faut :
+
+* un client publieur et un client abonnÃ© qui utilisent le mÃªme agentÂ MQTT (si l'agent est local, le publieur et l'abonnÃ© devront Ãªtre sur le mÃªme sous-rÃ©seau)
+* un client publieur et un client abonnÃ© qui utilisent le mÃªme canal MQTT
+
+Dans cette ficheÂ :
+
+* [Installation du client MQTT](#installation)
+* [Configuration du client MQTT (informations sur l'agent Ã  utiliser)](#configuration)
+  + [Agent test.mosquitto.org](#mosquittoorg)
+  + [Agent installÃ© localement](#local)
+    - [Mot de passe de l'agent MQTT sur Home Assistant](#motdepasse)
+    - [Installer un agent aprÃ¨s-coup ou reconfigurer l'agent local](#installer)
+  + [Agent installÃ© sur un second ordinateur](#ip)
+* [Utilisation d'une connexion sÃ©curisÃ©e](#securise)
+* [Tester MQTT](#tester)
+  + [Publier un paquet](#publier)
+  + [Ã‰couter un sujet](#ecouter)
+  + [CaractÃ¨res gÃ©nÃ©riques](#generiques)
+* [Abonnement et publication](#abonnementpublication)
+
+## Installation du client MQTT
+
+Pour installer l'intÃ©gration MQTT dans Home AssistantÂ :
+
+* Rendez-vous dans le menu ParamÃ¨tresÂ / Appareils et services / onglet IntÃ©grations.
+* Cliquez sur Ajouter une intÃ©gration.
+* Recherchez MQTT puis cliquez sur l'intÃ©gration trouvÃ©e.
+
+  ![MQTT](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomAssistant-MQTT.png)
+* Home Assistant vous demande ensuite de prÃ©ciser ce que vous dÃ©sirez ajouter. Choisissez MQTT.
+
+  ![MQTT](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomAssistant-MQTT-2.png)
+* Dans l'Ã©cran suivant, choisissez l'une des optionsÂ :
+
+  + Utiliser le module complÃ©mentaire officiel Mosquitto Mqtt BrokerÂ :Â pour installer un agent MQTT sur le Pi
+  + Saisir manuellement les informations de connexion du courtier MQTTÂ : pour utiliser un agent MQTT existant, qui peut Ãªtre sur le Pi ou ailleurs
+
+  ![MQTT](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomAssistant-MQTT-3.png)
+
+## Configuration du client MQTT (informations sur l'agent Ã  utiliser)
+
+La configuration du client MQTT consiste principalement Ã  indiquer les coordonnÃ©es de l'agent MQTT Ã  utiliser.
+
+Les configurations du client MQTT seront enregistrÃ©es dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.config\_entries.
+
+Une fois le client correctement configurÃ©, Home Assistant pourra publier sur des canaux et Ã  s'abonner Ã  d'autres canaux sur ce mÃªme agent.
+
+Il est possible en tout temps de modifier les configurations du client MQTT. Rendez-vous dans le menu ParamÃ¨tres / Appareils et services / Clic sur la tuile MQTT / Clic sur les trois points verticaux / Reconfigurer.
+
+### Agent test.mosquitto.org
+
+Pendant le processus d'installation du client MQTT, vous devez prÃ©ciser si vous souhaitez travailler avec un agent MQTT installÃ© sur le mÃªme Raspberry Pi que Home Assistant ou utiliser un agent MQTT externe.
+
+Pour travailler avec l'agentÂ test.mosquitto.org, choisissez Saisir manuellement les informations de connexion du courtier MQTT.
+
+Avec l'agent test.mosquitto.org, il n'y a pas de code d'usager ni de mot de passe Ã  fournir.
+
+Il ne faut pas oublier que toutes les informations publiÃ©es sur test.mosquitto.org sont publiques donc il ne faut utiliser cet agent que pour faire des tests avec des donnÃ©es non sensibles.
+
+Remarquez que dans cet exemple, le port 1883 est utilisÃ© pour les communications non cryptÃ©es.
+
+![Mosquitto.org](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-MosquittoOrg.png)
+
+Notez que puisque l'agent test.mosquitto.org est un agent de test, il n'y a pas de garantie qu'il fonctionne correctement en tout temps.
+
+De plus, il est possible qu'il limite le nombre de connexions en provenance d'une mÃªme adresse IP publique (toutes les boÃ®tes domotiques de la classe ont la mÃªme adresse IP publique).
+
+Si vous obtenez le message Â«Â Ã‰chec de connexionÂ Â», assurez-vous que vous avez bien Ã©crit l'URL de l'agent puis rÃ©essayez.
+
+Si cela ne fonctionne toujours pas, il faudra qu'une autre personne de la classe referme sa connexions pour que vous y ayez accÃ¨s.
+
+Parfois, c'est l'agent qui est temporairement non disponible. Il faut alors rÃ©essayer plus tard. Notez qu'il peut arriver que l'agent ne soit pas disponible pendant plusieurs heures.
+
+![Ã‰chec de connexion](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-EchecDeConnexion.png)
+
+### Agent installÃ© localement
+
+Pour installer un agent MQTT sur le mÃªme Raspberry Pi que Home Assistant, vous pouvez cliquer sur Utiliser le module complÃ©mentaire officiel Mosquitto Mqtt Broker lors de l'installation du client. L'agent sera alors installÃ© en mÃªme temps que le client.
+
+Vous pouvez alors modifier les configurations de l'agent en vous rendant dans le menu ParamÃ¨tres / Appareils et services / Clic sur la tuile MQTT /Â Clic sur les trois points verticaux /Â Reconfigurer.
+
+![Broker local](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-BrokerLocal.png)
+
+Avec ce type d'installation, un autre systÃ¨me pourra utiliser cet agent Ã  l'aide de ces informationsÂ :
+
+* courtierÂ : adresse IP du Pi sans le port (ex : 192.168.1.145)
+* code d'usagerÂ : homeassistant
+* Mot de passeÂ : voir la section suivante.
+
+#### Mot de passe de l'agent MQTT sur Home Assistant
+
+Dans l'Ã©cran de configuration de l'agent MQTT, si vous cliquez sur l'icÃ´ne pour voir le mot de passe, vous verrez apparaÃ®tre \_\_\*\*password\_not\_changed\*\*\_\_.
+
+Pour retrouver le mot de passe, vous devez consulter le fichier /mnt/data/supervisor/homeassistant/.storage/core.config\_entries).
+
+FichierÂ /mnt/data/supervisor/homeassistant/.storage/core.config\_entries
+
+...{"broker":"core-mosquitto","discovery":true,"password":"Ath4Goh4Ierai0ahWaeSiejeaquat8ailohk7raiyoo4xeeLe6TooKo8aejo3sha","port":1883,"username":"homeassistant"} ...
+
+Il est Ã©galement possible de modifier le code d'usager et son mot de passe comme suitÂ :
+
+* CrÃ©ez une nouvelle personne dans Home Assistant.
+* Configurez cette personne pour qu'elle soit autorisÃ©e Ã  se connecter puis choisissez son mot de passe.
+* Le nom de cette personne et son mot de passe pourront Ãªtre utilisÃ©s par un client pour se connecter Ã  l'agent MQTT installÃ© sur votre Home Assistant.
+
+#### Installer un agent aprÃ¨s-coup ou reconfigurer l'agent local
+
+Si vous avez installÃ© votre client MQTT en cliquant surÂ Saisir manuellement les informations de connexion du courtier MQTT, aucun agent n'aura Ã©tÃ© installÃ© sur votre Home Assistant.
+
+Il est possible d'ajouter un agent aprÃ¨s que l'installation du client ait Ã©tÃ© complÃ©tÃ©e.
+
+Cette technique permet Ã©galement de remettre les configurations en place si vous avez utilisÃ© un autre agent MQTT et que vous dÃ©sirez revenir Ã  l'agent installÃ© sur votre Home Assistant.
+
+* Rendez-vous dans le menu ParamÃ¨tres / Appareils et services / Clic sur la tuile MQTT / Clic sur les trois points verticaux / Supprimer.
+* Cliquez sur Ajouter un service.
+* SÃ©lectionnezUtiliser le module complÃ©mentaire officiel Mosquitto Mqtt Broker.
+* L'agent MQTT est maintenant installÃ© et configurÃ©.
+
+### Agent installÃ© sur un second ordinateur
+
+L'agent MQTT Ã  utiliser peut Ãªtre installÃ© n'importe oÃ¹, en autant que votre boÃ®te domotique y ait accÃ¨s.
+
+Dans cet exemple, l'agent est installÃ© sur un second Raspberry Pi ou sur tout autre ordinateur.
+
+Pour savoir si Home Assistant peut accÃ©der Ã  cet agent, il suffit de faire un ping vers son adresse IP.
+
+![Broker perso](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-BrokerPerso.png)
+
+## Utilisation d'une connexion sÃ©curisÃ©e
+
+Afin de sÃ©curiser la communication, il faut utiliser le port 8883.
+
+Il faut alors activer les options avancÃ©es puis configurer le certificat TLS.
+
+Pour plus d'informationÂ : <https://www.home-assistant.io/integrations/mqtt/#advanced-broker-configuration>
+
+## Tester MQTT
+
+Avant d'automatiser les publications MQTT, c'est une bonne idÃ©e de tester vos configurations.
+
+* Rendez-vous dans le menu ParamÃ¨tres / Appareils et services / onglet IntÃ©grations.
+* Cliquez sur la tuile du client MQTT.
+* Cliquez sur l'icÃ´ne d'engrenage.
+
+Cet Ã©cran vous permet de publier un paquet ou d'Ã©couter un sujet.
+
+### Publier un paquet
+
+Pour publier un paquet, il suffit d'entrer le nom du canal dÃ©sirÃ© dans la zone SujetÂ puis d'entrer la valeur Ã  publier.
+
+Les valeurs publiÃ©es pourront Ãªtre utilisÃ©es par un autre systÃ¨me au mÃªme titre que si la publication avait Ã©tÃ© faite Ã  l'aide d'une automatisation, par exemple.
+
+![Publier un paquet](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-PublierUnPaquet.png)
+
+Attention : si vous ajoutez un saut de ligne, ce saut de ligne fera partie de la valeur envoyÃ©e.
+
+![Saut de ligne](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-publicationAvecSautDeLigne.png) ![OK](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-publicationOK.png)
+
+### Ã‰couter un sujet
+
+Ici, vous pouvez Ã©couter un sujet pour vÃ©rifier si vos configurations sont correctes.
+
+Ceci est utile seulement pour tester MQTT.   
+  
+Avec cette technique, si votre boÃ®te Home Assistant est redÃ©marrÃ©e, elle ne rÃ©agira plus aux messages reÃ§us sur ce canal.   
+  
+Pour un vrai abonnement MQTT, il faut utiliser la [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,technique officielle,abonnement][/apical\_lien\_interne].
+
+Dans la zone Ã‰couter un sujet, entrez le nom du canal dÃ©sirÃ©.
+
+Cliquez sur Commencer Ã  Ã©couter.
+
+![Ã‰couter un sujet](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-EcouterUnSujet.png)
+
+DÃ¨s qu'une information est publiÃ©e sur ce canal, elle apparaÃ®tra au bas de l'Ã©cran.
+
+![RÃ©ception du message publiÃ©](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-EcouterUnSujet-Reponse.png)
+
+### CaractÃ¨res gÃ©nÃ©riques
+
+Si vous dÃ©sirez Ã©couter tout ce qui se publie sur un canal, peu importe les sous-niveaux, vous pouvez utiliser un #.
+
+Par exemple, pour Ã©couter tout ce qui se dit sur le canal jeedom, peu importe les sous-niveaux, vous Ã©couterez le canal jeedom/#.
+
+![CaractÃ¨res gÃ©nÃ©riques](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTT-CaracteresGeneriques.png)
+
+## Abonnement et publication
+
+Les techniques pour utiliser le client MQTT sont dÃ©taillÃ©es dans la fiche Â«Â [apical\_lien\_interne]publication\_et\_abonnement\_mqtt\_avec\_home\_assistant[/apical\_lien\_interne]Â Â».
+
+## 107.4 Publication et abonnement MQTT avec Home Assistant
+
+Une fois que vous avez [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,installÃ© un client MQTT][/apical\_lien\_interne] sur Home Assistant et que vous avez configurÃ© l'agent MQTT Ã  utiliser, vous pouvez dÃ©buter le processus de publication et d'abonnement MQTT.
+
+Dans cette ficheÂ :
+
+* [Publication sur un canal](#publication)
+* [Abonnement Ã  un canal](#abonnement)
+* [Affichage de l'information reÃ§ue](#carte)
+* [DÃ©clencheur d'une automatisation](#declencheur)
+
+## Publication sur un canal
+
+Home Assistant peut publier de l'information sur un canal Ã  l'aide de l'action [mqtt.publish](https://www.home-assistant.io/integrations/mqtt#action-mqttpublish).
+
+Cette action peut Ãªtre utilisÃ©e dans vos automatisations au mÃªme titre que n'importe quelle autre action.
+
+Il est Ã©galement possible de la tester Ã  l'aide du menu Outils dÃ©veloppement / Actions.
+
+Vous devrez spÃ©cifier ces informationsÂ :
+
+* Sujet (Topic)Â : nom du canal
+* Charge utile (Payload)Â : information Ã  publier codÃ©e en dur ou [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,Ã  l'aide d'un modÃ¨le][/apical\_lien\_interne].
+
+  Dans le fichier automation.yaml, lorsque vous utilisez un modÃ¨le, n'oubliez pas les apostrophes ou guillemets alentour du modÃ¨le.
+
+  Les apostrophes ou guillemets ne sont pas requis quand on travaille avec l'interface graphique.
+
+  ModÃ¨le
+
+  payload: '{{ states(''sensor.5\_in\_1\_pir\_motion\_sensor\_illuminance'') }}'
+
+  Dans le fichier automation.yamlÂ ou dans l'interface graphique, lorsque les donnÃ©es sont publiÃ©es [apical\_lien\_interne][format\_json\_dans\_un\_modele,au format JSON][/apical\_lien\_interne], il ne faut pas entourer le modÃ¨le de guillemets ou d'apostrophes (dans cet exemple, il n'y a pas de guillemets alentour de state\_attr('domaine.identifiant\_objet', 'attribut1')).
+
+  ModÃ¨le
+
+  {%  
+  Â  Â  set valeurs = {  
+  Â  Â  Â  Â  "premierattribut":state\_attr('domaine.identifiant\_objet', 'attribut1'),  
+  Â  Â  Â  Â  "deuxiemeattribut": state\_attr('domaine.identifiant\_objet', 'attribut2')  
+  Â  Â  }  
+  %}  
+  {{ valeurs | to\_json }}
+* QoSÂ : [apical\_lien\_interne][mqtt,QualitÃ© du service,qos][/apical\_lien\_interne]
+* Retenir (Retain)Â : Activez cette option pour que le message soit [apical\_lien\_interne][mqtt,retenu,retain][/apical\_lien\_interne].
+
+  ![mqtt.publish](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Services-MqttPublish.png)
+
+Une fois l'information publiÃ©e, il faut qu'il y ait un abonnÃ© sur ce canal pour vÃ©rifier si tout a fonctionnÃ©.
+
+GÃ©nÃ©ralement, l'abonnÃ© ne sera pas Home Assistant lui-mÃªme car ceci serait inutile. Il pourrait s'agir parr exemple d'une autre boÃ®te domotique.
+
+## Abonnement Ã  un canal
+
+Home Assistant peut s'abonner Ã  un canal afin de connaÃ®tre la valeur de la derniÃ¨re charge utile publiÃ©e sur ce canal.Â Une entitÃ© est crÃ©Ã©e lors de l'abonnement, ce qui ouvre la porte Ã  de nombreuses possibilitÃ©s.
+
+Pour abonner Home Assistant Ã  un canal, il faut entrer une configuration dans le fichier configuration.yaml.
+
+Fichier configuration.yaml
+
+mqtt:  
+Â  sensor:  
+Â  Â  - name: "nom de l'Ã©quipement"  
+Â  Â  Â  state\_topic: "un\_niveau/un\_sous\_niveau/un\_nom"
+
+Attention : cette syntaxe est obsolÃ¨te :
+
+Fichier configuration.yaml
+
+sensor:  
+Â  - platform: mqtt  
+Â  Â  name: "nom de l'Ã©quipement"  
+Â  Â  state\_topic: "un\_niveau/un\_sous\_niveau/un\_nom"
+
+## EntitÃ© crÃ©Ã©e
+
+L'abonnement Ã  un canal crÃ©e un nouvel Ã©quipement qui contient une entitÃ© pour donner accÃ¨s Ã  la derniÃ¨re valeur reÃ§ue.
+
+L'attribut nameÂ sera utilisÃ© pour gÃ©nÃ©rer l'identifiant de l'entitÃ©. Home Assistant remplacera les espaces par des barres de soulignement et les caractÃ¨res spÃ©ciaux par leur Ã©quivalent dans les caractÃ¨res de base. Ainsi, Â«Â nom de l'Ã©quipementÂ Â» sera utilisÃ© pour crÃ©er l'entitÃ© sensor.nom\_de\_l\_equipement.
+
+Dans cette impression d'Ã©cran, l'entitÃ© a Ã©tÃ© utilisÃ©e pour afficher sur le tableau de bord la derniÃ¨re valeur reÃ§ue sur ce canal.
+
+![Configuration de la carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-ConfigurationSensorMQTT.png)
+
+## DÃ©clencheur d'une automatisation
+
+Pour qu'une automatisation soit dÃ©clenchÃ©e quand un message MQTT est reÃ§u, le plus facile consiste Ã  utiliser l'entitÃ© crÃ©Ã©e lors de l'abonnement au canal MQTT.
+
+Lors de l'ajout du dÃ©clencheur, on choisira EntitÃ© / Ã‰tat ou EntitÃ© / Ã‰tat numÃ©riqueÂ selon les besoins de l'automatisation.
+
+![DÃ©clencheur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurAbonnementMQTT.png)
+
+Cette entitÃ© pourra Ãªtre utilisÃ©e comme n'importe quelle autre entitÃ© pour :
+
+* dÃ©clencher l'automatisation dÃ¨s que sa valeur change (EntitÃ© / Ã‰tat puis ne rien inscrire dans la zone De: ni dans dans la zone Ã€:)
+* dÃ©clencher l'automatisation quand sa valeur est Ã©gale Ã  quelque chose (EntitÃ© / Ã‰tat puis inscrire la valeur dans la zone Ã€:)
+* dÃ©clencher l'automatisation quand sa valeur est entre deux valeurs (EntitÃ© / Ã‰tat numÃ©riqueÂ puis prÃ©ciser les limites infÃ©rieure et supÃ©rieure)
+* etc.
+
+Autre techniqueÂ : configurer le dÃ©clencheur avecÂ Autres dÃ©clencheurs / MQTT.
+
+Vous pourrez alors choisir le sujet (le canal) Ã  Ã©couter et, au besoin, ne rÃ©agir que lorsque la charge utile (la valeur reÃ§ue) est Ã©gale Ã  une valeur donnÃ©e.
+
+![MQTT dans automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-MQTTDansAutomatisation.png)
+
+<!-- --- split --- -->
+
+# 108. Exercice 23
+
+## 108.1 MQTT entre deux boÃ®tes Home Assistant
+
+Dans cet exercice, vous devez travailler deux par deux. Chacun de vous utilisera sa boÃ®te Home Assistant.
+
+Vous aurez des manipulations Ã  faire sur les deux boÃ®tes domotiques mais vous ferez chaque manipulation ensemble pour vous assurer de bien comprendre les deux cÃ´tÃ©s de la mÃ©daille.
+
+1. [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,Installez un client MQTT sur une des boÃ®tes Home Assistant][/apical\_lien\_interne] en utilisant l'optionÂ Utiliser le module complÃ©mentaire officiel Mosquitto Mqtt Broker afin d'installer Ã©galement un agent MQTT. Dans le reste de l'exercice, cette boÃ®te s'appellera boÃ®te A.
+2. Dans l'autre boÃ®te, installez un client MQTT en utilisant l'option Saisir manuellement les informations de connexion du courtier MQTT. Effectuez les configurations requises pour utiliser l'agent MQTT de la premiÃ¨re boÃ®te Home Assistant.Â Dans le reste de l'exercice, cette boÃ®te s'appellera boÃ®teÂ B.
+3. Assurez-vous d'avoir un capteur rÃ©el et un capteur virtuel dans chacune des boÃ®tes Home Assistant.
+4. Testons les possibilitÃ©s de publication et d'abonnement.
+   1. Dans la boÃ®te A, [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,testez votre installation pour publier un mot de votre choix,publier][/apical\_lien\_interne] sur un canal au format mon\_nom/premier\_test.
+   2. Dans la boÃ®te B, [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,faites un test pour savoir si vous Ãªtes capables de recevoir des donnÃ©es MQTT sur le canal utilisÃ©,tester][/apical\_lien\_interne].
+   3. Testons l'inverse.Â Dans la boÃ®te B, publiez un mot de votre choix sur un canal au format mon\_nom/second\_test.
+   4. Dans la boÃ®te A, faites un test pour Ãªtre capable de recevoir ce mot.
+5. Refaites les tests mais en utilisant l'agent test.mosquitto.org.
+6. Ã€ l'aide de l'agent MQTT local installÃ© sur la boÃ®te A ou de l'agentÂ test.mosquitto.org, vous devez contrÃ´ler un rÃ©cepteur distant.
+   1. Dans la boÃ®te A, faites en sorte que [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,dÃ¨s qu'une valeur est reÃ§ue sur le canal de votre choix,abonnement][/apical\_lien\_interne], une lumiÃ¨re virtuelle s'allume si la valeur est 1. La lumiÃ¨re s'Ã©teindra si la valeur est 0.
+   2. Dans la boÃ®te B, envoyez via MQTT la valeur 0 ou 1 pour contrÃ´ler la lumiÃ¨re virtuelle de la boÃ®te A.
+7. Vous devez maintenant afficher la valeur d'un capteur distant.
+   1. Dans la boÃ®te B, faites afficher dans le tableau de bord la valeur du capteur rÃ©el de la boÃ®te A de mÃªme que celle de son capteur virtuel.
+   2. Important : ceci n'est pas un test pour savoir si MQTT fonctionne. La boÃ®te B doit Ãªtre abonnÃ©e au canal sur lequel la boÃ®te A publie la valeur de son capteur. La boÃ®te B doit donc ajouter une entrÃ©e dans le fichier configuration.yaml.
+   3. Le but est que la valeur soit modifiÃ©e dans la boÃ®te B dÃ¨s que la valeur change dans la boÃ®te A. La boÃ®te A a donc du travail Ã  faire pour automatiser le processus.
+   4. Modifiez ces valeurs dans la boÃ®te A (exÂ : mettez la main sur le capteur de luminositÃ© ou modifiez Ã  la main la valeur d'un virtuel) et vÃ©rifiez que les modifications sont effectives dans la boÃ®te B.
+   5. Vous devez maintenant faire l'inverse : faire afficher dans la boÃ®te A la valeur des appareils branchÃ©s sur la boÃ®te B.
+8. Pour ce dernier numÃ©ro, vous n'avez pas besoin d'Ãªtre en Ã©quipe de deux. Votre professeur dispose d'un agent MQTT que vous devez utiliser avec votre Home Assistant pour effectuer une opÃ©ration sur un autre systÃ¨me domotique qui est en la possession de votre professeur. 
+   * Les coordonnÃ©es de l'agent MQTT vous seront donnÃ©es en classe.
+   * Ce que vous devez faireÂ :
+     + Vous devez allumer la lumiÃ¨re intelligente branchÃ©e Ã  la boÃ®te domotique de votre prof en envoyant la charge utileÂ on sur le canal exercice22/9Â oÃ¹ 9Â reprÃ©sente le numÃ©ro de votre Raspberry Pi.
+     + Pour refermer la lumiÃ¨re : la charge utile sera off.
+     + AprÃ¨s chaque opÃ©ration, Ã©coutez sur le canal exercice22/reponse/9Â pour recevoir la rÃ©ponse de la boÃ®te domotique sur laquelle l'ampoule est connectÃ©e.
+
+<!-- --- split --- -->
+
+# 109. Pour le prochain cours
+
+## 109.1 Je me prÃ©pare pour l'exercice suivant (un cours)
+
+Vous disposez d'un cours pour acquÃ©rir les connaissances thÃ©oriques et finaliser cet exercice.
+
+Une fois cet exercice complÃ©tÃ©, vous devez effectuer vos lecturesÂ pour l'exercice suivant.
+
+

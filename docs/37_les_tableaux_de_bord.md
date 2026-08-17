@@ -188,7 +188,7 @@ Dans sa forme la plus simple, la carte Markdown affichera une image comme suit. 
 
 Markdown
 
-![Texte alternatif](/local/nom-image.png)
+![Texte alternatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nom-image.png)
 
 Remarquez que le texte entre crochets carrés représente l'attribut alt de l'image.
 
@@ -426,3 +426,4 @@ card\_mod:
 « thomasloven/lovelace-card-mod ». GitHub. <https://github.com/thomasloven/lovelace-card-mod>
 
 « thomasloven/lovelace-card-mod - Lovelace Plugins ». GitHub . <https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins>
+
