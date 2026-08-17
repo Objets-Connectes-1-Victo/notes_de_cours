@@ -33,7 +33,8 @@ plugins:
 
 nav:
   - Notes de cours: index.md
-  - Chapitres regroupes:    - "Chapitres 001-010": "001_010_merged.md"
+  - Chapitres regroupes:
+    - "Chapitres 001-010": "001_010_merged.md"
     - "Chapitres 011-020": "011_020_merged.md"
     - "Chapitres 021-030": "021_030_merged.md"
     - "Chapitres 031-040": "031_040_merged.md"
