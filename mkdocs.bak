@@ -1,0 +1,48 @@
+site_name: "Notes de cours - Objets connectes 1 (420-3A4-VI)"
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji
+
+plugins:
+  - search
+
+nav:
+  - Notes de cours: index.md
+  - Chapitres regroupes:
+    - "Chapitres 001-010": "001_010_merged.md"
+    - "Chapitres 011-020": "011_020_merged.md"
+    - "Chapitres 021-030": "021_030_merged.md"
+    - "Chapitres 031-040": "031_040_merged.md"
+    - "Chapitres 041-050": "041_050_merged.md"
+    - "Chapitres 051-060": "051_060_merged.md"
+    - "Chapitres 061-070": "061_070_merged.md"
+    - "Chapitres 071-080": "071_080_merged.md"
+    - "Chapitres 081-090": "081_090_merged.md"
+    - "Chapitres 091-100": "091_100_merged.md"
+    - "Chapitres 101-108": "101_108_merged.md"
+
