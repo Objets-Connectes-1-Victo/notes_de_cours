@@ -1,5 +1,58 @@
+﻿
+<!-- --- split --- -->
 
-<!-- removed chapitre 57 -->
+# 57. Examen 1
+
+## 57.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
+
+Vous est-il dÃ©jÃ  arrivÃ© de vivre une coupure d'Internet pendant un examen ou de constater que le serveur qui hÃ©berge les notes de cours avait un problÃ¨me technique?
+
+Comme on n'est jamais Ã  l'abri de problÃ¨mes potentiels, vous devriez vous assurer d'avoir en main une copie locale des notes de cours AVANT de vous prÃ©senter Ã  votre examen si votre enseignante ou votre enseignant vous donne droit de consulter les notes de cours pendant l'examen.
+
+Pour ce faire, rendez-vous dans le menu Formations.
+
+Dans la liste des formations, cliquez sur l'icÃ´ne qui permet d'afficher toute la formation dans une seule page WebÂ : ![IcÃ´ne pour afficher toute la formation dans une seule page Web](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Web.svg).
+
+La gÃ©nÃ©ration automatique d'un PDF n'est pas encore disponible. Vous avez tout de mÃªme deux options pour conserver les notes de coursÂ :
+
+* Imprimez la page au format PDF.
+* Vous pouvez Ã©galement enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir Ã  passer par le Web et sans devoir vous authentifier sur Apical.
+
+## 57.2 Consignes pour l'examen
+
+Cet examen est basÃ© sur le travail que vous avez fait en classe depuis le dÃ©but de la session. Il consiste Ã  ajouter de nouvelles fonctionnalitÃ©s Ã  votre logiciel de domotique.
+
+* Cet examen pratique compte pour 25% de la note finale.
+* Vous disposez de deux (2) pÃ©riodes consÃ©cutives de 50 minutes pour effectuer le travail demandÃ©.
+* Vous devez rÃ©aliser seul les Ã©tapes demandÃ©es.
+* Vous devez rÃ©aliser l'examen sur ordinateur.
+* Vous avez droit Ã  toutes vos notes et Ã  la consultation de documents sur InternetÂ (n'oubliez pas de citer vos sources et de bien comprendre tout le code que vous utiliserez).
+* Dans tout le code que vous Ã©crirez, vous devez respecter les techniques, les pratiques et les normes enseignÃ©es. Plusieurs sont implicites, par exemple ajouter suffisamment de commentaires, ne pas effectuer de code inutile, etc.
+* Vous nâ€™avez pas droit aux outils de communication comme les textos, le chat, le courriel, les blogues, les forums, les dÃ©pÃ´ts de fichiers (ex : GitHub, Google Drive) ou tout autre outil permettant de communiquer avec dâ€™autres personnes participant ou non Ã  cet examen. Vous n'avez pas droit aux gÃ©nÃ©rateurs de code ni Ã  l'IA. Vous pouvez consulter des sites Web, Ã  condition qu'ils n'aient pas Ã©tÃ© modifiÃ©s en fonction de l'examen, mais vous ne pouvez pas y ajouter ou modifier des questions, commentaires ou autres informations.
+* Toute tentative dâ€™utiliser un outil de communication ou autre matÃ©riel proscrit constitue un plagiat.
+
+Bonne chance !
+
+## 57.3 Grille de correction
+
+Voici la grille de correction qui sera utilisÃ©e Ã  l'examen no 1.
+
+Si vous le dÃ©sirez, vous pouvez imprimer cette grille et l'amener Ã  l'examen afin de vous aider Ã  faire le suivi de votre travail.
+
+Les opÃ©rations que vous devrez rÃ©aliser devront respecter les techniques, les pratiques et les normes enseignÃ©es. Plusieurs sont implicites, par exemple inscrire votre nom dans l'en-tÃªte standard du fichier Python.
+
+Notez que la correction sera faite Ã  partir des fichiers remis. Vous devez Ã©galement remettre votre carte micro SD mais ceci nâ€™est quâ€™en cas oÃ¹ des vÃ©rifications supplÃ©mentaires Ã©taient requises.
+
+FICHIER NON REMIS = FICHIER NON CORRIGÃ‰ (note : 0).
+
+| 25 points | Excellent | Satisfaisant | Minimal | Faible | Insuffisant |
+| --- | --- | --- | --- | --- | --- |
+| ScÃ©narios | Tous les scÃ©narios demandÃ©s fonctionnent correctement et respectent les consignes.  10 points | Au moins une erreur empÃªche au moins un scÃ©nario de fonctionner ou ne respecte pas les consignes.  8 points | Au moins deux erreurs empÃªchent au moins un scÃ©nario de fonctionner ou ne respectent pas les consignes.  6 points | Au moins trois erreurs empÃªchent au moins un scÃ©nario de fonctionner ou ne respectent pas les consignes.  4 points | Au moins quatre erreurs empÃªchent au moins un scÃ©nario de fonctionner ou ne respectent pas les consignes  ou  Les fichiers remis sur Teams ne permettent pas de vÃ©rifier si ce point est rÃ©ussi.  0 |
+| Scripts Python - respect des conventions (nom du fichier,Â shebang, commentaires de documentation) | Toutes les conventions sont respectÃ©es incluant les commentaires de documentation qui doivent Ãªtre complets et exacts.  2 points |  |  | Au moins une convention n'est pas respectÃ©e.    1 point | Au moins deux conventions ne sont pas respectÃ©es  ou  Les fichiers remis sur Teams ne permettent pas de vÃ©rifier si ce point est rÃ©ussi.  0 |
+| Scripts Python - traitement | Le ou les scripts effectuent correctement tout le traitement demandÃ©.  6 points | Le traitement contient au moins une erreur.  4 points |  | Le traitement contient au moins deux erreurs.  2 point | Le traitement contient au moins trois erreurs  ou  Les fichiers remis sur Teams ne permettent pas de vÃ©rifier si ce point est rÃ©ussi.  0 |
+| Autres configurations et manipulations dans Jeedom et sur le Pi | Toutes les configurations et manipulations demandÃ©es sont correctement effectuÃ©es.  7 points | La copie des scripts Python a Ã©tÃ© correctement rÃ©alisÃ©e et au moins un Ã©lÃ©ment n'est pas correctement effectuÃ©.  5 points | La copie des scripts Python a Ã©tÃ© correctement rÃ©alisÃ©e et au moins deux Ã©lÃ©ments ne sont pas correctement effectuÃ©s.  4 points | La copie des scripts Python n'a pas Ã©tÃ© correctement rÃ©alisÃ©e  ou  Au moins trois Ã©lÃ©ments ne sont pas correctement effectuÃ©s.  2 points | La copie des scripts Python n'a pas Ã©tÃ© correctement rÃ©alisÃ©e et au moins un autre Ã©lÃ©ment n'est pas correctement effectuÃ©  ou  Au moins quatre Ã©lÃ©ments ne sont pas correctement effectuÃ©s  ou  Les fichiers remis sur Teams ne permettent pas de vÃ©rifier si ce point est rÃ©ussi.  0 |
+
+<!-- --- split --- -->
 
 # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Semaine 7 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
@@ -3989,6 +4042,4 @@ AprÃ¨s un redÃ©marrage de Home Assistant, la sauvegarde est visible dans Par
    8. [apical\_lien\_interne][nmcli\_l\_outil\_en\_ligne\_de\_commande\_du\_networkmanager,DÃ©connectez maintenant le Wi-Fi][/apical\_lien\_interne]. Plusieurs manipulations pourraient Ãªtre requises pour que tous les rÃ©seaux sans fil soient dÃ©connectÃ©s. La banniÃ¨re de Home Assistant devrait maintenant vous donner seulement l'adresse IP du rÃ©seau filaire.
 10. [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,Ã‰teignez Home Assistant de faÃ§on sÃ©curitaire][/apical\_lien\_interne].
 11. DÃ©posez votre impression d'Ã©cran sur la plateforme Ã©lectronique du cours.
-
-
 
