@@ -1,6 +1,6 @@
-# 77. Exercice 13
+# 221 — 7. Exercice 13
 
-## 77.1 Les automatisations
+## 222 — 7.1 Les automatisations
 
 1. [apical\_lien\_interne][ajouter\_une\_automatisation\_a\_l\_aide\_de\_l\_interface\_graphique,Ajoutez une automatisation][/apical\_lien\_interne] dans laquelle le capteur réel de votre choix agit sur le récepteur réel de votre choix.
 2. Créez une seconde automatisation mais cette fois, elle doit travailler avec un capteur virtuel et un récepteur virtuel.

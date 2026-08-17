@@ -1,6 +1,6 @@
-# 12. La domotique
+# 21 — 2. La domotique
 
-## 12.1 En r�sum�...
+## 22 — 2.1 En r�sum�...
 
 Voici un r�sum� des informations essentielles du ou des prochains chapitres.
 
@@ -136,7 +136,7 @@ Il existe aussi un syst�me de sauvegarde automatique mais ce n'est pas ce qui 
 
 Important : que ce soit une sauvegarde manuelle ou automatique, il faut la t�l�charger sur notre ordinateur pour pouvoir la r�utiliser en cas de crash de Jeedom.
 
-## 12.2 Qu'est-ce qu'un objet connect� ?
+## 23 — 2.2 Qu'est-ce qu'un objet connect� ?
 
 Un objet connect�, parfois appel� appareil connect� ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajout� des composantes qui lui permettent d'envoyer ou de recevoir des donn�es au serveur auquel il est connect�.
 
@@ -166,7 +166,7 @@ Voici une d�finition int�ressante de l'Internet des Objets[2](https://jpdias
 
 2. ��Indoor Sensing Hub powered by Mozilla Things Framework��. Jo�o Pedro Dias. <https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html>
 
-## 12.3 Qu'est-ce qu'un syst�me domotique ?
+## 24 — 2.3 Qu'est-ce qu'un syst�me domotique ?
 
 La domotique est un ensemble de composantes et de techniques qui permettent d'automatiser et de contr�ler � distance diff�rents syst�mes dans une maison.
 
@@ -198,7 +198,7 @@ Diff�rents protocoles de communication seront utilis�s pour assurer la commu
 
 ![Sch�ma syst�me domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
-## 12.4 Syst�me domotique cl� en main vs DIY
+## 25 — 2.4 Syst�me domotique cl� en main vs DIY
 
 De nombreux acteurs sur le march� offrent des solutions domotiques cl� en main. Ces solutions sont g�n�ralement stables, efficaces et s�curitaires. Cependant, elles sont co�teuses � l'achat et plusieurs n�cessitent par la suite des frais mensuels.
 
@@ -211,4 +211,3 @@ Dans tous les cas, vous devrez apporter une attention quasi maladive pour la s�
 Quoi qu'il en soit, la domotique est un monde fascinant qui offre une infinit� de possibilit�s.
 
 Si la domotique vous interpelle, suivez-moi�!
-

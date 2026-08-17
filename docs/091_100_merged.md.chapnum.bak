@@ -1,0 +1,701 @@
+
+<!-- --- split --- -->
+
+<a id="fiche-installation_du_moteur_dans_le_store"></a>
+
+<a id="chapitre-les_servomoteurs"></a>
+
+Information à venir...
+
+Matériel : <https://www.pmuncgoods.com/index.php?main_page=product_info&products_id=66482>
+
+<https://www.youtube.com/watch?v=OUYZQ0tBtJ4>
+
+<!-- --- split --- -->
+
+<a id="fiche-fonctionnement_d_un_servomoteur"></a>
+
+## 118.1 Fonctionnement d'un servomoteur
+
+Information à venir...
+
+Pour s'activer, le servomoteur doit recevoir un signal de modulation de largeur d�?Timpulsions (MLI ou, en anglais Pulse Width Modulation, PWM).
+
+## Pour plus d'information
+
+«  Servomoteur - Dans le cadre du modélisme ». Wikipédia. <https://fr.wikipedia.org/wiki/Servomoteur#Dans_le_cadre_du_mod.C3.A9lisme>
+
+« How Servo Motor Works & How To Control Servos using Arduino ». How To Mecatronics. <https://howtomechatronics.com/how-it-works/how-servo-motors-work-how-to-control-servos-using-arduino/>
+
+<!-- --- split --- -->
+
+<a id="chapitre-divers_linux_et_raspberry_pi"></a>
+
+<!-- --- split --- -->
+
+<a id="fiche-installation_de_raspberry_pi_os"></a>
+
+<a id="fiche-permettre_l_utilisation_d_un_ecran_directement_sur_le_pi"></a>
+
+Raspberry Pi OS, connu autrefois sous le nom Raspbian, peut être installé :
+
+* Avec [apical\_lien\_interne][raspberry\_pi\_imager,Raspberry Pi Imager][/apical\_lien\_interne]   
+  ou
+* �? la ligne de commande
+
+Les deux techniques sont équivalentes, à vous de choisir celle qui vous convient.
+
+Je vous explique ici comment travailler à la ligne de commande pour installer Raspberry Pi OS, que ce soit la version avec interface graphique (with desktop) ou sans (lite).
+
+* Téléchargez Raspberry Pi OS ici : <https://www.raspberrypi.org/downloads/raspberry-pi-os/>. Prenez soin de choisir la version qui correspond à vos besoins. Généralement, si vous souhaitez utiliser le Raspberry Pi comme serveur, par exemple [apical\_lien\_interne][qu\_est-ce\_qu\_un\_systeme\_domotique,dans un système domotique][/apical\_lien\_interne], la version lite est préférable.
+* Décompressez le contenu du fichier zip sur votre ordinateur. Vous obtiendrez un fichier .img.
+* Insérez la carte micro SD dans votre ordinateur.
+* Il faut maintenant copier l'image sur la carte micro SD. On dira flasher l'image sur la carte.  
+  + Sous Mac ou Linux, l'image peut être flashée à l'aide de la commande dd sans avoir à faire d'installation supplémentaire.
+
+    Les commandes pour copier l'image sur la carte sont les suivantes (version Mac).
+
+    Prenez soin d'ajuster le nom du fichier .img et de remplacer le N par le chiffre qui correspond au point de montage (pour connaître le point de montage sous Mac : diskutil list).
+
+    Dans cet exemple, j'ai utilisé le fichier .img pour une installation Lite.
+
+    Terminal
+
+    diskutil unmountDisk /dev/diskN
+
+     
+
+    sudo dd bs=1m if=*chemin*/2021-03-04-raspios-buster-armhf-lite.img of=/dev/rdiskN conv=sync
+
+    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : [apical\_lien\_interne]copier\_le\_chemin\_d\_un\_fichier[/apical\_lien\_interne].
+
+    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : [apical\_lien\_interne]copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd[/apical\_lien\_interne].
+  + Il est également possible de flasher l'image sur la carte à l'aide d'un utilitaire graphique, par exemple [Etcher](https://www.balena.io/etcher/). Cet utilitaire peut être utilisé sous Mac, Linux ou Windows.
+
+La carte micro SD est maintenant prête à être insérée dans le Raspberry Pi. Mais avant, vous voudrez peut-être effectuer quelques configurations directement sur la carte afin d'éviter d'avoir à brancher un écran et un clavier sur le Pi , ce qui vous permettra de réaliser une installation dite headless (littéralement : sans tête).
+
+Vous pouvez donc, si vous le désirez, réaliser les configurations qui suivent AVANT d'insérer la carte dans le Pi :
+
+* [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,Configurer le réseau sans fil,surcarte][/apical\_lien\_interne]
+* [apical\_lien\_interne][activer\_ssh\_sur\_le\_raspberry\_pi,Activer SSH,headless][/apical\_lien\_interne]
+* [apical\_lien\_interne][permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi,Permettre l'utilisation d'un écran directement sur le Pi][/apical\_lien\_interne]
+* [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,Donner une adresse IP statique au Pi,microsddansordi][/apical\_lien\_interne]
+
+Une fois les configurations désirées complétées, [apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirez la carte de l'ordinateur de façon sécuritaire][/apical\_lien\_interne], insérez-la dans le Pi puis démarrez ce dernier.
+
+Et voilà!
+
+## 119.2 Permettre l'utilisation d'un moniteur même s'il n'était pas branché lors du démarrage (hotplug)
+
+Même si vous prévoyez travailler sur le Pi via SSH, il peut être pratique de pouvoir lui brancher un écran, par exemple en cas de problème réseau.
+
+Par défaut, les configurations de Raspberry Pi OS Lite ne permettent pas toujours au Pi d'envoyer un signal suffisant pour que l'écran le reconnaisse.
+
+De plus, aucun signal ne sera envoyé à l'écran s'il n'était pas branché lors du démarrage du Raspberry Pi.
+
+Pour régler ce problème, éditez le fichier /boot/config.txt sur la carte micro SD du Raspberry Pi. Vous pouvez le faire via SSH ou encore en insérant la carte dans votre ordinateur.
+
+Si vous avez inséré la carte dans votre ordinateur, vous devez d'abord vous placer dans le dossier qui représente les fichiers de la carte. Il s'agit de la partition boot (ou bootfs, selon votre système).
+
+Terminal
+
+cd /Volumes/boot
+
+Maintenant, vous pouvez éditer le fichier config.txt.
+
+Sous Windows, utilisez l'utilitaire de texte de votre choix.
+
+Sous Mac ou Linux, vous pouvez, si vous préférez, utiliser cette commande :
+
+Terminal
+
+sudo nano config.txt
+
+## Raspberry Pi 3 et moins
+
+Le Raspberry Pi 3 ne comporte qu'un seul port HDMI. Pour activer le branchement à chaud (hotplug), Vous devez enlever le # devant la ligne hdmi\_force\_hotplug.
+
+Fichier /boot/config.txt
+
+# uncomment if hdmi display is not detected and composite is being output  
+hdmi\_force\_hotplug=1
+
+## Raspberry Pi 4 et plus
+
+Depuis la version 4, le Raspberry Pi offre deux ports micro-HDMI. Il faut donc préciser à quel port on s'adresse en ajoutant :0 ou :1 au nom de la configuration.
+
+Le :0 permet de configurer le port le plus près de la prise USB-C. Si aucun port n'est spécifié, c'est également ce port qui sera affecté par la configuration.
+
+Terminal
+
+# uncomment if hdmi display is not detected and composite is being output  
+hdmi\_force\_hotplug:0=1  
+hdmi\_force\_hotplug:1=1
+
+![Deux ports HDMI](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi4B-DeuxPortsMicroHDMI.png)
+
+Attention : pendant l'installation de Raspberry Pi OS, il se pourrait que vous deviez brancher l'écran sur le port micro HDMI adjacent à la prise USB-C (port 0). En effet, sur certains systèmes, vous pourriez rester bloqués sur l'écran arc-en-ciel du démarrage (rainbow screen).  
+  
+Sur ces systèmes, seul le port 0 permet l'installation initiale mais rassurez-vous, une fois l'installation de Raspberry Pi OS complétée, vous pourrez utiliser le port de votre choix.
+
+## Pour plus d'information
+
+« The config.txt file - Generic Display Options ». Raspberry Pi. <https://www.raspberrypi.com/documentation/computers/config_txt.html#generic-display-options>
+
+« Configuration - HDMI configuration ». Raspberry Pi. <https://www.raspberrypi.com/documentation/computers/configuration.html#hdmi-configuration>
+
+<!-- --- split --- -->
+
+<a id="fiche-configurer_le_reseau_a_l_aide_de_dhcpcd"></a>
+
+## 120.1 Configurer le réseau à l'aide de dhcpcd
+
+Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
+
+Pour vérifier si le système d'exploitation du Raspberry Pi utilise dhcpcd, entrez cette commande :
+
+Terminal du Pi
+
+systemctl status dhcpcd
+
+Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire de réseau.
+
+Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
+
+Pour configurer le réseau avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,sur NetworkManager][/apical\_lien\_interne].
+
+<a id="surcartedhcpcd"></a>
+
+Si le système d'exploitation du Raspberry Pi utilise dhcpcd, voici les instructions à suivre pour configurer le réseau sans fil.
+
+Après le démarrage du Raspberry Pi, accédez au Terminal à l'aide d'un écran ou via SSH.
+
+Vous trouverez le fichier wpa\_supplicant.conf dans le dossier /etc/wpa\_supplicant.
+
+Avant de poursuivre, prenez une copie de sécurité du fichier. De cette façon, vous pourrez remettre les configurations originales en place en cas de problème.
+
+Terminal
+
+sudo cp /etc/wpa\_supplicant/wpa\_supplicant.conf /etc/wpa\_supplicant/wpa\_supplicant\_backup.conf
+
+Pour éditer le fichier wpa\_supplicant.conf, entrez la commande :
+
+Terminal
+
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+
+Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder.
+
+Si vous n'êtes pas au Canada, changez CA pour le [code à 2 lettres de votre pays](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+
+Fichier wpa\_supplicant.conf
+
+country=CA  
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1  
+  
+network={  
+    ssid="NOM-DU-RESEAU"  
+    psk="MOT-DE-PASSE-DU-RESEAU"  
+}
+
+ou, pour pemettre de se brancher à un réseau non sécurisé (sans mot de passe) :
+
+Fichier wpa\_supplicant.conf
+
+...  
+  
+network={  
+    ssid="NOM-DU-RESEAU"  
+    key\_mgmt=NONE  
+}
+
+Il est possible de configurer plusieurs réseaux si tel est votre besoin. Simplement ajouter une autre section network. Le système se branchera au réseau le plus puissant à moins que vous ajoutiez une priorité à l'aide de priority=1, priority=2, etc., le plus gros chiffre ayant la plus haute priorité.
+
+Fichier wpa\_supplicant.conf
+
+...  
+  
+network={  
+    ...  
+}  
+  
+network={  
+    ...  
+}
+
+Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais).
+
+## Configuration directement sur la carte micro SD alors qu'elle est insérée dans votre ordinateur
+
+Il est possible de configurer le réseau sans fil directement sur la carte micro SD. Cette méthode permet une configuration headless, c'est-à-dire que vous n'avez pas besoin de brancher écran et clavier sur le Pi. Vous n'avez pas non plus besoin de vous brancher au Pi via SSH.
+
+Alors que la carte micro SD est insérée dans votre ordinateur, créez un fichier nommé [wpa\_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf) à la racine de sa partition boot (ou bootfs, selon votre système).
+
+Sous Windows, utilisez l'utilitaire de texte de votre choix.
+
+Sous Mac ou Linux, utilisez ces commandes :
+
+Terminal
+
+cd /Volumes/boot  
+sudo nano wpa\_supplicant.conf
+
+Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa\_supplicant la première fois que le Pi sera démarré.
+
+Entrez les configurations requises dans ce fichier, [comme expliqué plus haut](999_999_merged.md#dhcpcd).
+
+## Pour plus d'information
+
+« wpa\_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
+
+## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
+
+Il est possible de définir plusieurs réseaux dans le fichier wpa\_supplicant.conf.
+
+Ceci est pratique par exemple si vous devez travailler avec le Raspberry Pi à différents endroits, par exemple au travail et à la maison.
+
+C'est également intéressant si un même espace de travail offre plusieurs réseaux, par exemple un réseau 2.4 GHz et un 5 GHz ou encore un réseau ouvert et un autre réseau qui offre des possibilités limitées.
+
+Le Pi se connectera généralement au réseau qui offre le meilleur signal.
+
+Il est possible de connecter le Pi à l'un ou à l'autre de ces réseaux sans avoir à modifier le fichier wpa\_supplicant.conf ni à redémarrer le Pi.
+
+## Définir plusieurs réseaux
+
+Pour définir les réseaux, lancez cette commande :
+
+Terminal
+
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+
+Vous pourrez définir dans ce fichier autant de réseaux que désiré :
+
+Fichier wpa\_supplicant.conf
+
+country=CA  
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+update\_config=1  
+  
+network={  
+    ssid="NOM-DU-RESEAU"  
+    psk="MOT-DE-PASSE-DU-RESEAU"  
+}
+
+ 
+
+network={  
+    ssid="UN-AUTRE-RESEAU"  
+    psk="MOT-DE-PASSE-DU-RESEAU"  
+}  
+  
+network={  
+    ssid="UN-RESEAU-NON-SECURISE"  
+    key\_mgmt=NONE  
+}
+
+## Lister les réseaux configurés
+
+Pour vous connecter à un réseau donné, vous aurez besoin de la liste des réseaux configurés et de leur identifiant.
+
+Terminal
+
+wpa\_cli list\_networks
+
+Résultat à l'écran
+
+pi@raspberrypi:~ $ wpa\_cli list\_networks  
+Selected interface 'p2p-dev-wlan0'  
+network id / ssid / bssid / flags  
+0      NOM-DU-RESEAU any  
+1      UN-AUTRE-RESEAU any   
+2      UN-RESEAU-NON-SECURISE any
+
+## Sélectionner le réseau désiré
+
+Vous devez utilisler l'identifiant du réseau afin de le sélectionner.
+
+Terminal
+
+wpa\_cli -i wlan0 select\_network 1
+
+Le système répondra simplement OK.
+
+## Vérifier si tout a fonctionné
+
+Avant de crier victoire, vous devez effectuer deux vérifications.
+
+### Connexion au réseau
+
+Vous devez d'abord vérifier si le Pi est effectivement connecté au réseau choisi.
+
+Terminal
+
+iwconfig
+
+Résultat à l'écran
+
+pi@raspberrypi:~ $ iwconfig  
+lo      no wireless extensions.
+
+ 
+
+eth0    no wireless extensions.
+
+ 
+
+wlan0   IEEE 802.11 ESSID:"UN-AUTRE-RESEAU"  
+        Mode:Managed Frequency:5.18 GHz Access Point: 00:0C:E6:88:DA:13  
+        Bit Rate=200 Mb/s Tx-Power=31 dBm  
+        Retry short limit:7 RTS thr:off Fragment thr:off  
+        Power Management:on  
+        Link Quality=70/70 Signal level=-39 dBm  
+        Rx invalid nwid:0 Rx invalid crypt:0 Rx invalid frag:0  
+        Tx excessive retries:0 Invalid misc:0 Missed beacon:0
+
+Notez que la connexion au réseau pourrait prendre un peu de temps. Si vous obtenez ESSID:off/any au lieu du nom du réseau, réessayez dans quelques instants, tout pourrait rentrer dans l'ordre.
+
+Si vous n'arrivez pas à vous connecter à ce réseau, c'est peut-être parce que le nom du réseau ou le mot de passe ne sont pas bien entrés dans wpa\_supplilcant.conf ou encore que le réseau n'est pas disponible pour le moment.
+
+### Adresse IP
+
+Une fois que vous avez la confirmation d'être connecté au réseau, vous devez vous assurer d'avoir une adresse IP.
+
+Terminal
+
+hostname -I
+
+Si vous obtenez une ligne blanche, vous devrez redemander une adresse IP au serveur DHCP :
+
+Terminal
+
+sudo dhclient -v wlan0
+
+Résultat à l'écran
+
+pi@raspberrypi:~ $ sudo dhclient -v wlan0  
+Internet Systems Consortium DHCP Client 4.4.1  
+Copyright 2004-2018 Internet Systems Consortium.  
+All rights reserved.  
+For info, please visit https://www.isc.org/software/dhcp/
+
+ 
+
+Listening on LPF/wlan0/dc:a6:32:67:f4:9b  
+Sending on LPF/wlan0/dc:a6:32:67:f4:9b  
+Sending on Socket/fallback  
+DHCPREQUEST for 192.168.1.145 on wlan0 to 255.255.255.255 port 67  
+DHCPNAK from 192.168.1.1  
+DHCPDISCOVER on wlan0 to 255.255.255.255 port 67 interval 4  
+DHCPOFFER of 192.168.1.6 from 192.168.1.1  
+DHCPREQUEST for 192.168.1.6 on wlan0 to 255.255.255.255 port 67  
+DHCPACK of 192.168.1.6 from 192.168.1.1  
+Too few arguments.  
+Too few arguments.  
+bound to 192.168.1.6 -- renewal in 1880 seconds.
+
+<a id="surlepiavant2023"></a>
+
+Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
+
+Pour vérifier si le système d'exploitation du Raspberry Pi utilise dhcpcd, entrez cette commande :
+
+Terminal du Pi
+
+systemctl status dhcpcd
+
+Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire de réseau.
+
+Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
+
+Pour configurer une adresse IP statique avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,sur NetworkManager,surlepi][/apical\_lien\_interne].
+
+Sinon, les configurations avec dhcpcd sont expliquées ici. Continuez votre lecture!
+
+<a id="autrereseauavant2023"></a>
+
+Pour configurer l'adresse IP statique du Pi avec dhcpcd :
+
+* �?ditez le fichier dhcpcd.conf.
+
+  Terminal
+
+  sudo nano /etc/dhcpcd.conf
+* Le fichier donne un exemple de configuration dans la section Example static IP configuration. Il vous suffit d'enlever les # devant les lignes puis d'entrer les valeurs désirées.
+  + interface : eth0 pour le réseau câblé, wlan0 pour le sans fil
+  + static ip\_address : l'adresse statique désirée. Cette adresse peut être n'importe quoi dans la plage 192.168.1.2 à 192.168.1.254 (la plage disponible peut être différente selon les configurations de votre réseau).
+
+    Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
+
+    Souvent, les gestionnaires de réseaux réservent une plage pour les adresses statiques. Adressez-vous au gestionnaire de votre réseau pour connaître les adresses disponibles.
+
+    On ajoutera /24 à la fin pour indiquer que les 3 premiers octets sont le masque de sous-réseau.
+  + static routers : adresse IP locale du routeur. Si vous avez utilisé le masque /24, il s'agit des 3 premiers nombres de l'adresse IP avec un 1 comme dernier nombre (ex : 192.168.1.1)
+  + static domain\_name\_servers : entrez l'adresse IP du ou des serveurs de noms de domaine (en anglais : nameserver, DNS) de votre réseau suivie de 8.8.8.8 (serveur DNS de Google). Les différentes adresses doivent être séparées par un espace.
+
+    Pour connaître les serveurs de noms de domaine utilisés par votre ordinateur, [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,suivez ce lien,dns][/apical\_lien\_interne].
+
+    Fichier resolv.conf
+
+    #Example static IP configuration:
+
+     
+
+    interface wlan0  
+    static ip\_address=192.168.1.145/24  
+    static routers=192.168.1.1  
+    static domain\_name\_servers=999.999.999.999 8.8.8.8
+
+Pour enregistrer les modifications au fichier dhcpcd.conf, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais) pour enregistrer les modifications.
+
+Redémarrez le Raspberry Pi.
+
+## Utiliser une adresse IP différente selon le réseau actif
+
+Prenons le cas où vous utilisez un Raspberry Pi dans votre établissement scolaire puis vous le ramenez chez vous pour poursuivre vos travaux.
+
+Il pourrait arriver que l'adresse IP statique utilisée à l'école ne soit pas compatible avec les configurations de votre réseau à la maison.
+
+Je vous propose deux techniques pour configurer une adresse IP statique qui ne sera utilisée que lorsque le réseau est disponible.
+
+### Configuration selon le nom du réseau
+
+Il est possible d'utiliser le nom du réseau sans fil pour préciser quelles configurations doivent être réalisées.
+
+Si le Pi n'a accès à aucun des réseaux mentionnés, il obtiendra son adresse par DHCP.
+
+Fichier dhcpcd.conf
+
+interface wlan0  
+  
+# Configurations pour le réseau nommé ecole  
+ssid ecole  
+static ip\_address=192.168.1.145/24  
+static routers=192.168.1.1  
+static domain\_name\_servers=999.999.999.999 8.8.8.8
+
+ 
+
+# Configurations pour le réseau nommé maison  
+ssid maison  
+static ip\_address=10.0.0.28/24  
+static routers=10.0.0.1  
+static domain\_name\_servers=999.999.999.999 8.8.8.8
+
+<a id="dhcpavant2023"></a>
+
+L'astuce consiste à ajouter une configuration arping afin de fournir une adresse IP, généralement l'adresse du routeur, que le Pi tentera d'atteindre. S'il réussit, il exécutera les configurations de la section qui suit la configuration profile correspondante.
+
+Dans le cas où aucune configuration arping ne réussit, l'adresse IP sera fournie par DHCP.
+
+Fichier dhcpcd.conf
+
+interface eth0  
+arping 192.168.1.1  
+arping 10.0.0.1  
+  
+# Configurations si l'adresse 192.168.1.1 a été rejointe par arping  
+profile 192.168.1.1  
+static ip\_address=192.168.1.145/24  
+static routers=192.168.1.1  
+static domain\_name\_servers=999.999.999.999 8.8.8.8  
+  
+# Configurations si l'adresse 10.0.0.1 a été rejointe par arping  
+profile 10.0.0.1  
+static ip\_address=10.0.0.28/24  
+static routers=10.0.0.1  
+static domain\_name\_servers=999.999.999.999 8.8.8.8
+
+## Revenir à une adresse IP fournie par DHCP
+
+Remarquez que pour revenir à une adresse IP fournie par le serveur DHCP, il suffit de remettre ces lignes en commentaire en ajoutant le symbole # au début de chaque ligne.
+
+Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,vérifier l'adresse IP][/apical\_lien\_interne] en branchant un écran sur le Pi.
+
+<!-- --- split --- -->
+
+<a id="fiche-code_python_pour_un_serveur_qui_peut_recevoir_des_requetes_get_ou_post"></a>
+
+<a id="chapitre-aller_plus_loin_avec_home_assistant"></a>
+
+...
+
+<!-- --- split --- -->
+
+<a id="chapitre-les_scripts_python_avec_home_assistant"></a>
+
+<!-- --- split --- -->
+
+<a id="fiche-automatisation_qui_appelle_un_script_python"></a>
+
+## 122.1 Automatisation qui appelle un script Python
+
+![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
+
+Pour qu'une automatisation puisse appeler un script Python, vous devez d'abord ajouter l'intégration [Python Scripts](https://www.home-assistant.io/integrations/python_script/).
+
+Ceci est réalisé en ajoutant cette ligne dans le fichier configuration.yaml.
+
+Fichier configuration.yaml
+
+python\_script:
+
+Un redémarrage du système est requis pour que ce soit disponible mais attendez, un redémarrage sera également requis à une prochaine étape.
+
+## Dossier qui contient les scripts
+
+Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier python\_scripts sous /mnt/data/supervisor/homeassistant.
+
+Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier config (c'est ce dossier qui représente /mnt/data/supervisor/homeassistant dans l'interface Web).
+
+Vous pouvez également créer le dossier directement au terminal HassOS.
+
+## �?criture du script
+
+Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
+
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,à l'aide de scp,scp][/apical\_lien\_interne].
+
+Son nom doit se terminer par l'extension .py.
+
+Fichier test.py
+
+xxx
+
+## Déclaration du service
+
+Maintenant que le script est écrit, il faut dire à Home Assistant qu'il existe.
+
+Encore une fois, c'est dans configuration.yaml que ça se passe.
+
+Il faut préciser le nom du script sans son extension (ici : test).
+
+Si le script attend des paramètres, on les précisera à l'aide de data.
+
+Dans cet exemple, j'ai inscrit la valeur du paramètre en dur mais il aurait été possible d'utiliser un modèle pour retrouver une valeur fournie par Home Assistant.
+
+configuration.yaml
+
+service: python\_script.test  
+data:  
+  nom: 'Annie'
+
+Une fois cette configuration en place, vous devez redémarrer le système pour qu'elle soit prise en compte.
+
+Vous pouvez le faire maintenant puisque toutes les manipulations qui requièrent un redémarrage sont effectuées.
+
+Par la suite, vous pourrez modifier votre script Python et l'automatisation qui l'utilise sans qu'un redémarrage ne soit nécessaire.
+
+<a id="fiche-integration_appdaemon_pour_executer_des_scripts_python"></a>
+
+Il est désormais possible d'utiliser votre script Python dans une automatisation.
+
+Créez votre automatisation, définissez le déclencheur et possiblement les conditions puis comme action, choisissez Appeler un service.
+
+Dans la liste déroulante des services, vous aurez accès au service dont le nom correspond à la ligne service que vous avez écrite plus tôt dans configuration.yaml (ici : python\_script.test).
+
+![service python_script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationAvecPythonScript.png)
+
+<a id="chapitre-appeler_un_script_python_dans_home_assistant"></a>
+
+[AppDaemon](https://github.com/hassio-addons/repository/tree/master/appdaemon) est une intégration Home Assistant qui permet d'exécuter un script Python dans un bac de sable (sandbox) c'est-à-dire dans un environnement isolé du reste du système.
+
+Pour installer AppDaemon :
+
+* Rendez-vous dans le menu Paramètres / Modules complémentaires / Boutiques des modules complémentaires.
+* Recherchez AppDaemon.
+* Cliquez sur la tuile AppDaemon puis sur Installer.
+* Une fois l'installation complétée, cliquez sur Démarrer puis sur Ouvrir l'interface utilisateur Web.
+* ...
+
+<!-- --- split --- -->
+
+<a id="fiche-travailler_avec_l_integration_python_scripts"></a>
+
+## 123.1 Travailler avec l'intégration Python Scripts
+
+PAS TERMIN�?...
+
+L'intégration [Python Scripts](https://www.home-assistant.io/integrations/python_script/) permet de créer des services dans Home Assistant qui consistent à appeler un script Python.
+
+Le code Python pourra manipuler les objets connectés (ex : allumer une lumière), écrire dans un fichier journal, effectuer des calculs, modifier l'état d'un capteur virtuel, etc.
+
+Mais attention : il n'est pas possible d'importer des bibliothèques Python externes. Donc, pas d'instruction import.
+
+## Activer Python Scripts
+
+Pour permettre à Home Assistant d'utiliser l'intégration Python Scripts, il suffit d'ajouter ceci dans le fichier configuration.yaml :
+
+Fichier configuration.yaml
+
+python\_script:
+
+## Création du script Python
+
+Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,module complémentaire File Editor][/apical\_lien\_interne].
+
+Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python\_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
+
+## Lancer le script Python
+
+Le script Python sera appelé comme un service, par exemple comme action dans une automatisation.
+
+Dans le code YAML qui fera appel à ce service, par exemple dans le code YAML d'une automatisation, sur la ligne service, vous devez entrer le nom du fichier Python, sans l'extension .py.
+
+Le service peut travailler avec une entité en particulier et il peut recevoir des paramètres sous forme clé-valeur ou, si vous préférez, variable-donnée.
+
+YAML
+
+- id: ...  
+  alias: ...  
+  trigger:  
+  - ...  
+  action:  
+  - service: python\_script.nom\_du\_fichier\_python  
+    target:  
+      entity\_id: sensor.cleaning\_ladies\_time\_at\_house  
+    data:  
+      variable: donnee  
+  mode: single
+
+<a id="chapitre-les_themes_dans_home_assistant"></a>
+
+Le code Python récupérera le entity\_id comme suit :
+
+Python
+
+entity\_id = data.get("entity\_id")
+
+Si vous avez passé des variables dans la zone data, elle seront récupérées comme suit :
+
+Python
+
+ma\_variable = data.get("variable", valeur\_par\_defaut)
+
+Le code Python peut appeler différents services dans Home Assistant.
+
+Pour appeler un service :
+
+Python
+
+service\_data = {"variable": donnee, "variable2": donnee2}  
+hass.services.call("domaine", "service", service\_data, False)
+
+Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input\_text.set\_value, le domaine est input\_text.
+
+Le service est la partie après le point, par exemple set\_value.
+
+...
+
+Vous devez redémarrer Home Assistant pour que le tout soit fonctionnel.
+
+<!-- --- split --- -->
+
+<a id="fiche-le_fichier_themes_yaml"></a>
+
+<a id="chapitre-les_watchdog_home_assistant"></a>
+
+...
+
+
+

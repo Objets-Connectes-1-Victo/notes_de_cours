@@ -2519,7 +2519,7 @@ Revision : c03112
 Serial : 1000800013a8d1d9  
 Model : Raspberry Pi 4 Model B Rev 1.2
 
-## 32 ou 64 bits?
+## 1 — ou 64 bits?
 
 L'information affichée par la commande cat /proc/cpuinfo permet de savoir si le Raspberry Pi fonctionne en 32 ou en 64 bits.
 

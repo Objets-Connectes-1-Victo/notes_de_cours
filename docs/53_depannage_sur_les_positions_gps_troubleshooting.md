@@ -1,6 +1,6 @@
-# 86. Dépannage sur les positions GPS (troubleshooting)
+# 269 — 6. Dépannage sur les positions GPS (troubleshooting)
 
-## 86.1 Erreur « Aucune entité correspondante trouvée »
+## 270 — 6.1 Erreur « Aucune entité correspondante trouvée »
 
 ### Problème :
 

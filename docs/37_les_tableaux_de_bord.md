@@ -1,6 +1,6 @@
-# 71. Les tableaux de bord
+# 178 — 1. Les tableaux de bord
 
-## 71.1 Créer un tableau de bord personnalisé
+## 179 — 1.1 Créer un tableau de bord personnalisé
 
 Par défaut, dans Home Assistant, un tableau de bord est disponible dans le menu Aperçu et il contient absolument tout ce qui est ajouté à Home Assistant.
 
@@ -117,7 +117,7 @@ views:
            Porte virtuelle fermée  
            {% endif %}
 
-## 71.2 Réinitialiser le tableau de bord Aperçu
+## 180 — 1.2 Réinitialiser le tableau de bord Aperçu
 
 Il est préférable de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,créer un tableau de bord personnalisé][/apical\_lien\_interne] plutôt que de modifier le tableau de bord Aperçu.
 
@@ -139,7 +139,7 @@ Si vous avez modifié le tableau de bord Aperçu, il est possible de le réiniti
 * Supprimez tout le code YAML puis enregistrez.
 * Le tableau de bord Aperçu est de nouveau géré par Home Assistant et il vous présente les informations sur toutes vos entités.
 
-## 71.3 Utiliser vos propres images dans un tableau de bord
+## 181 — 1.3 Utiliser vos propres images dans un tableau de bord
 
 Lorsque vous créez un tableau de bord personnalisé, quelques types de cartes vous permettent de travailler avec vos propres images.
 
@@ -198,7 +198,7 @@ Remarquez que le texte entre crochets carrés représente l'attribut alt de l'im
 
 « HTTP - Hosting files ». Home Assistant. <https://www.home-assistant.io/integrations/http#hosting-files>
 
-## 71.4 Assigner un appareil à une pièce
+## 182 — 1.4 Assigner un appareil à une pièce
 
 Pour bien visualiser vos appareils dans le tableau de bord Home Assistant, il est intéressant d'assigner chacun à une pièce de la maison.
 
@@ -225,7 +225,7 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 
 ##
 
-## 71.5 Changer l'icône d'une entité selon son état
+## 183 — 1.5 Changer l'icône d'une entité selon son état
 
 Dans le tableau de bord de Home Assistant, il est possible de configurer une carte pour que son icône soit différente selon l'état de l'entité.
 
@@ -368,7 +368,7 @@ icon\_template: >-
     mdi:alert  
   {% endif %}
 
-## 71.6 lovelace-card-mod - Pour styliser le tableau de bord
+## 184 — 1.6 lovelace-card-mod - Pour styliser le tableau de bord
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -426,4 +426,3 @@ card\_mod:
 « thomasloven/lovelace-card-mod ». GitHub. <https://github.com/thomasloven/lovelace-card-mod>
 
 « thomasloven/lovelace-card-mod - Lovelace Plugins ». GitHub . <https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins>
-

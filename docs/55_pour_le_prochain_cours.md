@@ -1,6 +1,6 @@
-# 88. Pour le prochain cours
+# 273 — 8. Pour le prochain cours
 
-## 88.1 Je me prépare pour l'exercice suivant (un cours)
+## 274 — 8.1 Je me prépare pour l'exercice suivant (un cours)
 
 Vous disposez d'un cours pour acquérir les connaissances théoriques et finaliser cet exercice.
 

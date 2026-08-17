@@ -1,6 +1,6 @@
-# 129. Les interactions Jeedom
+# 408 — 9. Les interactions Jeedom
 
-## 129.1 Qu'est-ce qu'une interaction?
+## 409 — 9.1 Qu'est-ce qu'une interaction?
 
 Selon la documentation officielle de Jeedom[1](https://doc.jeedom.com/fr_FR/core/4.1/interact) :
 

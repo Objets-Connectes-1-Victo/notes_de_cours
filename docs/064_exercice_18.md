@@ -1,6 +1,6 @@
-# 96. Exercice 18
+# 308 — 6. Exercice 18
 
-## 96.1 Réveil, départ, retour, coucher
+## 309 — 6.1 Réveil, départ, retour, coucher
 
 Cet exercice se déroule en deux parties.
 

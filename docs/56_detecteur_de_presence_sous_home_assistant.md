@@ -1,6 +1,6 @@
-# 89. Détecteur de présence sous Home Assistant
+# 275 — 9. Détecteur de présence sous Home Assistant
 
-## 89.1 Les zones dans Home Assistant
+## 276 — 9.1 Les zones dans Home Assistant
 
 Par défaut, Home Assistant a créé une zone lors de sa configuration initiale. Elle porte le nom que vous avez donné à votre boîte (ex : Maison).
 
@@ -51,7 +51,7 @@ zone:
 
 ##
 
-## 89.2 Travailler avec l'application Home Assistant
+## 277 — 9.2 Travailler avec l'application Home Assistant
 
 L'application mobile Home Assistant, à installer sur le téléphone de chacune des personnes dont vous désirez connaître la position, permet de créer des automatisations qui tiennent compte de l'endroit où chaque personne se trouve.
 
@@ -107,7 +107,7 @@ Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vo
 
 « Setting up presence detection ». Home Assistant. <https://www.home-assistant.io/getting-started/presence-detection/>
 
-## 89.3 Envoyer une notification à l'application mobile
+## 278 — 9.3 Envoyer une notification à l'application mobile
 
 L'intégration [notify](https://www.home-assistant.io/integrations/notify/) permet d'envoyer une notification à l'application mobile associée à votre Home Assistant.
 
@@ -123,7 +123,7 @@ La notification apparaîtra à l'écran comme les autres notifications du télé
 
 ![Notification](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NotificationSurCellulaire.png)
 
-## 89.4 Gérer les personnes
+## 279 — 9.4 Gérer les personnes
 
 Home Assistant vous permet de définir les personnes qui peuvent être « suivies », par exemple celles que le système pourra identifier comme présentes dans la maison ou pas.
 
@@ -165,7 +165,7 @@ Pour régler ce problème :
 
 « Person ». Home Assistant. <https://www.home-assistant.io/integrations/person/>
 
-## 89.5 Automatisation qui tient compte de la présence
+## 280 — 9.5 Automatisation qui tient compte de la présence
 
 J'aime configurer Home Assistant pour que les lumières s'allument automatiquement quand une personne arrive à la maison après une heure donnée.
 
@@ -187,7 +187,7 @@ Pour créer une telle automatisation :
 
 « Making Home Assistant’s Presence Detection not so Binary ». Phil Hawthorne. <https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/>
 
-## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see
+## 281 — 9.6 Simuler la position GPS d'une personne avec device\_tracker.see
 
 Lorsque vous désirez que Home Assistant puisse [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_la\_presence,réagir selon la position d'une personne][/apical\_lien\_interne] en utilisant [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,l'application Home Assistant][/apical\_lien\_interne], il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 

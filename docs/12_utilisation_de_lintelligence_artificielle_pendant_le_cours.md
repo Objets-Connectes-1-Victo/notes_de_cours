@@ -1,6 +1,6 @@
-# 10. Utilisation de l'intelligence artificielle pendant le cours
+# 15 — 0. Utilisation de l'intelligence artificielle pendant le cours
 
-## 10.1 Niveaux d'utilisation de l'IA autorisés dans ce cours
+## 16 — 0.1 Niveaux d'utilisation de l'IA autorisés dans ce cours
 
 Dans le cadre de ce cours, les outils d'IA générative peuvent être utilisés pendant les travaux formatifs à condition de correctement citer la source.
 
@@ -121,7 +121,7 @@ Il est important de bien citer vos sources dans vos exercices formatifs lorsque 
   
 Ceci assurera que lors de travaux sommatifs, vous puissiez encore citer ces sources afin de limiter les risques d'être accusés de plagiat.
 
-## 10.2 Effets de l'IA sur la productivité et sur l'apprentissage
+## 17 — 0.2 Effets de l'IA sur la productivité et sur l'apprentissage
 
 En tant qu'enseignantes et enseignants, il est normal de se questionner sur les effets de l'utilisation de l'intelligence artificielle générative sur l'apprentissage.
 

@@ -1,6 +1,6 @@
-# 107. MQTT
+# 345 — 7. MQTT
 
-## 107.1 Le protocole MQTT
+## 346 — 7.1 Le protocole MQTT
 
 MQTT (Message Queuing Telemetry Transport) est un protocole de communication machine à machine très léger basé sur TCP/IP.
 
@@ -113,7 +113,7 @@ Pour qu'une communication MQTT ait lieu, il faut :
 
 « MQTT Tutorial for Arduino, ESP8266 and ESP32 ». DIYI0T. <https://diyi0t.com/introduction-into-mqtt/>
 
-## 107.2 La sécurité avec MQTT
+## 347 — 7.2 La sécurité avec MQTT
 
 Le protocole MQTT peut être très sécuritaire s'il est bien utilisé. Dans le cas contraire, il peut ouvrir la porte à des attaques ou à une violation de la vie privée.
 
@@ -151,7 +151,7 @@ Ce port n'est pas sécuritaire.
 
 Il est préférable d'utiliser le port 8883. Il s'agit d'un autre port réservé par l'IANA pour MQTT mais cette fois, il exige une [communication avec SSL/TLS](https://obrienlabs.net/how-to-setup-your-own-mqtt-broker#setup-letsencrypt-ssl-certificate-optional). Vous aurez donc à [installer un certificat TLS](http://www.steves-internet-guide.com/mosquitto-tls/). Les clients devront utiliser ce certificat pour que les communications fonctionnent.
 
-## 107.3 Client MQTT dans Home Assistant
+## 348 — 7.3 Client MQTT dans Home Assistant
 
 Home Assistant peut effectuer des communications [apical\_lien\_interne][mqtt,MQTT][/apical\_lien\_interne] grâce à l'[intégration MQTT](https://www.home-assistant.io/integrations/mqtt/).
 
@@ -348,7 +348,7 @@ Par exemple, pour écouter tout ce qui se dit sur le canal jeedom, peu importe l
 
 Les techniques pour utiliser le client MQTT sont détaillées dans la fiche « [apical\_lien\_interne]publication\_et\_abonnement\_mqtt\_avec\_home\_assistant[/apical\_lien\_interne] ».
 
-## 107.4 Publication et abonnement MQTT avec Home Assistant
+## 349 — 7.4 Publication et abonnement MQTT avec Home Assistant
 
 Une fois que vous avez [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,installé un client MQTT][/apical\_lien\_interne] sur Home Assistant et que vous avez configuré l'agent MQTT à utiliser, vous pouvez débuter le processus de publication et d'abonnement MQTT.
 

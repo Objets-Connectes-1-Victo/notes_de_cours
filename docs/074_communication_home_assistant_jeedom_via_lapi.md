@@ -1,6 +1,6 @@
-# 103. Communication Home Assistant - Jeedom via l'API
+# 334 — 3. Communication Home Assistant - Jeedom via l'API
 
-## 103.1 Home Assistant : interagir avec un objet branché sur Jeedom
+## 335 — 3.1 Home Assistant : interagir avec un objet branché sur Jeedom
 
 Certains objets connectés ne peuvent pas être ajoutés à Jeedom et d'autres ne peuvent pas être ajoutés à Home Assistant. Tout dépend des plugins ou des intégrations qui existent sur l'un ou l'autre de ces produits.
 
@@ -82,7 +82,7 @@ rest\_command:
   temperature\_virtuelle\_jeedom\_chaud:  
   url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
 
-## 103.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant
+## 336 — 3.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant
 
 Vous avez un objet connecté dans Home Assistant et vous désirez l'utiliser dans Jeedom? Pas de problème!
 
@@ -122,7 +122,7 @@ Voici comment y parvenir :
 
   ![Automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationPourEnvoyerValeurAJeedom.png)
 
-## 103.3 Jeedom : lancer une action sur un récepteur branché sur Home Assistant
+## 337 — 3.3 Jeedom : lancer une action sur un récepteur branché sur Home Assistant
 
 Home Assistant peut permettre à d'autres systèmes de lancer une commande pour interagir avec ses propres objets connectés.
 
@@ -240,7 +240,7 @@ Sous Jeedom, vous devez créer un script qui se chargera de lancer la commande c
 
 « Tuto Contrôler Home Assistant par Jeedom ». YouTube - La Maison de Jeed Home. <https://www.youtube.com/watch?v=h3qOeaguPl4>
 
-## 103.4 URL d'un objet connecté Jeedom
+## 338 — 3.4 URL d'un objet connecté Jeedom
 
 Lorsqu'un objet connecté est pairé à une boîte domotique Jeedom, il se voit attribuer un URL. Il est ensuite possible d'agir sur cet objet à partir de cet URL.
 

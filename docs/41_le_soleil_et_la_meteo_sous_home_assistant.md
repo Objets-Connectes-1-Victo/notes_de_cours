@@ -1,6 +1,6 @@
-# 75. Le soleil et la météo sous Home Assistant
+# 212 — 5. Le soleil et la météo sous Home Assistant
 
-## 75.1 Météo par défaut dans Home Assistant
+## 213 — 5.1 Météo par défaut dans Home Assistant
 
 L'installation initiale de Home Assistant inclut une carte météo dans le menu Aperçu.
 
@@ -18,7 +18,7 @@ Le nom précis de l'entité sera sous la forme weather.forecast\_xxx comme dé
 
 ![Déclencheur weather](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurWeather.png)
 
-## 75.2 Service OpenWeatherMap
+## 214 — 5.2 Service OpenWeatherMap
 
 Les données météo peuvent être utilisées dans votre boîte domotique pour déclencher différentes actions, par exemple démarrer le chauffage quand la température extérieure est inférieure à 20 oC.
 
@@ -33,7 +33,7 @@ Vous devrez avoir une clé pour accéder à ces données.
 
   ![Clé API OpenWeatherMap](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/OpenWeatherMap-APIKey.png)
 
-## 75.3 Travailler avec l'intégration OpenWeatherMap
+## 215 — 5.3 Travailler avec l'intégration OpenWeatherMap
 
 Il est intéressant d'utiliser les données météo dans les automatisations Home Assistant.
 
@@ -79,7 +79,7 @@ Pour [apical\_lien\_interne][la\_meteo\_dans\_les\_automatisations,utiliser ces 
 
 ![Déclencheur OpenWeatherMap](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurOpenWeatherMap.png)
 
-## 75.4 La météo dans les automatisations
+## 216 — 5.4 La météo dans les automatisations
 
 Les conditions météorologiques peuvent être utilisées dans une automatisation comme déclencheur ou comme condition selon vos besoins.
 
@@ -89,7 +89,7 @@ Si la condition est utilisée comme déclencheur, il faut comprendre que l'actio
 
 Si la condition est utilisée comme condition, Home Assistant vérifiera la valeur au moment ou l'automatisation est déclenchée.
 
-## 75.5 L'intégration Sun
+## 217 — 5.5 L'intégration Sun
 
 [L'intégration Sun](https://www.home-assistant.io/integrations/sun/) est disponible par défaut dans Home Assistant. Elle permet de réagir à la position du soleil, par exemple :
 

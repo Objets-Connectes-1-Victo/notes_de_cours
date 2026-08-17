@@ -1,6 +1,6 @@
-# 74. Les automatisations Home Assistant
+# 189 — 4. Les automatisations Home Assistant
 
-## 74.1 Ajouter une automatisation à l'aide de l'interface graphique
+## 190 — 4.1 Ajouter une automatisation à l'aide de l'interface graphique
 
 Les automatisations (en anglais : automations) permettent de déclencher une ou plusieurs actions quand un ou plusieurs déclencheurs surviennent. Par exemple, il est possible d'allumer la lumière quand un mouvement est détecté.
 
@@ -130,7 +130,7 @@ Fichier automations.yaml
 
 « Automation actions ». Home Assistant. <https://www.home-assistant.io/docs/automation/action/>
 
-## 74.2 Lancer une automatisation à l'aide d'un bouton
+## 191 — 4.2 Lancer une automatisation à l'aide d'un bouton
 
 Il est intéressant d'ajouter [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,un bouton,bouton][/apical\_lien\_interne] au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
 
@@ -169,7 +169,7 @@ tap\_action:
     skip\_condition: true  
 icon\_height: 40px
 
-## 74.3 Les capteurs virtuels dans les automatisations
+## 192 — 4.3 Les capteurs virtuels dans les automatisations
 
 ## Capteur virtuel comme déclencheur
 
@@ -195,7 +195,7 @@ Dans la zone Cibles, cliquez sur Choisissez une entité et vous aurez la possibi
 
 ![Modifier état du capteur virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-ActionSurCapteurVirtuel.png)
 
-## 74.4 Script vs automatisation
+## 193 — 4.4 Script vs automatisation
 
 Sous Home Assistant, un script consiste en une série d'actions à exécuter.
 
@@ -285,7 +285,7 @@ Pour lancer un script, vous avez plusieurs options, notamment :
 * En utilisant le script comme action dans une automatisation (Autres actions / Script / Exécuter).
 * Sur le tableau de bord, à l'aide d'une [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,carte de type bouton][/apical\_lien\_interne] qui effectue l'action de lancer le script.
 
-## 74.5 Trace d'une automatisation
+## 194 — 4.5 Trace d'une automatisation
 
 Quand une automatisation est exécutée, Home Assistant conserve une trace de ce qui s'est passé.
 

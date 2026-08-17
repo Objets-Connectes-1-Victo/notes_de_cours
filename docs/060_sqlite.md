@@ -1,6 +1,6 @@
-# 92. SQLite
+# 286 — 2. SQLite
 
-## 92.1 En résumé...
+## 287 — 2.1 En résumé...
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -68,7 +68,7 @@ Voici une représentation graphique de ses tables.
 
 .
 
-## 92.2 Qu'est-ce que SQLite ?
+## 288 — 2.2 Qu'est-ce que SQLite ?
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -136,7 +136,7 @@ Si la base de données est utilisée par une application native, son fichier ser
 
 « SQL Features That SQLite Does Not Implement ». SQLite. <https://www.sqlite.org/omitted.html>
 
-## 92.3 Installation de SQLite
+## 289 — 2.3 Installation de SQLite
 
 Pour travailler avec une base de données [apical\_lien\_interne][Qu\_est-ce\_que\_SQLite,SQLite][/apical\_lien\_interne], il n'y a aucun serveur à installer. Tout se déroule localement.
 
@@ -217,7 +217,7 @@ Pour installer SQLite sous Windows :
 
 « SQLite - Installation ». Tutorial points. <https://www.tutorialspoint.com/sqlite/sqlite_installation.htm>
 
-## 92.4 La ligne de commande SQLite
+## 290 — 2.4 La ligne de commande SQLite
 
 La ligne de commande SQLite est l'endroit où vous pouvez entrer les requêtes SQL pour effectuer les opérations CRUD sur vos données.
 
@@ -392,7 +392,7 @@ Ligne de commande SQLite
 
 « Getting Started with SQLite3 – Basic Commands ». Site Point. <https://www.sitepoint.com/getting-started-sqlite3-basic-commands/>
 
-## 92.5 Fonctions SQLite pour manipuler des nombres
+## 291 — 2.5 Fonctions SQLite pour manipuler des nombres
 
 Tout comme avec le texte, il est possible de manipuler des nombres à l'intérieur d'une requête SQLite.
 
@@ -405,7 +405,7 @@ Tout comme avec le texte, il est possible de manipuler des nombres à l'intérie
 
 « SQL As Understood By SQLite - Core Functions ». SQLite. <https://www.sqlite.org/lang_corefunc.html>
 
-## 92.6 Fonctions SQLite pour manipuler du texte
+## 292 — 2.6 Fonctions SQLite pour manipuler du texte
 
 Il est possible d'effectuer des manipulations dans du texte avant de l'afficher ou encore dans une clause WHERE.
 
@@ -427,7 +427,7 @@ Les principales fonctions sont résumées ici :
 
 « SQLite String Functions ». SQLite Tutorial. <http://www.sqlitetutorial.net/sqlite-string-functions/>
 
-## 92.7 Les dates avec SQLite
+## 293 — 2.7 Les dates avec SQLite
 
 SQLite ne gère qu'un petit nombre de types de données : INTEGER, REAL, TEXT, BLOB. Alors, pour stocker une date, quel type de données devrait être utilisé ?
 
@@ -457,7 +457,7 @@ Voici les principales fonctions qui vous aideront dans vos manipulations de date
 
 « SQLite Date Functions ». SQLite Tutorial. <http://www.sqlitetutorial.net/sqlite-date-functions/>
 
-## 92.8 Autres opérations intéressantes
+## 294 — 2.8 Autres opérations intéressantes
 
 Voici une série de commandes pouvant être réalisées à la ligne de commande SQLite ou à l'aide de requêtes SQL.
 

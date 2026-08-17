@@ -1,6 +1,6 @@
-# 72. Exercice 12
+# 185 — 2. Exercice 12
 
-## 72.1 Capteurs virtuels et tableau de bord
+## 186 — 2.1 Capteurs virtuels et tableau de bord
 
 1. À l'aide de l'interface graphique, [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,créez un capteur virtuel][/apical\_lien\_interne] pour simuler un capteur d'ouverture de porte. Il doit être représenté par l'icône door.
 2. Installez [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,le module complémentaire File Editor][/apical\_lien\_interne].

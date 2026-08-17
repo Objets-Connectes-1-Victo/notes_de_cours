@@ -1,6 +1,6 @@
-# 94. Historisation des données
+# 304 — 4. Historisation des données
 
-## 94.1 Configurer l'historisation des données de Home Assistant
+## 305 — 4.1 Configurer l'historisation des données de Home Assistant
 
 Comme tout bon système domotique, Home Assistant permet de configurer où et comment sont stockées les données des capteurs ainsi que leur historique.
 

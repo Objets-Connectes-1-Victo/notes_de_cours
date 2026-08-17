@@ -1,6 +1,6 @@
-# 104. Exercice 21
+# 339 — 4. Exercice 21
 
-## 104.1 Communication Jeedom - Home Assistant via l'API
+## 340 — 4.1 Communication Jeedom - Home Assistant via l'API
 
 Dans cet exercice, vous devez travailler deux par deux. L'un de vous ouvrira sa boîte domotique Jeedom et l'autre ouvrira Home Assistant.
 

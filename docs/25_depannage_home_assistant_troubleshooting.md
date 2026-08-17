@@ -1,6 +1,6 @@
-# 60. Dépannage Home Assistant (troubleshooting)
+# 108 — 0. Dépannage Home Assistant (troubleshooting)
 
-## 60.1 Erreur « wlan0: link is not ready »
+## 109 — 0.1 Erreur « wlan0: link is not ready »
 
 ### Problème :
 
@@ -85,7 +85,7 @@ Dans le cas où vous n'arrivez pas à accéder à Home Assistant même avec un c
 
 Téléchargez à nouveau l'image qui correspond à votre Raspberry Pi (<https://www.home-assistant.io/hassio/installation/>) et flashez-la à nouveau sur la carte micro SD.
 
-## 60.2 Écran noir
+## 110 — 0.2 Écran noir
 
 ### Problème :
 
@@ -115,7 +115,7 @@ Vérifiez le modèle exact de votre Raspberrry Pi puis téléchargez la version 
 
 ![Liste des images de Hass.io](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ListeImagesHassIo.png)
 
-## 60.3 Impossible d'obtenir l'interface Web de Home Assistant sur mon ordinateur
+## 111 — 0.3 Impossible d'obtenir l'interface Web de Home Assistant sur mon ordinateur
 
 ### Problème :
 
@@ -257,7 +257,7 @@ Patientez quelques minutes, normalement tout devrait rentrer dans l'ordre dès q
 
 « Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes) ». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
 
-## 60.4 Erreur « dd: /dev/rdisk2: Device not configured »
+## 112 — 0.4 Erreur « dd: /dev/rdisk2: Device not configured »
 
 ### Problème :
 
@@ -298,7 +298,7 @@ Essayez avec un autre lecteur de carte micro SD.
 
 Avec un nouveau lecteur, j'ai réussi à flasher la carte avec la commande dd et avec Etcher.
 
-## 60.5 Erreur « dd: /dev/rdisk2: Operation not permitted »
+## 113 — 0.5 Erreur « dd: /dev/rdisk2: Operation not permitted »
 
 ### Problème :
 
@@ -326,7 +326,7 @@ Retirez la carte micro SD de l'ordinateur puis insérerz-la à nouveau. Quand vo
 
 Vous pourrez ensuite lancer les opérations pour flasher l'image sur la carte micro SD.
 
-## 60.6 Écran "Preparing Home Assistant" reste affiché à l'infini
+## 114 — 0.6 Écran "Preparing Home Assistant" reste affiché à l'infini
 
 ### Problème :
 
@@ -400,7 +400,7 @@ Terminal HassOS
 
 nmcli device wifi connect "ssid-du-reseau" password "mot-de-passe-en-clair"
 
-## 60.7 Erreur « Failed to install add-on »
+## 115 — 0.7 Erreur « Failed to install add-on »
 
 ### Problème :
 
@@ -422,7 +422,7 @@ Il y a un problème d'accès à Internet.
 
 Assurez-vous que vos configurations sont correctement effectuées : <
 
-## 60.8 Erreur Z-Wave JS « Server version is incompatible »
+## 116 — 0.8 Erreur Z-Wave JS « Server version is incompatible »
 
 ### Problème :
 
@@ -444,7 +444,7 @@ L'intégration nécessite un ajustement puisqu'il y a une incompatibilité entre
 
 Patientez, la mise à jour n'a propablement pas eu le temps de terminer tous les ajustements. Tout devrait rentrer dans l'ordre sous peu.
 
-## 60.9 Erreur incompréhensible dans configuration.yaml
+## 117 — 0.9 Erreur incompréhensible dans configuration.yaml
 
 ### Problème :
 
@@ -470,7 +470,7 @@ Ces caractères sont d'ailleurs illustrés à l'écran par des petits rectangles
 
 Effacez tous les caractères spéciaux.
 
-## 60.10 scp ne fonctionne pas alors qu'il est possible de se brancher via ssh
+## 118 — 0.10 scp ne fonctionne pas alors qu'il est possible de se brancher via ssh
 
 ### Problème :
 
@@ -504,7 +504,7 @@ Lancez la commande scp directement dans une fenêtre Terminal sur votre ordinate
 
 La commande utilisera les mêmes clés SSH que la commande ssh. (voir <#ssh>).
 
-## 60.11 Erreur « sqlite3: command not found »
+## 119 — 0.11 Erreur « sqlite3: command not found »
 
 ### Problème :
 
@@ -537,7 +537,7 @@ Voir <
 
 Vous pourrez ensuite accéder à la base de données à l'aide de la commande sqlite3. Voir <
 
-## 60.12 Option pour vérifier les configurations non disponible
+## 120 — 0.12 Option pour vérifier les configurations non disponible
 
 ### Problème :
 
@@ -569,7 +569,7 @@ Le bouton Vérifier la configuration devrait être disponible.
 
 ![Validation des configurations disponible](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-OptionValidationConfigurations.png)
 
-## 60.13 Erreur « Unknown error, see supervisor »
+## 121 — 0.13 Erreur « Unknown error, see supervisor »
 
 ### Problème :
 
@@ -599,7 +599,7 @@ ha supervisor logs
 
 Parfois, un simple redémarrage du système règle le problème.
 
-## 60.14 Erreur « Entité non disponible actuellement »
+## 122 — 0.14 Erreur « Entité non disponible actuellement »
 
 ### Problème :
 
@@ -637,7 +637,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 Ajustez l'heure en suivant les conseils sur cette fiche : <
 
-## 60.15 Erreur « Unknown error occured »
+## 123 — 0.15 Erreur « Unknown error occured »
 
 ### Problème :
 
@@ -707,7 +707,7 @@ C'est ici que j'ai réalisé que la date du système était en cause.
 
 Ajustez l'heure en suivant les conseils sur cette fiche : <
 
-## 60.16 Erreur Z-Wave JS « Réessayer la configuration: Cannot connect to host »
+## 124 — 0.16 Erreur Z-Wave JS « Réessayer la configuration: Cannot connect to host »
 
 ### Problème :
 
@@ -731,7 +731,7 @@ Un problème est survenu pendant le démarrage de Home Assistant, possiblement d
 
 Redémarrez le système, tout devrait rentrer dans l'ordre.
 
-## 60.17 Erreur Z-Wave JS « Réessayer la configuration: None »
+## 125 — 0.17 Erreur Z-Wave JS « Réessayer la configuration: None »
 
 ### Problème :
 
@@ -753,7 +753,7 @@ La clé USB Z-Wave n'est pas branchée au Raspberry Pi.
 
 Branchez la clé puis redémarrez le système.
 
-## 60.18 Erreur Z-Wave JS « Réessayer la configuration: Failed to get the Z-Wave JS add-on info »
+## 126 — 0.18 Erreur Z-Wave JS « Réessayer la configuration: Failed to get the Z-Wave JS add-on info »
 
 ### Problème :
 
@@ -777,7 +777,7 @@ Le réseau est lent ou il contient des règles qui empêchent Home Assistant d'a
 
 Essayez de vous brancher à un autre réseau. Souvent, un réseau câblé offre une plus grande stabilité.
 
-## 60.19 Erreur Tuya « Échec de la configuration »
+## 127 — 0.19 Erreur Tuya « Échec de la configuration »
 
 ### Problème :
 
@@ -851,7 +851,7 @@ Pour vous réabonner :
 
   ![Renouvellement Trial](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Tuya-RenouvellementTrial.png)
 
-## 60.20 SSH : Erreur « Permission denied (publickey) »
+## 128 — 0.20 SSH : Erreur « Permission denied (publickey) »
 
 ### Problème :
 
@@ -956,7 +956,7 @@ PowerShell
 
 ssh root@192.168.1.145 -p 22222
 
-## 60.21 Erreur « System is not ready with state: setup »
+## 129 — 0.21 Erreur « System is not ready with state: setup »
 
 ### Problème :
 
@@ -986,7 +986,7 @@ Quand le système sera prêt, vous verrez les informations sur les adresses IP a
 
 ![Commande banner](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemIsNotReady-banner.png)
 
-## 60.22 Erreur « Response error: 401 »
+## 130 — 0.22 Erreur « Response error: 401 »
 
 ### Problème :
 
@@ -1008,7 +1008,7 @@ Le navigateur a rencontré un problème avec ses cookies.
 
 Déconnectez-vous de Home Assistant puis reconnectez-vous.
 
-## 60.23 Module complémentaire non trouvé
+## 131 — 0.23 Module complémentaire non trouvé
 
 ### Problème :
 
@@ -1036,7 +1036,7 @@ Vous n'avez pas activé le mode avancé pour l'usager avec lequel vous êtes aut
 
   ![Module complémentaire SQLite](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ModuleComplementaireSQLite.png)
 
-## 60.24 Erreur « ERR\_CONNECTION\_REFUSED  »
+## 132 — 0.24 Erreur « ERR\_CONNECTION\_REFUSED  »
 
 ### Problème :
 
@@ -1112,7 +1112,7 @@ Je me rappelais avoir modifié ce fichier lors de ma dernière session de travai
 
 Le système peut alors être redémarré à l'aide de la commande ha core restart.
 
-## 60.25 Erreur « System is not healthy »
+## 133 — 0.25 Erreur « System is not healthy »
 
 ### Problème :
 
@@ -1145,7 +1145,7 @@ Parmi les solutions les plus fréquentes, tentez les opérations suivantes. Rée
 * ha jobs options --ignore-conditions healthy
 * Si le problème persiste après toutes ces actions, la solution consiste à effectuer une sauvegarde de Home Assistant, à téléverser cette sauvegarde sur l'ordinateur, à réinstaller HassOS puis Home Assistant puis à remettre la sauvegarde en place.
 
-## 60.26 Erreur « 404: Not Found »
+## 134 — 0.26 Erreur « 404: Not Found »
 
 ### Problème :
 
@@ -1183,7 +1183,7 @@ automation: !include automations.yaml
 script: !include scripts.yaml  
 scene: !include scenes.yaml
 
-## 60.27 Erreur « Échec de l'appel du service update/install »
+## 135 — 0.27 Erreur « Échec de l'appel du service update/install »
 
 ### Problème :
 

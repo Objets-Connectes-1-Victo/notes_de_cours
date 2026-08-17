@@ -1,6 +1,6 @@
-# 95. Exercice 17 - OPTIONNEL
+# 306 — 5. Exercice 17 - OPTIONNEL
 
-## 95.1 Explorer la base de données et les statistiques de Home Assistant
+## 307 — 5.1 Explorer la base de données et les statistiques de Home Assistant
 
 ## Première partie
 

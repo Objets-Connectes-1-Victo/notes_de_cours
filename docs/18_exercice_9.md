@@ -1,6 +1,6 @@
-# 55. Exercice 9
+# 36 — 5. Exercice 9
 
-## 55.1 Détecter la présence avec un cellulaire
+## 37 — 5.1 Détecter la présence avec un cellulaire
 
 1. Installez le plugin qui correspond à votre situation.
    1. Si vous désirez travailler avec le plugin Networks (recommandé) : installez le [apical\_lien\_interne][travailler\_avec\_le\_plugin\_networks,plugin Networks][/apical\_lien\_interne]. Notez qu'au Cégep, ceci ne fonctionnera que si vous utilisez le réseau Domotique-Pedago.

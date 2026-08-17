@@ -1,6 +1,6 @@
-# 64. Sauvegarde de Home Assistant
+# 144 — 4. Sauvegarde de Home Assistant
 
-## 64.1 Sauvegarde de Home Assistant
+## 145 — 4.1 Sauvegarde de Home Assistant
 
 Une sauvegarde Home Assistant permet de remettre le système dans l'état où il était lorsque la sauvegarde a été réalisée.
 
@@ -79,7 +79,7 @@ Vous aurez alors une copie du fichier de sauvegarde sur votre ordinateur.
 
 « Home Assistant Starter: Backup and Restore ». SuburbanNeerd. <https://suburbannerd.com/hassiobackup/>
 
-## 64.2 Réinstaller Home Assistant à partir d'une sauvegarde
+## 146 — 4.2 Réinstaller Home Assistant à partir d'une sauvegarde
 
 Si vous prenez soin d'effectuer régulièrement [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,une sauvegarde de Home Assistant][/apical\_lien\_interne], vous pourrez remettre le système en place rapidement en cas de problème avec votre carte micro SD.
 

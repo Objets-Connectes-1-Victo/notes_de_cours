@@ -1,6 +1,6 @@
-# 105. Exercice 22 - OPTIONNEL
+# 341 — 5. Exercice 22 - OPTIONNEL
 
-## 105.1 La guerre des notes!
+## 342 — 5.1 La guerre des notes!
 
 CET EXERCICE EST OPTIONNEL.
 

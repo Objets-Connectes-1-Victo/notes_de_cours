@@ -1,6 +1,6 @@
-# 118. Les servomoteurs
+# 380 — 8. Les servomoteurs
 
-## 118.1 Fonctionnement d'un servomoteur
+## 381 — 8.1 Fonctionnement d'un servomoteur
 
 Information à venir...
 

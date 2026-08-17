@@ -1,6 +1,6 @@
-# 113. Exercice 25
+# 362 — 3. Exercice 25
 
-## 113.1 Chat et chien
+## 363 — 3.1 Chat et chien
 
 NOTE : deux cours sont requis pour cet exercice mais puisque vous avez la possibilité d'effectuer une simulation d'examen, vous avez deux choix :
 

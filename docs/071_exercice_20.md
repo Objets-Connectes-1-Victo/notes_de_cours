@@ -1,6 +1,6 @@
-# 101. Exercice 20
+# 330 — 1. Exercice 20
 
-## 101.1 Un retour à Jeedom
+## 331 — 1.1 Un retour à Jeedom
 
 Dans les semaines qui suivent, vous apprendrez comment intégrer dans Home Assistant des objets connectés qui sont déjà associés à d'autres plateformes et vice-versa.
 

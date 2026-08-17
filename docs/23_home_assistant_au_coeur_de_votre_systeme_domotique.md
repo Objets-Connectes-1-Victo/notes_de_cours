@@ -1,6 +1,6 @@
-# 58. Home Assistant au coeur de votre système domotique
+# 87 — 8. Home Assistant au coeur de votre système domotique
 
-## 58.1 En résumé...
+## 88 — 8.1 En résumé...
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -122,7 +122,7 @@ Avec HassOS, il s'agit en fait du dossier /mnt/data/supervisor/homeassistant.
 
 Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutôt le placer dans le dossier /mnt/data/supervisor/homeassistant/www.
 
-## 58.2 Installation de Home Assistant et premier accès
+## 89 — 8.2 Installation de Home Assistant et premier accès
 
 Home Assistant est un excellent logiciel domotique à code source ouvert qui peut être installé entre autres sur un Raspberry Pi.
 
@@ -546,7 +546,7 @@ ssh root@192.168.1.145 -p 22222
 
 « Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes) ». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
 
-## 58.3 Le terminal HassOS et la console Home Assistant
+## 90 — 8.3 Le terminal HassOS et la console Home Assistant
 
 En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,avec une des adresses données ici,acceder][/apical\_lien\_interne].
 
@@ -742,7 +742,7 @@ Dans le cas où vous êtes branchés via SSH, la commande exit mettra fin à la 
 
 « Common tasks - Operating System ». Home Assistant. <https://www.home-assistant.io/common-tasks/os/>
 
-## 58.4 Éteindre ou redémarrer Home Assistant de façon sécuritaire
+## 91 — 8.4 Éteindre ou redémarrer Home Assistant de façon sécuritaire
 
 Comme pour tout système Linux, il n'est pas souhaitable de fermer Home Assistant simplement en débranchant le Raspberry Pi.
 
@@ -810,7 +810,7 @@ Terminal HassOS
 
 reboot
 
-## 58.5 Dossier config
+## 92 — 8.5 Dossier config
 
 Dans la documentation officielle de Home Assistant et dans des groupes de discussion, vous verrez probablement à quelques occasions des instructions qui demandent de placer un fichier dans le dossier config.
 

@@ -1,6 +1,6 @@
-# 52. Exercice 8
+# 26 — 2. Exercice 8
 
-## 52.1 Indiquer l'ouverture d'une porte à l'aide d'une DEL
+## 27 — 2.1 Indiquer l'ouverture d'une porte à l'aide d'une DEL
 
 N'oubliez pas que vous avez à votre disposition différentes [apical\_lien\_interne][comment\_deboguer\_un\_scenario,techniques de débogage][/apical\_lien\_interne] pour vos scénarios.
 

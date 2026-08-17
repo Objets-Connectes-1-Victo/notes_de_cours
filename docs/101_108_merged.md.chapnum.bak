@@ -1,0 +1,108 @@
+<a id="textefiche"></a>
+
+<!-- --- split --- -->
+
+<a id="fiche-travailler_avec_un_watchdog"></a>
+
+<a id="chapitre-aller_plus_loin_avec_jeedom"></a>
+
+Information à venir...
+
+<!-- --- split --- -->
+
+<a id="chapitre-ifttt"></a>
+
+<!-- --- split --- -->
+
+<a id="fiche-plugin_ifttt_dans_jeedom"></a>
+
+<a id="chapitre-interagir_avec_un_objet_connecte_via_son_url_sous_jeedom"></a>
+
+...
+
+<!-- --- split --- -->
+
+<a id="fiche-script_qui_interagit_avec_un_objet_connecte_via_son_url"></a>
+
+<a id="chapitre-personnalisation_de_l_interface_jeedom"></a>
+
+Sous Jeedom, le plugin Script, qui peut être [apical\_lien\_interne][lancer\_un\_script\_python\_avec\_le\_plugin\_script,utilisé pour lancer un script Python][/apical\_lien\_interne], permet également d'interagir sur un objet à partir de son URL.
+
+Ce peut être un objet qui est déjà pairé à votre boîte domotique Jeedom ou encore tout autre objet avec lequel on peut interagir à partir d'un URL.
+
+Ceci permettra, par exemple, d'intégrer à votre boîte Jeedom des objets pairés avec une autre boîte domotique ou avec toute autre plateforme qui lui fournit un URL.
+
+<!-- --- split --- -->
+
+<a id="fiche-modifier_l_apparence_de_jeedom"></a>
+
+<a id="chapitre-les_interactions_jeedom"></a>
+
+...
+
+<!-- --- split --- -->
+
+<a id="fiche-qu_est-ce_qu_une_interaction"></a>
+
+## 129.1 Qu'est-ce qu'une interaction?
+
+Selon la documentation officielle de Jeedom[1](https://doc.jeedom.com/fr_FR/core/4.1/interact) :
+
+> Le système d�?Tinteractions dans Jeedom permet de réaliser des actions à partir de commandes textes ou vocales.
+
+Toujours selon la documentation officielle :
+
+>  L�?Tintérêt des interactions réside dans l�?Tintégration simplifiée dans d�?Tautres systèmes comme smartphone, tablette, autre box domotique, etc.
+
+Dans sa forme la plus simple, l'interaction permet d'effectuer une action, par exemple allumer la lumière de la cuisine, en envoyant une phrase spécifique.
+
+Par exemple, la phrase « allume la lumière de la cuisine » sera associée à l'action #[Cuisine][Lumière][Switch 0 On]#.
+
+Il est possible de rendre l'interaction plus versatile en créant un modèle de phrase à partir de laquelle Jeedom génèrera plusieurs phrases qui génèreront le même résultat.
+
+Par exemple, la phrase « allume [la|les] [lumière|lumières] [de la|de|] cuisine » permet d'allumer la lumière de la cuisine à l'aide de différentes phrases :
+
+* allume la lumière de la cuisine
+* allume les lumières de la cuisine
+* allume la lumière cuisine
+* allume lumière de cuisine
+* etc.
+
+Encore plus puissant, la phrase #commande# [la|les] [lumière|lumières] [du|de|de la|]] #equipement# permet d'effectuer une commande sur différentes lumières du système domotique.
+
+## Sources
+
+1. « Interactions ». Jeedom. <https://doc.jeedom.com/fr_FR/core/4.1/interact>
+
+## Pour plus d'information
+
+« Jeedom : Les interactions ». GeekLand. <https://www.geekland-leblog.fr/jeedom-les-interactions/>
+
+<!-- --- split --- -->
+
+<a id="fiche-les_micro-controleur_sde_type_esp8266"></a>
+
+## 130.1 Les micro-contrôleurs de type ESP8266
+
+...
+
+## Pour plus d'information
+
+« Créer des capteurs Jeedom pas chers sans programmation avec ESP Easy ». Babash. <https://www.babash.fr/2018/07/16/capteurs-jeedom-pas-chers-espeasy/>
+
+<!-- --- split --- -->
+
+<a id="fiche-creer_un_plugin_personnalise_pour_jeedom"></a>
+
+<a id="iconesfiche"></a>
+
+Information à venir...
+
+## Pour plus d'information
+
+« Développement de plugin ». Jeedom. <https://doc.jeedom.com/fr_FR/dev/>
+
+« [HOW TO] Création de plugin ». Forum Jeedom. <https://forum.jeedom.com/viewtopic.php?f=27&t=37630#p621495>
+
+
+

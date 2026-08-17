@@ -1,6 +1,6 @@
-# 82. Déboguer Home Assistant
+# 240 — 2. Déboguer Home Assistant
 
-## 82.1 Les fichiers journaux de Home Assistant
+## 241 — 2.1 Les fichiers journaux de Home Assistant
 
 À l'aide de l'intégration [System Log](https://www.home-assistant.io/integrations/system_log/), le supervisor de Home Assistant enregistre dans différents fichiers journaux (log files) de l'information sur ce qui se passe dans le système, principalement les erreurs et avertissements.
 
@@ -61,7 +61,7 @@ Terminal
 
 journalctl
 
-## 82.2 Écrire dans un fichier journal
+## 242 — 2.2 Écrire dans un fichier journal
 
 Home Assistant propose des services pour écrire dans différents fichiers journaux.
 
@@ -159,7 +159,7 @@ Journal
 
 État de la lumière : on, modifié par automation.capteur\_virtuel\_agit\_sur\_recepteur\_virtuel
 
-## 82.3 Vérifier une automatisation en stockant une valeur dans un capteur virtuel
+## 243 — 2.3 Vérifier une automatisation en stockant une valeur dans un capteur virtuel
 
 Les capteurs virtuels de type texte peuvent être pratiques pour effectuer des vérifications pendant le déclenchement d'une automatisation.
 

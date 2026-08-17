@@ -1,6 +1,6 @@
-# 119. Divers Linux et Raspberry Pi
+# 382 — 9. Divers Linux et Raspberry Pi
 
-## 119.1 Installation de Raspberry Pi OS manuellement
+## 383 — 9.1 Installation de Raspberry Pi OS manuellement
 
 Raspberry Pi OS, connu autrefois sous le nom Raspbian, peut être installé :
 
@@ -50,7 +50,7 @@ Une fois les configurations désirées complétées, [apical\_lien\_interne][ret
 
 Et voilà!
 
-## 119.2 Permettre l'utilisation d'un moniteur même s'il n'était pas branché lors du démarrage (hotplug)
+## 384 — 9.2 Permettre l'utilisation d'un moniteur même s'il n'était pas branché lors du démarrage (hotplug)
 
 Même si vous prévoyez travailler sur le Pi via SSH, il peut être pratique de pouvoir lui brancher un écran, par exemple en cas de problème réseau.
 

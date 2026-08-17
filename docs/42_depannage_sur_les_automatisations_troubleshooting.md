@@ -1,6 +1,6 @@
-# 76. Dépannage sur les automatisations (troubleshooting)
+# 218 — 6. Dépannage sur les automatisations (troubleshooting)
 
-## 76.1 Erreur « Message malformed: Integration '' not found »
+## 219 — 6.1 Erreur « Message malformed: Integration '' not found »
 
 ### Problème :
 
@@ -22,7 +22,7 @@ Vous tentez d'enregistrer une automatisation qui n'a pas de déclencheur et/ou d
 
 Fournissez le déclencheur et l'action avant de tenter de sauvergarder l'automatisation.
 
-## 76.2 Automatisation ne s'enregistre pas
+## 220 — 6.2 Automatisation ne s'enregistre pas
 
 ### Problème :
 

@@ -1,6 +1,6 @@
-# 79. Les modèles Home Assistant
+# 225 — 9. Les modèles Home Assistant
 
-## 79.1 Les modèles dans Home Assistant
+## 226 — 9.1 Les modèles dans Home Assistant
 
 Les modèles sont un mécanisme qui permet d'obtenir une valeur à partir d'autres valeurs avec possibilité d'opérations mathématiques, de tests conditionnels, etc.
 
@@ -249,7 +249,7 @@ Dans tous les cas, il est conseillé de travailler avec states() plutôt qu'avec
 
 1. « Templating ». Home Assistant. <https://www.home-assistant.io/docs/configuration/templating/>
 
-## 79.2 Exemple d'automatisation avec un modèle
+## 227 — 9.2 Exemple d'automatisation avec un modèle
 
 Dans cette fiche, nous allons créer une automatisation dont la condition dépend de la valeur d'un capteur virtuel numérique.
 
@@ -337,7 +337,7 @@ Fichier automations.yaml
   target:  
     entity\_id: input\_number.mon\_virtuel
 
-## 79.3 Retrouver les valeurs d'une entité
+## 228 — 9.3 Retrouver les valeurs d'une entité
 
 Les objets connectés fournissent souvent plusieurs informations.
 
@@ -441,7 +441,7 @@ Résultat à l'écran
 
 46.06010262108603
 
-## 79.4 Quelques manipulations de chaînes dans les modèles Home Assistant
+## 229 — 9.4 Quelques manipulations de chaînes dans les modèles Home Assistant
 
 En plus de permettre de [apical\_lien\_interne][retrouver\_les\_valeurs\_d\_une\_entite,retrouver la valeur d'une entité][/apical\_lien\_interne], les modèles permettent d'effectuer une foule de manipulations sur ces informations.
 
@@ -475,7 +475,7 @@ Modèle
 
 {% set sous\_chaine = ma\_chaine[position\_debut:] %}
 
-## 79.5 Quelques manipulations de nombres dans les modèles
+## 230 — 9.5 Quelques manipulations de nombres dans les modèles
 
 Voici quelques manipulations de nombres dans les modèles Home Assistant.
 
@@ -505,7 +505,7 @@ Modèle
 
 {{ nombre | round(0, 'ceil') }}
 
-## 79.6 Modèles qui manipulent des dates et des heures
+## 231 — 9.6 Modèles qui manipulent des dates et des heures
 
 Dans tous les langages de programmation, les opérations avec dates et heures nécessitent un traitement particulier.
 
@@ -1025,7 +1025,7 @@ L'utilisation de < ou de > n'est pas non plus souhaitable puisque vos déclenche
 
 « Templating - time ». Home Assistant. <https://www.home-assistant.io/docs/configuration/templating/#time>
 
-## 79.7 Modèles qui vérifient la présence dans une zone
+## 232 — 9.7 Modèles qui vérifient la présence dans une zone
 
 Les modèles permettent de vérifier la présence d'une entité dans une zone lorsque cette entité gère la position par rapport aux zones Home Assistant.
 
@@ -1063,7 +1063,7 @@ Modèle
 
 {{ is\_state('device\_tracker.position\_virtuelle\_annie','not\_home') }}
 
-## 79.8 Format JSON dans un modèle
+## 233 — 9.8 Format JSON dans un modèle
 
 L'étude des modèles Home Assistant ne serait pas complète si on ne parlait pas de maniuplation du format JSON.
 
@@ -1140,7 +1140,7 @@ Modèle Home Assistant
 
 Notez que si vous testez ce modèle [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,dans les outils de développement,editeur][/apical\_lien\_interne] et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
 
-## 79.9 Utiliser un modèle dans une carte du tableau de bord
+## 234 — 9.9 Utiliser un modèle dans une carte du tableau de bord
 
 Quand vient le temps de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,personnaliser le tableau de bord de Home Assistant][/apical\_lien\_interne], les cartes Markdown offrent beaucoup de flexibilité.
 
@@ -1152,7 +1152,7 @@ Ceci vous permet de modifier l'affichage selon la condition que vous désirez me
 
 ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
 
-## 79.10 Information sur l'entité qui a déclenché une automatisation
+## 235 — 9.10 Information sur l'entité qui a déclenché une automatisation
 
 Quand une automatisation a plusieurs déclencheurs, il est intéressant de savoir lequel a effectivement causé le déclenchement.
 

@@ -1,6 +1,6 @@
-# 115. Simulation d'examen
+# 366 — 5. Simulation d'examen
 
-## 115.1 Simulation d'examen final
+## 367 — 5.1 Simulation d'examen final
 
 Vous désirez ajouter une fonctionnalité à votre système Home Assistant : réagir à des nombres aléatoires générés à peu près à toutes les 30 secondes par un autre système (nommé système B) et publiés par MQTT sur le canal simulation3a4/nombre.
 

@@ -1,6 +1,6 @@
-# 85. Dépannage sur l'envoi de courriel (troubleshooting)
+# 267 — 5. Dépannage sur l'envoi de courriel (troubleshooting)
 
-## 85.1 Erreur « Unable to find service notify »
+## 268 — 5.1 Erreur « Unable to find service notify »
 
 ### Problème :
 

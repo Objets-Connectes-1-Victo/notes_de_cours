@@ -1,6 +1,6 @@
-# 108. Exercice 23
+# 350 — 8. Exercice 23
 
-## 108.1 MQTT entre deux boîtes Home Assistant
+## 351 — 8.1 MQTT entre deux boîtes Home Assistant
 
 Dans cet exercice, vous devez travailler deux par deux. Chacun de vous utilisera sa boîte Home Assistant.
 

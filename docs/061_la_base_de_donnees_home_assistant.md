@@ -1,6 +1,6 @@
-# 93. La base de données Home Assistant
+# 302 — 3. La base de données Home Assistant
 
-## 93.1 Contenu de la base de données de Home Assistant
+## 303 — 3.1 Contenu de la base de données de Home Assistant
 
 Par défaut, Home Assistant utilise une base de données SQLite pour stocker les configurations de même que les données sur les capteurs.
 

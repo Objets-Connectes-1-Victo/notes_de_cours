@@ -1,5 +1,5 @@
-# 126. IFTTT
+# 402 — 6. IFTTT
 
-## 126.1 Plugin IFTTT dans Jeedom
+## 403 — 6.1 Plugin IFTTT dans Jeedom
 
 ...

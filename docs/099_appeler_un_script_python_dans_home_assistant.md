@@ -1,6 +1,6 @@
-# 123. Appeler un script Python dans Home Assistant
+# 394 — 3. Appeler un script Python dans Home Assistant
 
-## 123.1 Travailler avec l'intégration Python Scripts
+## 395 — 3.1 Travailler avec l'intégration Python Scripts
 
 PAS TERMINÉ...
 

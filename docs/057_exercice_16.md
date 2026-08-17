@@ -1,6 +1,6 @@
-# 90. Exercice 16
+# 282 — 0. Exercice 16
 
-## 90.1 Présence
+## 283 — 0.1 Présence
 
 1. [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,Installez l'application Home Assistant][/apical\_lien\_interne] sur votre téléphone.
 2. [apical\_lien\_interne][gerer\_les\_personnes,Gérez les informations associées à votre personne][/apical\_lien\_interne] afin d'y ajouter une photo de vous et d'y associer votre téléphone.

@@ -1,6 +1,6 @@
-# 69. Les icônes
+# 174 — 9. Les icônes
 
-## 69.1 Icônes Material Design dans Home Assistant
+## 175 — 9.1 Icônes Material Design dans Home Assistant
 
 Home Assistant permet d'associer une icône à différentes entités.
 

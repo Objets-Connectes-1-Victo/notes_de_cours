@@ -1,6 +1,6 @@
-# 68. Le fichier configuration.yaml
+# 168 — 8. Le fichier configuration.yaml
 
-## 68.1 Le format YAML
+## 169 — 8.1 Le format YAML
 
 YAML est un format de représentation des données semblable à XML ou JSON.
 
@@ -167,7 +167,7 @@ databases:
 
 « YAML Ain’t Markup Language (YAML™) version 1.2 - Scalars ». yaml.org. <https://yaml.org/spec/1.2.2/#23-scalars>
 
-## 68.2 Travailler avec le module complémentaire File editor
+## 170 — 8.2 Travailler avec le module complémentaire File editor
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
@@ -217,7 +217,7 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 
 [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,Dans une prochaine fiche][/apical\_lien\_interne], je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
-## 68.3 Travailler avec le module complémentaire Studio Code Server
+## 171 — 8.3 Travailler avec le module complémentaire Studio Code Server
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
@@ -266,7 +266,7 @@ Par défaut, le module ne présente pas de barre de menu. Pour la faire apparaî
 
 ![Customize Layout](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-IconeCustomizeLayout.png)
 
-## 68.4 Éditer le fichier configuration.yaml
+## 172 — 8.4 Éditer le fichier configuration.yaml
 
 Le fichier configuration.yaml permet d'effectuer une foule de configurations dans Home Assistant.
 
@@ -392,7 +392,7 @@ Parfois, un redémarrage de Home Assistant sera nécessaire : Paramètres / Syst
 
 « Home Assistant configuration YAML (The beginners guide) ». Siytek. <https://siytek.com/home-assistant-configuration-yaml-beginners-guide/>
 
-## 68.5 Validation des configurations
+## 173 — 8.5 Validation des configurations
 
 Une fois vos configurations en place [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,dans le fichier configuration.yaml][/apical\_lien\_interne], il faut s'assurer que le tout soit valide avant de poursuivre.
 

@@ -1,6 +1,6 @@
-# 120. Configurations réseau avec dhcpcd (wpa\_supplicant)
+# 385 — 0. Configurations réseau avec dhcpcd (wpa\_supplicant)
 
-## 120.1 Configurer le réseau à l'aide de dhcpcd
+## 386 — 0.1 Configurer le réseau à l'aide de dhcpcd
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 
@@ -101,7 +101,7 @@ Entrez les configurations requises dans ce fichier, [comme expliqué plus haut](
 
 « wpa\_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
 
-## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
+## 387 — 0.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
 
 Il est possible de définir plusieurs réseaux dans le fichier wpa\_supplicant.conf.
 
@@ -246,7 +246,7 @@ Too few arguments.
 Too few arguments.  
 bound to 192.168.1.6 -- renewal in 1880 seconds.
 
-## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd
+## 388 — 0.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 

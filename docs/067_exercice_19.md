@@ -1,6 +1,6 @@
-# 98. Exercice 19
+# 312 — 8. Exercice 19
 
-## 98.1 Position des enfants
+## 313 — 8.1 Position des enfants
 
 Vous désirez ajouter à votre système domotique Home Assistant tout ce qu'il faut pour gérer la position de vos enfants.
 

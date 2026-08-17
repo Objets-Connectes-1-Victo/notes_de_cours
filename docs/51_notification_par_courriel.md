@@ -1,6 +1,6 @@
-# 84. Notification par courriel
+# 264 — 4. Notification par courriel
 
-## 84.1 Configurer Home Assistant pour l'envoi de courriel
+## 265 — 4.1 Configurer Home Assistant pour l'envoi de courriel
 
 Home Assistant est capable d'envoyer du courriel lorsqu'il est correctement configuré.
 
@@ -67,7 +67,7 @@ Une fois ces configurations en place, il sera possible [apical\_lien\_interne][a
 
 « SMTP ». Home Assistant. <https://www.home-assistant.io/integrations/smtp/>
 
-## 84.2 Automatisation qui envoie un courriel
+## 266 — 4.2 Automatisation qui envoie un courriel
 
 Pour qu'une automatisation envoie un courriel, dans la zone Alors faire , il faut choisir :  Autres actions / Effectuer une action.
 

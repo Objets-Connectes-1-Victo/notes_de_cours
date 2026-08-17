@@ -1,6 +1,6 @@
-# 61. Exercice 10
+# 136 — 1. Exercice 10
 
-## 61.1 Installation de Home Assistant
+## 137 — 1.1 Installation de Home Assistant
 
 Dans cet exercice, vous allez effectuer l'installation de Home Assistant.
 

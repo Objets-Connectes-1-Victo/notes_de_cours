@@ -1,6 +1,6 @@
-# 97. Pour le prochain cours (deux cours)
+# 310 — 7. Pour le prochain cours (deux cours)
 
-## 97.1 Je me prépare pour l'exercice suivant (deux cours)
+## 311 — 7.1 Je me prépare pour l'exercice suivant (deux cours)
 
 Vous disposez de deux cours pour acquérir les connaissances théoriques et finaliser cet exercice.
 

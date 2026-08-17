@@ -1,6 +1,6 @@
-# 122. Les scripts Python avec Home Assistant
+# 391 — 2. Les scripts Python avec Home Assistant
 
-## 122.1 Automatisation qui appelle un script Python
+## 392 — 2.1 Automatisation qui appelle un script Python
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -68,7 +68,7 @@ Dans la liste déroulante des services, vous aurez accès au service dont le nom
 
 ![service python_script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationAvecPythonScript.png)
 
-## 122.2 Intégration AppDaemon pour exécuter des scripts Python
+## 393 — 2.2 Intégration AppDaemon pour exécuter des scripts Python
 
 [AppDaemon](https://github.com/hassio-addons/repository/tree/master/appdaemon) est une intégration Home Assistant qui permet d'exécuter un script Python dans un bac de sable (sandbox) c'est-à-dire dans un environnement isolé du reste du système.
 

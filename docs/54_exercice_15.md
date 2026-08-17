@@ -1,6 +1,6 @@
-# 87. Exercice 15
+# 271 — 7. Exercice 15
 
-## 87.1 Encore plus d'automatisations
+## 272 — 7.1 Encore plus d'automatisations
 
 1. Faites le nécessaire pour pouvoir [apical\_lien\_interne][configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel,envoyer du courriel avec Home Assistant][/apical\_lien\_interne]. L'adresse de courriel utilisée doit être au format homeassistant@mondomaine.com.
 2. Modifiez une de vos automatisations pour qu'en plus d'agir sur le récepteur, [apical\_lien\_interne][automatisation\_qui\_envoie\_un\_courriel,elle envoie un courriel pour vous aviser de ce qui vient de se passer][/apical\_lien\_interne]. Le message envoyé devra contenir une information au sujet d'un capteur de votre choix, obtenue à l'aide d'un modèle.

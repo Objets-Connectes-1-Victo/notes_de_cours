@@ -1,6 +1,6 @@
-# 65. Exercice 11
+# 147 — 5. Exercice 11
 
-## 65.1 Commencer à travailler avec Home Assistant
+## 148 — 5.1 Commencer à travailler avec Home Assistant
 
 1. Changez le nom de votre installation Home Assistant. Ce nom doit correspondre à votre nom complet au format Prénom NomDeFamille. À vous de fouiller dans les options de menu pour trouver comment faire.
 2. [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,Configurez votre clé Z-Wave][/apical\_lien\_interne] sur Home Assistant.

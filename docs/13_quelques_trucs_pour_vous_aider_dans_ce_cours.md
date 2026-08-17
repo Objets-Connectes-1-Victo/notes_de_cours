@@ -1,6 +1,6 @@
-# 11. Quelques trucs pour vous aider dans ce cours
+# 18 — 1. Quelques trucs pour vous aider dans ce cours
 
-## 11.1 S'organiser pour mieux s'y retrouver
+## 19 — 1.1 S'organiser pour mieux s'y retrouver
 
 Si vous savez vous organiser, peu importe dans quel domaine, vous aurez un atout pour mieux réussir.
 
@@ -33,7 +33,7 @@ Voici quelques autres suggestions pour vous aider à vous organiser.
 * Au besoin, ajoutez des pages à vos favoris pour les retrouver rapidement. Saviez-vous que l'étoile dans le haut d'Apical permet d'ajouter la page à gauche de l'écran?
 * Utilisez l'outil de recherche d'Apical pour retrouver de l'information ou la solution à un message d'erreur.
 
-## 11.2 Écouter le prof sans cellulaire
+## 20 — 1.2 Écouter le prof sans cellulaire
 
 Pendant que je vous donne des explications en début de période, vous devez placer votre cellulaire sur la table, face cachée.
 
