@@ -1,0 +1,21 @@
+# 34. Exercice 4
+
+## 34.1 Les scénarios Jeedom
+
+Dans tous vous scénario, prenez l'habitude d'utiliser les différentes [apical\_lien\_interne][comment\_deboguer\_un\_scenario,techniques de débogage][/apical\_lien\_interne] à votre disposition.
+
+1. [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,Ajoutez une porte virtuelle][/apical\_lien\_interne] à votre système (c'est un capteur virtuel).
+2. Ajoutez une lumière virtuelle (le processus d'ajout est le même mais il sera utilisé comme un récepteur virtuel).
+3. [apical\_lien\_interne][creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine,Créez une adresse de courriel][/apical\_lien\_interne] au format jeedom@mondomaine.com (si vous ne possédez plus de nom de domaine, entendez-vous avec un confrère de classe pour avoir votre courriel avec son nom de domaine) puis [apical\_lien\_interne][envoyer\_un\_courriel\_avec\_jeedom,configurez Jeedom pour pouvoir utiliser cette adresse][/apical\_lien\_interne].
+4. Dans Jeedom, [apical\_lien\_interne][creer\_un\_scenario\_provoque,créez un scénario provoqué][/apical\_lien\_interne] dans lequel le capteur de votre choix agit sur le récepteur de votre choix. Vous pouvez travailler avec du réel ou avec du virtuel à votre choix.
+5. Faites ce qu'il faut pour faire déclencher le scénario. Allez ensuite consulter le log du scénario (icône Log dans le haut de l'écran). Vous devez voir que l'action que vous avez configurée est bien exécutée (ligne débutant par « Exécution de la commande »).
+6. Modifiez votre scénario afin que, en plus d'agir sur le récepteur, le capteur vous envoie un courriel. Notez qu'il est possible qu'avec le réseau sans fil utilisé dans le cours, il ne soit pas possible d'envoyer du courriel. Il faut à ce moment utiliser le réseau câblé.
+7. Faites une impression d'écran de l'écran où on voit le déclencheur du scénario. Faites une autre impression d'écran, cette fois pour montrer les détails du scénario avec des blocs Action qui affichent des lignes du genre #[Cuisine][Interrupteur lumière][Switch 0 On]#. Les impressions d'écrans doivent montrer clairement le nom de la boîte Jeedom qui apparaît dans le coin supérieur droit de l'écran. Nommez vos fichiers au format nomprenom-capteurrecepteur-1.png et nomprenom-capteurrecepteur-2.png.
+8. Créez un second scénario dans lequel vous recevrez un courriel [apical\_lien\_interne][creer\_un\_scenario\_provoque,quand Jeedom démarre,evenement][/apical\_lien\_interne].
+9. OPTIONNEL : profitez-en pour que lors du démarrage, [apical\_lien\_interne][retrouver\_l\_adresse\_ip\_du\_pi\_a\_l\_aide\_de\_jeedom,le courriel vous donne l'adresse IP du Pi][/apical\_lien\_interne].
+10. Faites deux impressions d'écran de ce scénario afin de montrer le déclencheur et les détails. Les impressions d'écran doivent montrer clairement le nom de la boîte Jeedom. Nommez vos fichiers au format nomprenom-courrieldemarrage-1.png et nomprenom-courrieldemarrage-2.png.
+11. Créez un troisième scénario qui effectue une action de votre choix (ex : allumer la lumière, envoyer un courriel) le mardi à 20h (ou à un autre moment de votre choix) à condition que la température extérieure soit inférieure à 1o Celcius (ou autre événement météo de votre choix).
+12. Faites deux impressions d'écran de ce scénario afin de montrer le déclencheur et les détails. Les impressions d'écran doivent montrer clairement le nom de la boîte Jeedom. Nommez vos fichiers au format nomprenom-scenarioprogramme-1.png et nomprenom-scenarioprogramme-2.png.
+13. OPTIONNEL : Créez un scénario de votre choix qui utilise « les deux » comme déclencheur, par exemple activer la prise intelligente du ventilateur dès que la porte s'ouvre (provoqué) de même qu'à tous les dimanches à 8h00 (programmé).
+14. Déposez vos impressions d'écran sur la plateforme électronique du cours.
+15. Afin d'accumuler des données en provenance de votre capteur, laissez Jeedom fonctionner sans arrêt pendant 1 journée ou 2. Il doit fonctionner de nuit afin qu'il effectue certaines tâches que nous allons étudier sous peu, par exemple la sauvegarde et l'archivage des données d'historique.
