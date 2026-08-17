@@ -1,3 +1,4 @@
+<a id="fiche-travailler_avec_le_plugin_virtuel"></a>
 # 31. Les équipements virtuels dans Jeedom
 
 ## 31.1 Travailler avec le plugin Virtuel
@@ -16,7 +17,7 @@ Dans la zone de recherche, entrez ***virtuel***.
 
 Cliquez sur le plugin Virtuel - officiel par Jeedom SAS.
 
-Note : si le plugin n'est pas disponible, c'est peut-être parce que vous devez [apical\_lien\_interne][le\_centre\_de\_mise\_a\_jour\_de\_jeedom,mettre à jour votre système][/apical\_lien\_interne].
+Note : si le plugin n'est pas disponible, c'est peut-être parce que vous devez <a href="fiche-le\_centre\_de\_mise\_a\_jour\_de\_jeedom.md#le\_centre\_de\_mise\_a\_jour\_de\_jeedom">mettre à jour votre système</a>.
 
 ![Plugin Virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-PluginVirtuel.png)
 
@@ -25,6 +26,7 @@ Note : si le plugin n'est pas disponible, c'est peut-être parce que vous devez 
 Dans l'interface de Jeedom, rendez-vous dans le menu Plugins / Gestion des plugins / Virtuel.
 
 Activez le plugin en cliquant sur le bouton Activer dans la zone État.
+<a id="actions"></a>
 
 ## Ajout d'un équipement virtuel
 
@@ -68,7 +70,7 @@ Cliquez sur Sauvegarder.
 
 Puisque dans ce cas, l'équipement virtuel ne peut avoir que deux états, modifiez la ligne État pour que le type doit une information binaire.
 
-Si vous comptez améliorer l'apparence de la tuile [apical\_lien\_interne][widget\_pour\_ajuster\_l\_apparence\_d\_une\_tuile,à l'aide des widgets][/apical\_lien\_interne], vous pouvez enlever le crochet devant Afficher sur cette ligne. Sinon, conservez le crochet.
+Si vous comptez améliorer l'apparence de la tuile <a href="fiche-widget\_pour\_ajuster\_l\_apparence\_d\_une\_tuile.md#widget\_pour\_ajuster\_l\_apparence\_d\_une\_tuile">à l'aide des widgets</a>, vous pouvez enlever le crochet devant Afficher sur cette ligne. Sinon, conservez le crochet.
 
 Une fois ces manipulations terminées, vous obtiendrez ceci :
 
@@ -86,6 +88,7 @@ Notez que l'information État avec l'icône ne sera présente que si vous avez c
 
 « Jeedom tuto #5 | Les virtuels (plugin virtuel) | Utilisation ». YouTube - DomoTech. <https://www.youtube.com/watch?v=wiMh8rmfdKU>
 
+<a id="chapitre-les_scenarios_jeedom"></a>
 « Créer ses commandes avec le plugin Virtuel et Jeedom ». Jeedomiser. <https://jeedomiser.fr/article/creer-ses-propres-commandes-avec-le-plugin-virtuel/>
 
 ## 31.2 Équipement virtuel qui incrémente une variable

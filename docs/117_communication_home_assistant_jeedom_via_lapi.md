@@ -1,3 +1,4 @@
+<a id="fiche-home_assistant_interagir_avec_un_objet_branche_sur_jeedom"></a>
 # 103. Communication Home Assistant - Jeedom via l'API
 
 ## 103.1 Home Assistant : interagir avec un objet branché sur Jeedom
@@ -10,12 +11,12 @@ Grâce à certaines techniques de communication, ce n'est pas un problème, on p
 
 Les deux principales techniques sont :
 
-* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche [apical\_lien\_interne][jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_,et dans la suivante][/apical\_lien\_interne])
-* [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT][/apical\_lien\_interne]
+* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche <a href="fiche-jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_.md#jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_">et dans la suivante</a>)
+* <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">MQTT</a>
 
 Pour que la communication entre deux applications ait lieu à l'aide d'un API, il faut qu'une application ait le moyen de lancer une commande sur l'autre application. Le plus souvent, cette commande passera par un URL. On dira alors qu'on travaille avec un API REST.
 
-Sous Jeedom, [apical\_lien\_interne][url\_d\_un\_objet\_connecte\_jeedom,un URL est assigné à chaque commande ou état d'un objet connecté][/apical\_lien\_interne]. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
+Sous Jeedom, <a href="fiche-url\_d\_un\_objet\_connecte\_jeedom.md#url\_d\_un\_objet\_connecte\_jeedom">un URL est assigné à chaque commande ou état d'un objet connecté</a>. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
 
 ## Récupérer la valeur d'un capteur Jeedom dans Home Assistant
 
@@ -69,6 +70,7 @@ rest\_command:
 Après un redémarrage de Home Assistant, il est possible d'utiliser ces commandes en tant qu'action pour interagir avec le récepteur de Jeedom.
 
 ![Configuration du bouton](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-BoutonsAllumerLumiereJeedom-config.png)
+<a id="fiche-jeedom_recuperer_la_valeur_d_un_capteur_branche_sur_home_assistant_ou_la___"></a>
 
 ## Modifier la valeur d'un virtuel
 
@@ -80,6 +82,7 @@ Fichier configuration.yaml
 
 rest\_command:  
   temperature\_virtuelle\_jeedom\_chaud:  
+<a id="fiche-jeedom_lancer_une_action_sur_un_recepteur_branche_sur_home_assistant"></a>
   url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
 
 ## 103.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant
@@ -88,7 +91,7 @@ Vous avez un objet connecté dans Home Assistant et vous désirez l'utiliser dan
 
 Il est possible de configurer Home Assistant pour qu'il envoie des informations à un autre système, par exemple Jeedom.
 
-La technique est tout à fait opposée à celle utilisée pour [apical\_lien\_interne][home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom,récupérer dans Home Assistant une valeur en provenance de Jeedom][/apical\_lien\_interne].
+La technique est tout à fait opposée à celle utilisée pour <a href="fiche-home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom.md#home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom">récupérer dans Home Assistant une valeur en provenance de Jeedom</a>.
 
 Sous Home Assistant, les objets connectés n'ont pas d'URL que l'on peut récupérer. Il faudra plutôt que Home Assistant pousse vers Jeedom la valeur souhaitée, dans un objet virtuel dont on connaîtra l'URL.
 
@@ -96,7 +99,7 @@ Home Assistant utilisera pour cela des commandes de type [REST](https://www.home
 
 Voici comment y parvenir :
 
-* Dans Jeedom, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,créez un équipement virtuel][/apical\_lien\_interne] qui recevra la valeur de Home Assistant.
+* Dans Jeedom, <a href="fiche-travailler\_avec\_le\_plugin\_virtuel.md#travailler\_avec\_le\_plugin\_virtuel">créez un équipement virtuel</a> qui recevra la valeur de Home Assistant.
 
   Donnez-lui un nom clair, par exemple Luminosité cuisine - Home Assistant.
 
@@ -246,7 +249,7 @@ Lorsqu'un objet connecté est pairé à une boîte domotique Jeedom, il se voit 
 
 Pour connaître l'URL d'un objet, et plus spécifiquement l'URL qui permet de lancer une commande donnée sur cet objet :
 
-* Dans [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,l'interface Web de Jeedom,acceder][/apical\_lien\_interne], rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
+* Dans <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">l'interface Web de Jeedom</a>, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
 * Cliquez sur l'objet connecté désiré.
 * Sélectionnez l'onglet Commandes.
 * Retrouvez la commande que vous désirez lancer à l'aide d'un URL. Si vous désirez effectuer une action sur l'objet, ce sera une commande de type Action. Si vous désirez retrouver de l'information fournie par l'objet, ce sera une commande de type Info.
@@ -259,6 +262,7 @@ Pour connaître l'URL d'un objet, et plus spécifiquement l'URL qui permet de la
 * Une fois la commande repérée, cliquez sur le bouton d'engrenage juste à sa droite.
 * Dans la fenêtre qui apparaît, cliquez sur l'icône à côté de URL directe.
 
+<a id="virtuel"></a>
   ![Configuration commande](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationCommande.png)
 * Un nouvel onglet s'ouvre dans le navigateur. L'URL qui apparaît active la commande. C'est cet URL que vous devez prendre en note pour pouvoir effectuer cette commande par programmation.
 
@@ -290,8 +294,9 @@ Par contre, dans le cas d'un équipement virtuel, il peut être intéressant de 
 
 Prenons par exemple un virtuel qui sert à stocker une valeur.
 
-Dans les configurations de cet équipement, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,on créera une commande,actions][/apical\_lien\_interne] de type info. C'est dans cette info que la valeur sera stockée.
+Dans les configurations de cet équipement, <a href="fiche-travailler\_avec\_le\_plugin\_virtuel.md#travailler\_avec\_le\_plugin\_virtuel">on créera une commande</a> de type info. C'est dans cette info que la valeur sera stockée.
 
+<a id="modifiervirtuel"></a>
 Ici, j'ai simplement appelé cette info Ma valeur. Jeedom lui a attribué l'identifiant 74.
 
 ![Virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-InfoObjetVirtuel.png)
@@ -299,6 +304,7 @@ Ici, j'ai simplement appelé cette info Ma valeur. Jeedom lui a attribué l'iden
 ### Lire la valeur du virtuel
 
 Si je clique sur l'icône d'engrenage pour connaître son URL, j'obtiens :
+<a id="chapitre-exercice_21_003"></a>
 
 http://192.168.1.145/core/api/jeeApi.php?apikey=C6VL4SqycjFFeKixYcqiJj7Bax5e2ncI&type=cmd&id=74
 

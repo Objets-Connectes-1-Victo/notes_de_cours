@@ -1,3 +1,4 @@
+<a id="fiche-les_fichiers_journaux_de_home_assistant"></a>
 # 82. Déboguer Home Assistant
 
 ## 82.1 Les fichiers journaux de Home Assistant
@@ -16,10 +17,11 @@ Les différents fichiers journaux sont disponibles à partir de ces options de m
 * Dans l'option de menu Activité, disponible directement dans le menu de gauche, vous trouverez le journal des activités qui affiche des informations au sujet des objets connectés et autres événements détectés dans Home Assistant. Ces informations sont tirées de la base de données.
 
   ![Activité](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Activite.png)
+<a id="fiche-Ecrire_dans_un_fichier_journal"></a>
 
 ## Consulter les fichiers journaux à partir du terminal
 
-Certains fichiers journaux sont également disponibles à partir du [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne].
+Certains fichiers journaux sont également disponibles à partir du <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
 
 Pour afficher le contenu du fichier home-assistant.log :
 
@@ -67,12 +69,12 @@ Home Assistant propose des services pour écrire dans différents fichiers journ
 
 Dans cette fiche :
 
-* Écriture dans le journal des activités (logbook.log)
-  + Identifiant d'entité à référencer
-* Écriture dans le journal de Home Assistant (system\_log.write)
-  + Niveau de journalisation
-  + Écriture
-* Enregistrer l'état d'un capteur dans un fichier journal
+* [Écriture dans le journal des activités (logbook.log)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#logbook)
+  + [Identifiant d'entité à référencer](https://apical.xyz/formations/pageunique/systeme_domotique_diy#identite)
+* [Écriture dans le journal de Home Assistant (system\_log.write)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#systemlog)
+  + [Niveau de journalisation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#niveau)
+  + [Écriture](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ecriture)
+* [Enregistrer l'état d'un capteur dans un fichier journal](https://apical.xyz/formations/pageunique/systeme_domotique_diy#etat)
 
 ## Écriture dans le journal des activités (logbook.log)
 
@@ -139,11 +141,12 @@ Le résultat sera visible dans Paramètres / Système / Journaux.
 
 Si le niveau est inférieur à critique, vous devrez cliquer sur les trois points verticaux et choisir Afficher les journaux bruts.
 
+<a id="fiche-verifier_une_automatisation_en_stockant_une_valeur_dans_un_capteur_virtuel"></a>
 ![Fichier journal](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EcritureAvecSystemLogWrite.png)
 
 ## Enregistrer l'état d'un capteur dans un fichier journal
 
-Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèle][/apical\_lien\_interne] pour inscrire la valeur du capteur.
+Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèle</a> pour inscrire la valeur du capteur.
 
 ![Loguer valeur capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemLogAvecValeurCapteur.png)
 
@@ -156,6 +159,7 @@ Modèle
 Cette action enregistrera ceci dans le journal :
 
 Journal
+<a id="chapitre-automatisations_qui_tiennent_compte_de_l_heure"></a>
 
 État de la lumière : on, modifié par automation.capteur\_virtuel\_agit\_sur\_recepteur\_virtuel
 

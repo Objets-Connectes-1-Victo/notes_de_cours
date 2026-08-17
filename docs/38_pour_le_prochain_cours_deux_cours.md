@@ -1,5 +1,6 @@
 # 35. Pour le prochain cours (deux cours)
 
+<a id="chapitre-semaine_3_005"></a>
 ## 35.1 Je me prépare pour l'exercice suivant (deux cours)
 
 Vous disposez de deux cours pour acquérir les connaissances théoriques et finaliser cet exercice.

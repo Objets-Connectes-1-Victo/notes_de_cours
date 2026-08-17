@@ -1,5 +1,7 @@
+<a id="fiche-travailler_avec_l_integration_python_scripts"></a>
 # 123. Appeler un script Python dans Home Assistant
 
+<a id="fiche-le_dashboard_jeedom"></a>
 ## 123.1 Travailler avec l'intégration Python Scripts
 
 PAS TERMINÉ...
@@ -20,7 +22,7 @@ python\_script:
 
 ## Création du script Python
 
-Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,module complémentaire File Editor][/apical\_lien\_interne].
+Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">module complémentaire File Editor</a>.
 
 Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python\_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
 
@@ -44,6 +46,7 @@ YAML
       entity\_id: sensor.cleaning\_ladies\_time\_at\_house  
     data:  
       variable: donnee  
+<a id="chapitre-les_themes_dans_home_assistant"></a>
   mode: single
 
 ## Code Python

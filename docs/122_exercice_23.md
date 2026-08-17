@@ -1,4 +1,6 @@
+<a id="fiche-mqtt_entre_deux_boites_home_assistant"></a>
 # 108. Exercice 23
+<a id="chapitre-pour_le_prochain_cours_053"></a>
 
 ## 108.1 MQTT entre deux boîtes Home Assistant
 
@@ -6,17 +8,17 @@ Dans cet exercice, vous devez travailler deux par deux. Chacun de vous utilisera
 
 Vous aurez des manipulations à faire sur les deux boîtes domotiques mais vous ferez chaque manipulation ensemble pour vous assurer de bien comprendre les deux côtés de la médaille.
 
-1. [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,Installez un client MQTT sur une des boîtes Home Assistant][/apical\_lien\_interne] en utilisant l'option Utiliser le module complémentaire officiel Mosquitto Mqtt Broker afin d'installer également un agent MQTT. Dans le reste de l'exercice, cette boîte s'appellera boîte A.
+1. <a href="fiche-client\_mqtt\_dans\_home\_assistant.md#client\_mqtt\_dans\_home\_assistant">Installez un client MQTT sur une des boîtes Home Assistant</a> en utilisant l'option Utiliser le module complémentaire officiel Mosquitto Mqtt Broker afin d'installer également un agent MQTT. Dans le reste de l'exercice, cette boîte s'appellera boîte A.
 2. Dans l'autre boîte, installez un client MQTT en utilisant l'option Saisir manuellement les informations de connexion du courtier MQTT. Effectuez les configurations requises pour utiliser l'agent MQTT de la première boîte Home Assistant. Dans le reste de l'exercice, cette boîte s'appellera boîte B.
 3. Assurez-vous d'avoir un capteur réel et un capteur virtuel dans chacune des boîtes Home Assistant.
 4. Testons les possibilités de publication et d'abonnement.
-   1. Dans la boîte A, [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,testez votre installation pour publier un mot de votre choix,publier][/apical\_lien\_interne] sur un canal au format mon\_nom/premier\_test.
-   2. Dans la boîte B, [apical\_lien\_interne][client\_mqtt\_dans\_home\_assistant,faites un test pour savoir si vous êtes capables de recevoir des données MQTT sur le canal utilisé,tester][/apical\_lien\_interne].
+   1. Dans la boîte A, <a href="fiche-client\_mqtt\_dans\_home\_assistant.md#client\_mqtt\_dans\_home\_assistant">testez votre installation pour publier un mot de votre choix</a> sur un canal au format mon\_nom/premier\_test.
+   2. Dans la boîte B, <a href="fiche-client\_mqtt\_dans\_home\_assistant.md#client\_mqtt\_dans\_home\_assistant">faites un test pour savoir si vous êtes capables de recevoir des données MQTT sur le canal utilisé</a>.
    3. Testons l'inverse. Dans la boîte B, publiez un mot de votre choix sur un canal au format mon\_nom/second\_test.
    4. Dans la boîte A, faites un test pour être capable de recevoir ce mot.
 5. Refaites les tests mais en utilisant l'agent test.mosquitto.org.
 6. À l'aide de l'agent MQTT local installé sur la boîte A ou de l'agent test.mosquitto.org, vous devez contrôler un récepteur distant.
-   1. Dans la boîte A, faites en sorte que [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,dès qu'une valeur est reçue sur le canal de votre choix,abonnement][/apical\_lien\_interne], une lumière virtuelle s'allume si la valeur est 1. La lumière s'éteindra si la valeur est 0.
+   1. Dans la boîte A, faites en sorte que <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">dès qu'une valeur est reçue sur le canal de votre choix</a>, une lumière virtuelle s'allume si la valeur est 1. La lumière s'éteindra si la valeur est 0.
    2. Dans la boîte B, envoyez via MQTT la valeur 0 ou 1 pour contrôler la lumière virtuelle de la boîte A.
 7. Vous devez maintenant afficher la valeur d'un capteur distant.
    1. Dans la boîte B, faites afficher dans le tableau de bord la valeur du capteur réel de la boîte A de même que celle de son capteur virtuel.

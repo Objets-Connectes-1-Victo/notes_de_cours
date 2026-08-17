@@ -1,5 +1,6 @@
 # 66. Pour le prochain cours
 
+<a id="chapitre-semaine_de_relache_005"></a>
 ## 66.1 Je me prépare pour l'exercice suivant (un cours)
 
 Vous disposez d'un cours pour acquérir les connaissances théoriques et finaliser cet exercice.

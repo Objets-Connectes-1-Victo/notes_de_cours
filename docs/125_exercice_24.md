@@ -1,4 +1,6 @@
+<a id="fiche-combat_des_pouces_mqtt"></a>
 # 110. Exercice 24
+<a id="chapitre-pour_le_prochain_cours_054"></a>
 
 ## 110.1 Combat des pouces MQTT
 

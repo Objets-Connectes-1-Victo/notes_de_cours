@@ -1,3 +1,4 @@
+<a id="fiche-automatiser_des_taches_sous_linux_ou_mac"></a>
 # 8. Les scripts bash
 
 ## 8.1 Automatiser des tâches sous Linux ou Mac
@@ -9,6 +10,7 @@ Par exemple, on pourrait avoir un script bash qui se charge de copier certains f
 ## Pour plus d'information
 
 « Bash Guide for Beginners ». Machtelt Garrels. <https://tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html>
+<a id="chapitre-semaine_1_004"></a>
 
 ## 8.2 Passer un paramètre à un script bash
 

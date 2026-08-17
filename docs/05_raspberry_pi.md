@@ -20,7 +20,7 @@ Il pourrait arriver que le Pi chauffe. Assurez-vous que des dissipateurs thermiq
 
 Il est intéressant d'ajouter un ventilateur si le boîtier le permet.
 
-Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V ([apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,broche physique no 1,pinout][/apical\_lien\_interne]) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
+Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V (<a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">broche physique no 1</a>) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
 
 Notez que pour que le ventilateur tourne plus vite, il suffit de brancher le fil rouge sur une broche 5V (broche no 2 ou 4).
 
@@ -56,15 +56,18 @@ Lorsque vous effectuez des branchements au GPIO, assurez-vous que le Pi ne soit 
 
 ![Branchements au GPIO](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-BranchementGPIO.png)
 
+<a id="chapitre-le_logiciel_de_domotique"></a>
+<a id="fiche-raspberry_pi_imager"></a>
 ## Arrêt du système d'exploitation
 
-Assurez-vous d'[apical\_lien\_interne][Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire,éteindre le système de façon sécuritaire][/apical\_lien\_interne] avant de débrancher le Raspberry Pi.
+Assurez-vous d'<a href="fiche-Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire.md#Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire">éteindre le système de façon sécuritaire</a> avant de débrancher le Raspberry Pi.
 
 ![sudo halt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-SudoHalt.png)
 
 ![Éteindre Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-EteindreDeFaconSecurisee.png)
 
 ![Éteindre Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EteindreDeFaconSecurisee.png)
+<a id="fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi"></a>
 
 ## 4.2 Raspberry Pi Imager
 
@@ -72,7 +75,7 @@ Si vous souhaitez installer un système Linux sur un Raspberry Pi, l'outil Raspb
 
 Il s'agit d'un petit utilitaire que vous installez sur votre poste de travail et qui permet d'installer sur une carte micro SD la toute dernière version du système d'exploitation choisi.
 
-Notez que si vous préférez installer Raspberry Pi OS sans devoir installer un logiciel sur votre poste de travail, [apical\_lien\_interne][installation\_de\_raspberry\_pi\_os,il est possible de le faire manuellement][/apical\_lien\_interne] mais les étapes sont plus nombreuses.
+Notez que si vous préférez installer Raspberry Pi OS sans devoir installer un logiciel sur votre poste de travail, <a href="fiche-installation\_de\_raspberry\_pi\_os.md#installation\_de\_raspberry\_pi\_os">il est possible de le faire manuellement</a> mais les étapes sont plus nombreuses.
 
 L'outil peut être installé sur un système Windows, Mac ou Linux Ubuntu.
 
@@ -114,7 +117,7 @@ Notez que vous pourriez avoir besoin du mot de passe d'un compte administrateur 
 
 Patientez, l'opération se déroule sur de nombreuses minutes.
 
-Une fois l'écriture sur la carte terminée, [apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirez la carte de l'ordinateur de façon sécuritaire][/apical\_lien\_interne], insérez-la dans le Pi puis démarrez ce dernier.
+Une fois l'écriture sur la carte terminée, <a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">retirez la carte de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Pi puis démarrez ce dernier.
 
 Et voilà!
 
@@ -124,7 +127,7 @@ Plusieurs options vous permettent de connecter le Raspberry Pi à un réseau :
 
 * câble RJ-45 (ethernet)
 * réseau Wi-Fi régulier
-* [apical\_lien\_interne][retrouver\_le\_nom\_du\_reseau\_et\_le\_mot\_de\_passe\_du\_partage\_de\_connexion\_ce\_\_\_,partage de la connection cellulaire d'un téléphone ][/apical\_lien\_interne] (ausssi appelé hot spot ou Wi-Fi access point)
+* <a href="fiche-retrouver\_le\_nom\_du\_reseau\_et\_le\_mot\_de\_passe\_du\_partage\_de\_connexion\_ce\_\_\_.md#retrouver\_le\_nom\_du\_reseau\_et\_le\_mot\_de\_passe\_du\_partage\_de\_connexion\_ce\_\_\_">partage de la connection cellulaire d'un téléphone</a> (ausssi appelé hot spot ou Wi-Fi access point)
 
 Lorsque vous travaillez avec un câble RJ-45, vous n'avez pas de configurations spécifique à faire. Le Pi saura trouver le réseau.
 
@@ -134,12 +137,12 @@ Notez que pour une connexion Wi-Fi, le Raspberry Pi 3 ne supporte que le 2.4 GHz
 
 Dans cette fiche :
 
-* NetworkManager vs dhcpcd
-* Configurer le réseau à l'aide de NetworkManager
-  + Utilitaire nmtui
-  + Commande nmcli
-  + Configurer le réseau à l'aide de l'utilitaire raspi-config
-* Vérifier les configurations réseau
+* [NetworkManager vs dhcpcd](https://apical.xyz/formations/pageunique/systeme_domotique_diy#environnement)
+* [Configurer le réseau à l'aide de NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#networkmanager)
+  + [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+  + [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+  + [Configurer le réseau à l'aide de l'utilitaire raspi-config](https://apical.xyz/formations/pageunique/systeme_domotique_diy#raspi)
+* [Vérifier les configurations réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verification)
 
 ## NetworkManager vs dhcpcd
 
@@ -164,7 +167,7 @@ Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS u
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [apical\_lien\_interne]configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd[/apical\_lien\_interne] ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « <a href="fiche-configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd.md#configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd">configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd</a> ».
 
 ## Configurer le réseau à l'aide de NetworkManager
 
@@ -251,6 +254,7 @@ L'utilitaire [raspi-config](https://www.raspberrypi.org/documentation/configurat
 * Choisissez ensuite Wireless LAN (sur d'anciennes versions : Wi-fi).
 * Dans l'écran Please enter SSID, entrez le nom du réseau.
 * Entrez ensuite le mot de passe du réseau dans l'écran Please enter passphrase.
+<a id="fiche-retrouver_le_nom_du_reseau_et_le_mot_de_passe_du_partage_de_connexion_ce___"></a>
 * Choisissez Finish pour sortir de raspi-config.
 
 ## Vérifier les configurations réseau
@@ -285,6 +289,7 @@ Il faut toujours effectuer ces manipulations après avoir modifié les configura
 
   Terminal
 
+<a id="fiche-trouver_l_adresse_ip_du_raspberry_pi"></a>
   hostname -I
 * Si vous n'obtenez pas d'adresse IP après ces manipulations, essayez de vous brancher à un réseau 2.4 GHz. Parfois, même avec un Raspberry Pi 4, le 5 GHz ne fonctionne pas bien.
 
@@ -378,6 +383,7 @@ ip --brief a
 Résultat à l'écran
 
 pi@raspberrypi: ~ $ ip --brief a  
+<a id="fiche-afficher_l_adresse_ip_du_pi_a_l_ecran_lors_du_demarrage"></a>
 lo              UNKNOWN       127.0.0.1/8 ::1/128  
 eth0            DOWN  
 wlan0           UP            192.168.1.145/24 fd80:7f28:f411:5847:9ccf/64
@@ -392,10 +398,11 @@ Si vous prévoyez accéder à votre Pi uniquement via SSH, vous n'avez pas besoi
 
 Vous n'avez pas accès au routeur? Il vous reste encore deux solutions :
 
-* [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,Donner une adresse IP statique au Pi,microsddansordi][/apical\_lien\_interne].
+<a id="fiche-envoyer_l_adresse_ip_par_courriel_apres_le_demarrage_du_raspberry_pi"></a>
+* <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">Donner une adresse IP statique au Pi</a>.
 
   ou
-* Sur un réseau privé, utiliser [apical\_lien\_interne][nmap,Nmap][/apical\_lien\_interne] pour effectuer un balayage du réseau et ainsi trouver l'adresse IP du Raspberry Pi (risque de problèmes légaux sur un réseau public).
+* Sur un réseau privé, utiliser <a href="fiche-nmap.md#nmap">Nmap</a> pour effectuer un balayage du réseau et ainsi trouver l'adresse IP du Raspberry Pi (risque de problèmes légaux sur un réseau public).
 
 ## 4.6 Afficher l'adresse IP du Pi à l'écran lors du démarrage
 
@@ -404,10 +411,15 @@ Par défaut, lorsque le Raspberry Pi démarre, son adresse IP apparaît à l'éc
 ![Adresse IP au démarrage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-AdresseIPDemarrage.png)
 
 C'est le fichier /etc/rc.local qui est responsable de cet affichage.
+<a id="fiche-qu_est-ce_que_le_gpio"></a>
 
 Fichier /etc/rc.local
 
 #!/bin/sh -e  
+<a id="listefavoris"></a>
+<a id="menuicones"></a>
+<a id="zoneentete"></a>
+<a id="csrf-token"></a>
 #  
 # rc.local  
 #  
@@ -423,6 +435,7 @@ Fichier /etc/rc.local
  
 
 # Print the IP address  
+<a id="fiche-telecharger_des_plugins_sur_le_market"></a>
 \_IP=$(hostname -I) || true  
 if [ "$\_IP" ]; then  
   printf "My IP address is %s\n" "$\_IP"  
@@ -440,19 +453,19 @@ Si l'adresse ne s'affiche pas, la cause la plus probable est qu'il n'y a pas de 
 
 Si vous travaillez avec votre Raspberry Pi sans y brancher un écran, il peut être difficile de connaître son adresse IP.
 
-S'il a une [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,adresse IP statique][/apical\_lien\_interne], cette adresse sera toujours la même. Mais si c'est une adresse fournie par DHCP, elle pourrait être différente d'une fois à l'autre.
+S'il a une <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">adresse IP statique</a>, cette adresse sera toujours la même. Mais si c'est une adresse fournie par DHCP, elle pourrait être différente d'une fois à l'autre.
 
 Ceci est encore plus vrai si vous utilisez votre Raspberry Pi à différents endroits, par exemple à l'école et à la maison.
 
 Une solution intéressante pour trouver facilement l'adresse IP du Pi consiste à lancer un script Python au démarrage du Pi qui vous enverra cette adresse par courriel.
 
-Pour réaliser cette manipulation, vous aurez besoin soit d'un clavier et d'un écran, soit de [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,connaître l'adresse IP initiale du Pi,headless][/apical\_lien\_interne].
+Pour réaliser cette manipulation, vous aurez besoin soit d'un clavier et d'un écran, soit de <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">connaître l'adresse IP initiale du Pi</a>.
 
-L'idéal est d'effectuer l'envoi à partir d'un [apical\_lien\_interne][creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine,courriel que vous aurez créé chez un hébergeur Web][/apical\_lien\_interne] car l'envoi de courriel avec une adresse du type Gmail ne fonctionnera pas. Puisque le mot de passe de ce courriel sera écrit en clair dans le script, il est conseillé d'utilier un compte de courriel qui ne sert qu'à cette cause.
+L'idéal est d'effectuer l'envoi à partir d'un <a href="fiche-creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine.md#creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine">courriel que vous aurez créé chez un hébergeur Web</a> car l'envoi de courriel avec une adresse du type Gmail ne fonctionnera pas. Puisque le mot de passe de ce courriel sera écrit en clair dans le script, il est conseillé d'utilier un compte de courriel qui ne sert qu'à cette cause.
 
 Voici le script Python que vous devez installer sur votre Raspberry Pi. J'ai choisi de le placer dans le dossier /home/pi et de le nommer envoyer\_ip\_courriel.py mais vous pouvez changer l'emplacement et le nom comme bon vous semble.
 
-Si vous utilisez votre ordinateur pour créer le script, vous devrez le [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,copier sur le Raspberry Pi,scp][/apical\_lien\_interne] avant de poursuivre.
+Si vous utilisez votre ordinateur pour créer le script, vous devrez le <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">copier sur le Raspberry Pi</a> avant de poursuivre.
 
 Je me suis inspirée de [ce script](https://www.reddit.com/r/raspberry_pi/comments/11p8xj/configure_your_pi_to_autoemail_its_ip_address_on/)1, que j'ai simplifié puis adapté pour Python 3.
 
@@ -553,6 +566,7 @@ Fichier cron
 
 @reboot sleep 10; bash -c '/usr/bin/python3 /home/pi/envoyer\_ip\_courriel.py > /home/pi/boot.log 2>&1' &
 
+<a id="fiche-donner_une_adresse_ip_statique_au_raspberry_pi"></a>
 Cette instruction demande d'attendre 10 secondes avant de lancer le script afin de laisser le temps au Pi de se connecter au réseau. Si votre réseau est lent, vous pouvez modifier le nombre de secondes d'attente, par exemple pour 15.
 
 De plus, la sortie du script Python sera inscrite dans le fichier /home/pi/boot.log. Si tout a fonctionné, l'adresse IP du Pi doit y figurer. Sinon, le fichier contiendra un message d'erreur qui pourra vous aider à corriger la situation.
@@ -565,7 +579,7 @@ Lors du redémarrage du Pi, vous devriez recevoir un courriel avec l'adresse IP 
 
 ## 4.8 Vérifier l'état de la connexion sans fil
 
-Une fois [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,la connexion au réseau configurée][/apical\_lien\_interne] et le Raspberry Pi redémarré, j'aime effectuer quelques commandes pour vérifier l'étant de ma connexion :
+Une fois <a href="fiche-configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi.md#configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi">la connexion au réseau configurée</a> et le Raspberry Pi redémarré, j'aime effectuer quelques commandes pour vérifier l'étant de ma connexion :
 
 * Pour connaître l'adresse IP du Raspberry Pi (remarquez le I majuscule) :
 
@@ -615,20 +629,20 @@ Une adresse IP fixe permettra également de préserver le bon fonctionnement du 
 
 Dans cette fiche :
 
-* Retrouver les serveurs de noms actuels
-* Vérifier si votre système utilise NetworkManager
-* Configurer l'adresse IP statique sur le Pi avec NetworkManager
-  + Utilitaire nmtui
-  + Commande nmcli
-  + Édition des fichiers de configuration
-  + Utiliser une adresse IP différente pour un autre réseau
-    - Activer une configuration pour se brancher à un réseau
-  + Revenir à une adresse IP fournie par DHCP
-* Configurer l'adresse IP statique en insérant la carte micro SD dans votre ordinateur
-* Configurer l'adresse IP statique sur le routeur
-  + Adresse MAC du Raspberry Pi
-  + Configuration
-* Vérifier si tout a fonctionné
+* [Retrouver les serveurs de noms actuels](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dns)
+* [Vérifier si votre système utilise NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifiernetworkmanager)
+* [Configurer l'adresse IP statique sur le Pi avec NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surlepi)
+  + [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+  + [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+  + [Édition des fichiers de configuration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmconnection)
+  + [Utiliser une adresse IP différente pour un autre réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#autrereseau)
+    - [Activer une configuration pour se brancher à un réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#activer)
+  + [Revenir à une adresse IP fournie par DHCP](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dhcp)
+* [Configurer l'adresse IP statique en insérant la carte micro SD dans votre ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#microsddansordi)
+* [Configurer l'adresse IP statique sur le routeur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surlerouteur)
+  + [Adresse MAC du Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#adressemac)
+  + [Configuration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#configuration)
+* [Vérifier si tout a fonctionné](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifier)
 
 ## Retrouver les serveurs de noms actuels
 
@@ -715,15 +729,15 @@ Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS u
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [apical\_lien\_interne]configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd[/apical\_lien\_interne] ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « <a href="fiche-configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd.md#configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd">configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd</a> ».
 
 ## Configurer l'adresse IP statique sur le Pi avec NetworkManager
 
 Avec NetworkManager, vous avez plusieurs options pour configurer une adresse IP statique. Choisissez l'option qui vous plait parmi  :
 
-* Utilitaire nmtui
-* Commande nmcli
-* Édition des fichiers de connexion
+* [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+* [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+* [Édition des fichiers de connexion](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmconnection)
 
 ### Utilitaire nmtui
 
@@ -747,7 +761,7 @@ Voici un exemple de configuration d'adresse IP statique pour Wired connection 1.
 
 Vous pouvez laisser la case Device à blanc. NetworkManager retrouvera automatiquement le nom du périphérique selon le type de connexion (Ethernet -> généralement eth0, Wi-Fi -> généralement wlan0).
 
-Référez-vous à la section sur nmcli pour les détails des autres informations à entrer.
+Référez-vous à la section sur [nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli) pour les détails des autres informations à entrer.
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
@@ -925,6 +939,7 @@ Pour activer la configuration, vous pouvez utiliser l'option Activate a connecti
 
 Terminal
 
+<a id="chapitre-raspberry_pi_comme_simple_serveur_http"></a>
 sudo nmcli con up cable-maison
 
 Attention : si vous avez deux fichiers qui donnent une adresse IP statique pour un réseau **câblé**, celui qui s'active par défaut **pourrait être** le dernier qui a été utilisé.
@@ -951,7 +966,7 @@ Fichier Fichier xxx.nmconnection
 
 method=auto
 
-Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez vérifier l'adresse IP en branchant un écran sur le Pi.
+Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez [vérifier l'adresse IP](https://apical.xyz/fiches/raspberry_pi_002/trouver_l_adresse_ip_du_raspberry_pi) en branchant un écran sur le Pi.
 
 ## Configurer l'adresse IP statique en insérant la carte micro SD dans votre ordinateur
 
@@ -1020,7 +1035,7 @@ Soyez patients : mon Pi a mis loooooongtemps (un peu plus de 2 minutes) avant d
 
 Ce délai est normal.
 
-Si vous ne souhaitez pas attendre à chaque redémarrage du Pi, [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,branchez-vous via SSH][/apical\_lien\_interne] puis configurez l'adresse IP statique à l'aide d'une autre méthode présentée dans cette fiche. Retirez ensuite la configuration du fichier cmdline.txt.
+Si vous ne souhaitez pas attendre à chaque redémarrage du Pi, <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">branchez-vous via SSH</a> puis configurez l'adresse IP statique à l'aide d'une autre méthode présentée dans cette fiche. Retirez ensuite la configuration du fichier cmdline.txt.
 
 ## Configurer l'adresse IP statique sur le routeur
 
@@ -1030,7 +1045,7 @@ Personnellement, chez moi, je préfère travailler à partir du routeur. Ceci m'
 
 Si vous désirez configurer l'adresse IP statique à partir de votre routeur, vous aurez besoin de l'adresse MAC du Raspberry Pi.
 
-L'adresse peut être trouvée à partir de l'interface de votre routeur qui liste les périphériques branchés mais parfois, il est difficile de déterminer quel périphérique est le Raspberry Pi.
+L'adresse peut être trouvée à partir de l'interface de votre routeur qui [liste les périphériques branchés](https://apical.xyz/formations/pageunique/systeme_domotique_diy#listeperipheriques) mais parfois, il est difficile de déterminer quel périphérique est le Raspberry Pi.
 
 Si vous avez un doute ou si vous préférez retrouver l'adresse MAC directement à partir du Pi, branchez un écran et un clavier au Raspberry Pi, ouvrez une fenêtre Terminal puis entrez cette commande :
 
@@ -1063,7 +1078,7 @@ La technique précise pour configurer l'adresse statique dépendra de la marque 
 
     Il y a autant d'organisation des options de menus qu'il y a de routeurs. Si vous ne trouvez pas l'endroit où effectuer la configuration, voyez le manuel de votre routeur.
 * Pour accéder aux configurations des adresses IP, vous devriez vous retrouver dans un des scénarios suivants :
-  + Sur certains systèmes, un bouton devrait vous permettre d'ajouter manuellement une réservation de périphérique (autre appellation possible : Réservation DHCP). Vous devrez ensuite entrer l'adresse MAC du Raspberry Pi et l'adresse IP fixe que vous souhaitez lui assigner. L'adresse IP peut généralement être n'importe quoi dans la plage192.168.0.2 à 192.168.0.254 ou 192.168.1.2 à 192.168.1.254. Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
+  + Sur certains systèmes, un bouton devrait vous permettre d'ajouter manuellement une réservation de périphérique (autre appellation possible : Réservation DHCP). Vous devrez ensuite entrer l'[adresse MAC du Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#adressemac) et l'adresse IP fixe que vous souhaitez lui assigner. L'adresse IP peut généralement être n'importe quoi dans la plage192.168.0.2 à 192.168.0.254 ou 192.168.1.2 à 192.168.1.254. Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
   + Sur d'autres systèmes , on voit la liste des périphériques branchés au routeur.
 
     L'écran pourra ressembler à un de ceux-ci :
@@ -1081,7 +1096,7 @@ La technique précise pour configurer l'adresse statique dépendra de la marque 
 
     ![Adresse statique pour Raspberry Pi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Helix-ReservationAdresseIPStatique-2.png)
 
-    Note : vous pouvez effectuer une vérification supplémentaire pour vous assurer que vous avez donné une adresse IP statique au bon périphérique. Il suffit de comparer l'adresse IP du périphérique sélectionné avec celle donnée [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,directement sur votre Raspberry Pi][/apical\_lien\_interne].
+    Note : vous pouvez effectuer une vérification supplémentaire pour vous assurer que vous avez donné une adresse IP statique au bon périphérique. Il suffit de comparer l'adresse IP du périphérique sélectionné avec celle donnée <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">directement sur votre Raspberry Pi</a>.
 
 ## Vérifier si tout a fonctionné
 
@@ -1089,7 +1104,7 @@ Comme dans toute manipulation, il faut tester si on obtient le résultat escompt
 
 Après le redémarrage, le Pi devrait avoir l'adresse IP qu'on lui a imposée.
 
-La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : [apical\_lien\_interne]trouver\_l\_adresse\_ip\_du\_raspberry\_pi[/apical\_lien\_interne]
+La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">trouver\_l\_adresse\_ip\_du\_raspberry\_pi</a>
 
 ## Source
 
@@ -1135,12 +1150,12 @@ S'il n'est pas activé, vous verrez plutôt une information du genre Active: ina
 
 Vous pouvez activer SSH de différentes façons :
 
-* Sur le Pi à la ligne de commande
-* Sur le Pi avec l'utilitaire raspi-config
-* Directement sur la carte micro SD lors d'une installation headless
-* Sur le Pi avec l'interface graphique
+* [Sur le Pi à la ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commande)
+* [Sur le Pi avec l'utilitaire raspi-config](https://apical.xyz/formations/pageunique/systeme_domotique_diy#raspi)
+* [Directement sur la carte micro SD lors d'une installation headless](https://apical.xyz/formations/pageunique/systeme_domotique_diy#headless)
+* [Sur le Pi avec l'interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#graphique)
 
-Une fois SSH activé, il sera important de modifier le mot de passe afin de ne pas ouvrir un trou de sécurité.
+Une fois SSH activé, il sera important de [modifier le mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#motdepasse) afin de ne pas ouvrir un trou de sécurité.
 
 ### Ligne de commande
 
@@ -1189,11 +1204,12 @@ touch /Volumes/boot/ssh
 
 Sous Windows, vous pouvez ouvrir le gestionnaire de fichier, vous rendre à la racine de la partition boot puis créer le fichier à l'aide d'un clic droit / Nouveau / Document texte. Attention : le fichier doit s'appeler ssh sans extension.
 
-Une fois le fichier créé, vous pouvez [apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirer la carte micro SD de façon sécuritaire][/apical\_lien\_interne], l'insérer dans le Rapsberry Pi puis mettre le Pi sous tension.
+Une fois le fichier créé, vous pouvez <a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">retirer la carte micro SD de façon sécuritaire</a>, l'insérer dans le Rapsberry Pi puis mettre le Pi sous tension.
 
 Remarquez qu'au prochain démarrage du Pi, ce fichier disparaîtra. Pour savoir si le SSH est activé, vérifiez si le service sshd est actif à l'aide de la commande ps -ef | grep sshd.
 
 ### Interface graphique
+<a id="fiche-se_brancher_au_raspberry_pi_via_ssh"></a>
 
 Si votre Pi dispose d'une interface graphique, branchez un écran, un clavier et une souris sur le Pi puis :
 
@@ -1209,7 +1225,8 @@ Si votre Pi dispose d'une interface graphique, branchez un écran, un clavier et
 
 Une fois SSH activé, si votre PI a été installé avec le nom d'usager par défaut (pi) et le mot de passe par défaut (raspberry), n'importe qui peut se brancher à distance sur le Raspberry Pi, en autant que les règles du réseau le permettent.
 
-Afin de refermer le trou de sécurité que cela crée, vous devez absolument [apical\_lien\_interne][mot\_de\_passe\_sur\_raspberry\_pi\_os,utiliser un mot de passe différent de celui par défaut][/apical\_lien\_interne].
+<a id="fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd"></a>
+Afin de refermer le trou de sécurité que cela crée, vous devez absolument <a href="fiche-mot\_de\_passe\_sur\_raspberry\_pi\_os.md#mot\_de\_passe\_sur\_raspberry\_pi\_os">utiliser un mot de passe différent de celui par défaut</a>.
 
 ## 4.11 Se brancher au Raspberry Pi via SSH
 
@@ -1218,21 +1235,21 @@ Si vous avez besoin de travailler directement sur le Raspberry Pi, plusieurs opt
 * Brancher un écran, un clavier (et une souris si l'OS possède une interface graphique) directement sur le Pi.
 
   Remarque : si vous travaillez avec un Raspberry Pi 4, seul le port du haut permet l'installation initiale. Par contre, une fois l'installation de Raspberry Pi OS complétée, vous pourrez utiliser le port de votre choix.
-* Utiliser l'écran de votre ordinateur portable comme écran du Raspberry Pi grâce à un [apical\_lien\_interne][outil\_de\_capture\_video\_et\_logiciel\_obs\_pour\_utiliser\_l\_ecran\_d\_un\_ordina\_\_\_,outil de capture vidéo][/apical\_lien\_interne] (un clavier externe sera requis).
-* Utiliser un [apical\_lien\_interne][realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance,outil de contrôle à distance tel que VNC Connect][/apical\_lien\_interne] (mode graphique).
+* Utiliser l'écran de votre ordinateur portable comme écran du Raspberry Pi grâce à un <a href="fiche-outil\_de\_capture\_video\_et\_logiciel\_obs\_pour\_utiliser\_l\_ecran\_d\_un\_ordina\_\_\_.md#outil\_de\_capture\_video\_et\_logiciel\_obs\_pour\_utiliser\_l\_ecran\_d\_un\_ordina\_\_\_">outil de capture vidéo</a> (un clavier externe sera requis).
+* Utiliser un <a href="fiche-realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance.md#realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance">outil de contrôle à distance tel que VNC Connect</a> (mode graphique).
 * Accéder au Pi à l'aide d'une communication SSH à partir d'un autre ordinateur (mode console).
 
 Si vous souhaitez travailler via SSH, voici la procédure à suivre.
 
 ## Adresse IP
 
-Pour vous brancher au Pi à partir de votre ordinateur, vous aurez besoin de son adresse IP. Vous pouvez la trouver facilement avec [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,la commande hostname -I][/apical\_lien\_interne] ou, si vous n'avez pas accès au Pi, à partir de l'interface de votre routeur.
+Pour vous brancher au Pi à partir de votre ordinateur, vous aurez besoin de son adresse IP. Vous pouvez la trouver facilement avec <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">la commande hostname -I</a> ou, si vous n'avez pas accès au Pi, à partir de l'interface de votre routeur.
 
-Vous faites une installation headless (sans écran ni clavier sur le Pi) et vous n'avez pas accès au routeur? Il vous reste comme solution de [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,donner une adresse IP statique au Pi,microsddansordi][/apical\_lien\_interne].
+Vous faites une installation headless (sans écran ni clavier sur le Pi) et vous n'avez pas accès au routeur? Il vous reste comme solution de <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">donner une adresse IP statique au Pi</a>.
 
 ## Activer SSH
 
-Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : [apical\_lien\_interne]activer\_ssh\_sur\_le\_raspberry\_pi[/apical\_lien\_interne].
+Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">activer\_ssh\_sur\_le\_raspberry\_pi</a>.
 
 ## Client SSH
 
@@ -1240,7 +1257,7 @@ Si vous travaillez avec un ordinateur Mac ou Linux, vous avez déjà un client S
 
 Sous Windows, vous pouvez travailler avec un client SSH disponible à partir d'une fenêtre PowerShell ou d'une console Git Bash.
 
-Je ne vous recommande pas l'utilitaire Putty puisque, si vous choisissez de [apical\_lien\_interne][permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois,vous authentifier à l'aide de clés SSH][/apical\_lien\_interne], il travaille avec son propre format de clés SSH, non compatible avec le format généré par le traditionnel ssh-keygen.
+Je ne vous recommande pas l'utilitaire Putty puisque, si vous choisissez de <a href="fiche-permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois.md#permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois">vous authentifier à l'aide de clés SSH</a>, il travaille avec son propre format de clés SSH, non compatible avec le format généré par le traditionnel ssh-keygen.
 
 ## Branchement au Pi
 
@@ -1250,7 +1267,7 @@ Terminal (sur l'ordinateur)
 
 ssh pi@192.168.1.145
 
-Sous Raspberry Pi OS, l'usager par défaut se nomme pi (comme dans l'exemple précédent). Le mot de passe est raspberry à moins que vous ne l'ayez [apical\_lien\_interne][mot\_de\_passe\_sur\_raspberry\_pi\_os,changé lors de l'installation de Raspberry Pi OS][/apical\_lien\_interne], ce qui est fortement recommandé.
+Sous Raspberry Pi OS, l'usager par défaut se nomme pi (comme dans l'exemple précédent). Le mot de passe est raspberry à moins que vous ne l'ayez <a href="fiche-mot\_de\_passe\_sur\_raspberry\_pi\_os.md#mot\_de\_passe\_sur\_raspberry\_pi\_os">changé lors de l'installation de Raspberry Pi OS</a>, ce qui est fortement recommandé.
 
 Selon les configurations effectuées sur le Raspberry Pi, il est possible d'utiliser un autre nom d'usager ou un autre port.
 
@@ -1299,6 +1316,7 @@ Notez la présence des guillemets alentour de l'adresse IP et du port. Ceci est 
 
 Terminal
 
+<a id="fiche-permettre_le_branchement_ssh_sans_demander_le_mot_de_passe_a_chaque_fois"></a>
 ssh-keygen -R "[192.168.1.145]:22222"
 
 Si ceci ne règle pas le problème, il est possible d'effacer complètement le fichier known\_hosts.
@@ -1384,11 +1402,11 @@ La technique consiste à utiliser une paire « clé SSH publique - clé SSH pri
 
 La clé privée, qui remplace le mot de passe, doit être sur votre ordinateur avec la clé publique. La clé publique sera de plus copiée sur le Pi à un endroit précis afin de permettre l'authentification sans mot de passe.
 
-Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « [apical\_lien\_interne]comment\_fonctionne\_l\_authentification\_via\_ssh[/apical\_lien\_interne] ».
+Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « <a href="fiche-comment\_fonctionne\_l\_authentification\_via\_ssh.md#comment\_fonctionne\_l\_authentification\_via\_ssh">comment\_fonctionne\_l\_authentification\_via\_ssh</a> ».
 
 ## Activer SSH sur le Pi
 
-Assurez-vous que [apical\_lien\_interne][activer\_ssh\_sur\_le\_raspberry\_pi,votre Pi est configuré pour permettre les connexions via SSH][/apical\_lien\_interne].
+Assurez-vous que <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">votre Pi est configuré pour permettre les connexions via SSH</a>.
 
 ## Vérifier l'existence clés SSH
 
@@ -1546,7 +1564,7 @@ Le système d'exploitation, les logiciels et possiblement les données de votre 
 
 Cette carte est fragile et pourrait connaître des ratées.
 
-Une des principales causes de carte micro SD corrompue est un arrêt du Raspberry Pi non [apical\_lien\_interne][Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire,sécuritaire][/apical\_lien\_interne], par exemple une panne de courant ou encore un débranchement sans avoir fait sudo halt.
+Une des principales causes de carte micro SD corrompue est un arrêt du Raspberry Pi non <a href="fiche-Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire.md#Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire">sécuritaire</a>, par exemple une panne de courant ou encore un débranchement sans avoir fait sudo halt.
 
 Sur un système domotique, le fait d'écrire sur la carte de façon répétée est un autre facteur qui contribue au risque de bris.
 
@@ -1554,34 +1572,35 @@ C'est pourquoi il est important d'en prendre régulièrement une copie de sécur
 
 La technique la plus sûre d'effectuer une copie de sécurité consiste à passer par le système domotique. La plupart offrent une fonctionnalité pour sauvegarder les fichiers et les données, sans conserver le système d'exploitation.
 
+<a id="fiche-configurer_la_cle_usb_z-wave_sur_home_assistant"></a>
 Une telle sauvegarde pourra être réinstallée sur un système domotique tout neuf afin de retrouver le système dans l'état où il était lors de la sauvegarde.
 
 Si le système domotique n'offre pas de possibilité de sauvegarde, il faudra se tourner vers une autre des techniques présentées ici.
 
 Dans cette fiche :
 
-* Sauvegarde de la boîte domotique sans le système d'exploitation
-* Copie de l'image de la carte sur un ordinateur
-  + Utilitaire dd à partir d'un ordinateur Mac ou Linux
-  + Utilitaire dd pour Windows
-  + Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée
-  + Win32 Disk Imager et autres utilitaires pour Windows
-* Copie de la carte sur une autre carte
-  + Procédure sans interface graphique
-  + Procédure avec interface graphique
+* [Sauvegarde de la boîte domotique sans le système d'exploitation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#sauvegarde)
+* [Copie de l'image de la carte sur un ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surordinateur)
+  + [Utilitaire dd à partir d'un ordinateur Mac ou Linux](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddmaclinux)
+  + [Utilitaire dd pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddwin)
+  + [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddpi)
+  + [Win32 Disk Imager et autres utilitaires pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#win32diskimager)
+* [Copie de la carte sur une autre carte](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surautrecarte)
+  + [Procédure sans interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#console)
+  + [Procédure avec interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#graphique)
 
 ## Sauvegarde de la boîte domotique sans le système d'exploitation
 
 Plusieurs boîtes domotiques offrent des fonctionnalités pour effectuer une sauvegarde complète des fichiers et de la base de données qu'ils utilisent.
 
-C'est le cas notamment avec [apical\_lien\_interne][copie\_de\_securite\_de\_jeedom,Jeedom][/apical\_lien\_interne] ou [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,Home Assistant][/apical\_lien\_interne].
+C'est le cas notamment avec <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">Jeedom</a> ou <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Home Assistant</a>.
 
 Une telle sauvegarde ne comprend que les fichiers de la boîte domotique, pas ceux du système d'exploitation. Pour la restaurer, il faut d'abord réinstaller le système d'exploitation puis une copie vierge de la boîte domotique.
 
 La procédure de différents systèmes est détaillée ici :
 
-* [apical\_lien\_interne][copie\_de\_securite\_de\_jeedom,Jeedom,restaurer][/apical\_lien\_interne]
-* [apical\_lien\_interne][reinstaller\_home\_assistant\_a\_partir\_d\_une\_sauvegarde,Home Assistant][/apical\_lien\_interne]
+* <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">Jeedom</a>
+* <a href="fiche-reinstaller\_home\_assistant\_a\_partir\_d\_une\_sauvegarde.md#reinstaller\_home\_assistant\_a\_partir\_d\_une\_sauvegarde">Home Assistant</a>
 
 ## Copie de l'image de la carte sur un ordinateur (fichier .img)
 
@@ -1593,20 +1612,20 @@ Notez que cette technique est plus délicate à réaliser et il arrive que l'ima
 
 Je vous présente ici différentes façons de créer un fichier image de la carte micro SD du Raspberry Pi.
 
-* Utilitaire dd à partir d'un ordinateur Mac ou Linux
-* Utilitaire dd pour Windows
-* Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée
-* Win32 Disk Imager et autres utilitaires pour Windows
+* [Utilitaire dd à partir d'un ordinateur Mac ou Linux](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddmaclinux)
+* [Utilitaire dd pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddwin)
+* [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddpi)
+* [Win32 Disk Imager et autres utilitaires pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#win32diskimager)
 
 ### Utilitaire dd à partir d'un ordinateur Mac ou Linux
 
-La commande Linux [apical\_lien\_interne][copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd,dd][/apical\_lien\_interne] permet  d'effectuer une copie intégrale de la carte micro SD. Le résultat sera un fichier image qui pourra au besoin [apical\_lien\_interne][copier\_une\_image\_du\_systeme\_d\_exploitation\_sur\_une\_carte\_microsd\_flasher,être réinstallé (flashé) sur une carte micro SD][/apical\_lien\_interne].
+La commande Linux <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">dd</a> permet  d'effectuer une copie intégrale de la carte micro SD. Le résultat sera un fichier image qui pourra au besoin <a href="fiche-copier\_une\_image\_du\_systeme\_d\_exploitation\_sur\_une\_carte\_microsd\_flasher.md#copier\_une\_image\_du\_systeme\_d\_exploitation\_sur\_une\_carte\_microsd\_flasher">être réinstallé (flashé) sur une carte micro SD</a>.
 
 Cette technique nécessite de retirer la carte du Raspberry Pi pour l'insérer dans un lecteur de carte micro SD directement sur votre ordinateur ou sur un lecteur externe. Vous pouvez même insérer la carte dans un lecteur branché sur un autre Raspberry Pi (qui roulera à l'aide de sa propre carte micro SD) pour effectuer l'opération.
 
 #### macOS
 
-Voici d'abord les instructions sous Mac. Suivront les instructions sous Linux. Vous remarquerez que la commande dd présente quelques différences entre les deux systèmes.
+Voici d'abord les instructions sous Mac. [Suivront les instructions sous Linux.](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddlinux) Vous remarquerez que la commande dd présente quelques différences entre les deux systèmes.
 
 Notez que si la carte micro SD est utilisée pour un système d'exploitation HassOS, ceci ne fonctionnera pas puisque macOS n'est pas capable de lire les cartes sur lesquelles HassOS est installé.
 
@@ -1644,7 +1663,7 @@ La première étape pour effectuer la copie consite à retrouver le point de mon
 
   sudo dd bs=32m if=/dev/rdisk2 of=nom-du-fichier-aaaa-mm-jj.img
 * Le fichier sera créé dans le dossier courant. Vous pouvez utiliser la commande pwd (Print Working Directory) pour connaître son chemin exact.
-* L'opération inverse vous permettra de [apical\_lien\_interne][copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd,réinstaller votre carte à partir de cette image,recuperer][/apical\_lien\_interne].
+* L'opération inverse vous permettra de <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">réinstaller votre carte à partir de cette image</a>.
 
 #### Linux
 
@@ -1670,7 +1689,7 @@ Si vous avez accès à un ordinateur Linux ou si vous avez une autre carte micro
 
   sudo dd bs=32M if=/dev/sda of=nom-du-fichier-aaaa-mm-jj.img
 * Le fichier sera créé dans le dossier courant. Vous pouvez utiliser la commande pwd (Print Working Directory) pour connaître son chemin exact.
-* L'opération inverse vous permettra de [apical\_lien\_interne][copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd,réinstaller votre carte à partir de cette image,recuperer][/apical\_lien\_interne].
+* L'opération inverse vous permettra de <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">réinstaller votre carte à partir de cette image</a>.
 
 ### Utilitaire dd pour Windows
 
@@ -1782,7 +1801,7 @@ Notez que comme pour la création d'un fichier image, la copie sur une autre car
 
 Sous Raspberry Pi OS Lite, il est possible d'installer une version en ligne de commande de piclone.
 
-Attention : si vous travaillez avec un autre système d'exploitation, par exemple HassOS, et qu'il n'est pas possible d'y installer Git (sudo apt install git), vous devrez plutôt créer une image de la carte sur votre ordinateur (technique présentée plus haut) puis flasher cette image sur l'autre carte.
+Attention : si vous travaillez avec un autre système d'exploitation, par exemple HassOS, et qu'il n'est pas possible d'y installer Git (sudo apt install git), vous devrez plutôt créer une image de la carte sur votre ordinateur ([technique présentée plus haut](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surordinateur)) puis flasher cette image sur l'autre carte.
 
 Les étapes qui suivent sont en fait une traduction de la procédure présentée dans le répertoire GitHub de l'utilitaire piclone\_cmd : <https://github.com/nwright-mcc/piclone_cmd>.
 
@@ -1838,6 +1857,7 @@ Si vous travaillez avec un Raspberry Pi OS complet (donc, pas la version Lite), 
 
 « Backups ». Raspberry Pi. <https://www.raspberrypi.org/documentation/linux/filesystem/backup.md>
 
+<a id="chapitre-deroulement_du_cours_005"></a>
 « Back up your Raspberry Pi: how to save and restore files ». The MagPi Magazine. <https://magpi.raspberrypi.org/articles/back-up-raspberry-pi>
 
 « nwright-mcc/piclone\_cmd ». GitHub. <https://github.com/nwright-mcc/piclone_cmd>
@@ -1848,10 +1868,10 @@ Il n'est pas toujours obligatoire de brancher un écran au Raspberry Pi pour pou
 
 Les principales techniques pour opérer un Raspberry Pi sans lui brancher clavier ni écran sont :
 
-* [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,branchement via SSH][/apical\_lien\_interne] (mode console)
-* utilisation d'un [apical\_lien\_interne][realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance,outil de contrôle à distance tel que VNC Connect][/apical\_lien\_interne] (mode graphique)
+* <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">branchement via SSH</a> (mode console)
+* utilisation d'un <a href="fiche-realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance.md#realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance">outil de contrôle à distance tel que VNC Connect</a> (mode graphique)
 
-Pourtant, même avec ces techniques, le branchement d'un écran peut être pratique, notamment si vous n'arrivez pas à [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,retrouver l'adresse IP du Pi][/apical\_lien\_interne] nécessaire pour accéder au Pi via SSH ou avec VNC Connect.
+Pourtant, même avec ces techniques, le branchement d'un écran peut être pratique, notamment si vous n'arrivez pas à <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">retrouver l'adresse IP du Pi</a> nécessaire pour accéder au Pi via SSH ou avec VNC Connect.
 
 Si vous devez vous déplacer avec votre matériel, un moniteur est plutôt encombrant.
 
@@ -1859,7 +1879,7 @@ Vous serez heureux d'apprendre que l'écran de votre ordinateur portable peut ê
 
 En bonus, l'utilisation d'un tel outil permet d'effectuer des captures d'écran du Raspberry Pi directement à partir de votre ordinateur puisque la sortie vidéo sera affichée dans une application qui tourne sur cet ordinateur.
 
-Attention : Raspberry Pi OS devra avoir été configuré pour [apical\_lien\_interne][permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi,permettre le branchement d'un écran directement sur le Pi][/apical\_lien\_interne].
+Attention : Raspberry Pi OS devra avoir été configuré pour <a href="fiche-permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi.md#permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi">permettre le branchement d'un écran directement sur le Pi</a>.
 
 Notez que vous aurez tout de même besoin d'un clavier branché au Raspberry Pi – et possiblement d'une souris sous Raspberry Pi OS avec interface graphique – si vous souhaitez interagir avec lui sans passer par SSH ni par un outil de contrôle à distance.
 
@@ -1978,14 +1998,15 @@ Pour effectuer un contrôle par connection directe, vous devez vous assurer que 
 
 Notez qu'il est possible de travailler avec VNC Viewer à partir d'un autre réseau à condition d'avoir un compte chez Real VNC. Tout ceci est gratuit pour usage non commercial. Plus d'informations à ce propos sont données ici : h[ttps://www.realvnc.com/fr/raspberrypi/#sign-up](https://www.realvnc.com/fr/raspberrypi/#sign-up)
 
-Revenons à la connection directe. La façon la plus simple pour vérifier si l'ordinateur et le Pi sont sur le même réseau est d'ouvrir une fenêtre Terminal sur votre ordinateur et d'entrer la commande ping suivie de [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,l'adresse IP du Raspberry Pi][/apical\_lien\_interne].
+Revenons à la connection directe. La façon la plus simple pour vérifier si l'ordinateur et le Pi sont sur le même réseau est d'ouvrir une fenêtre Terminal sur votre ordinateur et d'entrer la commande ping suivie de <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">l'adresse IP du Raspberry Pi</a>.
 
 Terminal
 
 ping 192.168.1.145
 
-Vous trouverez plus de détails sur cette fiche : « [apical\_lien\_interne]verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_[/apical\_lien\_interne] ».
+Vous trouverez plus de détails sur cette fiche : « <a href="fiche-verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_.md#verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_">verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_</a> ».
 
+<a id="oublie"></a>
 Lorsque le test est concluant, vous pouvez démarrer VNC et entrer l'adresse IP du Raspberry Pi à l'endroit indiqué.
 
 VNC Viewer vous demandera ensuite d'entrer un code d'usager valide sur le Raspberry Pi ainsi que son mot de passe.
@@ -2004,7 +2025,7 @@ Vous avez désormais le contrôle du Raspberry Pi à partir de votre ordinateur.
 
 Par défaut, sur Raspberry Pi OS, il y a un usager administrateur nommé pi dont le mot de passe est raspberry.
 
-Le fait de conserver ce mot de passe pour l'usager pi alors que [apical\_lien\_interne][activer\_ssh\_sur\_le\_raspberry\_pi,SSH est activé][/apical\_lien\_interne] ou que [apical\_lien\_interne][realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance,le serveur VNC est activé][/apical\_lien\_interne] constitue un trou de sécurité.
+Le fait de conserver ce mot de passe pour l'usager pi alors que <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">SSH est activé</a> ou que <a href="fiche-realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance.md#realvnc\_pour\_prendre\_controle\_du\_raspberry\_pi\_a\_distance">le serveur VNC est activé</a> constitue un trou de sécurité.
 
 Un message à cet effet est d'ailleurs affiché lors du démarrage du Pi.
 
@@ -2023,7 +2044,7 @@ passwd
 
 Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'avoir un accès physique au Raspberry Pi avec un écran et un clavier.
 
-* [apical\_lien\_interne][Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire,Éteignez le Pi de façon sécuritaire][/apical\_lien\_interne] puis retirez la carte micro SD.
+* <a href="fiche-Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire.md#Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire">Éteignez le Pi de façon sécuritaire</a> puis retirez la carte micro SD.
 * Insérez la carte dans votre ordinateur.
 * Créez une copie du fichier cmdline.txt qui se trouve directement à la racine de la carte. Ceci permettra de revenir à la version originale si jamais vos manipulations empêchent le bon fonctionnement de l'OS.
 * Éditez le fichier cmdline.txt. Vous devez lui ajouter la configuration init=/bin/sh qui forcera le Pi à démarrer en mode mode mono-utilisateur.
@@ -2033,7 +2054,7 @@ Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'
   console=serial0,115200 console=tty1 root=PARTUUID=6f2deb42-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait init=/bin/sh
 
   Attention : dans ce fichier, chaque configuration est séparée par un espace et toutes les configurations doivent tenir sur une seule ligne.
-* [apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,Retirez la carte de l'ordinateur de façon sécuritaire][/apical\_lien\_interne], remettez-la dans le Pi et démarrez le Pi.
+* <a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">Retirez la carte de l'ordinateur de façon sécuritaire</a>, remettez-la dans le Pi et démarrez le Pi.
 * L'étape suivante dépend de votre système :
   + Si les lignes arrêtent de défiler à l'écran et que le système semble gelé (généralement après la ligne random: crng init done), appuyez sur la touche Entrée et vous obtiendrez une invite de commande (#). Entrez-y cette commande :
 
@@ -2059,13 +2080,13 @@ Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'
 
 ## 4.19 Vérifier si l'ordinateur et le Raspberry Pi sont branchés sur le même réseau
 
-Dans certains contextes, pour que l'ordinateur puisse communiquer correctement avec le Raspberry Pi, soit [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,via SSH][/apical\_lien\_interne] ou encore en affichant la page Web de la boîte domotique, il faut que l'ordinateur et le Raspberry Pi soient branchés sur le même réseau.
+Dans certains contextes, pour que l'ordinateur puisse communiquer correctement avec le Raspberry Pi, soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou encore en affichant la page Web de la boîte domotique, il faut que l'ordinateur et le Raspberry Pi soient branchés sur le même réseau.
 
 ## ping
 
 La commande [ping](https://www.ionos.fr/digitalguide/serveur/outils/commande-ping/) permet de vérifier si un ordinateur peut rejoindre une adresse IP donnée.
 
-Ouvrez une fenêtre Terminal sur l'ordinateur puis entrez la commande ping suivie de l'[apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,adresse IP du Raspberry Pi][/apical\_lien\_interne].
+Ouvrez une fenêtre Terminal sur l'ordinateur puis entrez la commande ping suivie de l'<a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">adresse IP du Raspberry Pi</a>.
 
 Terminal de l'ordinateur
 
@@ -2096,6 +2117,7 @@ Request timeout for icmp\_seq 1
 Request timeout for icmp\_seq 2  
 ^Z  
 [7]+ Stopped ping 192.168.1.145
+<a id="fiche-activer_bluetooth_sur_raspberry_pi_os_lite"></a>
 
 Un message « No route to host » signifie que l'ordinateur n'a pas accès à internet. Pour le vérifiez, faites un ping vers l'adresse 8.8.8.8 qui correspond à Google.
 
@@ -2503,6 +2525,7 @@ CPU variant : 0x0
 CPU part : 0xd08  
 CPU revision : 3  
   
+<a id="ram"></a>
 processor : 3  
 model name : ARMv7   
 Processor rev 3 (v7l)  
@@ -2837,6 +2860,7 @@ sudo apt install xfce4
 Si vous ne souhaitez pas que votre Raspberry Pi démarre toujours en environnement graphique :
 
 Terminal
+<a id="fiche-sudo_demander_le_mot_de_passe_ou_non"></a>
 
 sudo systemctl set-default multi-user.target
 
@@ -2858,6 +2882,7 @@ sudo apt install scrot
 
 Si votre clavier dispose d'une touche ImpÉcr ou Print Screen, vous n'avez qu'à appuyer sur cette touche et une image de l'écran sera enregistrée dans votre dossier personnel.
 
+<a id="fiche-comment_bien_rouler_un_cable_reseau"></a>
 Sinon, vous pouvez ouvrir une fenêtre Terminal et entrer la commande :
 
 Terminal
@@ -2883,6 +2908,7 @@ Lorsqu'on exécute une commande au Terminal du Raspberry Pi avec sudo, il est po
 La configuration est dans le fichier /etc/sudoers.d/010\_pi-nopasswd.
 
 Pour l'éditer :
+<a id="chapitre-depannage_sur_le_raspberry_pi_troubleshooting"></a>
 
 Terminal
 

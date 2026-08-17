@@ -1,3 +1,4 @@
+<a id="fiche-ping_vers_le_raspberry_pi_ne_fonctionne_pas"></a>
 # 5. Dépannage sur le Raspberry Pi (troubleshooting)
 
 ## 5.1 ping vers le Raspberry Pi ne fonctionne pas
@@ -11,10 +12,65 @@ Lorsque vous essayez de faire un ping vers le Raspberry Pi à partir de votre or
 * MacOS Mojave
 * Raspberry Pi 3B+
 * Raspbian 10 (Buster)
+<a id="chapitre-les_scripts_bash"></a>
 
 ### Cause possible :
 
+<a id="chapitre-exercice_15_003"></a>
+<a id="chapitre-depannage_sur_les_positions_gps_troubleshooting"></a>
+<a id="chapitre-exercice_13_003"></a>
+<a id="fiche-automatisation_ne_s_enregistre_pas"></a>
+<a id="chapitre-exercice_10_006"></a>
+<a id="fiche-erreur_echec_de_l_appel_du_service_update_install"></a>
+<a id="fiche-erreur_404_not_found"></a>
+<a id="fiche-erreur_system_is_not_healthy"></a>
+<a id="fiche-erreur_err_connection_refused"></a>
+<a id="fiche-module_complementaire_non_trouve"></a>
+<a id="fiche-erreur_response_error_401"></a>
+<a id="fiche-erreur_system_is_not_ready_with_state_setup"></a>
+<a id="fiche-erreur_permission_denied_publickey"></a>
+<a id="fiche-erreur_tuya_Echec_de_la_configuration"></a>
+<a id="fiche-erreur_reessayer_la_configuration_failed_to_get_the_z-wave_js_add-on_info"></a>
+<a id="fiche-erreur_z-wave_js_reessayer_la_configuration_none"></a>
+<a id="fiche-erreur_z-wave_js_reessayer_la_configuration_cannot_connect_to_host"></a>
+<a id="fiche-erreur_unknown_error_occured"></a>
+<a id="fiche-erreur_entite_non_disponible_actuellement"></a>
+<a id="fiche-erreur_unknown_error_see_supervisor"></a>
+<a id="fiche-option_pour_verifier_les_configurations_non_disponible"></a>
+<a id="fiche-erreur_sqlite3_command_not_found"></a>
+<a id="fiche-scp_ne_fonctionne_pas_alors_qu_il_est_possible_de_se_brancher_via_ssh"></a>
+<a id="fiche-erreur_incomprehensible_dans_configuration_yaml"></a>
+<a id="fiche-erreur_z-wave_js_server_version_is_incompatible"></a>
+<a id="fiche-Ecran_preparing_home_assistant_reste_affiche_a_l_infini"></a>
+<a id="fiche-erreur_dd_dev_rdisk2_operation_not_permitted"></a>
+<a id="fiche-impossible_d_obtenir_l_interface_web_de_home_assistant_sur_mon_ordinateur"></a>
+<a id="fiche-Ecran_noir"></a>
+<a id="chapitre-exercice_8_005"></a>
+<a id="fiche-erreur_runtimeerror_no_access_to_dev_mem_try_running_as_root"></a>
+<a id="fiche-erreur_127_not_found"></a>
+<a id="chapitre-exercice_1_005"></a>
+<a id="fiche-erreur_le_driver_z-wave_n_est_pas_initialise"></a>
+<a id="fiche-erreur_sqlstate_hy000_1045_access_denied_for_user_jeedom_localhost_using___"></a>
+<a id="fiche-j_obtiens_l_identifiant_d_une_commande_plutot_que_sa_valeur"></a>
+<a id="fiche-erreur_impossible_de_contacter_le_serveur_z-wave"></a>
+<a id="fiche-erreur_Echec_lors_du_telechargement_du_fichier"></a>
+<a id="fiche-erreur_release_file_for_http_archive_raspberrypi_org_debian_dists_buster___"></a>
+<a id="fiche-erreur_forbidden"></a>
+<a id="fiche-erreur_pendant_l_installation_de_jeedom_avec_wget"></a>
+<a id="fiche-impossible_d_ajouter_un_objet_connecte_z-wave"></a>
 L'adresse IP utilisée n'est pas la bonne.
+<a id="fiche-erreur_valueerror_channel_must_be_an_integer_or_list_tuple_of_integers"></a>
+<a id="chapitre-python"></a>
+<a id="fiche-erreur_usr_libexec_sftp-server_not_found"></a>
+<a id="fiche-erreur_sap_driver_initialization_failed"></a>
+<a id="fiche-erreur_could_not_get_lock_var_lib_dpkg_lock-frontend_open_11_resource_te___"></a>
+<a id="fiche-erreur_under-voltage_detected"></a>
+<a id="fiche-erreur_rejected_request_from_rfc1918_ip_to_public_server_address"></a>
+<a id="fiche-erreur_connection_refused"></a>
+<a id="fiche-aucun_acces_reseau_message_network_is_unreachable"></a>
+<a id="fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill_002"></a>
+<a id="fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill"></a>
+<a id="fiche-le_pi_n_a_que_l_adresse_127_0_0_1"></a>
 
 ### Solution proposée :
 
@@ -82,6 +138,7 @@ Il y a une configuration du réseau qui empêche les communications pair-à-pair
 ### Solution proposée :
 
 Validez les configurations du réseau avec le gestionnaire du réseau.
+<a id="fiche-le_pi_n_a_aucune_adresse_ip"></a>
 
 ### En dernier recours
 
@@ -610,6 +667,7 @@ sudo fail2ban-client set sshd unbanip 192.168.1.150
 « How to Unban an IP properly with Fail2Ban ». Server Fault. <https://serverfault.com/questions/285256/how-to-unban-an-ip-properly-with-fail2ban>
 
 ## 5.8 Erreur « Le fichier Release n'est pas encore valide »
+<a id="fiche-erreur_failed_to_install_add-on"></a>
 
 ### Problème :
 
@@ -635,6 +693,7 @@ L'horloge du Raspberry Pi n'est pas bien configurée.
 Mettez l'horloge à jour à l'aide de la commande suivante, en remplaçant A:M:J HH:mm:ss par la date et l'heure voulues :
 
 Terminal
+<a id="fiche-message_digital_power_saving_mode_a_l_ecran"></a>
 
 sudo timedatectl set-time 'A:M:J HH:mm:ss'
 
@@ -821,7 +880,7 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,la technique présentée ici,acceder][/apical\_lien\_interne].
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">la technique présentée ici</a>.
 
 ## 5.12 Erreur « Under-voltage detected! »
 
@@ -874,7 +933,7 @@ Si cela ne fonctionne toujours pas, redémarrez le Raspberry Pi.
 
 ### Problème :
 
-Lorsque vous tentez de réinitialiser le mot de passe du Raspberry Pi à l'aide de la technique qui consiste à ajouter init=/bin/sh au fichier cmdline.txt, vous obtenez le message « Authentication token manipulation error ».
+Lorsque vous tentez de réinitialiser le mot de passe du Raspberry Pi à l'aide de [la technique qui consiste à ajouter init=/bin/sh au fichier cmdline.txt](https://apical.xyz/fiches/raspberry_pi_002/mot_de_passe_sur_raspberry_pi_os), vous obtenez le message « Authentication token manipulation error ».
 
 ![Authentication token manipulation error](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-AuthenticationTokenManipulationError.png)
 

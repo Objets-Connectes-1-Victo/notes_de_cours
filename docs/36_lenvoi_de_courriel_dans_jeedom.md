@@ -1,3 +1,4 @@
+<a id="fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine"></a>
 # 33. L'envoi de courriel dans Jeedom
 
 ## 33.1 Créer une adresse de courriel avec votre nom de domaine
@@ -70,6 +71,7 @@ Pour rediriger votre courriel :
 * Cliquez sur le bouton Add Forwarder.
 * Entrez l'adresse de courriel qui doit être redirigée.
 * Dans la zone Forward to Email Address, entrez l'adresse de courriel qui recevra les messages.
+<a id="fiche-Tester_la_connexion_SMTP_telnet"></a>
 
 ### Gestion des courriels avec votre application préférée
 
@@ -362,7 +364,7 @@ Donnez un nom de votre choix à l'équipement, par exemple « Courriel administ
 
 Vous devez ensuite remplir le formulaire pour indiquer avec quel serveur, de la part de qui et vers qui le courriel sera expédié.
 
-Je vous conseille de [apical\_lien\_interne][creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine,travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient][/apical\_lien\_interne], par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
+Je vous conseille de <a href="fiche-creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine.md#creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine">travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient</a>, par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
 
 ![Configuration du mail](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationMail.png)
 

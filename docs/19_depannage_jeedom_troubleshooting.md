@@ -1,3 +1,5 @@
+<a id="fiche-erreur_controller_is_busy"></a>
+<a id="chapitre-depannage_jeedom_troubleshooting"></a>
 # 17. Dépannage Jeedom (troubleshooting)
 
 ## 17.1 Erreur « Controller is busy »
@@ -156,7 +158,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 ### Solution proposée :
 
-Ajustez la date de Raspberry Pi OS : <https:///fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
+Ajustez la date de Raspberry Pi OS : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
 ## 17.4 Erreur « Forbidden »
 
@@ -204,7 +206,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 ### Solution proposée :
 
-Ajustez la date de Raspberry Pi OS : <https:///fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
+Ajustez la date de Raspberry Pi OS : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
 ## 17.6 Erreur « Échec lors du téléchargement du fichier »
 
@@ -230,7 +232,7 @@ Rendez-vous dans le menu Réglages / Système / Configuration.
 
 Dans l'onglet Mises à jour/Market, enlevez le crochet devant Pas de validation SSL (non recommandé).
 
-Ajustez ensuite la date de Raspberry Pi OS pour régler l'erreur de certificat SSL : <https:///fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
+Ajustez ensuite la date de Raspberry Pi OS pour régler l'erreur de certificat SSL : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
 ## 17.7 Erreur « Impossible de contacter le serveur Z-Wave »
 

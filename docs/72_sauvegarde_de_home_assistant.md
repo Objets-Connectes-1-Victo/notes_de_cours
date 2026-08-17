@@ -1,4 +1,6 @@
+<a id="fiche-sauvegarde_de_home_assistant"></a>
 # 64. Sauvegarde de Home Assistant
+<a id="telecharger"></a>
 
 ## 64.1 Sauvegarde de Home Assistant
 
@@ -55,7 +57,7 @@ Dans les deux cas, ceci créera un fichier de sauvegarde sur le Raspberry Pi dan
 
 La liste des sauvegardes existantes est disponible via le menu Paramètres / Système / Sauvegardes.
 
-Elle peut également être affichée via [apical\_lien\_interne][la\_console\_home\_assistant,le terminal HassOS][/apical\_lien\_interne] à l'aide de cette commande :
+Elle peut également être affichée via <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">le terminal HassOS</a> à l'aide de cette commande :
 
 Terminal
 
@@ -81,29 +83,30 @@ Vous aurez alors une copie du fichier de sauvegarde sur votre ordinateur.
 
 ## 64.2 Réinstaller Home Assistant à partir d'une sauvegarde
 
-Si vous prenez soin d'effectuer régulièrement [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,une sauvegarde de Home Assistant][/apical\_lien\_interne], vous pourrez remettre le système en place rapidement en cas de problème avec votre carte micro SD.
+Si vous prenez soin d'effectuer régulièrement <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">une sauvegarde de Home Assistant</a>, vous pourrez remettre le système en place rapidement en cas de problème avec votre carte micro SD.
 
-Dans le cas où Home Assistant est encore fonctionnel, vous pouvez procéder directement à l'étape de restauration.
+Dans le cas où Home Assistant est encore fonctionnel, vous pouvez procéder directement à l'[étape de restauration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#restauration).
 
-S'il ne fonctionne plus du tout, vous devrez d'abord effectuer une réinstallation.
+S'il ne fonctionne plus du tout, vous devrez d'abord effectuer une [réinstallation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#reinstallation).
 
 ## Réinstallation
 
-* Sur votre boîte Home Assistant actuelle, [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,effectuez une sauvegarde complète][/apical\_lien\_interne].
-* [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,Téléchargez la sauvegarde sur votre ordinateur,telecharger][/apical\_lien\_interne].
-* Sur la carte micro SD qui contiendra une copie intégrale du système, [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,effectuez une nouvelle installation de Home Assistant][/apical\_lien\_interne].
-* Une fois l'installation complétée, [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,accédez à l'interface Web de Home Assistant,acceder][/apical\_lien\_interne].
+* Sur votre boîte Home Assistant actuelle, <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">effectuez une sauvegarde complète</a>.
+* <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Téléchargez la sauvegarde sur votre ordinateur</a>.
+* Sur la carte micro SD qui contiendra une copie intégrale du système, <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">effectuez une nouvelle installation de Home Assistant</a>.
+* Une fois l'installation complétée, <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">accédez à l'interface Web de Home Assistant</a>.
 * Sur l'écran d'accueil, si Home Assistant réalise que le système n'a pas été initialisé, il vous offre soit de créer votre maison connectée, soit d'effectuer une restauration. Cliquez sur Restaurer depuis une sauvegarde.
 
   ![Restaurer depuis une sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerDepuisUneSauvegarde.png)
-* Poursuivez avec les étapes communes pour la réinstallation et la restauration.
+* Poursuivez avec [les étapes communes pour la réinstallation et la restauration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commune).
 
 ## Restauration
 
 * Alternativement, si le système avait déjà été initialisé, vous pouvez restaurer une sauvegarde à partir du menu Paramètres / Système / Sauvegardes / clic sur les trois points verticaux dans le coin supérieur droit de l'écran / Téléverser une sauvegarde.
 
   ![Téléverser une sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TeleverserUneSauvegarde.png)
-* Poursuivez avec les étapes communes pour la réinstallation et la restauration.
+<a id="chapitre-exercice_11_005"></a>
+* Poursuivez avec [les étapes communes pour la réinstallation et la restauration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commune).
 
 ## Étapes communes pour la réinstallation et la restauration
 
@@ -119,9 +122,9 @@ S'il ne fonctionne plus du tout, vous devrez d'abord effectuer une réinstallati
 
   ![Confirmation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfirmationRestaurationSauvegarde.png)
 * Après avoir cliqué sur Restore, vous devez patienter pendant que Home Assistant remet le tout en place. L'opération peut prendre jusqu'à 45 minutes [selon la documentation officielle](https://www.home-assistant.io/common-tasks/os/#estimated-duration).
-* Pendant la restauration, il est possible de voir l'avancement des travaux [apical\_lien\_interne][la\_console\_home\_assistant,dans une fenêtre Terminal][/apical\_lien\_interne] à l'aide de la commande ha supervisor logs.
+* Pendant la restauration, il est possible de voir l'avancement des travaux <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">dans une fenêtre Terminal</a> à l'aide de la commande ha supervisor logs.
 * À la fin de l'opération, vous aurez votre Home Assistant tel qu'il était au moment où vous avez effectué cette sauvegarde.
-* Pour vous assurer que tout soit bien réinitialisé, prenez soin de [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,redémarrer le système,complet][/apical\_lien\_interne].
+* Pour vous assurer que tout soit bien réinitialisé, prenez soin de <a href="fiche-Eteindre\_home\_assistant\_de\_facon\_securitaire.md#Eteindre\_home\_assistant\_de\_facon\_securitaire">redémarrer le système</a>.
 
 J'ai déjà vu un système qui plantait quand on tentait de téléverser une sauvegarde, probablement dû à un fichier corrompu.
 

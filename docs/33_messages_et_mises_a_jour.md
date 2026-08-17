@@ -1,3 +1,4 @@
+<a id="fiche-le_centre_de_messages_de_jeedom"></a>
 # 30. Messages et mises à jour
 
 ## 30.1 Le centre de messages de Jeedom
@@ -9,7 +10,7 @@ Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le 
 Il s'agit de notifications qui vous informe sur :
 
 * Carré orange : nombre de messages dans le centre de messages
-* Carré rouge : nombre de [apical\_lien\_interne][le\_centre\_de\_mise\_a\_jour\_de\_jeedom,mises à jour à installer][/apical\_lien\_interne]
+* Carré rouge : nombre de <a href="fiche-le\_centre\_de\_mise\_a\_jour\_de\_jeedom.md#le\_centre\_de\_mise\_a\_jour\_de\_jeedom">mises à jour à installer</a>
 
 Un clic sur le carré orange mène vers le centre de messages.
 
@@ -21,6 +22,7 @@ C'est à cet endroit que Jeedom vous informe de :
 * autres informations que Jeedom désire porter à votre attention
 
 Il est important de consulter les messages sur une base régulière afin de régler ces problèmes.
+<a id="fiche-le_centre_de_mise_a_jour_de_jeedom"></a>
 
 ## Vider le centre de messages
 
@@ -58,7 +60,7 @@ Parfois, le centre de mise à jour de Jeedom ne proposera pas la toute dernière
 
 Il est possible d'effectuer une mise à jour à partir du Terminal de Raspberry Pi OS à l'aide des commandes suivantes.
 
-Important : vous devez d'abord [apical\_lien\_interne][copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi,effectuer une sauvegarde de la carte micro SD du Raspberry Pi][/apical\_lien\_interne] afin de pouvoir revenir en arrière si jamais un problème survenait.
+Important : vous devez d'abord <a href="fiche-copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi.md#copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi">effectuer une sauvegarde de la carte micro SD du Raspberry Pi</a> afin de pouvoir revenir en arrière si jamais un problème survenait.
 
 Terminal
 

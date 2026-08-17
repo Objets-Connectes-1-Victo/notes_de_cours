@@ -1,0 +1,26 @@
+# 65. Exercice 11
+
+## 65.1 Commencer à travailler avec Home Assistant
+
+1. Changez le nom de votre installation Home Assistant. Ce nom doit correspondre à votre nom complet au format Prénom NomDeFamille. À vous de fouiller dans les options de menu pour trouver comment faire.
+2. [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,Configurez votre clé Z-Wave][/apical\_lien\_interne] sur Home Assistant.
+3. [apical\_lien\_interne][ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant,Ajoutez un capteur et un récepteur][/apical\_lien\_interne] de votre choix à votre système. Rappel : les modes d'emplois de vos objets connectés sont sur Teams.
+4. Donnez un nom significatif à vos appareils puis testez-les à l'aide de l'écran Aperçu.
+5. Faites une impression d'écran de votre écran Aperçu.
+6. [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,Créez une sauvegarde de Home Assistant][/apical\_lien\_interne] puis téléchargez-la sur votre poste de travail.
+7. Afin de pouvoir travailler sur votre système domotique à la maison, vous avez deux choix. Vous devez sélectionner celui qui vous convient et effectuer les manipulations en conséquence.  
+   1. Brancher le Raspberry Pi à votre routeur à la maison à l'aide d'un câble RJ-45. Aucune configuration spéciale ne sera alors requise.
+   2. Connecter le Raspberry Pi à votre réseau sans fil à la maison ou à l'aide du partage de connexion de votre cellulaire. Vous devrez [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,créer un autre fichier de configuration,plusieursconfigurations][/apical\_lien\_interne] pour ce réseau.
+8. Si vous avez choisi de travailler à la maison à l'aide du sans fil, copiez votre fichier de configuration dans le dossier network sur une clé USB correctement configurée. Branchez la clé au Raspberry Pi puis redémarrez-le. Vérifiez que le fichier a été correctement copié dans le dossier /etc/NetworkManager/system-connections.
+9. OPTIONNEL : effectuez ces manipulations pour vous brancher manuellement à un autre réseau sans fil. Dans les manipulations que je vous propose, vous vous brancherez au réseau régulier du Cégep. Par contre, vous ne pourrez pas accéder à l'interface Web de Home Assistant à partir de ce réseau.
+
+   1. Branchez clavier et écran au Raspberry Pi. Vous verrez l'invite ha >.
+   2. [apical\_lien\_interne][la\_console\_home\_assistant,Accédez au terminal HassOS,consolehavsterminal][/apical\_lien\_interne].
+   3. Demandez à HassOS [apical\_lien\_interne][configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant,de vous lister les réseaux sans fil disponibles,terminal][/apical\_lien\_interne].
+   4. Repérez le réseau régulier du Cégep. C'est la colonne SSID qui nous intéresse.
+   5. Connectez le Pi à ce réseau.
+   6. Vérifiez que vous avez maintenant [apical\_lien\_interne][trouver\_l\_adresse\_ip\_de\_home\_assistant,une adresse IP][/apical\_lien\_interne] qui correspond à ce réseau.
+   7. Reconnectez-vous maintenant à Domotique-Pedago.
+   8. [apical\_lien\_interne][nmcli\_l\_outil\_en\_ligne\_de\_commande\_du\_networkmanager,Déconnectez maintenant le Wi-Fi][/apical\_lien\_interne]. Plusieurs manipulations pourraient être requises pour que tous les réseaux sans fil soient déconnectés. La bannière de Home Assistant devrait maintenant vous donner seulement l'adresse IP du réseau filaire.
+10. [apical\_lien\_interne][Eteindre\_home\_assistant\_de\_facon\_securitaire,Éteignez Home Assistant de façon sécuritaire][/apical\_lien\_interne].
+11. Déposez votre impression d'écran sur la plateforme électronique du cours.

@@ -1,3 +1,4 @@
+<a id="fiche-simulation_d_examen_final"></a>
 # 115. Simulation d'examen
 
 ## 115.1 Simulation d'examen final
@@ -25,6 +26,7 @@ Voici les opérations à réaliser.
 * Lorsque le nombre généré est 3, vous devez lancer une automatisation qui allume la lumière virtuelle simulation\_lumiere mais seulement s’il fait noir dehors. Ajoutez un bouton nommé « Simuler 3 » qui pourra lui aussi faire ce travail.
 * Vous devez récupérer l'information tirée du système C à partir de l'URL fourni par votre prof. Ajoutez une carte au tableau de bord pour afficher cette valeur.
 * En prévision de l’examen au prochain cours, créez copie de sécurité de votre Home Assistant. Assurez-vous que votre seconde carte micro SD contienne un Home Assistant initialisé avec cette copie.
+<a id="chapitre-semaine_15_004"></a>
 
 ## Remises
 

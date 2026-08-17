@@ -1,3 +1,4 @@
+<a id="fiche-erreur_wlan0_link_is_not_ready"></a>
 # 60. Dépannage Home Assistant (troubleshooting)
 
 ## 60.1 Erreur « wlan0: link is not ready »
@@ -54,7 +55,7 @@ D'abord, essayez de brancher le Raspberry Pi au routeur à l'aide d'un câble RJ
 * Dans ce fichier, le id doit être identique au nom du fichier (my-network).
 * Les sauts de lignes doivent être codés en Linux (LF) et non en Windows (CRLF).
 * Notez que le Raspberry Pi 3 ne supporte que le Wi-Fi 2.4 GHz alors que le Raspberry Pi 4 supporte également le 5 GHz.
-* Une fois le fichier my-network complété,[apical\_lien\_interne][retirer\_un\_disque\_amovible\_de\_facon\_securitaire,retirez la clé de l'ordinateur de façon sécuritaire][/apical\_lien\_interne], insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
+* Une fois le fichier my-network complété,<a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">retirez la clé de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
 
 Fichier network/my-network
 
@@ -362,7 +363,7 @@ Tout d'abord, arrêtez votre Raspberry Pi de façon sécuritaire.
 
   halt
 
-Assurez-vous ensuite que vos configurations sont correctement effectuées à partir de la clé USB : <https:///fiches/home_assistant_au_coeur_de_votre_systeme_domotique/configurer_l_acces_au_reseau_dans_home_assistant>.
+Assurez-vous ensuite que vos configurations sont correctement effectuées à partir de la clé USB : <https://apical.xyz/fiches/home_assistant_au_coeur_de_votre_systeme_domotique/configurer_l_acces_au_reseau_dans_home_assistant>.
 
 ### Autre cause possible :
 
@@ -420,7 +421,7 @@ Il y a un problème d'accès à Internet.
 
 ### Solution proposée :
 
-Assurez-vous que vos configurations sont correctement effectuées : <https:///fiches/home_assistant_au_coeur_de_votre_systeme_domotique/configurer_l_acces_au_reseau_dans_home_assistant>.
+Assurez-vous que vos configurations sont correctement effectuées : <https://apical.xyz/fiches/home_assistant_au_coeur_de_votre_systeme_domotique/configurer_l_acces_au_reseau_dans_home_assistant>.
 
 ## 60.8 Erreur Z-Wave JS « Server version is incompatible »
 
@@ -502,7 +503,7 @@ Vous savez que vous êtes dans le module complémentaire quand l'invite de comma
 
 Lancez la commande scp directement dans une fenêtre Terminal sur votre ordinateur.
 
-La commande utilisera les mêmes clés SSH que la commande ssh. (voir <https:///fiches/home_assistant_au_coeur_de_votre_systeme_domotique/installation_de_home_assistant_et_premier_acces#ssh>).
+La commande utilisera les mêmes clés SSH que la commande ssh. (voir <https://apical.xyz/fiches/home_assistant_au_coeur_de_votre_systeme_domotique/installation_de_home_assistant_et_premier_acces#ssh>).
 
 ## 60.11 Erreur « sqlite3: command not found »
 
@@ -533,9 +534,9 @@ Vous savez que vous êtes dans le module complémentaire quand l'invite de comma
 
 Branchez-vous au Raspberry Pi à l'aide de la commande ssh afin d'avoir accès à toutes les fonctionnalités disponibles.
 
-Voir <https:///fiches/home_assistant_au_coeur_de_votre_systeme_domotique/se_brancher_a_home_assistant_via_ssh>.
+Voir <https://apical.xyz/fiches/home_assistant_au_coeur_de_votre_systeme_domotique/se_brancher_a_home_assistant_via_ssh>.
 
-Vous pourrez ensuite accéder à la base de données à l'aide de la commande sqlite3. Voir <https:///fiches/la_base_de_donnees_home_assistant/contenu_de_la_base_de_donnees_de_home_assistant>.
+Vous pourrez ensuite accéder à la base de données à l'aide de la commande sqlite3. Voir <https://apical.xyz/fiches/la_base_de_donnees_home_assistant/contenu_de_la_base_de_donnees_de_home_assistant>.
 
 ## 60.12 Option pour vérifier les configurations non disponible
 
@@ -635,7 +636,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 ### Solution proposée :
 
-Ajustez l'heure en suivant les conseils sur cette fiche : <https:///fiches/home_assistant/ajuster_la_date_et_l_heure_de_home_assistant>.
+Ajustez l'heure en suivant les conseils sur cette fiche : <https://apical.xyz/fiches/home_assistant/ajuster_la_date_et_l_heure_de_home_assistant>.
 
 ## 60.15 Erreur « Unknown error occured »
 
@@ -705,7 +706,7 @@ C'est ici que j'ai réalisé que la date du système était en cause.
 
 ### Solution proposée :
 
-Ajustez l'heure en suivant les conseils sur cette fiche : <https:///fiches/home_assistant/ajuster_la_date_et_l_heure_de_home_assistant>.
+Ajustez l'heure en suivant les conseils sur cette fiche : <https://apical.xyz/fiches/home_assistant/ajuster_la_date_et_l_heure_de_home_assistant>.
 
 ## 60.16 Erreur Z-Wave JS « Réessayer la configuration: Cannot connect to host »
 

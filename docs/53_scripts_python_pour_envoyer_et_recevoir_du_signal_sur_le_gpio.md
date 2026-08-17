@@ -1,8 +1,10 @@
+<a id="fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio"></a>
 # 47. Scripts Python pour envoyer et recevoir du signal sur le GPIO
+<a id="fiche-installation_de_la_bibliotheque_rpi_gpio"></a>
 
 ## 47.1 Langages et bibliothèques pour communiquer avec le GPIO
 
-Il est possible de communiquer avec le [apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,GPIO][/apical\_lien\_interne] à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
+Il est possible de communiquer avec le <a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">GPIO</a> à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
 
 Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 
@@ -11,7 +13,7 @@ Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 * pigpio : <http://abyz.me.uk/rpi/pigpio/python.html> (Python)
 * Wiring Pi : <http://wiringpi.com/reference/> (peut être utilisé avec plusieurs langages)
 
-La bibliothèque RPi.GPIO sera utilisée dans [apical\_lien\_interne][installation\_de\_la\_bibliotheque\_rpi\_gpio,les fiches qui suivent][/apical\_lien\_interne] pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
+La bibliothèque RPi.GPIO sera utilisée dans <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">les fiches qui suivent</a> pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
 
 ## 47.2 Installation de la bibliothèque RPi.GPIO
 
@@ -50,6 +52,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import RPi.GPIO as GPIO  
 >>> GPIO.VERSION  
 '0.7.2'  
+<a id="fiche-la_base_des_scripts_avec_rpi_gpio"></a>
 >>> quit()
 
 ## Installer la dernière version de RPi.GPIO
@@ -64,16 +67,16 @@ sudo apt update && sudo apt install python-rpi.gpio python3-rpi.gpio
 
 ## 47.3 La base des scripts avec RPi.GPIO
 
-Le script Python qui sera en charge d'envoyer ou de recevoir un signal des [apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,broches GPIO][/apical\_lien\_interne] du Raspberry Pi peut être écrit :
+Le script Python qui sera en charge d'envoyer ou de recevoir un signal des <a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">broches GPIO</a> du Raspberry Pi peut être écrit :
 
 * directement sur le Pi à l'aide d'un éditeur comme nano.
 * sur l'ordinateur à l'aide de l'éditeur de votre choix, par exemple Geany ou PyCharm.
 
-La bibliothèque [apical\_lien\_interne][installation\_de\_la\_bibliotheque\_rpi\_gpio,RPi.GPIO][/apical\_lien\_interne] sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
+La bibliothèque <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">RPi.GPIO</a> sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
 
 Notez que si vous utilisez un éditeur comme PyCharm sur votre ordinateur, il vous donnera des erreurs si votre code utilise des bibliothèques qui sont sur le Pi mais pas sur votre ordinateur. Vous pourrez ignorer ces erreurs.
 
-Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,le copier sur le Pi][/apical\_lien\_interne] ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
+Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">le copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
 
 ## Nom du fichier
 
@@ -92,7 +95,7 @@ Lançons-nous dans la programmation!
 
 Tout programme Python doit débuter par une ligne, qu'on appellera shebang ou hash bang.
 
-Le [apical\_lien\_interne][Shebang\_ou\_hash\_bang,shebang][/apical\_lien\_interne] permet de spécifier quel interpréteur doit être utilisé.
+Le <a href="fiche-Shebang\_ou\_hash\_bang.md#Shebang\_ou\_hash\_bang">shebang</a> permet de spécifier quel interpréteur doit être utilisé.
 
 Python
 
@@ -271,6 +274,7 @@ except:
     ...  
 finally:  
     GPIO.cleanup()
+<a id="clignoter"></a>
 
 Note : le finally ne sera pas exécuté si l'usager termine le programme avec les touches Ctrl+Z. En effet, alors que Ctrl+C émet un signal SIGINT – qui arrête gentiment le programme, Ctrl+Z émet un signal SIGTSTP qui arrête immédiatement le programme.
 
@@ -362,9 +366,10 @@ python3 monscript.py
 
 « RPi.GPIO basics 6 – Using inputs and outputs together with RPi.GPIO – pull-ups and pull-downs ». RasPi.TV. <https://raspi.tv/2013/rpi-gpio-basics-6-using-inputs-and-outputs-together-with-rpi-gpio-pull-ups-and-pull-downs>
 
+<a id="fiche-passer_un_parametre_a_un_script_python"></a>
 ## 47.4 Script pour réinitialiser toutes les broches programmables du GPIO
 
-Si vous travaillez avec la bibliothèque [apical\_lien\_interne][installation\_de\_la\_bibliotheque\_rpi\_gpio,RPi.GPIO][/apical\_lien\_interne], vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
+Si vous travaillez avec la bibliothèque <a href="fiche-installation\_de\_la\_bibliotheque\_rpi\_gpio.md#installation\_de\_la\_bibliotheque\_rpi\_gpio">RPi.GPIO</a>, vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
 
 Il est donc bon de terminer vos scripts par un appel à cette méthode.
 
@@ -551,13 +556,13 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 Dans cette fiche :
 
-* Commande scp
-  + Copie de l'ordinateur vers le Raspberry Pi
-  + Copier du Raspberry Pi vers l'ordinateur
-  + Copie d'un dossier complet
-  + Accès qui nécessite un port particulier
-  + Erreur serveur non trouvé
-* Copie à l'aide d'une clé USB
+* [Commande scp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#scp)
+  + [Copie de l'ordinateur vers le Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ordiverspi)
+  + [Copier du Raspberry Pi vers l'ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#piversordi)
+  + [Copie d'un dossier complet](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dossiercomplet)
+  + [Accès qui nécessite un port particulier](https://apical.xyz/formations/pageunique/systeme_domotique_diy#port)
+  + [Erreur serveur non trouvé](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nontrouve)
+* [Copie à l'aide d'une clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb)
 
 ## Commande scp
 
@@ -569,7 +574,7 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un [apical\_lien\_interne][activer\_ssh\_sur\_le\_raspberry\_pi,le serveur SSH doit être activé][/apical\_lien\_interne] sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
 
@@ -657,7 +662,7 @@ scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.exten
 Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,via SSH][/apical\_lien\_interne], soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
@@ -683,6 +688,7 @@ Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes
 ## Source
 
 1. « scp(1) — Linux manual page ». man7.org. [https://man7.org/linux/man-pages/man1/scp.1.html](https://man7.org/linux/man-pages/man1/scp.1.html#:~:text=Use%20the%20legacy%20SCP%20protocol)
+<a id="chapitre-exercice_7_009"></a>
 
 ## Pour plus d'information
 

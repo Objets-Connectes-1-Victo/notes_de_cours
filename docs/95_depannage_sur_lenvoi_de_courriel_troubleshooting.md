@@ -1,3 +1,4 @@
+<a id="fiche-erreur_unable_to_find_service_notify"></a>
 # 85. Dépannage sur l'envoi de courriel (troubleshooting)
 
 ## 85.1 Erreur « Unable to find service notify »
@@ -40,4 +41,4 @@ Ceci est parfois le cas avec les adresses de fournisseurs génériques, par exem
 
 ### Solution proposée :
 
-Créez-vous une adresse de courriel avec un nom de domaine qui vous appartient (voir <https:///fiches/l_envoi_de_courriel_dans_jeedom/creer_une_adresse_de_courriel_avec_votre_nom_de_domaine>).
+Créez-vous une adresse de courriel avec un nom de domaine qui vous appartient (voir <https://apical.xyz/fiches/l_envoi_de_courriel_dans_jeedom/creer_une_adresse_de_courriel_avec_votre_nom_de_domaine>).

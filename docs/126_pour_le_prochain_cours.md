@@ -1,4 +1,6 @@
+<a id="fiche-Je_me_prepare_pour_l_exercice_suivant_un_cours"></a>
 # 111. Pour le prochain cours
+<a id="chapitre-format_json_dans_un_modele"></a>
 
 ## 111.1 Je me prépare pour l'exercice suivant (un cours)
 

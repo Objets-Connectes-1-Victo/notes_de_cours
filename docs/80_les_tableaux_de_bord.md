@@ -1,4 +1,6 @@
+<a id="fiche-creer_un_tableau_de_bord_personnalise"></a>
 # 71. Les tableaux de bord
+<a id="fiche-reinitialiser_le_tableau_de_bord_apercu"></a>
 
 ## 71.1 Créer un tableau de bord personnalisé
 
@@ -15,7 +17,7 @@ Le nom de ce fichier vient du fait qu'auparavant, l'outil d'édition des tableau
 Attention : il est préférable de ne pas modifier le tableau de bord original (celui nommé Aperçu).  
 En effet, si vous le modifiez ou si vous y ajoutez d'autres onglets, Home Assistant n'y ajoutera plus automatiquement les entités créées par après.
 
-Si vous avez modifié le tableau de bord Aperçu, [apical\_lien\_interne][reinitialiser\_le\_tableau\_de\_bord\_apercu,il est possible de le réinitialiser][/apical\_lien\_interne] afin que Home Assistant recommence à le gérer automatiquement.
+Si vous avez modifié le tableau de bord Aperçu, <a href="fiche-reinitialiser\_le\_tableau\_de\_bord\_apercu.md#reinitialiser\_le\_tableau\_de\_bord\_apercu">il est possible de le réinitialiser</a> afin que Home Assistant recommence à le gérer automatiquement.
 
 Prenez note que les fonctionnalités du tableau de bord ont beacoup évolué depuis quelques années. Soyez prudents lorsque vous recherchez des informations sur le Web ou à l'aide d'un outil d'intelligence artificielle. Les informations trouvées pourraient ne plus être exactes.
 
@@ -51,7 +53,7 @@ Pour créer un nouveau tableau de bord :
 
     ![Bouton pour prise intelligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Bouton.png)
 
-    La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,lancer une automatisation][/apical\_lien\_interne].
+    La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore <a href="fiche-lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton.md#lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton">lancer une automatisation</a>.
   + La carte Capteur associée à un capteur
 
     ![Sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Sensor.png)
@@ -64,9 +66,9 @@ Pour créer un nouveau tableau de bord :
   + La carte Carte associée à tous les téléphones cellulaires que vous suivez
 
     ![Carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Carte.png)
-  + Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,des modèles][/apical\_lien\_interne].
+  + Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">des modèles</a>.
 
-    Pour plus d'information sur ce type de carte, consultez la fiche « [apical\_lien\_interne]les\_cartes\_de\_type\_markdown[/apical\_lien\_interne] ».
+    Pour plus d'information sur ce type de carte, consultez la fiche « <a href="fiche-les\_cartes\_de\_type\_markdown.md#les\_cartes\_de\_type\_markdown">les\_cartes\_de\_type\_markdown</a> ».
 
     ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
   + Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
@@ -115,11 +117,12 @@ views:
            Porte virtuelle ouverte  
            {% else %}  
            Porte virtuelle fermée  
+<a id="fiche-utiliser_vos_propres_images_dans_un_tableau_de_bord_lovelace"></a>
            {% endif %}
 
 ## 71.2 Réinitialiser le tableau de bord Aperçu
 
-Il est préférable de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,créer un tableau de bord personnalisé][/apical\_lien\_interne] plutôt que de modifier le tableau de bord Aperçu.
+Il est préférable de <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">créer un tableau de bord personnalisé</a> plutôt que de modifier le tableau de bord Aperçu.
 
 En effet, le tableau de bord Aperçu est géré par Home Assistant. Dès que vous en prenez le contrôle, même si vous ne faites qu'ajouter un onglet, Home Assistant n'y ajoutera plus les nouvelles entités créées.
 
@@ -182,7 +185,7 @@ Une fois que l'image est disponible sur le Pi, elle peut être affichée sur une
 
 ## Carte Markdown
 
-La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grâce aux [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèles][/apical\_lien\_interne].
+La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grâce aux <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèles</a>.
 
 Dans sa forme la plus simple, la carte Markdown affichera une image comme suit. Remarquez l'utilisation du langage de balisage [Markdown](https://commonmark.org/help/) pour identifier l'image, au format :
 
@@ -222,6 +225,7 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 * Sélectionnez la pièce à laquelle l'appareil doit être associé.
 
   ![Appareil assigné à une pièce](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AssignerAppareilPiece.png)
+<a id="fiche-changer_l_icone_d_une_entite_selon_son_etat"></a>
 
 ##
 
@@ -229,19 +233,19 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 
 Dans le tableau de bord de Home Assistant, il est possible de configurer une carte pour que son icône soit différente selon l'état de l'entité.
 
-Les icônes seront choisies dans [apical\_lien\_interne][icones\_material\_design\_dans\_home\_assistant,la bibliothèque Material Design][/apical\_lien\_interne].
+Les icônes seront choisies dans <a href="fiche-icones\_material\_design\_dans\_home\_assistant.md#icones\_material\_design\_dans\_home\_assistant">la bibliothèque Material Design</a>.
 
 Dans cette fiche :
 
-* Carte Markdown
-* Intégration Template
-  + Exemple avec une carte de type Entité
-  + Exemple avec une carte de type Bouton
-* Et si on avait besoin de vérifier plus de deux états?
+* [Carte Markdown](https://apical.xyz/formations/pageunique/systeme_domotique_diy#markdown)
+* [Intégration Template](https://apical.xyz/formations/pageunique/systeme_domotique_diy#template)
+  + [Exemple avec une carte de type Entité](https://apical.xyz/formations/pageunique/systeme_domotique_diy#entite)
+  + [Exemple avec une carte de type Bouton](https://apical.xyz/formations/pageunique/systeme_domotique_diy#bouton)
+* [Et si on avait besoin de vérifier plus de deux états?](https://apical.xyz/formations/pageunique/systeme_domotique_diy#elif)
 
 ## Carte Markdown
 
-La carte de type Markdown permet de spécifier des conditions à l'aide d'un [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèle][/apical\_lien\_interne].
+La carte de type Markdown permet de spécifier des conditions à l'aide d'un <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèle</a>.
 
 Dans sa forme la plus simple, le modèle fera afficher un texte différent selon l'état. C'est déjà mieux que le texte « Activé » ou « Désactivé ».
 
@@ -319,13 +323,13 @@ sensor:
             mdi:door-closed  
           {% endif %}
 
-Après avoir [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,rechargé les configurations,rechargement][/apical\_lien\_interne], il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
+Après avoir <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">rechargé les configurations</a>, il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
 
 ### Exemple avec une carte de type Entité
 
 Dans l'exemple précédent, l'entité s'appelle porte\_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte\_virtuelle.
 
-Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,le domaine,identifiant][/apical\_lien\_interne] est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
+Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">le domaine</a> est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
 
 ![sensor.porte_virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-sensor-porte_virtuelle.png)
 
@@ -347,6 +351,7 @@ Un clic sur la carte modifiera l'état de l'entité input\_boolean.porte\_virtue
 
 ![Carte bouton](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ButtonCardAvecEntiteIconeSelonEtat.png)
 
+<a id="fiche-lovelace-card-mod_pour_styliser_le_tableau_de_bord"></a>
 Et voilà le résultat!
 
 ![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteOuverte.png) ![Porte fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteFermee.png)
@@ -378,7 +383,7 @@ Le plugin [lovelace-card-mod](https://github.com/thomasloven/lovelace-card-mod) 
 
 Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est pas disponible dans le terminal HassOS alors nous allons utiliser une autre procédure pour l'installer :
 
-* Accédez au terminal HassOS en branchant clavier et écran au Raspberry Pi ou [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,via SSH][/apical\_lien\_interne].
+* Accédez au terminal HassOS en branchant clavier et écran au Raspberry Pi ou <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">via SSH</a>.
 * Vérifiez s'il existe un dossier www sous /mnt/data/supervisor/homeassistant. S'il n'existe pas, créez-le puis redémarrez le Raspberry Pi.
 * Rendez-vous sur la page GitHub de l'extension : <https://github.com/thomasloven/lovelace-card-mod>
 
@@ -387,12 +392,12 @@ Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est
 
   ![Fichier card-mod.js](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LovelaceCardMod-2.png)
 * Dans le haut de l'écran, faites un clic droit sur l'icône de téléchargement à droite de Raw afin de télécharger le fichier sur votre ordinateur.
-* À l'aide de la commande [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,scp,scp][/apical\_lien\_interne] lancée dans le terminal de votre ordinateur, copiez ce fichier sur le Raspberry Pi dans le dossier /mnt/data/supervisor/homeassistant/www.
+* À l'aide de la commande <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">scp</a> lancée dans le terminal de votre ordinateur, copiez ce fichier sur le Raspberry Pi dans le dossier /mnt/data/supervisor/homeassistant/www.
 
   Terminal de l'ordinateur
 
   scp -O -P 22222 /chemin/card-mod.js root@192.168.1.145:/mnt/data/supervisor/homeassistant/www
-* Afin de tirer profit au maximum de card-mod.js, il faut l'installer en tant que module. Éditez le fichier configuration.yaml à l'aide de [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,File editor][/apical\_lien\_interne] ou de [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_studio\_code\_server,Studio Code Server][/apical\_lien\_interne]. Ajoutez-y le code suivant :
+* Afin de tirer profit au maximum de card-mod.js, il faut l'installer en tant que module. Éditez le fichier configuration.yaml à l'aide de <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">File editor</a> ou de <a href="fiche-travailler\_avec\_le\_module\_complementaire\_studio\_code\_server.md#travailler\_avec\_le\_module\_complementaire\_studio\_code\_server">Studio Code Server</a>. Ajoutez-y le code suivant :
 
   Fichier configuration.yaml
 

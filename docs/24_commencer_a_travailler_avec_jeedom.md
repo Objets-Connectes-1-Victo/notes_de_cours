@@ -1,3 +1,4 @@
+<a id="fiche-objets_pour_representer_la_maison"></a>
 # 22. Commencer à travailler avec Jeedom
 
 ## 22.1 Objets pour représenter la maison
@@ -43,7 +44,7 @@ Pour ajouter un objet :
 
 ## 22.2 Configurer la clé USB Z-Wave sur Jeedom
 
-Pour que votre [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,boîte domotique Jeedom][/apical\_lien\_interne] puisse communiqur avec les objets connectés qui utilisent le protocole Z-Wave, vous devez lui brancher une clé USB Z-Wave et configurer la boîte pour qu'elle la reconnaisse.
+Pour que votre <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">boîte domotique Jeedom</a> puisse communiqur avec les objets connectés qui utilisent le protocole Z-Wave, vous devez lui brancher une clé USB Z-Wave et configurer la boîte pour qu'elle la reconnaisse.
 
 * Branchez la clé USB Z-Wave sur le Raspberry Pi.
 * Vous devez maintenant vous assurer que la clé est reconnue par le Pi. En effet, il y a parfois des incompatibilités entre la clé et le Raspberry Pi 4. Si c'est le cas, une solution intéresante consiste à brancher la clé dans un hub USB qui, lui, sera branché au Pi.
@@ -81,9 +82,9 @@ Pour que votre [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_ac
   Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
   Selon le modèle de votre clé, vous pourriez aussi avoir Silicon Labs CP210x UART Bridge.
-* Accédez à l'[apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,interface d'administration de Jeedom,acceder][/apical\_lien\_interne].
+* Accédez à l'<a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">interface d'administration de Jeedom</a>.
 * Rendez-vous dans le menu Plugins / Gestion des plugins.
-* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [apical\_lien\_interne]brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market[/apical\_lien\_interne] ».
+* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « <a href="fiche-brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market.md#brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market">brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market</a> ».
 
   ![Gestion des plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-GestionDesPlugins.png)
 * Recherchez « Z-Wave ».
@@ -91,14 +92,14 @@ Pour que votre [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_ac
   ![Recherche Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AjoutCleZWave.png)
 * Dans les résultats de recherche, choisissez Z-Wave, par Jeedom SAS puis effectuez l'installation stable.
 
-  Note : si le plugin Z-Wave n'est pas disponible, essayez d'effectuer une [apical\_lien\_interne][le\_centre\_de\_mise\_a\_jour\_de\_jeedom,mise à jour de Jeedom][/apical\_lien\_interne].
+  Note : si le plugin Z-Wave n'est pas disponible, essayez d'effectuer une <a href="fiche-le\_centre\_de\_mise\_a\_jour\_de\_jeedom.md#le\_centre\_de\_mise\_a\_jour\_de\_jeedom">mise à jour de Jeedom</a>.
 
   ![Z-Wave par Jeedom SAS](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AjoutCleZWave-2.png)
 * Une fois l'installation complétée, acceptez de vous rendre sur la page de configuration du plugin. Vous pourrez retourner à la page de configuration plus tard à l'aide du menu Plugins / Gestion des plugins puis en cliquant sur l'icône Z-Wave.
 * Si la clé est dans l'état inactif, cliquez sur le bouton Activer.
 
   ![Activer la clé Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ActiverCleZWave.png)
-* Si vous ne réussissez pas à activer la clé, ceci peut dépendre d'une erreur de programmation du côté du plugin ou à une mauvaise compatibilité du plugin avec la dernière version du système d'exploitation. Rendez-vous dans le menu Analyse / Logs / zwavejs pour voir les messages d'erreur. Si vous voyez un message du genre « file\_exists(): Argument #1 ($filename) must be of type string, array given », suivez les instructions sur la fiche [apical\_lien\_interne]erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists[/apical\_lien\_interne].
+* Si vous ne réussissez pas à activer la clé, ceci peut dépendre d'une erreur de programmation du côté du plugin ou à une mauvaise compatibilité du plugin avec la dernière version du système d'exploitation. Rendez-vous dans le menu Analyse / Logs / zwavejs pour voir les messages d'erreur. Si vous voyez un message du genre « file\_exists(): Argument #1 ($filename) must be of type string, array given », suivez les instructions sur la fiche <a href="fiche-erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists.md#erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists">erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists</a>.
 * Normalement, l'activation le la clé USB lance automatiquement une mise à jour des dépendances. Dans la zone Dépendances, vous verrez alors le message  « Installation en cours ». Si, après la fin de la mise à jour, vous voyez NOK, cliquez sur Relancer.
 
   ![Dépendancecs NOK](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-DependancesZWavePasOK.png)
@@ -136,7 +137,7 @@ Pour que votre [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_ac
   Si vous obtenez un message d'erreur à propos du serveur MQTT, relancez l'installation des dépendances. Jeedom se chargera d'installer le serveur MQTT dont la clé Z-Wave a besoin.
 
   Si vous n'arrivez toujours pas à obtenir le statut OK, vous pouvez consulter le log openzwave pour obtenir plus d'information. Au besoin, pour obtenir plus d'informations, ajustez le niveau de log à Debug dans la zone Logs et surveillance puis cliquez à nouveau sur Redémarrer. Vous pouvez aussi demander à votre prof de vous aider :-)
-* Quand le statut et la configuration sont à OK, votre boîte domotique est prête à [apical\_lien\_interne][ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom,se connecter avec des appareils Z-Wave][/apical\_lien\_interne].
+* Quand le statut et la configuration sont à OK, votre boîte domotique est prête à <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom">se connecter avec des appareils Z-Wave</a>.
 
 ## Pour plus d'information
 

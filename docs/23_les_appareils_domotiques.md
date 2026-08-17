@@ -1,3 +1,4 @@
+<a id="fiche-les_appareils_de_la_maison_intelligente"></a>
 # 21. Les appareils domotiques
 
 ## 21.1 Les appareils de la maison intelligente
@@ -69,7 +70,7 @@ Il faut donc effectuer quelques vérifications avant de procéder à l'achat d'u
 
 ## Protocole de communication
 
-Le [apical\_lien\_interne][passerelle\_et\_protocoles\_de\_communication,protocole de communication][/apical\_lien\_interne] utilisé par l'objet connecté est un des principaux facteurs à considérer.
+Le <a href="fiche-passerelle\_et\_protocoles\_de\_communication.md#passerelle\_et\_protocoles\_de\_communication">protocole de communication</a> utilisé par l'objet connecté est un des principaux facteurs à considérer.
 
 En effet, les objets peuvent communiquer dans différentes normes ou protocoles de communication : Z-Wave, Zigbee, Wi-Fi, Bluetooth, RFXcom, etc.
 
@@ -90,10 +91,11 @@ Avant d'acheter un appareil domotique avec une puce Z-Wave, il faut s'assurer qu
 Si vous projetez d'acheter un objet connecté Wi-Fi, il faut également vérifier s'il utilise la fréquence 2.4 GHz ou 5 GHz ou les deux de même que quelles fréquences sont disponibles sur votre réseau. Généralement, les objets connectés Wi-Fi communiquerons en 2.4 GHz puisque cette fréquence offre une plus grande portée.
 
 Si l'appareil ne peut communiquer qu'en 2.4 GHz alors que la seule fréquence disponible est le 5 GHz, aucune communication ne sera possible.
+<a id="fiche-construire_son_propre_objet_connecte"></a>
 
 ## Compatibilité avec le logiciel de domotique
 
-Il faut également vérifier la compatibilité de l'objet avec [apical\_lien\_interne][quelques\_logiciels\_de\_domotique\_interessants,la boîte domotique][/apical\_lien\_interne] que vous avec choisie.
+Il faut également vérifier la compatibilité de l'objet avec <a href="fiche-quelques\_logiciels\_de\_domotique\_interessants.md#quelques\_logiciels\_de\_domotique\_interessants">la boîte domotique</a> que vous avec choisie.
 
 Avec certains logiciels de domotique, il faut utiliser une extension (plugin, add-on) pour permettre le pairage avec un appareil connecté. Ces extension sont parfois écrites spécifiquement pour une marque donnnée.
 

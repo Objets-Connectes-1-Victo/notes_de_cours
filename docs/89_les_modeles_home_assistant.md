@@ -1,3 +1,4 @@
+<a id="fiche-les_modeles_dans_home_assistant"></a>
 # 79. Les modèles Home Assistant
 
 ## 79.1 Les modèles dans Home Assistant
@@ -6,7 +7,7 @@ Les modèles sont un mécanisme qui permet d'obtenir une valeur à partir d'autr
 
 On peut les comparer à de petits bouts de programmes qui ont accès notamment aux valeurs :
 
-* [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,des capteurs virtuels][/apical\_lien\_interne] que vous pourrez ajuster dans l'onglet Aperçu
+* <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">des capteurs virtuels</a> que vous pourrez ajuster dans l'onglet Aperçu
 * des capteurs réels
 * de toute autre entité
 
@@ -14,17 +15,17 @@ Grâce à eux, les scripts et les automatisations bénéficient de plus de possi
 
 Dans cette fiche :
 
-* Éditeur de modèles
-* Valeur principale d'un capteur
-* Capteur avec attributs
-* Retrouver un attribut particulier
-* Conditions
-* Travailler avec des valeurs numériques
-* Variables dans un modèle
-* Boucles dans un modèle
-* Commentaires dans un modèle
-* Identifiants d'objets non conformes
-* Résumé des syntaxes
+* [Éditeur de modèles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#editeur)
+* [Valeur principale d'un capteur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#valeur)
+* [Capteur avec attributs](https://apical.xyz/formations/pageunique/systeme_domotique_diy#attributs)
+* [Retrouver un attribut particulier](https://apical.xyz/formations/pageunique/systeme_domotique_diy#particulier)
+* [Conditions](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conditions)
+* [Travailler avec des valeurs numériques](https://apical.xyz/formations/pageunique/systeme_domotique_diy#numerique)
+* [Variables dans un modèle](https://apical.xyz/formations/pageunique/systeme_domotique_diy#variable)
+* [Boucles dans un modèle](https://apical.xyz/formations/pageunique/systeme_domotique_diy#boucle)
+* [Commentaires dans un modèle](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commentaire)
+* [Identifiants d'objets non conformes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#templatesyntaxerror)
+* [Résumé des syntaxes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#resume)
 
 ## Éditeur de modèles
 
@@ -44,7 +45,7 @@ Dans sa forme la plus simple, le modèle pourra retrouver la valeur principale d
 
 Pour travailler avec les valeurs des capteurs, il faut utiliser les [objets de type state](https://www.home-assistant.io/docs/configuration/state_object/).
 
-Ici, on utilisera la fonction states() et on lui fournira en paramètre [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,l'identifiant de l'entité,identifiant][/apical\_lien\_interne], le tout entre doubles accolades.
+Ici, on utilisera la fonction states() et on lui fournira en paramètre <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">l'identifiant de l'entité</a>, le tout entre doubles accolades.
 
 Modèle
 
@@ -212,7 +213,7 @@ Modèle
 
 ## Identifiants d'objets non conformes
 
-Si, lorsque vous testez un tel modèle dans l'éditeur, vous obtenez un message du genre « TemplateSyntaxError: expected token 'end of print statement', got '... », c'est peut-être parce que l'identifiant de l'objet (ce qui suit le point dans l'[apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,identifiant de l'entité][/apical\_lien\_interne]) débute par un caractère non autorisé, par exemple un chiffre.
+Si, lorsque vous testez un tel modèle dans l'éditeur, vous obtenez un message du genre « TemplateSyntaxError: expected token 'end of print statement', got '... », c'est peut-être parce que l'identifiant de l'objet (ce qui suit le point dans l'<a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">identifiant de l'entité</a>) débute par un caractère non autorisé, par exemple un chiffre.
 
 ![Template syntax error](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Modele-TemplateSyntaxError.png)
 
@@ -238,9 +239,9 @@ Dans tous les cas, il est conseillé de travailler avec states() plutôt qu'avec
 | --- | --- | --- |
 | {{ states('weather.forecast\_maison') }}  Syntaxes équivalentes à éviter :  {{ states.weather.forecast\_maison['state'] }}  {{ states.weather.forecast\_maison.state }} | Donne la valeur principale d'une entité. | cloudy |
 | Autre exemple :  {{ states('input\_boolean.porte\_virtuelle') }} |  | on |
-| {{ states.weather.forecast\_maison }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'] }} | Donne la valeur principale d'une entité de même que de tous ses attributs.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,l'identifiant de l'objet,objet][/apical\_lien\_interne] débute par un chiffre. | <template TemplateState(<state weather.forecast\_maison=partlycloudy; temperature=4.5, dew\_point=3.7, temperature\_unit=°C, humidity=95, cloud\_coverage=71.1, uv\_index=0.1, pressure=1025.2, pressure\_unit=hPa, wind\_bearing=217.2, wind\_speed=9.4, wind\_speed\_unit=km/h, visibility\_unit=km, precipitation\_unit=mm, attribution=Weather forecast from met.no, delivered by the Norwegian Meteorological Institute., friendly\_name=Forecast Maison, supported\_features=3 @ 2025-10-25T08:45:35.357881-04:00>)> |
+| {{ states.weather.forecast\_maison }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'] }} | Donne la valeur principale d'une entité de même que de tous ses attributs.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">l'identifiant de l'objet</a> débute par un chiffre. | <template TemplateState(<state weather.forecast\_maison=partlycloudy; temperature=4.5, dew\_point=3.7, temperature\_unit=°C, humidity=95, cloud\_coverage=71.1, uv\_index=0.1, pressure=1025.2, pressure\_unit=hPa, wind\_bearing=217.2, wind\_speed=9.4, wind\_speed\_unit=km/h, visibility\_unit=km, precipitation\_unit=mm, attribution=Weather forecast from met.no, delivered by the Norwegian Meteorological Institute., friendly\_name=Forecast Maison, supported\_features=3 @ 2025-10-25T08:45:35.357881-04:00>)> |
 | Autre exemple :  {{ states.input\_boolean.porte\_virtuelle }} |  | <template TemplateState(<state input\_boolean.porte\_virtuelle=off; editable=False, icon=mdi:door, friendly\_name=Porte virtuelle @ 2025-10-22T19:27:16.228318-04:00>)> |
-| {{ states.weather.forecast\_maison.attributes }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'].attributes }} | Donne la valeur de tous les attributs d'une entité.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,l'identifiant de l'objet,objet][/apical\_lien\_interne] débute par un chiffre. | {'temperature': 4.5, 'dew\_point': 3.7, 'temperature\_unit': <UnitOfTemperature.CELSIUS: '°C'>, 'humidity': 95, 'cloud\_coverage': 71.1, 'uv\_index': 0.1, 'pressure': 1025.2, 'pressure\_unit': <UnitOfPressure.HPA: 'hPa'>, 'wind\_bearing': 217.2, 'wind\_speed': 9.4, 'wind\_speed\_unit': <UnitOfSpeed.KILOMETERS\_PER\_HOUR: 'km/h'>, 'visibility\_unit': <UnitOfLength.KILOMETERS: 'km'>, 'precipitation\_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>, 'attribution': 'Weather forecast from met.no, delivered by the Norwegian Meteorological Institute.', 'friendly\_name': 'Forecast Maison', 'supported\_features': <WeatherEntityFeature.FORECAST\_DAILY|FORECAST\_HOURLY: 3>} |
+| {{ states.weather.forecast\_maison.attributes }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'].attributes }} | Donne la valeur de tous les attributs d'une entité.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">l'identifiant de l'objet</a> débute par un chiffre. | {'temperature': 4.5, 'dew\_point': 3.7, 'temperature\_unit': <UnitOfTemperature.CELSIUS: '°C'>, 'humidity': 95, 'cloud\_coverage': 71.1, 'uv\_index': 0.1, 'pressure': 1025.2, 'pressure\_unit': <UnitOfPressure.HPA: 'hPa'>, 'wind\_bearing': 217.2, 'wind\_speed': 9.4, 'wind\_speed\_unit': <UnitOfSpeed.KILOMETERS\_PER\_HOUR: 'km/h'>, 'visibility\_unit': <UnitOfLength.KILOMETERS: 'km'>, 'precipitation\_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>, 'attribution': 'Weather forecast from met.no, delivered by the Norwegian Meteorological Institute.', 'friendly\_name': 'Forecast Maison', 'supported\_features': <WeatherEntityFeature.FORECAST\_DAILY|FORECAST\_HOURLY: 3>} |
 | {{ state\_attr('weather.forecast\_maison', 'humidity') }} | Donne la valeur d'un attribut de l'entité. | 79 |
 | {{ is\_state('sun', 'rising') }} | Vérifie si l'état correspond à une valeur. | False |
 | {{ is\_state\_attr('weather.forecast\_maison', 'temperature', 20 ) }} | Vérifie si un attribut correspond à une valeur. | True |
@@ -271,6 +272,7 @@ Fichier automations.yaml
   entity\_id: input\_number.ma\_variable\_numerique  
   above: '20'  
   below: '30'
+<a id="fiche-retrouver_les_valeurs_d_une_entite"></a>
 
 ### Avec les modèles
 
@@ -282,7 +284,7 @@ Notez que la zone Contenu du modèle au bas de l'écran présenté plus haut per
 
 Voici le code du modèle qui donne true si la valeur du capteur virtuel est entre 20 et 30 exclusivement et false dans le cas contraire.
 
-Il est suggéré de tester ce modèle dans [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,l'éditeur de modèle,editeur][/apical\_lien\_interne] avant de l'utiliser dans une automatisation.
+Il est suggéré de tester ce modèle dans <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">l'éditeur de modèle</a> avant de l'utiliser dans une automatisation.
 
 Modèle
 
@@ -344,7 +346,7 @@ Les objets connectés fournissent souvent plusieurs informations.
 Selon leurs concepteurs, ces informations prendre différents formats, par exemple :
 
 * Une entité par information avec différents attributs pour chacune
-* Toutes les informations [apical\_lien\_interne][format\_json\_dans\_un\_modele,encodées en JSON][/apical\_lien\_interne]
+* Toutes les informations <a href="fiche-format\_json\_dans\_un\_modele.md#format\_json\_dans\_un\_modele">encodées en JSON</a>
 
 Regardons d'abord comment les informations peuvent être retrouvées lorsqu'on a une entité par information.
 
@@ -354,7 +356,7 @@ Ces entités sont listées dans le menu Paramètres / Appareils et services / 
 
 ![Entités d'un capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EntitesDUnCapteur.png)
 
-Pour connaître [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,l'identifiant de l'entité,identifiant][/apical\_lien\_interne], cliquez sur une entité puis cliquez sur l'icône d'engrenage.
+Pour connaître <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">l'identifiant de l'entité</a>, cliquez sur une entité puis cliquez sur l'icône d'engrenage.
 
 L'identifiant apparaît dans la zone ID d'entité.
 
@@ -380,6 +382,7 @@ Modèle Home Assistant
 
 Résultat à l'écran
 
+<a id="fiche-quelques_manipulations_de_chaines_dans_les_modeles_home_assistant"></a>
 not\_home
 
 ## Attributs
@@ -443,13 +446,13 @@ Résultat à l'écran
 
 ## 79.4 Quelques manipulations de chaînes dans les modèles Home Assistant
 
-En plus de permettre de [apical\_lien\_interne][retrouver\_les\_valeurs\_d\_une\_entite,retrouver la valeur d'une entité][/apical\_lien\_interne], les modèles permettent d'effectuer une foule de manipulations sur ces informations.
+En plus de permettre de <a href="fiche-retrouver\_les\_valeurs\_d\_une\_entite.md#retrouver\_les\_valeurs\_d\_une\_entite">retrouver la valeur d'une entité</a>, les modèles permettent d'effectuer une foule de manipulations sur ces informations.
 
 Dans cette fiche :
 
-* Longueur d'une chaîne
-* Recherche d'une position
-* Sous-chaîne
+* [Longueur d'une chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#longueur)
+* [Recherche d'une position](https://apical.xyz/formations/pageunique/systeme_domotique_diy#position)
+* [Sous-chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#souschaine)
 
 ## Longueur d'une chaîne
 
@@ -460,6 +463,7 @@ Modèle
 ## Recherche d'une position
 
 Modèle
+<a id="fiche-quelques_manipulations_de_nombres_dans_les_modeles"></a>
 
 {% set position\_virgule = ma\_chaine.find(",") %}
 
@@ -471,6 +475,7 @@ Modèle
 
 ou, pour avoir toute la chaîne à partir d'une position :
 
+<a id="fiche-modeles_qui_manipulent_des_dates_et_des_heures"></a>
 Modèle
 
 {% set sous\_chaine = ma\_chaine[position\_debut:] %}
@@ -500,6 +505,7 @@ Modèle
 {{ nombre | int }}
 
 Pour arrondir à l'entier supérieur :
+<a id=""representation"></a>
 
 Modèle
 
@@ -509,24 +515,24 @@ Modèle
 
 Dans tous les langages de programmation, les opérations avec dates et heures nécessitent un traitement particulier.
 
-Sous Home Assistant, les opérations d'addition et de soustractions sur les dates et heures peuvent être effectuées à l'aide d'un [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèle][/apical\_lien\_interne].
+Sous Home Assistant, les opérations d'addition et de soustractions sur les dates et heures peuvent être effectuées à l'aide d'un <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèle</a>.
 
 Mais pour y arriver, il faut bien comprendre la représentation des dates et les conversions nécessaires.
 
-* Représentation d'une date dans Home Assistant
-* Date du jour
-* Fuseau horaire
-* Convertion d'une date en timestamp
-  + timestamp d'une date sous forme de chaîne
-  + timestamp d'un objet de type datetime
-  + timestamp d'une date codée en dur
-  + timestamp d'un sensor.date\_time
-  + timestamp d'un sensor.time
-* Conversion d'un timestamp en chaîne
-* Calculs avec un timestamp
-* Comparaison avec la date du jour
-* Comparaison avec l'heure actuelle sans calculs
-* Comparaison avec l'heure actuelle si besoin d'effectuer des calculs
+* [Représentation d'une date dans Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#representation)
+* [Date du jour](https://apical.xyz/formations/pageunique/systeme_domotique_diy#datedujour)
+* [Fuseau horaire](https://apical.xyz/formations/pageunique/systeme_domotique_diy#fuseauhoraire)
+* [Convertion d'une date en timestamp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conversiondatetimestamp)
+  + [timestamp d'une date sous forme de chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#chaine)
+  + [timestamp d'un objet de type datetime](https://apical.xyz/formations/pageunique/systeme_domotique_diy#datetime)
+  + [timestamp d'une date codée en dur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dur)
+  + [timestamp d'un sensor.date\_time](https://apical.xyz/formations/pageunique/systeme_domotique_diy#sensor)
+  + [timestamp d'un sensor.time](https://apical.xyz/formations/pageunique/systeme_domotique_diy#time)
+* [Conversion d'un timestamp en chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conversiontimestampchaine)
+* [Calculs avec un timestamp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#calculstimestamp)
+* [Comparaison avec la date du jour](https://apical.xyz/formations/pageunique/systeme_domotique_diy#comparaisondatedujour)
+* [Comparaison avec l'heure actuelle sans calculs](https://apical.xyz/formations/pageunique/systeme_domotique_diy#comparaisonheureactuelle)
+* [Comparaison avec l'heure actuelle si besoin d'effectuer des calculs](https://apical.xyz/formations/pageunique/systeme_domotique_diy#comparaisonheureactuelleaveccalculs)
 
 ## Représentation d'une date dans Home Assistant
 
@@ -564,7 +570,7 @@ Attention : l'heure n'est pas réévaluée à chaque seconde. Selon la document
 
 > Using now() will cause templates to be refreshed at the start of every new minute.
 
-Il est aussi possible de travailler avec [apical\_lien\_interne][afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord,un capteur virtuel qui affiche la date et l'heure actuelles][/apical\_lien\_interne], par exemple sensor.date, sensor.time, sensor.date\_time.
+Il est aussi possible de travailler avec <a href="fiche-afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord.md#afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord">un capteur virtuel qui affiche la date et l'heure actuelles</a>, par exemple sensor.date, sensor.time, sensor.date\_time.
 
 Remarquez qu'on obtient ici une chaîne de caractères.
 
@@ -615,7 +621,7 @@ Modèle
 {% set mon\_timestamp = ... %}  
 {{ mon\_timestamp + 60\*60\*24\*7 }}
 
-D'autres exemples sont donnés plus bas.
+D'autres exemples sont donnés [plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#calculstimestamp).
 
 ### timestamp d'une date sous forme de chaîne
 
@@ -1035,7 +1041,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations des positions
 
 La gestion de la position GPS est bien intégrée à Home Assistant.
 
-Une fois qu'on a défini une entité qui gère la position GPS, que ce soit [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,avec l'application Home Assistant][/apical\_lien\_interne] ou encore [apical\_lien\_interne][simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see,avec device\_tracker.see][/apical\_lien\_interne], il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
+Une fois qu'on a défini une entité qui gère la position GPS, que ce soit <a href="fiche-travailler\_avec\_l\_application\_home\_assistant.md#travailler\_avec\_l\_application\_home\_assistant">avec l'application Home Assistant</a> ou encore <a href="fiche-simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see.md#simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see">avec device\_tracker.see</a>, il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
 
 Pour savoir dans quelle zone une personne se trouve :
 
@@ -1073,7 +1079,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations JSON!
 
 Parfois, toutes les informations sur un objet connecté ou plus précisément sur une entité seront encodées au format JSON.
 
-Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT,json][/apical\_lien\_interne].
+Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">MQTT</a>.
 
 ## Encodage
 
@@ -1134,19 +1140,21 @@ Modèle Home Assistant
 
 ou
 
+<a id="fiche-information_sur_l_entite_qui_a_declenche_une_automatisation"></a>
 Modèle Home Assistant
 
 {{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
 
-Notez que si vous testez ce modèle [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,dans les outils de développement,editeur][/apical\_lien\_interne] et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
+Notez que si vous testez ce modèle <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">dans les outils de développement</a> et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
 
 ## 79.9 Utiliser un modèle dans une carte du tableau de bord
 
-Quand vient le temps de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,personnaliser le tableau de bord de Home Assistant][/apical\_lien\_interne], les cartes Markdown offrent beaucoup de flexibilité.
+Quand vient le temps de <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">personnaliser le tableau de bord de Home Assistant</a>, les cartes Markdown offrent beaucoup de flexibilité.
 
 Bien sûr, comme leur nom l'indique, elles permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/).
+<a id="chapitre-exercice_14_005"></a>
 
-Elles offrent également la possibilité d'utiliser [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,des modèles][/apical\_lien\_interne].
+Elles offrent également la possibilité d'utiliser <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">des modèles</a>.
 
 Ceci vous permet de modifier l'affichage selon la condition que vous désirez mettre en place.
 
@@ -1156,7 +1164,7 @@ Ceci vous permet de modifier l'affichage selon la condition que vous désirez me
 
 Quand une automatisation a plusieurs déclencheurs, il est intéressant de savoir lequel a effectivement causé le déclenchement.
 
-On pourrait, par exemple, [apical\_lien\_interne][configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel,envoyer un courriel][/apical\_lien\_interne], [apical\_lien\_interne][envoyer\_une\_notification\_a\_l\_application\_mobile,une notification][/apical\_lien\_interne] ou encore [apical\_lien\_interne][slug\_de\_la\_fiche,enregistrer une information dans un journal][/apical\_lien\_interne] avec ce modèle, qui permet de retrouver l'identifiant du déclencheur (ex : device\_tracker.position\_virtuelle\_annie).
+On pourrait, par exemple, <a href="fiche-configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel.md#configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel">envoyer un courriel</a>, <a href="fiche-envoyer\_une\_notification\_a\_l\_application\_mobile.md#envoyer\_une\_notification\_a\_l\_application\_mobile">une notification</a> ou encore <a href="fiche-slug\_de\_la\_fiche.md#slug\_de\_la\_fiche">enregistrer une information dans un journal</a> avec ce modèle, qui permet de retrouver l'identifiant du déclencheur (ex : device\_tracker.position\_virtuelle\_annie).
 
 Modèle
 

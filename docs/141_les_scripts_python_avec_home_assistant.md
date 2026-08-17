@@ -1,3 +1,4 @@
+<a id="fiche-automatisation_qui_appelle_un_script_python"></a>
 # 122. Les scripts Python avec Home Assistant
 
 ## 122.1 Automatisation qui appelle un script Python
@@ -26,7 +27,7 @@ Vous pouvez également créer le dossier directement au terminal HassOS.
 
 Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
 
-Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi [apical\_lien\_interne][copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur,à l'aide de scp,scp][/apical\_lien\_interne].
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">à l'aide de scp</a>.
 
 Son nom doit se terminer par l'extension .py.
 
@@ -57,6 +58,7 @@ Une fois cette configuration en place, vous devez redémarrer le système pour q
 Vous pouvez le faire maintenant puisque toutes les manipulations qui requièrent un redémarrage sont effectuées.
 
 Par la suite, vous pourrez modifier votre script Python et l'automatisation qui l'utilise sans qu'un redémarrage ne soit nécessaire.
+<a id="fiche-integration_appdaemon_pour_executer_des_scripts_python"></a>
 
 ## Automatisation
 
@@ -66,6 +68,7 @@ Créez votre automatisation, définissez le déclencheur et possiblement les con
 
 Dans la liste déroulante des services, vous aurez accès au service dont le nom correspond à la ligne service que vous avez écrite plus tôt dans configuration.yaml (ici : python\_script.test).
 
+<a id="chapitre-appeler_un_script_python_dans_home_assistant"></a>
 ![service python_script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationAvecPythonScript.png)
 
 ## 122.2 Intégration AppDaemon pour exécuter des scripts Python

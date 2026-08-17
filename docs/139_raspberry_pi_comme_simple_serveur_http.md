@@ -1,4 +1,6 @@
+<a id="fiche-code_python_pour_un_serveur_qui_peut_recevoir_des_requetes_get_ou_post"></a>
 # 121. Raspberry Pi comme simple serveur HTTP
+<a id="chapitre-aller_plus_loin_avec_home_assistant"></a>
 
 ## 121.1 Code Python pour un serveur qui peut recevoir des requêtes GET ou POST
 

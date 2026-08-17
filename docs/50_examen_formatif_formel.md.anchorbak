@@ -1,0 +1,43 @@
+<a id="fiche-grille_de_correction_018"></a>
+# 45. Examen formatif formel
+<a id="fiche-examen_formatif_formel"></a>
+
+## 45.1 Grille de correction
+
+Voici la grille de correction qui sera utilisée pour l'exercice formatif formel.
+
+Les opérations que vous devrez réaliser devront respecter les techniques, les pratiques et les normes enseignées. Plusieurs sont implicites, par exemple bien nommer vos équipements.
+
+Notez que la correction sera faite à partir des fichiers remis.
+
+FICHIER NON REMIS = FICHIER NON CORRIGÉ (note : 0).
+
+| 25 points | Excellent | Satisfaisant | Minimal | Faible | Insuffisant |
+| --- | --- | --- | --- | --- | --- |
+| Respect des consignes | Toutes les consignes (ex : nomenclature) respenctent ce qui a été demandé.  2 points |  |  | Pas plus de 1 erreur  1 point | Au moins 2 erreurs ou fonctionnalité non réalisée  0 |
+| Réalisation des configurations | Toutes les configurations (sur le Pi, dans Jeedom, dans les virtuels) ont été correctement réalisées.  9 points | Pas plus de 1 erreur  8 points | Pas plus de 2 erreurs  6 points | Pas plus de 3 erreurs  3 point | Au moins 4 erreurs ou fonctionnalité non réalisée  0 |
+| Programmation et requêtes | Toute la programmation et les requêtes (ex : scénarios, base de données) ont été correctement réalisées.  9 points | Pas plus de 1 erreur  8 points | Pas plus de 2 erreurs  6 points | Pas plus de 3 erreurs  3 point | Au moins 4 erreurs ou fonctionnalité non réalisée  0 |
+
+## 45.2 Examen formatif formel
+
+Cet examen sera auto-corrigé en classe au prochain cours.
+
+Vous devez tout de même remettre votre travail sur la plateforme électronique du cours.
+
+Puisqu'il s'agit d'un examen formatif, il n'y a aucun point attribué mais une grille de correction vous est fournie à titre indicatif.
+
+1. Dans votre boîte Jeedom existante, créez un ventilateur virtuel. Le ventilateur doit pouvoir être allumé à puissance maximale, c'est-à-dire que sa force doit pouvoir prendre la valeur 100. Il peut également être allumé à puissance moyenne (force = 50) ou être éteint (force = 0).
+2. Prenez une impression d'écran de la configuration des commandes du ventilateur virtuel. L'impression d'écran doit montrer clairement le nom de la boîte Jeedom qui apparaît dans le coin supérieur droit de l'écran. Nommez votre fichier au format nomprenom-ventilateur.png.
+3. Créez un thermomètre virtuel qui permet d'incrémenter et de décrémenter une valeur nommée température.
+4. Prenez une impression d'écran de la configuration des commandes du thermomètre virtuel. L'impression d'écran doit montrer clairement le nom de la boîte Jeedom qui apparaît dans le coin supérieur droit de l'écran.
+
+   Attention : l'écran doit montrer clairement le contenu de chaque case. Si du contenu est tronqué, seule la partie visible sera corrigée. Par exemple, pour agrandir la colonne Valeur, vous devez d'abord modifier le CSS pour diminuer la taille de la colonne Nom (clic droit sur Nom, Inspecter, changer width:300px pour width:200px). Vous pouvez maintenant agrandir la colonne Valeur (clic droit sur Valeur, Inspecter, changer min-width:180px pour min-width:400px). Quand les informations sont toutes bien affichées, vous pouvez refermer la fenêtre Inspecter puis réaliser l'impression d'écran.
+
+   Nommez votre fichier au format nomprenom-thermometre.png.
+5. Écrivez un scénario qui se charge d'allumer le ventilateur à pleine puissance si la température virtuelle est supérieure ou égale à 10. Le ventilateur sera à puissance moyenne si la température est entre 5 et 9 inclusivement. Il sera éteint dès que la température virtuelle est inférieure à 5.
+
+   Ceci peut être réalisé à l'aide d'un seul scénario ou de plusieurs scénarios, selon vos préférences. Le ou les scénarios doivent être dans le groupe nommé Formatif formel.
+6. Pour chaque scénario, faites une impression d'écran de l'écran où on voit le déclencheur du scénario. Faites une autre impression d'écran, cette fois pour montrer les détails du scénario avec des blocs Action . Les impressions d'écrans doivent montrer clairement le nom de la boîte Jeedom qui apparaît dans le coin supérieur droit de l'écran. Nommez vos fichiers au format nomprenom-scenario-1.png, nomprenom-scenario-2.png. Si vous avez plus d'un scénario, poursuivez avec -3, -4, etc.
+7. Écrivez un nouveau scénario qui inscrit dans le fichier journal nommé "formatif" le nombre d'enregistrements total de la table history. Pour les besoins de cet exercice, le scénario n'aura pas de déclencheur. Vous le testerez en cliquant sur le bouton Exécuter.
+8. Pour ce scénario, vous n'avez à faire qu'une seule impression d'écran : celui où on voit les détails du scénario avec des blocs Action . Nommez votre fichier au format nomprenom-history.png.
+9. Remettez vos impressions d'écrans sur la plateforme électronique du cours.

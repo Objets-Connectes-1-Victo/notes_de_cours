@@ -1,4 +1,6 @@
+<a id="fiche-Au_programme_pendant_la_relache"></a>
 # 67. Semaine de relâche!
+<a id="chapitre-semaine_8_005"></a>
 
 ## 67.1 Au programme pendant la relâche
 

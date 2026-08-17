@@ -1,3 +1,4 @@
+<a id="fiche-format_json_dans_un_modele"></a>
 # 112. Format JSON dans un modèle
 
 ## 112.1 Format JSON dans un modèle
@@ -10,7 +11,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations JSON!
 
 Parfois, toutes les informations sur un objet connecté ou plus précisément sur une entité seront encodées au format JSON.
 
-Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT,json][/apical\_lien\_interne].
+Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">MQTT</a>.
 
 ## Encodage
 
@@ -48,6 +49,8 @@ Dans les exemples précédents, on voit des accolades qui jouent différents rô
 * {% ... %} Cette syntaxe, utilisée dans les modèles, permet d'effectuer du traitement sans retourner de valeur.
 * {{ ... }} Les double-accolades sont elle aussi utilisées dans les modèles mais cette fois, elles servent à retourner une valeur.
 * { ... } Les simples accolades servent à délimiter la chaîne JSON.
+<a id="chapitre-exercice_25_003"></a>
+<a id="fiche-les_cartes_de_type_markdown"></a>
 
 ## Décodage
 
@@ -75,4 +78,4 @@ Modèle Home Assistant
 
 {{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
 
-Notez que si vous testez ce modèle [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,dans les outils de développement,editeur][/apical\_lien\_interne] et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
+Notez que si vous testez ce modèle <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">dans les outils de développement</a> et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.

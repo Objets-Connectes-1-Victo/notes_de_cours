@@ -1,3 +1,4 @@
+<a id="fiche-Qu_est-ce_que_Python"></a>
 # 6. Python
 
 ## 6.1 Qu'est-ce que Python ?
@@ -133,6 +134,7 @@ Python
 Remarquez qu'il n'y a pas de barre oblique avant le mot python3.
 
 Cette formulation fonctionne également mais elle risque de ne plus fonctionner si le script est utilisé sur un autre système ou par un autre usager.
+<a id="fiche-executer_un_programme_python_dans_une_fenetre_terminal"></a>
 
 ## Script sans shebang
 
@@ -142,6 +144,7 @@ Notez qu'à ce moment, l'usager n'a pas besoin d'avoir les droits d'exécution s
 
 Terminal
 
+<a id="fiche-les_structures_de_controle"></a>
 python3 mon\_script.py
 
 ## 6.4 Exécuter un programme Python dans une fenêtre Terminal
@@ -236,6 +239,7 @@ Python
 for i in range(10):
 
  
+<a id="fiche-Utilisation_d_un_paquet"></a>
 
     ...
 
@@ -261,9 +265,9 @@ for valeur in valeurs:
 
 ## 6.6 Utilisation d'un paquet ou d'un module
 
-Pour utiliser [apical\_lien\_interne][les\_paquets\_et\_modules\_python,un module ou un paquet][/apical\_lien\_interne], peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
+Pour utiliser <a href="fiche-les\_paquets\_et\_modules\_python.md#les\_paquets\_et\_modules\_python">un module ou un paquet</a>, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
 
-Bien entendu, un module ou un paquet externe [apical\_lien\_interne][installer\_un\_paquet\_python,devra d'abord être installé sur votre poste de travail][/apical\_lien\_interne].
+Bien entendu, un module ou un paquet externe <a href="fiche-installer\_un\_paquet\_python.md#installer\_un\_paquet\_python">devra d'abord être installé sur votre poste de travail</a>.
 
 Par exemple, pour utiliser le module calendar :
 
@@ -527,6 +531,7 @@ Une liste est un tableau modifiable de longueur variable. On utilisera les croch
 
 Ex :
 
+<a id="fiche-Ecrire_nos_propres_fonctions"></a>
 Python
 
 valeurs = ['a', 'b', 'c']
@@ -571,7 +576,7 @@ On pourra également coder nos propres fonctions. On parlera alors de fonctions 
 
 Quel est l'intérêt de coder nos propres fonctions ? Il y a différents raisons qui justifient ce choix :
 
-* Le même code doit être exécuté à plusieurs endroits dans le programme ([apical\_lien\_interne][principe\_dry\_do\_no\_repeat\_yourself,principe DRY : Do not Repeat Yourself][/apical\_lien\_interne]).
+* Le même code doit être exécuté à plusieurs endroits dans le programme (<a href="fiche-principe\_dry\_do\_no\_repeat\_yourself.md#principe\_dry\_do\_no\_repeat\_yourself">principe DRY : Do not Repeat Yourself</a>).
 * Le code devient plus facile à comprendre si une partie du code est placé dans une fonction disticte ([principe KISS](http://fr.wikipedia.org/wiki/Principe_KISS) : Keep It Simple, Stupid !).
 * Il faut attacher du code à un événement (ex : un clic sur un bouton). La fonction permettra de délimiter le code à exécuter lorsque l'événement survient.
 
@@ -693,6 +698,7 @@ def ma\_fonction():
  
 
     """
+<a id="fiche-Utiliser_une_variable_du_programme_principal_dans"></a>
 
  
 
@@ -777,6 +783,7 @@ def afficher\_message(nom):
 
  
 
+<a id="fiche-la_programmation_objet_en_python"></a>
 nom = input('Quel est ton nom ? ')
 
  
@@ -879,7 +886,7 @@ Même si les concepts de programmation orientée objet sont les mêmes d'un lang
 
 Quelques faits saillants :
 
-* Le nom de la classe est écrit [apical\_lien\_interne][Casse\_Pascal\_LaCassePascal,en casse Pascal][/apical\_lien\_interne]  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
+* Le nom de la classe est écrit <a href="fiche-Casse\_Pascal\_LaCassePascal.md#Casse\_Pascal\_LaCassePascal">en casse Pascal</a>  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
 * Si la classe hérite d'une autre classe, on met le nom de la classe de base entre parenthèses.
 * Si la classe n'a pas de parent, on ne met pas de parenthèses.
 * À l'intérieur de la classe, tout le code doit être placé dans une méthode. Seule exception : l'initialisation des variables de classe.
@@ -994,13 +1001,13 @@ Quand vous lancez un script, que ce soit un script bash ou un script Python, il 
 
 ## Ctrl+C
 
-La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal [apical\_lien\_interne][sigint,SIGINT][/apical\_lien\_interne] qui arrête gentiment le programme.
+La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal <a href="fiche-sigint.md#sigint">SIGINT</a> qui arrête gentiment le programme.
 
 Dans le cas d'un script Python, SIGINT lève une exception de type KeyboardInterrupt qui interrompt le code et qui peut être attrrapée et traitée au même titre que toute autre exception.
 
 ## Ctrl+Z
 
-Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal [apical\_lien\_interne][sigtstp\_et\_sigstop,SIGTSTP][/apical\_lien\_interne] qui arrête immédiatement le programme.
+Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal <a href="fiche-sigtstp\_et\_sigstop.md#sigtstp\_et\_sigstop">SIGTSTP</a> qui arrête immédiatement le programme.
 
 Dans les faits, le programme est mis en pause, ce qui peut causer des problèmes, par exemple en ne libérant pas les ports associés au processus.
 
@@ -1022,7 +1029,7 @@ Terminal
 
 sudo pkill -f mon\_script.py
 
-Par défaut, pkill envoit un signal [apical\_lien\_interne][sigkill,SIGKILL][/apical\_lien\_interne] qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+Par défaut, pkill envoit un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 
@@ -1056,7 +1063,7 @@ Terminal
 
 kill -SIGKILL 891
 
-Ces deux commandes envoient un signal [apical\_lien\_interne][sigkill,SIGKILL][/apical\_lien\_interne] qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+Ces deux commandes envoient un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 
