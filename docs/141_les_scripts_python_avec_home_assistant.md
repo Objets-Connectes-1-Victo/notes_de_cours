@@ -26,7 +26,7 @@ Vous pouvez également créer le dossier directement au terminal HassOS.
 
 Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
 
-Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">à l'aide de scp</a>.
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi à l'aide de scp.
 
 Son nom doit se terminer par l'extension .py.
 

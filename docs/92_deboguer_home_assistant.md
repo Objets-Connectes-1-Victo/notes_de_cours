@@ -19,7 +19,7 @@ Les différents fichiers journaux sont disponibles à partir de ces options de m
 
 ## Consulter les fichiers journaux à partir du terminal
 
-Certains fichiers journaux sont également disponibles à partir du <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">terminal HassOS</a>.
+Certains fichiers journaux sont également disponibles à partir du terminal HassOS.
 
 Pour afficher le contenu du fichier home-assistant.log :
 
@@ -67,12 +67,12 @@ Home Assistant propose des services pour écrire dans différents fichiers journ
 
 Dans cette fiche :
 
-* [Écriture dans le journal des activités (logbook.log)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#logbook)
-  + [Identifiant d'entité à référencer](https://apical.xyz/formations/pageunique/systeme_domotique_diy#identite)
-* [Écriture dans le journal de Home Assistant (system\_log.write)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#systemlog)
-  + [Niveau de journalisation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#niveau)
-  + [Écriture](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ecriture)
-* [Enregistrer l'état d'un capteur dans un fichier journal](https://apical.xyz/formations/pageunique/systeme_domotique_diy#etat)
+* [Écriture dans le journal des activités (logbook.log)](92_deboguer_home_assistant.md#logbook)
+  + [Identifiant d'entité à référencer](92_deboguer_home_assistant.md#identite)
+* [Écriture dans le journal de Home Assistant (system\_log.write)](92_deboguer_home_assistant.md#systemlog)
+  + [Niveau de journalisation](92_deboguer_home_assistant.md#niveau)
+  + [Écriture](92_deboguer_home_assistant.md#ecriture)
+* [Enregistrer l'état d'un capteur dans un fichier journal](92_deboguer_home_assistant.md#etat)
 
 ## Écriture dans le journal des activités (logbook.log) {#logbook}
 
@@ -143,7 +143,7 @@ Si le niveau est inférieur à critique, vous devrez cliquer sur les trois point
 
 ## Enregistrer l'état d'un capteur dans un fichier journal {#etat}
 
-Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèle</a> pour inscrire la valeur du capteur.
+Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un modèle pour inscrire la valeur du capteur.
 
 ![Loguer valeur capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemLogAvecValeurCapteur.png)
 

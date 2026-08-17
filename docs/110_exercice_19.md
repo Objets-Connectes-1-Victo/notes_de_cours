@@ -6,9 +6,9 @@ Vous désirez ajouter à votre système domotique Home Assistant tout ce qu'il f
 
 Vous utiliserez ici seulement des capteurs virtuels.
 
-1. Si ce n'est pas déjà fait, <a href="fiche-les\_zones\_dans\_home\_assistant.md#les\_zones\_dans\_home\_assistant">définissez les zones École et Centre commercial</a>.
+1. Si ce n'est pas déjà fait, définissez les zones École et Centre commercial.
 2. Disons que vous avez 2 enfants : Gabriel et Élodie.
-   * Dans les outils de développement, <a href="fiche-simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see.md#simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see">simulez une position GPS pour chacun de vos enfants</a>. Les positions virtuelles doivent s'appeler position\_virtuelle\_gabriel et position\_virtuelle\_elodie.
+   * Dans les outils de développement, simulez une position GPS pour chacun de vos enfants. Les positions virtuelles doivent s'appeler position\_virtuelle\_gabriel et position\_virtuelle\_elodie.
    * Assurez-vous que chaque enfant soit identifié par une photo. Attention : il ne s'agit pas d'associer une position virtuelle à une personne dans le menu Paramètres / Personnes.
 3. Ajoutez un tableau de bord nommé "Coordonnées des enfants". Affichez-y :  
    * une carte géographique qui montre les trois zones que vous avez définies ainsi que la position des enfants
@@ -25,9 +25,9 @@ Vous utiliserez ici seulement des capteurs virtuels.
    * Le rayon de la zone home
    * La position de Gabriel, telle que retournée par le capteur virtuel (ex : École, Centre commercial, not\_home).
 5. Écrivez une automatisation qui vous envoie un courriel dès qu'un des enfants entre dans la zone Centre commercial.
-6. Modifiez l'automatisation pour qu'elle envoie également <a href="fiche-envoyer\_une\_notification\_a\_l\_application\_mobile.md#envoyer\_une\_notification\_a\_l\_application\_mobile">une notification à l'application mobile</a>. Le message devra indiquer le nom de l'enfant qui est au centre commercial.
+6. Modifiez l'automatisation pour qu'elle envoie également une notification à l'application mobile. Le message devra indiquer le nom de l'enfant qui est au centre commercial.
 7. Écrivez une automatisation qui monte un chauffage virtuel de 3 degrés dès qu'un des enfants quitte la zone École.
 8. Écrivez une automatisation qui baisse le chauffage de 3 degrés lorsque les deux enfants sont partis de la maison.
 9. Ajoutez un bouton au tableau de bord. Si le bouton est pressé avant midi alors que le soleil est levé, le système simule un réveille-matin en affichant dans un virtuel de texte « Levez-vous les enfants! ». S'il est pressé après 18h alors que le soleil est couché, il affiche « Allez vous coucher les enfant! ».
-10. <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Créez une sauvegarde</a> de votre Home Assistant et copiez le fichier sur votre ordinateur.
+10. Créez une sauvegarde de votre Home Assistant et copiez le fichier sur votre ordinateur.
 11. En prévision de l'examen qui se déroulera au prochain cours, assurez-vous que votre seconde carte micro SD ait une copie fonctionnelle de Home Assistant avec vos dernières manipulations. Cette copie sera utilisée si jamais il y avait un problème avec votre carte actuelle.

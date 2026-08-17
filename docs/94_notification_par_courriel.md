@@ -4,9 +4,9 @@
 
 Home Assistant est capable d'envoyer du courriel lorsqu'il est correctement configuré.
 
-D'abord, <a href="fiche-creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine.md#creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine">créez une adresse de courriel avec votre nom de domaine</a>. Cette adresse pourra être utilisée pour envoyer des courriels par programmation si votre fournisseur de courriel habituel (ex : GMail) ne le permet pas. L'adresse pourrait être sous la forme homeassistant@mondomaine.com.
+D'abord, créez une adresse de courriel avec votre nom de domaine. Cette adresse pourra être utilisée pour envoyer des courriels par programmation si votre fournisseur de courriel habituel (ex : GMail) ne le permet pas. L'adresse pourrait être sous la forme homeassistant@mondomaine.com.
 
-Ajoutez maintenant ces configurations <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">dans le fichier configuration.yaml</a>.
+Ajoutez maintenant ces configurations dans le fichier configuration.yaml.
 
 Fichier configuration.yaml
 
@@ -61,7 +61,7 @@ Vérifiez dans la ou les boîtes de courriel qui ont été configurées (recipie
 
 Attention : le message pourrait avoir été placé dans les pourriels. Si c'est le cas, vous devrez configurer votre outil de messgerie pour ajouter l'expéditeur aux expéditeurs approuvés afin que ça ne se reproduise plus.
 
-Une fois ces configurations en place, il sera possible <a href="fiche-automatisation\_qui\_envoie\_un\_courriel.md#automatisation\_qui\_envoie\_un\_courriel">d'envoyer un courriel dans une automatisation</a>, par exemple lorsque le capteur d'ouverture de porte détecte que la porte a été ouverte entre minuit et 6h00.
+Une fois ces configurations en place, il sera possible d'envoyer un courriel dans une automatisation, par exemple lorsque le capteur d'ouverture de porte détecte que la porte a été ouverte entre minuit et 6h00.
 
 ## Pour plus d'information
 

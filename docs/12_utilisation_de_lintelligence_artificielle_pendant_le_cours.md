@@ -10,17 +10,17 @@ Dans le cas où le cours propose un travail long sommatif, l'utilisation de l'IA
 
 Dans cette fiche :
 
-* [Pourquoi interdire l'IA pendant les examens?](https://apical.xyz/formations/pageunique/systeme_domotique_diy#pourquoi)
-* [Don't be a junior](https://apical.xyz/formations/pageunique/systeme_domotique_diy#junior)
-* [Utilisation intelligente de l'IA](https://apical.xyz/formations/pageunique/systeme_domotique_diy#utilisation)
-* [Niveaux permis d'utilisation de l'IA](https://apical.xyz/formations/pageunique/systeme_domotique_diy#niveaux)
-* [Importance de citer les sources](https://apical.xyz/formations/pageunique/systeme_domotique_diy#citer)
+* [Pourquoi interdire l'IA pendant les examens?](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md#pourquoi)
+* [Don't be a junior](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md#junior)
+* [Utilisation intelligente de l'IA](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md#utilisation)
+* [Niveaux permis d'utilisation de l'IA](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md#niveaux)
+* [Importance de citer les sources](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md#citer)
 
 ## Pourquoi interdire l'IA pendant les examens? {#pourquoi}
 
 Il est essentiel pour une technicienne ou un technicien en informatique de développer les processus mentaux qui lui permettent de comprendre du code, bien sûr, mais aussi d'en développer et d'en déboguer.
 
-Même plus : la technicienne ou le technicien doit être en mesure de juger de la <a href="fiche-les\_qualites\_d\_un\_bon\_programme\_php.md#les\_qualites\_d\_un\_bon\_programme\_php">qualité du code</a>. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
+Même plus : la technicienne ou le technicien doit être en mesure de juger de la qualité du code. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
 
 Pourquoi ces exigences? Eh bien parce que si vous n'y répondez pas, vous serez limités par ce que les outils d'IA générative vous proposeront. Vous pourriez même être carrément remplacés par ces outils.
 

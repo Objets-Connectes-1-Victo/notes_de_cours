@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-Qu\_est-ce\_que\_SQLite.md#Qu\_est-ce\_que\_SQLite">Qu\_est-ce\_que\_SQLite</a>
+## Qu\_est-ce\_que\_SQLite
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -18,7 +18,7 @@ Une base de données est constituée d'un simple fichier stocké localement. Il 
 
 SQLite est installé nativement sur macOS. Sous Windows, il faut procéder à son installation.
 
-## <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">La\_ligne\_de\_commande\_SQLite</a>
+## La\_ligne\_de\_commande\_SQLite
 
 Pour lancer la ligne de commande SQLite :
 
@@ -54,7 +54,7 @@ Ligne de commande SQLite
 
 .exit
 
-## <a href="fiche-contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant.md#contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant">contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant</a>
+## contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant
 
 Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
 
@@ -138,7 +138,7 @@ Si la base de données est utilisée par une application native, son fichier ser
 
 ## 92.3 Installation de SQLite {#fiche-Installation_de_SQLite}
 
-Pour travailler avec une base de données <a href="fiche-Qu\_est-ce\_que\_SQLite.md#Qu\_est-ce\_que\_SQLite">SQLite</a>, il n'y a aucun serveur à installer. Tout se déroule localement.
+Pour travailler avec une base de données SQLite, il n'y a aucun serveur à installer. Tout se déroule localement.
 
 Il faut par contre que le service et les outils pour SQLite soient installés afin que le système d'exploitation sache comment interagir avec une base de données SQLite.
 
@@ -161,7 +161,7 @@ Pour le vérifier :
 
     Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-    Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">créer une nouvelle base de données</a>, soit <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">ouvrir une base de données existante</a>.
+    Pour travailler avec une vraie base de données, il faudra soit créer une nouvelle base de données, soit ouvrir une base de données existante.
 
     Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
@@ -197,7 +197,7 @@ Pour installer SQLite sous Windows :
 
   Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-  Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">créer une nouvelle base de données</a>, soit <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">ouvrir une base de données existante</a>.
+  Pour travailler avec une vraie base de données, il faudra soit créer une nouvelle base de données, soit ouvrir une base de données existante.
 
   Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
@@ -221,7 +221,7 @@ Pour installer SQLite sous Windows :
 
 La ligne de commande SQLite est l'endroit où vous pouvez entrer les requêtes SQL pour effectuer les opérations CRUD sur vos données.
 
-Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord <a href="fiche-Installation\_de\_SQLite.md#Installation\_de\_SQLite">installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH</a>).
+Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH).
 
 Sous macOS et sous Linux, tout est disponible dès le départ.
 

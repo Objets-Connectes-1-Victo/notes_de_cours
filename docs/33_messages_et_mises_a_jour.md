@@ -9,7 +9,7 @@ Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le 
 Il s'agit de notifications qui vous informe sur :
 
 * Carré orange : nombre de messages dans le centre de messages
-* Carré rouge : nombre de <a href="fiche-le\_centre\_de\_mise\_a\_jour\_de\_jeedom.md#le\_centre\_de\_mise\_a\_jour\_de\_jeedom">mises à jour à installer</a>
+* Carré rouge : nombre de mises à jour à installer
 
 Un clic sur le carré orange mène vers le centre de messages.
 
@@ -58,7 +58,7 @@ Parfois, le centre de mise à jour de Jeedom ne proposera pas la toute dernière
 
 Il est possible d'effectuer une mise à jour à partir du Terminal de Raspberry Pi OS à l'aide des commandes suivantes.
 
-Important : vous devez d'abord <a href="fiche-copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi.md#copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi">effectuer une sauvegarde de la carte micro SD du Raspberry Pi</a> afin de pouvoir revenir en arrière si jamais un problème survenait.
+Important : vous devez d'abord effectuer une sauvegarde de la carte micro SD du Raspberry Pi afin de pouvoir revenir en arrière si jamais un problème survenait.
 
 Terminal
 

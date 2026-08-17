@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">lancer\_un\_script\_python\_avec\_le\_plugin\_script</a>
+## lancer\_un\_script\_python\_avec\_le\_plugin\_script
 
 Une fois le script Python écrit et testé à la ligne de commande, on peut le faire exécuter par Jeedom à l'aide du plugin Script.
 
@@ -43,7 +43,7 @@ Le script Python, qui est une commande d'un équipement au yeux de Jeedom, peut 
 
 ![Scénario qui lance un script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiLanceUnScript.png)
 
-## <a href="fiche-arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie.md#arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie">arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie</a>
+## arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie
 
 Si un scénario lance un script Python qui fait clignoter une DEL (donc avec boucle infinie), on pourra arrêter le clignotement à l'aide d'un autre scénario qui se charge de :
 
@@ -95,17 +95,17 @@ Plusieurs types de scripts sont supportés :
 * XML
 * JSON
 
-Pour lancer une commande ou une série de commandes qui contrôlent une LED, un <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">script Python</a> est un excellent choix.
+Pour lancer une commande ou une série de commandes qui contrôlent une LED, un script Python est un excellent choix.
 
 Pour éditer ce script, vous avez le choix entre :
 
 * écrire le fichier directement sur le Pi par exemple avec l'éditeur nano
 * l'écrire directement dans Jeedom
-* l'écrire sur votre ordinateur personnel puis de le <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">copier sur le Pi</a> ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier").
+* l'écrire sur votre ordinateur personnel puis de le copier sur le Pi ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier").
 
 Attention : si vous éditez le script sur un ordinateur Windows, les caractères de fin de ligne ne sont pas reconnus par Linux et Jeedom réagira en vous disant que le fichier n'existe pas.
 
-Vous devez absolument <a href="fiche-encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf.md#encodage\_des\_fins\_de\_lignes\_crlf\_vs\_lf">changer l'encodage des fins de lignes</a> afin que Linux puisse utiliser le fichier.
+Vous devez absolument changer l'encodage des fins de lignes afin que Linux puisse utiliser le fichier.
 
 Dans le cas d'un script Python 3, le nom du fichier doit se terminer par .PY en majuscules (ou autre extension de votre choix) car l'extension .py est automatiquement interprétée par Jeedom comme du Python 2.
 
@@ -119,7 +119,7 @@ mv /home/pi/mon\_script.py /home/pi/mon\_script.PY
 
 Le script Python peut être placé n'importe où sur le Raspberry Pi.
 
-Sachez que si le script est placé dans le dossier /var/www/html ou dans un de ses sous-dossiers, il fera automatiquement partie de <a href="fiche-copie\_de\_securite\_de\_jeedom.md#copie\_de\_securite\_de\_jeedom">la copie de sécurité de Jeedom</a>.
+Sachez que si le script est placé dans le dossier /var/www/html ou dans un de ses sous-dossiers, il fera automatiquement partie de la copie de sécurité de Jeedom.
 
 Mais j'avoue que pour fins de simplicité, je place souvent mes scripts sous /home/pi (le dossier personnel de l'usager pi) puisque c'est le dossier qui apparaît lorsqu'on accède au Terminal à partir d'un clavier et d'un écran branchés au Pi ou via SSH.
 
@@ -165,7 +165,7 @@ Après avoir sauvegardé, vous pouvez cliquer sur le bouton Tester afin de voir 
 
 ## Lancer le script à partir d'un scénario
 
-Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désormais être utilisé au même titre que n'importe quelle autre commande <a href="fiche-creer\_un\_scenario\_provoque.md#creer\_un\_scenario\_provoque">dans vos scénarios Jeedom</a>!
+Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désormais être utilisé au même titre que n'importe quelle autre commande dans vos scénarios Jeedom!
 
 ![Scénario qui lance un script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiLanceUnScript.png)
 
@@ -197,7 +197,7 @@ Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sud
 
 ### Droits d'exécution ou python3
 
-Un script Python peut être exécuté de deux façons : en faisant précéder son nom par python3 ou <a href="fiche-La\_protection\_des\_fichiers.md#La\_protection\_des\_fichiers">en donnant des droits d'exécution au fichier</a>.
+Un script Python peut être exécuté de deux façons : en faisant précéder son nom par python3 ou en donnant des droits d'exécution au fichier.
 
 Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n'avez pas fait précéder son nom par python3 dans la commande sous Jeedom, vous obtiendrez un message du genre « Erreursur sudo /home/pi/allumer\_led.PY 2>&1 valeur retournée : 1. Détails :sudo /home/pi/allumer\_led.PY: command not found ».
 
@@ -211,7 +211,7 @@ Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n
 
 Règle générale, avec le plugin Scripts dans Jeedom, il faut éviter de lancer des scripts qui contiennent une boucle sans fin.
 
-Parfois, cependant, la tâche à réaliser nécessite une telle boucle, par exemple <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">pour faire clignoter une DEL branchée au GPIO</a>.
+Parfois, cependant, la tâche à réaliser nécessite une telle boucle, par exemple pour faire clignoter une DEL branchée au GPIO.
 
 Rappelez-vous que lorsqu'on lance le script Python à la ligne de commande, il faut appuyer sur Ctrl+C pour l'arrêter. Mais quand c'est Jeedom qui le lance, ceci n'est pas possible.
 
@@ -219,9 +219,9 @@ Ceci pose problème dans un système domotique qui doit démarrer ou arrêter le
 
 Pour qu'un scénario puisse arrêter correctement le clignotement, il doit :
 
-* [Arrêter le scénario qui a lancé le cligotement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#scenario)
-* [Tuer le processus associé au script Python qui a lancé le clignotement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#processus)
-* [S'assurer que la DEL est éteinte](https://apical.xyz/formations/pageunique/systeme_domotique_diy#del)
+* [Arrêter le scénario qui a lancé le cligotement](56_controle_gpio_avec_jeedom.md#scenario)
+* [Tuer le processus associé au script Python qui a lancé le clignotement](56_controle_gpio_avec_jeedom.md#processus)
+* [S'assurer que la DEL est éteinte](56_controle_gpio_avec_jeedom.md#del)
 
 ## Arrêter le scénario qui a lancé le clignotement {#scenario}
 
@@ -272,11 +272,11 @@ Pour l'éteindre, vous avez deux choix :
 * lancer un script Python qui se charge d'éteindre la DEL
 
   ou
-* lancer le <a href="fiche-script\_pour\_reinitialiser\_toutes\_les\_broches\_programmables\_du\_gpio.md#script\_pour\_reinitialiser\_toutes\_les\_broches\_programmables\_du\_gpio">script Python qui se charge de réinitialiser toutes les broches</a>
+* lancer le script Python qui se charge de réinitialiser toutes les broches
 
 ## 50.4 Lancer un script Python avec paramètre à partir de Jeedom {#fiche-lancer_un_script_python_avec_parametre_a_partir_de_jeedom}
 
-Un script Python peut <a href="fiche-passer\_un\_parametre\_a\_un\_script\_python.md#passer\_un\_parametre\_a\_un\_script\_python">recevoir des paramètres</a>.
+Un script Python peut recevoir des paramètres.
 
 Le plugin Script de Jeedom permet de lancer un script Python en lui passant un ou plusieurs paramètres.
 

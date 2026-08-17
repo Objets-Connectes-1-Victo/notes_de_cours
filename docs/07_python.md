@@ -261,9 +261,9 @@ for valeur in valeurs:
 
 ## 6.6 Utilisation d'un paquet ou d'un module {#fiche-Utilisation_d_un_paquet}
 
-Pour utiliser <a href="fiche-les\_paquets\_et\_modules\_python.md#les\_paquets\_et\_modules\_python">un module ou un paquet</a>, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
+Pour utiliser un module ou un paquet, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
 
-Bien entendu, un module ou un paquet externe <a href="fiche-installer\_un\_paquet\_python.md#installer\_un\_paquet\_python">devra d'abord être installé sur votre poste de travail</a>.
+Bien entendu, un module ou un paquet externe devra d'abord être installé sur votre poste de travail.
 
 Par exemple, pour utiliser le module calendar :
 
@@ -571,7 +571,7 @@ On pourra également coder nos propres fonctions. On parlera alors de fonctions 
 
 Quel est l'intérêt de coder nos propres fonctions ? Il y a différents raisons qui justifient ce choix :
 
-* Le même code doit être exécuté à plusieurs endroits dans le programme (<a href="fiche-principe\_dry\_do\_no\_repeat\_yourself.md#principe\_dry\_do\_no\_repeat\_yourself">principe DRY : Do not Repeat Yourself</a>).
+* Le même code doit être exécuté à plusieurs endroits dans le programme (principe DRY : Do not Repeat Yourself).
 * Le code devient plus facile à comprendre si une partie du code est placé dans une fonction disticte ([principe KISS](http://fr.wikipedia.org/wiki/Principe_KISS) : Keep It Simple, Stupid !).
 * Il faut attacher du code à un événement (ex : un clic sur un bouton). La fonction permettra de délimiter le code à exécuter lorsque l'événement survient.
 
@@ -879,7 +879,7 @@ Même si les concepts de programmation orientée objet sont les mêmes d'un lang
 
 Quelques faits saillants :
 
-* Le nom de la classe est écrit <a href="fiche-Casse\_Pascal\_LaCassePascal.md#Casse\_Pascal\_LaCassePascal">en casse Pascal</a>  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
+* Le nom de la classe est écrit en casse Pascal  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
 * Si la classe hérite d'une autre classe, on met le nom de la classe de base entre parenthèses.
 * Si la classe n'a pas de parent, on ne met pas de parenthèses.
 * À l'intérieur de la classe, tout le code doit être placé dans une méthode. Seule exception : l'initialisation des variables de classe.
@@ -994,13 +994,13 @@ Quand vous lancez un script, que ce soit un script bash ou un script Python, il 
 
 ## Ctrl+C
 
-La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal <a href="fiche-sigint.md#sigint">SIGINT</a> qui arrête gentiment le programme.
+La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal SIGINT qui arrête gentiment le programme.
 
 Dans le cas d'un script Python, SIGINT lève une exception de type KeyboardInterrupt qui interrompt le code et qui peut être attrrapée et traitée au même titre que toute autre exception.
 
 ## Ctrl+Z
 
-Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal <a href="fiche-sigtstp\_et\_sigstop.md#sigtstp\_et\_sigstop">SIGTSTP</a> qui arrête immédiatement le programme.
+Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal SIGTSTP qui arrête immédiatement le programme.
 
 Dans les faits, le programme est mis en pause, ce qui peut causer des problèmes, par exemple en ne libérant pas les ports associés au processus.
 
@@ -1022,7 +1022,7 @@ Terminal
 
 sudo pkill -f mon\_script.py
 
-Par défaut, pkill envoit un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+Par défaut, pkill envoit un signal SIGKILL qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 
@@ -1056,7 +1056,7 @@ Terminal
 
 kill -SIGKILL 891
 
-Ces deux commandes envoient un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+Ces deux commandes envoient un signal SIGKILL qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 

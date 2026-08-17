@@ -21,5 +21,5 @@ Dans tous les cas, vous pourriez être convoqués pour expliquer votre code à v
 9. Créez une automatisation nommée « Efforts influencent résultats » qui fait en sorte qu’à chaque fois que les efforts changent, les résultats prennent la valeur « Efforts \* 10 » suivi du signe %.
 10. Écrivez un modèle qui calcule le nombre de jours restants avant Noël.
 11. OPTIONNEL : ajoutez une carte sur le tableau de bord qui affiche le nombre de jours restants avant Noël. Suggestion : utilisez la [syntaxe Markdown](https://commonmark.org/help/) pour afficher le chiffre un peu plus gros.
-12. <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Créez une sauvegarde</a> de votre Home Assistant et copiez le fichier sur votre ordinateur.
+12. Créez une sauvegarde de votre Home Assistant et copiez le fichier sur votre ordinateur.
 13. Remettez votre fichier texte sur la plateforme électronique du cours.

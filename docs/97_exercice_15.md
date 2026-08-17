@@ -2,11 +2,11 @@
 
 ## 87.1 Encore plus d'automatisations {#fiche-encore_plus_d_automatisations}
 
-1. Faites le nécessaire pour pouvoir <a href="fiche-configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel.md#configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel">envoyer du courriel avec Home Assistant</a>. L'adresse de courriel utilisée doit être au format homeassistant@mondomaine.com.
-2. Modifiez une de vos automatisations pour qu'en plus d'agir sur le récepteur, <a href="fiche-automatisation\_qui\_envoie\_un\_courriel.md#automatisation\_qui\_envoie\_un\_courriel">elle envoie un courriel pour vous aviser de ce qui vient de se passer</a>. Le message envoyé devra contenir une information au sujet d'un capteur de votre choix, obtenue à l'aide d'un modèle.
-3. Modifiez cette automatisation pour qu'en plus d'envoyer un courriel, elle écrive la valeur du capteur <a href="fiche-Ecrire\_dans\_un\_fichier\_journal.md#Ecrire\_dans\_un\_fichier\_journal">dans un fichier journal</a>.
-4. Créez une automatisation qui <a href="fiche-trouver\_l\_adresse\_ip\_de\_home\_assistant.md#trouver\_l\_adresse\_ip\_de\_home\_assistant">retrouve l'adresse IP du Raspberry Pi à l'aide d'un modèle</a> et qui vous l'envoie par courriel lors du démarrage de Home Assistant.
-5. Créez une automatisation qui effectue l'action de votre choix <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">à 10h tous les jours</a> (vous pouvez changer l'heure pour vos tests).
+1. Faites le nécessaire pour pouvoir envoyer du courriel avec Home Assistant. L'adresse de courriel utilisée doit être au format homeassistant@mondomaine.com.
+2. Modifiez une de vos automatisations pour qu'en plus d'agir sur le récepteur, elle envoie un courriel pour vous aviser de ce qui vient de se passer. Le message envoyé devra contenir une information au sujet d'un capteur de votre choix, obtenue à l'aide d'un modèle.
+3. Modifiez cette automatisation pour qu'en plus d'envoyer un courriel, elle écrive la valeur du capteur dans un fichier journal.
+4. Créez une automatisation qui retrouve l'adresse IP du Raspberry Pi à l'aide d'un modèle et qui vous l'envoie par courriel lors du démarrage de Home Assistant.
+5. Créez une automatisation qui effectue l'action de votre choix à 10h tous les jours (vous pouvez changer l'heure pour vos tests).
 6. Créez une automatisation qui effectue l'action de votre choix seulement si le capteur est activé entre 10h et 12h inclusivement (vous pouvez changer l'intervalle de temps pour vos tests).
 7. Créez une automatisation qui effectue l'opération de votre choix à partir du déclencheur de votre choix mais seulement le samedi et le dimanche.
-8. <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Créez une sauvegarde</a> de votre Home Assistant et copiez le fichier sur votre ordinateur.
+8. Créez une sauvegarde de votre Home Assistant et copiez le fichier sur votre ordinateur.

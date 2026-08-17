@@ -10,12 +10,12 @@ Grâce à certaines techniques de communication, ce n'est pas un problème, on p
 
 Les deux principales techniques sont :
 
-* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche <a href="fiche-jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_.md#jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_">et dans la suivante</a>)
-* <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">MQTT</a>
+* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche et dans la suivante)
+* MQTT
 
 Pour que la communication entre deux applications ait lieu à l'aide d'un API, il faut qu'une application ait le moyen de lancer une commande sur l'autre application. Le plus souvent, cette commande passera par un URL. On dira alors qu'on travaille avec un API REST.
 
-Sous Jeedom, <a href="fiche-url\_d\_un\_objet\_connecte\_jeedom.md#url\_d\_un\_objet\_connecte\_jeedom">un URL est assigné à chaque commande ou état d'un objet connecté</a>. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
+Sous Jeedom, un URL est assigné à chaque commande ou état d'un objet connecté. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
 
 ## Récupérer la valeur d'un capteur Jeedom dans Home Assistant
 
@@ -88,7 +88,7 @@ Vous avez un objet connecté dans Home Assistant et vous désirez l'utiliser dan
 
 Il est possible de configurer Home Assistant pour qu'il envoie des informations à un autre système, par exemple Jeedom.
 
-La technique est tout à fait opposée à celle utilisée pour <a href="fiche-home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom.md#home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom">récupérer dans Home Assistant une valeur en provenance de Jeedom</a>.
+La technique est tout à fait opposée à celle utilisée pour récupérer dans Home Assistant une valeur en provenance de Jeedom.
 
 Sous Home Assistant, les objets connectés n'ont pas d'URL que l'on peut récupérer. Il faudra plutôt que Home Assistant pousse vers Jeedom la valeur souhaitée, dans un objet virtuel dont on connaîtra l'URL.
 
@@ -96,7 +96,7 @@ Home Assistant utilisera pour cela des commandes de type [REST](https://www.home
 
 Voici comment y parvenir :
 
-* Dans Jeedom, <a href="fiche-travailler\_avec\_le\_plugin\_virtuel.md#travailler\_avec\_le\_plugin\_virtuel">créez un équipement virtuel</a> qui recevra la valeur de Home Assistant.
+* Dans Jeedom, créez un équipement virtuel qui recevra la valeur de Home Assistant.
 
   Donnez-lui un nom clair, par exemple Luminosité cuisine - Home Assistant.
 
@@ -246,7 +246,7 @@ Lorsqu'un objet connecté est pairé à une boîte domotique Jeedom, il se voit 
 
 Pour connaître l'URL d'un objet, et plus spécifiquement l'URL qui permet de lancer une commande donnée sur cet objet :
 
-* Dans <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">l'interface Web de Jeedom</a>, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
+* Dans l'interface Web de Jeedom, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
 * Cliquez sur l'objet connecté désiré.
 * Sélectionnez l'onglet Commandes.
 * Retrouvez la commande que vous désirez lancer à l'aide d'un URL. Si vous désirez effectuer une action sur l'objet, ce sera une commande de type Action. Si vous désirez retrouver de l'information fournie par l'objet, ce sera une commande de type Info.
@@ -290,7 +290,7 @@ Par contre, dans le cas d'un équipement virtuel, il peut être intéressant de 
 
 Prenons par exemple un virtuel qui sert à stocker une valeur.
 
-Dans les configurations de cet équipement, <a href="fiche-travailler\_avec\_le\_plugin\_virtuel.md#travailler\_avec\_le\_plugin\_virtuel">on créera une commande</a> de type info. C'est dans cette info que la valeur sera stockée.
+Dans les configurations de cet équipement, on créera une commande de type info. C'est dans cette info que la valeur sera stockée.
 
 Ici, j'ai simplement appelé cette info Ma valeur. Jeedom lui a attribué l'identifiant 74.
 

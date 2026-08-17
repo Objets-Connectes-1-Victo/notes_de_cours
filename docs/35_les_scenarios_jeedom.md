@@ -4,7 +4,7 @@
 
 Sous Jeedom, les scénarios permettent d'automatiser des comportements, par exemple ouvrir la lumière de la cuisine quand la porte s'ouvre.
 
-Vous devez d'abord <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom">ajouter vos appareils connectés</a> à Jeedom et idéalement les <a href="fiche-objets\_pour\_representer\_la\_maison.md#objets\_pour\_representer\_la\_maison">associer aux objets qui représentent les pièces de votre maison</a>.
+Vous devez d'abord ajouter vos appareils connectés à Jeedom et idéalement les associer aux objets qui représentent les pièces de votre maison.
 
 ## Écriture d'un scénario {#evenement}
 
@@ -25,7 +25,7 @@ Pour ajouter un scénario :
   Si le regroupement ne vous intéresse pas pour l'instant, je vous suggère de mettre tous vos scénario dans un groupe nommé « Maison ».
 * L'information la plus importante dans cet écran, c'est le mode du scénario. C'est là que vous indiquez ce qui va le déclencher.
   + Il peut être provoqué, par exemple par l'ouverture d'une porte.
-  + Il peut être <a href="fiche-creer\_un\_scenario\_programme.md#creer\_un\_scenario\_programme">programmé</a>, par exemple tous les jours à 8h00.
+  + Il peut être programmé, par exemple tous les jours à 8h00.
   + Il peut également être une combinaison des deux, par exemple allumer les lumières dès qu'une présence est détectée (provoqué) OU lorsqu'il est 21h00 (programmé).
 
     ![Mode du scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ModeDuScenario.png)
@@ -123,18 +123,18 @@ Les scénarios Jeedom peuvent être provoqués, par exemple ouvrir la lumière d
 
 Je vais vous guider ici dans la création d'un scénario programmé.
 
-Le fonctionnement des scénarios programmés est semblable à celui des <a href="fiche-creer\_un\_scenario\_provoque.md#creer\_un\_scenario\_provoque">scénarios provoqués</a>. Seul le déclencheur diffère.
+Le fonctionnement des scénarios programmés est semblable à celui des scénarios provoqués. Seul le déclencheur diffère.
 
 Pour créer un scénario programmé, suivez ces étapes :
 
-* Vous devez d'abord <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom">ajouter vos appareils connectés</a> à Jeedom.
+* Vous devez d'abord ajouter vos appareils connectés à Jeedom.
 * Rendez-vous dans le menu Outils / Scénarios puis cliquez sur Ajouter.
 
   ![Outils / Scénarios](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-OutilsScenarios.png)
 * Donnez un nom au scénario, par exemple « Démarrage cafetière ». Vous verrez alors l'écran de configuration du scénario.
 
   ![Scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Scenario-2.png)
-* La case Groupe vous permet de <a href="fiche-creer\_un\_scenario\_provoque.md#creer\_un\_scenario\_provoque">regrouper les scénarios selon vos préférences</a>.
+* La case Groupe vous permet de regrouper les scénarios selon vos préférences.
 * Dans la zone Mode du scénario, choisissez Programmé.
 * Pour entrer les détails de la programmation, cliquez sur +Programmation.
 * Le moment où le scénario doit être lancé utilise la syntaxe de la [crontab](https://www.domo-blog.fr/editer-la-crontab-du-raspberry/). Vous pouvez cliquer sur le point d'interrogation à droite de la boîte de saisie Programmation pour lancer l'assistant cron.
@@ -258,7 +258,7 @@ Par exemple :
 
 ## 32.5 Scénarios avec la météo {#fiche-scenarios_avec_la_meteo}
 
-Si vous avez <a href="fiche-travailler\_avec\_la\_meteo\_sous\_jeedom.md#travailler\_avec\_la\_meteo\_sous\_jeedom">configuré le plugin météo dans Jeedom</a>, il est possible d'utiliser les prévisions météorologiques dans vos scénarios.
+Si vous avez configuré le plugin météo dans Jeedom, il est possible d'utiliser les prévisions météorologiques dans vos scénarios.
 
 Petit détail pas très intuitif : quand vous sélectionnez la météo comme événement déclencheur ou comme condition, la section Commande info vous présente différentes conditions météo telles que Vitesse du vent, Température, Humidité, etc.
 
@@ -334,9 +334,9 @@ Tant que le scénario est en cours d'exécution, il ne peut pas être relancé, 
 
 Quand un scénario demeure en cours d'exéction sur une longue période, vous pouvez cliquer sur Arrêter pour y mettre fin.
 
-Note : il est parfois normal que le scénario demeure en cours d'éxécution longtemps. Ce sera le cas, par exemple <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">s'il fait clignoter une DEL branchée au GPIO</a>.
+Note : il est parfois normal que le scénario demeure en cours d'éxécution longtemps. Ce sera le cas, par exemple s'il fait clignoter une DEL branchée au GPIO.
 
-Il est alors possible <a href="fiche-arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie.md#arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie">d'arrêter le scénario à l'aide d'un autre scénario</a>.
+Il est alors possible d'arrêter le scénario à l'aide d'un autre scénario.
 
 ## 32.8 Comment déboguer un scénario? {#fiche-comment_deboguer_un_scenario}
 
@@ -356,9 +356,9 @@ Pour d'autres, vous pouvez consulter les liens pour apprendre comment faire.
   + Il indiquera également chaque bloc réalisé.
 
     ![Log du scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogDuScenario.png)
-* <a href="fiche-scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal.md#scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal">Écrire vos propres informations de débogage dans le log du scénario</a>.
-* Vérifier si le scénario n'est pas <a href="fiche-scenario\_qui\_s\_eternise.md#scenario\_qui\_s\_eternise">pris dans une opération qui prend beaucoup de temps ou dans une boucle sans fin</a>.
-* Dans le cas où <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">le scénario lance un script Python</a> :
+* Écrire vos propres informations de débogage dans le log du scénario.
+* Vérifier si le scénario n'est pas pris dans une opération qui prend beaucoup de temps ou dans une boucle sans fin.
+* Dans le cas où le scénario lance un script Python :
   + Tester d'abord le script Python dans une fenêtre Terminal.
   + Quand on sait qu'il fonctionne, tester le fonctionnement de la commande qui lance le script en cliquant sur le bouton Tester dans l'onglet Commandes du plugin Script.
 

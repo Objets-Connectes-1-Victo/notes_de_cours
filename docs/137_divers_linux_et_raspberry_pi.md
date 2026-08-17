@@ -4,7 +4,7 @@
 
 Raspberry Pi OS, connu autrefois sous le nom Raspbian, peut être installé :
 
-* Avec <a href="fiche-raspberry\_pi\_imager.md#raspberry\_pi\_imager">Raspberry Pi Imager</a>   
+* Avec Raspberry Pi Imager   
   ou
 * À la ligne de commande
 
@@ -12,7 +12,7 @@ Les deux techniques sont équivalentes, à vous de choisir celle qui vous convie
 
 Je vous explique ici comment travailler à la ligne de commande pour installer Raspberry Pi OS, que ce soit la version avec interface graphique (with desktop) ou sans (lite).
 
-* Téléchargez Raspberry Pi OS ici : <https://www.raspberrypi.org/downloads/raspberry-pi-os/>. Prenez soin de choisir la version qui correspond à vos besoins. Généralement, si vous souhaitez utiliser le Raspberry Pi comme serveur, par exemple <a href="fiche-qu\_est-ce\_qu\_un\_systeme\_domotique.md#qu\_est-ce\_qu\_un\_systeme\_domotique">dans un système domotique</a>, la version lite est préférable.
+* Téléchargez Raspberry Pi OS ici : <https://www.raspberrypi.org/downloads/raspberry-pi-os/>. Prenez soin de choisir la version qui correspond à vos besoins. Généralement, si vous souhaitez utiliser le Raspberry Pi comme serveur, par exemple dans un système domotique, la version lite est préférable.
 * Décompressez le contenu du fichier zip sur votre ordinateur. Vous obtiendrez un fichier .img.
 * Insérez la carte micro SD dans votre ordinateur.
 * Il faut maintenant copier l'image sur la carte micro SD. On dira flasher l'image sur la carte.  
@@ -32,21 +32,21 @@ Je vous explique ici comment travailler à la ligne de commande pour installer R
 
     sudo dd bs=1m if=*chemin*/2021-03-04-raspios-buster-armhf-lite.img of=/dev/rdiskN conv=sync
 
-    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier\_le\_chemin\_d\_un\_fichier.md#copier\_le\_chemin\_d\_un\_fichier">copier\_le\_chemin\_d\_un\_fichier</a>.
+    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : copier\_le\_chemin\_d\_un\_fichier.
 
-    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd</a>.
+    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.
   + Il est également possible de flasher l'image sur la carte à l'aide d'un utilitaire graphique, par exemple [Etcher](https://www.balena.io/etcher/). Cet utilitaire peut être utilisé sous Mac, Linux ou Windows.
 
 La carte micro SD est maintenant prête à être insérée dans le Raspberry Pi. Mais avant, vous voudrez peut-être effectuer quelques configurations directement sur la carte afin d'éviter d'avoir à brancher un écran et un clavier sur le Pi , ce qui vous permettra de réaliser une installation dite headless (littéralement : sans tête).
 
 Vous pouvez donc, si vous le désirez, réaliser les configurations qui suivent AVANT d'insérer la carte dans le Pi :
 
-* <a href="fiche-configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi.md#configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi">Configurer le réseau sans fil</a>
-* <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">Activer SSH</a>
-* <a href="fiche-permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi.md#permettre\_l\_utilisation\_d\_un\_ecran\_directement\_sur\_le\_pi">Permettre l'utilisation d'un écran directement sur le Pi</a>
-* <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">Donner une adresse IP statique au Pi</a>
+* Configurer le réseau sans fil
+* Activer SSH
+* Permettre l'utilisation d'un écran directement sur le Pi
+* Donner une adresse IP statique au Pi
 
-Une fois les configurations désirées complétées, <a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">retirez la carte de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Pi puis démarrez ce dernier.
+Une fois les configurations désirées complétées, retirez la carte de l'ordinateur de façon sécuritaire, insérez-la dans le Pi puis démarrez ce dernier.
 
 Et voilà!
 

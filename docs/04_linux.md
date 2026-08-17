@@ -143,7 +143,7 @@ Il ne s'agit pas de commandes de base mais bien de commandes moins connues ou pl
 | grep id  ChaletsController.php | Rechercher toutes les lignes du fichier ChaletsController.php qui contiennent la chaîne "id" (grep = Global Regular Expression Print)  La commande grep est souvent utilisée à la suite d'une autre commande en séparant les deux par un pipe (|). De cette façon, la première commande n'affichera que les lignes qui contiennent la chaîne recherchée. |
 | find -type f | xargs grep allo | Rechercher dans tous les fichiers du répertoire courant la chaîne "allo"  L'utilisation de xargs peut être optionnelle. Cependant, si find trouve plus de fichiers que grep ne peut en prendre, xargs découpera la sortie de find pour appeler grep plusieurs fois en ne dépassant pas la longueur de commande maximale. |
 | find -type f -print 0 | xargs -0 grep unechaine | Pour manipuler les fichiers comprenant des espaces |
-| find ~ -name preferences.txt 2>/dev/null | <a href="fiche-Rechercher\_un\_fichier.md#Rechercher\_un\_fichier">Rechercher un fichier</a> dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
+| find ~ -name preferences.txt 2>/dev/null | Rechercher un fichier dans le dossier personnel (~) un fichier nommé "preferences.txt" sans afficher les message d'erreur du genre "Permission denied". |
 | ll | awk '$6=="Feb" ' | Afficher tous les fichiers modifiés en février - 6e colonne lors de l'affichage long |
 | find ~ -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 10 | Retrouve les 10 plus récents fichiers dans le dossier personnel et dans ses sous-dossiers. |
 
@@ -179,7 +179,7 @@ Lorsque vous entrez une de ces commandes, la LED verte clignote une dizaine de f
 
 Il ne faut pas retirer le câble d'alimentation tant que la LED verte n'est pas éteinte.
 
-Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, vous verrez ceci à l'écran :
+Si vous entrez une de ces commandes à partir de votre ordinateur dans une fenêtre Terminal branchée au Pi via SSH, vous verrez ceci à l'écran :
 
 Terminal
 
@@ -413,13 +413,13 @@ Terminal
 
 Dans cette fiche :
 
-* [Commande scp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#scp)
-  + [Copie de l'ordinateur vers le Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ordiverspi)
+* [Commande scp](04_linux.md#scp)
+  + [Copie de l'ordinateur vers le Raspberry Pi](04_linux.md#ordiverspi)
   + [Copier du Raspberry Pi vers l'ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#piversordi)
-  + [Copie d'un dossier complet](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dossiercomplet)
-  + [Accès qui nécessite un port particulier](https://apical.xyz/formations/pageunique/systeme_domotique_diy#port)
-  + [Erreur serveur non trouvé](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nontrouve)
-* [Copie à l'aide d'une clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb)
+  + [Copie d'un dossier complet](04_linux.md#dossiercomplet)
+  + [Accès qui nécessite un port particulier](04_linux.md#port)
+  + [Erreur serveur non trouvé](04_linux.md#nontrouve)
+* [Copie à l'aide d'une clé USB](67_chapitre_de_reference_pour_home_assistant.md#usb)
 
 ## Commande scp {#scp}
 
@@ -431,7 +431,7 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un <a href="fiche-activer\_ssh\_sur\_le\_raspberry\_pi.md#activer\_ssh\_sur\_le\_raspberry\_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un le serveur SSH doit être activé sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
 
@@ -519,7 +519,7 @@ scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.exten
 Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>, soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit via SSH, soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
@@ -554,13 +554,13 @@ Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes
 
 Dans cette fiche :
 
-* [Réponse courte : comment configurer les caractères de fin de ligne sous Geany](https://apical.xyz/formations/pageunique/systeme_domotique_diy#courte)
-* [Réponse détaillée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#detaillee)
-  + [Vérifier les caractères de fin de ligne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifier)
-    - [Windows, macOS ou Linux avec Geany](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifiergeany)
-    - [macOS ou Linux en ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifiercommande)
-  + [Convertir les caractères de fins de ligne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#convertir)
-    - [Window, macOS ou Linux avec Geany](https://apical.xyz/formations/pageunique/systeme_domotique_diy#convertirgeany)
+* [Réponse courte : comment configurer les caractères de fin de ligne sous Geany](04_linux.md#courte)
+* [Réponse détaillée](04_linux.md#detaillee)
+  + [Vérifier les caractères de fin de ligne](05_raspberry_pi.md#verifier)
+    - [Windows, macOS ou Linux avec Geany](04_linux.md#verifiergeany)
+    - [macOS ou Linux en ligne de commande](04_linux.md#verifiercommande)
+  + [Convertir les caractères de fins de ligne](04_linux.md#convertir)
+    - [Window, macOS ou Linux avec Geany](04_linux.md#convertirgeany)
     - [macOS ou Linux en ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#convertircommande)
 
 ## Réponse courte : comment configurer les caractères de fin de ligne sous Geany {#courte}
@@ -697,7 +697,7 @@ Dans le résultat obtenu à l'écran présenté plus bas, on voit que dans la pl
 
 192.168.1.1 est l'adresse locale du routeur (default gateway). Une autre des adresses correspond à l'ordinateur que vous utilisez.
 
-Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">connecter via SSH</a> avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
+Si vous recherchez l'adresse IP d'un Raspberry Pi, il reste à tenter de vous connecter via SSH avec les autres adresses pour trouver laquelle correspond au Pi (je parierais sur l'adresse qui a un port ouvert pour le service ssh ou celle qui indique clairement le nom du Raspberry Pi mais ces informations ne sont pas toujours affichées).
 
 Résultat à l'écran
 
@@ -892,9 +892,9 @@ Peu importe la technique utilisée, tout ce qui se trouvait sur la carte sera é
 
 Je vous propose trois techniques pour y arriver :
 
-* [Avec Raspberry Pi Imager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#raspberry)
-* [À la ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commande) (Mac et Linux seulement)
-* [Avec Etcher](https://apical.xyz/formations/pageunique/systeme_domotique_diy#etcher)
+* [Avec Raspberry Pi Imager](04_linux.md#raspberry)
+* [À la ligne de commande](05_raspberry_pi.md#commande) (Mac et Linux seulement)
+* [Avec Etcher](04_linux.md#etcher)
 
 ## Raspberry Pi Imager {#raspberry}
 
@@ -975,9 +975,9 @@ diskutil unmountDisk /dev/diskN
 
 sudo dd bs=1m if=*chemin*/nom-du-fichier.img of=/dev/rdiskN conv=sync
 
-Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier\_le\_chemin\_d\_un\_fichier.md#copier\_le\_chemin\_d\_un\_fichier">copier\_le\_chemin\_d\_un\_fichier</a>.
+Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : copier\_le\_chemin\_d\_un\_fichier.
 
-Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd</a>.
+Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.
 
 ## Etcher {#etcher}
 
@@ -995,12 +995,12 @@ De plus, une mauvaise configuration de la date pourrait mener à toutes sortes d
 
 Dans cette fiche :
 
-* [Informations actuelles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#infosactuelles)
-* [Ajuster la date - réponse courte](https://apical.xyz/formations/pageunique/systeme_domotique_diy#responsecourte)
-* [Ajuster la date - réponse plus élaborée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#reponseelaboree)  
-  + [Ajuster le fuseau horaire](https://apical.xyz/formations/pageunique/systeme_domotique_diy#fuseau)
-  + [Ajuster la date et l'heure](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dateetheure)
-  + [Activer la synchronisation de l'horloge](https://apical.xyz/formations/pageunique/systeme_domotique_diy#synchro)
+* [Informations actuelles](04_linux.md#infosactuelles)
+* [Ajuster la date - réponse courte](04_linux.md#responsecourte)
+* [Ajuster la date - réponse plus élaborée](04_linux.md#reponseelaboree)  
+  + [Ajuster le fuseau horaire](89_les_modeles_home_assistant.md#fuseau)
+  + [Ajuster la date et l'heure](04_linux.md#dateetheure)
+  + [Activer la synchronisation de l'horloge](04_linux.md#synchro)
 
 ## Informations actuelles {#infosactuelles}
 
@@ -1272,9 +1272,9 @@ Voici quelques raccourcis qui pourraient vous être utiles :
 
 Dans cette fiche :
 
-* [vim](https://apical.xyz/formations/pageunique/systeme_domotique_diy#vim)
-* [Mode commande vs mode insertion](https://apical.xyz/formations/pageunique/systeme_domotique_diy#mode)
-* [Principales commandes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandes)
+* [vim](04_linux.md#vim)
+* [Mode commande vs mode insertion](04_linux.md#mode)
+* [Principales commandes](04_linux.md#commandes)
 
 ## vim {#vim}
 
@@ -1348,7 +1348,7 @@ man vim
 
 Network Manager est un outil de gestion de réseaux pour les systèmes Linux.
 
-Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous <a href="fiche-installation\_de\_raspberry\_pi\_os.md#installation\_de\_raspberry\_pi\_os">Raspberry Pi OS</a> mais il l'est sous <a href="fiche-installation\_de\_home\_assistant\_et\_premier\_acces.md#installation\_de\_home\_assistant\_et\_premier\_acces">HassOS</a>.
+Il n'est pas installé par défaut sur toutes les saveurs Linux. Par exemple, il ne l'est pas sous Raspberry Pi OS mais il l'est sous HassOS.
 
 Lorsque Network Manager est installé, plusieurs opérations sur le réseau peuvent être réalisées dans une fenêtre Terminal grâce à la commande nmcli.
 

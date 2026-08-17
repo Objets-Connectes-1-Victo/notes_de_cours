@@ -132,13 +132,13 @@ Fichier automations.yaml
 
 ## 74.2 Lancer une automatisation à l'aide d'un bouton {#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton}
 
-Il est intéressant d'ajouter <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">un bouton</a> au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
+Il est intéressant d'ajouter un bouton au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
 
 Il est possible de configurer le bouton pour tenir compte ou non des conditions de l'automatisation.
 
 Pour y arriver :
 
-* <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">Éditez le tableau de bord</a> et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
+* Éditez le tableau de bord et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
 * Ajoutez une carte de type bouton.
 * Pour ce qu'on veut faire ici, il est inutile de choisir une entité au début de la carte. S'il y en a une qui apparaît par défaut, cliquez sur le X pour la supprimer.
 * Si désiré, indiquez quel nom doit apparaître sur la carte.
@@ -283,7 +283,7 @@ Pour lancer un script, vous avez plusieurs options, notamment :
 
 * À l'aide du menu Paramètres / Automatisations et scènes / onglet Scripts / clic sur les trois points verticaux à droite du script désiré / Exécuter.
 * En utilisant le script comme action dans une automatisation (Autres actions / Script / Exécuter).
-* Sur le tableau de bord, à l'aide d'une <a href="fiche-lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton.md#lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton">carte de type bouton</a> qui effectue l'action de lancer le script.
+* Sur le tableau de bord, à l'aide d'une carte de type bouton qui effectue l'action de lancer le script.
 
 ## 74.5 Trace d'une automatisation {#fiche-trace_d_une_automatisation}
 

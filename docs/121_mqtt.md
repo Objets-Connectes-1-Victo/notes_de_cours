@@ -10,13 +10,13 @@ Dans le monde de la domotique, il a une application intéressante : il permet �
 
 Dans cette fiche :
 
-* [Agent MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#agent)
-* [Exemple de fonctionnement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#exemple)
-* [Les canaux de communication MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#canal)
-* [Payload](https://apical.xyz/formations/pageunique/systeme_domotique_diy#payload)
-* [QoS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#qos)
-* [Retain](https://apical.xyz/formations/pageunique/systeme_domotique_diy#retain)
-* [Conditions pour qu'une communication MQTT ait lieu](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conditions)
+* [Agent MQTT](121_mqtt.md#agent)
+* [Exemple de fonctionnement](121_mqtt.md#exemple)
+* [Les canaux de communication MQTT](121_mqtt.md#canal)
+* [Payload](121_mqtt.md#payload)
+* [QoS](121_mqtt.md#qos)
+* [Retain](121_mqtt.md#retain)
+* [Conditions pour qu'une communication MQTT ait lieu](121_mqtt.md#conditions)
 
 ## Agent MQTT {#agent}
 
@@ -28,7 +28,7 @@ Il ne faut pas confondre l'agent Mosquitto avec le site Web [https://test.mosqui
 
 Attention : les informations qui transigent sur https://test.mosquitto.org sont publiques! De plus, la communication n'est pas fiable, le serveur peut arrêter de fonctionner à tout moment. C'est un serveur de test.
 
-Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT <a href="fiche-la\_securite\_avec\_mqtt.md#la\_securite\_avec\_mqtt">soit correctement configuré</a>.
+Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT soit correctement configuré.
 
 ## Exemple de fonctionnement {#exemple}
 
@@ -153,7 +153,7 @@ Il est préférable d'utiliser le port 8883. Il s'agit d'un autre port réserv�
 
 ## 107.3 Client MQTT dans Home Assistant {#fiche-client_mqtt_dans_home_assistant}
 
-Home Assistant peut effectuer des communications <a href="fiche-mqtt.md#mqtt">MQTT</a> grâce à l'[intégration MQTT](https://www.home-assistant.io/integrations/mqtt/).
+Home Assistant peut effectuer des communications MQTT grâce à l'[intégration MQTT](https://www.home-assistant.io/integrations/mqtt/).
 
 Cette intégration installera un client MQTT avec la possibilité d'installer également un agent.
 
@@ -164,19 +164,19 @@ Rappel : pour qu'une communication MQTT ait lieu, il faut :
 
 Dans cette fiche :
 
-* [Installation du client MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#installation)
-* [Configuration du client MQTT (informations sur l'agent à utiliser)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#configuration)
-  + [Agent test.mosquitto.org](https://apical.xyz/formations/pageunique/systeme_domotique_diy#mosquittoorg)
-  + [Agent installé localement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#local)
-    - [Mot de passe de l'agent MQTT sur Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#motdepasse)
-    - [Installer un agent après-coup ou reconfigurer l'agent local](https://apical.xyz/formations/pageunique/systeme_domotique_diy#installer)
-  + [Agent installé sur un second ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ip)
-* [Utilisation d'une connexion sécurisée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#securise)
-* [Tester MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#tester)
-  + [Publier un paquet](https://apical.xyz/formations/pageunique/systeme_domotique_diy#publier)
-  + [Écouter un sujet](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ecouter)
-  + [Caractères génériques](https://apical.xyz/formations/pageunique/systeme_domotique_diy#generiques)
-* [Abonnement et publication](https://apical.xyz/formations/pageunique/systeme_domotique_diy#abonnementpublication)
+* [Installation du client MQTT](121_mqtt.md#installation)
+* [Configuration du client MQTT (informations sur l'agent à utiliser)](121_mqtt.md#configuration)
+  + [Agent test.mosquitto.org](121_mqtt.md#mosquittoorg)
+  + [Agent installé localement](121_mqtt.md#local)
+    - [Mot de passe de l'agent MQTT sur Home Assistant](104_la_base_de_donnees_home_assistant.md#motdepasse)
+    - [Installer un agent après-coup ou reconfigurer l'agent local](121_mqtt.md#installer)
+  + [Agent installé sur un second ordinateur](121_mqtt.md#ip)
+* [Utilisation d'une connexion sécurisée](121_mqtt.md#securise)
+* [Tester MQTT](121_mqtt.md#tester)
+  + [Publier un paquet](121_mqtt.md#publier)
+  + [Écouter un sujet](121_mqtt.md#ecouter)
+  + [Caractères génériques](121_mqtt.md#generiques)
+* [Abonnement et publication](121_mqtt.md#abonnementpublication)
 
 ## Installation du client MQTT {#installation}
 
@@ -324,7 +324,7 @@ Ceci est utile seulement pour tester MQTT.
   
 Avec cette technique, si votre boîte Home Assistant est redémarrée, elle ne réagira plus aux messages reçus sur ce canal.   
   
-Pour un vrai abonnement MQTT, il faut utiliser la <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">technique officielle</a>.
+Pour un vrai abonnement MQTT, il faut utiliser la technique officielle.
 
 Dans la zone Écouter un sujet, entrez le nom du canal désiré.
 
@@ -346,18 +346,18 @@ Par exemple, pour écouter tout ce qui se dit sur le canal jeedom, peu importe l
 
 ## Abonnement et publication {#abonnementpublication}
 
-Les techniques pour utiliser le client MQTT sont détaillées dans la fiche « <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">publication\_et\_abonnement\_mqtt\_avec\_home\_assistant</a> ».
+Les techniques pour utiliser le client MQTT sont détaillées dans la fiche « publication\_et\_abonnement\_mqtt\_avec\_home\_assistant ».
 
 ## 107.4 Publication et abonnement MQTT avec Home Assistant {#fiche-publication_et_abonnement_mqtt_avec_home_assistant}
 
-Une fois que vous avez <a href="fiche-client\_mqtt\_dans\_home\_assistant.md#client\_mqtt\_dans\_home\_assistant">installé un client MQTT</a> sur Home Assistant et que vous avez configuré l'agent MQTT à utiliser, vous pouvez débuter le processus de publication et d'abonnement MQTT.
+Une fois que vous avez installé un client MQTT sur Home Assistant et que vous avez configuré l'agent MQTT à utiliser, vous pouvez débuter le processus de publication et d'abonnement MQTT.
 
 Dans cette fiche :
 
-* [Publication sur un canal](https://apical.xyz/formations/pageunique/systeme_domotique_diy#publication)
-* [Abonnement à un canal](https://apical.xyz/formations/pageunique/systeme_domotique_diy#abonnement)
-* [Affichage de l'information reçue](https://apical.xyz/formations/pageunique/systeme_domotique_diy#carte)
-* [Déclencheur d'une automatisation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#declencheur)
+* [Publication sur un canal](121_mqtt.md#publication)
+* [Abonnement à un canal](121_mqtt.md#abonnement)
+* [Affichage de l'information reçue](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#carte)
+* [Déclencheur d'une automatisation](121_mqtt.md#declencheur)
 
 ## Publication sur un canal {#publication}
 
@@ -370,7 +370,7 @@ Il est également possible de la tester à l'aide du menu Outils développement 
 Vous devrez spécifier ces informations :
 
 * Sujet (Topic) : nom du canal
-* Charge utile (Payload) : information à publier codée en dur ou <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">à l'aide d'un modèle</a>.
+* Charge utile (Payload) : information à publier codée en dur ou à l'aide d'un modèle.
 
   Dans le fichier automation.yaml, lorsque vous utilisez un modèle, n'oubliez pas les apostrophes ou guillemets alentour du modèle.
 
@@ -380,7 +380,7 @@ Vous devrez spécifier ces informations :
 
   payload: '{{ states(''sensor.5\_in\_1\_pir\_motion\_sensor\_illuminance'') }}'
 
-  Dans le fichier automation.yaml ou dans l'interface graphique, lorsque les données sont publiées <a href="fiche-format\_json\_dans\_un\_modele.md#format\_json\_dans\_un\_modele">au format JSON</a>, il ne faut pas entourer le modèle de guillemets ou d'apostrophes (dans cet exemple, il n'y a pas de guillemets alentour de state\_attr('domaine.identifiant\_objet', 'attribut1')).
+  Dans le fichier automation.yaml ou dans l'interface graphique, lorsque les données sont publiées au format JSON, il ne faut pas entourer le modèle de guillemets ou d'apostrophes (dans cet exemple, il n'y a pas de guillemets alentour de state\_attr('domaine.identifiant\_objet', 'attribut1')).
 
   Modèle
 
@@ -391,8 +391,8 @@ Vous devrez spécifier ces informations :
       }  
   %}  
   {{ valeurs | to\_json }}
-* QoS : <a href="fiche-mqtt.md#mqtt">Qualité du service</a>
-* Retenir (Retain) : Activez cette option pour que le message soit <a href="fiche-mqtt.md#mqtt">retenu</a>.
+* QoS : Qualité du service
+* Retenir (Retain) : Activez cette option pour que le message soit retenu.
 
   ![mqtt.publish](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Services-MqttPublish.png)
 

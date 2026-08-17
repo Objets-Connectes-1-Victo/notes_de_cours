@@ -54,7 +54,7 @@ D'abord, essayez de brancher le Raspberry Pi au routeur à l'aide d'un câble RJ
 * Dans ce fichier, le id doit être identique au nom du fichier (my-network).
 * Les sauts de lignes doivent être codés en Linux (LF) et non en Windows (CRLF).
 * Notez que le Raspberry Pi 3 ne supporte que le Wi-Fi 2.4 GHz alors que le Raspberry Pi 4 supporte également le 5 GHz.
-* Une fois le fichier my-network complété,<a href="fiche-retirer\_un\_disque\_amovible\_de\_facon\_securitaire.md#retirer\_un\_disque\_amovible\_de\_facon\_securitaire">retirez la clé de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
+* Une fois le fichier my-network complété,retirez la clé de l'ordinateur de façon sécuritaire, insérez-la dans le Raspberry Pi et redémarrez Home Assistant.
 
 Fichier network/my-network
 

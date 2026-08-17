@@ -821,7 +821,7 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">la technique présentée ici</a>.
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez la technique présentée ici.
 
 ## 5.12 Erreur « Under-voltage detected! » {#fiche-erreur_under-voltage_detected}
 

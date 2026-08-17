@@ -10,12 +10,12 @@ Remarquez qu'il est possible de [configurer Home Assistant pour qu'il utilise un
 
 Dans cette fiche :
 
-* [Explorer la base de données dans l'interface Web](https://apical.xyz/formations/pageunique/systeme_domotique_diy#web)
-* [Explorer la base de données dans le terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#hassos)
-  + [Liste des tables](https://apical.xyz/formations/pageunique/systeme_domotique_diy#tables)
-  + [Structure des tables](https://apical.xyz/formations/pageunique/systeme_domotique_diy#structure)
-  + [Interroger les données](https://apical.xyz/formations/pageunique/systeme_domotique_diy#donnees)
-* [Explorer la base de données dans le Terminal de votre ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminal)
+* [Explorer la base de données dans l'interface Web](104_la_base_de_donnees_home_assistant.md#web)
+* [Explorer la base de données dans le terminal HassOS](104_la_base_de_donnees_home_assistant.md#hassos)
+  + [Liste des tables](104_la_base_de_donnees_home_assistant.md#tables)
+  + [Structure des tables](104_la_base_de_donnees_home_assistant.md#structure)
+  + [Interroger les données](104_la_base_de_donnees_home_assistant.md#donnees)
+* [Explorer la base de données dans le Terminal de votre ordinateur](104_la_base_de_donnees_home_assistant.md#terminal)
 
 ## Explorer la base de données dans l'interface Web {#web}
 
@@ -101,7 +101,7 @@ SELECT sql FROM sqlite\_master;
 
 Je vous présente la structure des tables sous forme graphique.
 
-Pour produire ce diagramme, j'ai ouvert la base de données dans <a href="fiche-generer\_un\_schema\_de\_la\_base\_de\_donnees\_avec\_valentina\_studio.md#generer\_un\_schema\_de\_la\_base\_de\_donnees\_avec\_valentina\_studio">Valentina Studio</a> après l'avoir [téléversée sur mon poste de travail](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminal).
+Pour produire ce diagramme, j'ai ouvert la base de données dans Valentina Studio après l'avoir [téléversée sur mon poste de travail](104_la_base_de_donnees_home_assistant.md#terminal).
 
 ![Schéma BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SchemaBD-2025.png)
 
@@ -161,11 +161,11 @@ Je vous propose deux techniques pour y arriver :
   Terminal de l'ordinateur
 
   scp -O -P 22222 root@192.168.1.145:/mnt/data/supervisor/homeassistant/home-assistant\_v2.db /chemin/local
-* À partir du <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">module complémentaire File Editor</a> : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant\_v2.db, directement dans le <a href="fiche-dossier\_config.md#dossier\_config">dossier config</a>. Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
+* À partir du module complémentaire File Editor : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant\_v2.db, directement dans le dossier config. Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
 
   ![File Editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-TelechargerBD.png)
 
-Sur votre poste de travail, <a href="fiche-Installation\_de\_SQLite.md#Installation\_de\_SQLite">assurez-vous que SQLite soit installé</a>.
+Sur votre poste de travail, assurez-vous que SQLite soit installé.
 
 Dans une fenêtre Terminal, entrez la commande sqlite3 suivie du chemin complet de la base de données (là où vous l'avez téléchargée).
 

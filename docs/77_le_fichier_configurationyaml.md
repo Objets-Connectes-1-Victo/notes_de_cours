@@ -171,7 +171,7 @@ databases:
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons File Editor et <a href="fiche-travailler\_avec\_le\_module\_complementaire\_studio\_code\_server.md#travailler\_avec\_le\_module\_complementaire\_studio\_code\_server">Studio Code Server</a>.
+Parmi ceux-ci, notons File Editor et Studio Code Server.
 
 Je vous montre ici comment installer File Editor.
 
@@ -215,13 +215,13 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 * Rendez-vous dans le menu Paramètres / Modules complémentaires / Tuile File editor / onglet Configuration.
 * Au-dessus de la zone Ignore Pattern, enlever .storage.
 
-<a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">Dans une prochaine fiche</a>, je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
+Dans une prochaine fiche, je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
 ## 68.3 Travailler avec le module complémentaire Studio Code Server {#fiche-travailler_avec_le_module_complementaire_studio_code_server}
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">File Editor</a> et Studio Code Server.
+Parmi ceux-ci, notons File Editor et Studio Code Server.
 
 Je vous montre ici comment installer Studio Code Server.
 
@@ -272,7 +272,7 @@ Le fichier configuration.yaml permet d'effectuer une foule de configurations dan
 
 Physiquement, il est placé dans le dossier /mnt/data/supervisor/homeassistant/configuration.yaml. Mais il est plus simple de travailler dans l'interface Web pour y accéder.
 
-Pour l'éditer, <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">ouvrez l'extension File editor</a> ou <a href="fiche-travailler\_avec\_le\_module\_complementaire\_studio\_code\_server.md#travailler\_avec\_le\_module\_complementaire\_studio\_code\_server">Studio Code Server</a>.
+Pour l'éditer, ouvrez l'extension File editor ou Studio Code Server.
 
 Cette démonstration est réalisée à l'aide de File editor.
 
@@ -280,7 +280,7 @@ Cliquez sur l'icône de chemise à gauche de la barre bleue.
 
 ![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Interface.png)
 
-Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant (<a href="fiche-dossier\_config.md#dossier\_config">aussi appelé dossier config</a>). C'est justement là que se trouve notre fichier.
+Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant (aussi appelé dossier config). C'est justement là que se trouve notre fichier.
 
 Cliquez sur le fichier configuration.yaml.
 
@@ -319,9 +319,9 @@ C'est ce qui est fait par défaut avec les fichiers automations.yaml, scripts.ya
 
 Il est possible d'ajouter des instructions dans le fichier configuration.yaml, notamment pour :
 
-* ajouter des capteurs <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">virtuels</a>
-* effectuer des configurations pour pouvoir <a href="fiche-configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel.md#configurer\_home\_assistant\_pour\_l\_envoi\_de\_courriel">envoyer du courriel</a>
-* effectuer des configurations  pour <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">s'abonner à un canal MQTT</a>
+* ajouter des capteurs virtuels
+* effectuer des configurations pour pouvoir envoyer du courriel
+* effectuer des configurations  pour s'abonner à un canal MQTT
 * etc.
 
 Chacune des configurations doit être placée dans une section avec un nom unique.
@@ -372,7 +372,7 @@ La couleur rouge indique que les modifications n'ont pas été enregistrées.
 
 Avant de poursuivre, il est important de vérifier votre travail.
 
-Suivez les conseils « <a href="fiche-validation\_des\_configurations.md#validation\_des\_configurations">validation\_des\_configurations</a> » pour vous assurer que vos configurations sont valides.
+Suivez les conseils « validation\_des\_configurations » pour vous assurer que vos configurations sont valides.
 
 ## Pour que les configurations soient prises en compte {#rechargement}
 
@@ -394,7 +394,7 @@ Parfois, un redémarrage de Home Assistant sera nécessaire : Paramètres / Syst
 
 ## 68.5 Validation des configurations {#fiche-validation_des_configurations}
 
-Une fois vos configurations en place <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">dans le fichier configuration.yaml</a>, il faut s'assurer que le tout soit valide avant de poursuivre.
+Une fois vos configurations en place dans le fichier configuration.yaml, il faut s'assurer que le tout soit valide avant de poursuivre.
 
 Si vous essayez un redémarrage alors que le fichier de configuration n'est pas valide, Home Assistant ne le permettra pas.
 
@@ -432,7 +432,7 @@ Un clic sur cette pastille nous confirme que la notification concerne une erreur
 
 ## Console Home Assistant {#consoleha}
 
-Le fichier de configurations peut également être validé <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">à la console Home Assistant</a>.
+Le fichier de configurations peut également être validé à la console Home Assistant.
 
 Entrez la commande suivante :
 

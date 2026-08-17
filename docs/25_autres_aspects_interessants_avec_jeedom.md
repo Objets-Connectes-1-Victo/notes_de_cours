@@ -4,11 +4,11 @@
 
 Si vous avez perdu un mot de passe Jeedom, que ce soit pour l'usager admin ou pour un autre, vous pouvez le réinitialiser à condition d'avoir accès au terminal Linux du Raspberry Pi sur lequel Jeedom est installé.
 
-Ceci peut être fait en branchant un clavier et un écran sur le Pi ou encore <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>.
+Ceci peut être fait en branchant un clavier et un écran sur le Pi ou encore via SSH.
 
 Je vous conseille vivement le branchement via SSH puisque le nouveau mot de passe apparaîtra à l'écran et, puisqu'il est très long, il sera plus facile de faire un copier-coller pour l'entrer dans l'interface Web.
 
-Notez que si vous avez encore un accès administrateur, il est préférable d'utiliser [la méthode indiquée plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#graphique) pour modifier le mot de passe à l'aide de l'interface Jeedom.
+Notez que si vous avez encore un accès administrateur, il est préférable d'utiliser [la méthode indiquée plus bas](99_detecteur_de_presence_sous_home_assistant.md#graphique) pour modifier le mot de passe à l'aide de l'interface Jeedom.
 
 ## Réinitialisation à l'aide du terminal
 
@@ -122,16 +122,16 @@ Cet écran, qui n'est disponible que pour les administrateurs, vous permet de mo
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
-Travailler avec Jeedom à partir d'un ordinateur situé sur le même réseau est très simple : il suffit d'entrer <a href="fiche-slug\_de\_la\_fiche.md#slug\_de\_la\_fiche">l'adresse IP du Raspberry Pi</a> dans un navigateur et le tour est joué!
+Travailler avec Jeedom à partir d'un ordinateur situé sur le même réseau est très simple : il suffit d'entrer l'adresse IP du Raspberry Pi dans un navigateur et le tour est joué!
 
 Par contre, le système domotique prend toute sa puissance lorsque vous pouvez y accéder à distance, par exemple pour éteindre une lumière oubliée ou pour consulter une caméra pendant votre absence.
 
 Attention : le fait de donner un accès à votre boîte domotique via Internet peut ouvrir un trou de sécurité.  
-Assurez-vous d'utiliser des <a href="fiche-Gestion\_des\_mots\_de\_passe.md#Gestion\_des\_mots\_de\_passe">mots de passe forts</a>.
+Assurez-vous d'utiliser des mots de passe forts.
 
 Plusieurs options s'offrent à vous pour configurer l'accès à distance :
 
-* À l'aide de l'application mobile officielle que vous pouvez acheter directement sur Jeedom Market au coût de 4 € (environ 6 $ CA). Les instructions sont données ici : « <a href="fiche-application\_mobile\_officielle\_pour\_acceder\_a\_jeedom\_a\_distance.md#application\_mobile\_officielle\_pour\_acceder\_a\_jeedom\_a\_distance">application\_mobile\_officielle\_pour\_acceder\_a\_jeedom\_a\_distance</a> ».
+* À l'aide de l'application mobile officielle que vous pouvez acheter directement sur Jeedom Market au coût de 4 € (environ 6 $ CA). Les instructions sont données ici : « application\_mobile\_officielle\_pour\_acceder\_a\_jeedom\_a\_distance ».
 * En effectuant vous-même les configurations nécessaires et ce, tout à fait gratuitement (sauf si vous devez acheter un nom de domaine).
 
 Je vous explique ici comment effectuer les configurations afin que vous n'ayiez pas à débourser pour accéder à Jeedom à partir de n'importe où.
@@ -170,7 +170,7 @@ Pour y arriver :
   Ceci vous permettra d'accéder à Jeedom à l'aide d'une adresse du genre monsousdomaine.domainedufournisseur.org. Chez DuckDns, ce sera monsousdomaine.duckdns.org. Le fournisseur associera automatiquement le sous-domaine à votre adresse IP publique actuelle.
 
   ![Sous-domaine chez Duck DNS](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DuckDNS-CreationSousDomaine.png)
-* Rendez-vous maintenant <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">dans l'interface d'administration de Jeedom</a>.
+* Rendez-vous maintenant dans l'interface d'administration de Jeedom.
 * Cliquez sur le menu Plugins / Gestion des plugins.
 * Cliquez sur Market.
 * Recherchez Dyndns.
@@ -192,7 +192,7 @@ Pour y arriver :
 
 La procédure présentée pour les adresses IP dynamiques fonctionne aussi pour les adresses IP fixes. Cependant, une adresse IP fixe vous permet d'accéder à Jeedom à partir de votre propre nom de domaine.
 
-Si vous ne possédez pas de nom de domaine, vous devrez en réserver un et en assumer les frais. Les instructions sont données ici : « <a href="fiche-Choisir\_et\_reserver\_son\_nom\_de\_domaine.md#Choisir\_et\_reserver\_son\_nom\_de\_domaine">Choisir\_et\_reserver\_son\_nom\_de\_domaine</a> ».
+Si vous ne possédez pas de nom de domaine, vous devrez en réserver un et en assumer les frais. Les instructions sont données ici : « Choisir\_et\_reserver\_son\_nom\_de\_domaine ».
 
 Notez que vous n'avez pas besoin d'hébergement Web, seul le nom de domaine est nécessaire ici.
 
@@ -247,7 +247,7 @@ Lorsque vous tenterez d'accéder à Jeedom à partir de votre nouveau sous-domai
 
 Il vous faut le configurer pour qu'il transmette la demande au Raspberry Pi.
 
-* Assurez-vous que le Raspberry Pi ait <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">une adresse IP statique</a>.
+* Assurez-vous que le Raspberry Pi ait une adresse IP statique.
 * Par mesure de sécurité, la plupart des routeurs ne permettent pas par défaut l'accès aux configurations via Wi-Fi. Si c'est le cas avec votre routeur, branchez l'ordinateur au routeur à l'aide d'un câble RJ45.
 * Sur votre ordinateur, ouvrez la page Web à l'adresse IP locale du routeur. Il s'agit généralement de 192.168.0.1 ou 192.168.1.1. Sur certains systèmes, il faut plutôt accéder au 10.0.0.1. En cas de doute, rendez-vous sur ce site : <http://whatsmyrouterip.com/>.
 * Dans les menus de votre routeur, recherchez une option du genre Transfert de port ou Port Forwarding. Le chemin pour atteindre l'écran peut être plus complexe, par exemple Mode Expert / Configuration / NAT / Transfert de port ou encore Sécurité / Applications et jeux / Transfert de connexion unique ou Routage de port unique.
@@ -281,7 +281,7 @@ Ceci peut être réalisé sans frais.
 
 La technique que je vous propose installera [certbot](https://snapcraft.io/certbot), une application qui automatise la configuration de certificats SSL avec Let's Encrypt.
 
-Accédez au Raspberry Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou en y branchant un clavier et un écran puis suivez ces étapes :
+Accédez au Raspberry Pi via SSH ou en y branchant un clavier et un écran puis suivez ces étapes :
 
 * Comme toujours, avant d'installer quoi que ce soit sur un système Linux, il faut s'assurer qu'il est à jour.
 
@@ -343,11 +343,11 @@ Accédez au Raspberry Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ss
 
 L'application mobile Jeedom vous permet d'accéder à votre boîte domotique à partir de n'importe quel endroit où un accès Internet est disponible.
 
-Vous devez savoir que cette application n'est pas gratuite. Si vous préférez ne rien débourser, je vous propose une autre technique sur cette fiche : « <a href="fiche-acceder\_a\_jeedom\_a\_distance\_gratuitement.md#acceder\_a\_jeedom\_a\_distance\_gratuitement">acceder\_a\_jeedom\_a\_distance\_gratuitement</a> ».
+Vous devez savoir que cette application n'est pas gratuite. Si vous préférez ne rien débourser, je vous propose une autre technique sur cette fiche : « acceder\_a\_jeedom\_a\_distance\_gratuitement ».
 
 Si vous souhaitez installer l'application Jeedom, dont la configuration est beaucoup plus simple, suivez ces étapes :
 
-* Rendez-vous <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">dans l'interface d'administration de Jeedom</a>.
+* Rendez-vous dans l'interface d'administration de Jeedom.
 * Cliquez sur le menu Plugins / Gestion des plugins.
 * Cliquez sur Market.
 * Recherchez mobile.
@@ -384,7 +384,7 @@ Je vous propose donc d'arrêter le clignotement à l'aide de cette technique que
 
 Cette technique fonctionne autant sur un système domotique qui tourne sur Raspberry Pi OS, par exemple Jeedom, que sur un système Home Assistant qui tourne sur HassOS.
 
-* Accédez au Raspberry Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou en y branchant un clavier et un écran (sous Home Assistant, l'accès SSH <a href="fiche-se\_brancher\_a\_home\_assistant\_via\_ssh.md#se\_brancher\_a\_home\_assistant\_via\_ssh">est détaillé ici</a>).
+* Accédez au Raspberry Pi via SSH ou en y branchant un clavier et un écran (sous Home Assistant, l'accès SSH est détaillé ici).
 * Afin de connaître le port tty de la clé, lancez cette commande. (sous Home Assistant, vous trrouverez le port dans le menu Paramètres / Appareils et services / onglet Intégrations / tuile Z-Wave.
 
   Terminal
@@ -417,11 +417,11 @@ Cette technique fonctionne autant sur un système domotique qui tourne sur Raspb
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
-Vous désirez <a href="fiche-acceder\_a\_jeedom\_a\_distance\_gratuitement.md#acceder\_a\_jeedom\_a\_distance\_gratuitement">accéder à Jeedom à distance gratuitement</a> mais le port 80 est déjà utilisé pour accéder à un autre périphérique dans votre maison? Pas de problème, je vous montre ici comment modifier le port qui sera utilisé par Jeedom.
+Vous désirez accéder à Jeedom à distance gratuitement mais le port 80 est déjà utilisé pour accéder à un autre périphérique dans votre maison? Pas de problème, je vous montre ici comment modifier le port qui sera utilisé par Jeedom.
 
 Les modifications doivent être réalisées dans les fichiers de configuration d'Apache sur le Raspberry Pi.
 
-Accédez au Raspberry Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a> ou en y branchant un clavier et un écran puis suivez ces étapes :
+Accédez au Raspberry Pi via SSH ou en y branchant un clavier et un écran puis suivez ces étapes :
 
 * Éditez le fichier ports.conf d'Apache.
 
@@ -463,12 +463,12 @@ Accédez au Raspberry Pi <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ss
   Terminal
 
   sudo reboot
-* Modifiez les <a href="fiche-acceder\_a\_jeedom\_a\_distance\_gratuitement.md#acceder\_a\_jeedom\_a\_distance\_gratuitement">configurations du routeur</a> afin que le port externe soit celui entré plus haut (ex : 8088). Le port interne peut demeurer le 80.
+* Modifiez les configurations du routeur afin que le port externe soit celui entré plus haut (ex : 8088). Le port interne peut demeurer le 80.
 * Désormais, pour accéder à Jeedom, vous devrez terminer son IP ou son sous-domaine par deux points suivis du numéro de port, par exemple 192.168.1.145:8088 à l'interne ou monsousdomaine.domainedufournisseur.org:8088 à l'externe.
 
 ## 23.6 Retrouver l'adresse IP du Pi à l'aide de Jeedom {#fiche-retrouver_l_adresse_ip_du_pi_a_l_aide_de_jeedom}
 
-Le <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">plugin Script</a> permet d'effectuer différentes opérations dans Jeedom et de récupérer des valeurs qui pourront être utilisées dans les scénarios.
+Le plugin Script permet d'effectuer différentes opérations dans Jeedom et de récupérer des valeurs qui pourront être utilisées dans les scénarios.
 
 Ici, je vous montre les configurations à réaliser pour retrouver l'adresse IP du Raspberry Pi sur lequel Jeedom est installé.
 
@@ -498,7 +498,7 @@ Si vous avez besoin de connaître l'adresse publique, ajoutez une commande scrip
 
 Voici un petit scénario plutôt pratique!
 
-Vous devez d'abord avoir <a href="fiche-envoyer\_un\_courriel\_avec\_jeedom.md#envoyer\_un\_courriel\_avec\_jeedom">configuré Jeedom pour envoyer du courriel</a>.
+Vous devez d'abord avoir configuré Jeedom pour envoyer du courriel.
 
 * Mode du scénario : Provoqué
 * Événement : #start#

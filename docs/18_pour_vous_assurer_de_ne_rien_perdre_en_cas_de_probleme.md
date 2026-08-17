@@ -67,7 +67,7 @@ Il est possible d'apporter des précisions sur la façon dont les sauvegardes se
 * De là, vous pouvez configurer les sauvegardes automatiques.
   + Il est possible de modifier le nom du dossier qui contiendra les sauvegardes par défaut : backup).
   + Le nombre de sauvegardes conservées sur le Pi dépend des configurations Rétention temporelle (jours) et Taille totale maximale (Mo).
-  + Il est possible de copier automatiquement les sauvegardes dans l'infonuagique. Cette solution requiert cependant un paiement mensuel de 2 euros. Par contre, <a href="fiche-copier\_automatiquement\_le\_fichier\_de\_sauvegarde\_sur\_votre\_ordinateur.md#copier\_automatiquement\_le\_fichier\_de\_sauvegarde\_sur\_votre\_ordinateur">je vous montre ici une technique pour télécharger les sauvegardes sans frais sur votre ordinateur</a>.
+  + Il est possible de copier automatiquement les sauvegardes dans l'infonuagique. Cette solution requiert cependant un paiement mensuel de 2 euros. Par contre, je vous montre ici une technique pour télécharger les sauvegardes sans frais sur votre ordinateur.
 
 ## Restaurer une sauvegarde {#restaurer}
 
@@ -112,11 +112,11 @@ Ce que je vous propose est encore plus simple : une copie vers votre ordinateur
 * Créez un petit fichier bash pour automatiser cette tâche.
   + Le nom du fichier de sauvegarde est toujours le même à l'exception de la date du jour. L'heure pourra aussi être différente mais si vous vous en tenez aux sauvegardes lancées automatiquement, elle sera toujours la même à une ou deux minutes près.
 
-    Le fichier bash devra donc monter le nom du fichier de sauvegarde à partir de la date du jour. Vous pouvez vous inspirer du <a href="fiche-script\_pour\_faciliter\_la\_copie\_de\_securite.md#script\_pour\_faciliter\_la\_copie\_de\_securite">script pour faciliter la copie de sécurité dans le nuage</a>.
+    Le fichier bash devra donc monter le nom du fichier de sauvegarde à partir de la date du jour. Vous pouvez vous inspirer du script pour faciliter la copie de sécurité dans le nuage.
 
     Je vous conseille de vérifier la présence du fichier de sauvegarde sur le Raspberry Pi (sous Windows : if exist fichier.extension, sous Mac : if [ -e fichier.extension ]). En effet, si la sauvegarde n'a pas pu être effectuée exactement à la minute programmée, le nom du fichier sera légèrement différent (ex : backup-mon\_jeedom-4.1.25-2021-09-06-00h3**7**.tar.gz au lieu de backup-mon\_jeedom-4.1.25-2021-09-06-00h3**6**.tar.gz)
-  + Le fichier bash se chargera de lancer <a href="fiche-copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur.md#copier\_un\_fichier\_sur\_une\_machine\_linux\_a\_partir\_d\_un\_autre\_ordinateur">la commande scp pour copier un fichier du Pi vers votre ordinateur</a>.
-  + Puisque la commande scp demande un mot de passe pour accéder au Pi, assurez-vous d'avoir <a href="fiche-permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois.md#permettre\_le\_branchement\_ssh\_sans\_demander\_le\_mot\_de\_passe\_a\_chaque\_fois">copié la clé publique SSH sur votre Pi</a> afin que le mot de passe ne soit plus demandé.
+  + Le fichier bash se chargera de lancer la commande scp pour copier un fichier du Pi vers votre ordinateur.
+  + Puisque la commande scp demande un mot de passe pour accéder au Pi, assurez-vous d'avoir copié la clé publique SSH sur votre Pi afin que le mot de passe ne soit plus demandé.
 * Une fois le fichier bash écrit et testé, configurez le système d'exploitation de votre ordinateur pour que le fichier soit lancé automatiquement à la fréquence que vous désirez.
   + Sous Windows :
     - Planificateur de tâches / Action / Créer une tâche de base.
@@ -128,7 +128,7 @@ Ce que je vous propose est encore plus simple : une copie vers votre ordinateur
       Prenez soin de remplacer monScript.bash le nom de votre script ainsi que C:\chemin\du\script par le chemin du dosiser qui contient ce script.
 
       Pour plus d'info : <https://www.pcastuces.com/pratique/astuces/5515.htm>.
-  + Sous Mac, j'ai écrit une fiche sur le sujet : <a href="fiche-lancer\_une\_tache\_de\_facon\_automatique\_crontab.md#lancer\_une\_tache\_de\_facon\_automatique\_crontab">lancer\_une\_tache\_de\_facon\_automatique\_crontab</a>.
+  + Sous Mac, j'ai écrit une fiche sur le sujet : lancer\_une\_tache\_de\_facon\_automatique\_crontab.
 * Évidemment, votre ordinateur personnel devra être ouvert et branché sur le même réseau que le Raspberry Pi pour que la copie fonctionne.
 
 ##
