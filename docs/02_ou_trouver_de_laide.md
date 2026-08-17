@@ -1,0 +1,51 @@
+# 2. Où trouver de l'aide
+
+## 2.1 Horaire et coordonnées de Christiane Lagacé - session d'automne
+
+|  |  |
+| --- | --- |
+| Christiane Lagacé | Christiane Lagacé, Automne 2025 Bureau : C-207 au pavillon central  Courriel : [lagace.christiane@cegepvicto.ca](mailto:lagace.christiane@cegepvicto.ca) |
+
+|  | Lundi | Mardi | Mercredi | Jeudi | Vendredi |
+| --- | --- | --- | --- | --- | --- |
+| 8h15  à  9h05 |  | Objets connectés 1  C-209 | Réunion | Objets connectés 1  C-209 |  |
+| 9h15  à  10h05 | Programmation | Objets connectés 1  C-209 | Réunion | Objets connectés 1  C-209 |  |
+| 10h15  à  11h05 | Programmation | Disponible | Trou horaire | Disponible |  |
+| 11h15  à  12h05 | Programmation | Disponible | Trou horaire | Disponible |  |
+| 12h15  à  13h05 |  |  |  |  |  |
+| 13h15  à  14h05 |  | App. mobiles 2  C-209 |  |  |  |
+| 14h15  à  15h05 | Programmation | App. mobiles 2  C-209 | Disponible | Disponible |  |
+| 15h15  à  16h05 | Programmation | Disponible | Disponible | App. mobiles 2  C-209 |  |
+| 16h15  à  17h05 | Programmation |  |  | App. mobiles 2  C-209 |  |
+| 17h15  à  18h05 |  |  |  |  |  |
+
+Je suis très souvent à mon bureau entre mes cours, même en dehors des périodes marquées « Disponible ».
+
+Vous pouvez simplement passer me voir ou encore me contacter via Teams, ça me fera plaisir de vous aider!
+
+## 2.2 Horaire et coordonnées de Sébastien Trottier - session d'automne
+
+|  |  |
+| --- | --- |
+| Sébastien Trottier | Sébastien Trottier, Automne 2024 Bureau : C-207 au pavillon central  Courriel : [trottier.sebastien@cegepvicto.ca](mailto:trottier.sebastien@cegepvicto.ca) |
+
+|  | Lundi | Mardi | Mercredi | Jeudi | Vendredi |
+| --- | --- | --- | --- | --- | --- |
+| 8h15  à  9h05 | - | - | Réunion | - | - |
+| 9h15  à  10h05 | - | - | Réunion | - | - |
+| 10h15  à  11h05 | - | - | Trou horaire | - | - |
+| 11h15  à  12h05 | - | - | Trou horaire | - | - |
+| 12h15  à  13h05 | - | - | - | - | - |
+| 13h15  à  14h05 | - | - | - | - | - |
+| 14h15  à  15h05 | - | - | - | - | - |
+| 15h15  à  16h05 | - | - | - | - | - |
+| 16h15  à  17h05 | - | - | - | - | - |
+| 17h15  à  18h05 |  |  |  |  |  |
+
+Les périodes de disponibilité sont données à titre indicatif. De plus, je pourrais être disponible en dehors des périodes de disponibilité. Veuillez prendre rendez-vous pour vous assurer de ma présence!
+
+## 2.3 Site Web du département
+
+Une foule de renseignements ont été consignés à votre intention sur le site [https://techinfo.profinfo.ca](https://techinfo.profinfo.ca/).
+
+[![Site Web informatique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SiteWebInformatique.png)](https://techinfo.profinfo.ca/)
