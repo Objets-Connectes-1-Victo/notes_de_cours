@@ -1,6 +1,6 @@
-# 111. Pour le prochain cours
+# 111. Pour le prochain cours {#chapitre-pour_le_prochain_cours_054}
 
-## 111.1 Je me prépare pour l'exercice suivant (un cours)
+## 111.1 Je me prépare pour l'exercice suivant (un cours) {#fiche-Je_me_prepare_pour_l_exercice_suivant_un_cours}
 
 Vous disposez d'un cours pour acquérir les connaissances théoriques et finaliser cet exercice.
 

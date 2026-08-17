@@ -1,6 +1,6 @@
-# 116. Examen 3
+# 116. Examen 3 {#chapitre-examen_3}
 
-## 116.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
+## 116.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen {#fiche-Pour_vous_assurer_d_avoir_en_main_tout_ce_qu_il_vo}
 
 Vous est-il déjà arrivé de vivre une coupure d'Internet pendant un examen ou de constater que le serveur qui héberge les notes de cours avait un problème technique?
 
@@ -15,7 +15,7 @@ La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout
 * Imprimez la page au format PDF.
 * Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
 
-## 116.2 Consignes pour l'examen
+## 116.2 Consignes pour l'examen {#fiche-consignes_pour_l_examen_010}
 
 Cet examen est basé sur le travail que vous avez fait en classe. Il consiste à ajouter de nouvelles fonctionnalités à votre système domotique.
 
@@ -30,7 +30,7 @@ Cet examen est basé sur le travail que vous avez fait en classe. Il consiste à
 
 Bonne chance !
 
-## 116.3 Grille de correction
+## 116.3 Grille de correction {#fiche-grille_de_correction_006}
 
 Voici la grille de correction qui sera utilisée à l'examen final en objets connectés.
 

@@ -1,6 +1,6 @@
-# 8. Les scripts bash
+# 8. Les scripts bash {#chapitre-les_scripts_bash}
 
-## 8.1 Automatiser des tâches sous Linux ou Mac
+## 8.1 Automatiser des tâches sous Linux ou Mac {#fiche-automatiser_des_taches_sous_linux_ou_mac}
 
 Sous Linux ou Mac, les scripts bash (Bourne Again SHell) permettent d'automatiser des tâches.
 
@@ -10,7 +10,7 @@ Par exemple, on pourrait avoir un script bash qui se charge de copier certains f
 
 « Bash Guide for Beginners ». Machtelt Garrels. <https://tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html>
 
-## 8.2 Passer un paramètre à un script bash
+## 8.2 Passer un paramètre à un script bash {#fiche-passer_un_parametre_a_un_script_bash}
 
 Les scripts bash peuvent recevoir des paramètres, aussi appelés arguments.
 

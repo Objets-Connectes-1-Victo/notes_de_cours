@@ -1,6 +1,6 @@
-# 120. Configurations réseau avec dhcpcd (wpa\_supplicant)
+# 120. Configurations réseau avec dhcpcd (wpa\_supplicant) {#chapitre-configurations_reseau_avec_dhcpcd_wpa_supplicant}
 
-## 120.1 Configurer le réseau à l'aide de dhcpcd
+## 120.1 Configurer le réseau à l'aide de dhcpcd {#fiche-configurer_le_reseau_a_l_aide_de_dhcpcd}
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 
@@ -14,9 +14,9 @@ Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire 
 
 Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
 
-Pour configurer le réseau avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,sur NetworkManager][/apical\_lien\_interne].
+Pour configurer le réseau avec NetworkManager, référez-vous à la fiche <a href="fiche-configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi.md#configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi">sur NetworkManager</a>.
 
-## Configurer le réseau à l'aide de dhcpcd
+## Configurer le réseau à l'aide de dhcpcd {#dhcpcd}
 
 Si le système d'exploitation du Raspberry Pi utilise dhcpcd, voici les instructions à suivre pour configurer le réseau sans fil.
 
@@ -78,7 +78,7 @@ network={
 
 Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais).
 
-## Configuration directement sur la carte micro SD alors qu'elle est insérée dans votre ordinateur
+## Configuration directement sur la carte micro SD alors qu'elle est insérée dans votre ordinateur {#surcartedhcpcd}
 
 Il est possible de configurer le réseau sans fil directement sur la carte micro SD. Cette méthode permet une configuration headless, c'est-à-dire que vous n'avez pas besoin de brancher écran et clavier sur le Pi. Vous n'avez pas non plus besoin de vous brancher au Pi via SSH.
 
@@ -101,7 +101,7 @@ Entrez les configurations requises dans ce fichier, [comme expliqué plus haut](
 
 « wpa\_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
 
-## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
+## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf {#fiche-connecter_le_pi_a_un_autre_des_reseaux_listes_dans_wpa_supplicant_conf}
 
 Il est possible de définir plusieurs réseaux dans le fichier wpa\_supplicant.conf.
 
@@ -246,7 +246,7 @@ Too few arguments.
 Too few arguments.  
 bound to 192.168.1.6 -- renewal in 1880 seconds.
 
-## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd
+## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd {#fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd}
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 
@@ -260,11 +260,11 @@ Si vous voyez Active: active, c'est que l'OS utilise dhcpcd comme gestionnaire 
 
 Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS utilise un auytre système pour gérer le réseau, possiblement NetworkManager.
 
-Pour configurer une adresse IP statique avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,sur NetworkManager,surlepi][/apical\_lien\_interne].
+Pour configurer une adresse IP statique avec NetworkManager, référez-vous à la fiche <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">sur NetworkManager</a>.
 
 Sinon, les configurations avec dhcpcd sont expliquées ici. Continuez votre lecture!
 
-## Configurer l'adresse IP statique du Raspberry Pi à l'aide de dhcpcd
+## Configurer l'adresse IP statique du Raspberry Pi à l'aide de dhcpcd {#surlepiavant2023}
 
 Pour configurer l'adresse IP statique du Pi avec dhcpcd :
 
@@ -285,7 +285,7 @@ Pour configurer l'adresse IP statique du Pi avec dhcpcd :
   + static routers : adresse IP locale du routeur. Si vous avez utilisé le masque /24, il s'agit des 3 premiers nombres de l'adresse IP avec un 1 comme dernier nombre (ex : 192.168.1.1)
   + static domain\_name\_servers : entrez l'adresse IP du ou des serveurs de noms de domaine (en anglais : nameserver, DNS) de votre réseau suivie de 8.8.8.8 (serveur DNS de Google). Les différentes adresses doivent être séparées par un espace.
 
-    Pour connaître les serveurs de noms de domaine utilisés par votre ordinateur, [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,suivez ce lien,dns][/apical\_lien\_interne].
+    Pour connaître les serveurs de noms de domaine utilisés par votre ordinateur, <a href="fiche-donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi.md#donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi">suivez ce lien</a>.
 
     Fichier resolv.conf
 
@@ -302,7 +302,7 @@ Pour enregistrer les modifications au fichier dhcpcd.conf, appuyez sur Ctrl + X 
 
 Redémarrez le Raspberry Pi.
 
-## Utiliser une adresse IP différente selon le réseau actif
+## Utiliser une adresse IP différente selon le réseau actif {#autrereseauavant2023}
 
 Prenons le cas où vous utilisez un Raspberry Pi dans votre établissement scolaire puis vous le ramenez chez vous pour poursuivre vos travaux.
 
@@ -358,8 +358,8 @@ static ip\_address=10.0.0.28/24
 static routers=10.0.0.1  
 static domain\_name\_servers=999.999.999.999 8.8.8.8
 
-## Revenir à une adresse IP fournie par DHCP
+## Revenir à une adresse IP fournie par DHCP {#dhcpavant2023}
 
 Remarquez que pour revenir à une adresse IP fournie par le serveur DHCP, il suffit de remettre ces lignes en commentaire en ajoutant le symbole # au début de chaque ligne.
 
-Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,vérifier l'adresse IP][/apical\_lien\_interne] en branchant un écran sur le Pi.
+Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez <a href="fiche-trouver\_l\_adresse\_ip\_du\_raspberry\_pi.md#trouver\_l\_adresse\_ip\_du\_raspberry\_pi">vérifier l'adresse IP</a> en branchant un écran sur le Pi.

@@ -1,6 +1,6 @@
-# 120. Configurations réseau avec dhcpcd (wpa\_supplicant)
+# 120. Configurations réseau avec dhcpcd (wpa\_supplicant) {#chapitre-configurations_reseau_avec_dhcpcd_wpa_supplicant}
 
-## 120.1 Configurer le réseau à l'aide de dhcpcd
+## 120.1 Configurer le réseau à l'aide de dhcpcd {#fiche-configurer_le_reseau_a_l_aide_de_dhcpcd}
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 
@@ -16,7 +16,7 @@ Si vous voyez plutôt Unit dhcpcd.service could not be found, c'est que l'OS uti
 
 Pour configurer le réseau avec NetworkManager, référez-vous à la fiche [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_pi,sur NetworkManager][/apical\_lien\_interne].
 
-## Configurer le réseau à l'aide de dhcpcd
+## Configurer le réseau à l'aide de dhcpcd {#dhcpcd}
 
 Si le système d'exploitation du Raspberry Pi utilise dhcpcd, voici les instructions à suivre pour configurer le réseau sans fil.
 
@@ -78,7 +78,7 @@ network={
 
 Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais).
 
-## Configuration directement sur la carte micro SD alors qu'elle est insérée dans votre ordinateur
+## Configuration directement sur la carte micro SD alors qu'elle est insérée dans votre ordinateur {#surcartedhcpcd}
 
 Il est possible de configurer le réseau sans fil directement sur la carte micro SD. Cette méthode permet une configuration headless, c'est-à-dire que vous n'avez pas besoin de brancher écran et clavier sur le Pi. Vous n'avez pas non plus besoin de vous brancher au Pi via SSH.
 
@@ -101,7 +101,7 @@ Entrez les configurations requises dans ce fichier, [comme expliqué plus haut](
 
 « wpa\_supplicant ». Arch Linux. <https://wiki.archlinux.org/index.php/Wpa_supplicant>
 
-## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf
+## 120.2 Connecter le Pi à un autre des réseaux listés dans wpa\_supplicant.conf {#fiche-connecter_le_pi_a_un_autre_des_reseaux_listes_dans_wpa_supplicant_conf}
 
 Il est possible de définir plusieurs réseaux dans le fichier wpa\_supplicant.conf.
 
@@ -246,7 +246,7 @@ Too few arguments.
 Too few arguments.  
 bound to 192.168.1.6 -- renewal in 1880 seconds.
 
-## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd
+## 120.3 Configurer l'adresse IP statique du Raspberry Pi avec dhcpcd {#fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd}
 
 Depuis Raspberry Pi OS Bookworm (2023), la gestion du réseau est réalisée avec [NetworkManager](https://networkmanager.dev/). Auparavant, le gestionnaire de réseau par défaut était [dhcpcd](https://github.com/NetworkConfiguration/dhcpcd).
 
@@ -264,7 +264,7 @@ Pour configurer une adresse IP statique avec NetworkManager, référez-vous à l
 
 Sinon, les configurations avec dhcpcd sont expliquées ici. Continuez votre lecture!
 
-## Configurer l'adresse IP statique du Raspberry Pi à l'aide de dhcpcd
+## Configurer l'adresse IP statique du Raspberry Pi à l'aide de dhcpcd {#surlepiavant2023}
 
 Pour configurer l'adresse IP statique du Pi avec dhcpcd :
 
@@ -302,7 +302,7 @@ Pour enregistrer les modifications au fichier dhcpcd.conf, appuyez sur Ctrl + X 
 
 Redémarrez le Raspberry Pi.
 
-## Utiliser une adresse IP différente selon le réseau actif
+## Utiliser une adresse IP différente selon le réseau actif {#autrereseauavant2023}
 
 Prenons le cas où vous utilisez un Raspberry Pi dans votre établissement scolaire puis vous le ramenez chez vous pour poursuivre vos travaux.
 
@@ -358,7 +358,7 @@ static ip\_address=10.0.0.28/24
 static routers=10.0.0.1  
 static domain\_name\_servers=999.999.999.999 8.8.8.8
 
-## Revenir à une adresse IP fournie par DHCP
+## Revenir à une adresse IP fournie par DHCP {#dhcpavant2023}
 
 Remarquez que pour revenir à une adresse IP fournie par le serveur DHCP, il suffit de remettre ces lignes en commentaire en ajoutant le symbole # au début de chaque ligne.
 

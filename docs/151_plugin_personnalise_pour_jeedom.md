@@ -1,10 +1,10 @@
-# 131. Plugin personnalisé pour Jeedom
+# 131. Plugin personnalisé pour Jeedom {#chapitre-plugin_personnalise_pour_jeedom}
 
-## 131.1 Créer un plugin personnalisé pour Jeedom
+## 131.1 Créer un plugin personnalisé pour Jeedom {#iconesfiche}
 
 Information à venir...
 
-## Pour plus d'information
+## Pour plus d'information {#rechercher}
 
 « Développement de plugin ». Jeedom. <https://doc.jeedom.com/fr_FR/dev/>
 

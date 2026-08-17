@@ -1,6 +1,6 @@
-# 26. Commencer à travailler avec Jeedom (suite)
+# 26. Commencer à travailler avec Jeedom (suite) {#chapitre-commencer_a_travailler_avec_jeedom_suite}
 
-## 26.1 En résumé...
+## 26.1 En résumé... {#fiche-en_resume_042}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -30,7 +30,7 @@ N'hésitez pas à explorer!
 
 Bien suivre ces étapes!
 
-## 26.2 Le dashboard Jeedom
+## 26.2 Le dashboard Jeedom {#fiche-le_dashboard_jeedom}
 
 Le dashboard, ou tableau de bord en français, est l'endroit où vous pouvez voir tous vos objets connectés en un coup d'oeil.
 
@@ -58,7 +58,7 @@ Gris : Automatisme
 
 Bleu foncé : Multimédia
 
-## Déplacer et redimensionner les tuiles
+## Déplacer et redimensionner les tuiles {#redimensionner}
 
 Il est possible de déplacer et de redimensionner les tuiles du Dashboard en cliquant sur l'icône de crayon dans le coin supérieur droit de la fenêtre. Une fois l'opération terminée, appuyez de nouveau sur le crayon pour sauvegarder.
 
@@ -70,11 +70,11 @@ Chaque équipement peut être affiché ou non sur le Dashboard grâce à la case
 
 Le fonctionnement est légèrement différent pour les objets qui représentent les pièces de la maison. La case Visible permet de les afficher un peu partout, notamment dans la liste des objets. Il est possible de les masquer seulement sur le Dashboard en cochant la case Masquer sur le Dashboard.
 
-## Pour plus d'information
+## Pour plus d'information {#deconnecter}
 
 « Dashboard ». Jeedom. <https://doc.jeedom.com/fr_FR/core/4.0/dashboard>
 
-## 26.3 Ajouter un appareil connecté Z-Wave à Jeedom
+## 26.3 Ajouter un appareil connecté Z-Wave à Jeedom {#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom}
 
 Une fois que vous avez [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom,ajouté votre clé USB Z-Wave dans Jeedom][/apical\_lien\_interne], vous pouvez y ajouter des appareils connectés.
 
@@ -154,7 +154,7 @@ Dans le cas d'un capteur, par exemple un capteur de mouvement, ouvrez le boîtie
 
 ![Valeurs capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ValeursNeoCoolcam.png)
 
-## 26.4 Le noeud n'a pas encore de commande
+## 26.4 Le noeud n'a pas encore de commande {#fiche-le_noeud_n_a_pas_encore_de_commande}
 
 Dans Jeedom, une commande correspond à une information qui doit être recueillie d'un appareil connecté.
 
@@ -194,7 +194,7 @@ Il est possible d'ajouter des commandes manuellement afin d'obtenir les informat
 
 Suivez les étapes données sur la fiche « [apical\_lien\_interne]configurer\_une\_tuile[/apical\_lien\_interne] ».
 
-## 26.5 Configurer une tuile
+## 26.5 Configurer une tuile {#fiche-configurer_une_tuile}
 
 Parfois, le Dashboard de Jeedom offre une présentation intéressante des informations de chaque objet connecté. D'autres fois, il faut effectuer un travail manuel pour que les informations désirées soient affichées.
 
@@ -252,7 +252,7 @@ Pour ajouter une information sur une tuile du Dashboard :
 
 Jeedom-CommandeTargetValueMultilevelSwitch.
 
-## 26.6 Configurer la page de synthèse
+## 26.6 Configurer la page de synthèse {#fiche-configurer_la_page_de_synthese}
 
 La page de synthèse n'affiche pas autant d'informations que le Dashboard mais elle offre une vue synthétisée et un visuel plus attrayant.
 
@@ -273,7 +273,7 @@ Dans le cas d'une commande numérique, par exemple une température, la valeur a
 
 ![Synthèse](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Synthese.png)
 
-## 26.7 Ajouter une prise Wi-Fi Tuya/SmartLife à Jeedom
+## 26.7 Ajouter une prise Wi-Fi Tuya/SmartLife à Jeedom {#fiche-ajouter_une_prise_wi-fi_tuya_smartlife_a_jeedom}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -328,7 +328,7 @@ Cliquez sur l'objet de votre choix et remplissez sa fiche comme vous le feriez p
 
 « La prise TECKIN, le plugin Smartlif et Jeedom ». YouDom. <https://youdom.net/2022/02/24/la-prise-teckin-le-plugin-smartlif-et-jeedom/>
 
-## 26.8 Travailler avec la météo sous Jeedom
+## 26.8 Travailler avec la météo sous Jeedom {#fiche-travailler_avec_la_meteo_sous_jeedom}
 
 Les données météo peuvent servir de déclencheur pour un scénario Jeedom.
 
@@ -366,7 +366,7 @@ Voici la même tuile mais cette fois, après avoir coché Mode image.
 
 ![Mode image](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard-MeteoModeImage.png)
 
-## 26.9 Exclure un appareil de Jeedom
+## 26.9 Exclure un appareil de Jeedom {#fiche-exclure_un_appareil_de_jeedom}
 
 Si un appareil connecté a déjà été inclus dans une boîte domotique, vous ne pourrez pas l'inclure dans une autre boîte sans avoir effectué une opération préalable.
 

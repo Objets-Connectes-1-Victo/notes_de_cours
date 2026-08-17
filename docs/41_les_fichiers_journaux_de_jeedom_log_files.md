@@ -1,6 +1,6 @@
-# 37. Les fichiers journaux de Jeedom (log files)
+# 37. Les fichiers journaux de Jeedom (log files) {#chapitre-les_fichiers_journaux_de_jeedom_log_files}
 
-## 37.1 Consulter les fichiers journaux
+## 37.1 Consulter les fichiers journaux {#fiche-consulter_les_fichiers_journaux}
 
 Plusieurs faits peuvent générer une écriture dans un des fichiers journaux (log files) dans Jeedom :
 
@@ -23,11 +23,11 @@ Heureusement, pour consulter les fichiers journaux, l'interface d'administration
   ![Logs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Logs.png)
 * Sélectionnez le fichier journal désiré dans la zone de gauche et son contenu apparaîtra dans la zone de droite.
 
-## Données des capteurs Z-Wave
+## Données des capteurs Z-Wave {#zwave}
 
 Les données des capteurs Z-Wave peuvent être retrouvées dans différents fichiers journaux.
 
-### event
+### event {#pre_globallog}
 
 Le fichier journal [event](https://doc.jeedom.com/fr_FR/core/4.3/log#:~:text=Le%20log%20%E2%80%9CEvent%E2%80%9D) contient les informations en temps réel : valeurs reçues des capteurs, déclenchement des scénarios, etc.
 
@@ -57,7 +57,7 @@ Pour consulter ces fichiers, ouvrez le scénario désiré puis cliquez sur l'ic�
 
 ![Log d'un scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-LogScenarioProgramme.png)
 
-## 37.2 Configurer les fichiers journaux
+## 37.2 Configurer les fichiers journaux {#fiche-configurer_les_fichiers_journaux}
 
 Jeedom vous permet de configurer les fichiers journaux afin de répondre à vos besoins.
 
@@ -66,7 +66,7 @@ Jeedom vous permet de configurer les fichiers journaux afin de répondre à vos 
 
   ![Configuration des logs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationLogs.png)
 
-## Niveau de log par défaut
+## Niveau de log par défaut {#niveaudefaut}
 
 Parmi les configurations les plus intéressante, il y a le niveau de log par défaut.
 

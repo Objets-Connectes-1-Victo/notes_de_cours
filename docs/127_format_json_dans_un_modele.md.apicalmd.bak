@@ -1,6 +1,6 @@
-# 112. Format JSON dans un modèle
+# 112. Format JSON dans un modèle {#chapitre-format_json_dans_un_modele}
 
-## 112.1 Format JSON dans un modèle
+## 112.1 Format JSON dans un modèle {#fiche-format_json_dans_un_modele}
 
 L'étude des modèles Home Assistant ne serait pas complète si on ne parlait pas de maniuplation du format JSON.
 

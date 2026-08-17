@@ -1,6 +1,6 @@
-# 71. Les tableaux de bord
+# 71. Les tableaux de bord {#chapitre-les_tableaux_de_bord}
 
-## 71.1 Créer un tableau de bord personnalisé
+## 71.1 Créer un tableau de bord personnalisé {#fiche-creer_un_tableau_de_bord_personnalise}
 
 Par défaut, dans Home Assistant, un tableau de bord est disponible dans le menu Aperçu et il contient absolument tout ce qui est ajouté à Home Assistant.
 
@@ -117,7 +117,7 @@ views:
            Porte virtuelle fermée  
            {% endif %}
 
-## 71.2 Réinitialiser le tableau de bord Aperçu
+## 71.2 Réinitialiser le tableau de bord Aperçu {#fiche-reinitialiser_le_tableau_de_bord_apercu}
 
 Il est préférable de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,créer un tableau de bord personnalisé][/apical\_lien\_interne] plutôt que de modifier le tableau de bord Aperçu.
 
@@ -139,7 +139,7 @@ Si vous avez modifié le tableau de bord Aperçu, il est possible de le réiniti
 * Supprimez tout le code YAML puis enregistrez.
 * Le tableau de bord Aperçu est de nouveau géré par Home Assistant et il vous présente les informations sur toutes vos entités.
 
-## 71.3 Utiliser vos propres images dans un tableau de bord
+## 71.3 Utiliser vos propres images dans un tableau de bord {#fiche-utiliser_vos_propres_images_dans_un_tableau_de_bord_lovelace}
 
 Lorsque vous créez un tableau de bord personnalisé, quelques types de cartes vous permettent de travailler avec vos propres images.
 
@@ -180,7 +180,7 @@ Une fois que l'image est disponible sur le Pi, elle peut être affichée sur une
 
 ![Carte image](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-CarteImage.png)
 
-## Carte Markdown
+## Carte Markdown {#markdown}
 
 La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grâce aux [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèles][/apical\_lien\_interne].
 
@@ -198,7 +198,7 @@ Remarquez que le texte entre crochets carrés représente l'attribut alt de l'im
 
 « HTTP - Hosting files ». Home Assistant. <https://www.home-assistant.io/integrations/http#hosting-files>
 
-## 71.4 Assigner un appareil à une pièce
+## 71.4 Assigner un appareil à une pièce {#fiche-assigner_un_appareil_a_une_piece}
 
 Pour bien visualiser vos appareils dans le tableau de bord Home Assistant, il est intéressant d'assigner chacun à une pièce de la maison.
 
@@ -225,7 +225,7 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 
 ##
 
-## 71.5 Changer l'icône d'une entité selon son état
+## 71.5 Changer l'icône d'une entité selon son état {#fiche-changer_l_icone_d_une_entite_selon_son_etat}
 
 Dans le tableau de bord de Home Assistant, il est possible de configurer une carte pour que son icône soit différente selon l'état de l'entité.
 
@@ -265,7 +265,7 @@ La carte prendra désormais cette apparence sur le tableau de bord.
 
 ![Ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdown-IconeEtTexte-Ouverte.png) ![Fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteMarkdown-IconeEtTexte-Fermee.png)
 
-## Intégration Template
+## Intégration Template {#template}
 
 L'intégration [Template](https://www.home-assistant.io/integrations/template/), installée par défaut dans Home Assistant, est une autre solution pour créer une entité dont l'icône pourra être différente selon l'état d'un capteur.
 
@@ -321,7 +321,7 @@ sensor:
 
 Après avoir [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,rechargé les configurations,rechargement][/apical\_lien\_interne], il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
 
-### Exemple avec une carte de type Entité
+### Exemple avec une carte de type Entité {#entite}
 
 Dans l'exemple précédent, l'entité s'appelle porte\_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte\_virtuelle.
 
@@ -337,7 +337,7 @@ En comparaison, voici ce qu'on aurait obtenu avec une carte d'entité associée 
 
 ![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteOuverte.png) ![Porte fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteFermee.png)
 
-### Exemple avec une carte de type Bouton
+### Exemple avec une carte de type Bouton {#bouton}
 
 Un résultat encore plus intéressant peut être obtenu à l'aide d'une carte de type Bouton.
 
@@ -351,7 +351,7 @@ Et voilà le résultat!
 
 ![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteOuverte.png) ![Porte fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CarteBouton-IconePorteFermee.png)
 
-## Et si on avait besoin de vérifier plus de deux états?
+## Et si on avait besoin de vérifier plus de deux états? {#elif}
 
 Dans les exemples précédents, on avait toujours le choix entre deux états. Un if et un else étaient suffisants.
 
@@ -368,7 +368,7 @@ icon\_template: >-
     mdi:alert  
   {% endif %}
 
-## 71.6 lovelace-card-mod - Pour styliser le tableau de bord
+## 71.6 lovelace-card-mod - Pour styliser le tableau de bord {#fiche-lovelace-card-mod_pour_styliser_le_tableau_de_bord}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 

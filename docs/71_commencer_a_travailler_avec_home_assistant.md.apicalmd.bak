@@ -1,6 +1,6 @@
-# 63. Commencer à travailler avec Home Assistant
+# 63. Commencer à travailler avec Home Assistant {#chapitre-commencer_a_travailler_avec_home_assistant}
 
-## 63.1 En résumé...
+## 63.1 En résumé... {#fiche-en_resume_040}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -20,7 +20,7 @@ Bien suivre les étapes sur cette fiche!
 
 Bien suivre les étapes sur cette fiche!
 
-## 63.2 Configurer la clé USB Z-Wave sur Home Assistant
+## 63.2 Configurer la clé USB Z-Wave sur Home Assistant {#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant}
 
 Avant d'ajouter des périphériques Z-Wave à votre boîte domotique Home Assistant, vous devez configurer la clé USB Z-Wave.
 
@@ -58,7 +58,7 @@ Pour supprimer unappareil dont le nom débute par Node :
 * Cliquez sur les trois points verticaux à droite de Configurer.
 * Cliquez sur Supprimer.
 
-## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant
+## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant {#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant}
 
 Maintenant que [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,la clé USB Z-Wave a été configurée][/apical\_lien\_interne], il est possible d'intégrer des appareils connectés Z-Wave à Home Assistant.
 

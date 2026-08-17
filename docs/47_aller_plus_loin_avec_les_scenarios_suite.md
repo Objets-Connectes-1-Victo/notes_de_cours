@@ -1,6 +1,6 @@
-# 42. Aller plus loin avec les scénarios (suite)
+# 42. Aller plus loin avec les scénarios (suite) {#chapitre-aller_plus_loin_avec_les_scenarios_suite}
 
-## 42.1 Bloc de code qui lance une commande de type action
+## 42.1 Bloc de code qui lance une commande de type action {#fiche-bloc_de_code_qui_lance_une_commande_de_type_action}
 
 Dans un scénario Jeedom, il est courant de donner un ordre à un équipement. Il suffit d'ajouter une action et de sélectionner la commande qui donne l'ordre désiré à cet équipement.
 
@@ -15,7 +15,7 @@ Bloc de code du scénario (PHP)
 $cmd = cmd::byString('#[Cuisine][Lumière][Allumer]#');  
  $cmd->execCmd();
 
-## 42.2 Scénario qui affiche une information dans le tableau de bord
+## 42.2 Scénario qui affiche une information dans le tableau de bord {#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord}
 
 Pour qu'un scénario puisse afficher une information dans le tableau de bord, le plus simple est de passer par un équipement virtuel.
 
@@ -41,15 +41,15 @@ $cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');
 
 Puisque la commande est configurée pour être affichée sur le Dashboard, la valeur enregistrée par le scénario sera automatiquement visible.
 
-## 42.3 Scénario qui exécute une requête SQL
+## 42.3 Scénario qui exécute une requête SQL {#fiche-scenario_qui_execute_une_requete_sql}
 
 Dans un scénario, une action de type bloc de code permet d'exécuter du code PHP.
 
 Il est donc possible d'exécuter une requête SQL et de faire différents traitements selon les résultats obtenus, par exemple :
 
-* [apical\_lien\_interne][scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal,enregistrer dans un fichier journal][/apical\_lien\_interne] l'ensemble des températures de la veille;
-* [apical\_lien\_interne][scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord,afficher dans le tableau de bord][/apical\_lien\_interne] la plus grande et la plus petite température enregistrée la veille;
-* [apical\_lien\_interne][bloc\_de\_code\_qui\_lance\_une\_commande\_de\_type\_action,allumer un voyant lumineux][/apical\_lien\_interne] (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
+* <a href="fiche-scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal.md#scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal">enregistrer dans un fichier journal</a> l'ensemble des températures de la veille;
+* <a href="fiche-scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord.md#scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord">afficher dans le tableau de bord</a> la plus grande et la plus petite température enregistrée la veille;
+* <a href="fiche-bloc\_de\_code\_qui\_lance\_une\_commande\_de\_type\_action.md#bloc\_de\_code\_qui\_lance\_une\_commande\_de\_type\_action">allumer un voyant lumineux</a> (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
 
 Dans ce premier exemple, le scénario ajoute une entrée dans le fichier journal du scénario pour chaque information retrouvée dans la BD.
 

@@ -1,6 +1,6 @@
-# 70. Les capteurs virtuels
+# 70. Les capteurs virtuels {#chapitre-les_capteurs_virtuels}
 
-## 70.1 Configurer un capteur virtuel
+## 70.1 Configurer un capteur virtuel {#fiche-configurer_un_capteur_virtuel}
 
 Vous souhaitez faire des tests dans Home Assistant sans devoir vous procurer un capteur ou un récepteur réel?
 

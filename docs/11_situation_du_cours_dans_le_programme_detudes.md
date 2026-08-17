@@ -1,5 +1,5 @@
-# 9. Situation du cours dans le programme d'études
+# 9. Situation du cours dans le programme d'études {#chapitre-situation_du_cours_dans_le_programme_d_etudes_002}
 
-## 9.1 Grille de cours du programme Techniques de l'informatique
+## 9.1 Grille de cours du programme Techniques de l'informatique {#fiche-grille_de_cours_du_programme_techniques_de_l_informatique}
 
 ![Grille de cours](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GrilleDeCoursInformatiqueVictoriaville-2023.svg)

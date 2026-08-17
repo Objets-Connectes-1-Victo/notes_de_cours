@@ -1,6 +1,6 @@
-# 58. Home Assistant au coeur de votre système domotique
+# 58. Home Assistant au coeur de votre système domotique {#chapitre-home_assistant_au_coeur_de_votre_systeme_domotique}
 
-## 58.1 En résumé...
+## 58.1 En résumé... {#fiche-en_resume_029}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -122,7 +122,7 @@ Avec HassOS, il s'agit en fait du dossier /mnt/data/supervisor/homeassistant.
 
 Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutôt le placer dans le dossier /mnt/data/supervisor/homeassistant/www.
 
-## 58.2 Installation de Home Assistant et premier accès
+## 58.2 Installation de Home Assistant et premier accès {#fiche-installation_de_home_assistant_et_premier_acces}
 
 Home Assistant est un excellent logiciel domotique à code source ouvert qui peut être installé entre autres sur un Raspberry Pi.
 
@@ -153,7 +153,7 @@ Voici les sections couvertes dans cette procédure :
 
 Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : [apical\_lien\_interne][un\_raspberry\_pi\_comme\_unite\_centrale][/apical\_lien\_interne].
 
-## Préparer la carte micro SD
+## Préparer la carte micro SD {#carte}
 
 Pour installer le système d'exploitation HassOS sur votre Rapsberry Pi :
 
@@ -443,7 +443,7 @@ Pendant que l'installation est en cours, Vous pouvez [accéder à l'interface W
 
 Une fois l'installation complétée, vous pouvez retirer la clé USB qui contient les configurations. Vous n'en aurez plus besoin puisque les fichiers qu'elle contient ont été copiés sur le Pi.
 
-## Accéder à Home Assistant
+## Accéder à Home Assistant {#acceder}
 
 L'accès se fait via un navigateur sur votre ordinateur ou via l'application Home Assistant sur votre téléphone.
 
@@ -478,7 +478,7 @@ Dans l'interface Web, vous saurez que l'installation est terminée quand vous ve
 
 Cliquez sur Créer ma maison connectée puis suivez les étapes pour finaliser la configuration initiale de Home Assistant.
 
-## Vérifier la présence des fichiers de configuration de la clé USB
+## Vérifier la présence des fichiers de configuration de la clé USB {#presence}
 
 Si vous avez utilisé une clé USB pour fournir des fichiers de configuration à Home Assistant, le système les aura copiés sur le Pi lors du démarrage.
 
@@ -546,7 +546,7 @@ ssh root@192.168.1.145 -p 22222
 
 « Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes) ». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
 
-## 58.3 Le terminal HassOS et la console Home Assistant
+## 58.3 Le terminal HassOS et la console Home Assistant {#fiche-la_console_home_assistant}
 
 En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,avec une des adresses données ici,acceder][/apical\_lien\_interne].
 
@@ -565,7 +565,7 @@ Dans cette fiche :
   + [Effectuer une commande Home Assistant dans terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandeha)
   + [Passer du terminal HassOS vers la console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalvsconsoleha)
 
-## Console Home Assistant vs Terminal HassOS
+## Console Home Assistant vs Terminal HassOS {#vs}
 
 La console Home Assistant et le terminal HassOS sont deux environnements en ligne de commande qui vous permettent d'effectuer différentes opérations sur le Raspberry Pi et sur Home Assistant.
 
@@ -573,13 +573,13 @@ Attention : aucun code d'accès n'est demandé pour accéder à la console Home 
   
 Donc, quiconque a accès physique au Pi pourra contrôler le système!
 
-### Branchement avec clavier et écran
+### Branchement avec clavier et écran {#clavier}
 
 Si vous branchez un clavier et un écran au Raspberry Pi, vous verrez à l'écran la console Home Assistant.
 
 Les détails de la console Home Assistant [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consoleha).
 
-### Branchement SSH
+### Branchement SSH {#ssh}
 
 Si vous vous connectez au Pi [apical\_lien\_interne][se\_brancher\_a\_home\_assistant\_via\_ssh,via SSH][/apical\_lien\_interne], vous accédez directement au Terminal HassOS.
 
@@ -637,7 +637,7 @@ Console Home Assistant
 
 help
 
-### Quelques commandes utiles
+### Quelques commandes utiles {#commandesconsoleha}
 
 Voici quelques commandes Home Assistant utiles.
 
@@ -652,7 +652,7 @@ Voici quelques commandes Home Assistant utiles.
 
 Pour plus de détails : <https://www.home-assistant.io/common-tasks/os/>
 
-### Passer de la console Home Assistant au terminal HassOS
+### Passer de la console Home Assistant au terminal HassOS {#consolehavsterminal}
 
 Pour accéder au terminal HassOS à partir de la console Home Assistant, entrez la commande login.
 
@@ -708,7 +708,7 @@ Voici quelques commandes utiles à effectuer sur le terminal HassOS :
 * docker ps (pour afficher la liste des conteneurs Docker)
 * lsusb (pour voir si la clé USB Z-Wave est reconnue)
 
-### Effectuer une commande Home Assistant dans terminal HassOS
+### Effectuer une commande Home Assistant dans terminal HassOS {#commandeha}
 
 Si vous êtes dans le terminal HassOS et que vous désirez entrer une commande spécifique à Home Assistant, il est possible de le faire sans sortir du terminal HassOS.
 
@@ -724,7 +724,7 @@ Console Home Assistant
 
 netword info
 
-### Passer du terminal HassOS vers la console Home Assistant
+### Passer du terminal HassOS vers la console Home Assistant {#terminalvsconsoleha}
 
 Si vous souhaitez retourner à la console Home Assistant alors que vous travaillez directement sur le Raspberry Pi à l'aide d'un clavier et d'un écran, vous pouvez entrer cette commande :
 
@@ -742,13 +742,13 @@ Dans le cas où vous êtes branchés via SSH, la commande exit mettra fin à la 
 
 « Common tasks - Operating System ». Home Assistant. <https://www.home-assistant.io/common-tasks/os/>
 
-## 58.4 Éteindre ou redémarrer Home Assistant de façon sécuritaire
+## 58.4 Éteindre ou redémarrer Home Assistant de façon sécuritaire {#fiche-Eteindre_home_assistant_de_facon_securitaire}
 
 Comme pour tout système Linux, il n'est pas souhaitable de fermer Home Assistant simplement en débranchant le Raspberry Pi.
 
 Je vous propose ici différentes techniques pour arrêter le système ou pour redémarrer le système complet ou encore une de ses [apical\_lien\_interne][les\_couches\_logicielles\_de\_home\_assistant,couches logicielles][/apical\_lien\_interne].
 
-## Arrêt
+## Arrêt {#arret}
 
 ### Interface graphique
 
@@ -790,7 +790,7 @@ Terminal HassOS
 
 ha core restart
 
-## Redémarrage complet
+## Redémarrage complet {#complet}
 
 Si l'opération nécessite un redémarrage complet du Raspberry Pi, suivez ces étapes.
 
@@ -810,7 +810,7 @@ Terminal HassOS
 
 reboot
 
-## 58.5 Dossier config
+## 58.5 Dossier config {#fiche-dossier_config}
 
 Dans la documentation officielle de Home Assistant et dans des groupes de discussion, vous verrez probablement à quelques occasions des instructions qui demandent de placer un fichier dans le dossier config.
 

@@ -1,6 +1,6 @@
-# 113. Exercice 25
+# 113. Exercice 25 {#chapitre-exercice_25_003}
 
-## 113.1 Chat et chien
+## 113.1 Chat et chien {#fiche-chat_et_chien}
 
 NOTE : deux cours sont requis pour cet exercice mais puisque vous avez la possibilité d'effectuer une simulation d'examen, vous avez deux choix :
 
@@ -23,11 +23,11 @@ YAML
 4. Chacun des membres de l'équipe doit connaître en tout temps la position du chat ET celle du chien. Suivez ces étapes pour y parvenir.
    * Utilisez d'abord le menu Paramètres / Appareils et services / onglet Intégrations / clic sur la tuile MQTT / icône d'engrenage pour vérifier si vous êtes capables de publier la position de votre animal et de recevoir la position de l'animal de votre collègue. Vous devez publier vos informations sur un canal au format chatchien3a4/position\_ag où ag représente vos initiales. Assurez-vous d'avoir des initiales uniques dans la classe.
    * Créez une automatisation pour communiquer automatiquement la position de votre animal via MQTT dès qu'il change de position :
-     + Puisqu'il faut communiquer la latitude et la longitude, le service devra [apical\_lien\_interne][format\_json\_dans\_un\_modele,envoyer ces informations au format JSON][/apical\_lien\_interne].
+     + Puisqu'il faut communiquer la latitude et la longitude, le service devra <a href="fiche-format\_json\_dans\_un\_modele.md#format\_json\_dans\_un\_modele">envoyer ces informations au format JSON</a>.
      + Avant de poursuivre, vérifiez si votre collègue reçoit automatiquement les coordonnées de votre animal sur la tuile MQTT (icône d'engrenage) quand vous le déplacez.
    * Puisque l'icône d'engrenage de la tuile MQTT ne permet que de faire des tests, vous devez vous abonner au canal MQTT de votre collègue, ce qui permettra de créer une entité pour recevoir ses informations. L'identifiant de l'entité doit être sensor.chat\_chien\_mqtt.
    * Une automatisation permettra d'initialiser un device\_tracker dont le nom est donnees\_recues à partir des données reçues.
-     + Attention : vous devrez [apical\_lien\_interne][format\_json\_dans\_un\_modele,extraire du JSON][/apical\_lien\_interne] la latitude et la longitude afin de fournir des coordonnées GPS.
+     + Attention : vous devrez <a href="fiche-format\_json\_dans\_un\_modele.md#format\_json\_dans\_un\_modele">extraire du JSON</a> la latitude et la longitude afin de fournir des coordonnées GPS.
      + Commencez par tester dans les outils de développement le modèle qui récupère la latitude et celui qui récupère la longitude.
      + Une fois que vous obtenez ces informations, l'automatisation devra les utiliser pour déplacer le device\_tracker. Les données devront être fournies au format [modèle\_latitude, modèle\_longitude].
 5. Créez sur chaque système un tableau de bord nommé « Chat et chien ». Le tableau doit afficher :

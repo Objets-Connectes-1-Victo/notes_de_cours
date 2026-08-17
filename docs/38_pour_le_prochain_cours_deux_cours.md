@@ -1,4 +1,4 @@
-# 35. Pour le prochain cours (deux cours)
+# 35. Pour le prochain cours (deux cours) {#chapitre-pour_le_prochain_cours_deux_cours_012}
 
 ## 35.1 Je me prépare pour l'exercice suivant (deux cours)
 

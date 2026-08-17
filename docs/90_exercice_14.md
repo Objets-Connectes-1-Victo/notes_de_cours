@@ -1,6 +1,6 @@
-# 80. Exercice 14
+# 80. Exercice 14 {#chapitre-exercice_14_005}
 
-## 80.1 Modèles et automatisations
+## 80.1 Modèles et automatisations {#fiche-modeles_et_automatisations}
 
 Écrivez vos réponses à ces questions dans un fichier texte. Pour les scripts et automatisations, inscrivez le code YAML généré.
 
@@ -21,5 +21,5 @@ Dans tous les cas, vous pourriez être convoqués pour expliquer votre code à v
 9. Créez une automatisation nommée « Efforts influencent résultats » qui fait en sorte qu’à chaque fois que les efforts changent, les résultats prennent la valeur « Efforts \* 10 » suivi du signe %.
 10. Écrivez un modèle qui calcule le nombre de jours restants avant Noël.
 11. OPTIONNEL : ajoutez une carte sur le tableau de bord qui affiche le nombre de jours restants avant Noël. Suggestion : utilisez la [syntaxe Markdown](https://commonmark.org/help/) pour afficher le chiffre un peu plus gros.
-12. [apical\_lien\_interne][sauvegarde\_de\_home\_assistant,Créez une sauvegarde][/apical\_lien\_interne] de votre Home Assistant et copiez le fichier sur votre ordinateur.
+12. <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">Créez une sauvegarde</a> de votre Home Assistant et copiez le fichier sur votre ordinateur.
 13. Remettez votre fichier texte sur la plateforme électronique du cours.

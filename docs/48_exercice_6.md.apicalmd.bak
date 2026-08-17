@@ -1,6 +1,6 @@
-# 43. Exercice 6
+# 43. Exercice 6 {#chapitre-exercice_6_007}
 
-## 43.1 Historique
+## 43.1 Historique {#fiche-historique}
 
 1. Faites afficher un graphique de l'historique des données pour une commande d'un capteur de votre choix. Prenez une impression d'écran du graphique en vous assurant qu'on voit bien le nom de la commande. Nommez ce fichier au format NomPrenom-Historique.png.
 2. Dans la base de données Jeedom, retrouvez la table dans laquelle vos équipements (vos objets connectés) sont stockés. On veut la table dans laquelle le nom de l'équipement apparaît, soit celui que vous voyez sur les tuiles dans le Dashboard.

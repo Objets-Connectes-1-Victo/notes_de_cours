@@ -1,6 +1,6 @@
-# 3. Linux
+# 3. Linux {#chapitre-linux_002}
 
-## 3.1 Les touches de clavier avec Linux
+## 3.1 Les touches de clavier avec Linux {#fiche-les_touches_de_clavier_avec_linux}
 
 Si vous travaillez sous Linux, je parie que vous avez déjà recherché où diable était la touche qui permet d'obtenir le caractère souhaité.
 
@@ -14,7 +14,7 @@ Source de l'image originale : <https://commons.wikimedia.org/wiki/File:KB_Canad
 
 Remarquez que sous Linux, la touche Alt ne permet pas d'obtenir un caractère différent. Chaque touche peut donc produire seulement deux caractères : celui du bas correspond à la touche seule, celui du haut correspond à la touche combinée avec Maj.
 
-## 3.2 Quelle version de Linux est installée ?
+## 3.2 Quelle version de Linux est installée ? {#fiche-quelle_version_de_linux_est_installee}
 
 Vous désirez connaître la distribution et la version de Linux qui tourne sur votre système ou même la version du noyau? Plusieurs commandes vous permettent d'obtenir ces informations.
 
@@ -52,7 +52,7 @@ Description: Raspbian GNU/Linux 10 (buster)
 Release: 10  
 Codename: buster
 
-## 3.3 Rechercher un fichier (find)
+## 3.3 Rechercher un fichier (find) {#fiche-Rechercher_un_fichier}
 
 Savoir rechercher efficacement un fichier sous Linux est certainement le meilleur gagne-temps pour un programmeur.
 
@@ -110,7 +110,7 @@ Commande Linux
 
 find . -name \*.json -not -path "./vendor/\*"
 
-## 3.4 Quelques commandes Linux utiles
+## 3.4 Quelques commandes Linux utiles {#fiche-quelques_commandes_linux_utiles}
 
 Je vous présente ici quelques commandes qui pourraient vous être utiles lorsque vous travaillez à la console sous Linux.
 
@@ -157,7 +157,7 @@ Il ne s'agit pas de commandes de base mais bien de commandes moins connues ou pl
 | cut -d: -f1 /etc/passwd | Lister les usagers existant localement sur l'ordinateur |
 | awk -F':' '$2 ~ "$" {print $1}' /etc/shadow  ou  awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd | Lister les usagers pouvant s'authentifier (donc excluant les usagers système) |
 
-## 3.5 Éteindre un système Linux de façon sécuritaire
+## 3.5 Éteindre un système Linux de façon sécuritaire {#fiche-Eteindre_un_systeme_linux_de_facon_securitaire}
 
 Il n'est pas recommandé de fermer un ordinateur qui roule sous Linux en le débranchant directement. Ceci empêche Linux de faire son « ménage » avant de se refermer, laissant des fichiers de travail à la traîne.
 
@@ -276,7 +276,7 @@ De nombreux tutoriels couvrent déjà cette option :
 
 « Understanding Shutdown, Poweroff, Halt and Reboot Commands in Linux ». TecMint. <https://www.tecmint.com/shutdown-poweroff-halt-and-reboot-commands-in-linux/>
 
-## 3.6 Les variables d'environnement Linux
+## 3.6 Les variables d'environnement Linux {#fiche-les_variables_d_environnement_linux}
 
 Les variables d'environnement, sont des variables définies directement dans le système d'exploitation. Elles peuvent être utilisées dans n'importe quel programme.
 
@@ -382,7 +382,7 @@ export PATH=$PATH:dossier/sousdossier
 
 « How to Set and List Environment Variables in Linux ». Linuxize. <https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/>
 
-## 3.7 Lister l'historique des commandes entrées au Terminal
+## 3.7 Lister l'historique des commandes entrées au Terminal {#fiche-lister_l_historique_des_commandes_entrees_au_terminal}
 
 Lorsque vous travaillez dans une fenêtre Terminal sous Linux, il est très pratique d'utiliser les touches Flèche haut et Flèche bas pour réafficher les dernières commandes entrées.
 
@@ -421,7 +421,7 @@ Dans cette fiche :
   + [Erreur serveur non trouvé](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nontrouve)
 * [Copie à l'aide d'une clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb)
 
-## Commande scp
+## Commande scp {#scp}
 
 La commande scp (Secure CoPy), est très intéressante pour copier des fichiers d'un ordinateur vers un autre.
 
@@ -443,7 +443,7 @@ scp source cible
 
 Pour identifier la machine distante, on fera précéder la source ou la cible, selon le cas, par usager@adresse IP de la machine distante, suivi de deux points. Des exemples sont donnés dans les sections qui suivent.
 
-### Copie de l'ordinateur vers le Raspberry Pi
+### Copie de l'ordinateur vers le Raspberry Pi {#ordiverspi}
 
 Pour copier un fichier à partir de l'ordinateur vers le Pi, la machine distante sera la cible.
 
@@ -453,7 +453,7 @@ Terminal de l'ordinateur
 
 scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossierdistant/sous-dossier
 
-### Copier du Raspberry Pi vers l'ordinateur
+### Copier du Raspberry Pi vers l'ordinateur {#"piversordi}
 
 Pour copier un fichier du Pi vers votre ordinateur, la machine distante sera la source.
 
@@ -461,7 +461,7 @@ Terminal de l'ordinateur
 
 scp pi@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
 
-### Copie d'un dossier complet
+### Copie d'un dossier complet {#dossiercomplet}
 
 L'option -r permet de copier un dossier complet entre le Raspberry Pi et l'ordinateur.
 
@@ -479,7 +479,7 @@ Terminal de l'ordinateur
 
 scp -r pi@192.168.1.145:/dossierdistant /dossierlocal
 
-### Accès qui nécessite un port particulier
+### Accès qui nécessite un port particulier {#port}
 
 Certains systèmes, par exemple Home Assistant, exigent l'utilisation d'un port particulier pour un accès SSH. Ce port devra lui aussi être utilisé avec scp.
 
@@ -495,7 +495,7 @@ Terminal de l'ordinateur
 
 scp -P 22222 /dossierlocal root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension
 
-### Erreur serveur non trouvé
+### Erreur serveur non trouvé {#nontrouve}
 
 Lors de l'utilisation de la commande scp, le serveur SSH pourrait être configuré pour travailler par défaut en mode sécurisé.
 
@@ -550,7 +550,7 @@ Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes
 
 « SCP (Secure Copy) ». Raspberry Pi. <https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md>
 
-## 3.9 Encodage des fins de lignes (CRLF vs LF)
+## 3.9 Encodage des fins de lignes (CRLF vs LF) {#fiche-encodage_des_fins_de_lignes_crlf_vs_lf}
 
 Dans cette fiche :
 
@@ -563,7 +563,7 @@ Dans cette fiche :
     - [Window, macOS ou Linux avec Geany](https://apical.xyz/formations/pageunique/systeme_domotique_diy#convertirgeany)
     - [macOS ou Linux en ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#convertircommande)
 
-## Réponse courte : comment configurer les caractères de fin de ligne sous Geany
+## Réponse courte : comment configurer les caractères de fin de ligne sous Geany {#courte}
 
 Sous Windows, macOS ou Linux, il est possible de modifier les caractères de fin de ligne à l'aide de l'éditeur Geany.
 
@@ -571,7 +571,7 @@ Rendez-vous dans le menu Document / Définir les fins de ligne et choisissez l'o
 
 ![Convertir les CRLF en LF](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Geany-ModifierCRLF.png)
 
-## Réponse détaillée
+## Réponse détaillée {#detaillee}
 
 Les fins de lignes sont marquées de façon différente sous Windows et sous macOS ou Linux.
 
@@ -591,7 +591,7 @@ Résultat à l'écran
 
 Les techniques pour vérifier quels caractères de fin de ligne sont utilisés dépendent de votre système d'exploitation.
 
-#### Windows, macOS ou Linux avec Geany
+#### Windows, macOS ou Linux avec Geany {#verifiergeany}
 
 Avec l'éditeur Geany, vous pouvez aller dans le menu Éditer / Préférences / Éditeur / Affichage. Cochez Afficher les fins de ligne.
 
@@ -599,7 +599,7 @@ Vous verrez ceci :
 
 ![Affichage CR et LF](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Geany-AffichageCRLF.png)
 
-#### macOS ou Linux en ligne de commande
+#### macOS ou Linux en ligne de commande {#verifiercommande}
 
 Pour vérifier quels caractères sont utilisés pour marquer les fins de ligne, vous pouvez utiliser la commande file sur un système Linux ou macOS.
 
@@ -631,13 +631,13 @@ Résultat à l'écran
 
 #!/bin/bash^M
 
-### Convertir les caractères de fins de ligne
+### Convertir les caractères de fins de ligne {#convertir}
 
 Geany peut convertir les caractères de fins de ligne selon vos préférences.
 
 Ici encore, les techniques disponibles dépendent de votre système d'exploitation.
 
-#### Window, macOS ou Linux avec Geany
+#### Window, macOS ou Linux avec Geany {#convertirgeany}
 
 Sous Windows, macOS ou Linux, rendez-vous dans le menu Document / Définir les fins de ligne et choisissez l'option qui vous convient.
 
@@ -655,7 +655,7 @@ Terminal
 
 perl -pe 's/\r$//g' < fichierCRLF.sh > fichierLF.sh
 
-## 3.10 Nmap
+## 3.10 Nmap {#fiche-nmap}
 
 [Nmap](https://nmap.org/) (Network mapper) est un petit utilitaire gratuit qui permet notamment de balayer une plage d'adresses IP afin de trouver l'adresse d'un périphérique branché au réseau et de connaître les ports ouverts (en anglais : port scanning).
 
@@ -815,7 +815,7 @@ Nmap done: 255 IP addresses (10 hosts up) scanned in 35.67 seconds
 
 « A Quick Port Scanning Tutorial ». Nmap. <https://nmap.org/book/port-scanning-tutorial.html>
 
-## 3.11 Commandes réseau (ifconfig)
+## 3.11 Commandes réseau (ifconfig) {#fiche-commandes_reseau_ifconfig}
 
 La commande [ifconfig](https://man7.org/linux/man-pages/man8/ifconfig.8.html) permet d'obtenir de l'information sur les configurations réseau et, optionnellement, de les modifier.
 
@@ -884,7 +884,7 @@ Terminal
 
 sudo ifconfig wlan0 up
 
-## 3.12 Copier une image du système d'exploitation sur une carte microSD (flasher)
+## 3.12 Copier une image du système d'exploitation sur une carte microSD (flasher) {#fiche-copier_une_image_du_systeme_d_exploitation_sur_une_carte_microsd_flasher}
 
 Un fichier image permet d'installer sur une carte microSD un système d'exploitation ainsi que des configurations et logiciels prédéfinis. On dira flasher l'image sur la carte.
 
@@ -896,7 +896,7 @@ Je vous propose trois techniques pour y arriver :
 * [À la ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commande) (Mac et Linux seulement)
 * [Avec Etcher](https://apical.xyz/formations/pageunique/systeme_domotique_diy#etcher)
 
-## Raspberry Pi Imager
+## Raspberry Pi Imager {#raspberry}
 
 Raspberry Pi Imager est généralement utilisé pour flasher sur une carte le système d'exploitation Raspberry Pi OS. Ce petit utilitaire permet également de flasher n'importe quelle image sur une carte.
 
@@ -979,7 +979,7 @@ Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez u
 
 Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : [apical\_lien\_interne]copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd[/apical\_lien\_interne].
 
-## Etcher
+## Etcher {#etcher}
 
 Il existe de nombreux autres utilitaires pour flasher l'image sur la carte, par exemple [Etcher](https://www.balena.io/etcher/). Cet utilitaire peut être utilisé sous Windows, Mac ou Linux.
 
@@ -987,7 +987,7 @@ Il existe de nombreux autres utilitaires pour flasher l'image sur la carte, pa
 
 « 6 Best Raspberry Pi Imager Options and My Surprise Top Pick ». Smart Home Beginner. <https://www.smarthomebeginner.com/best-raspberry-pi-imager/>
 
-## 3.13 Ajuster la date et l'heure sous Linux
+## 3.13 Ajuster la date et l'heure sous Linux {#fiche-Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu}
 
 Le travail sous Linux sera plus facile si la date et l'heure correspondent à votre réalité.
 
@@ -1002,7 +1002,7 @@ Dans cette fiche :
   + [Ajuster la date et l'heure](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dateetheure)
   + [Activer la synchronisation de l'horloge](https://apical.xyz/formations/pageunique/systeme_domotique_diy#synchro)
 
-## Informations actuelles
+## Informations actuelles {#infosactuelles}
 
 Pour voir les configurations actuelles de l'horloge, vous pouvez travailler avec la commande [date](https://man7.org/linux/man-pages/man1/date.1.html).
 
@@ -1052,7 +1052,7 @@ NTP synchronized: no
 
  RTC in local TZ: no
 
-## Ajuster la date - réponse courte
+## Ajuster la date - réponse courte {#responsecourte}
 
 La date et l'heure du système peuvent être ajustés comme suit :
 
@@ -1066,7 +1066,7 @@ Terminal
 
 sudo date -s "AAAA-MM-JJ HH:mm:ss"
 
-## Ajuster la date - réponse plus élaborée
+## Ajuster la date - réponse plus élaborée {#reponseelaboree}
 
 Les commandes précédentes ne fonctionnent pas ou vous désirez modifier également le fuseau horaire ou simplement vous désirez en savoir plus?
 
@@ -1169,7 +1169,7 @@ Commande Linux
 
 export TZ=America/Toronto
 
-### Ajuster la date et l'heure
+### Ajuster la date et l'heure {#dateetheure}
 
 Si, une fois le fuseau horaire ajusté, la date et/ou l'heure ne correspondent pas à la réalité, vous pouvez ajuster votre système à l'aide d'une de ces techniques.
 
@@ -1197,7 +1197,7 @@ sudo timedatectl set-ntp 0
 
 Vous pourrez ensuite relancer la commande pour ajuster la date et l'heure.
 
-### Activer la synchronisation de l'horloge
+### Activer la synchronisation de l'horloge {#synchro}
 
 Si, lorsque vous lancez la commande timedatectl, vous obtenez une ligne qui dit System clock synchronized: No, vous pouvez activer la synchronisation de l'horloge avec ces commandes :
 
@@ -1208,7 +1208,7 @@ sudo timedatectl set-ntp true
 
 Si vous ne parvenez pas à activer la synchronisation de l'horloge, vous pouvez rechercher une solution ici : <https://askubuntu.com/questions/1046214/enable-system-clock-synchronization>.
 
-## 3.14 Éditeur nano
+## 3.14 Éditeur nano {#fiche-editeur_nano}
 
 nano est un tout petit éditeur texte, souvent utilisé pour éditer des fichiers de configuration.
 
@@ -1268,7 +1268,7 @@ Voici quelques raccourcis qui pourraient vous être utiles :
 * Esc  U : défaire (undo)
 * Esc  E : rétablir (redo)
 
-## 3.15 Éditeur vim
+## 3.15 Éditeur vim {#fiche-Editeur_vim}
 
 Dans cette fiche :
 
@@ -1276,7 +1276,7 @@ Dans cette fiche :
 * [Mode commande vs mode insertion](https://apical.xyz/formations/pageunique/systeme_domotique_diy#mode)
 * [Principales commandes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandes)
 
-## vim
+## vim {#vim}
 
 vim, le successeur de vi, est un éditeur très ancien et très peu convivial mais très puissant. Tout utilisateur Linux doit en avoir une connaissance de base car il est profondément ancré dans le monde Linux. Il est encore, de nos jours, utilisé par la plupart des administrateurs de systèmes Linux.
 
@@ -1288,7 +1288,7 @@ Commande Linux
 
 vim nom\_fichier
 
-## Mode commande vs mode insertion
+## Mode commande vs mode insertion {#mode}
 
 vim fonctionne en deux modes :
 
@@ -1300,7 +1300,7 @@ vim fonctionne en deux modes :
 * en mode commande : la lettre i ou la touche INSERT vous place en mode insertion
 * en mode d'insertion : ESCAPE vous place en mode commande
 
-## Principales commandes
+## Principales commandes {#commandes}
 
 Voici quelques commandes utiles. Pour entrer ces commandes, vous devez d'abord vous placer en mode commande.
 
@@ -1344,7 +1344,7 @@ Commande Linux
 
 man vim
 
-## 3.16 nmcli, l'outil en ligne de commande du NetworkManager
+## 3.16 nmcli, l'outil en ligne de commande du NetworkManager {#fiche-nmcli_l_outil_en_ligne_de_commande_du_networkmanager}
 
 Network Manager est un outil de gestion de réseaux pour les systèmes Linux.
 
@@ -1388,7 +1388,7 @@ Je vous en présente ici quelques-unes.
 
 « nmcli-examples ». Gnome Developer. <https://developer-old.gnome.org/NetworkManager/stable/nmcli-examples.html>
 
-## 3.17 systemctl
+## 3.17 systemctl {#fiche-systemctl}
 
 Sous Linux, la commande [systemctl](https://www.man7.org/linux/man-pages/man1/systemctl.1.html) permet d'effectuer différentes vérifications et configurations sur le gestionnaire de services systemd.
 

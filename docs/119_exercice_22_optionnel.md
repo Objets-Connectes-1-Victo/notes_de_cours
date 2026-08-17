@@ -1,6 +1,6 @@
-# 105. Exercice 22 - OPTIONNEL
+# 105. Exercice 22 - OPTIONNEL {#chapitre-exercice_22_optionnel}
 
-## 105.1 La guerre des notes!
+## 105.1 La guerre des notes! {#fiche-la_guerre_des_notes}
 
 CET EXERCICE EST OPTIONNEL.
 

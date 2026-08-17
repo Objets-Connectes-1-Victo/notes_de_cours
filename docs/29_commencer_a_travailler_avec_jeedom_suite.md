@@ -1,6 +1,6 @@
-# 26. Commencer à travailler avec Jeedom (suite)
+# 26. Commencer à travailler avec Jeedom (suite) {#chapitre-commencer_a_travailler_avec_jeedom_suite}
 
-## 26.1 En résumé...
+## 26.1 En résumé... {#fiche-en_resume_042}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -8,29 +8,29 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [apical\_lien\_interne]le\_dashboard\_jeedom[/apical\_lien\_interne]
+## <a href="fiche-le\_dashboard\_jeedom.md#le\_dashboard\_jeedom">le\_dashboard\_jeedom</a>
 
 Le dashboard permet de voir en un seul endroit l'état de nos objets connectés et la possibilité de leur envoyer un ordre.
 
 ![Dashboard](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard.png)
 
-## [apical\_lien\_interne]ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom[/apical\_lien\_interne]
+## <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom">ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom</a>
 
 Bien suivre ces étapes!
 
-## [apical\_lien\_interne]configurer\_une\_tuile[/apical\_lien\_interne]
+## <a href="fiche-configurer\_une\_tuile.md#configurer\_une\_tuile">configurer\_une\_tuile</a>
 
-Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « [apical\_lien\_interne]le\_noeud\_n\_a\_pas\_encore\_de\_commande[/apical\_lien\_interne] ».
+Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « <a href="fiche-le\_noeud\_n\_a\_pas\_encore\_de\_commande.md#le\_noeud\_n\_a\_pas\_encore\_de\_commande">le\_noeud\_n\_a\_pas\_encore\_de\_commande</a> ».
 
 Vous pouvez, pour chaque tuile, déterminer ce qui doit être affiché et comment l'information doit être affichée.
 
 N'hésitez pas à explorer!
 
-## [apical\_lien\_interne]travailler\_avec\_la\_meteo\_sous\_jeedom[/apical\_lien\_interne]
+## <a href="fiche-travailler\_avec\_la\_meteo\_sous\_jeedom.md#travailler\_avec\_la\_meteo\_sous\_jeedom">travailler\_avec\_la\_meteo\_sous\_jeedom</a>
 
 Bien suivre ces étapes!
 
-## 26.2 Le dashboard Jeedom
+## 26.2 Le dashboard Jeedom {#fiche-le_dashboard_jeedom}
 
 Le dashboard, ou tableau de bord en français, est l'endroit où vous pouvez voir tous vos objets connectés en un coup d'oeil.
 
@@ -58,7 +58,7 @@ Gris : Automatisme
 
 Bleu foncé : Multimédia
 
-## Déplacer et redimensionner les tuiles
+## Déplacer et redimensionner les tuiles {#redimensionner}
 
 Il est possible de déplacer et de redimensionner les tuiles du Dashboard en cliquant sur l'icône de crayon dans le coin supérieur droit de la fenêtre. Une fois l'opération terminée, appuyez de nouveau sur le crayon pour sauvegarder.
 
@@ -70,19 +70,19 @@ Chaque équipement peut être affiché ou non sur le Dashboard grâce à la case
 
 Le fonctionnement est légèrement différent pour les objets qui représentent les pièces de la maison. La case Visible permet de les afficher un peu partout, notamment dans la liste des objets. Il est possible de les masquer seulement sur le Dashboard en cochant la case Masquer sur le Dashboard.
 
-## Pour plus d'information
+## Pour plus d'information {#deconnecter}
 
 « Dashboard ». Jeedom. <https://doc.jeedom.com/fr_FR/core/4.0/dashboard>
 
-## 26.3 Ajouter un appareil connecté Z-Wave à Jeedom
+## 26.3 Ajouter un appareil connecté Z-Wave à Jeedom {#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom}
 
-Une fois que vous avez [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom,ajouté votre clé USB Z-Wave dans Jeedom][/apical\_lien\_interne], vous pouvez y ajouter des appareils connectés.
+Une fois que vous avez <a href="fiche-configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom.md#configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom">ajouté votre clé USB Z-Wave dans Jeedom</a>, vous pouvez y ajouter des appareils connectés.
 
 L'ajout d'un objet connecté se fait à l'aide du mode Inclusion. Une fois l'objet connecté correctement intégré au système, vous n'aurez plus besoin du mode inclusion.
 
 Dans cet exemple, je vais vous expliquer comment ajouter une prise de courant intelligente Z-Wave (smart plug). Les étapes sont sensiblement les mêmes pour tout type d'objet connecté Z-Wave.
 
-* Accédez à l'[apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,interface d'administration de Jeedom,acceder][/apical\_lien\_interne].
+* Accédez à l'<a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">interface d'administration de Jeedom</a>.
 * Rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave JS.
 
   ![Protocole domotique / Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MenuProtocoleZWave.png)
@@ -131,7 +131,7 @@ Dans cet exemple, je vais vous expliquer comment ajouter une prise de courant in
   Remplissez les informations demandées :
 
   + Nom de l'équipement
-  + [apical\_lien\_interne][objets\_pour\_representer\_la\_maison,Objet parent][/apical\_lien\_interne]
+  + <a href="fiche-objets\_pour\_representer\_la\_maison.md#objets\_pour\_representer\_la\_maison">Objet parent</a>
   + Si désiré : Catégorie
 
   ![Configuration de la prise interlligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationsSmartPlug.png)
@@ -154,7 +154,7 @@ Dans le cas d'un capteur, par exemple un capteur de mouvement, ouvrez le boîtie
 
 ![Valeurs capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ValeursNeoCoolcam.png)
 
-## 26.4 Le noeud n'a pas encore de commande
+## 26.4 Le noeud n'a pas encore de commande {#fiche-le_noeud_n_a_pas_encore_de_commande}
 
 Dans Jeedom, une commande correspond à une information qui doit être recueillie d'un appareil connecté.
 
@@ -192,9 +192,9 @@ Pour régler ce problème :
 
 Il est possible d'ajouter des commandes manuellement afin d'obtenir les informations désirées sur un objet connecté. Les commandes peuvent aussi se traduire en boutons pour envoyer des ordres à l'objet connecté (ex : Allume-toi!).
 
-Suivez les étapes données sur la fiche « [apical\_lien\_interne]configurer\_une\_tuile[/apical\_lien\_interne] ».
+Suivez les étapes données sur la fiche « <a href="fiche-configurer\_une\_tuile.md#configurer\_une\_tuile">configurer\_une\_tuile</a> ».
 
-## 26.5 Configurer une tuile
+## 26.5 Configurer une tuile {#fiche-configurer_une_tuile}
 
 Parfois, le Dashboard de Jeedom offre une présentation intéressante des informations de chaque objet connecté. D'autres fois, il faut effectuer un travail manuel pour que les informations désirées soient affichées.
 
@@ -216,7 +216,7 @@ Pour ajouter une information sur une tuile du Dashboard :
 
   ![Commande TargetValue](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CommandeTargetValueMultilevelSwitch.png)
 
-  Important : si vous voyez un carré rouge sans texte qui apparaît au bas de l'écran, c'est que vous n'avez pas [apical\_lien\_interne][le\_noeud\_n\_a\_pas\_encore\_de\_commande,corrigé les erreurs de programmation][/apical\_lien\_interne] dans le fichier /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php.
+  Important : si vous voyez un carré rouge sans texte qui apparaît au bas de l'écran, c'est que vous n'avez pas <a href="fiche-le\_noeud\_n\_a\_pas\_encore\_de\_commande.md#le\_noeud\_n\_a\_pas\_encore\_de\_commande">corrigé les erreurs de programmation</a> dans le fichier /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php.
 * Une fois la commande ajoutée, refermez cette fenêtre puis cliquez sur l'onglet Commandes.
 * Vous verrez au moins une nouvelle commande pour chaque ajout que vous avez réalisé. Dans cet exemple, une commande de type Info permet de savoir si la prise est allumée ou éteinte. Deux commandes de type Action ont été ajoutées, la première pour éteindre la prise, la seconde pour l'allumer.
 
@@ -252,7 +252,7 @@ Pour ajouter une information sur une tuile du Dashboard :
 
 Jeedom-CommandeTargetValueMultilevelSwitch.
 
-## 26.6 Configurer la page de synthèse
+## 26.6 Configurer la page de synthèse {#fiche-configurer_la_page_de_synthese}
 
 La page de synthèse n'affiche pas autant d'informations que le Dashboard mais elle offre une vue synthétisée et un visuel plus attrayant.
 
@@ -273,7 +273,7 @@ Dans le cas d'une commande numérique, par exemple une température, la valeur a
 
 ![Synthèse](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Synthese.png)
 
-## 26.7 Ajouter une prise Wi-Fi Tuya/SmartLife à Jeedom
+## 26.7 Ajouter une prise Wi-Fi Tuya/SmartLife à Jeedom {#fiche-ajouter_une_prise_wi-fi_tuya_smartlife_a_jeedom}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -295,7 +295,7 @@ Les prises Wi-Fi Teckin sont conçues pour travailler avec l'application SmartLi
 
 ![Application Smart Life](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-Application.png)
 
-Suivez [apical\_lien\_interne][integration\_tuya\_pour\_ajouter\_des\_prises\_wi-fi\_teckin\_dans\_home\_assistant,les étapes détaillées pour le pairage dans l'application SmartLife,telephone][/apical\_lien\_interne]. Ne suivez que les instructions de la section « Configuration de la prise Wi-Fi sur votre téléphone » car les autres sections ne concernent pas Jeedom.
+Suivez <a href="fiche-integration\_tuya\_pour\_ajouter\_des\_prises\_wi-fi\_teckin\_dans\_home\_assistant.md#integration\_tuya\_pour\_ajouter\_des\_prises\_wi-fi\_teckin\_dans\_home\_assistant">les étapes détaillées pour le pairage dans l'application SmartLife</a>. Ne suivez que les instructions de la section « Configuration de la prise Wi-Fi sur votre téléphone » car les autres sections ne concernent pas Jeedom.
 
 ## Plugin SmartLife dans Jeedom
 
@@ -328,7 +328,7 @@ Cliquez sur l'objet de votre choix et remplissez sa fiche comme vous le feriez p
 
 « La prise TECKIN, le plugin Smartlif et Jeedom ». YouDom. <https://youdom.net/2022/02/24/la-prise-teckin-le-plugin-smartlif-et-jeedom/>
 
-## 26.8 Travailler avec la météo sous Jeedom
+## 26.8 Travailler avec la météo sous Jeedom {#fiche-travailler_avec_la_meteo_sous_jeedom}
 
 Les données météo peuvent servir de déclencheur pour un scénario Jeedom.
 
@@ -356,7 +356,7 @@ Les coordonnées GPS peuvent être retrouvées sur Google Maps.
 
 Si vous avez sélectionné un objet parent qui est visible sur le Dashboard et que vous avez rendu l'équipement de météo visible, vous pourrez voir la météo directement sur le Dashboard.
 
-Pour voir toutes les informations présentées, vous devrez peut-être [apical\_lien\_interne][le\_dashboard\_jeedom,redimensionner la tuile,redimensionner][/apical\_lien\_interne] de la météo.
+Pour voir toutes les informations présentées, vous devrez peut-être <a href="fiche-le\_dashboard\_jeedom.md#le\_dashboard\_jeedom">redimensionner la tuile</a> de la météo.
 
 Si aucune donnée météo n'est affichée, vous devez cliquer sur l'icône de rafraîchissement au coin supérieur droit de la tuile.
 
@@ -366,7 +366,7 @@ Voici la même tuile mais cette fois, après avoir coché Mode image.
 
 ![Mode image](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard-MeteoModeImage.png)
 
-## 26.9 Exclure un appareil de Jeedom
+## 26.9 Exclure un appareil de Jeedom {#fiche-exclure_un_appareil_de_jeedom}
 
 Si un appareil connecté a déjà été inclus dans une boîte domotique, vous ne pourrez pas l'inclure dans une autre boîte sans avoir effectué une opération préalable.
 

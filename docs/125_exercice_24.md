@@ -1,6 +1,6 @@
-# 110. Exercice 24
+# 110. Exercice 24 {#chapitre-exercice_24_003}
 
-## 110.1 Combat des pouces MQTT
+## 110.1 Combat des pouces MQTT {#fiche-combat_des_pouces_mqtt}
 
 Dans cet exercice, vous devez travailler deux par deux. Chaque membre de l'équipe aura sa propre boîte Home Assistant.
 

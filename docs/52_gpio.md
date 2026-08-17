@@ -1,6 +1,6 @@
-# 46. GPIO
+# 46. GPIO {#chapitre-gpio}
 
-## 46.1 En résumé...
+## 46.1 En résumé... {#fiche-en_resume_023}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [apical\_lien\_interne]qu\_est-ce\_que\_le\_gpio[/apical\_lien\_interne]
+## <a href="fiche-qu\_est-ce\_que\_le\_gpio.md#qu\_est-ce\_que\_le\_gpio">qu\_est-ce\_que\_le\_gpio</a>
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -18,7 +18,7 @@ Il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC c
 
 ![Schéma officicel GPIO Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png)
 
-## [apical\_lien\_interne]brancher\_une\_del\_au\_raspberry\_pi[/apical\_lien\_interne]
+## <a href="fiche-brancher\_une\_del\_au\_raspberry\_pi.md#brancher\_une\_del\_au\_raspberry\_pi">brancher\_une\_del\_au\_raspberry\_pi</a>
 
 La planche de maquettage :
 
@@ -49,9 +49,9 @@ Important ! Sens de la DEL :
 
 ![Photo du montage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png)
 
-## [apical\_lien\_interne]la\_base\_des\_scripts\_avec\_rpi\_gpio[/apical\_lien\_interne]
+## <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">la\_base\_des\_scripts\_avec\_rpi\_gpio</a>
 
-Il y a un [apical\_lien\_interne][Qu\_est-ce\_que\_Python,chapitre de référence sur Python][/apical\_lien\_interne] au début de la formation.
+Il y a un <a href="fiche-Qu\_est-ce\_que\_Python.md#Qu\_est-ce\_que\_Python">chapitre de référence sur Python</a> au début de la formation.
 
 Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez le copier sur le Pi après l'avoir édité.
 
@@ -104,11 +104,11 @@ Terminal
 
 python3 monscript.py
 
-## [apical\_lien\_interne]lancer\_un\_script\_python\_avec\_le\_plugin\_script[/apical\_lien\_interne]
+## <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">lancer\_un\_script\_python\_avec\_le\_plugin\_script</a>
 
 Voir détails sur la fiche.
 
-## 46.2 Qu'est-ce que le GPIO?
+## 46.2 Qu'est-ce que le GPIO? {#fiche-qu_est-ce_que_le_gpio}
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -120,7 +120,7 @@ Un circuit électronique pourra être réalisé en branchant des composants éle
 
 Notez que pour les modèles qui ont précédé le Raspberry Pi 1B+ (2014), le GPIO n'avait que 26 broches. Et pour le Raspberry Pi Zero, il y a 40 trous auxquels les broches peuvent être soudées.
 
-## Schéma des broches
+## Schéma des broches {#schema}
 
 Certaines broches jouent un rôle particulier. Il faut se référer au schéma officiel du GPIO[1](https://www.raspberrypi.org/documentation/usage/gpio/) pour connaître leur rôle.
 
@@ -146,7 +146,7 @@ Lorsqu'une broche reçoit une tension suffisamment haute (ex : 3.3V), son état
 
 L'état d'une broche peut être contrôlé par programmation avec des langages comme le Python, le JavaScript et bien d'autres.
 
-Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « [apical\_lien\_interne]brancher\_une\_del\_au\_raspberry\_pi[/apical\_lien\_interne] ».
+Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « <a href="fiche-brancher\_une\_del\_au\_raspberry\_pi.md#brancher\_une\_del\_au\_raspberry\_pi">brancher\_une\_del\_au\_raspberry\_pi</a> ».
 
 ## Source
 
@@ -164,7 +164,7 @@ Le branchement d'un composant électronique sur une planche de maquettage puis a
 
 « Raspberry Pi Pinout ». Raspberry Pi Pinout. <https://pinout.xyz/>
 
-## 46.3 Brancher une DEL au Raspberry Pi
+## 46.3 Brancher une DEL au Raspberry Pi {#fiche-brancher_une_del_au_raspberry_pi}
 
 Si vous branchez une petite diode électroluminescente (DEL, en anglais light-emitting diode ou LED) au GPIO de votre Raspberry Pi, votre système domotique pourrait par exemple allumer la DEL quand quelqu'un entre dans la pièce.
 
@@ -234,7 +234,7 @@ Dans un petit circuit qui implique seulement une DEL et une résistance, la rés
 
 Circuits réalisés à l'aide du logiciel [Fritzing](https://fritzing.org/).
 
-Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « [apical\_lien\_interne]les\_resistances[/apical\_lien\_interne] ».
+Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « <a href="fiche-les\_resistances.md#les\_resistances">les\_resistances</a> ».
 
 ## Broche 3.3V vs broche programmable
 
@@ -244,7 +244,7 @@ Avec un branchement directement sur la broche no 1 (3V3 power), comme sur le mon
 
 Si vous préférez allumer la DEL par programmation, il faudra brancher sa longue patte sur une autre broche du GPIO, par exemple la broche 17, comme sur le montage C.
 
-Il faudra alors écrire un petit programme qui enverra ou non un signal à cette broche, par exemple [apical\_lien\_interne][la\_base\_des\_scripts\_avec\_rpi\_gpio,en utilisant la bibliothèque RPi.GPIO][/apical\_lien\_interne].
+Il faudra alors écrire un petit programme qui enverra ou non un signal à cette broche, par exemple <a href="fiche-la\_base\_des\_scripts\_avec\_rpi\_gpio.md#la\_base\_des\_scripts\_avec\_rpi\_gpio">en utilisant la bibliothèque RPi.GPIO</a>.
 
 ![Branchement de la DEL sur la broche 17](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-switchingcircuit.png)
 
@@ -276,7 +276,7 @@ Source de l'image : <https://projects.raspberrypi.org/en/projects/physical-comp
 
 « Introduction aux circuits ». CCDMD - Apprendre à programmer pour rendre des objets connectés à Internet à l’aide des plateformes Arduino et Raspberry PI. <https://objets.ccdmd.qc.ca/manuel/2-1-introduction-aux-circuits/>
 
-## 46.4 Les résistances
+## 46.4 Les résistances {#fiche-les_resistances}
 
 Dans tout circuit électronique qui comporte une DEL, il faut ajouter une résistance. Ceci assure que le courant ne grillera pas la DEL, le GPIO ou même le Raspberry Pi.
 
@@ -324,7 +324,7 @@ Il est possible de déterminer la valeur d'une résistance à partir de ses band
 
 La valeur de la résistance  peut également être lue avec un multimètre.
 
-## Valeur de résistance sure, sans calculs
+## Valeur de résistance sure, sans calculs {#sure}
 
 Sur plusieurs sites, vous verrez qu'on utilise une résistance de 330 Ohms.
 
@@ -364,7 +364,7 @@ Pour obtenir une DEL plus lumineuse, il suffit de diminuer la valeur de la rési
 
 « Connaitre les résistances Arduino ». Electronique Kit. <https://www.electronique-kit.com/les-r%C3%A9sistances-arduino>
 
-## 46.5 Tester les broches du GPIO
+## 46.5 Tester les broches du GPIO {#fiche-tester_les_broches_du_gpio}
 
 Vous avez modifié les branchements du GPIO alors que le Raspberry Pi était sous tension? Il se peut que le GPIO ne fonctionne plus correctement.
 
@@ -372,9 +372,9 @@ Pour le vérifier, vous pouvez utiliser un petit utilitaire en ligne de commande
 
 Pour l'utiliser, suivez ces étapes :
 
-* Vous devez avoir en main un Raspberry Pi sur lequel [apical\_lien\_interne][raspberry\_pi\_imager,Raspberry Pi OS est installé][/apical\_lien\_interne]. La version Lite est suffisante.
+* Vous devez avoir en main un Raspberry Pi sur lequel <a href="fiche-raspberry\_pi\_imager.md#raspberry\_pi\_imager">Raspberry Pi OS est installé</a>. La version Lite est suffisante.
 * Il ne doit rien y avoir de branché sur les broches du GPIO, pas même le ventilateur du boîtier du Pi. Toutes les broches doivent être libres.
-* Pour lancer les commandes sur le Pi, vous pouvez y brancher un écran et un clavier ou encore vous y connecter [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi\_via\_ssh,via SSH][/apical\_lien\_interne].
+* Pour lancer les commandes sur le Pi, vous pouvez y brancher un écran et un clavier ou encore vous y connecter <a href="fiche-se\_brancher\_au\_raspberry\_pi\_via\_ssh.md#se\_brancher\_au\_raspberry\_pi\_via\_ssh">via SSH</a>.
 * Le script nécessite que la bibliothèque [pigpio](http://abyz.me.uk/rpi/pigpio/) soit installée sur le Pi. Pour le savoir, entrez cette commande :
 
   Terminal
@@ -385,7 +385,7 @@ Pour l'utiliser, suivez ces étapes :
 
   Le message pigpiod: command not found indique que vous devrez installer la bibliothèque.
 
-  + Pour installer la bibliothèque, le Raspberry Pi aura besoin d'un [apical\_lien\_interne][configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_p,accès à Internet][/apical\_lien\_interne].
+  + Pour installer la bibliothèque, le Raspberry Pi aura besoin d'un <a href="fiche-configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_p.md#configurer\_le\_reseau\_wi-fi\_sur\_le\_raspberry\_p">accès à Internet</a>.
 
     Lancez cette commande pour procéder à l'installation :
 

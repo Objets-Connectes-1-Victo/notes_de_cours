@@ -1,6 +1,6 @@
-# 69. Les icônes
+# 69. Les icônes {#chapitre-les_icones_002}
 
-## 69.1 Icônes Material Design dans Home Assistant
+## 69.1 Icônes Material Design dans Home Assistant {#fiche-icones_material_design_dans_home_assistant}
 
 Home Assistant permet d'associer une icône à différentes entités.
 

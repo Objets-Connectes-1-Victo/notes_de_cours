@@ -1,6 +1,6 @@
-# 30. Messages et mises à jour
+# 30. Messages et mises à jour {#chapitre-messages_et_mises_a_jour}
 
-## 30.1 Le centre de messages de Jeedom
+## 30.1 Le centre de messages de Jeedom {#fiche-le_centre_de_messages_de_jeedom}
 
 Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le coin supérieur droit de l'écran de petits carrés de couleur avec un chiffre blanc au centre.
 
@@ -28,7 +28,7 @@ Une fois que vous avez pris connaissance des messages, vous pouvez cliquer sur V
 
 Ainsi, à chaque fois que vous verrez un carré orange apparaître, vous saurez que Jeedom veut porter quelque chose à votre attention.
 
-## 30.2 Le centre de mise à jour de Jeedom
+## 30.2 Le centre de mise à jour de Jeedom {#fiche-le_centre_de_mise_a_jour_de_jeedom}
 
 À chaque fois qu'une mise à jour est disponible, que ce soit pour le coeur de Jeedom ou pour un des plugins que vous avez installés, un carré rouge apparaît dans le haut de l'écran.
 

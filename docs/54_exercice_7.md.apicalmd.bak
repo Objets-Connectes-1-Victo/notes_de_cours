@@ -1,6 +1,6 @@
-# 48. Exercice 7
+# 48. Exercice 7 {#chapitre-exercice_7_009}
 
-## 48.1 Scripts Python pour contrôler des DEL
+## 48.1 Scripts Python pour contrôler des DEL {#fiche-scripts_python_pour_controler_des_del}
 
 1. Commencez par consulter le [apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,shéma des broches du GPIO,schema][/apical\_lien\_interne] afin de localiser une broche de mise à terre de même que trois broches sur lesquelles vous pouvez contrôler une DEL par programmation.
 2. Effectuez un [apical\_lien\_interne][brancher\_une\_del\_au\_raspberry\_pi,montage sur une planche de maquettage][/apical\_lien\_interne] afin de pouvoir contrôler une DEL bleue, une DEL rouge  et une DEL verte par programmation à l'aide du Pi. La programmation requise est spécifiée aux numéros qui suivent. Attention : ne faites aucun branchement sur le GPIO alors que le Pi est allumé sinon vous risquez de faire griller le GPIO.

@@ -1,6 +1,6 @@
-# 94. Historisation des données
+# 94. Historisation des données {#chapitre-historisation_des_donnees_002}
 
-## 94.1 Configurer l'historisation des données de Home Assistant
+## 94.1 Configurer l'historisation des données de Home Assistant {#fiche-configurer_l_historisation_des_donnees_de_home_assistant}
 
 Comme tout bon système domotique, Home Assistant permet de configurer où et comment sont stockées les données des capteurs ainsi que leur historique.
 
@@ -10,7 +10,7 @@ Les données détaillées enregistrées par les capteurs sont stockées dans la 
 
 Par défaut, Home Assistant enregistre ces données à toutes les secondes et les conserve dans cette table pendant 10 jours.
 
-Pour modifier ces comportements (et bien d'autres), il faut [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,éditer le fichier configurations.yaml][/apical\_lien\_interne].
+Pour modifier ces comportements (et bien d'autres), il faut <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">éditer le fichier configurations.yaml</a>.
 
 C'est l'[intégration Recorder](https://www.home-assistant.io/integrations/recorder/) qui est responsable de l'enregistrement des données. Les configurations modifieront donc le comportement de cette intégration.
 

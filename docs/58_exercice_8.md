@@ -1,11 +1,11 @@
-# 52. Exercice 8
+# 52. Exercice 8 {#chapitre-exercice_8_005}
 
-## 52.1 Indiquer l'ouverture d'une porte à l'aide d'une DEL
+## 52.1 Indiquer l'ouverture d'une porte à l'aide d'une DEL {#fiche-indiquer_l_ouverture_d_une_porte_a_l_aide_d_une_del_002}
 
-N'oubliez pas que vous avez à votre disposition différentes [apical\_lien\_interne][comment\_deboguer\_un\_scenario,techniques de débogage][/apical\_lien\_interne] pour vos scénarios.
+N'oubliez pas que vous avez à votre disposition différentes <a href="fiche-comment\_deboguer\_un\_scenario.md#comment\_deboguer\_un\_scenario">techniques de débogage</a> pour vos scénarios.
 
-1. Dans votre boîte Jeedom, [apical\_lien\_interne][lancer\_un\_script\_python\_avec\_le\_plugin\_script,ajoutez une commande qui permet de lancer le script,lancer][/apical\_lien\_interne] qui allume la DEL bleue. Testez votre script à l'aide du bouton Tester disponible à côté de la commande.
-2. Faites le nécessaire pour que lorsqu'une porte de votre système domotique s'ouvre, [apical\_lien\_interne][lancer\_un\_script\_python\_avec\_le\_plugin\_script,la DEL bleue s'allume][/apical\_lien\_interne]. Autrement dit, le scénario doit appeler la commande associée au script Python lorsque la condition est rencontrée.
+1. Dans votre boîte Jeedom, <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">ajoutez une commande qui permet de lancer le script</a> qui allume la DEL bleue. Testez votre script à l'aide du bouton Tester disponible à côté de la commande.
+2. Faites le nécessaire pour que lorsqu'une porte de votre système domotique s'ouvre, <a href="fiche-lancer\_un\_script\_python\_avec\_le\_plugin\_script.md#lancer\_un\_script\_python\_avec\_le\_plugin\_script">la DEL bleue s'allume</a>. Autrement dit, le scénario doit appeler la commande associée au script Python lorsque la condition est rencontrée.
 3. Votre boîte Jeedom doit éteindre la DEL bleue lorsque la porte se referme. Vous devez utiliser votre script avec paramètre, créé au dernier cours, pour y parvenir.
 4. Lorsqu'une autre porte de votre système s'ouvre (vous pouvez au besoin créer un autre virtuel), la DEL rouge doit s'allumer puis s'éteindre lorsque la porte se referme.
 5. Faites le nécessaire pour que lorsque les deux portes sont ouvertes en même temps, une DEL verte clignote (cette fois, il s'agit bien de la faire clignoter ;-)). Le clignotement s'arrêtera dès qu'au moins une des porte se referme.

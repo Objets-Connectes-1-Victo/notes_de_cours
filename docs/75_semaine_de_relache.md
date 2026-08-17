@@ -1,6 +1,6 @@
-# 67. Semaine de relâche!
+# 67. Semaine de relâche! {#chapitre-semaine_de_relache_005}
 
-## 67.1 Au programme pendant la relâche
+## 67.1 Au programme pendant la relâche {#fiche-Au_programme_pendant_la_relache}
 
 ![Dessin par Ève Courtois](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DessinsEve-4.gif)Nous voici rendus à la semaine de relâche.
 

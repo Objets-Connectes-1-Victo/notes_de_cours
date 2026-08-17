@@ -1,4 +1,4 @@
-# 25. Pour le prochain cours
+# 25. Pour le prochain cours {#chapitre-pour_le_prochain_cours_067}
 
 ## 25.1 Je me prépare pour l'exercice suivant (un cours)
 

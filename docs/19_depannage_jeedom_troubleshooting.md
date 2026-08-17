@@ -1,6 +1,6 @@
-# 17. Dépannage Jeedom (troubleshooting)
+# 17. Dépannage Jeedom (troubleshooting) {#chapitre-depannage_jeedom_troubleshooting}
 
-## 17.1 Erreur « Controller is busy »
+## 17.1 Erreur « Controller is busy » {#fiche-erreur_controller_is_busy}
 
 ### Problème :
 
@@ -74,7 +74,7 @@ Dans la zone Configuration, mettez le port clé Z-Wave à Auto.
 
 Si vous obtenez une mention NOOK dans la zone Démon, cliquez sur l'icône de flèche pour redémarrer le démon. Tant que vous n'obtenez pas OK pour le statut et pour la configuration, vous ne pourrez pas ajouter d'appareils connectés Z-Wave à Jeedom.
 
-## 17.2 Impossible d'ajouter un objet connecté Z-Wave
+## 17.2 Impossible d'ajouter un objet connecté Z-Wave {#fiche-impossible_d_ajouter_un_objet_connecte_z-wave}
 
 ### Problème :
 
@@ -124,7 +124,7 @@ Déplacez l'appareil pour qu'il soit près de la clé USB Z-Wave.
 
 Une fois l'inclusion complétée, l'appareil pourra être déplacé vers sa destination finale.
 
-## 17.3 Erreur pendant l'installation de Jeedom avec wget
+## 17.3 Erreur pendant l'installation de Jeedom avec wget {#fiche-erreur_pendant_l_installation_de_jeedom_avec_wget}
 
 ### Problème :
 
@@ -158,7 +158,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 Ajustez la date de Raspberry Pi OS : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
-## 17.4 Erreur « Forbidden »
+## 17.4 Erreur « Forbidden » {#fiche-erreur_forbidden}
 
 ### Problème :
 
@@ -179,7 +179,7 @@ Un problème est survenu pendant l'installation de Jeedom.
 
 Je n'ai pas réussi à trouver la cause exacte du problème. Puisque ce problème m'est arrivé sur une installtion toute fraîche, le plus simple était de recommencer l'installation du système d'exploitation puis de Jeedom.
 
-## 17.5 Erreur « Release file for http://archive.raspberrypi.org/debian/dists/buster/InRelease is not valid yet »
+## 17.5 Erreur « Release file for http://archive.raspberrypi.org/debian/dists/buster/InRelease is not valid yet » {#fiche-erreur_release_file_for_http_archive_raspberrypi_org_debian_dists_buster___}
 
 ### Problème :
 
@@ -206,7 +206,7 @@ La date du système n'est pas à jour, ce qui invalide le certificat SSL qui per
 
 Ajustez la date de Raspberry Pi OS : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
-## 17.6 Erreur « Échec lors du téléchargement du fichier »
+## 17.6 Erreur « Échec lors du téléchargement du fichier » {#fiche-erreur_Echec_lors_du_telechargement_du_fichier}
 
 ### Problème :
 
@@ -232,7 +232,7 @@ Dans l'onglet Mises à jour/Market, enlevez le crochet devant Pas de validation 
 
 Ajustez ensuite la date de Raspberry Pi OS pour régler l'erreur de certificat SSL : <https://apical.xyz/fiches/la_ligne_de_commande_linux/Ajuster_la_date_et_l_heure_sous_Linux_Ubuntu>
 
-## 17.7 Erreur « Impossible de contacter le serveur Z-Wave »
+## 17.7 Erreur « Impossible de contacter le serveur Z-Wave » {#fiche-erreur_impossible_de_contacter_le_serveur_z-wave}
 
 ### Problème :
 
@@ -256,7 +256,7 @@ Réessayez dans quelques minutes.
 
 Si le problème n'est toujours pas résolu, redémarrez le système.
 
-## 17.8 J'obtiens l'identifiant d'une commande plutôt que sa valeur
+## 17.8 J'obtiens l'identifiant d'une commande plutôt que sa valeur {#fiche-j_obtiens_l_identifiant_d_une_commande_plutot_que_sa_valeur}
 
 ### Problème :
 
@@ -288,7 +288,7 @@ $cmd = cmd::byString('#[Cuisine][Détecteur Lumière][Luminance]#');
 $value = $cmd->execCmd();  
 log::add('meslogs', 'INFO', "Luminance : $value");
 
-## 17.9 Erreur « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) »
+## 17.9 Erreur « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) » {#fiche-erreur_sqlstate_hy000_1045_access_denied_for_user_jeedom_localhost_using___}
 
 ### Problème :
 
@@ -355,7 +355,7 @@ Pour dire à Jeedom quel est le mot de passe de sa base de données :
      ),  
   );
 
-## 17.10 Erreur « Le driver Z-Wave n'est pas initialisé »
+## 17.10 Erreur « Le driver Z-Wave n'est pas initialisé » {#fiche-erreur_le_driver_z-wave_n_est_pas_initialise}
 
 ### Problème :
 

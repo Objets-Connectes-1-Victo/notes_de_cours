@@ -1,6 +1,6 @@
-# 46. GPIO
+# 46. GPIO {#chapitre-gpio}
 
-## 46.1 En résumé...
+## 46.1 En résumé... {#fiche-en_resume_023}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -108,7 +108,7 @@ python3 monscript.py
 
 Voir détails sur la fiche.
 
-## 46.2 Qu'est-ce que le GPIO?
+## 46.2 Qu'est-ce que le GPIO? {#fiche-qu_est-ce_que_le_gpio}
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -120,7 +120,7 @@ Un circuit électronique pourra être réalisé en branchant des composants éle
 
 Notez que pour les modèles qui ont précédé le Raspberry Pi 1B+ (2014), le GPIO n'avait que 26 broches. Et pour le Raspberry Pi Zero, il y a 40 trous auxquels les broches peuvent être soudées.
 
-## Schéma des broches
+## Schéma des broches {#schema}
 
 Certaines broches jouent un rôle particulier. Il faut se référer au schéma officiel du GPIO[1](https://www.raspberrypi.org/documentation/usage/gpio/) pour connaître leur rôle.
 
@@ -164,7 +164,7 @@ Le branchement d'un composant électronique sur une planche de maquettage puis a
 
 « Raspberry Pi Pinout ». Raspberry Pi Pinout. <https://pinout.xyz/>
 
-## 46.3 Brancher une DEL au Raspberry Pi
+## 46.3 Brancher une DEL au Raspberry Pi {#fiche-brancher_une_del_au_raspberry_pi}
 
 Si vous branchez une petite diode électroluminescente (DEL, en anglais light-emitting diode ou LED) au GPIO de votre Raspberry Pi, votre système domotique pourrait par exemple allumer la DEL quand quelqu'un entre dans la pièce.
 
@@ -276,7 +276,7 @@ Source de l'image : <https://projects.raspberrypi.org/en/projects/physical-comp
 
 « Introduction aux circuits ». CCDMD - Apprendre à programmer pour rendre des objets connectés à Internet à l’aide des plateformes Arduino et Raspberry PI. <https://objets.ccdmd.qc.ca/manuel/2-1-introduction-aux-circuits/>
 
-## 46.4 Les résistances
+## 46.4 Les résistances {#fiche-les_resistances}
 
 Dans tout circuit électronique qui comporte une DEL, il faut ajouter une résistance. Ceci assure que le courant ne grillera pas la DEL, le GPIO ou même le Raspberry Pi.
 
@@ -324,7 +324,7 @@ Il est possible de déterminer la valeur d'une résistance à partir de ses band
 
 La valeur de la résistance  peut également être lue avec un multimètre.
 
-## Valeur de résistance sure, sans calculs
+## Valeur de résistance sure, sans calculs {#sure}
 
 Sur plusieurs sites, vous verrez qu'on utilise une résistance de 330 Ohms.
 
@@ -364,7 +364,7 @@ Pour obtenir une DEL plus lumineuse, il suffit de diminuer la valeur de la rési
 
 « Connaitre les résistances Arduino ». Electronique Kit. <https://www.electronique-kit.com/les-r%C3%A9sistances-arduino>
 
-## 46.5 Tester les broches du GPIO
+## 46.5 Tester les broches du GPIO {#fiche-tester_les_broches_du_gpio}
 
 Vous avez modifié les branchements du GPIO alors que le Raspberry Pi était sous tension? Il se peut que le GPIO ne fonctionne plus correctement.
 

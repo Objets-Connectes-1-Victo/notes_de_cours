@@ -1,4 +1,4 @@
-# Nous utilisons des cookies, qu'en pensez-vous?
+# Nous utilisons des cookies, qu'en pensez-vous? {#btn-accept-all}
 
 <a id="consent-necessary"></a>
 

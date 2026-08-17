@@ -1,6 +1,6 @@
-# 13. L'unité centrale du système domotique (Raspberry Pi)
+# 13. L'unité centrale du système domotique (Raspberry Pi) {#chapitre-l_unite_centrale_du_systeme_domotique}
 
-## 13.1 Boîtes domotiques commerciales
+## 13.1 Boîtes domotiques commerciales {#fiche-boites_domotiques_commerciales}
 
 Il existe une quantité phénoménale de boîtes domotiques commerciales. Certaines offrent des fonctionnalités limitées, notamment au niveau des protocoles de communication supportés, alors que d'autres sont plus versatiles.
 
@@ -64,7 +64,7 @@ Tout comme les appareils Echo ou Google Nest, si vous désirez un système domot
 
 « Best smart home hubs of 2022 ». Tom's Guide. <https://www.tomsguide.com/us/best-smart-home-hubs,review-3200.html>
 
-## 13.2 Un Raspberry Pi comme unité centrale
+## 13.2 Un Raspberry Pi comme unité centrale {#fiche-un_raspberry_pi_comme_unite_centrale}
 
 Un système domotique comprend généralement plusieurs appareils (ex : lumière, serrure, thermostat, stores) qui pourront être contrôlés soit de façon automatique, soit par une action effectuée à partir d'un appareil distant comme un téléphone intelligent ou une montre intelligente.
 
@@ -110,7 +110,7 @@ D'autres logiciels de domotique tournent sur un système d'exploitation créé s
 
 Notez que, selon les choix que vous ferez, vous pourriez avoir besoin d'un **écran**, d'un **clavier** pour effectuer l'installation.
 
-## 13.3 Bien traiter son Raspberry Pi :-)
+## 13.3 Bien traiter son Raspberry Pi :-) {#fiche-bien_traiter_son_raspberry_pi}
 
 Le Raspberry Pi est un petit ordinateur alors certaines précautions s'imposent quand on le manipule.
 

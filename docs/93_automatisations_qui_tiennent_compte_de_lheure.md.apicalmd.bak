@@ -1,6 +1,6 @@
-# 83. Automatisations qui tiennent compte de l'heure
+# 83. Automatisations qui tiennent compte de l'heure {#chapitre-automatisations_qui_tiennent_compte_de_l_heure}
 
-## 83.1 Afficher la date et l'heure dans le tableau de bord
+## 83.1 Afficher la date et l'heure dans le tableau de bord {#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord}
 
 Avant de vous lancer dans les [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_l\_heure,automatisations qui tiennent compte de l'heure][/apical\_lien\_interne] il est intéressant d'ajouter une configuration qui affiche la date et l'heure actuelles dans Home Assistant.
 
@@ -40,11 +40,11 @@ sensor:
       - 'date'  
       - 'date\_time'
 
-## Pour plus d'information
+## Pour plus d'information {#popuprecherche}
 
 « Date & time ». Home Assistant. <https://www.home-assistant.io/integrations/time_date/>
 
-## 83.2 Automatisation qui tient compte de l'heure
+## 83.2 Automatisation qui tient compte de l'heure {#fiche-automatisation_qui_tient_compte_de_l_heure}
 
 Les automatisations dans Home Asssistant peuvent tenir compte de la date et/ou de l'heure.
 

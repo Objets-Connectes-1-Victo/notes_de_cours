@@ -1,12 +1,12 @@
-# 16. Pour vous assurer de ne rien perdre en cas de problème
+# 16. Pour vous assurer de ne rien perdre en cas de problème {#chapitre-pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme}
 
-## 16.1 Copie de sécurité de Jeedom
+## 16.1 Copie de sécurité de Jeedom {#fiche-copie_de_securite_de_jeedom}
 
 Tout bon système informatique doit pouvoir être sauvegardé afin de pouvoir tout remettre en place en cas de problème.
 
 Jeedom a tout ce qu'il faut pour cela.
 
-## Sauvegarde manuelle
+## Sauvegarde manuelle {#manuelle}
 
 Le système de sauvegarde de Jeedom permet de créer un fichier compressé qui contiendra tout le contenu du dossier /var/www/html ainsi qu'un script SQL de la base de données.
 
@@ -69,7 +69,7 @@ Il est possible d'apporter des précisions sur la façon dont les sauvegardes se
   + Le nombre de sauvegardes conservées sur le Pi dépend des configurations Rétention temporelle (jours) et Taille totale maximale (Mo).
   + Il est possible de copier automatiquement les sauvegardes dans l'infonuagique. Cette solution requiert cependant un paiement mensuel de 2 euros. Par contre, [apical\_lien\_interne][copier\_automatiquement\_le\_fichier\_de\_sauvegarde\_sur\_votre\_ordinateur,je vous montre ici une technique pour télécharger les sauvegardes sans frais sur votre ordinateur][/apical\_lien\_interne].
 
-## Restaurer une sauvegarde
+## Restaurer une sauvegarde {#restaurer}
 
 Votre système Jeedom est défaillant ou encore vous désirez revenir à une configuration antérieure?
 
@@ -95,7 +95,7 @@ Pas de problème, la restauration est très simple si vous avez en main le fichi
 
   ![Informations sur la restauration](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Sauvegarde-Restauration.png)
 
-## 16.2 Copier automatiquement le fichier de sauvegarde sur votre ordinateur
+## 16.2 Copier automatiquement le fichier de sauvegarde sur votre ordinateur {#fiche-copier_automatiquement_le_fichier_de_sauvegarde_sur_votre_ordinateur}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 

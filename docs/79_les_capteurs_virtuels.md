@@ -1,6 +1,6 @@
-# 70. Les capteurs virtuels
+# 70. Les capteurs virtuels {#chapitre-les_capteurs_virtuels}
 
-## 70.1 Configurer un capteur virtuel
+## 70.1 Configurer un capteur virtuel {#fiche-configurer_un_capteur_virtuel}
 
 Vous souhaitez faire des tests dans Home Assistant sans devoir vous procurer un capteur ou un récepteur réel?
 
@@ -10,7 +10,7 @@ Ou encore, vous désirez tester une automatisation basée sur la température et
 
 Les capteurs virtuels vous permettront de faire vos tests facilement.
 
-Les capteurs virtuels permettent également d'étendre les fonctionnalités de Home Assistant, par exemple [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_l\_heure,créer une automatisation qui tient compte de l'heure][/apical\_lien\_interne].
+Les capteurs virtuels permettent également d'étendre les fonctionnalités de Home Assistant, par exemple <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">créer une automatisation qui tient compte de l'heure</a>.
 
 Il est possible de créer un capteur virtuel à l'aide de l'interface graphique ou à l'aide du fichier configuration.yaml.
 
@@ -36,7 +36,7 @@ Pour créer un capteur virtuel à l'aide de l'interface graphique :
 
 ## Création d'un capteur virtuel à l'aide du fichier configuration.yaml
 
-Vous pouvez également créer vos capteurs virtuels en entrant directement des lignes de code dans [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,le fichier configuration.yaml][/apical\_lien\_interne].
+Vous pouvez également créer vos capteurs virtuels en entrant directement des lignes de code dans <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">le fichier configuration.yaml</a>.
 
 Cette technique vous offre plus d'options.
 
@@ -50,7 +50,7 @@ input\_boolean:
     name: Porte virtuelle  
     icon: mdi:door
 
-Comme pour toute modification directement dans le fichier de configuration, un [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,rechargement,rechargement][/apical\_lien\_interne] sera nécessaire pour que ce capteur virtuel soit visible dans la page Aperçu.
+Comme pour toute modification directement dans le fichier de configuration, un <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">rechargement</a> sera nécessaire pour que ce capteur virtuel soit visible dans la page Aperçu.
 
 ### Propriétés des capteurs virtuels
 
@@ -65,7 +65,7 @@ Pour chaque capteur, on spécifie :
 * son identifiant (unique, composé uniquement de lettres minuscules, de chiffres et de barres de soulignement)
 * son nom tel qu'il apparaîtra dans Aperçu
 * sa valeur initiale au démarrage de Home Assistant (note : les input\_boolean utilisent on et off)
-* son icône, choisie dans [apical\_lien\_interne][icones\_material\_design\_dans\_home\_assistant,la bibliothèque Material Design][/apical\_lien\_interne]
+* son icône, choisie dans <a href="fiche-icones\_material\_design\_dans\_home\_assistant.md#icones\_material\_design\_dans\_home\_assistant">la bibliothèque Material Design</a>
 * autres configurations propres au type de capteur virtuel (ex : liste des options disponibles pour input\_select)
 
 Il est possible de définir plusieurs capteurs virtuels du même type en les plaçant dans le même bloc.

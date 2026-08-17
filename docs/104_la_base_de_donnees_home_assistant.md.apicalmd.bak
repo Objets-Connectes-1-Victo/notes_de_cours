@@ -1,6 +1,6 @@
-# 93. La base de données Home Assistant
+# 93. La base de données Home Assistant {#chapitre-la_base_de_donnees_home_assistant}
 
-## 93.1 Contenu de la base de données de Home Assistant
+## 93.1 Contenu de la base de données de Home Assistant {#fiche-contenu_de_la_base_de_donnees_de_home_assistant}
 
 Par défaut, Home Assistant utilise une base de données SQLite pour stocker les configurations de même que les données sur les capteurs.
 
@@ -17,7 +17,7 @@ Dans cette fiche :
   + [Interroger les données](https://apical.xyz/formations/pageunique/systeme_domotique_diy#donnees)
 * [Explorer la base de données dans le Terminal de votre ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminal)
 
-## Explorer la base de données dans l'interface Web
+## Explorer la base de données dans l'interface Web {#web}
 
 Pour explorer facilement votre base de données SQLite, vous pouvez installer le module complémentaire SQLite Web.
 
@@ -33,7 +33,7 @@ Pour explorer facilement votre base de données SQLite, vous pouvez installer le
 
   ![Contenu BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ContenuBDAvecSQLiteWeb(1).png)
 
-## Explorer la base de données dans le terminal HassOS
+## Explorer la base de données dans le terminal HassOS {#hassos}
 
 Il est possible d'explorer la base de données Home Assistant directement dans le Terminal HassOS.
 
@@ -45,7 +45,7 @@ SQLite version 3.48.0 2025-01-14 11:05:00
 Enter ".help" for usage hints.  
 sqlite>
 
-### Liste des tables
+### Liste des tables {#tables}
 
 Utilisez la commande .tables pour obtenir la liste des tables de cette base de données.
 
@@ -58,7 +58,7 @@ events                states               statistics\_short\_te
 migration\_changes     states\_meta   
 recorder\_runs         statistics
 
-### Structure des tables
+### Structure des tables {#structure}
 
 Pour connaître la structure d'une table, vous ne pouvez pas utiliser la commande SHOW CREATE TABLE bien connue sous MySQL.
 
@@ -105,7 +105,7 @@ Pour produire ce diagramme, j'ai ouvert la base de données dans [apical\_lien\
 
 ![Schéma BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SchemaBD-2025.png)
 
-### Interroger les données
+### Interroger les données {#donnees}
 
 À partir d'ici, il est possible d'afficher le contenu des différentes tables. Mais avant, il est intéressant d'effectuer deux petites configurations pour améliorer le rendu.
 
@@ -150,7 +150,7 @@ sqlite> SELECT \* FROM statistics\_meta;
 │ 6  │ sensor.node\_16\_air\_temperature               │ recorder │ °C                  │ 1        │ 0       │  
 └────┴──────────────────────────────────────────────┴──────────┴─────────────────────┴──────────┴─────────┘
 
-## Explorer la base de données dans le Terminal de votre ordinateur
+## Explorer la base de données dans le Terminal de votre ordinateur {#terminal}
 
 Si vous préférez, il est possible de l'explorer dans la fenêtre Terminal de votre ordinateur. Vous devrez pour cela en télécharger une copie.
 
@@ -182,7 +182,7 @@ sqlite>
 
 À partir d'ici, vous pouvez effectuer les mêmes opérations que démontré plus haut.
 
-## Pour plus d'information
+## Pour plus d'information {#motdepasse}
 
 « Database ». Home Assistant. <https://www.home-assistant.io/docs/backend/database/>
 

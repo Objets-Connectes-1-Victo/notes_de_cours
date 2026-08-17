@@ -1,4 +1,4 @@
-# 57. Examen 1
+# 57. Examen 1 {#chapitre-examen_1_004}
 
 ## 57.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
 
@@ -15,7 +15,7 @@ La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout
 * Imprimez la page au format PDF.
 * Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
 
-## 57.2 Consignes pour l'examen
+## 57.2 Consignes pour l'examen {#fiche-consignes_pour_l_examen_008}
 
 Cet examen est basé sur le travail que vous avez fait en classe depuis le début de la session. Il consiste à ajouter de nouvelles fonctionnalités à votre logiciel de domotique.
 
@@ -30,7 +30,7 @@ Cet examen est basé sur le travail que vous avez fait en classe depuis le débu
 
 Bonne chance !
 
-## 57.3 Grille de correction
+## 57.3 Grille de correction {#fiche-grille_de_correction_007}
 
 Voici la grille de correction qui sera utilisée à l'examen no 1.
 

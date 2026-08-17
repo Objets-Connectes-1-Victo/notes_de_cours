@@ -1,6 +1,6 @@
-# 41. Historisation des données
+# 41. Historisation des données {#chapitre-historisation_des_donnees}
 
-## 41.1 En résumé...
+## 41.1 En résumé... {#fiche-en_resume_043}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -126,7 +126,7 @@ try {
     $scenario->setLog($e->getMessage());  
 }
 
-## 41.2 Configurer l'historique des commandes
+## 41.2 Configurer l'historique des commandes {#fiche-configurer_l_historique_des_commandes}
 
 Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles [apical\_lien\_interne][selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile,l'historisation a été activée,historique][/apical\_lien\_interne], Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
 

@@ -1,6 +1,6 @@
-# 7. Dépannage Python (troubleshooting)
+# 7. Dépannage Python (troubleshooting) {#chapitre-depannage_python_troubleshooting_002}
 
-## 7.1 Erreur « SyntaxError: invalid character in identifier »
+## 7.1 Erreur « SyntaxError: invalid character in identifier » {#fiche-erreur_syntaxerror_invalid_character_in_identifier}
 
 ### Problème :
 
@@ -25,7 +25,7 @@ Si vous utilisez Geany : Éditer / Préférences / Éditeur / Affichage / Affic
 
 Si vous ne voyez pas les 4 points qui représentent les 4 espaces d'indentation, effacez le blanc et refaites des espaces.
 
-## 7.2 Erreur « ValueError: Channel must be an integer or list/tuple of integers »
+## 7.2 Erreur « ValueError: Channel must be an integer or list/tuple of integers » {#fiche-erreur_valueerror_channel_must_be_an_integer_or_list_tuple_of_integers}
 
 ### Problème :
 

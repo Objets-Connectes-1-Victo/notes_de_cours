@@ -1,6 +1,6 @@
-# 23. Autres aspects intéressants avec Jeedom
+# 23. Autres aspects intéressants avec Jeedom {#chapitre-autres_aspects_interessants_avec_jeedom}
 
-## 23.1 Réinitialiser le mot de passe Jeedom
+## 23.1 Réinitialiser le mot de passe Jeedom {#fiche-reinitialiser_le_mot_de_passe_jeedom}
 
 Si vous avez perdu un mot de passe Jeedom, que ce soit pour l'usager admin ou pour un autre, vous pouvez le réinitialiser à condition d'avoir accès au terminal Linux du Raspberry Pi sur lequel Jeedom est installé.
 
@@ -118,7 +118,7 @@ Cet écran, qui n'est disponible que pour les administrateurs, vous permet de mo
 
 ![Liste des usagers Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Utilisateurs.png)
 
-## 23.2 Accéder à Jeedom à distance gratuitement
+## 23.2 Accéder à Jeedom à distance gratuitement {#fiche-acceder_a_jeedom_a_distance_gratuitement}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -241,7 +241,7 @@ Je vous explique ici comment configurer votre adresse IP avec une interface cPan
 
   ![Zone editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/cPanel-ZoneEditor-3.png)
 
-## Configurations sur le routeur
+## Configurations sur le routeur {#routeur}
 
 Lorsque vous tenterez d'accéder à Jeedom à partir de votre nouveau sous-domaine, la requête sera dirigée vers votre routeur.
 
@@ -333,11 +333,11 @@ Accédez au Raspberry Pi [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi
 
   ![https](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AccesADistance-SSL.png)
 
-## Pour plus d'information
+## Pour plus d'information {#login}
 
 « Quick and Dirty Dynamic DNS Using GoDaddy ». Instructables Circuits. <https://www.instructables.com/Quick-and-Dirty-Dynamic-DNS-Using-GoDaddy/>
 
-## 23.3 Application mobile officielle pour accéder à Jeedom à distance
+## 23.3 Application mobile officielle pour accéder à Jeedom à distance {#fiche-application_mobile_officielle_pour_acceder_a_jeedom_a_distance}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -374,7 +374,7 @@ Si vous souhaitez installer l'application Jeedom, dont la configuration est beau
   ![Application Jeedom sur iPhone](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AppOfficielleSurIPhone.png)
 * Ouvrez l'application mobile puis suivez les étapes à l'écran. Pendant le processus, vous serez invité à scanner le code QR affiché dans l'écran de configuration. Ceci permet d'entrer certaines configurations de façon automatique.
 
-## 23.4 Arrêter le clignotement des DEL sur la clé USB Z-Wave
+## 23.4 Arrêter le clignotement des DEL sur la clé USB Z-Wave {#fiche-arreter_le_clignotement_des_del_sur_la_cle_usb_z-wave}
 
 Lorsque vous branchez une clé USB Z-Wave Aeotec sur votre boîte domotique, elle commence immédiatement à clignoter.
 
@@ -413,7 +413,7 @@ Cette technique fonctionne autant sur un système domotique qui tourne sur Raspb
 
 « How to disable LED on Z-Stick Gen5 ». Aeotec. <https://aeotec.freshdesk.com/support/solutions/articles/6000171881-how-to-disable-led-on-z-stick-gen5->
 
-## 23.5 Modifier le port utilisé pour accéder à Jeedom
+## 23.5 Modifier le port utilisé pour accéder à Jeedom {#fiche-modifier_le_port_utilise_pour_acceder_a_jeedom}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -466,7 +466,7 @@ Accédez au Raspberry Pi [apical\_lien\_interne][se\_brancher\_au\_raspberry\_pi
 * Modifiez les [apical\_lien\_interne][acceder\_a\_jeedom\_a\_distance\_gratuitement,configurations du routeur,routeur][/apical\_lien\_interne] afin que le port externe soit celui entré plus haut (ex : 8088). Le port interne peut demeurer le 80.
 * Désormais, pour accéder à Jeedom, vous devrez terminer son IP ou son sous-domaine par deux points suivis du numéro de port, par exemple 192.168.1.145:8088 à l'interne ou monsousdomaine.domainedufournisseur.org:8088 à l'externe.
 
-## 23.6 Retrouver l'adresse IP du Pi à l'aide de Jeedom
+## 23.6 Retrouver l'adresse IP du Pi à l'aide de Jeedom {#fiche-retrouver_l_adresse_ip_du_pi_a_l_aide_de_jeedom}
 
 Le [apical\_lien\_interne][lancer\_un\_script\_python\_avec\_le\_plugin\_script,plugin Script,installation][/apical\_lien\_interne] permet d'effectuer différentes opérations dans Jeedom et de récupérer des valeurs qui pourront être utilisées dans les scénarios.
 

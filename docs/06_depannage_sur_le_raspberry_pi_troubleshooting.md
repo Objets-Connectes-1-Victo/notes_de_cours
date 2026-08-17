@@ -1,6 +1,6 @@
-# 5. Dépannage sur le Raspberry Pi (troubleshooting)
+# 5. Dépannage sur le Raspberry Pi (troubleshooting) {#chapitre-depannage_sur_le_raspberry_pi_troubleshooting}
 
-## 5.1 ping vers le Raspberry Pi ne fonctionne pas
+## 5.1 ping vers le Raspberry Pi ne fonctionne pas {#fiche-ping_vers_le_raspberry_pi_ne_fonctionne_pas}
 
 ### Problème :
 
@@ -89,7 +89,7 @@ Si vous n'arrivez toujours pas à réaliser le ping et que toutes vos configurat
 
 Si c'est d'une autre communication réseau dont vous avez besoin, essayez de brancher le Pi avec un fil RJ-45.
 
-## 5.2 Le Pi n'a aucune adresse IP
+## 5.2 Le Pi n'a aucune adresse IP {#fiche-le_pi_n_a_aucune_adresse_ip}
 
 ### Problème :
 
@@ -254,7 +254,7 @@ Terminal
 
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
-## 5.3 Le Pi n'a que l'adresse 127.0.0.1
+## 5.3 Le Pi n'a que l'adresse 127.0.0.1 {#fiche-le_pi_n_a_que_l_adresse_127_0_0_1}
 
 ### Problème :
 
@@ -274,7 +274,7 @@ Utilisez la commande hostname -I (notez le i majuscule) pour obtenir l'adresse I
 
 Si vous utilisez un i minuscule, c'est normal de ne voir que 127.0.0.1.
 
-## 5.4 Aucun accès au réseau (message Wi-Fi is currently blocked by rfkill)
+## 5.4 Aucun accès au réseau (message Wi-Fi is currently blocked by rfkill) {#fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill}
 
 ### Problème :
 
@@ -339,7 +339,7 @@ Terminal
 
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
-## 5.5 Aucun accès au réseau (message Could not communicate with wpa\_supplicant)
+## 5.5 Aucun accès au réseau (message Could not communicate with wpa\_supplicant) {#fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill_002}
 
 ### Problème :
 
@@ -414,7 +414,7 @@ Terminal
 
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
 
-## 5.6 Aucun accès réseau (message Network is unreachable)
+## 5.6 Aucun accès réseau (message Network is unreachable) {#fiche-aucun_acces_reseau_message_network_is_unreachable}
 
 ### Problème :
 
@@ -496,7 +496,7 @@ network={
 
 Redémarrez ensuite le Raspberry Pi pour que les configurations soient prises en compte.
 
-## 5.7 Erreur « Connection refused »
+## 5.7 Erreur « Connection refused » {#fiche-erreur_connection_refused}
 
 ### Problème :
 
@@ -609,7 +609,7 @@ sudo fail2ban-client set sshd unbanip 192.168.1.150
 
 « How to Unban an IP properly with Fail2Ban ». Server Fault. <https://serverfault.com/questions/285256/how-to-unban-an-ip-properly-with-fail2ban>
 
-## 5.8 Erreur « Le fichier Release n'est pas encore valide »
+## 5.8 Erreur « Le fichier Release n'est pas encore valide » {#fiche-erreur_le_fichier_release_n_est_pas_encore_valide}
 
 ### Problème :
 
@@ -660,7 +660,7 @@ Si vous n'avez pas accès à la modification des règles de routage, vous pouvez
 
 Si vous travaillez avec un Raspberry Pi 3B, sachez qu'il ne supporte que le Wi-Fi 2.4 GHz alors que le 3B+ et les suivants supportent également le 5 GHz.
 
-## 5.9 Écran noir our message « Digital power saving mode » à l'écran
+## 5.9 Écran noir our message « Digital power saving mode » à l'écran {#fiche-message_digital_power_saving_mode_a_l_ecran}
 
 ### Problème :
 
@@ -738,7 +738,7 @@ La solution finale consiste généralement à essayer d'enlever et de remettre u
 
 « Affichage HDMI de la Raspberry Pi qui ne marche pas, la solution ! ». Raspberry Pi. <https://raspberry-pi.fr/hdmi-raspberry-pi-marche-pas-solution/>
 
-## 5.10 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+## 5.10 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! {#fiche-warning_remote_host_identification_has_changed}
 
 ### Problème :
 
@@ -800,7 +800,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '192.168.1.145' (ECDSA) to the list of known hosts.  
 pi@192.168.1.145's password:
 
-## 5.11 Erreur « Rejected request from RFC1918 IP to public server address »
+## 5.11 Erreur « Rejected request from RFC1918 IP to public server address » {#fiche-erreur_rejected_request_from_rfc1918_ip_to_public_server_address}
 
 ### Problème :
 
@@ -821,9 +821,9 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,la technique présentée ici,acceder][/apical\_lien\_interne].
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation\_de\_jeedom\_et\_premier\_acces.md#installation\_de\_jeedom\_et\_premier\_acces">la technique présentée ici</a>.
 
-## 5.12 Erreur « Under-voltage detected! »
+## 5.12 Erreur « Under-voltage detected! » {#fiche-erreur_under-voltage_detected}
 
 ### Problème :
 
@@ -843,7 +843,7 @@ L'alimentation du Raspberry Pi ne fournit pas un voltage assez élevé (voltage 
 
 Utilisez un meilleur bloc d'alimentation.
 
-## 5.13 Erreur « Could not get lock /var/lib/dpkg/lock-frontend - open »
+## 5.13 Erreur « Could not get lock /var/lib/dpkg/lock-frontend - open » {#fiche-erreur_could_not_get_lock_var_lib_dpkg_lock-frontend_open_11_resource_te___}
 
 ### Problème :
 
@@ -870,7 +870,7 @@ Si cela ne fonctionne toujours pas, redémarrez le Raspberry Pi.
 
 « How To Fix `Could not get lock /var/lib/dpkg/lock - open (11 Resource temporarily unavailable)` Errors ». Linux Unprising. <https://www.linuxuprising.com/2018/07/how-to-fix-could-not-get-lock.html>
 
-## 5.14 Erreur « Authentication token manipulation error »
+## 5.14 Erreur « Authentication token manipulation error » {#fiche-erreur_authentication_token_manipulation_error}
 
 ### Problème :
 
@@ -895,7 +895,7 @@ Terminal
 
 mount -o remount, rw /
 
-## 5.15 Erreur « Sap driver initialization failed »
+## 5.15 Erreur « Sap driver initialization failed » {#fiche-erreur_sap_driver_initialization_failed}
 
 ### Problème :
 
@@ -938,7 +938,7 @@ Sep 06 20:51:20 raspberrypi bluetoothd[598]: Failed to set privacy: Rejected (0x
 
 ...
 
-## 5.16 Erreur « /usr/libexec/sftp-server: not found »
+## 5.16 Erreur « /usr/libexec/sftp-server: not found » {#fiche-erreur_usr_libexec_sftp-server_not_found}
 
 ### Problème :
 

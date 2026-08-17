@@ -1,6 +1,6 @@
-# 112. Format JSON dans un modèle
+# 112. Format JSON dans un modèle {#chapitre-format_json_dans_un_modele}
 
-## 112.1 Format JSON dans un modèle
+## 112.1 Format JSON dans un modèle {#fiche-format_json_dans_un_modele}
 
 L'étude des modèles Home Assistant ne serait pas complète si on ne parlait pas de maniuplation du format JSON.
 
@@ -10,7 +10,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations JSON!
 
 Parfois, toutes les informations sur un objet connecté ou plus précisément sur une entité seront encodées au format JSON.
 
-Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT,json][/apical\_lien\_interne].
+Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via <a href="fiche-publication\_et\_abonnement\_mqtt\_avec\_home\_assistant.md#publication\_et\_abonnement\_mqtt\_avec\_home\_assistant">MQTT</a>.
 
 ## Encodage
 
@@ -75,4 +75,4 @@ Modèle Home Assistant
 
 {{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
 
-Notez que si vous testez ce modèle [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,dans les outils de développement,editeur][/apical\_lien\_interne] et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
+Notez que si vous testez ce modèle <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">dans les outils de développement</a> et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.

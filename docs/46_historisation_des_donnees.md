@@ -1,6 +1,6 @@
-# 41. Historisation des données
+# 41. Historisation des données {#chapitre-historisation_des_donnees}
 
-## 41.1 En résumé...
+## 41.1 En résumé... {#fiche-en_resume_043}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [apical\_lien\_interne]configurer\_l\_historique\_des\_commandes[/apical\_lien\_interne]
+## <a href="fiche-configurer\_l\_historique\_des\_commandes.md#configurer\_l\_historique\_des\_commandes">configurer\_l\_historique\_des\_commandes</a>
 
 Pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -91,7 +91,7 @@ MariaDB [jeedom]> SELECT \* FROM cron;
 | 18 |      1 | history | archive    | 00 5 \* \* \*        |     240 |      0 |               1 | NULL             |    0 |  
 ...
 
-## [apical\_lien\_interne]scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord[/apical\_lien\_interne]
+## <a href="fiche-scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord.md#scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord">scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord</a>
 
 Il faut créer un virtuel avec au moins une commande de type info.
 
@@ -103,7 +103,7 @@ $valeur = ...;
 $cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');  
 $cmd->event($valeur);
 
-## [apical\_lien\_interne]scenario\_qui\_execute\_une\_requete\_sql[/apical\_lien\_interne]
+## <a href="fiche-scenario\_qui\_execute\_une\_requete\_sql.md#scenario\_qui\_execute\_une\_requete\_sql">scenario\_qui\_execute\_une\_requete\_sql</a>
 
 Bloc de code du scénario (PHP)
 
@@ -126,9 +126,9 @@ try {
     $scenario->setLog($e->getMessage());  
 }
 
-## 41.2 Configurer l'historique des commandes
+## 41.2 Configurer l'historique des commandes {#fiche-configurer_l_historique_des_commandes}
 
-Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles [apical\_lien\_interne][selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile,l'historisation a été activée,historique][/apical\_lien\_interne], Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
+Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles <a href="fiche-selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile.md#selectionner\_les\_commandes\_a\_afficher\_sur\_une\_tuile">l'historisation a été activée</a>, Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
 
 Rappel : pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 

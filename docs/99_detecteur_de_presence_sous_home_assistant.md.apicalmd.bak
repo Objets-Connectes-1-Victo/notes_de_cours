@@ -1,6 +1,6 @@
-# 89. Détecteur de présence sous Home Assistant
+# 89. Détecteur de présence sous Home Assistant {#chapitre-detecteur_de_presence_sous_home_assistant}
 
-## 89.1 Les zones dans Home Assistant
+## 89.1 Les zones dans Home Assistant {#fiche-les_zones_dans_home_assistant}
 
 Par défaut, Home Assistant a créé une zone lors de sa configuration initiale. Elle porte le nom que vous avez donné à votre boîte (ex : Maison).
 
@@ -8,7 +8,7 @@ Pour tirer profit des fonctionnalités de localisation de Home Assistant, vous d
 
 Comme pour plusieurs configurations, les zones peuvent être définies à l'aide de l'interface graphique ou encore dans le fichier configuration.yaml.
 
-## Interface graphique
+## Interface graphique {#graphique}
 
 Lorsque vous définissez des zones dans Home Assistant, elles sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/zone.
 
@@ -51,7 +51,7 @@ zone:
 
 ##
 
-## 89.2 Travailler avec l'application Home Assistant
+## 89.2 Travailler avec l'application Home Assistant {#fiche-travailler_avec_l_application_home_assistant}
 
 L'application mobile Home Assistant, à installer sur le téléphone de chacune des personnes dont vous désirez connaître la position, permet de créer des automatisations qui tiennent compte de l'endroit où chaque personne se trouve.
 
@@ -69,7 +69,7 @@ Vous pouvez, par exemple, démarrer le chauffage dès que vous quittez le bureau
 
 La seule limite est votre imagination!
 
-## Autoriser l'utilisation des données de localisation
+## Autoriser l'utilisation des données de localisation {#autoriser}
 
 Pour que Home Assistant puisse savoir à quel endroit une personne se situe, il faut que l'application mobile soit autorisée à utiliser les données de localisation du téléphone.
 
@@ -99,15 +99,15 @@ La personne en possession de ce téléphone a désormais la possibilité de cont
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ApplicationMobile-5.png)
 
-## Définir les zones
+## Définir les zones {#zones}
 
 Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vous trouvez, vous devez [apical\_lien\_interne][les\_zones\_dans\_home\_assistant,définir les zones d'importance pour votre système][/apical\_lien\_interne] : Maison, École, Travail, Centre commercial, etc.
 
-## Pour plus d'information
+## Pour plus d'information {#soumettrerecherche}
 
 « Setting up presence detection ». Home Assistant. <https://www.home-assistant.io/getting-started/presence-detection/>
 
-## 89.3 Envoyer une notification à l'application mobile
+## 89.3 Envoyer une notification à l'application mobile {#fiche-envoyer_une_notification_a_l_application_mobile}
 
 L'intégration [notify](https://www.home-assistant.io/integrations/notify/) permet d'envoyer une notification à l'application mobile associée à votre Home Assistant.
 
@@ -123,7 +123,7 @@ La notification apparaîtra à l'écran comme les autres notifications du télé
 
 ![Notification](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NotificationSurCellulaire.png)
 
-## 89.4 Gérer les personnes
+## 89.4 Gérer les personnes {#telephone}
 
 Home Assistant vous permet de définir les personnes qui peuvent être « suivies », par exemple celles que le système pourra identifier comme présentes dans la maison ou pas.
 
@@ -165,7 +165,7 @@ Pour régler ce problème :
 
 « Person ». Home Assistant. <https://www.home-assistant.io/integrations/person/>
 
-## 89.5 Automatisation qui tient compte de la présence
+## 89.5 Automatisation qui tient compte de la présence {#fiche-automatisation_qui_tient_compte_de_la_presence}
 
 J'aime configurer Home Assistant pour que les lumières s'allument automatiquement quand une personne arrive à la maison après une heure donnée.
 
@@ -187,7 +187,7 @@ Pour créer une telle automatisation :
 
 « Making Home Assistant’s Presence Detection not so Binary ». Phil Hawthorne. <https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/>
 
-## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see
+## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see {#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see}
 
 Lorsque vous désirez que Home Assistant puisse [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_la\_presence,réagir selon la position d'une personne][/apical\_lien\_interne] en utilisant [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,l'application Home Assistant][/apical\_lien\_interne], il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 

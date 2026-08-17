@@ -1,5 +1,5 @@
-# 124. Les thèmes dans Home Assistant
+# 124. Les thèmes dans Home Assistant {#chapitre-les_themes_dans_home_assistant}
 
-## 124.1 Le fichier themes.yaml
+## 124.1 Le fichier themes.yaml {#fiche-le_fichier_themes_yaml}
 
 ...

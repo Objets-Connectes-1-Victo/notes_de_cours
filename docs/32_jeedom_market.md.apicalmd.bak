@@ -1,6 +1,6 @@
-# 29. Jeedom Market
+# 29. Jeedom Market {#chapitre-jeedom_market}
 
-## 29.1 En résumé...
+## 29.1 En résumé... {#fiche-en_resume_025}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -46,7 +46,7 @@ Un scénario programmé survient à un moment donné, par exemple le 29 août 20
 
 Il est possible qu'un scénario envoie un courriel.
 
-## 29.2 Télécharger des plugins sur le Market
+## 29.2 Télécharger des plugins sur le Market {#fiche-telecharger_des_plugins_sur_le_market}
 
 Jeedom Market est l'endroit par excellence pour trouver des plugins intéressants.
 
@@ -77,7 +77,7 @@ Le fonctionnement de base est toujours le même :
 
   C'est dans cet équipement que des informations supplémentaires devront être entrées ou que des actions devront être posées, par exemple effectuer le pairage avec des objets connectés Z-Wave ou préciser la ville pour laquelle la météo doit être donnée.
 
-## 29.3 Supprimer les boîtes Jeedom inutiles dans Market
+## 29.3 Supprimer les boîtes Jeedom inutiles dans Market {#fiche-supprimer_les_boites_jeedom_inutiles_dans_market}
 
 Sur Jeedom Market, vous avez droit à deux boîtes domotiques.
 
@@ -99,7 +99,7 @@ Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom
   ![Liste des boîtes Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Market-ListeDesBoites.png)
 * N'oubliez pas de cliquer sur Sauvegarder.
 
-## 29.4 Brancher un Jeedom existant sur un nouveau compte Market
+## 29.4 Brancher un Jeedom existant sur un nouveau compte Market {#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market}
 
 Si Jeedom Market vous empêche d'installer de nouveaux plugins, c'est peut-être parce que vous avez atteint votre limite quand au nombre de boîtes Jeedom.
 

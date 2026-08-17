@@ -1,6 +1,6 @@
-# 51. Dépannage sur le contrôle GPIO avec Jeedom
+# 51. Dépannage sur le contrôle GPIO avec Jeedom {#chapitre-depannage_sur_le_controle_gpio_avec_jeedom}
 
-## 51.1 Erreur « Permission denied »
+## 51.1 Erreur « Permission denied » {#fiche-erreur_permission_denied}
 
 ### Problème :
 
@@ -24,7 +24,7 @@ Terminal sur Raspberry Pi
 
 chmod 777 monscript.sh
 
-## 51.2 Erreur « 127 : not found »
+## 51.2 Erreur « 127 : not found » {#fiche-erreur_127_not_found}
 
 ### Problème :
 
@@ -62,7 +62,7 @@ Sous Windows, Mac ou Linux, rendez-vous dans le menu Document / Définir les 
 
 ![Convertir les CRLF en LF](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Geany-ModifierCRLF.png)
 
-## 51.3 Erreur « RuntimeError: No access to /dev/mem. Try running as root! »
+## 51.3 Erreur « RuntimeError: No access to /dev/mem. Try running as root! » {#fiche-erreur_runtimeerror_no_access_to_dev_mem_try_running_as_root}
 
 ### Problème :
 

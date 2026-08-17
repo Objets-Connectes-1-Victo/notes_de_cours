@@ -1,6 +1,6 @@
-# 75. Le soleil et la météo sous Home Assistant
+# 75. Le soleil et la météo sous Home Assistant {#chapitre-le_soleil_et_la_meteo_sous_home_assistant}
 
-## 75.1 Météo par défaut dans Home Assistant
+## 75.1 Météo par défaut dans Home Assistant {#fiche-meteo_par_defaut_dans_home_assistant}
 
 L'installation initiale de Home Assistant inclut une carte météo dans le menu Aperçu.
 
@@ -18,7 +18,7 @@ Le nom précis de l'entité sera sous la forme weather.forecast\_xxx comme dé
 
 ![Déclencheur weather](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurWeather.png)
 
-## 75.2 Service OpenWeatherMap
+## 75.2 Service OpenWeatherMap {#fiche-service_openweathermap}
 
 Les données météo peuvent être utilisées dans votre boîte domotique pour déclencher différentes actions, par exemple démarrer le chauffage quand la température extérieure est inférieure à 20 oC.
 
@@ -33,7 +33,7 @@ Vous devrez avoir une clé pour accéder à ces données.
 
   ![Clé API OpenWeatherMap](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/OpenWeatherMap-APIKey.png)
 
-## 75.3 Travailler avec l'intégration OpenWeatherMap
+## 75.3 Travailler avec l'intégration OpenWeatherMap {#fiche-travailler_avec_l_integration_openweathermap}
 
 Il est intéressant d'utiliser les données météo dans les automatisations Home Assistant.
 
@@ -79,7 +79,7 @@ Pour [apical\_lien\_interne][la\_meteo\_dans\_les\_automatisations,utiliser ces 
 
 ![Déclencheur OpenWeatherMap](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurOpenWeatherMap.png)
 
-## 75.4 La météo dans les automatisations
+## 75.4 La météo dans les automatisations {#fiche-la_meteo_dans_les_automatisations}
 
 Les conditions météorologiques peuvent être utilisées dans une automatisation comme déclencheur ou comme condition selon vos besoins.
 
@@ -89,7 +89,7 @@ Si la condition est utilisée comme déclencheur, il faut comprendre que l'actio
 
 Si la condition est utilisée comme condition, Home Assistant vérifiera la valeur au moment ou l'automatisation est déclenchée.
 
-## 75.5 L'intégration Sun
+## 75.5 L'intégration Sun {#fiche-l_integration_sun}
 
 [L'intégration Sun](https://www.home-assistant.io/integrations/sun/) est disponible par défaut dans Home Assistant. Elle permet de réagir à la position du soleil, par exemple :
 
@@ -148,6 +148,6 @@ Ceci est clairement indiqué dans la documentation officielle de Home Assistant[
 
 1. « Conditions ». Home Assistant. <https://www.home-assistant.io/docs/scripts/conditions/#sunsetsunrise-condition>
 
-## Pour plus d'information
+## Pour plus d'information {#prenomnomfamille}
 
 « Sun condition ». Home Assistant. <https://www.home-assistant.io/docs/scripts/conditions/#sun-state-condition>

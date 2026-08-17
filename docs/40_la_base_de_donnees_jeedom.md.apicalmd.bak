@@ -1,6 +1,6 @@
-# 36. La base de données Jeedom
+# 36. La base de données Jeedom {#chapitre-la_base_de_donnees_jeedom}
 
-## 36.1 En résumé...
+## 36.1 En résumé... {#fiche-en_resume_026}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -125,7 +125,7 @@ $cmd = cmd::byString($trigger);
 $value = $cmd->execCmd();  
 log::add('alertes', 'ALERT', "Valeur du déclencheur : $value");
 
-## 36.2 Retrouver le mot de passe de la base de données Jeedom
+## 36.2 Retrouver le mot de passe de la base de données Jeedom {#fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom}
 
 Il y a toujours une façon de [apical\_lien\_interne][reinitialiser\_le\_mot\_de\_passe\_mysql\_de\_jeedom,réinitialiser le mot de passe][/apical\_lien\_interne] pour accéder à une base de données MySQL, en autant qu'on ait un accès à une fenêtre Terminal sur le serveur MySQL, en l'occurence le Raspberry Pi.
 
@@ -141,14 +141,14 @@ Le mot de passe de la base de données peut être retrouvé à partir de l'inter
 
 Vous avez maintenant tout ce qu'il faut pour accéder à la base de données.
 
-## 36.3 Réinitialiser le mot de passe MySQL de Jeedom
+## 36.3 Réinitialiser le mot de passe MySQL de Jeedom {#fiche-reinitialiser_le_mot_de_passe_mysql_de_jeedom}
 
 Je vous propose deux manipulations à effecture sur le serveur de base de données MySQL installé sur votre boîte Jeedom :
 
 * [Modification du mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#modification) alors que le mot de passe actuel est connu
 * [Réinitialisation du mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#reinitialisation) lorsque le mot de passe actuel n'est pas connu
 
-## Modification du mot de passe
+## Modification du mot de passe {#modification}
 
 Si vous souhaitez modifier le mot de passe de l'usager jeedom sous MySQL alors que vous connaissez son mot de passe actuel, suivez ces étapes.
 
@@ -174,7 +174,7 @@ Si vous souhaitez modifier le mot de passe de l'usager jeedom sous MySQL alors q
   exit
 * Vous devez maintenant [dire à Jeedom quel est le nouveau mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#configurationjeedom).
 
-## Réinitialisation du mot de passe
+## Réinitialisation du mot de passe {#reinitialisation}
 
 Avant de tenter une réinitialisation du mot de passe pour accéder à la base de données MySQL de Jeedom, sachez qu'il est possible de [apical\_lien\_interne][retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom,retrouver ce mot de passe directement dans la console d'administration de Jeedom][/apical\_lien\_interne].
 
@@ -244,7 +244,7 @@ Si vous devez tout de même réinitialiser le mot de passe, voici comment y parv
   sudo service mysql restart
 * Vous devez maintenant [dire à Jeedom quel est le nouveau mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#configurationjeedom).
 
-## Dire à Jeedom quel est le nouveau mot de passe
+## Dire à Jeedom quel est le nouveau mot de passe {#configurationjeedom}
 
 À ce stade, si vous tentez d'accéder à [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,l'interface d'administration de Jeedom,acceder][/apical\_lien\_interne], vous obtiendrez le message « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) ». Il faut donc effectuer une manipulation supplémentaire pour que Jeedom utilise le nouveau mot de passe.
 
@@ -304,7 +304,7 @@ Si vous devez tout de même réinitialiser le mot de passe, voici comment y parv
 
 Et voilà! Le mot de passe MySQL de l'usager jeedom est maintenant modifié et l'interface d'administration de Jeedom peut maintenant l'utiliser pour s'y connecter.
 
-## 36.4 Contenu de la base de données de Jeedom
+## 36.4 Contenu de la base de données de Jeedom {#fiche-contenu_de_la_base_de_donnees_de_jeedom}
 
 Lorsque j'apprends à utiliser un nouveau système, j'aime bien comprendre ce qui se cache derrière les écrans qu'il me propose. Et ceci passe assurément par sa base de données.
 

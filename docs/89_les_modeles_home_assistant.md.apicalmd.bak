@@ -1,6 +1,6 @@
-# 79. Les modèles Home Assistant
+# 79. Les modèles Home Assistant {#chapitre-les_scripts_et_les_modeles_home_assistant}
 
-## 79.1 Les modèles dans Home Assistant
+## 79.1 Les modèles dans Home Assistant {#fiche-les_modeles_dans_home_assistant}
 
 Les modèles sont un mécanisme qui permet d'obtenir une valeur à partir d'autres valeurs avec possibilité d'opérations mathématiques, de tests conditionnels, etc.
 
@@ -26,7 +26,7 @@ Dans cette fiche :
 * [Identifiants d'objets non conformes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#templatesyntaxerror)
 * [Résumé des syntaxes](https://apical.xyz/formations/pageunique/systeme_domotique_diy#resume)
 
-## Éditeur de modèles
+## Éditeur de modèles {#editeur}
 
 Le code d'un modèle doit répondre aux règles énoncées ici : [https://www.home-assistant.io/docs/configuration/templating/](https://www.home-assistant.io/docs/configuration/templating/#important-template-rules).
 
@@ -38,7 +38,7 @@ Pour vous aider à valider le code d'un modèle, rendez-vous dans Outils de dév
 
 Effacez le contenu de l'éditeur de modèles et remplacez-le par celui que vous désirez tester. Le résultat apparaîtra immédiatement à droite.
 
-## Valeur principale d'un capteur
+## Valeur principale d'un capteur {#valeur}
 
 Dans sa forme la plus simple, le modèle pourra retrouver la valeur principale d'un capteur.
 
@@ -68,7 +68,7 @@ Cependant, selon la documentation officielle de Home Assistant[1](https://www.ho
 
 > Avoid using states.sensor.temperature.state, instead use states('sensor.temperature'). It is strongly advised to use the states(), is\_state(), state\_attr() and is\_state\_attr() as much as possible, to avoid errors and error message when the entity isn’t ready yet (e.g., during Home Assistant startup).
 
-## Capteur avec attributs
+## Capteur avec attributs {#attributs}
 
 Certains capteurs ont plusieurs attributs.
 
@@ -98,7 +98,7 @@ Modèle
 
 ![attributs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Modeles-Attributs.png)
 
-## Retrouver un attribut particulier
+## Retrouver un attribut particulier {#particulier}
 
 Pour travailler avec un attribut particulier :
 
@@ -132,7 +132,7 @@ Modèle
   fermée  
 {% endif %}
 
-## Travailler avec des valeurs numériques
+## Travailler avec des valeurs numériques {#numerique}
 
 Dans le cas où le modèle doit effectuer un test entre une valeur retrournée par states() et une valeur numérique (int ou float),  [les bonnes pratiques](https://www.home-assistant.io/docs/configuration/templating/#important-template-rules) veulent que le modèle utilise un filtre pour assurer que la valeur est du bon type.
 
@@ -162,7 +162,7 @@ Modèle
 
 {{ states('sensor.5\_in\_1\_pir\_motion\_sensor\_air\_temperature') | int < 20 }}
 
-## Variables dans un modèle
+## Variables dans un modèle {#variable}
 
 Afin de rendre le code plus facile à lire, vous pouvez créer des variables que vous réutiliserez plus loin dans le modèle.
 
@@ -178,7 +178,7 @@ Modèle
   Humidité normale  
 {% endif %}
 
-## Boucles dans un modèle
+## Boucles dans un modèle {#boucle}
 
 Un modèle peut effectuer une boucle pour réaliser une opération un nombre défini de fois ou encore pour effectuer une opération sur chaque entité qui répond à un critère.
 
@@ -198,7 +198,7 @@ Modèle
   {{ index }}  
 {% endfor %}
 
-## Commentaires dans un modèle
+## Commentaires dans un modèle {#commentaire}
 
 J'aime bien conserver dans l'éditeur de modèles de Home Assistant une série de tests que je réalise.
 
@@ -210,7 +210,7 @@ Modèle
 
 {# Ceci est un commentaire #}
 
-## Identifiants d'objets non conformes
+## Identifiants d'objets non conformes {#templatesyntaxerror}
 
 Si, lorsque vous testez un tel modèle dans l'éditeur, vous obtenez un message du genre « TemplateSyntaxError: expected token 'end of print statement', got '... », c'est peut-être parce que l'identifiant de l'objet (ce qui suit le point dans l'[apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,identifiant de l'entité][/apical\_lien\_interne]) débute par un caractère non autorisé, par exemple un chiffre.
 
@@ -232,7 +232,7 @@ Dans tous les cas, il est conseillé de travailler avec states() plutôt qu'avec
 
 ![syntaxes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Modele-DifferentesSyntaxes.png)
 
-## Résumé des syntaxes
+## Résumé des syntaxes {#resume}
 
 | Syntaxe | Description | Résultat |
 | --- | --- | --- |
@@ -249,7 +249,7 @@ Dans tous les cas, il est conseillé de travailler avec states() plutôt qu'avec
 
 1. « Templating ». Home Assistant. <https://www.home-assistant.io/docs/configuration/templating/>
 
-## 79.2 Exemple d'automatisation avec un modèle
+## 79.2 Exemple d'automatisation avec un modèle {#fiche-exemple_d_automatisation_avec_un_modele}
 
 Dans cette fiche, nous allons créer une automatisation dont la condition dépend de la valeur d'un capteur virtuel numérique.
 
@@ -337,7 +337,7 @@ Fichier automations.yaml
   target:  
     entity\_id: input\_number.mon\_virtuel
 
-## 79.3 Retrouver les valeurs d'une entité
+## 79.3 Retrouver les valeurs d'une entité {#fiche-retrouver_les_valeurs_d_une_entite}
 
 Les objets connectés fournissent souvent plusieurs informations.
 
@@ -441,7 +441,7 @@ Résultat à l'écran
 
 46.06010262108603
 
-## 79.4 Quelques manipulations de chaînes dans les modèles Home Assistant
+## 79.4 Quelques manipulations de chaînes dans les modèles Home Assistant {#fiche-quelques_manipulations_de_chaines_dans_les_modeles_home_assistant}
 
 En plus de permettre de [apical\_lien\_interne][retrouver\_les\_valeurs\_d\_une\_entite,retrouver la valeur d'une entité][/apical\_lien\_interne], les modèles permettent d'effectuer une foule de manipulations sur ces informations.
 
@@ -451,19 +451,19 @@ Dans cette fiche :
 * [Recherche d'une position](https://apical.xyz/formations/pageunique/systeme_domotique_diy#position)
 * [Sous-chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#souschaine)
 
-## Longueur d'une chaîne
+## Longueur d'une chaîne {#longueur}
 
 Modèle
 
 {% set longueur = ma\_chaine | length %}
 
-## Recherche d'une position
+## Recherche d'une position {#position}
 
 Modèle
 
 {% set position\_virgule = ma\_chaine.find(",") %}
 
-## Sous-chaîne
+## Sous-chaîne {#souschaine}
 
 Modèle
 
@@ -475,7 +475,7 @@ Modèle
 
 {% set sous\_chaine = ma\_chaine[position\_debut:] %}
 
-## 79.5 Quelques manipulations de nombres dans les modèles
+## 79.5 Quelques manipulations de nombres dans les modèles {#fiche-quelques_manipulations_de_nombres_dans_les_modeles}
 
 Voici quelques manipulations de nombres dans les modèles Home Assistant.
 
@@ -505,7 +505,7 @@ Modèle
 
 {{ nombre | round(0, 'ceil') }}
 
-## 79.6 Modèles qui manipulent des dates et des heures
+## 79.6 Modèles qui manipulent des dates et des heures {#fiche-modeles_qui_manipulent_des_dates_et_des_heures}
 
 Dans tous les langages de programmation, les opérations avec dates et heures nécessitent un traitement particulier.
 
@@ -528,7 +528,7 @@ Mais pour y arriver, il faut bien comprendre la représentation des dates et les
 * [Comparaison avec l'heure actuelle sans calculs](https://apical.xyz/formations/pageunique/systeme_domotique_diy#comparaisonheureactuelle)
 * [Comparaison avec l'heure actuelle si besoin d'effectuer des calculs](https://apical.xyz/formations/pageunique/systeme_domotique_diy#comparaisonheureactuelleaveccalculs)
 
-## Représentation d'une date dans Home Assistant
+## Représentation d'une date dans Home Assistant {#"representation}
 
 Home Assistant permet d'afficher les dates et heures dans le fuseau horaire local. Mais à l'interne, il représente toutes les dates et heures en temps universel coordonné (UTC).
 
@@ -538,7 +538,7 @@ Une date peut être représentée à l'aide de différents types :
 * objet Python de type [datetime](https://docs.python.org/3/library/datetime.html)
 * timestamp (nombre de secondes écoulées entre le 1er janvier 1970 à 00:00:00 UTC et la date).
 
-## Date du jour
+## Date du jour {#datedujour}
 
 La fonction now() permet d'obtenir la date et l'heure actuelles dans le fuseau horaire local. Elle retourne un objet Python de type datetime.
 
@@ -576,7 +576,7 @@ Selon la documentation officielle de Home Assistant[2](https://www.home-assistan
 
 > Sensors including the time update every minute, the date sensor updates each day at midnight, and the beat sensor updates with each beat (86.4 seconds).
 
-## Fuseau horaire
+## Fuseau horaire {#fuseau}
 
 Il est rare que les modèles aient besoin de connaître le fuseau horaire local mais si jamais vous en avez besoin, vous pouvez connaître le fuseau horaire configuré dans Home Assistant à l'aide de la propriété tzinfo de la classe Python datetime.
 
@@ -592,7 +592,7 @@ Modèle
 
 {{ now().timetuple().tm\_isdst }}
 
-## Convertion d'une date en timestamp
+## Convertion d'une date en timestamp {#conversiondatetimestamp}
 
 La conversion d'une date en timestamp permettra d'utiliser cette date dans des calculs et dans des comparaisons.
 
@@ -617,7 +617,7 @@ Modèle
 
 D'autres exemples sont donnés [plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#calculstimestamp).
 
-### timestamp d'une date sous forme de chaîne
+### timestamp d'une date sous forme de chaîne {#chaine}
 
 L'attribut timestamp d'un capteur de date représente cette date convertie en UTC puis en timestamp.
 
@@ -637,7 +637,7 @@ Modèle
 
 {{ as\_timestamp(states('input\_datetime.date\_et\_heure')) }}
 
-### timestamp d'un objet de type datetime
+### timestamp d'un objet de type datetime {#datetime}
 
 Avec un objet de type datetime, il faut utiliser la fonction as\_timestamp() pour obtenir un timestamp :
 
@@ -659,7 +659,7 @@ Modèle
 
 En effet, si on utilise now(), la date sera d'abord convertie en UTC avant de passer en timestamp. Avec utcnow(), la première étape est déjà réalisée. Les deux fonctions ont une seule différence finale : le nombre de chiffres après la virgule.
 
-### timestamp d'une date codée en dur
+### timestamp d'une date codée en dur {#dur}
 
 Si vous avez besoin d'effectuer des calculs à partir d'une date codée en dur (en anglais : hardcoded), il faut d'abord convertir cette date en objet datetime à l'aide de la fonction Python [strptime()](https://www.programiz.com/python-programming/datetime/strptime).
 
@@ -677,7 +677,7 @@ Modèle
 
 {{ as\_timestamp(strptime('2005-10-18 10:00:00', '%Y-%m-%d %H:%M:%S')) }}
 
-### timestamp d'un sensor.date\_time
+### timestamp d'un sensor.date\_time {#sensor}
 
 Avec un sensor.date\_time, il faut utiliser une astuce supplémentaire.
 
@@ -707,7 +707,7 @@ Modèle
 
 {{ as\_timestamp(states('sensor.date\_time\_iso')) }}
 
-### timestamp d'un sensor.time
+### timestamp d'un sensor.time {#time}
 
 Avec un sensor.time, il faut adopter une autre technique.
 
@@ -719,7 +719,7 @@ Modèle
 
 {{ as\_timestamp('1970-01-01 ' + states('sensor.time')) }}
 
-## Conversion d'un timestamp en chaîne
+## Conversion d'un timestamp en chaîne {#conversiontimestampchaine}
 
 Une fois les calculs de dates effectués, on obtient généralement un timestamp. Il faudra le reconvertir en chaîne afin de bien voir la date qu'il représente.
 
@@ -775,7 +775,7 @@ Modèle
 
 {{ mon\_timestamp | timestamp\_custom("%Y-%m-%d", true) }}
 
-## Calculs avec un timestamp
+## Calculs avec un timestamp {#calculstimestamp}
 
 Le fait de transformer une date en timestamp permet de l'utiliser dans des calculs. Par exemple, on pourrait faire une addition pour obtenir la date de la semaine suivante.
 
@@ -787,7 +787,7 @@ Modèle
 
 {{ (as\_timestamp(states('input\_datetime.date\_et\_heure')) + 604800) | timestamp\_local }}
 
-## Comparaison avec la date du jour
+## Comparaison avec la date du jour {#comparaisondatedujour}
 
 Plusieurs techniques permettent de comparer une date avec la date du jour.
 
@@ -809,7 +809,7 @@ Modèle
 
 {{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') < as\_timestamp(states('sensor.date\_time').replace(',','')) }}
 
-## Comparaison avec l'heure actuelle sans calculs
+## Comparaison avec l'heure actuelle sans calculs {#comparaisonheureactuelle}
 
 Si vous devez comparer deux entités qui représentent une heure, il est possible d'effectuer une comparaison sans avoir à passer par un timestamp.
 
@@ -817,7 +817,7 @@ Modèle
 
 {{ states('sensor.time') <= states('input\_datetime.heure') }}
 
-## Comparaison avec l'heure actuelle si besoin d'effectuer des calculs
+## Comparaison avec l'heure actuelle si besoin d'effectuer des calculs {#comparaisonheureactuelleaveccalculs}
 
 Dans le cas où vous si vous devez faire des calculs, par exemple poser une action 30 minutes avant l'heure affichée, il faudra passer par un timestamp avec les précautions qui s'imposent, comme présenté dans les prochaines sections.
 
@@ -1025,7 +1025,7 @@ L'utilisation de < ou de > n'est pas non plus souhaitable puisque vos déclenche
 
 « Templating - time ». Home Assistant. <https://www.home-assistant.io/docs/configuration/templating/#time>
 
-## 79.7 Modèles qui vérifient la présence dans une zone
+## 79.7 Modèles qui vérifient la présence dans une zone {#fiche-modeles_qui_manipulent_des_positions_gps}
 
 Les modèles permettent de vérifier la présence d'une entité dans une zone lorsque cette entité gère la position par rapport aux zones Home Assistant.
 
@@ -1140,7 +1140,7 @@ Modèle Home Assistant
 
 Notez que si vous testez ce modèle [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,dans les outils de développement,editeur][/apical\_lien\_interne] et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
 
-## 79.9 Utiliser un modèle dans une carte du tableau de bord
+## 79.9 Utiliser un modèle dans une carte du tableau de bord {#fiche-les_cartes_de_type_markdown}
 
 Quand vient le temps de [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,personnaliser le tableau de bord de Home Assistant][/apical\_lien\_interne], les cartes Markdown offrent beaucoup de flexibilité.
 
@@ -1152,7 +1152,7 @@ Ceci vous permet de modifier l'affichage selon la condition que vous désirez me
 
 ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
 
-## 79.10 Information sur l'entité qui a déclenché une automatisation
+## 79.10 Information sur l'entité qui a déclenché une automatisation {#fiche-information_sur_l_entite_qui_a_declenche_une_automatisation}
 
 Quand une automatisation a plusieurs déclencheurs, il est intéressant de savoir lequel a effectivement causé le déclenchement.
 

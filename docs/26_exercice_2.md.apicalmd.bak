@@ -1,6 +1,6 @@
-# 24. Exercice 2
+# 24. Exercice 2 {#chapitre-exercice_2_006}
 
-## 24.1 Commencer à travailler avec Jeedom
+## 24.1 Commencer à travailler avec Jeedom {#fiche-commencer_a_travailler_avec_jeedom}
 
 1. [apical\_lien\_interne][donner\_une\_adresse\_ip\_statique\_au\_raspberry\_pi,Donnez une adresse IP statique à votre Raspberry Pi,terminal][/apical\_lien\_interne] pour le réseau câblé seulement. Votre prof vous fournira l'adresse IP statique à utiliser.
 2. Une fois le Raspberry Pi démarré, [apical\_lien\_interne][trouver\_l\_adresse\_ip\_du\_raspberry\_pi,assurez-vous que son adresse IP][/apical\_lien\_interne] correspond à celle fournie par votre prof.

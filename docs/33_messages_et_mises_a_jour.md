@@ -1,6 +1,6 @@
-# 30. Messages et mises à jour
+# 30. Messages et mises à jour {#chapitre-messages_et_mises_a_jour}
 
-## 30.1 Le centre de messages de Jeedom
+## 30.1 Le centre de messages de Jeedom {#fiche-le_centre_de_messages_de_jeedom}
 
 Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le coin supérieur droit de l'écran de petits carrés de couleur avec un chiffre blanc au centre.
 
@@ -9,7 +9,7 @@ Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le 
 Il s'agit de notifications qui vous informe sur :
 
 * Carré orange : nombre de messages dans le centre de messages
-* Carré rouge : nombre de [apical\_lien\_interne][le\_centre\_de\_mise\_a\_jour\_de\_jeedom,mises à jour à installer][/apical\_lien\_interne]
+* Carré rouge : nombre de <a href="fiche-le\_centre\_de\_mise\_a\_jour\_de\_jeedom.md#le\_centre\_de\_mise\_a\_jour\_de\_jeedom">mises à jour à installer</a>
 
 Un clic sur le carré orange mène vers le centre de messages.
 
@@ -28,7 +28,7 @@ Une fois que vous avez pris connaissance des messages, vous pouvez cliquer sur V
 
 Ainsi, à chaque fois que vous verrez un carré orange apparaître, vous saurez que Jeedom veut porter quelque chose à votre attention.
 
-## 30.2 Le centre de mise à jour de Jeedom
+## 30.2 Le centre de mise à jour de Jeedom {#fiche-le_centre_de_mise_a_jour_de_jeedom}
 
 À chaque fois qu'une mise à jour est disponible, que ce soit pour le coeur de Jeedom ou pour un des plugins que vous avez installés, un carré rouge apparaît dans le haut de l'écran.
 
@@ -58,7 +58,7 @@ Parfois, le centre de mise à jour de Jeedom ne proposera pas la toute dernière
 
 Il est possible d'effectuer une mise à jour à partir du Terminal de Raspberry Pi OS à l'aide des commandes suivantes.
 
-Important : vous devez d'abord [apical\_lien\_interne][copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi,effectuer une sauvegarde de la carte micro SD du Raspberry Pi][/apical\_lien\_interne] afin de pouvoir revenir en arrière si jamais un problème survenait.
+Important : vous devez d'abord <a href="fiche-copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi.md#copie\_de\_securite\_de\_la\_carte\_micro\_sd\_du\_raspberry\_pi">effectuer une sauvegarde de la carte micro SD du Raspberry Pi</a> afin de pouvoir revenir en arrière si jamais un problème survenait.
 
 Terminal
 

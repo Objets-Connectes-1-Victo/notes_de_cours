@@ -1,6 +1,6 @@
-# 74. Les automatisations Home Assistant
+# 74. Les automatisations Home Assistant {#chapitre-les_automatisations_home_assistant}
 
-## 74.1 Ajouter une automatisation à l'aide de l'interface graphique
+## 74.1 Ajouter une automatisation à l'aide de l'interface graphique {#fiche-ajouter_une_automatisation_a_l_aide_de_l_interface_graphique}
 
 Les automatisations (en anglais : automations) permettent de déclencher une ou plusieurs actions quand un ou plusieurs déclencheurs surviennent. Par exemple, il est possible d'allumer la lumière quand un mouvement est détecté.
 
@@ -33,7 +33,7 @@ La zone Pendant (ou for: en YAML) indique que le déclencheur doit avoir ét
 
 ![Déclencheur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurDetecteurMouvement.png)
 
-### Déclenchement lorsqu'une valeur numérique est > ou <
+### Déclenchement lorsqu'une valeur numérique est > ou < {#modele}
 
 Si le déclencheur nécessite de vérifier si une valeur numérique est supérieure ou inférieure à une autre valeur, vous pouvez utiliser un déclencheur de type État numérique.
 
@@ -41,7 +41,7 @@ L'interface vous offrira d'entrer la valeur au-dessus de laquelle ou au-dessous 
 
 ![État numérique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-Declencheur-EtatNumerique.png)
 
-### Déclenchement lors du démarrage de Home Assistant
+### Déclenchement lors du démarrage de Home Assistant {#demarrage}
 
 Si vous désirez que l'automatisation se lance automatiquement au démarrage de Home Assistant, vous devez choisir le déclencheur nommé Home Assistant dans la catégorie Autres déclencheurs.
 
@@ -130,15 +130,15 @@ Fichier automations.yaml
 
 « Automation actions ». Home Assistant. <https://www.home-assistant.io/docs/automation/action/>
 
-## 74.2 Lancer une automatisation à l'aide d'un bouton
+## 74.2 Lancer une automatisation à l'aide d'un bouton {#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton}
 
-Il est intéressant d'ajouter [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,un bouton,bouton][/apical\_lien\_interne] au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
+Il est intéressant d'ajouter <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">un bouton</a> au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
 
 Il est possible de configurer le bouton pour tenir compte ou non des conditions de l'automatisation.
 
 Pour y arriver :
 
-* [apical\_lien\_interne][creer\_un\_tableau\_de\_bord\_personnalise,Éditez le tableau de bord][/apical\_lien\_interne] et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
+* <a href="fiche-creer\_un\_tableau\_de\_bord\_personnalise.md#creer\_un\_tableau\_de\_bord\_personnalise">Éditez le tableau de bord</a> et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
 * Ajoutez une carte de type bouton.
 * Pour ce qu'on veut faire ici, il est inutile de choisir une entité au début de la carte. S'il y en a une qui apparaît par défaut, cliquez sur le X pour la supprimer.
 * Si désiré, indiquez quel nom doit apparaître sur la carte.
@@ -169,7 +169,7 @@ tap\_action:
     skip\_condition: true  
 icon\_height: 40px
 
-## 74.3 Les capteurs virtuels dans les automatisations
+## 74.3 Les capteurs virtuels dans les automatisations {#fiche-les_capteurs_virtuels_dans_les_automatisations}
 
 ## Capteur virtuel comme déclencheur
 
@@ -195,7 +195,7 @@ Dans la zone Cibles, cliquez sur Choisissez une entité et vous aurez la possibi
 
 ![Modifier état du capteur virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Automatisation-ActionSurCapteurVirtuel.png)
 
-## 74.4 Script vs automatisation
+## 74.4 Script vs automatisation {#fiche-script_vs_automatisation}
 
 Sous Home Assistant, un script consiste en une série d'actions à exécuter.
 
@@ -283,9 +283,9 @@ Pour lancer un script, vous avez plusieurs options, notamment :
 
 * À l'aide du menu Paramètres / Automatisations et scènes / onglet Scripts / clic sur les trois points verticaux à droite du script désiré / Exécuter.
 * En utilisant le script comme action dans une automatisation (Autres actions / Script / Exécuter).
-* Sur le tableau de bord, à l'aide d'une [apical\_lien\_interne][lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton,carte de type bouton][/apical\_lien\_interne] qui effectue l'action de lancer le script.
+* Sur le tableau de bord, à l'aide d'une <a href="fiche-lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton.md#lancer\_une\_automatisation\_a\_l\_aide\_d\_un\_bouton">carte de type bouton</a> qui effectue l'action de lancer le script.
 
-## 74.5 Trace d'une automatisation
+## 74.5 Trace d'une automatisation {#fiche-trace_d_une_automatisation}
 
 Quand une automatisation est exécutée, Home Assistant conserve une trace de ce qui s'est passé.
 

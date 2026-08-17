@@ -1,6 +1,6 @@
-# 1. Déroulement du cours
+# 1. Déroulement du cours {#chapitre-deroulement_du_cours_005}
 
-## 1.1 Salut!
+## 1.1 Salut! {#fiche-salut_004}
 
 Salut!
 
@@ -12,7 +12,7 @@ Tout au long du cours, gardez en tête que nous ne vous formons pas pour devenir
 
 Bonne session!
 
-## 1.2 Plan de cours
+## 1.2 Plan de cours {#fiche-plan_de_cours_005}
 
 Programme
 

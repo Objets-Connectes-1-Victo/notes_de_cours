@@ -1,14 +1,14 @@
-# 83. Automatisations qui tiennent compte de l'heure
+# 83. Automatisations qui tiennent compte de l'heure {#chapitre-automatisations_qui_tiennent_compte_de_l_heure}
 
-## 83.1 Afficher la date et l'heure dans le tableau de bord
+## 83.1 Afficher la date et l'heure dans le tableau de bord {#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord}
 
-Avant de vous lancer dans les [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_l\_heure,automatisations qui tiennent compte de l'heure][/apical\_lien\_interne] il est intéressant d'ajouter une configuration qui affiche la date et l'heure actuelles dans Home Assistant.
+Avant de vous lancer dans les <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">automatisations qui tiennent compte de l'heure</a> il est intéressant d'ajouter une configuration qui affiche la date et l'heure actuelles dans Home Assistant.
 
 En effet, si vous désirez éteindre les lumières à 22h00, vous devez vous assurer que l'heure de Home Assistant est la même que la vôtre.
 
-L'affichage de la date et de l'heure actuelles est réalisé en ajoutant un capteur virtuel de type sensor. Attention : ce capteur est différent des [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,capteurs virtuels de type input\_datetime qui permettent de saisir la date et l'heure][/apical\_lien\_interne]!
+L'affichage de la date et de l'heure actuelles est réalisé en ajoutant un capteur virtuel de type sensor. Attention : ce capteur est différent des <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">capteurs virtuels de type input\_datetime qui permettent de saisir la date et l'heure</a>!
 
-La configuration sera ajoutée par code [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,dans le fichier configuration.yaml][/apical\_lien\_interne].
+La configuration sera ajoutée par code <a href="fiche-Editer\_le\_fichier\_configuration\_yaml.md#Editer\_le\_fichier\_configuration\_yaml">dans le fichier configuration.yaml</a>.
 
 Il n'est pas nécessaire d'ajouter toutes les options d'affichage (display\_options) mais elles sont listées ici pour illustrer les options disponibles.
 
@@ -40,11 +40,11 @@ sensor:
       - 'date'  
       - 'date\_time'
 
-## Pour plus d'information
+## Pour plus d'information {#popuprecherche}
 
 « Date & time ». Home Assistant. <https://www.home-assistant.io/integrations/time_date/>
 
-## 83.2 Automatisation qui tient compte de l'heure
+## 83.2 Automatisation qui tient compte de l'heure {#fiche-automatisation_qui_tient_compte_de_l_heure}
 
 Les automatisations dans Home Asssistant peuvent tenir compte de la date et/ou de l'heure.
 
@@ -54,7 +54,7 @@ Je vous présente ici quelques techniques. À vous de les tester afin de trouver
 
 ## Capteur virtuel
 
-Le déclencheur peut utiliser [apical\_lien\_interne][afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord,un capteur virtuel qui affiche la date et l'heure actuelles][/apical\_lien\_interne] (sensor.date\_time, sensor.time, etc.) ou encore [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,un capteur virtuel de type input\_datetime qui permet de saisir une date et/ou une heure][/apical\_lien\_interne].
+Le déclencheur peut utiliser <a href="fiche-afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord.md#afficher\_la\_date\_et\_l\_heure\_dans\_le\_tableau\_de\_bord">un capteur virtuel qui affiche la date et l'heure actuelles</a> (sensor.date\_time, sensor.time, etc.) ou encore <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">un capteur virtuel de type input\_datetime qui permet de saisir une date et/ou une heure</a>.
 
 Notez que pour utiliser sensor.xxx, vous devez avoir fait les ajouts requis dans le fichier configuration.yaml.
 

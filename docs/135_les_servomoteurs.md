@@ -1,6 +1,6 @@
-# 118. Les servomoteurs
+# 118. Les servomoteurs {#chapitre-les_servomoteurs}
 
-## 118.1 Fonctionnement d'un servomoteur
+## 118.1 Fonctionnement d'un servomoteur {#fiche-fonctionnement_d_un_servomoteur}
 
 Information à venir...
 

@@ -1,4 +1,4 @@
-# Nous utilisons des cookies, qu'en pensez-vous?
+# Nous utilisons des cookies, qu'en pensez-vous? {#consent-analytics}
 
 <a id="btn-accept-all"></a>
 

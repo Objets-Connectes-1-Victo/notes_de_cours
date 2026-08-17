@@ -1,6 +1,6 @@
-# 103. Communication Home Assistant - Jeedom via l'API
+# 103. Communication Home Assistant - Jeedom via l'API {#chapitre-communication_home_assistant_jeedom_via_l_api}
 
-## 103.1 Home Assistant : interagir avec un objet branché sur Jeedom
+## 103.1 Home Assistant : interagir avec un objet branché sur Jeedom {#fiche-home_assistant_interagir_avec_un_objet_branche_sur_jeedom}
 
 Certains objets connectés ne peuvent pas être ajoutés à Jeedom et d'autres ne peuvent pas être ajoutés à Home Assistant. Tout dépend des plugins ou des intégrations qui existent sur l'un ou l'autre de ces produits.
 
@@ -82,7 +82,7 @@ rest\_command:
   temperature\_virtuelle\_jeedom\_chaud:  
   url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
 
-## 103.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant
+## 103.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant {#fiche-jeedom_recuperer_la_valeur_d_un_capteur_branche_sur_home_assistant_ou_la___}
 
 Vous avez un objet connecté dans Home Assistant et vous désirez l'utiliser dans Jeedom? Pas de problème!
 
@@ -122,7 +122,7 @@ Voici comment y parvenir :
 
   ![Automatisation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationPourEnvoyerValeurAJeedom.png)
 
-## 103.3 Jeedom : lancer une action sur un récepteur branché sur Home Assistant
+## 103.3 Jeedom : lancer une action sur un récepteur branché sur Home Assistant {#fiche-jeedom_lancer_une_action_sur_un_recepteur_branche_sur_home_assistant}
 
 Home Assistant peut permettre à d'autres systèmes de lancer une commande pour interagir avec ses propres objets connectés.
 
@@ -240,7 +240,7 @@ Sous Jeedom, vous devez créer un script qui se chargera de lancer la commande c
 
 « Tuto Contrôler Home Assistant par Jeedom ». YouTube - La Maison de Jeed Home. <https://www.youtube.com/watch?v=h3qOeaguPl4>
 
-## 103.4 URL d'un objet connecté Jeedom
+## 103.4 URL d'un objet connecté Jeedom {#fiche-url_d_un_objet_connecte_jeedom}
 
 Lorsqu'un objet connecté est pairé à une boîte domotique Jeedom, il se voit attribuer un URL. Il est ensuite possible d'agir sur cet objet à partir de cet URL.
 
@@ -280,7 +280,7 @@ Exemple :
 
 http://192.168.1.145/core/api/jeeApi.php?apikey=C6VL4SqycjFFeKixYcqiJj7Bax5e2ncI&type=cmd&id=107
 
-## URL pour modifier la valeur d'un équipement virtuel
+## URL pour modifier la valeur d'un équipement virtuel {#virtuel}
 
 Pour tout type d'équipement, les commandes de type info servent à fournir une valeur, par exemple la luminosité d'un capteur de luminosité.
 
@@ -304,7 +304,7 @@ http://192.168.1.145/core/api/jeeApi.php?apikey=C6VL4SqycjFFeKixYcqiJj7Bax5e2ncI
 
 Si j'entre cet URL dans un navigateur, j'obtiens la valeur actuelle du virtuel.
 
-### Modifier la valeur du virtuel
+### Modifier la valeur du virtuel {#modifiervirtuel}
 
 Pour modifier sa valeur, il faut utiliser un URL au format :
 

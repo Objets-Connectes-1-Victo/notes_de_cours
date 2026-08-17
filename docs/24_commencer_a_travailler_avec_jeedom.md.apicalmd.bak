@@ -1,6 +1,6 @@
-# 22. Commencer à travailler avec Jeedom
+# 22. Commencer à travailler avec Jeedom {#chapitre-commencer_a_travailler_avec_jeedom}
 
-## 22.1 Objets pour représenter la maison
+## 22.1 Objets pour représenter la maison {#fiche-objets_pour_representer_la_maison}
 
 Dans Jeedom, les objets permettent d'organiser les équipements selon une arborescence. Ceci permet de mieux nous y retrouver dans notre multitude d'appareils connectés.
 
@@ -37,11 +37,11 @@ Pour ajouter un objet :
 
   ![Caractéristiques de l'objet](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-FenetreObjet.png)
 
-## Pour plus d'information
+## Pour plus d'information {#cookie-consent-banner}
 
 « Comment créer un objet ( pièce ) sous Jeedom ». Domotique by Technoseb27. <https://domotiquetechnoseb27.com/2019/10/22/comment-creer-un-objet-piece-sous-jeedom/>
 
-## 22.2 Configurer la clé USB Z-Wave sur Jeedom
+## 22.2 Configurer la clé USB Z-Wave sur Jeedom {#fiche-configurer_la_cle_usb_z-wave_sur_jeedom}
 
 Pour que votre [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,boîte domotique Jeedom][/apical\_lien\_interne] puisse communiqur avec les objets connectés qui utilisent le protocole Z-Wave, vous devez lui brancher une clé USB Z-Wave et configurer la boîte pour qu'elle la reconnaisse.
 

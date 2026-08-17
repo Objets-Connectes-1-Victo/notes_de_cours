@@ -1,4 +1,4 @@
-# 78. Pour le prochain cours
+# 78. Pour le prochain cours {#chapitre-pour_le_prochain_cours_010}
 
 ## 78.1 Je me prépare pour l'exercice suivant (un cours)
 

@@ -1,6 +1,6 @@
-# 45. Examen formatif formel
+# 45. Examen formatif formel {#chapitre-examen_formatif_formel_003}
 
-## 45.1 Grille de correction
+## 45.1 Grille de correction {#fiche-grille_de_correction_018}
 
 Voici la grille de correction qui sera utilisée pour l'exercice formatif formel.
 
@@ -16,7 +16,7 @@ FICHIER NON REMIS = FICHIER NON CORRIGÉ (note : 0).
 | Réalisation des configurations | Toutes les configurations (sur le Pi, dans Jeedom, dans les virtuels) ont été correctement réalisées.  9 points | Pas plus de 1 erreur  8 points | Pas plus de 2 erreurs  6 points | Pas plus de 3 erreurs  3 point | Au moins 4 erreurs ou fonctionnalité non réalisée  0 |
 | Programmation et requêtes | Toute la programmation et les requêtes (ex : scénarios, base de données) ont été correctement réalisées.  9 points | Pas plus de 1 erreur  8 points | Pas plus de 2 erreurs  6 points | Pas plus de 3 erreurs  3 point | Au moins 4 erreurs ou fonctionnalité non réalisée  0 |
 
-## 45.2 Examen formatif formel
+## 45.2 Examen formatif formel {#fiche-examen_formatif_formel}
 
 Cet examen sera auto-corrigé en classe au prochain cours.
 

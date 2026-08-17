@@ -1,6 +1,6 @@
-# 89. Détecteur de présence sous Home Assistant
+# 89. Détecteur de présence sous Home Assistant {#chapitre-detecteur_de_presence_sous_home_assistant}
 
-## 89.1 Les zones dans Home Assistant
+## 89.1 Les zones dans Home Assistant {#fiche-les_zones_dans_home_assistant}
 
 Par défaut, Home Assistant a créé une zone lors de sa configuration initiale. Elle porte le nom que vous avez donné à votre boîte (ex : Maison).
 
@@ -8,7 +8,7 @@ Pour tirer profit des fonctionnalités de localisation de Home Assistant, vous d
 
 Comme pour plusieurs configurations, les zones peuvent être définies à l'aide de l'interface graphique ou encore dans le fichier configuration.yaml.
 
-## Interface graphique
+## Interface graphique {#graphique}
 
 Lorsque vous définissez des zones dans Home Assistant, elles sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/zone.
 
@@ -22,7 +22,7 @@ Pour ajouter d'autres emplacements :
 * Rendez-vous dans le menu Paramètres / Pièces, étiquettes et Zones / Onglet Zones.
 * Cliquez sur Ajouter une zone.
 * Donnez un nom à l'emplacement.
-* Optionnel : choisissez une icône de [apical\_lien\_interne][icones\_material\_design\_dans\_home\_assistant,la bibliothèque Material Design][/apical\_lien\_interne].
+* Optionnel : choisissez une icône de <a href="fiche-icones\_material\_design\_dans\_home\_assistant.md#icones\_material\_design\_dans\_home\_assistant">la bibliothèque Material Design</a>.
 * Sur la carte, placez le marqueur vis-à-vis l'emplacement souhaité.
 * Il est possible de définir un rayon pour les zones. Faites glisser le point blanc pour agrandir ou rapetisser la zone.
 * Cliquez sur Ajouter pour enregistrer vos modifications.
@@ -51,7 +51,7 @@ zone:
 
 ##
 
-## 89.2 Travailler avec l'application Home Assistant
+## 89.2 Travailler avec l'application Home Assistant {#fiche-travailler_avec_l_application_home_assistant}
 
 L'application mobile Home Assistant, à installer sur le téléphone de chacune des personnes dont vous désirez connaître la position, permet de créer des automatisations qui tiennent compte de l'endroit où chaque personne se trouve.
 
@@ -63,13 +63,13 @@ En recherchant l'application dans l'App Store ou dans Google Play, si vous voyez
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AppStore.png)
 
-Grâce à l'application mobile Home Assistant, vos automatisations peuvent être plus éclatées qu'avec une simple [apical\_lien\_interne][detecter\_la\_presence\_grace\_au\_wi-fi,détection de présence avec le Wi-Fi][/apical\_lien\_interne].
+Grâce à l'application mobile Home Assistant, vos automatisations peuvent être plus éclatées qu'avec une simple <a href="fiche-detecter\_la\_presence\_grace\_au\_wi-fi.md#detecter\_la\_presence\_grace\_au\_wi-fi">détection de présence avec le Wi-Fi</a>.
 
 Vous pouvez, par exemple, démarrer le chauffage dès que vous quittez le bureau, recevoir une notification lorsqu'un de vos enfants arrive au centre commercial, allumer une lumière tamisée lorsque votre amoureux ou votre amoureuse atteint le coin de la rue pour rentrer à la maison.
 
 La seule limite est votre imagination!
 
-## Autoriser l'utilisation des données de localisation
+## Autoriser l'utilisation des données de localisation {#autoriser}
 
 Pour que Home Assistant puisse savoir à quel endroit une personne se situe, il faut que l'application mobile soit autorisée à utiliser les données de localisation du téléphone.
 
@@ -95,19 +95,19 @@ Sinon, cliquez sur Enter address manually puis entrez l'adresse IP de votre serv
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ApplicationMobile-3.png)   ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ApplicationMobile-4.png)
 
-La personne en possession de ce téléphone a désormais la possibilité de contrôler votre Home Assistant à partir de celui-ci, [apical\_lien\_interne][gerer\_les\_personnes,dans les limites des privilèges que vous aurez accordé à l'utilisateur correspondant][/apical\_lien\_interne].
+La personne en possession de ce téléphone a désormais la possibilité de contrôler votre Home Assistant à partir de celui-ci, <a href="fiche-gerer\_les\_personnes.md#gerer\_les\_personnes">dans les limites des privilèges que vous aurez accordé à l'utilisateur correspondant</a>.
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ApplicationMobile-5.png)
 
-## Définir les zones
+## Définir les zones {#zones}
 
-Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vous trouvez, vous devez [apical\_lien\_interne][les\_zones\_dans\_home\_assistant,définir les zones d'importance pour votre système][/apical\_lien\_interne] : Maison, École, Travail, Centre commercial, etc.
+Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vous trouvez, vous devez <a href="fiche-les\_zones\_dans\_home\_assistant.md#les\_zones\_dans\_home\_assistant">définir les zones d'importance pour votre système</a> : Maison, École, Travail, Centre commercial, etc.
 
-## Pour plus d'information
+## Pour plus d'information {#soumettrerecherche}
 
 « Setting up presence detection ». Home Assistant. <https://www.home-assistant.io/getting-started/presence-detection/>
 
-## 89.3 Envoyer une notification à l'application mobile
+## 89.3 Envoyer une notification à l'application mobile {#fiche-envoyer_une_notification_a_l_application_mobile}
 
 L'intégration [notify](https://www.home-assistant.io/integrations/notify/) permet d'envoyer une notification à l'application mobile associée à votre Home Assistant.
 
@@ -123,7 +123,7 @@ La notification apparaîtra à l'écran comme les autres notifications du télé
 
 ![Notification](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NotificationSurCellulaire.png)
 
-## 89.4 Gérer les personnes
+## 89.4 Gérer les personnes {#telephone}
 
 Home Assistant vous permet de définir les personnes qui peuvent être « suivies », par exemple celles que le système pourra identifier comme présentes dans la maison ou pas.
 
@@ -135,20 +135,20 @@ Pour gérer les personnes :
   ![Ajouter une personne](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvellePersonne.png)
 * Téléchargez une photo de la personne.
 * Remplissez les informations demandées.
-* Si la personne a déjà installé [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,l'application Home Assistant][/apical\_lien\_interne] sur son téléphone, choisissez le téléphone qui lui correspond dans la liste déroulante.
-* Vous pouvez également lui assigner une [apical\_lien\_interne][simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see,position virtuelle][/apical\_lien\_interne] afin de faciliter les tests de vos automatisations.
+* Si la personne a déjà installé <a href="fiche-travailler\_avec\_l\_application\_home\_assistant.md#travailler\_avec\_l\_application\_home\_assistant">l'application Home Assistant</a> sur son téléphone, choisissez le téléphone qui lui correspond dans la liste déroulante.
+* Vous pouvez également lui assigner une <a href="fiche-simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see.md#simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see">position virtuelle</a> afin de faciliter les tests de vos automatisations.
 
-Si [apical\_lien\_interne][les\_zones\_dans\_home\_assistant,l'emplacement de la maison][/apical\_lien\_interne] a été correctement configuré et que les personnes sont correctement associées à leur application mobile sur leur téléphone, l'écran Aperçu indiquera clairement qui est à la maison (on verra le nom de votre boîte Home Assistant) et qui est absent.
+Si <a href="fiche-les\_zones\_dans\_home\_assistant.md#les\_zones\_dans\_home\_assistant">l'emplacement de la maison</a> a été correctement configuré et que les personnes sont correctement associées à leur application mobile sur leur téléphone, l'écran Aperçu indiquera clairement qui est à la maison (on verra le nom de votre boîte Home Assistant) et qui est absent.
 
 ![Présent](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personne-Present.png) ![Absent](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personne-Absent.png)
 
-Dans le cas où la personne se trouve dans une [apical\_lien\_interne][les\_zones\_dans\_home\_assistant,zone connue][/apical\_lien\_interne], Home Assistant affichera le nom de cette zone.
+Dans le cas où la personne se trouve dans une <a href="fiche-les\_zones\_dans\_home\_assistant.md#les\_zones\_dans\_home\_assistant">zone connue</a>, Home Assistant affichera le nom de cette zone.
 
 ![Personne dans la zone travail](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personne-Travail.png)
 
 Si une personne apparaît comme absente alors qu'elle est à la maison :
 
-* Assurez-vous que [apical\_lien\_interne][les\_zones\_dans\_home\_assistant,l'emplacement de la maison][/apical\_lien\_interne] a été correctement configuré.
+* Assurez-vous que <a href="fiche-les\_zones\_dans\_home\_assistant.md#les\_zones\_dans\_home\_assistant">l'emplacement de la maison</a> a été correctement configuré.
 * Redémarrez Home Assistant pour vous assurer que toutes les configurations sont prise en compte.
 
 Si une personne montre le statut Inconnu (en anglais, Unknown ou Unk), c'est qu'il y a un problème avec son téléphone.
@@ -158,28 +158,28 @@ Si une personne montre le statut Inconnu (en anglais, Unknown ou Unk), c'est qu'
 Pour régler ce problème :
 
 * Assurez-vous d'abord que la personne est [associée à son téléphone](https://apical.xyz/formations/pageunique/systeme_domotique_diy#telephone).
-* Assurez-vous ensuite que [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,l'application Home Assistant détient les droits pour accéder aux données de localisation du téléphone,autoriser][/apical\_lien\_interne].
+* Assurez-vous ensuite que <a href="fiche-travailler\_avec\_l\_application\_home\_assistant.md#travailler\_avec\_l\_application\_home\_assistant">l'application Home Assistant détient les droits pour accéder aux données de localisation du téléphone</a>.
 * Parfois, un redémarrage du téléphone est nécessaire.
 
 ## Pour plus d'information
 
 « Person ». Home Assistant. <https://www.home-assistant.io/integrations/person/>
 
-## 89.5 Automatisation qui tient compte de la présence
+## 89.5 Automatisation qui tient compte de la présence {#fiche-automatisation_qui_tient_compte_de_la_presence}
 
 J'aime configurer Home Assistant pour que les lumières s'allument automatiquement quand une personne arrive à la maison après une heure donnée.
 
-Ceci peut être réalisé à l'aide d'une automatisation qui utilise [apical\_lien\_interne][gerer\_les\_personnes,le détecteur de présence][/apical\_lien\_interne].
+Ceci peut être réalisé à l'aide d'une automatisation qui utilise <a href="fiche-gerer\_les\_personnes.md#gerer\_les\_personnes">le détecteur de présence</a>.
 
 Pour créer une telle automatisation :
 
 * Paramètres / Automatisations et scènes / Créer une automatisation.
 * Le type de déclencheur sera Heure et lieu / Zone.
-* Dans la liste déroulante, choisissez la personne, le téléphone associé à la personne ou encore [apical\_lien\_interne][simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see,le virtuel][/apical\_lien\_interne] qui doit déclencher l'action.
+* Dans la liste déroulante, choisissez la personne, le téléphone associé à la personne ou encore <a href="fiche-simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see.md#simuler\_la\_position\_gps\_d\_une\_personne\_avec\_device\_tracker\_see">le virtuel</a> qui doit déclencher l'action.
 
   ![Automation Zone](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationZone.png)
 * Choisissez la zone désirée puis précisez si le déclenchement doit avoir lieu quand la personne entre ou sort de la zone.
-* Vous pouvez finalement ajouter, selon vos besoins, les autres déclencheurs ou conditions, par exemple pour [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_l\_heure,tenir compte de l'heure][/apical\_lien\_interne], puis de spécifier les actions à réaliser.
+* Vous pouvez finalement ajouter, selon vos besoins, les autres déclencheurs ou conditions, par exemple pour <a href="fiche-automatisation\_qui\_tient\_compte\_de\_l\_heure.md#automatisation\_qui\_tient\_compte\_de\_l\_heure">tenir compte de l'heure</a>, puis de spécifier les actions à réaliser.
 
 ## Pour plus d'information
 
@@ -187,9 +187,9 @@ Pour créer une telle automatisation :
 
 « Making Home Assistant’s Presence Detection not so Binary ». Phil Hawthorne. <https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/>
 
-## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see
+## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see {#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see}
 
-Lorsque vous désirez que Home Assistant puisse [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_la\_presence,réagir selon la position d'une personne][/apical\_lien\_interne] en utilisant [apical\_lien\_interne][travailler\_avec\_l\_application\_home\_assistant,l'application Home Assistant][/apical\_lien\_interne], il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
+Lorsque vous désirez que Home Assistant puisse <a href="fiche-automatisation\_qui\_tient\_compte\_de\_la\_presence.md#automatisation\_qui\_tient\_compte\_de\_la\_presence">réagir selon la position d'une personne</a> en utilisant <a href="fiche-travailler\_avec\_l\_application\_home\_assistant.md#travailler\_avec\_l\_application\_home\_assistant">l'application Home Assistant</a>, il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 
 Par chance, la position géographique d'une personne peut être simulée grâce au service [device\_tracker.see](https://www.home-assistant.io/integrations/device_tracker/#device_trackersee-service).
 
@@ -197,7 +197,7 @@ Ce service peut modifier la position d'un système de suivi GPS réel ou virtuel
 
 ## Créer un device\_tracker
 
-Le fonctionnement d'une entité de type device\_tracker est passablement différent de celui des autres types de [apical\_lien\_interne][configurer\_un\_capteur\_virtuel,virtuels][/apical\_lien\_interne], par exemple input\_boolean ou encore input\_text.
+Le fonctionnement d'une entité de type device\_tracker est passablement différent de celui des autres types de <a href="fiche-configurer\_un\_capteur\_virtuel.md#configurer\_un\_capteur\_virtuel">virtuels</a>, par exemple input\_boolean ou encore input\_text.
 
 D'abord, pour créer une entité de type device\_tracker, il suffit d'appeler le service (exécuter l'action) device\_tracker.see.
 
@@ -251,7 +251,7 @@ Suggestion : utilisez la case Filtre pour retrouver les entités plus rapidement
 
 Les informations sur le device\_tracker sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/known\_devices.yaml.
 
-Ce fichier peut être visualisé à l'aide du [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,module complémentaire File editor][/apical\_lien\_interne].
+Ce fichier peut être visualisé à l'aide du <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">module complémentaire File editor</a>.
 
 Fichier known\_devices.yaml
 
@@ -266,7 +266,7 @@ position\_virtuelle\_annie:
 
 Voici un problème qui peut survenir ou non selon votre version de Home Assistant.
 
-Lorsqu'une [apical\_lien\_interne][automatisation\_qui\_tient\_compte\_de\_la\_presence,automatisation doit réagir quand une personne virtuelle entre ou sort d'une zone donnée][/apical\_lien\_interne], elle doit être en mesure de retrouver les coordonnées GPS du device\_tracker.
+Lorsqu'une <a href="fiche-automatisation\_qui\_tient\_compte\_de\_la\_presence.md#automatisation\_qui\_tient\_compte\_de\_la\_presence">automatisation doit réagir quand une personne virtuelle entre ou sort d'une zone donnée</a>, elle doit être en mesure de retrouver les coordonnées GPS du device\_tracker.
 
 Si vous avez utilisé un nom de zone pour spécifier la position d'un device\_tracker, vous pourriez obtenir un message du genre « Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value » lorsque vous enregistrez l'automatisation.
 
@@ -282,7 +282,7 @@ Vous pouvez voir la position virtuelle dans le tableau de bord sur une carte de 
 
 Pour que la position du virtuel apparaisse il faut donner à l'entité une position GPS et non une position à partir d'une zone.
 
-Par défaut, la carte affichera la première lettre de [apical\_lien\_interne][qu\_est-ce\_qu\_une\_entite,l'identifiant de l'objet,objet][/apical\_lien\_interne].
+Par défaut, la carte affichera la première lettre de <a href="fiche-qu\_est-ce\_qu\_une\_entite.md#qu\_est-ce\_qu\_une\_entite">l'identifiant de l'objet</a>.
 
 ![device_tracker sur une carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTrackerSurCarte.png)
 
@@ -292,7 +292,7 @@ Le fichier customize.yaml permet d'apporter des personnalisations à différente
 
 Si le fichier n'existe pas encore, créez-le dans le même dossier que configuration.yaml, c'est-à-dire /mnt/data/supervisor/homeassistant.
 
-Ceci peut être réalisé [apical\_lien\_interne][la\_console\_home\_assistant,dans le terminal HassOS,terminal][/apical\_lien\_interne] ou encore à l'aide de [apical\_lien\_interne][travailler\_avec\_le\_module\_complementaire\_file\_editor,le module complémentaire File editor][/apical\_lien\_interne].
+Ceci peut être réalisé <a href="fiche-la\_console\_home\_assistant.md#la\_console\_home\_assistant">dans le terminal HassOS</a> ou encore à l'aide de <a href="fiche-travailler\_avec\_le\_module\_complementaire\_file\_editor.md#travailler\_avec\_le\_module\_complementaire\_file\_editor">le module complémentaire File editor</a>.
 
 Dans configuration.yaml, vous devez avoir une référence à ce fichier.
 
@@ -303,7 +303,7 @@ homeassistant:
 
 Dans le fichier customize.yaml, vous pouvez désormais préciser l'image à utiliser pour le device\_tracker.
 
-Pour utiliser vos propres images, vous devez [apical\_lien\_interne][utiliser\_vos\_propres\_images\_dans\_un\_tableau\_de\_bord\_lovelace,les téléverser sur le Pi dans un dossier précis][/apical\_lien\_interne].
+Pour utiliser vos propres images, vous devez <a href="fiche-utiliser\_vos\_propres\_images\_dans\_un\_tableau\_de\_bord\_lovelace.md#utiliser\_vos\_propres\_images\_dans\_un\_tableau\_de\_bord\_lovelace">les téléverser sur le Pi dans un dossier précis</a>.
 
 L'image à utliiser peut ensuite être configurée comme suit :
 
@@ -322,7 +322,7 @@ Source des images : <http://clipart-library.com/clip-art/kid-transparent-backgr
 
 ## Retrouver la latitude et la longitude d'un device\_tracker
 
-Grâce aux [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèles][/apical\_lien\_interne], il est possible de retrouver spécifiquement la latitude et la longitude d'un device\_tracker.
+Grâce aux <a href="fiche-les\_modeles\_dans\_home\_assistant.md#les\_modeles\_dans\_home\_assistant">modèles</a>, il est possible de retrouver spécifiquement la latitude et la longitude d'un device\_tracker.
 
 D'abord, comme avec n'importe quelle entité, il est possible de connaître les attributs disponibles à partir du menu Outils de développement / Modèle.
 

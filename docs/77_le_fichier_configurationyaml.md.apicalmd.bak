@@ -1,6 +1,6 @@
-# 68. Le fichier configuration.yaml
+# 68. Le fichier configuration.yaml {#chapitre-le_fichier_configuration_yaml}
 
-## 68.1 Le format YAML
+## 68.1 Le format YAML {#fiche-le_format_yaml}
 
 YAML est un format de représentation des données semblable à XML ou JSON.
 
@@ -167,7 +167,7 @@ databases:
 
 « YAML Ain’t Markup Language (YAML™) version 1.2 - Scalars ». yaml.org. <https://yaml.org/spec/1.2.2/#23-scalars>
 
-## 68.2 Travailler avec le module complémentaire File editor
+## 68.2 Travailler avec le module complémentaire File editor {#fiche-travailler_avec_le_module_complementaire_file_editor}
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
@@ -217,7 +217,7 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 
 [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,Dans une prochaine fiche][/apical\_lien\_interne], je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
-## 68.3 Travailler avec le module complémentaire Studio Code Server
+## 68.3 Travailler avec le module complémentaire Studio Code Server {#fiche-travailler_avec_le_module_complementaire_studio_code_server}
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
@@ -266,7 +266,7 @@ Par défaut, le module ne présente pas de barre de menu. Pour la faire apparaî
 
 ![Customize Layout](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-IconeCustomizeLayout.png)
 
-## 68.4 Éditer le fichier configuration.yaml
+## 68.4 Éditer le fichier configuration.yaml {#fiche-Editer_le_fichier_configuration_yaml}
 
 Le fichier configuration.yaml permet d'effectuer une foule de configurations dans Home Assistant.
 
@@ -374,7 +374,7 @@ Avant de poursuivre, il est important de vérifier votre travail.
 
 Suivez les conseils « [apical\_lien\_interne]validation\_des\_configurations[/apical\_lien\_interne] » pour vous assurer que vos configurations sont valides.
 
-## Pour que les configurations soient prises en compte
+## Pour que les configurations soient prises en compte {#rechargement}
 
 La plupart des modifications au fichier de configuration nécessiteront un rechargement des configurations : Outils de développement / onglet YAML / Section Rechargement de la configuration YAML.
 
@@ -392,7 +392,7 @@ Parfois, un redémarrage de Home Assistant sera nécessaire : Paramètres / Syst
 
 « Home Assistant configuration YAML (The beginners guide) ». Siytek. <https://siytek.com/home-assistant-configuration-yaml-beginners-guide/>
 
-## 68.5 Validation des configurations
+## 68.5 Validation des configurations {#fiche-validation_des_configurations}
 
 Une fois vos configurations en place [apical\_lien\_interne][Editer\_le\_fichier\_configuration\_yaml,dans le fichier configuration.yaml][/apical\_lien\_interne], il faut s'assurer que le tout soit valide avant de poursuivre.
 
@@ -430,7 +430,7 @@ Un clic sur cette pastille nous confirme que la notification concerne une erreur
 
 ![Notification configuration invalide](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ErreurConfiguration-2.png)
 
-## Console Home Assistant
+## Console Home Assistant {#consoleha}
 
 Le fichier de configurations peut également être validé [apical\_lien\_interne][la\_console\_home\_assistant,à la console Home Assistant][/apical\_lien\_interne].
 

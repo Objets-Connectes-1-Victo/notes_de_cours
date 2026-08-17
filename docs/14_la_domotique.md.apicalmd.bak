@@ -1,6 +1,6 @@
-# 12. La domotique
+# 12. La domotique {#chapitre-la_domotique}
 
-## 12.1 En résumé...
+## 12.1 En résumé... {#fiche-en_resume_018}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -136,7 +136,7 @@ Il existe aussi un système de sauvegarde automatique mais ce n'est pas ce qui n
 
 Important : que ce soit une sauvegarde manuelle ou automatique, il faut la télécharger sur notre ordinateur pour pouvoir la réutiliser en cas de crash de Jeedom.
 
-## 12.2 Qu'est-ce qu'un objet connecté ?
+## 12.2 Qu'est-ce qu'un objet connecté ? {#fiche-qu_est-ce_qu_un_objet_connecte}
 
 Un objet connecté, parfois appelé appareil connecté ou appareil intelligent, c'est un objet de tous les jours dans lequel on a ajouté des composantes qui lui permettent d'envoyer ou de recevoir des données au serveur auquel il est connecté.
 
@@ -166,7 +166,7 @@ Voici une définition intéressante de l'Internet des Objets[2](https://jpdias.m
 
 2. « Indoor Sensing Hub powered by Mozilla Things Framework ». João Pedro Dias. <https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html>
 
-## 12.3 Qu'est-ce qu'un système domotique ?
+## 12.3 Qu'est-ce qu'un système domotique ? {#fiche-qu_est-ce_qu_un_systeme_domotique}
 
 La domotique est un ensemble de composantes et de techniques qui permettent d'automatiser et de contrôler à distance différents systèmes dans une maison.
 
@@ -198,7 +198,7 @@ Différents protocoles de communication seront utilisés pour assurer la communi
 
 ![Schéma système domotique](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SystemeDomotique.png)
 
-## 12.4 Système domotique clé en main vs DIY
+## 12.4 Système domotique clé en main vs DIY {#fiche-systeme_domotique_cle_en_main_vs_diy}
 
 De nombreux acteurs sur le marché offrent des solutions domotiques clé en main. Ces solutions sont généralement stables, efficaces et sécuritaires. Cependant, elles sont coûteuses à l'achat et plusieurs nécessitent par la suite des frais mensuels.
 

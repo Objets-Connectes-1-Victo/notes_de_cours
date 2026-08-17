@@ -1,4 +1,4 @@
-# 97. Pour le prochain cours (deux cours)
+# 97. Pour le prochain cours (deux cours) {#chapitre-pour_le_prochain_cours_deux_cours_010}
 
 ## 97.1 Je me prépare pour l'exercice suivant (deux cours)
 

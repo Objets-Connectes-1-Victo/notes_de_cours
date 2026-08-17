@@ -1,6 +1,6 @@
-# 33. L'envoi de courriel dans Jeedom
+# 33. L'envoi de courriel dans Jeedom {#chapitre-l_envoi_de_courriel_dans_jeedom}
 
-## 33.1 Créer une adresse de courriel avec votre nom de domaine
+## 33.1 Créer une adresse de courriel avec votre nom de domaine {#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine}
 
 La plupart des hébergeurs offrent gratuitement la gestion d'adresses de courriel qui se terminent par votre nom de domaine (ex : info@mondomaine.com). Selon votre forfait d'hébergement, vous pourrez créer une ou plusieurs adresses de courriel.
 
@@ -79,7 +79,7 @@ Vous trouverez à cet endroit les informations pour intégrer votre nouvelle adr
 
 ![Mail Client Manual Settings](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GreenGeeks-MailClientManualSettings.png)
 
-## 33.2 Tester la connexion SMTP avec Telnet
+## 33.2 Tester la connexion SMTP avec Telnet {#fiche-Tester_la_connexion_SMTP_telnet}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -338,7 +338,7 @@ QUIT
 
 1. « Telnet ». Wikipédia. <https://fr.wikipedia.org/wiki/Telnet>
 
-## 33.3 Envoyer un courriel avec Jeedom
+## 33.3 Envoyer un courriel avec Jeedom {#fiche-envoyer_un_courriel_avec_jeedom}
 
 Il est possible de demander à Jeedom de vous envoyer une notification par courriel lorsqu'un événement se produit.
 
@@ -362,7 +362,7 @@ Donnez un nom de votre choix à l'équipement, par exemple « Courriel administ
 
 Vous devez ensuite remplir le formulaire pour indiquer avec quel serveur, de la part de qui et vers qui le courriel sera expédié.
 
-Je vous conseille de [apical\_lien\_interne][creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine,travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient][/apical\_lien\_interne], par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
+Je vous conseille de <a href="fiche-creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine.md#creer\_une\_adresse\_de\_courriel\_avec\_votre\_nom\_de\_domaine">travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient</a>, par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
 
 ![Configuration du mail](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationMail.png)
 

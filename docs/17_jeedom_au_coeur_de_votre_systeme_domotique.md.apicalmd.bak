@@ -1,6 +1,6 @@
-# 15. Jeedom au coeur de votre système domotique
+# 15. Jeedom au coeur de votre système domotique {#chapitre-jeedom_au_coeur_de_votre_systeme_domotique}
 
-## 15.1 Installation de Jeedom et premier accès
+## 15.1 Installation de Jeedom et premier accès {#fiche-installation_de_jeedom_et_premier_acces}
 
 Jeedom est offert en version DIY, que vous pouvez installer directement sur un Raspberry Pi ou sur un autre ordinateur de votre choix. Il est également possible d'acheter une boîte domotique commerciale avec Jeedom préinstallé.
 
@@ -24,7 +24,7 @@ Vous êtres maintenant prêts à installer le système d'exploitation. Ici, on v
 
 Suivez les instructions sur cette fiche : [apical\_lien\_interne]raspberry\_pi\_imager[/apical\_lien\_interne].
 
-## Démarrer le Raspberry Pi
+## Démarrer le Raspberry Pi {#demarrer}
 
 Retirez la carte micro SD de l'ordinateur de façon sécuritaire puis insérez-la dans le Raspberry Pi.
 
@@ -151,7 +151,7 @@ Voilà, vous pouvez désormais [apical\_lien\_interne][acceder\_a\_jeedom,accé
 
 « Installation ». Jeedom. <https://doc.jeedom.com/fr_FR/installation/rpi>
 
-## 15.2 Installation de Jeedom sans clavier ni écran
+## 15.2 Installation de Jeedom sans clavier ni écran {#fiche-installation_de_jeedom_sans_clavier_ni_ecran}
 
 Si vous n'avez pas accès à un clavier et à un écran pour votre Raspberry Pi, je vous propose cette technique pour effectuer une installation de Jeedom dite headless (litéralement : sans tête, c'est-à-dire sans écran).
 
@@ -287,7 +287,7 @@ sudo reboot
 
 Voilà, vous pouvez désormais [apical\_lien\_interne][acceder\_a\_jeedom,accéder à Jeedom][/apical\_lien\_interne] à partir de votre navigateur!
 
-## 15.3 Accéder à Jeedom
+## 15.3 Accéder à Jeedom {#fiche-acceder_a_jeedom}
 
 Une fois que [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,Jeedom a été installé][/apical\_lien\_interne], vous êtes prêts à commencer à explorer votre nouveau joujou!
 

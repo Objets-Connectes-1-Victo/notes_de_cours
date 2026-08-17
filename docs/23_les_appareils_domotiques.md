@@ -1,6 +1,6 @@
-# 21. Les appareils domotiques
+# 21. Les appareils domotiques {#chapitre-les_appareils_domotiques}
 
-## 21.1 Les appareils de la maison intelligente
+## 21.1 Les appareils de la maison intelligente {#fiche-les_appareils_de_la_maison_intelligente}
 
 Une maison intelligente peut comprendre de nombreux appareils contrôlés par l'unité centrale du système domotique.
 
@@ -61,7 +61,7 @@ Parmi les fabricants de localisateurs d'objets, notons :
 
 « Top 15 Sensor Types Being Used in IoT ». Finoit. <https://www.finoit.com/blog/top-15-sensor-types-used-iot/>
 
-## 21.2 Précautions avant l'achat d'un objet connecté
+## 21.2 Précautions avant l'achat d'un objet connecté {#fiche-precautions_avant_l_achat_d_un_objet_connecte}
 
 Il existe une multitude d'objets connectés mais tous ne peuvent pas nécessairement communiquer avec votre boîte domotique.
 
@@ -69,7 +69,7 @@ Il faut donc effectuer quelques vérifications avant de procéder à l'achat d'u
 
 ## Protocole de communication
 
-Le [apical\_lien\_interne][passerelle\_et\_protocoles\_de\_communication,protocole de communication][/apical\_lien\_interne] utilisé par l'objet connecté est un des principaux facteurs à considérer.
+Le <a href="fiche-passerelle\_et\_protocoles\_de\_communication.md#passerelle\_et\_protocoles\_de\_communication">protocole de communication</a> utilisé par l'objet connecté est un des principaux facteurs à considérer.
 
 En effet, les objets peuvent communiquer dans différentes normes ou protocoles de communication : Z-Wave, Zigbee, Wi-Fi, Bluetooth, RFXcom, etc.
 
@@ -93,13 +93,13 @@ Si l'appareil ne peut communiquer qu'en 2.4 GHz alors que la seule fréquence di
 
 ## Compatibilité avec le logiciel de domotique
 
-Il faut également vérifier la compatibilité de l'objet avec [apical\_lien\_interne][quelques\_logiciels\_de\_domotique\_interessants,la boîte domotique][/apical\_lien\_interne] que vous avec choisie.
+Il faut également vérifier la compatibilité de l'objet avec <a href="fiche-quelques\_logiciels\_de\_domotique\_interessants.md#quelques\_logiciels\_de\_domotique\_interessants">la boîte domotique</a> que vous avec choisie.
 
 Avec certains logiciels de domotique, il faut utiliser une extension (plugin, add-on) pour permettre le pairage avec un appareil connecté. Ces extension sont parfois écrites spécifiquement pour une marque donnnée.
 
 Par exemple, le logiciel Jeedom nécessite l'extension [documentée ici](https://jeedom-plugins-extra.github.io/plugin-Wifi-Smartplug/fr_FR/) pour contrôler les prises intelligentes TP Link HS100 et HS110. Mais au moment d'écrire ces lignes, aucune extension ne permettait de communiquer avec les prises intelligentes de marque Teckin. Vérifiez donc la disponibilité des extensions avant d'acheter vos appareils connectés.
 
-## 21.3 Construire son propre objet connecté
+## 21.3 Construire son propre objet connecté {#fiche-construire_son_propre_objet_connecte}
 
 Information à venir...
 
@@ -111,7 +111,7 @@ Carte Z-uno : <https://www.amazon.ca/Z-Uno-Universal-Z-Wave-Create-Devices/dp/B
 
 « Indoor Sensing Hub powered by Mozilla Things Framework ». João Pedro Dias. <https://jpdias.me/hardware/iot/2018/12/19/indoorsensing.html>
 
-## 21.4 Prises Wi-Fi vs Z-Wave vs ZigBee
+## 21.4 Prises Wi-Fi vs Z-Wave vs ZigBee {#fiche-prises_wi-fi_vs_z-wave_vs_zigbee}
 
 Les prises intelligentes Wi-Fi sont très populaires et plus abordables que les prises Z-Wave ou ZigBee.
 

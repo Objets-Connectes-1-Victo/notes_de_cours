@@ -1,6 +1,6 @@
-# 38. Aller plus loin avec les scénarios
+# 38. Aller plus loin avec les scénarios {#chapitre-aller_plus_loin_avec_les_scenarios}
 
-## 38.1 Scénario qui ajoute une entrée dans le fichier journal
+## 38.1 Scénario qui ajoute une entrée dans le fichier journal {#fiche-scenario_qui_ajoute_une_entree_dans_le_fichier_journal}
 
 Un scénario peut écrire dans un fichier journal afin de vous aider à garder une trace de ce qui s'est passé.
 
@@ -22,7 +22,7 @@ Ceci écrira dans le log d'exécution du scénario.
 * Vous pourrez ensuite préciser le message à enregistrer dans le fichier journal.
 
   ![Message à enregistrer](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Scenario-ActionLog-2.png)
-* Il est également possible d'ajouter des valeurs à votre message, par exemple la valeur d'un capteur (commande de type Info seulement). Il vous faudra entrer vous-même [apical\_lien\_interne][retrouver\_la\_chaine\_qui\_identifie\_une\_commande,la chaîne qui mène à cette valeur][/apical\_lien\_interne].
+* Il est également possible d'ajouter des valeurs à votre message, par exemple la valeur d'un capteur (commande de type Info seulement). Il vous faudra entrer vous-même <a href="fiche-retrouver\_la\_chaine\_qui\_identifie\_une\_commande.md#retrouver\_la\_chaine\_qui\_identifie\_une\_commande">la chaîne qui mène à cette valeur</a>.
 
   La chaîne est au format #[Objet][Equipement][Commande]#, par exemple #[Cuisine][Capteur Zooz 4-en-1][Luminosité]#.
 * Pour voir le fichier journal du scénario, vous devez cliquer sur l'icône Log dans le haut de la fenêtre d'édition du scénario.
@@ -55,7 +55,7 @@ $scenario->setLog('Mon message');
 
 N'oubliez pas le point-virgule à la fin de l'instruction. Après tout, c'est du PHP!
 
-### log::add()
+### log::add() {#niveaulog}
 
 La méthode [log::add()](https://jeedom.github.io/documentation/phpdoc/classes/log.html#method_add) vous permet d'écrire dans un fichier journal de votre choix et de spécifier le niveau de gravité du message.
 
@@ -80,7 +80,7 @@ Les paramètres de cette méthode vont comme suit :
   + ALERT
   + EMERGENCY
 
-  Attention : selon les [apical\_lien\_interne][configurer\_les\_fichiers\_journaux,configurations du niveau de log][/apical\_lien\_interne], seuls les messages d'un certain niveau seront enregistrés.
+  Attention : selon les <a href="fiche-configurer\_les\_fichiers\_journaux.md#configurer\_les\_fichiers\_journaux">configurations du niveau de log</a>, seuls les messages d'un certain niveau seront enregistrés.
 * En troisième paramètre, inscrivez le message à enregistrer dans le fichier journal.
 
 N'oubliez pas le point-virgule à la fin de l'instruction!
@@ -97,9 +97,9 @@ Voici un exemple de scénario qui illustre les différentes façons d'écrire da
 
 Il est possible d'enregistrer un message qui contient des valeurs retrouvées automatiquement par Jeedom.
 
-Pour en savoir plus : « [apical\_lien\_interne]scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_[/apical\_lien\_interne] ».
+Pour en savoir plus : « <a href="fiche-scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_.md#scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_">scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_</a> ».
 
-## 38.2 Retrouver manuellement la chaîne qui identifie une commande
+## 38.2 Retrouver manuellement la chaîne qui identifie une commande {#fiche-retrouver_la_chaine_qui_identifie_une_commande}
 
 Dans Jeedom, chaque commande associée à un équipement peut être utilisée à différentes fins, par exemple pour envoyer la valeur d'un capteur dans un courriel ou pour l'enregistrer dans un fichier journal.
 
@@ -115,7 +115,7 @@ Il est également possible de retrouver la chaîne d'une commande comme suit :
 
 ![Commandes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-NomDesCommandesPourEquipement.png)
 
-## 38.3 Scénario qui inscrit dans un fichier journal une valeur retrouvée automatiquement
+## 38.3 Scénario qui inscrit dans un fichier journal une valeur retrouvée automatiquement {#fiche-scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___}
 
 Que ce soit dans un scénario programmé ou dans un scénario provoqué, il est possible d'enregistrer automatiquement dans un fichier journal un message qui contient des informations retrouvées par programmation.
 
@@ -172,6 +172,6 @@ $cmd = cmd::byString($trigger);
 $value = $cmd->execCmd();  
 log::add('alertes', 'ALERT', "Valeur du déclencheur : $value");
 
-## Pour plus d'information
+## Pour plus d'information {#popupbienvenue}
 
 « Jeedom v4 | Petits codes entre amis ». KiboOst. <https://kiboost.github.io/jeedom_docs/jeedomV4Tips/CodesScenario/fr_FR/>

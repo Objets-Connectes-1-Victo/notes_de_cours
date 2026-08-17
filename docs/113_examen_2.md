@@ -1,4 +1,4 @@
-# 100. Examen 2
+# 100. Examen 2 {#chapitre-examen_2_006}
 
 ## 100.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
 
@@ -15,7 +15,7 @@ La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout
 * Imprimez la page au format PDF.
 * Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
 
-## 100.2 Consignes pour l'examen
+## 100.2 Consignes pour l'examen {#fiche-consignes_pour_l_examen_011}
 
 Cet examen est basé sur le travail que vous avez fait en classe sur la plateforme Home Assistant. Il consiste à ajouter de nouvelles fonctionnalités à votre système domotique.
 
@@ -29,7 +29,7 @@ Cet examen est basé sur le travail que vous avez fait en classe sur la platefor
 
 Bonne chance !
 
-## 100.3 Grille de correction
+## 100.3 Grille de correction {#fiche-grille_de_correction_009}
 
 Voici la grille de correction qui sera utilisée à l'examen no 2.
 

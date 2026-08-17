@@ -1,6 +1,6 @@
-# 47. Scripts Python pour envoyer et recevoir du signal sur le GPIO
+# 47. Scripts Python pour envoyer et recevoir du signal sur le GPIO {#chapitre-scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio}
 
-## 47.1 Langages et bibliothèques pour communiquer avec le GPIO
+## 47.1 Langages et bibliothèques pour communiquer avec le GPIO {#fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio}
 
 Il est possible de communiquer avec le [apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,GPIO][/apical\_lien\_interne] à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
 
@@ -13,7 +13,7 @@ Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 
 La bibliothèque RPi.GPIO sera utilisée dans [apical\_lien\_interne][installation\_de\_la\_bibliotheque\_rpi\_gpio,les fiches qui suivent][/apical\_lien\_interne] pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
 
-## 47.2 Installation de la bibliothèque RPi.GPIO
+## 47.2 Installation de la bibliothèque RPi.GPIO {#fiche-installation_de_la_bibliotheque_rpi_gpio}
 
 La bibliothèque [RPi.GPIO](https://pypi.org/project/RPi.GPIO/) est très utilisée pour envoyer et recevoir du signal sur le GPIO du Raspberry Pi.
 
@@ -62,7 +62,7 @@ Terminal du Raspberry Pi
 
 sudo apt update && sudo apt install python-rpi.gpio python3-rpi.gpio
 
-## 47.3 La base des scripts avec RPi.GPIO
+## 47.3 La base des scripts avec RPi.GPIO {#fiche-la_base_des_scripts_avec_rpi_gpio}
 
 Le script Python qui sera en charge d'envoyer ou de recevoir un signal des [apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,broches GPIO][/apical\_lien\_interne] du Raspberry Pi peut être écrit :
 
@@ -303,7 +303,7 @@ print(f'Programme qui allume une DEL branchée au port BCM {led}')
 GPIO.output(led, 1)     # envoie 3.3V au port  
 # pas de GPIO.cleanup() ici sinon la DEL serait immédiatement éteinte.
 
-## Exemple complet : faire clignoter une DEL
+## Exemple complet : faire clignoter une DEL {#clignoter}
 
 Pour faire exemple un peu plus complexe, voici un petit script qui fait clignoter une DEL jusqu'à ce que quelqu'un appuie sur Ctrl+C.
 
@@ -362,7 +362,7 @@ python3 monscript.py
 
 « RPi.GPIO basics 6 – Using inputs and outputs together with RPi.GPIO – pull-ups and pull-downs ». RasPi.TV. <https://raspi.tv/2013/rpi-gpio-basics-6-using-inputs-and-outputs-together-with-rpi-gpio-pull-ups-and-pull-downs>
 
-## 47.4 Script pour réinitialiser toutes les broches programmables du GPIO
+## 47.4 Script pour réinitialiser toutes les broches programmables du GPIO {#fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio}
 
 Si vous travaillez avec la bibliothèque [apical\_lien\_interne][installation\_de\_la\_bibliotheque\_rpi\_gpio,RPi.GPIO][/apical\_lien\_interne], vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
 
@@ -420,7 +420,7 @@ for i in broches:
 GPIO.cleanup()  
 print('Réinitialisation réalisée avec succès!')
 
-## 47.5 Passer un paramètre à un script Python
+## 47.5 Passer un paramètre à un script Python {#fiche-passer_un_parametre_a_un_script_python}
 
 Il est possible de passer un ou plusieurs paramètres, aussi appelés arguments, à un script Python à partir de la ligne de commande.
 
@@ -493,7 +493,7 @@ except:
 
 « Python Command Line Arguments ». Real Python. <https://realpython.com/python-command-line-arguments/#the-sysargv-array>
 
-## 47.6 La syntaxe Python vs autres langages
+## 47.6 La syntaxe Python vs autres langages {#fiche-La_syntaxe_Python_vs_autres_langages}
 
 Si vous avez déjà travaillé avec quelques langages de programmation, vous savez que la syntaxe varie d'un langage à l'autre. Parfois, les différences sont minimes mais d'autre fois, elles peuvent être déroutantes.
 
@@ -547,7 +547,7 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 « PEP257: Good Python docstrings by example ». Dolph Mathews. <http://blog.dolphm.com/pep257-good-python-docstrings-by-example/>
 
-## 47.7 Copier un fichier sur une machine Linux à partir d'un autre ordinateur et vice-versa
+## 47.7 Copier un fichier sur une machine Linux à partir d'un autre ordinateur et vice-versa {#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur}
 
 Dans cette fiche :
 
@@ -591,7 +591,7 @@ Terminal de l'ordinateur
 
 scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossierdistant/sous-dossier
 
-### Copier du Raspberry Pi vers l'ordinateur
+### Copier du Raspberry Pi vers l'ordinateur {#versordi}
 
 Pour copier un fichier du Pi vers votre ordinateur, la machine distante sera la source.
 
@@ -688,7 +688,7 @@ Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes
 
 « SCP (Secure Copy) ». Raspberry Pi. <https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md>
 
-## 47.8 Tuer un processus Linux
+## 47.8 Tuer un processus Linux {#fiche-tuer_un_processus_linux}
 
 Quand un script Python est lancé, il est associé à un processus dans le système d'exploitation.
 

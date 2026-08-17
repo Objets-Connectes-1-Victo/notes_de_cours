@@ -1,6 +1,6 @@
-# 50. Contrôle GPIO avec Jeedom
+# 50. Contrôle GPIO avec Jeedom {#chapitre-controle_gpio_avec_jeedom}
 
-## 50.1 En résumé...
+## 50.1 En résumé... {#fiche-en_resume_044}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -61,7 +61,7 @@ Si un scénario lance un script Python qui fait clignoter une DEL (donc avec bou
     ou
   + lancer le [script Python qui se charge de réinitialiser toutes les broches](https://apical.xyz/fiches/scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio/script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio)
 
-## 50.2 Lancer un script Python avec le plugin Script
+## 50.2 Lancer un script Python avec le plugin Script {#fiche-lancer_un_script_python_avec_le_plugin_script}
 
 Le plugin Script, comme son nom le laisse entendre, permet de lancer à partir de Jeedom des scripts présents sur le Raspberry Pi.
 
@@ -131,7 +131,7 @@ Remarquez que sous Plugins / Programmation / Script / Configuration, la case Ch
 
 ![Chemin des scripts utilisateur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-PluginScript-CheminDesScriptsUtilisateur.png)
 
-## Lancement du script à partir de Jeedom
+## Lancement du script à partir de Jeedom {#lancer}
 
 Pour lancer le script, il faut ajouter dans le plugin Script un équipement puis une commande.
 
@@ -207,7 +207,7 @@ Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n
 
 « Plugin Script ». Plugin Script. <https://doc.jeedom.com/fr_FR/plugins/programming/script/>
 
-## 50.3 Arrêter correctement un scénario avec boucle infinie
+## 50.3 Arrêter correctement un scénario avec boucle infinie {#fiche-arreter_correctement_un_scenario_avec_boucle_infinie}
 
 Règle générale, avec le plugin Scripts dans Jeedom, il faut éviter de lancer des scripts qui contiennent une boucle sans fin.
 
@@ -223,7 +223,7 @@ Pour qu'un scénario puisse arrêter correctement le clignotement, il doit :
 * [Tuer le processus associé au script Python qui a lancé le clignotement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#processus)
 * [S'assurer que la DEL est éteinte](https://apical.xyz/formations/pageunique/systeme_domotique_diy#del)
 
-## Arrêter le scénario qui a lancé le clignotement
+## Arrêter le scénario qui a lancé le clignotement {#scenario}
 
 Si vous faites afficher dans le Dashboard le scénario qui a lancé le clignotement, vous verrez une animation qui indique que le scénario est toujours en cours d'exécution et ce, même si vous avez pris soin de tuer le processus en charge du clignotement (technique présentée plus bas).
 
@@ -241,7 +241,7 @@ Dans la liste déroulante qui apparaît, sélectionnez Scénario. Ceci permet d'
 
 ![scénario qui arrête un autre scénario](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiArreteUnAutreScenario.png)
 
-## Tuer le processus associé au script Python qui a lancé le clignotement
+## Tuer le processus associé au script Python qui a lancé le clignotement {#processus}
 
 Quand un script Python est lancé, il est associé à un processus dans le système d'exploitation.
 
@@ -263,7 +263,7 @@ Quand vous lancez cette commande, il peut arriver que Jeedom affiche un message 
 
 Vous pouvez ignorer ce message.
 
-## S'assurer que la DEL est éteinte
+## S'assurer que la DEL est éteinte {#del}
 
 Dans le cas d'un script qui fait clignoter une DEL, il peut arriver que la DEL demeure allumée après que le processus ait été tué. Tout dépend de l'état dans lequel elle se trouvait au moment précis où le processus a été tué.
 
@@ -274,7 +274,7 @@ Pour l'éteindre, vous avez deux choix :
   ou
 * lancer le [apical\_lien\_interne][script\_pour\_reinitialiser\_toutes\_les\_broches\_programmables\_du\_gpio,script Python qui se charge de réinitialiser toutes les broches][/apical\_lien\_interne]
 
-## 50.4 Lancer un script Python avec paramètre à partir de Jeedom
+## 50.4 Lancer un script Python avec paramètre à partir de Jeedom {#fiche-lancer_un_script_python_avec_parametre_a_partir_de_jeedom}
 
 Un script Python peut [apical\_lien\_interne][passer\_un\_parametre\_a\_un\_script\_python,recevoir des paramètres][/apical\_lien\_interne].
 

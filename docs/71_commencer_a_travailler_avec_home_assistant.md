@@ -1,6 +1,6 @@
-# 63. Commencer à travailler avec Home Assistant
+# 63. Commencer à travailler avec Home Assistant {#chapitre-commencer_a_travailler_avec_home_assistant}
 
-## 63.1 En résumé...
+## 63.1 En résumé... {#fiche-en_resume_040}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -8,19 +8,19 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [apical\_lien\_interne]configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant[/apical\_lien\_interne]
+## <a href="fiche-configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant.md#configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant">configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant</a>
 
 Bien suivre les étapes sur cette fiche!
 
-## [apical\_lien\_interne]ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant[/apical\_lien\_interne]
+## <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant">ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant</a>
 
 Bien suivre les étapes sur cette fiche!
 
-## [apical\_lien\_interne]sauvegarde\_de\_home\_assistant[/apical\_lien\_interne]
+## <a href="fiche-sauvegarde\_de\_home\_assistant.md#sauvegarde\_de\_home\_assistant">sauvegarde\_de\_home\_assistant</a>
 
 Bien suivre les étapes sur cette fiche!
 
-## 63.2 Configurer la clé USB Z-Wave sur Home Assistant
+## 63.2 Configurer la clé USB Z-Wave sur Home Assistant {#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant}
 
 Avant d'ajouter des périphériques Z-Wave à votre boîte domotique Home Assistant, vous devez configurer la clé USB Z-Wave.
 
@@ -40,7 +40,7 @@ Pour configurer la clé USB Z-Wave, suivez ces étapes :
 
   ![USB device path](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerZWaveJS.png)
 
-Vous pouvez maintenant [apical\_lien\_interne][ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant,intégrer des appareils connectés Z-Wave à Home Assistant][/apical\_lien\_interne].
+Vous pouvez maintenant <a href="fiche-ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant.md#ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant">intégrer des appareils connectés Z-Wave à Home Assistant</a>.
 
 Une fois la clé Z-Wave configurée, vous pouvez cliquer sur sa tuile pour voir les appareils qui y sont connectés.
 
@@ -58,9 +58,9 @@ Pour supprimer unappareil dont le nom débute par Node :
 * Cliquez sur les trois points verticaux à droite de Configurer.
 * Cliquez sur Supprimer.
 
-## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant
+## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant {#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant}
 
-Maintenant que [apical\_lien\_interne][configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant,la clé USB Z-Wave a été configurée][/apical\_lien\_interne], il est possible d'intégrer des appareils connectés Z-Wave à Home Assistant.
+Maintenant que <a href="fiche-configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant.md#configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant">la clé USB Z-Wave a été configurée</a>, il est possible d'intégrer des appareils connectés Z-Wave à Home Assistant.
 
 * Si l'appareil a déjà été inclus dans un système domotique, il faut effectuer une réinitialisation de l'appareil (factory reset) sans quoi, il ne sera pas disponible pour une nouvelle inclusion. Consultez le manuel de l'appareil pour connaître la procédure.
 * Pour inclure l'appareil dans Home Assistant, rendez-vous dans le panneau de contrôle Z-Wave : Paramètres / Appareils et services / onglet Intégrations et cliquez sur la tuile Z-Wave.

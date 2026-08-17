@@ -1,6 +1,6 @@
-# 92. SQLite
+# 92. SQLite {#chapitre-sqlite}
 
-## 92.1 En résumé...
+## 92.1 En résumé... {#fiche-en_resume_041}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -68,7 +68,7 @@ Voici une représentation graphique de ses tables.
 
 .
 
-## 92.2 Qu'est-ce que SQLite ?
+## 92.2 Qu'est-ce que SQLite ? {#fiche-Qu_est-ce_que_SQLite}
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -136,7 +136,7 @@ Si la base de données est utilisée par une application native, son fichier ser
 
 « SQL Features That SQLite Does Not Implement ». SQLite. <https://www.sqlite.org/omitted.html>
 
-## 92.3 Installation de SQLite
+## 92.3 Installation de SQLite {#fiche-Installation_de_SQLite}
 
 Pour travailler avec une base de données [apical\_lien\_interne][Qu\_est-ce\_que\_SQLite,SQLite][/apical\_lien\_interne], il n'y a aucun serveur à installer. Tout se déroule localement.
 
@@ -217,7 +217,7 @@ Pour installer SQLite sous Windows :
 
 « SQLite - Installation ». Tutorial points. <https://www.tutorialspoint.com/sqlite/sqlite_installation.htm>
 
-## 92.4 La ligne de commande SQLite
+## 92.4 La ligne de commande SQLite {#fiche-La_ligne_de_commande_SQLite}
 
 La ligne de commande SQLite est l'endroit où vous pouvez entrer les requêtes SQL pour effectuer les opérations CRUD sur vos données.
 
@@ -276,7 +276,7 @@ sqlite> SELECT \* FROM etudiants;
 
 sqlite>
 
-## Créer une nouvelle base de données
+## Créer une nouvelle base de données {#nouvelle}
 
 Dès l'ouverture de la ligne de commande SQLite, si le message « Connected to a transient in-memory database » apparaît, ceci indique qu'aucune base de données n'est ouverte. Si vous ne faites pas attention, les opérations seront effectuées en mémoire vive dans une base de données temporaire et seront perdues lors de la fermeture de la ligne de commande.
 
@@ -337,7 +337,7 @@ Ligne de commande SQLite
 
 .save /Users/votrenom/Documents/mabd.db
 
-## Se brancher à une base de données
+## Se brancher à une base de données {#existante}
 
 Si vous avez déjà une base de données SQLite (fichier dont le nom se termine généralement par .db), il est possible de l'ouvrir de deux façons :
 
@@ -392,7 +392,7 @@ Ligne de commande SQLite
 
 « Getting Started with SQLite3 – Basic Commands ». Site Point. <https://www.sitepoint.com/getting-started-sqlite3-basic-commands/>
 
-## 92.5 Fonctions SQLite pour manipuler des nombres
+## 92.5 Fonctions SQLite pour manipuler des nombres {#fiche-fonctions_sqlite_pour_manipuler_des_nombres}
 
 Tout comme avec le texte, il est possible de manipuler des nombres à l'intérieur d'une requête SQLite.
 
@@ -405,7 +405,7 @@ Tout comme avec le texte, il est possible de manipuler des nombres à l'intérie
 
 « SQL As Understood By SQLite - Core Functions ». SQLite. <https://www.sqlite.org/lang_corefunc.html>
 
-## 92.6 Fonctions SQLite pour manipuler du texte
+## 92.6 Fonctions SQLite pour manipuler du texte {#fiche-fonctions_sqlite_pour_manipuler_du_texte}
 
 Il est possible d'effectuer des manipulations dans du texte avant de l'afficher ou encore dans une clause WHERE.
 
@@ -427,7 +427,7 @@ Les principales fonctions sont résumées ici :
 
 « SQLite String Functions ». SQLite Tutorial. <http://www.sqlitetutorial.net/sqlite-string-functions/>
 
-## 92.7 Les dates avec SQLite
+## 92.7 Les dates avec SQLite {#fiche-les_dates_avec_sqlite}
 
 SQLite ne gère qu'un petit nombre de types de données : INTEGER, REAL, TEXT, BLOB. Alors, pour stocker une date, quel type de données devrait être utilisé ?
 
@@ -457,7 +457,7 @@ Voici les principales fonctions qui vous aideront dans vos manipulations de date
 
 « SQLite Date Functions ». SQLite Tutorial. <http://www.sqlitetutorial.net/sqlite-date-functions/>
 
-## 92.8 Autres opérations intéressantes
+## 92.8 Autres opérations intéressantes {#fiche-Autres_operations_interessantes}
 
 Voici une série de commandes pouvant être réalisées à la ligne de commande SQLite ou à l'aide de requêtes SQL.
 
@@ -483,7 +483,7 @@ Ligne de commande SQLite
 
 .shell cls
 
-## Formater l'affichage des données à la ligne de commande SQLite
+## Formater l'affichage des données à la ligne de commande SQLite {#formater}
 
 Ligne de commande SQLite
 

@@ -1,6 +1,6 @@
-# 10. Utilisation de l'intelligence artificielle pendant le cours
+# 10. Utilisation de l'intelligence artificielle pendant le cours {#chapitre-utilisation_de_l_intelligence_artificielle_pendant_le_cours_005}
 
-## 10.1 Niveaux d'utilisation de l'IA autorisés dans ce cours
+## 10.1 Niveaux d'utilisation de l'IA autorisés dans ce cours {#fiche-niveaux_d_utilisation_de_l_ia_autorises_dans_ce_cours}
 
 Dans le cadre de ce cours, les outils d'IA générative peuvent être utilisés pendant les travaux formatifs à condition de correctement citer la source.
 
@@ -16,15 +16,15 @@ Dans cette fiche :
 * [Niveaux permis d'utilisation de l'IA](https://apical.xyz/formations/pageunique/systeme_domotique_diy#niveaux)
 * [Importance de citer les sources](https://apical.xyz/formations/pageunique/systeme_domotique_diy#citer)
 
-## Pourquoi interdire l'IA pendant les examens?
+## Pourquoi interdire l'IA pendant les examens? {#pourquoi}
 
 Il est essentiel pour une technicienne ou un technicien en informatique de développer les processus mentaux qui lui permettent de comprendre du code, bien sûr, mais aussi d'en développer et d'en déboguer.
 
-Même plus : la technicienne ou le technicien doit être en mesure de juger de la [apical\_lien\_interne][les\_qualites\_d\_un\_bon\_programme\_php,qualité du code][/apical\_lien\_interne]. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
+Même plus : la technicienne ou le technicien doit être en mesure de juger de la <a href="fiche-les\_qualites\_d\_un\_bon\_programme\_php.md#les\_qualites\_d\_un\_bon\_programme\_php">qualité du code</a>. Est-il fonctionnel, sécuritaire, robuste, convivial, performant et clair?
 
 Pourquoi ces exigences? Eh bien parce que si vous n'y répondez pas, vous serez limités par ce que les outils d'IA générative vous proposeront. Vous pourriez même être carrément remplacés par ces outils.
 
-## Don't be a junior
+## Don't be a junior {#junior}
 
 Pour travailler en informatique, vous devez offrir une plus-value à votre employeur par rapport à l'IA. Le programme Techniques de l'informatique vous propose justement de développer les compétences requises pour y arriver.
 
@@ -40,7 +40,7 @@ Traduction libre : « Vous devez apprendre à bâtir des choses avec l'IA, pas
 
 ![Don't be a junior](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/IA-DontBeAJunior.png)
 
-## Utilisation intelligente de l'IA
+## Utilisation intelligente de l'IA {#utilisation}
 
 Soyez intelligents dans votre niveau d'utilisation de l'IA.
 
@@ -60,7 +60,7 @@ Un de mes étudiants a proposé une phrase intéressante (merci Mickola !) :
 
 > L'IA, sers-toi-z-en *(sic)* plus comme un dictionnaire que comme un solutionnaire.
 
-## Niveaux permis d'utilisation de l'IA
+## Niveaux permis d'utilisation de l'IA {#niveaux}
 
 Ce tableau résume ce qui est permis pour les évaluations formatives et sommatives.
 
@@ -109,7 +109,7 @@ En fait, il ne s'agit pas de leur demander de tout coder à votre place. On peut
 
 Afin de garantir que vous continuez d'apprendre correctement, il est suggéré de créer d'abord vous-mêmes une version du code puis de demander à l'IA de l'améliorer.
 
-## Importance de citer les sources
+## Importance de citer les sources {#citer}
 
 Que le code provienne de l'IA ou de recherches sur Internet, vous devez toujours :
 
@@ -121,7 +121,7 @@ Il est important de bien citer vos sources dans vos exercices formatifs lorsque 
   
 Ceci assurera que lors de travaux sommatifs, vous puissiez encore citer ces sources afin de limiter les risques d'être accusés de plagiat.
 
-## 10.2 Effets de l'IA sur la productivité et sur l'apprentissage
+## 10.2 Effets de l'IA sur la productivité et sur l'apprentissage {#fiche-effets_de_l_ia_sur_la_productivite_et_sur_l_apprentissage}
 
 En tant qu'enseignantes et enseignants, il est normal de se questionner sur les effets de l'utilisation de l'intelligence artificielle générative sur l'apprentissage.
 

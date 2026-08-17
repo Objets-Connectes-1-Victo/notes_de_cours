@@ -1,6 +1,6 @@
-# 2. Où trouver de l'aide
+# 2. Où trouver de l'aide {#chapitre-ou_trouver_de_l_aide_004}
 
-## 2.1 Horaire et coordonnées de Christiane Lagacé - session d'automne
+## 2.1 Horaire et coordonnées de Christiane Lagacé - session d'automne {#fiche-Horaire_et_coordonnees_de_Christiane_Lagace_sess--002}
 
 |  |  |
 | --- | --- |
@@ -23,7 +23,7 @@ Je suis très souvent à mon bureau entre mes cours, même en dehors des périod
 
 Vous pouvez simplement passer me voir ou encore me contacter via Teams, ça me fera plaisir de vous aider!
 
-## 2.2 Horaire et coordonnées de Sébastien Trottier - session d'automne
+## 2.2 Horaire et coordonnées de Sébastien Trottier - session d'automne {#fiche-horaire_et_coordonnees_de_sebastien_trottier_session_d_automne}
 
 |  |  |
 | --- | --- |
@@ -44,7 +44,7 @@ Vous pouvez simplement passer me voir ou encore me contacter via Teams, ça me f
 
 Les périodes de disponibilité sont données à titre indicatif. De plus, je pourrais être disponible en dehors des périodes de disponibilité. Veuillez prendre rendez-vous pour vous assurer de ma présence!
 
-## 2.3 Site Web du département
+## 2.3 Site Web du département {#fiche-site_web_du_departement}
 
 Une foule de renseignements ont été consignés à votre intention sur le site [https://techinfo.profinfo.ca](https://techinfo.profinfo.ca/).
 

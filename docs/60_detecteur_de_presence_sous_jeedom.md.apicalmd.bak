@@ -1,6 +1,6 @@
-# 54. Détecteur de présence sous Jeedom
+# 54. Détecteur de présence sous Jeedom {#chapitre-detecteur_de_presence_sous_jeedom}
 
-## 54.1 En résumé...
+## 54.1 En résumé... {#fiche-en_resume_027}
 
 Voici un résumé des informations essentielles du ou des prochains chapitres.
 
@@ -22,7 +22,7 @@ Dans tous les cas, les scénarios seront plus faciles à réaliser si le déclen
 
 ![Deux déclencheurs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioAvecDeuxDeclencheurs.png)
 
-## 54.2 La détection de présence
+## 54.2 La détection de présence {#fiche-la_detection_de_presence}
 
 La détection de présence est dans la même famille que la détection de mouvement. La différence, c'est que la détection de présence permet de savoir si une personne en particulier est dans la maison plutôt que de détecter un mouvement quelconque.
 
@@ -41,7 +41,7 @@ Dans les fiches qui suivent, je vous montre comment :
 * Détecter la présence d'un téléphone via le Wi-Fi [apical\_lien\_interne][travailler\_avec\_le\_plugin\_networks,à l'aide du plugin Networks][/apical\_lien\_interne]
 * Détecter la présence d'un téléphone via Bluetooth [apical\_lien\_interne][travailler\_avec\_le\_plugin\_detection\_de\_telephone,à l'aide du plugin Détection de téléphone][/apical\_lien\_interne]
 
-## 54.3 Travailler avec le plugin Networks
+## 54.3 Travailler avec le plugin Networks {#fiche-travailler_avec_le_plugin_networks}
 
 Le plugin [Networks](https://doc.jeedom.com/fr_FR/plugins/communication/networks/) permet d'effectuer différentes tâches sur un réseau. Il est capable notamment de faire un ping sur une adresse IP afin de voir si l'appareil branché sur cet appareil est en mesure de répondre.
 
@@ -104,7 +104,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
   ![Scénario avec deux déclencheurs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-VirtuelPourSimulerDetecteurPresence.png)
 
-## 54.4 Travailler avec le plugin Détection de téléphone
+## 54.4 Travailler avec le plugin Détection de téléphone {#fiche-travailler_avec_le_plugin_detection_de_telephone}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
@@ -203,7 +203,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
 « Tuto : Centre de gestion de présence dans la domotique Jeedom ». Ça sert à quoi?. <https://www.ca-sert-a-quoi.com/articles/domotique/tuto-centre-de-gestion-de-presence/>
 
-## 54.5 Travailler avec le plugin Bluetooth Advertisement (BLEA)
+## 54.5 Travailler avec le plugin Bluetooth Advertisement (BLEA) {#fiche-travailler_avec_le_plugin_bluetooth_advertisement_blea}
 
 ![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
 
