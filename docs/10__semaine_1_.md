@@ -8,3 +8,8 @@
 - [14. Le logiciel de domotique](16_le_logiciel_de_domotique.md)
 - [20. La passerelle domotique et les protocoles de communication](22_la_passerelle_domotique_et_les_protocoles_de_communication.md)
 - [21. Les appareils domotiques](23_les_appareils_domotiques.md)
+- [58. Home Assistant au coeur de votre système domotique](66_home_assistant_au_coeur_de_votre_systeme_domotique.md)
+- [59. Chapitre de référence pour Home Assistant](67_chapitre_de_reference_pour_home_assistant.md)
+- [60. Dépannage Home Assistant (troubleshooting)](68_depannage_home_assistant_troubleshooting.md)
+- [61. Exercice 10](69_exercice_10.md)
+- [62. Pour le prochain cours](70_pour_le_prochain_cours.md)

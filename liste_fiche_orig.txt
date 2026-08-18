@@ -71,11 +71,11 @@ index.md
     63__semaine_6_.md
     64_examen_1.md
     65__semaine_7_.md
-66_home_assistant_au_coeur_de_votre_systeme_domotique.md
-67_chapitre_de_reference_pour_home_assistant.md
-68_depannage_home_assistant_troubleshooting.md
-69_exercice_10.md
-70_pour_le_prochain_cours.md
+        66_home_assistant_au_coeur_de_votre_systeme_domotique.md
+        67_chapitre_de_reference_pour_home_assistant.md
+        68_depannage_home_assistant_troubleshooting.md
+        69_exercice_10.md
+        70_pour_le_prochain_cours.md
 71_commencer_a_travailler_avec_home_assistant.md
 72_sauvegarde_de_home_assistant.md
 73_exercice_11.md
