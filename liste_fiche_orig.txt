@@ -22,40 +22,40 @@ index.md
 14_la_domotique.md
 15_lunite_centrale_du_systeme_domotique_raspberry_pi.md
 16_le_logiciel_de_domotique.md
-17_jeedom_au_coeur_de_votre_systeme_domotique.md
-18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md
-19_depannage_jeedom_troubleshooting.md
-20_exercice_1.md
-21_pour_le_prochain_cours.md
+    17_jeedom_au_coeur_de_votre_systeme_domotique.md
+    18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md
+    19_depannage_jeedom_troubleshooting.md
+    20_exercice_1.md
+    21_pour_le_prochain_cours.md
 22_la_passerelle_domotique_et_les_protocoles_de_communication.md
 23_les_appareils_domotiques.md
-24_commencer_a_travailler_avec_jeedom.md
-25_autres_aspects_interessants_avec_jeedom.md
-26_exercice_2.md
-27_pour_le_prochain_cours.md
-28__semaine_2_.md
-29_commencer_a_travailler_avec_jeedom_suite.md
-30_exercice_3.md
-31_pour_le_prochain_cours.md
-32_jeedom_market.md
-33_messages_et_mises_a_jour.md
-34_les_equipements_virtuels_dans_jeedom.md
-35_les_scenarios_jeedom.md
-36_lenvoi_de_courriel_dans_jeedom.md
-37_exercice_4.md
-38_pour_le_prochain_cours_deux_cours.md
-39__semaine_3_.md
-40_la_base_de_donnees_jeedom.md
-41_les_fichiers_journaux_de_jeedom_log_files.md
-42_aller_plus_loin_avec_les_scenarios.md
-43_exercice_5.md
-44_pour_le_prochain_cours.md
-45__semaine_4_.md
-46_historisation_des_donnees.md
-47_aller_plus_loin_avec_les_scenarios_suite.md
-48_exercice_6.md
-49_pour_le_prochain_cours.md
-50_examen_formatif_formel.md
+    24_commencer_a_travailler_avec_jeedom.md
+    25_autres_aspects_interessants_avec_jeedom.md
+    26_exercice_2.md
+    27_pour_le_prochain_cours.md
+    28__semaine_2_.md
+    29_commencer_a_travailler_avec_jeedom_suite.md
+    30_exercice_3.md
+    31_pour_le_prochain_cours.md
+    32_jeedom_market.md
+    33_messages_et_mises_a_jour.md
+    34_les_equipements_virtuels_dans_jeedom.md
+    35_les_scenarios_jeedom.md
+    36_lenvoi_de_courriel_dans_jeedom.md
+    37_exercice_4.md
+    38_pour_le_prochain_cours_deux_cours.md
+    39__semaine_3_.md
+    40_la_base_de_donnees_jeedom.md
+    41_les_fichiers_journaux_de_jeedom_log_files.md
+    42_aller_plus_loin_avec_les_scenarios.md
+    43_exercice_5.md
+    44_pour_le_prochain_cours.md
+    45__semaine_4_.md
+    46_historisation_des_donnees.md
+    47_aller_plus_loin_avec_les_scenarios_suite.md
+    48_exercice_6.md
+    49_pour_le_prochain_cours.md
+    50_examen_formatif_formel.md
 51__semaine_5_.md
 52_gpio.md
 53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md

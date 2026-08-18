@@ -8,7 +8,3 @@
 - [14. Le logiciel de domotique](16_le_logiciel_de_domotique.md)
 - [20. La passerelle domotique et les protocoles de communication](22_la_passerelle_domotique_et_les_protocoles_de_communication.md)
 - [21. Les appareils domotiques](23_les_appareils_domotiques.md)
-- [22. Commencer à travailler avec Jeedom](24_commencer_a_travailler_avec_jeedom.md)
-- [23. Autres aspects intéressants avec Jeedom](25_autres_aspects_interessants_avec_jeedom.md)
-- [24. Exercice 2](26_exercice_2.md)
-- [25. Pour le prochain cours](27_pour_le_prochain_cours.md)
