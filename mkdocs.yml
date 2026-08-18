@@ -98,16 +98,8 @@ nav:
       - "79. Les modèles Home Assistant": "89_les_modeles_home_assistant.md"
       - "80. Exercice 14": "90_exercice_14.md"
       - "81. Pour le prochain cours": "91_pour_le_prochain_cours.md"
-    - "S05":
-      - "S05": "51__semaine_5_.md"
-      - "46. GPIO": "52_gpio.md"
-      - "47. Scripts Python pour envoyer et recevoir du signal sur le GPIO": "53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md"
-      - "48. Exercice 7": "54_exercice_7.md"
-      - "49. Pour le prochain cours": "55_pour_le_prochain_cours.md"
-    - "S06":
-      - "S06": "63__semaine_6_.md"
-    - "S09":
-      - "S09": "88__semaine_9_.md"
+    - "S04":
+      - "S04": "45__semaine_4_.md"
       - "82. Déboguer Home Assistant": "92_deboguer_home_assistant.md"
       - "83. Automatisations qui tiennent compte de l'heure": "93_automatisations_qui_tiennent_compte_de_lheure.md"
       - "84. Notification par courriel": "94_notification_par_courriel.md"
@@ -118,6 +110,14 @@ nav:
       - "89. Détecteur de présence sous Home Assistant": "99_detecteur_de_presence_sous_home_assistant.md"
       - "90. Exercice 16": "100_exercice_16.md"
       - "91. Pour le prochain cours": "101_pour_le_prochain_cours.md"
+    - "S05":
+      - "S05": "51__semaine_5_.md"
+      - "46. GPIO": "52_gpio.md"
+      - "47. Scripts Python pour envoyer et recevoir du signal sur le GPIO": "53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md"
+      - "48. Exercice 7": "54_exercice_7.md"
+      - "49. Pour le prochain cours": "55_pour_le_prochain_cours.md"
+    - "S06":
+      - "S06": "63__semaine_6_.md"
     - "S10":
       - "S10": "102__semaine_10_.md"
       - "92. SQLite": "103_sqlite.md"
