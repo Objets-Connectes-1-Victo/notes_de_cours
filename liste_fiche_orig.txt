@@ -61,16 +61,16 @@ index.md
 53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md
 54_exercice_7.md
 55_pour_le_prochain_cours.md
-56_controle_gpio_avec_jeedom.md
-57_depannage_sur_le_controle_gpio_avec_jeedom.md
-58_exercice_8.md
-59_pour_le_prochain_cours.md
-60_detecteur_de_presence_sous_jeedom.md
-61_exercice_9.md
-62_pour_le_prochain_cours.md
-63__semaine_6_.md
-64_examen_1.md
-65__semaine_7_.md
+    56_controle_gpio_avec_jeedom.md
+    57_depannage_sur_le_controle_gpio_avec_jeedom.md
+    58_exercice_8.md
+    59_pour_le_prochain_cours.md
+    60_detecteur_de_presence_sous_jeedom.md
+    61_exercice_9.md
+    62_pour_le_prochain_cours.md
+    63__semaine_6_.md
+    64_examen_1.md
+    65__semaine_7_.md
 66_home_assistant_au_coeur_de_votre_systeme_domotique.md
 67_chapitre_de_reference_pour_home_assistant.md
 68_depannage_home_assistant_troubleshooting.md
@@ -150,10 +150,10 @@ index.md
 142_appeler_un_script_python_dans_home_assistant.md
 143_les_themes_dans_home_assistant.md
 144_les_watchdog_home_assistant.md
-145__aller_plus_loin_avec_jeedom_.md
-146_ifttt.md
-147_interagir_avec_un_objet_connecte_via_son_url_sous_jeedom.md
-148_personnalisation_de_linterface_jeedom.md
-149_les_interactions_jeedom.md
-150_developper_son_propre_objet_connecte_pour_jeedom.md
-151_plugin_personnalise_pour_jeedom.md
+    145__aller_plus_loin_avec_jeedom_.md
+    146_ifttt.md
+    147_interagir_avec_un_objet_connecte_via_son_url_sous_jeedom.md
+    148_personnalisation_de_linterface_jeedom.md
+    149_les_interactions_jeedom.md
+    150_developper_son_propre_objet_connecte_pour_jeedom.md
+    151_plugin_personnalise_pour_jeedom.md
