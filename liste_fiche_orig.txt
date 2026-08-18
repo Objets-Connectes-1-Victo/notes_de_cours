@@ -88,25 +88,25 @@ index.md
         80_les_tableaux_de_bord.md
         81_exercice_12.md
         82_pour_le_prochain_cours.md
-83_les_automatisations_home_assistant.md
-84_le_soleil_et_la_meteo_sous_home_assistant.md
-85_depannage_sur_les_automatisations_troubleshooting.md
-86_exercice_13.md
-87_pour_le_prochain_cours.md
-88__semaine_9_.md
-89_les_modeles_home_assistant.md
-90_exercice_14.md
-91_pour_le_prochain_cours.md
-92_deboguer_home_assistant.md
-93_automatisations_qui_tiennent_compte_de_lheure.md
-94_notification_par_courriel.md
-95_depannage_sur_lenvoi_de_courriel_troubleshooting.md
-96_depannage_sur_les_positions_gps_troubleshooting.md
-97_exercice_15.md
-98_pour_le_prochain_cours.md
-99_detecteur_de_presence_sous_home_assistant.md
-100_exercice_16.md
-101_pour_le_prochain_cours.md
+        83_les_automatisations_home_assistant.md
+        84_le_soleil_et_la_meteo_sous_home_assistant.md
+        85_depannage_sur_les_automatisations_troubleshooting.md
+        86_exercice_13.md
+        87_pour_le_prochain_cours.md
+    88__semaine_9_.md
+        89_les_modeles_home_assistant.md
+        90_exercice_14.md
+        91_pour_le_prochain_cours.md
+        92_deboguer_home_assistant.md
+        93_automatisations_qui_tiennent_compte_de_lheure.md
+        94_notification_par_courriel.md
+        95_depannage_sur_lenvoi_de_courriel_troubleshooting.md
+        96_depannage_sur_les_positions_gps_troubleshooting.md
+        97_exercice_15.md
+        98_pour_le_prochain_cours.md
+        99_detecteur_de_presence_sous_home_assistant.md
+        100_exercice_16.md
+        101_pour_le_prochain_cours.md
 102__semaine_10_.md
 103_sqlite.md
 104_la_base_de_donnees_home_assistant.md

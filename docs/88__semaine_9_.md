@@ -1,8 +1,5 @@
 # S09 {#chapitre-semaine_9_005}
 
-- [79. Les modèles Home Assistant](89_les_modeles_home_assistant.md)
-- [80. Exercice 14](90_exercice_14.md)
-- [81. Pour le prochain cours](91_pour_le_prochain_cours.md)
 - [82. Déboguer Home Assistant](92_deboguer_home_assistant.md)
 - [83. Automatisations qui tiennent compte de l'heure](93_automatisations_qui_tiennent_compte_de_lheure.md)
 - [84. Notification par courriel](94_notification_par_courriel.md)
