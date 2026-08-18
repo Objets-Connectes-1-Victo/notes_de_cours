@@ -120,13 +120,13 @@ nav:
       - "97. Pour le prochain cours (deux cours)": "108_pour_le_prochain_cours_deux_cours.md"
     - "S06":
       - "S06": "63__semaine_6_.md"
-    - "S11":
-      - "S11": "109__semaine_11_.md"
       - "98. Exercice 19": "110_exercice_19.md"
       - "99. Pour le prochain cours": "111_pour_le_prochain_cours.md"
+    - "S07":
+      - "S07": "65__semaine_7_.md"
+      - "100. Examen 2": "113_examen_2.md"
     - "S12":
       - "S12": "112__semaine_12_.md"
-      - "100. Examen 2": "113_examen_2.md"
       - "101. Exercice 20": "114_exercice_20.md"
       - "102. Pour le prochain cours": "115_pour_le_prochain_cours.md"
     - "S13":
