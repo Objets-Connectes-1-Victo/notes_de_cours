@@ -1,1 +1,1 @@
-# ────────── Semaine 7 ────────── {#chapitre-semaine_7_005}
+# S07 {#chapitre-semaine_7_005}

@@ -1,1 +1,1 @@
-# ────────── Semaine 12 ────────── {#chapitre-semaine_12_005}
+# S12 {#chapitre-semaine_12_005}

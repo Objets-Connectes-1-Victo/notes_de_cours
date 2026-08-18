@@ -1,1 +1,1 @@
-# ────────── Semaine 10 ────────── {#chapitre-semaine_10_004}
+# S10 {#chapitre-semaine_10_004}

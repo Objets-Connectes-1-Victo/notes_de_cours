@@ -1,1 +1,1 @@
-# ────────── Semaine 2 ────────── {#chapitre-semaine_2_005}
+# S02 {#chapitre-semaine_2_005}

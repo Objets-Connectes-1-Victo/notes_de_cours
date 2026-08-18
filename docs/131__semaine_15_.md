@@ -1,1 +1,1 @@
-# ────────── Semaine 15 ────────── {#chapitre-semaine_15_004}
+# S15 {#chapitre-semaine_15_004}

@@ -1,1 +1,1 @@
-# ────────── Semaine 6 ────────── {#chapitre-semaine_6_006}
+# S06 {#chapitre-semaine_6_006}

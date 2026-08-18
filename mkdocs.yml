@@ -60,8 +60,8 @@ nav:
     - "6. Python": "07_python.md"
     - "7. Dépannage Python (troubleshooting)": "08_depannage_python_troubleshooting.md"
     - "8. Les scripts bash": "09_les_scripts_bash.md"
-  - "────────── Semaine 1 ──────────":
-    - "────────── Semaine 1 ──────────": "10__semaine_1_.md"
+  - "S01":
+    - "S01": "10__semaine_1_.md"
     - "9. Situation du cours dans le programme d'études": "11_situation_du_cours_dans_le_programme_detudes.md"
     - "10. Utilisation de l'intelligence artificielle pendant le cours": "12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md"
     - "11. Quelques trucs pour vous aider dans ce cours": "13_quelques_trucs_pour_vous_aider_dans_ce_cours.md"
@@ -79,8 +79,8 @@ nav:
     - "23. Autres aspects intéressants avec Jeedom": "25_autres_aspects_interessants_avec_jeedom.md"
     - "24. Exercice 2": "26_exercice_2.md"
     - "25. Pour le prochain cours": "27_pour_le_prochain_cours.md"
-  - "────────── Semaine 2 ──────────":
-    - "────────── Semaine 2 ──────────": "28__semaine_2_.md"
+  - "S02":
+    - "S02": "28__semaine_2_.md"
     - "26. Commencer à travailler avec Jeedom (suite)": "29_commencer_a_travailler_avec_jeedom_suite.md"
     - "27. Exercice 3": "30_exercice_3.md"
     - "28. Pour le prochain cours": "31_pour_le_prochain_cours.md"
@@ -91,22 +91,22 @@ nav:
     - "33. L'envoi de courriel dans Jeedom": "36_lenvoi_de_courriel_dans_jeedom.md"
     - "34. Exercice 4": "37_exercice_4.md"
     - "35. Pour le prochain cours (deux cours)": "38_pour_le_prochain_cours_deux_cours.md"
-  - "────────── Semaine 3 ──────────":
-    - "────────── Semaine 3 ──────────": "39__semaine_3_.md"
+  - "S03":
+    - "S03": "39__semaine_3_.md"
     - "36. La base de données Jeedom": "40_la_base_de_donnees_jeedom.md"
     - "37. Les fichiers journaux de Jeedom (log files)": "41_les_fichiers_journaux_de_jeedom_log_files.md"
     - "38. Aller plus loin avec les scénarios": "42_aller_plus_loin_avec_les_scenarios.md"
     - "39. Exercice 5": "43_exercice_5.md"
     - "40. Pour le prochain cours": "44_pour_le_prochain_cours.md"
-  - "────────── Semaine 4 ──────────":
-    - "────────── Semaine 4 ──────────": "45__semaine_4_.md"
+  - "S04":
+    - "S04": "45__semaine_4_.md"
     - "41. Historisation des données": "46_historisation_des_donnees.md"
     - "42. Aller plus loin avec les scénarios (suite)": "47_aller_plus_loin_avec_les_scenarios_suite.md"
     - "43. Exercice 6": "48_exercice_6.md"
     - "44. Pour le prochain cours": "49_pour_le_prochain_cours.md"
     - "45. Examen formatif formel": "50_examen_formatif_formel.md"
-  - "────────── Semaine 5 ──────────":
-    - "────────── Semaine 5 ──────────": "51__semaine_5_.md"
+  - "S05":
+    - "S05": "51__semaine_5_.md"
     - "46. GPIO": "52_gpio.md"
     - "47. Scripts Python pour envoyer et recevoir du signal sur le GPIO": "53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md"
     - "48. Exercice 7": "54_exercice_7.md"
@@ -118,11 +118,11 @@ nav:
     - "54. Détecteur de présence sous Jeedom": "60_detecteur_de_presence_sous_jeedom.md"
     - "55. Exercice 9": "61_exercice_9.md"
     - "56. Pour le prochain cours": "62_pour_le_prochain_cours.md"
-  - "────────── Semaine 6 ──────────":
-    - "────────── Semaine 6 ──────────": "63__semaine_6_.md"
+  - "S06":
+    - "S06": "63__semaine_6_.md"
     - "57. Examen 1": "64_examen_1.md"
-  - "────────── Semaine 7 ──────────":
-    - "────────── Semaine 7 ──────────": "65__semaine_7_.md"
+  - "S07":
+    - "S07": "65__semaine_7_.md"
     - "58. Home Assistant au coeur de votre système domotique": "66_home_assistant_au_coeur_de_votre_systeme_domotique.md"
     - "59. Chapitre de référence pour Home Assistant": "67_chapitre_de_reference_pour_home_assistant.md"
     - "60. Dépannage Home Assistant (troubleshooting)": "68_depannage_home_assistant_troubleshooting.md"
@@ -134,8 +134,8 @@ nav:
     - "66. Pour le prochain cours": "74_pour_le_prochain_cours.md"
   - "67. Semaine de relâche!":
     - "67. Semaine de relâche!": "75_semaine_de_relache.md"
-  - "────────── Semaine 8 ──────────":
-    - "────────── Semaine 8 ──────────": "76__semaine_8_.md"
+  - "S08":
+    - "S08": "76__semaine_8_.md"
     - "68. Le fichier configuration.yaml": "77_le_fichier_configurationyaml.md"
     - "69. Les icônes": "78_les_icones.md"
     - "70. Les capteurs virtuels": "79_les_capteurs_virtuels.md"
@@ -147,8 +147,8 @@ nav:
     - "76. Dépannage sur les automatisations (troubleshooting)": "85_depannage_sur_les_automatisations_troubleshooting.md"
     - "77. Exercice 13": "86_exercice_13.md"
     - "78. Pour le prochain cours": "87_pour_le_prochain_cours.md"
-  - "────────── Semaine 9 ──────────":
-    - "────────── Semaine 9 ──────────": "88__semaine_9_.md"
+  - "S09":
+    - "S09": "88__semaine_9_.md"
     - "79. Les modèles Home Assistant": "89_les_modeles_home_assistant.md"
     - "80. Exercice 14": "90_exercice_14.md"
     - "81. Pour le prochain cours": "91_pour_le_prochain_cours.md"
@@ -162,25 +162,25 @@ nav:
     - "89. Détecteur de présence sous Home Assistant": "99_detecteur_de_presence_sous_home_assistant.md"
     - "90. Exercice 16": "100_exercice_16.md"
     - "91. Pour le prochain cours": "101_pour_le_prochain_cours.md"
-  - "────────── Semaine 10 ──────────":
-    - "────────── Semaine 10 ──────────": "102__semaine_10_.md"
+  - "S10":
+    - "S10": "102__semaine_10_.md"
     - "92. SQLite": "103_sqlite.md"
     - "93. La base de données Home Assistant": "104_la_base_de_donnees_home_assistant.md"
     - "94. Historisation des données": "105_historisation_des_donnees.md"
     - "95. Exercice 17 - OPTIONNEL": "106_exercice_17_optionnel.md"
     - "96. Exercice 18": "107_exercice_18.md"
     - "97. Pour le prochain cours (deux cours)": "108_pour_le_prochain_cours_deux_cours.md"
-  - "────────── Semaine 11 ──────────":
-    - "────────── Semaine 11 ──────────": "109__semaine_11_.md"
+  - "S11":
+    - "S11": "109__semaine_11_.md"
     - "98. Exercice 19": "110_exercice_19.md"
     - "99. Pour le prochain cours": "111_pour_le_prochain_cours.md"
-  - "────────── Semaine 12 ──────────":
-    - "────────── Semaine 12 ──────────": "112__semaine_12_.md"
+  - "S12":
+    - "S12": "112__semaine_12_.md"
     - "100. Examen 2": "113_examen_2.md"
     - "101. Exercice 20": "114_exercice_20.md"
     - "102. Pour le prochain cours": "115_pour_le_prochain_cours.md"
-  - "────────── Semaine 13 ──────────":
-    - "────────── Semaine 13 ──────────": "116__semaine_13_.md"
+  - "S13":
+    - "S13": "116__semaine_13_.md"
     - "103. Communication Home Assistant - Jeedom via l'API": "117_communication_home_assistant_jeedom_via_lapi.md"
     - "104. Exercice 21": "118_exercice_21.md"
     - "105. Exercice 22 - OPTIONNEL": "119_exercice_22_optionnel.md"
@@ -188,16 +188,16 @@ nav:
     - "107. MQTT": "121_mqtt.md"
     - "108. Exercice 23": "122_exercice_23.md"
     - "109. Pour le prochain cours": "123_pour_le_prochain_cours.md"
-  - "────────── Semaine 14 ──────────":
-    - "────────── Semaine 14 ──────────": "124__semaine_14_.md"
+  - "S14":
+    - "S14": "124__semaine_14_.md"
     - "110. Exercice 24": "125_exercice_24.md"
     - "111. Pour le prochain cours": "126_pour_le_prochain_cours.md"
     - "112. Format JSON dans un modèle": "127_format_json_dans_un_modele.md"
     - "113. Exercice 25": "128_exercice_25.md"
     - "114. Pour le prochain cours (deux cours)": "129_pour_le_prochain_cours_deux_cours.md"
     - "115. Simulation d'examen": "130_simulation_dexamen.md"
-  - "────────── Semaine 15 ──────────":
-    - "────────── Semaine 15 ──────────": "131__semaine_15_.md"
+  - "S15":
+    - "S15": "131__semaine_15_.md"
     - "116. Examen 3": "132_examen_3.md"
     - "────────── Chapitres supplémentaires ──────────": "133__chapitres_supplementaires_.md"
     - "117. Installer un store contrôlé à distance": "134_installer_un_store_controle_a_distance.md"
@@ -226,5 +226,4 @@ nav:
     - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-necessary.md"
     - "Nous utilisons des cookies, qu'en pensez-vous?": "fiche-consent-preferences.md"
     - "Notes de cours — Objets connectés 1 (420‑3A4‑VI)": "index.md"
-
 
