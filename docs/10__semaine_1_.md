@@ -1,1 +1,20 @@
 # S01 {#chapitre-semaine_1_004}
+
+- [9. Situation du cours dans le programme d'études](11_situation_du_cours_dans_le_programme_detudes.md)
+- [10. Utilisation de l'intelligence artificielle pendant le cours](12_utilisation_de_lintelligence_artificielle_pendant_le_cours.md)
+- [11. Quelques trucs pour vous aider dans ce cours](13_quelques_trucs_pour_vous_aider_dans_ce_cours.md)
+- [12. La domotique](14_la_domotique.md)
+- [13. L'unité centrale du système domotique (Raspberry Pi)](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md)
+- [14. Le logiciel de domotique](16_le_logiciel_de_domotique.md)
+- [15. Jeedom au coeur de votre système domotique](17_jeedom_au_coeur_de_votre_systeme_domotique.md)
+- [16. Pour vous assurer de ne rien perdre en cas de problème](18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md)
+- [17. Dépannage Jeedom (troubleshooting)](19_depannage_jeedom_troubleshooting.md)
+- [18. Exercice 1](20_exercice_1.md)
+- [19. Pour le prochain cours](21_pour_le_prochain_cours.md)
+- [20. La passerelle domotique et les protocoles de communication](22_la_passerelle_domotique_et_les_protocoles_de_communication.md)
+- [21. Les appareils domotiques](23_les_appareils_domotiques.md)
+- [22. Commencer à travailler avec Jeedom](24_commencer_a_travailler_avec_jeedom.md)
+- [23. Autres aspects intéressants avec Jeedom](25_autres_aspects_interessants_avec_jeedom.md)
+- [24. Exercice 2](26_exercice_2.md)
+- [25. Pour le prochain cours](27_pour_le_prochain_cours.md)
+
