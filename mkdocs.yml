@@ -17,7 +17,6 @@ theme:
         name: Passer au mode clair
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.top
     - navigation.indexes
     - search.suggest
