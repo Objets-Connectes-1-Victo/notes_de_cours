@@ -8,17 +8,17 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [le\_dashboard\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_dashboard_jeedom)
+## [Le dashboard jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_dashboard_jeedom)
 
 Le dashboard permet de voir en un seul endroit l'état de nos objets connectés et la possibilité de leur envoyer un ordre.
 
 ![Dashboard](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard.png)
 
-## [ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom)
+## [Ajouter un appareil connecte z-wave a jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom)
 
 Bien suivre ces étapes!
 
-## [configurer\_une\_tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile)
+## [Configurer une tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile)
 
 Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « [le\_noeud\_n\_a\_pas\_encore\_de\_commande](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_noeud_n_a_pas_encore_de_commande) ».
 
@@ -26,7 +26,7 @@ Vous pouvez, pour chaque tuile, déterminer ce qui doit être affiché et commen
 
 N'hésitez pas à explorer!
 
-## [travailler\_avec\_la\_meteo\_sous\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-travailler_avec_la_meteo_sous_jeedom)
+## [Travailler avec la meteo sous jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-travailler_avec_la_meteo_sous_jeedom)
 
 Bien suivre ces étapes!
 

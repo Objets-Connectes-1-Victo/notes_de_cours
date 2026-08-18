@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [lancer\_un\_script\_python\_avec\_le\_plugin\_script](56_controle_gpio_avec_jeedom.md#fiche-lancer_un_script_python_avec_le_plugin_script)
+## [Lancer un script python avec le plugin script](56_controle_gpio_avec_jeedom.md#fiche-lancer_un_script_python_avec_le_plugin_script)
 
 Une fois le script Python écrit et testé à la ligne de commande, on peut le faire exécuter par Jeedom à l'aide du plugin Script.
 
@@ -43,7 +43,7 @@ Le script Python, qui est une commande d'un équipement au yeux de Jeedom, peut 
 
 ![Scénario qui lance un script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioQuiLanceUnScript.png)
 
-## [arreter\_correctement\_un\_scenario\_avec\_boucle\_infinie](56_controle_gpio_avec_jeedom.md#fiche-arreter_correctement_un_scenario_avec_boucle_infinie)
+## [Arreter correctement un scenario avec boucle infinie](56_controle_gpio_avec_jeedom.md#fiche-arreter_correctement_un_scenario_avec_boucle_infinie)
 
 Si un scénario lance un script Python qui fait clignoter une DEL (donc avec boucle infinie), on pourra arrêter le clignotement à l'aide d'un autre scénario qui se charge de :
 

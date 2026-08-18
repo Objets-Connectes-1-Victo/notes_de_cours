@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [configurer\_l\_historique\_des\_commandes](46_historisation_des_donnees.md#fiche-configurer_l_historique_des_commandes)
+## [Configurer l historique des commandes](46_historisation_des_donnees.md#fiche-configurer_l_historique_des_commandes)
 
 Pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -103,7 +103,7 @@ MariaDB [jeedom]> SELECT \* FROM cron;
 ```
 
 
-## [scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord)
+## [Scenario qui affiche une information dans le tableau de bord](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord)
 
 Il faut créer un virtuel avec au moins une commande de type info.
 
@@ -119,7 +119,7 @@ $cmd->event($valeur);
 ```
 
 
-## [scenario\_qui\_execute\_une\_requete\_sql](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_execute_une_requete_sql)
+## [Scenario qui execute une requete sql](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_execute_une_requete_sql)
 
 Bloc de code du scénario (PHP)
 

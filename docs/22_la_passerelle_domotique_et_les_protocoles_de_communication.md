@@ -20,19 +20,19 @@ sudo nmtui
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
-## [le\_protocole\_z-wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave)
+## [Le protocole z-wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave)
 
 Z-Wave est un protocole de communication sans fil destiné principalement à la domotique.
 
 Portée théorique de 100 à 200 mètres selon la génération.
 
-## [le\_protocole\_zigbee](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_zigbee)
+## [Le protocole zigbee](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_zigbee)
 
 Le protocole ZigBee a été développé pour les milieux industriels afin de faciliter la transmission de données en milieu difficile.
 
 Moins grande portée que Z-Wave : 10 à 100 mètres.
 
-## [precautions\_avant\_l\_achat\_d\_un\_objet\_connecte](23_les_appareils_domotiques.md#fiche-precautions_avant_l_achat_d_un_objet_connecte)
+## [Precautions avant l achat d un objet connecte](23_les_appareils_domotiques.md#fiche-precautions_avant_l_achat_d_un_objet_connecte)
 
 Vérifier :
 
@@ -40,7 +40,7 @@ Vérifier :
 * Fréquence
 * Compatibilité avec la boîte domotique
 
-## [objets\_pour\_representer\_la\_maison](24_commencer_a_travailler_avec_jeedom.md#fiche-objets_pour_representer_la_maison)
+## [Objets pour representer la maison](24_commencer_a_travailler_avec_jeedom.md#fiche-objets_pour_representer_la_maison)
 
 Dans Jeedom, la notion d'objet permet de regrouper les appareils connectés.
 
@@ -60,7 +60,7 @@ Si vous avez des objets à l'exterieur de la maison, une autre configuration pou
 * Ensuite, un objet Maison et un objet Dehors qui ont Tout comme parent
 * Et ensuite, les objets sont organisés par étages et/ou par pièces.
 
-## [configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom)
+## [Configurer la cle usb z-wave sur jeedom](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom)
 
 Bien suivre ces étapes!
 

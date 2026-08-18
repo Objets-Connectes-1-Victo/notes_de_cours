@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [Qu\_est-ce\_que\_SQLite](103_sqlite.md#fiche-Qu_est-ce_que_SQLite)
+## [Qu est-ce que SQLite](103_sqlite.md#fiche-Qu_est-ce_que_SQLite)
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -18,7 +18,7 @@ Une base de données est constituée d'un simple fichier stocké localement. Il 
 
 SQLite est installé nativement sur macOS. Sous Windows, il faut procéder à son installation.
 
-## [La\_ligne\_de\_commande\_SQLite](103_sqlite.md#fiche-La_ligne_de_commande_SQLite)
+## [La ligne de commande SQLite](103_sqlite.md#fiche-La_ligne_de_commande_SQLite)
 
 Pour lancer la ligne de commande SQLite :
 
@@ -74,7 +74,7 @@ Ligne de commande SQLite
 ```
 
 
-## [contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant)
+## [Contenu de la base de donnees de home assistant](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant)
 
 Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
 
@@ -641,3 +641,4 @@ Ligne de commande SQLite
 ```
 .dump nomtable
 ```
+

@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [qu\_est-ce\_que\_le\_gpio](52_gpio.md#fiche-qu_est-ce_que_le_gpio)
+## [Qu est-ce que le gpio](52_gpio.md#fiche-qu_est-ce_que_le_gpio)
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -18,7 +18,7 @@ Il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC c
 
 ![Schéma officicel GPIO Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png)
 
-## [brancher\_une\_del\_au\_raspberry\_pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi)
+## [Brancher une del au raspberry pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi)
 
 La planche de maquettage :
 
@@ -49,7 +49,7 @@ Important ! Sens de la DEL :
 
 ![Photo du montage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png)
 
-## [la\_base\_des\_scripts\_avec\_rpi\_gpio](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-la_base_des_scripts_avec_rpi_gpio)
+## [La base des scripts avec rpi gpio](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-la_base_des_scripts_avec_rpi_gpio)
 
 Il y a un [chapitre de référence sur Python](07_python.md#fiche-Qu_est-ce_que_Python) au début de la formation.
 
@@ -105,7 +105,7 @@ python3 monscript.py
 ```
 
 
-## [lancer\_un\_script\_python\_avec\_le\_plugin\_script](56_controle_gpio_avec_jeedom.md#fiche-lancer_un_script_python_avec_le_plugin_script)
+## [Lancer un script python avec le plugin script](56_controle_gpio_avec_jeedom.md#fiche-lancer_un_script_python_avec_le_plugin_script)
 
 Voir détails sur la fiche.
 

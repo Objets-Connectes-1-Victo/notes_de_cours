@@ -8,11 +8,11 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [installation\_de\_home\_assistant\_et\_premier\_acces](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces)
+## [Installation de home assistant et premier acces](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces)
 
 Bien suivre les étapes sur cette fiche!
 
-## [la\_console\_home\_assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant)
+## [La console home assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant)
 
 La console Home Assistant se reconnaît à l'invite ha >.
 
@@ -91,7 +91,7 @@ ha > login
 ```
 
 
-## [Eteindre\_home\_assistant\_de\_facon\_securitaire](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-Eteindre_home_assistant_de_facon_securitaire)
+## [Eteindre home assistant de facon securitaire](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-Eteindre_home_assistant_de_facon_securitaire)
 
 Pour arrêter ou redémarrer le système complet :
 
@@ -138,7 +138,7 @@ ha core restart
 ```
 
 
-## [dossier\_config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config)
+## [Dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config)
 
 Sur le Web, on parle souvent du dossier config de Home Assistant. C'est celui qui contient le fichier configuration.yaml. Son emplacement sera différent selon le type d'installation de Home Assistant.
 

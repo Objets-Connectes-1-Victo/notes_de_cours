@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [la\_detection\_de\_presence](60_detecteur_de_presence_sous_jeedom.md#fiche-la_detection_de_presence)
+## [La detection de presence](60_detecteur_de_presence_sous_jeedom.md#fiche-la_detection_de_presence)
 
 Permet de savoir si une personne en particulier est à la maison ou pas.
 

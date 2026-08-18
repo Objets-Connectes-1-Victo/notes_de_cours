@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [telecharger\_des\_plugins\_sur\_le\_market](32_jeedom_market.md#fiche-telecharger_des_plugins_sur_le_market)
+## [Telecharger des plugins sur le market](32_jeedom_market.md#fiche-telecharger_des_plugins_sur_le_market)
 
 Trois étapes pour les plugins :
 
@@ -16,7 +16,7 @@ Trois étapes pour les plugins :
 * Activer le plugin.
 * Parfois, il faut créer un nouvel équipement, par exemple Météo Victoriaville.
 
-## [le\_centre\_de\_messages\_de\_jeedom](33_messages_et_mises_a_jour.md#fiche-le_centre_de_messages_de_jeedom)
+## [Le centre de messages de jeedom](33_messages_et_mises_a_jour.md#fiche-le_centre_de_messages_de_jeedom)
 
 Carré orange : message
 
@@ -26,13 +26,13 @@ Cliquer sur le carré pour plus d'informations.
 
 ![Notifications](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Notifications.png)
 
-## [travailler\_avec\_le\_plugin\_virtuel](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel)
+## [Travailler avec le plugin virtuel](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel)
 
 Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pour tester des scénarios.
 
 ![Porte virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-TuilePorteVirtuelle-2.png)
 
-## [creer\_un\_scenario\_provoque](35_les_scenarios_jeedom.md#fiche-creer_un_scenario_provoque)
+## [Creer un scenario provoque](35_les_scenarios_jeedom.md#fiche-creer_un_scenario_provoque)
 
  Les scénarios permettent d'automatiser des comportements, par exemple ouvrir la lumière de la cuisine quand la porte s'ouvre.
 
@@ -42,7 +42,7 @@ Un scénario provoqué survient lorsqu'une action survient. Dans cet exemple, c'
 
 Un scénario programmé survient à un moment donné, par exemple le 29 août 2025 à 10h00, à tous les samedis à 9h00, etc.
 
-## [envoyer\_un\_courriel\_avec\_jeedom](36_lenvoi_de_courriel_dans_jeedom.md#fiche-envoyer_un_courriel_avec_jeedom)
+## [Envoyer un courriel avec jeedom](36_lenvoi_de_courriel_dans_jeedom.md#fiche-envoyer_un_courriel_avec_jeedom)
 
 Il est possible qu'un scénario envoie un courriel.
 

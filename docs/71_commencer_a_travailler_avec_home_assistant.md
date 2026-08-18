@@ -8,15 +8,15 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [configurer\_la\_cle\_usb\_z-wave\_sur\_home\_assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant)
+## [Configurer la cle usb z-wave sur home assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant)
 
 Bien suivre les étapes sur cette fiche!
 
-## [ajouter\_un\_appareil\_connecte\_z-wave\_a\_home\_assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant)
+## [Ajouter un appareil connecte z-wave a home assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant)
 
 Bien suivre les étapes sur cette fiche!
 
-## [sauvegarde\_de\_home\_assistant](72_sauvegarde_de_home_assistant.md#fiche-sauvegarde_de_home_assistant)
+## [Sauvegarde de home assistant](72_sauvegarde_de_home_assistant.md#fiche-sauvegarde_de_home_assistant)
 
 Bien suivre les étapes sur cette fiche!
 
