@@ -1,7 +1,8 @@
 # S05 {#chapitre-semaine_5_006}
 
-- [46. GPIO](52_gpio.md)
-- [47. Scripts Python pour envoyer et recevoir du signal sur le GPIO](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md)
-- [48. Exercice 7](54_exercice_7.md)
-- [49. Pour le prochain cours](55_pour_le_prochain_cours.md)
-
+- [92. SQLite](103_sqlite.md)
+- [93. La base de données Home Assistant](104_la_base_de_donnees_home_assistant.md)
+- [94. Historisation des données](105_historisation_des_donnees.md)
+- [95. Exercice 17 - OPTIONNEL](106_exercice_17_optionnel.md)
+- [96. Exercice 18](107_exercice_18.md)
+- [97. Pour le prochain cours (deux cours)](108_pour_le_prochain_cours_deux_cours.md)

@@ -112,20 +112,14 @@ nav:
       - "91. Pour le prochain cours": "101_pour_le_prochain_cours.md"
     - "S05":
       - "S05": "51__semaine_5_.md"
-      - "46. GPIO": "52_gpio.md"
-      - "47. Scripts Python pour envoyer et recevoir du signal sur le GPIO": "53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md"
-      - "48. Exercice 7": "54_exercice_7.md"
-      - "49. Pour le prochain cours": "55_pour_le_prochain_cours.md"
-    - "S06":
-      - "S06": "63__semaine_6_.md"
-    - "S10":
-      - "S10": "102__semaine_10_.md"
       - "92. SQLite": "103_sqlite.md"
       - "93. La base de données Home Assistant": "104_la_base_de_donnees_home_assistant.md"
       - "94. Historisation des données": "105_historisation_des_donnees.md"
       - "95. Exercice 17 - OPTIONNEL": "106_exercice_17_optionnel.md"
       - "96. Exercice 18": "107_exercice_18.md"
       - "97. Pour le prochain cours (deux cours)": "108_pour_le_prochain_cours_deux_cours.md"
+    - "S06":
+      - "S06": "63__semaine_6_.md"
     - "S11":
       - "S11": "109__semaine_11_.md"
       - "98. Exercice 19": "110_exercice_19.md"
