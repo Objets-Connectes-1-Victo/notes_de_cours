@@ -76,18 +76,18 @@ index.md
         68_depannage_home_assistant_troubleshooting.md
         69_exercice_10.md
         70_pour_le_prochain_cours.md
-71_commencer_a_travailler_avec_home_assistant.md
-72_sauvegarde_de_home_assistant.md
-73_exercice_11.md
-74_pour_le_prochain_cours.md
-75_semaine_de_relache.md
-76__semaine_8_.md
-77_le_fichier_configurationyaml.md
-78_les_icones.md
-79_les_capteurs_virtuels.md
-80_les_tableaux_de_bord.md
-81_exercice_12.md
-82_pour_le_prochain_cours.md
+        71_commencer_a_travailler_avec_home_assistant.md
+        72_sauvegarde_de_home_assistant.md
+        73_exercice_11.md
+        74_pour_le_prochain_cours.md
+        75_semaine_de_relache.md
+        76__semaine_8_.md
+        77_le_fichier_configurationyaml.md
+        78_les_icones.md
+        79_les_capteurs_virtuels.md
+        80_les_tableaux_de_bord.md
+        81_exercice_12.md
+        82_pour_le_prochain_cours.md
 83_les_automatisations_home_assistant.md
 84_le_soleil_et_la_meteo_sous_home_assistant.md
 85_depannage_sur_les_automatisations_troubleshooting.md
