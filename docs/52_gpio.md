@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## qu\_est-ce\_que\_le\_gpio
+## [qu\_est-ce\_que\_le\_gpio](52_gpio.md#fiche-qu_est-ce_que_le_gpio)
 
 Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).
 
@@ -18,7 +18,7 @@ Il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC c
 
 ![Schéma officicel GPIO Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png)
 
-## brancher\_une\_del\_au\_raspberry\_pi
+## [brancher\_une\_del\_au\_raspberry\_pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi)
 
 La planche de maquettage :
 
@@ -49,9 +49,9 @@ Important ! Sens de la DEL :
 
 ![Photo du montage](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png)
 
-## la\_base\_des\_scripts\_avec\_rpi\_gpio
+## [la\_base\_des\_scripts\_avec\_rpi\_gpio](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-la_base_des_scripts_avec_rpi_gpio)
 
-Il y a un chapitre de référence sur Python au début de la formation.
+Il y a un [chapitre de référence sur Python](07_python.md#fiche-Qu_est-ce_que_Python) au début de la formation.
 
 Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez le copier sur le Pi après l'avoir édité.
 
@@ -61,50 +61,51 @@ Petit script qui fait clignoter une DEL jusqu'à ce que quelqu'un appuie sur Ct
 
 Python
 
-#!/usr/bin/env python3  
+
+```python
+#!/usr/bin/env python3
 # -\*- coding:utf-8 -\*-
+"""
+Fait clignoter une DEL rouge sur le Raspberry Pi
+Paramètres : aucun
+Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms
+Auteur : Christiane Lagacé
+Date : 17 septembre 2025
+"""
+import RPi.GPIO as GPIO # il faudra mettre GPIO. devant le nom des classes du paquet
+from time import sleep # les classes du paquets peuvent être utilisées directement sans le nom du paquet
+GPIO.setmode(GPIO.BCM) # type d'adressage broadcom (numéros de ports)
+led = 23 # adresse broadcom du branchement de la DEL
+GPIO.setup(led, GPIO.OUT) # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)
+print('Programme qui fait clignoter une DEL')
+print('Appuyez sur Ctrl+C pour terminer.')
+try:
+while True:
+GPIO.output(led, 1) # envoie 3.3V au port
+sleep(1)
+GPIO.output(led, 0) # n'envoie rien au port
+sleep(1)
+except KeyboardInterrupt:
+print ('Fin du programme, vous avez appuyé sur Ctrl+C.')
+except Exception as e:
+print('Une exception est survenue.' + str(e))
+finally:
+GPIO.cleanup() # réinitialise les ports
+print('Nettoyage final réalisé avec succès!')
+```
 
- 
-
-"""  
-Fait clignoter une DEL rouge sur le Raspberry Pi  
-Paramètres : aucun  
-Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms  
-Auteur : Christiane Lagacé  
-Date : 17 septembre 2025  
-"""  
-  
-import RPi.GPIO as GPIO    # il faudra mettre GPIO. devant le nom des classes du paquet  
-from time import sleep     # les classes du paquets peuvent être utilisées directement sans le nom du paquet  
-  
-GPIO.setmode(GPIO.BCM)    # type d'adressage broadcom (numéros de ports)  
-led = 23                   # adresse broadcom du branchement de la DEL  
-GPIO.setup(led, GPIO.OUT)  # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)  
-  
-print('Programme qui fait clignoter une DEL')  
-print('Appuyez sur Ctrl+C pour terminer.')  
-  
-try:  
-    while True:  
-        GPIO.output(led, 1)     # envoie 3.3V au port  
-        sleep(1)  
-        GPIO.output(led, 0)     # n'envoie rien au port  
-        sleep(1)  
-except KeyboardInterrupt:  
-    print ('Fin du programme, vous avez appuyé sur Ctrl+C.')  
-except Exception as e:  
-    print('Une exception est survenue.' + str(e))  
-finally:  
-    GPIO.cleanup()     # réinitialise les ports  
-    print('Nettoyage final réalisé avec succès!')
 
 Exécution du script :
 
 Terminal
 
-python3 monscript.py
 
-## lancer\_un\_script\_python\_avec\_le\_plugin\_script
+```
+python3 monscript.py
+```
+
+
+## [lancer\_un\_script\_python\_avec\_le\_plugin\_script](56_controle_gpio_avec_jeedom.md#fiche-lancer_un_script_python_avec_le_plugin_script)
 
 Voir détails sur la fiche.
 
@@ -146,7 +147,7 @@ Lorsqu'une broche reçoit une tension suffisamment haute (ex : 3.3V), son état
 
 L'état d'une broche peut être contrôlé par programmation avec des langages comme le Python, le JavaScript et bien d'autres.
 
-Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « brancher\_une\_del\_au\_raspberry\_pi ».
+Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « [brancher\_une\_del\_au\_raspberry\_pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi) ».
 
 ## Source
 
@@ -234,7 +235,7 @@ Dans un petit circuit qui implique seulement une DEL et une résistance, la rés
 
 Circuits réalisés à l'aide du logiciel [Fritzing](https://fritzing.org/).
 
-Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « les\_resistances ».
+Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « [les\_resistances](52_gpio.md#fiche-les_resistances) ».
 
 ## Broche 3.3V vs broche programmable
 
@@ -244,7 +245,7 @@ Avec un branchement directement sur la broche no 1 (3V3 power), comme sur le mon
 
 Si vous préférez allumer la DEL par programmation, il faudra brancher sa longue patte sur une autre broche du GPIO, par exemple la broche 17, comme sur le montage C.
 
-Il faudra alors écrire un petit programme qui enverra ou non un signal à cette broche, par exemple en utilisant la bibliothèque RPi.GPIO.
+Il faudra alors écrire un petit programme qui enverra ou non un signal à cette broche, par exemple [en utilisant la bibliothèque RPi.GPIO](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-la_base_des_scripts_avec_rpi_gpio).
 
 ![Branchement de la DEL sur la broche 17](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-switchingcircuit.png)
 
@@ -372,46 +373,58 @@ Pour le vérifier, vous pouvez utiliser un petit utilitaire en ligne de commande
 
 Pour l'utiliser, suivez ces étapes :
 
-* Vous devez avoir en main un Raspberry Pi sur lequel Raspberry Pi OS est installé. La version Lite est suffisante.
+* Vous devez avoir en main un Raspberry Pi sur lequel [Raspberry Pi OS est installé](05_raspberry_pi.md#fiche-raspberry_pi_imager). La version Lite est suffisante.
 * Il ne doit rien y avoir de branché sur les broches du GPIO, pas même le ventilateur du boîtier du Pi. Toutes les broches doivent être libres.
-* Pour lancer les commandes sur le Pi, vous pouvez y brancher un écran et un clavier ou encore vous y connecter via SSH.
+* Pour lancer les commandes sur le Pi, vous pouvez y brancher un écran et un clavier ou encore vous y connecter [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh).
 * Le script nécessite que la bibliothèque [pigpio](http://abyz.me.uk/rpi/pigpio/) soit installée sur le Pi. Pour le savoir, entrez cette commande :
 
   Terminal
 
+```
   sudo pigpiod
+```
 
   Le message Can't lock /var/run/pigpio.pid ou aucun message signifie que le démon de cette bibliothèque est déjà en cours d'exécution. Poursuivez à l'étape de téléchargement plus bas.
 
   Le message pigpiod: command not found indique que vous devrez installer la bibliothèque.
 
-  + Pour installer la bibliothèque, le Raspberry Pi aura besoin d'un accès à Internet.
+  + Pour installer la bibliothèque, le Raspberry Pi aura besoin d'un <a href="fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_p.md#configurer_le_reseau_wi-fi_sur_le_raspberry_p">accès à Internet</a>.
 
     Lancez cette commande pour procéder à l'installation :
 
     Terminal
 
+```
     sudo apt install pigpio
+```
   + Lancez maintenant le démon.
 
     Terminal
 
+```
     sudo pigpiod
+```
 * Poursuivez ici si le démon était déjà en cours d'utilisation. Téléchargez le script qui permet de tester le GPIO :
 
   Terminal
 
+```
   wget http://abyz.me.uk/rpi/pigpio/code/gpiotest.zip
+```
 * Décompressez le fichier :
 
   Terminal
 
+```
   unzip gpiotest.zip
+```
 * Lancez le script :
 
   Terminal
 
+```
   ./gpiotest
+```
 
   Si vous obtenez le message socket connect failed, c'est que vous n'avez pas lancé le démon avec la commande sudo pigpiod.
 
@@ -419,32 +432,19 @@ Pour l'utiliser, suivez ces étapes :
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ ./gpiotest  
-  This program checks the Pi's (user) gpios.
-
-   
-
-  The program reads and writes all the gpios. Make sure NOTHING  
+```
+  pi@raspberrypi:~ $ ./gpiotest
+  This program checks the Pi's (user) gpios.
+  The program reads and writes all the gpios. Make sure NOTHING
   is connected to the gpios during this test.
-
-   
-
   The program uses the pigpio daemon which must be running.
-
-   
-
   To start the daemon use the command sudo pigpiod.
-
-   
-
   Press the ENTER key to continue or ctrl-C to abort...
-
-   
-
-  Testing...  
-  Skipped non-user gpios: 0 1 28 29 30 31   
-  Tested user gpios: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27   
+  Testing...
+  Skipped non-user gpios: 0 1 28 29 30 31
+  Tested user gpios: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
   Failed user gpios: None
+```
 
   Si une broche ne fonctionne plus, vous obtiendrez un message du genre Write 1 to gpio 17 failed.
 

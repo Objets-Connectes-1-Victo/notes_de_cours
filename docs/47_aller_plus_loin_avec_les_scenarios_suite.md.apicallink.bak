@@ -1,0 +1,132 @@
+# 42. Aller plus loin avec les scénarios (suite)
+
+## 42.1 Bloc de code qui lance une commande de type action
+
+Dans un scénario Jeedom, il est courant de donner un ordre à un équipement. Il suffit d'ajouter une action et de sélectionner la commande qui donne l'ordre désiré à cet équipement.
+
+![Action sur un équipement](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Scenario-ActionSurUnEquipement.png)
+
+Il est également possible de donner un ordre à un équipement à l'aide d'un Bloc de code.
+
+Ceci sera réalisé en exécutant la commande de type action configurée dans l'équipement.
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$cmd = cmd::byString('#[Cuisine][Lumière][Allumer]#');
+$cmd->execCmd();
+```
+
+
+## 42.2 Scénario qui affiche une information dans le tableau de bord
+
+Pour qu'un scénario puisse afficher une information dans le tableau de bord, le plus simple est de passer par un équipement virtuel.
+
+* Rendez-vous dans le menu Plugins / Programmation / Virtuel.
+* Cliquez sur le + pour ajouter un équipement.
+* Donnez un nom à l'équipement virtuel, par exemple Mon équipement.
+* Rattachez-le à l'objet de votre choix pour pouvoir le voir dans le Dashboard, par exemple Partout.
+* Assurez-vous qu'il soit actif et visible.
+* Cliquez sur l'onglet Commandes.
+* Cliquez sur Ajouter une info virtuelle.
+* Donnez un nom à la commande, par exemple Ma valeur.
+* Spécifiez le type de cette valeur : numérique, binaire ou autre.
+* Assurez-vous de cocher l'option Afficher.
+* Cliquez sur Sauvegarder.
+
+Dans le scénario, pour enregistrer une valeur dans cette commande :
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$valeur = ...;
+$cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');
+$cmd->event($valeur);
+```
+
+
+Puisque la commande est configurée pour être affichée sur le Dashboard, la valeur enregistrée par le scénario sera automatiquement visible.
+
+## 42.3 Scénario qui exécute une requête SQL
+
+Dans un scénario, une action de type bloc de code permet d'exécuter du code PHP.
+
+Il est donc possible d'exécuter une requête SQL et de faire différents traitements selon les résultats obtenus, par exemple :
+
+* [apical\_lien\_interne][scenario\_qui\_ajoute\_une\_entree\_dans\_le\_fichier\_journal,enregistrer dans un fichier journal][/apical\_lien\_interne] l'ensemble des températures de la veille;
+* [apical\_lien\_interne][scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord,afficher dans le tableau de bord][/apical\_lien\_interne] la plus grande et la plus petite température enregistrée la veille;
+* [apical\_lien\_interne][bloc\_de\_code\_qui\_lance\_une\_commande\_de\_type\_action,allumer un voyant lumineux][/apical\_lien\_interne] (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
+
+Dans ce premier exemple, le scénario ajoute une entrée dans le fichier journal du scénario pour chaque information retrouvée dans la BD.
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$sql = "SELECT ...";
+//$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
+try {
+$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
+//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+foreach ($resultat as $enreg) {
+$valeur = $enreg['...'];
+$scenario->setLog("Valeur : $valeur");
+}
+} catch (Throwable $e) {
+$scenario->setLog($e->getMessage());
+}
+```
+
+
+Cette fois, il n'enregistre que la première information trouvée. Ceci sera pratique par exemple si on utilise une fonction d'aggrégation, par exemple MAX, MIN, AVG, COUNT, SUM.
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$sql = "SELECT COUNT(\*) AS alias ...";
+//$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
+try {
+$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
+//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+$scenario->setLog("Nombre d'enregistrements trouvés : {$resultat[0]['alias']}");
+} catch (Throwable $e) {
+$scenario->setLog($e->getMessage());
+}
+```
+
+
+Attention : dans les tables history et historyArch, le champ value est de type VARCHAR. Dans certaines requêtes SQL, il faut prendre le soin de le convertir en nombre pour assurer que la valeur 9 soit considérée inférieure à la valeur 10.
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$sql = "SELECT MAX(CAST(... AS UNSIGNED)) ...";
+```
+
+
+Pour afficher cette valeur dans le tableau de bord à l'aide d'un virtuel, on ajoutera ceci après le DB::Prepare.
+
+Il faut avoir auparavant créé le virtuel avec une commande de type info.
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$cmd = cmd::byString('#[Objet][Equipement][Commande]#');
+$cmd->event($resultat[0]['alias']);
+```
+
+
+Et si on désire plutôt mettre une prise intelligente sous tension, on fera ceci :
+
+Bloc de code du scénario (PHP)
+
+
+```php
+$cmd = cmd::byString('#[Bureau][Ma prise][Allumer]#');
+$cmd->execCmd();
+```

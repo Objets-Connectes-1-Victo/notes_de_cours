@@ -3,11 +3,11 @@
 ## 55.1 Détecter la présence avec un cellulaire {#fiche-detecter_la_presence_avec_un_cellulaire}
 
 1. Installez le plugin qui correspond à votre situation.
-   1. Si vous désirez travailler avec le plugin Networks (recommandé) : installez le plugin Networks. Notez qu'au Cégep, ceci ne fonctionnera que si vous utilisez le réseau Domotique-Pedago.
+   1. Si vous désirez travailler avec le plugin Networks (recommandé) : installez le [plugin Networks](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_networks). Notez qu'au Cégep, ceci ne fonctionnera que si vous utilisez le réseau Domotique-Pedago.
    2. Si vous désirez travailler avec le plugin Détection de téléphone :
-      1. Activez le Bluetooth sur votre Raspberry Pi. Notez que vous n'avez aucun appareil Bluetooth à pairer à cette étape.
-      2. Installez le plugin Détection de téléphone.
-   3. Si vous n'avez pas de téléphone, votre prof pourra vous prêter un localisateur d'objet. Vous travaillerez alors avec le plugin BLEA.
+      1. [Activez le Bluetooth](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite) sur votre Raspberry Pi. Notez que vous n'avez aucun appareil Bluetooth à pairer à cette étape.
+      2. Installez le [plugin Détection de téléphone](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_detection_de_telephone).
+   3. Si vous n'avez pas de téléphone, votre prof pourra vous prêter un localisateur d'objet. Vous travaillerez alors [avec le plugin BLEA](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_bluetooth_advertisement_blea).
 2. Configurez le plugin pour qu'il détecte votre présence à partir de votre téléphone (ou votre localiseur d'objet). L'équipement doit se nommer « Téléphone de » suivi de votre nom.
 3. Si vous vivez avec d'autres personnes qui possèdent un téléphone, configurez Jeedom pour qu'il détecte la présence d'au moins une autre personne.
 4. Créez un équipement virtuel pour simuler votre présence et votre absence. L'équipement doit se nommer « Présence virtuelle de » suivi de votre nom.

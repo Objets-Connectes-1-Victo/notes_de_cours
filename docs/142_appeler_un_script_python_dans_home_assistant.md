@@ -16,11 +16,15 @@ Pour permettre à Home Assistant d'utiliser l'intégration Python Scripts, il su
 
 Fichier configuration.yaml
 
+
+```
 python\_script:
+```
+
 
 ## Création du script Python
 
-Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le module complémentaire File Editor.
+Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
 
 Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python\_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
 
@@ -34,17 +38,21 @@ Le service peut travailler avec une entité en particulier et il peut recevoir d
 
 YAML
 
-- id: ...  
-  alias: ...  
-  trigger:  
-  - ...  
-  action:  
-  - service: python\_script.nom\_du\_fichier\_python  
-    target:  
-      entity\_id: sensor.cleaning\_ladies\_time\_at\_house  
-    data:  
-      variable: donnee  
-  mode: single
+
+```
+- id: ...
+alias: ...
+trigger:
+- ...
+action:
+- service: python\_script.nom\_du\_fichier\_python
+target:
+entity\_id: sensor.cleaning\_ladies\_time\_at\_house
+data:
+variable: donnee
+mode: single
+```
+
 
 ## Code Python
 
@@ -52,13 +60,21 @@ Le code Python récupérera le entity\_id comme suit :
 
 Python
 
+
+```python
 entity\_id = data.get("entity\_id")
+```
+
 
 Si vous avez passé des variables dans la zone data, elle seront récupérées comme suit :
 
 Python
 
+
+```python
 ma\_variable = data.get("variable", valeur\_par\_defaut)
+```
+
 
 Le code Python peut appeler différents services dans Home Assistant.
 
@@ -66,8 +82,12 @@ Pour appeler un service :
 
 Python
 
-service\_data = {"variable": donnee, "variable2": donnee2}  
+
+```python
+service\_data = {"variable": donnee, "variable2": donnee2}
 hass.services.call("domaine", "service", service\_data, False)
+```
+
 
 Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input\_text.set\_value, le domaine est input\_text.
 

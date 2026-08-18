@@ -22,33 +22,26 @@ Pour voir si c'est le cas, lancez cette commande sur le Pi (notez que le premier
 
 Terminal
 
+
+```
 lsusb
+```
+
 
 Si la clé est reconnue, vous obtiendrez une ligne qui la décrit.
 
 Résultat à l'écran
 
+
+```
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-
- 
-
 Bus 001 Device 007: ID 0658:0200 Sigma Designs, Inc. Aeotec Z-Stick Gen5n(ZW090) - UZB
-
- 
-
 BUS 001 DEVICE 006: id 1A40:0101 Terminus Technology Inc. Hub
-
- 
-
 Bus 001 Device 003: ID 413c:2003 Dell Computers Corp. Keyboard
-
- 
-
 Bus 001 Device 002: ID 2109:3431 VIA Labs, Inc. Hub
-
- 
-
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
+
 
 Si la clé n'apparaît pas, c'est peut-être parce que le Pi 4 essaie de lui parler en USB3 et ce, même si elle est branchée dans un port USB2, alors que la clé ne parle qu'en USB2.
 
@@ -132,12 +125,16 @@ Lorsque vous tentez d'installer Jeedom sur une image toute fraîche de Raspberry
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ wget -O- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh | sudo bash  
---2021-08-19 16:23:22-- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh  
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.110.133, ...  
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.  
-ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.  
+
+```
+pi@raspberrypi:~ $ wget -O- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh | sudo bash
+--2021-08-19 16:23:22-- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.
 ERROR: The certificate of ‘raw.githubusercontent.com’ doesn't have a known issuer.
+```
+
 
 Pendant l'installation, plusieurs messages d'erreur peuvent apparaître, par exemple :
 
@@ -187,12 +184,16 @@ Lorsque vous tentez de mettre votre système Linux à jour avec la commande sud
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ sudo apt update  
-Get:1 http://archive.raspberrypi.org/debian buster InRelease [32.6 kB]  
-Get:2 http://raspbian.raspberrypi.org/raspbian buster InRelease [15.0 kB]  
-Reading package lists... Done   
-E: Release file for http://archive.raspberrypi.org/debian/dists/buster/InRelease is not valid yet (invalid for another 187d 23h 42min 32s). Updates for this repository will not be applied.  
+
+```
+pi@raspberrypi:~ $ sudo apt update
+Get:1 http://archive.raspberrypi.org/debian buster InRelease [32.6 kB]
+Get:2 http://raspbian.raspberrypi.org/raspbian buster InRelease [15.0 kB]
+Reading package lists... Done
+E: Release file for http://archive.raspberrypi.org/debian/dists/buster/InRelease is not valid yet (invalid for another 187d 23h 42min 32s). Updates for this repository will not be applied.
 E: Release file for http://raspbian.raspberrypi.org/raspbian/dists/buster/InRelease is not valid yet (invalid for another 187d 18h 43min 12s). Updates for this repository will not be applied.
+```
+
 
 ### Contexte :
 
@@ -278,15 +279,23 @@ Plutôt que ceci :
 
 Bloc de code dans scénario (PHP)
 
+
+```php
 log::add('meslogs', 'INFO', 'Luminance : #[Cuisine][Détecteur Lumière][Luminance]#');
+```
+
 
 Entrez ceci :
 
 Bloc de code dans scénario (PHP)
 
-$cmd = cmd::byString('#[Cuisine][Détecteur Lumière][Luminance]#');  
-$value = $cmd->execCmd();  
+
+```php
+$cmd = cmd::byString('#[Cuisine][Détecteur Lumière][Luminance]#');
+$value = $cmd->execCmd();
 log::add('meslogs', 'INFO', "Luminance : $value");
+```
+
 
 ## 17.9 Erreur « SQLSTATE[HY000] [1045] Access denied for user 'jeedom'@'localhost' (using password: YES) » {#fiche-erreur_sqlstate_hy000_1045_access_denied_for_user_jeedom_localhost_using___}
 
@@ -310,50 +319,46 @@ Pour dire à Jeedom quel est le mot de passe de sa base de données :
 
   Terminal
 
+  
+```
   sudo nano /var/www/html/core/config/common.config.php
+```
 * Entrez le nouveau mot de passe à la ligne password.
 
   Fichier /var/www/html/core/config/common.config.php
 
+```
   <?php
-
-   
-
-  /\* This file is part of Jeedom.  
-  \*  
-  \* Jeedom is free software: you can redistribute it and/or modify  
-  \* it under the terms of the GNU General Public License as published by  
-  \* the Free Software Foundation, either version 3 of the License, or  
-  \* (at your option) any later version.  
-  \*  
-  \* Jeedom is distributed in the hope that it will be useful,  
-  \* but WITHOUT ANY WARRANTY; without even the implied warranty of  
-  \* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  
-  \* GNU General Public License for more details.  
-  \*  
-  \* You should have received a copy of the GNU General Public License  
-  \* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.  
+  /\* This file is part of Jeedom.
+  \*
+  \* Jeedom is free software: you can redistribute it and/or modify
+  \* it under the terms of the GNU General Public License as published by
+  \* the Free Software Foundation, either version 3 of the License, or
+  \* (at your option) any later version.
+  \*
+  \* Jeedom is distributed in the hope that it will be useful,
+  \* but WITHOUT ANY WARRANTY; without even the implied warranty of
+  \* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  \* GNU General Public License for more details.
+  \*
+  \* You should have received a copy of the GNU General Public License
+  \* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
   \*/
-
-   
-
-  /\* \* \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* Debug \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* \*/  
+  /\* \* \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* Debug \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* \*/
   define('DEBUG', 0);
-
-   
-
-  /\* \* \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* MySQL & Memcached \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* \*/  
-  global $CONFIG;  
-  $CONFIG = array(  
-     //MySQL parametres  
-     'db' => array(  
-        'host' => 'localhost',  
-        'port' => '3306',  
-        'dbname' => 'jeedom',  
-        'username' => 'jeedom',  
-        'password' => 'mot-de-passe-en-clair',  
-     ),  
+  /\* \* \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* MySQL & Memcached \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* \*/
+  global $CONFIG;
+  $CONFIG = array(
+  //MySQL parametres
+  'db' => array(
+  'host' => 'localhost',
+  'port' => '3306',
+  'dbname' => 'jeedom',
+  'username' => 'jeedom',
+  'password' => 'mot-de-passe-en-clair',
+  ),
   );
+```
 
 ## 17.10 Erreur « Le driver Z-Wave n'est pas initialisé » {#fiche-erreur_le_driver_z-wave_n_est_pas_initialise}
 
@@ -377,16 +382,23 @@ Dans une fenêtre Terminal sur le Raspberry Pi ou via SSH, entrez cette commande
 
 Terminal
 
+```
 dmesg | grep tty
+```
+
 
 Résultat à l'écran
 
-pi@jeedom:~ $ dmesg | grep tty  
-[ 0.000000] Kernel command line: coherent\_pool=1M 8250.nr\_uarts=0 snd\_bcm2835.enable\_compat\_alsa=0 snd\_bcm2835.enable\_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc\_mem.mem\_base=0x3f000000 vc\_mem.mem\_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait  
-[ 0.001837] printk: console [tty1] enabled  
-[ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base\_baud = 0) is a PL011 rev2  
-[ 5.314135] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device  
+
+```
+pi@jeedom:~ $ dmesg | grep tty
+[ 0.000000] Kernel command line: coherent\_pool=1M 8250.nr\_uarts=0 snd\_bcm2835.enable\_compat\_alsa=0 snd\_bcm2835.enable\_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc\_mem.mem\_base=0x3f000000 vc\_mem.mem\_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+[ 0.001837] printk: console [tty1] enabled
+[ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base\_baud = 0) is a PL011 rev2
+[ 5.314135] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device
 [ 159.584503] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device
+```
+
 
 Le port à utiliser apparaîtra sur la dernière ligne.
 

@@ -2,7 +2,7 @@
 
 ## 47.1 Langages et bibliothèques pour communiquer avec le GPIO {#fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio}
 
-Il est possible de communiquer avec le GPIO à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
+Il est possible de communiquer avec le [GPIO](52_gpio.md#fiche-qu_est-ce_que_le_gpio) à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.
 
 Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 
@@ -11,7 +11,7 @@ Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :
 * pigpio : <http://abyz.me.uk/rpi/pigpio/python.html> (Python)
 * Wiring Pi : <http://wiringpi.com/reference/> (peut être utilisé avec plusieurs langages)
 
-La bibliothèque RPi.GPIO sera utilisée dans les fiches qui suivent pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
+La bibliothèque RPi.GPIO sera utilisée dans [les fiches qui suivent](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-installation_de_la_bibliotheque_rpi_gpio) pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.
 
 ## 47.2 Installation de la bibliothèque RPi.GPIO {#fiche-installation_de_la_bibliotheque_rpi_gpio}
 
@@ -25,32 +25,48 @@ Pour vérifier quelle version est installée, lancez cette commande sur le Pi, l
 
 Terminal du Raspberry Pi
 
+
+```
 python3
+```
+
 
 Pour charger la bibliothèque et vérifier sa version :
 
 Console Python
 
-import RPi.GPIO as GPIO   
+
+```python
+import RPi.GPIO as GPIO
 GPIO.VERSION
+```
+
 
 Et pour refermer la console Python :
 
 Console Python
 
+
+```python
 quit()
+```
+
 
 Vous obtiendrez ceci :
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ python3  
-Python 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0] on linux  
-Type "help", "copyright", "credits" or "license" for more information.  
->>> import RPi.GPIO as GPIO  
->>> GPIO.VERSION  
-'0.7.2'  
+
+```
+pi@raspberrypi:~ $ python3
+Python 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import RPi.GPIO as GPIO
+>>> GPIO.VERSION
+'0.7.2'
 >>> quit()
+```
+
 
 ## Installer la dernière version de RPi.GPIO
 
@@ -60,20 +76,24 @@ Ne le faites que si la version actuelle pose problème.
 
 Terminal du Raspberry Pi
 
-sudo apt update && sudo apt install python-rpi.gpio python3-rpi.gpio
+
+```
+sudo apt update && sudo apt install python-rpi.gpio python3-rpi.gpio
+```
+
 
 ## 47.3 La base des scripts avec RPi.GPIO {#fiche-la_base_des_scripts_avec_rpi_gpio}
 
-Le script Python qui sera en charge d'envoyer ou de recevoir un signal des broches GPIO du Raspberry Pi peut être écrit :
+Le script Python qui sera en charge d'envoyer ou de recevoir un signal des [broches GPIO](52_gpio.md#fiche-qu_est-ce_que_le_gpio) du Raspberry Pi peut être écrit :
 
 * directement sur le Pi à l'aide d'un éditeur comme nano.
 * sur l'ordinateur à l'aide de l'éditeur de votre choix, par exemple Geany ou PyCharm.
 
-La bibliothèque RPi.GPIO sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
+La bibliothèque [RPi.GPIO](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-installation_de_la_bibliotheque_rpi_gpio) sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.
 
 Notez que si vous utilisez un éditeur comme PyCharm sur votre ordinateur, il vous donnera des erreurs si votre code utilise des bibliothèques qui sont sur le Pi mais pas sur votre ordinateur. Vous pourrez ignorer ces erreurs.
 
-Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez le copier sur le Pi ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
+Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez [le copier sur le Pi](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur) ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier") après l'avoir édité.
 
 ## Nom du fichier
 
@@ -92,17 +112,25 @@ Lançons-nous dans la programmation!
 
 Tout programme Python doit débuter par une ligne, qu'on appellera shebang ou hash bang.
 
-Le shebang permet de spécifier quel interpréteur doit être utilisé.
+Le [shebang](07_python.md#fiche-Shebang_ou_hash_bang) permet de spécifier quel interpréteur doit être utilisé.
 
 Python
 
+
+```python
 #!/usr/bin/env python3
+```
+
 
 Vient ensuite une ligne qui indique l'encodage du fichier. Cette ligne était nécessaire en Python 2 mais elle est optionnelle en Python 3 puisque l'encodage par défaut est UTF-8.
 
 Python
 
+
+```python
 # -\*- coding:utf-8 -\*-
+```
+
 
 Tout programme qui se respecte doit contenir un en-tête standard. Cet en-tête indique notamment le but du script, les paramètres attendus, le montage physique requis, la date de création et l'auteur.
 
@@ -110,19 +138,27 @@ En Python, les commentaires de documentation utilisent la syntaxe [DocString](ht
 
 Python
 
-"""  
-Fait clignoter une DEL rouge sur le Raspberry Pi  
-Paramètres : aucun  
-Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms  
-Auteur : Christiane Lagacé  
-Date : 17 septembre 2025  
+
+```python
 """
+Fait clignoter une DEL rouge sur le Raspberry Pi
+Paramètres : aucun
+Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms
+Auteur : Christiane Lagacé
+Date : 17 septembre 2025
+"""
+```
+
 
 Vient ensuite le chargement des bibliothèques, ici RPi.GPIO.
 
 Python
 
+
+```python
 import RPi.GPIO as GPIO
+```
+
 
 ## Choisir le type d'adressage
 
@@ -132,7 +168,11 @@ L'adresse BCM est généralement utilisée. Il faut l'indiquer au script comme s
 
 Python
 
+
+```python
 GPIO.setmode(GPIO.BCM)
+```
+
 
 ## Variables pour les numéros de ports
 
@@ -142,11 +182,12 @@ Attention : del est un mot réservé en Python. Nous allons utiliser led comme n
 
 Python
 
+
+```python
 led = 23
-
- 
-
 bouton = 25
+```
+
 
 ## Déterminer le sens du signal
 
@@ -158,13 +199,21 @@ Par exemple, pour que le Pi envoie un signal au port 23 afin d'allumer une DEL :
 
 Python
 
+
+```python
 GPIO.setup(led, GPIO.OUT)
+```
+
 
 Il est possible de changer l'état (d'envoyer un signal) dans une instruction indépendante (voir plus bas) ou encore de le faire dans la même instruction :
 
 Python
 
+
+```python
 GPIO.setup(led, GPIO.OUT, initial=0)
+```
+
 
 Attention : si vous faites GPIO.setup(led, GPIO.OUT) sans préciser l'état initial, votre script devra par la suite se charger d'envoyer un signal au port pour allumer ou éteindre la DEL.
 
@@ -176,13 +225,21 @@ Si le programme devait lire la valeur envoyée par un composant branché sur le 
 
 Python
 
+
+```python
 GPIO.setup(bouton, GPIO.IN)
+```
+
 
 Et pour éviter un état flottant :
 
 Python
 
+
+```python
 GPIO.setup(bouton, GPIO.IN, pull\_up\_down=GPIO.PUD\_DOWN)
+```
+
 
 ## Envoi d'un signal
 
@@ -196,19 +253,31 @@ Pour allumer la DEL, on envoie un signal positif :
 
 Python
 
+
+```python
 GPIO.output(led, 1)
+```
+
 
 Pour l'éteindre, on envoie un signal non positif :
 
 Python
 
+
+```python
 GPIO.output(led, 0)
+```
+
 
 Pour savoir par programmation dans quel état est le port :
 
 Python
 
-etat = GPIO.input(led)
+
+```python
+etat = GPIO.input(led)
+```
+
 
 ## Réception d'un signal
 
@@ -216,7 +285,11 @@ Pour les ports qui envoient un signal au pi (GPIO.IN), le Pi peut lire la valeur
 
 Python
 
+
+```python
 valeur = GPIO.input(bouton)
+```
+
 
 ### Événements
 
@@ -231,21 +304,33 @@ La définition de la fonction commence par le mot-clé def et tout le corps de l
 
 Python
 
-def bouton\_presse(channel):  
-    print("Le bouton est enfoncé!")
+
+```python
+def bouton\_presse(channel):
+print("Le bouton est enfoncé!")
+```
+
 
 Pour associer l'événement à la fonction de rappel :
 
 Python
 
+
+```python
 GPIO.add\_event\_detect(bouton,GPIO.RISING,callback=bouton\_presse)
+```
+
 
 ou
 
 Python
 
-GPIO.add\_event\_detect(bouton, GPIO.RISING)  
+
+```python
+GPIO.add\_event\_detect(bouton, GPIO.RISING)
 GPIO.add\_event\_callback(bouton, bouton\_presse)
+```
+
 
 ## Réinitialisation des ports
 
@@ -259,18 +344,26 @@ De plus, les DEL allumées seront éteintes dès que la réinitialisation est fa
 
 Python
 
+
+```python
 GPIO.cleanup()
+```
+
 
 Pour assurer que la réinitialisation ait lieu même si le programme plante ou s'il se termine quand l'usager appuie sur les touches Ctrl+C, on placera le code dans un try et on fera la réinitialisation dans le finally.
 
 Python
 
-try:   
-    ...  
-except:  
-    ...  
-finally:  
-    GPIO.cleanup()
+
+```python
+try:
+...
+except:
+...
+finally:
+GPIO.cleanup()
+```
+
 
 Note : le finally ne sera pas exécuté si l'usager termine le programme avec les touches Ctrl+Z. En effet, alors que Ctrl+C émet un signal SIGINT – qui arrête gentiment le programme, Ctrl+Z émet un signal SIGTSTP qui arrête immédiatement le programme.
 
@@ -280,28 +373,26 @@ Voici un tout petit script qui s'occupe d'envoyer un signal pour allumer une DEL
 
 Python
 
-#!/usr/bin/env python3  
+
+```python
+#!/usr/bin/env python3
 # -\*- coding:utf-8 -\*-
+"""
+Allume une DEL rouge sur le Raspberry Pi
+Paramètres : aucun
+Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms
+Auteur : Christiane Lagacé
+Date : 17 septembre 2025
+"""
+import RPi.GPIO as GPIO # il faudra mettre GPIO. devant le nom des classes du paquet
+GPIO.setmode(GPIO.BCM) # type d'adressage broadcom (numéros de ports)
+led = 23 # adresse broadcom du branchement de la DEL
+GPIO.setup(led, GPIO.OUT) # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)
+print(f'Programme qui allume une DEL branchée au port BCM {led}')
+GPIO.output(led, 1) # envoie 3.3V au port
+# pas de GPIO.cleanup() ici sinon la DEL serait immédiatement éteinte.
+```
 
- 
-
-"""  
-Allume une DEL rouge sur le Raspberry Pi  
-Paramètres : aucun  
-Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms  
-Auteur : Christiane Lagacé  
-Date : 17 septembre 2025  
-"""  
-  
-import RPi.GPIO as GPIO    # il faudra mettre GPIO. devant le nom des classes du paquet  
-  
-GPIO.setmode(GPIO.BCM)    # type d'adressage broadcom (numéros de ports)  
-led = 23                   # adresse broadcom du branchement de la DEL  
-GPIO.setup(led, GPIO.OUT)  # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)  
-  
-print(f'Programme qui allume une DEL branchée au port BCM {led}')  
-GPIO.output(led, 1)     # envoie 3.3V au port  
-# pas de GPIO.cleanup() ici sinon la DEL serait immédiatement éteinte.
 
 ## Exemple complet : faire clignoter une DEL {#clignoter}
 
@@ -309,42 +400,39 @@ Pour faire exemple un peu plus complexe, voici un petit script qui fait clignote
 
 Python
 
-#!/usr/bin/env python3  
+
+```python
+#!/usr/bin/env python3
 # -\*- coding:utf-8 -\*-
+"""
+Fait clignoter une DEL rouge sur le Raspberry Pi
+Paramètres : aucun
+Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms
+Auteur : Christiane Lagacé
+Date : 17 septembre 2025
+"""
+import RPi.GPIO as GPIO # il faudra mettre GPIO. devant le nom des classes du paquet
+from time import sleep # les classes du paquets peuvent être utilisées directement sans le nom du paquet
+GPIO.setmode(GPIO.BCM) # type d'adressage broadcom (numéros de ports)
+led = 23 # adresse broadcom du branchement de la DEL
+GPIO.setup(led, GPIO.OUT) # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)
+print('Programme qui fait clignoter une DEL')
+print('Appuyez sur Ctrl+C pour terminer.')
+try:
+while True:
+GPIO.output(led, 1) # envoie 3.3V au port
+sleep(1)
+GPIO.output(led, 0) # n'envoie rien au port
+sleep(1)
+except KeyboardInterrupt:
+print('Fin du programme, vous avez appuyé sur Ctrl+C.')
+except Exception as e:
+print('Une exception est survenue.' + str(e))
+finally:
+GPIO.cleanup() # réinitialise les ports
+print('Nettoyage final réalisé avec succès!')
+```
 
- 
-
-"""  
-Fait clignoter une DEL rouge sur le Raspberry Pi  
-Paramètres : aucun  
-Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms  
-Auteur : Christiane Lagacé  
-Date : 17 septembre 2025  
-"""  
-  
-import RPi.GPIO as GPIO    # il faudra mettre GPIO. devant le nom des classes du paquet  
-from time import sleep     # les classes du paquets peuvent être utilisées directement sans le nom du paquet  
-  
-GPIO.setmode(GPIO.BCM)    # type d'adressage broadcom (numéros de ports)  
-led = 23                   # adresse broadcom du branchement de la DEL  
-GPIO.setup(led, GPIO.OUT)  # sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)  
-  
-print('Programme qui fait clignoter une DEL')  
-print('Appuyez sur Ctrl+C pour terminer.')  
-  
-try:  
-    while True:  
-        GPIO.output(led, 1)     # envoie 3.3V au port  
-        sleep(1)  
-        GPIO.output(led, 0)     # n'envoie rien au port  
-        sleep(1)  
-except KeyboardInterrupt:  
-    print('Fin du programme, vous avez appuyé sur Ctrl+C.')  
-except Exception as e:  
-    print('Une exception est survenue.' + str(e))  
-finally:  
-    GPIO.cleanup()     # réinitialise les ports  
-    print('Nettoyage final réalisé avec succès!')
 
 ## Lancer le script
 
@@ -352,7 +440,11 @@ Pour exécuter le script, entrez la commande python3 suivie du nom du fichier.
 
 Terminal
 
+
+```
 python3 monscript.py
+```
+
 
 ## Pour plus d'information
 
@@ -364,7 +456,7 @@ python3 monscript.py
 
 ## 47.4 Script pour réinitialiser toutes les broches programmables du GPIO {#fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio}
 
-Si vous travaillez avec la bibliothèque RPi.GPIO, vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
+Si vous travaillez avec la bibliothèque [RPi.GPIO](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-installation_de_la_bibliotheque_rpi_gpio), vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.
 
 Il est donc bon de terminer vos scripts par un appel à cette méthode.
 
@@ -376,49 +468,37 @@ Puisque GPIO.cleanup() ne travaille que sur les ports qui ont été utilisés da
 
 Python
 
-#!/usr/bin/env python3  
-# -\*- coding:utf-8 -\*-  
-  
-"""  
-Réinitialise toutes les broches programmables sur le Raspberry Pi  
-Paramètres : aucun  
-Montage : aucun  
-Auteur : Christiane Lagacé  
-Date : 16 septembre 2021  
-"""  
-  
-import RPi.GPIO as GPIO  
-  
-# Le but du script est justement de libérer les ports alors on ne veut pas voir le message :  
-# RuntimeWarning: This channel is already in use, continuing anywa  
-GPIO.setwarnings(False)  
-  
-GPIO.setmode(GPIO.BOARD)  
-  
-print('Programme qui réinitialise toutes les broches programmables du Raspberry Pi')  
-broches = (3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26,29,31,32,33,35,36,37,38,40)  
-  
+
+```python
+#!/usr/bin/env python3
+# -\*- coding:utf-8 -\*-
+"""
+Réinitialise toutes les broches programmables sur le Raspberry Pi
+Paramètres : aucun
+Montage : aucun
+Auteur : Christiane Lagacé
+Date : 16 septembre 2021
+"""
+import RPi.GPIO as GPIO
+# Le but du script est justement de libérer les ports alors on ne veut pas voir le message :
+# RuntimeWarning: This channel is already in use, continuing anywa
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+print('Programme qui réinitialise toutes les broches programmables du Raspberry Pi')
+broches = (3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26,29,31,32,33,35,36,37,38,40)
 print('Sens actuel des broches (numérotation physique) :')
-
- 
-
- 
-
- 
-
-for i in broches:  
-    sens = GPIO.gpio\_function(i)  
-  
-    # On réassigne le même sens que la broche avait car le cleanup n'a d'effet que pour les broches affectées par le script  
-    if sens == 1:  
-        GPIO.setup(i, GPIO.IN)  
-    else:  
-        GPIO.setup(i, GPIO.OUT)  
-  
-    print(str(i) + ': ' + ('IN' if sens else 'OUT'))  
-  
-GPIO.cleanup()  
+for i in broches:
+sens = GPIO.gpio\_function(i)
+# On réassigne le même sens que la broche avait car le cleanup n'a d'effet que pour les broches affectées par le script
+if sens == 1:
+GPIO.setup(i, GPIO.IN)
+else:
+GPIO.setup(i, GPIO.OUT)
+print(str(i) + ': ' + ('IN' if sens else 'OUT'))
+GPIO.cleanup()
 print('Réinitialisation réalisée avec succès!')
+```
+
 
 ## 47.5 Passer un paramètre à un script Python {#fiche-passer_un_parametre_a_un_script_python}
 
@@ -426,13 +506,21 @@ Il est possible de passer un ou plusieurs paramètres, aussi appelés arguments,
 
 Terminal
 
+
+```
 python3 monscript.py unparametre autreparametre
+```
+
 
 Pour lire la valeur des paramètres dans le script, il faut d'abord importer le module sys.
 
 Python
 
+
+```python
 import sys
+```
+
 
 Les paramètres sont contenus dans un tableau nommé sys.argv.
 
@@ -442,9 +530,13 @@ L'élément 1 est le premier argument, l'élément 2 est le second argument et a
 
 Python
 
-nom\_script = sys.argv[0]  
-premier\_parametre = sys.argv[1]  
+
+```python
+nom\_script = sys.argv[0]
+premier\_parametre = sys.argv[1]
 deuxieme\_parametre = sys.argv[2]
+```
+
 
 ## Si aucun paramètre n'est passé (paramètre optionnel)
 
@@ -456,10 +548,14 @@ Lorsqu'aucun paramètre n'est passé, le programme réagira en conséquence. Il 
 
 Python
 
-try:  
-    valeur = sys.argv[1]  
- except IndexError:  
-    valeur = "x"
+
+```python
+try:
+valeur = sys.argv[1]
+except IndexError:
+valeur = "x"
+```
+
 
 ## Paramètre numérique
 
@@ -469,12 +565,15 @@ Si le paramètre doit être utilisé comme un nombre, il faut d'abord le convert
 
 Python
 
-try:  
-    iterations = int(sys.argv[1])  
-...  
-  
-for i in range(iterations):  
-    ...
+
+```python
+try:
+iterations = int(sys.argv[1])
+...
+for i in range(iterations):
+...
+```
+
 
 ## Paramètre numérique optionnel
 
@@ -482,12 +581,16 @@ En combinant les deux approches précédentes, on s'assure que dans le cas d'un 
 
 Python
 
-try:  
-    iterations = int(sys.argv[1])  
- except IndexError:  
-    iterations = 1   # arrivera ici si aucun paramètre n'est passé  
-except:  
-    iterations = 1   # arrivera ici si le paramètre n'était pas numérique
+
+```python
+try:
+iterations = int(sys.argv[1])
+except IndexError:
+iterations = 1 # arrivera ici si aucun paramètre n'est passé
+except:
+iterations = 1 # arrivera ici si le paramètre n'était pas numérique
+```
+
 
 ## Pour plus d'information
 
@@ -551,13 +654,13 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 Dans cette fiche :
 
-* [Commande scp](04_linux.md#scp)
-  + [Copie de l'ordinateur vers le Raspberry Pi](04_linux.md#ordiverspi)
+* [Commande scp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#scp)
+  + [Copie de l'ordinateur vers le Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ordiverspi)
   + [Copier du Raspberry Pi vers l'ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#piversordi)
-  + [Copie d'un dossier complet](04_linux.md#dossiercomplet)
-  + [Accès qui nécessite un port particulier](04_linux.md#port)
-  + [Erreur serveur non trouvé](04_linux.md#nontrouve)
-* [Copie à l'aide d'une clé USB](67_chapitre_de_reference_pour_home_assistant.md#usb)
+  + [Copie d'un dossier complet](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dossiercomplet)
+  + [Accès qui nécessite un port particulier](https://apical.xyz/formations/pageunique/systeme_domotique_diy#port)
+  + [Erreur serveur non trouvé](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nontrouve)
+* [Copie à l'aide d'une clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb)
 
 ## Commande scp
 
@@ -569,7 +672,7 @@ On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on e
 
 On appellera machine distante l'autre machine impliquée dans l'échange.
 
-Un le serveur SSH doit être activé sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
+Un [le serveur SSH doit être activé](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi) sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.
 
 C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.
 
@@ -577,7 +680,11 @@ Le format de la commande scp est :
 
 Syntaxe sur le terminal de l'ordinateur
 
+
+```json
 scp source cible
+```
+
 
 Pour identifier la machine distante, on fera précéder la source ou la cible, selon le cas, par usager@adresse IP de la machine distante, suivi de deux points. Des exemples sont donnés dans les sections qui suivent.
 
@@ -589,7 +696,11 @@ Entrez cette commande en prenant soin de changer pi pour le nom de votre usager 
 
 Terminal de l'ordinateur
 
-scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossierdistant/sous-dossier
+
+```
+scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossierdistant/sous-dossier
+```
+
 
 ### Copier du Raspberry Pi vers l'ordinateur {#versordi}
 
@@ -597,7 +708,11 @@ Pour copier un fichier du Pi vers votre ordinateur, la machine distante sera la 
 
 Terminal de l'ordinateur
 
+
+```
 scp pi@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+```
+
 
 ### Copie d'un dossier complet
 
@@ -609,13 +724,21 @@ Pour copier le dossier de l'ordinateur vers le Pi :
 
 Terminal de l'ordinateur
 
+
+```
 scp -r /dossierlocal pi@192.168.1.145:/dossierdistant
+```
+
 
 Pour copier le dossier du Pi vers l'ordinateur :
 
 Terminal de l'ordinateur
 
+
+```
 scp -r pi@192.168.1.145:/dossierdistant /dossierlocal
+```
+
 
 ### Accès qui nécessite un port particulier
 
@@ -625,13 +748,21 @@ Dans cet exemple, j'ai travaillé avec l'usager root et le port 22222 puisque c
 
 Terminal de l'ordinateur
 
+
+```
 scp -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+```
+
 
 ou, pour copier de l'ordinateur vers le Pi :
 
 Terminal de l'ordinateur
 
+
+```
 scp -P 22222 /dossierlocal root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension
+```
+
 
 ### Erreur serveur non trouvé
 
@@ -650,35 +781,48 @@ Selon la documentation de scp[1](https://man7.org/linux/man-pages/man1/scp.1.htm
 
 Terminal
 
+
+```
 scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+```
+
 
 ## Copie à l'aide d'une clé USB
 
 Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :
 
 * Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.
-* Accédez à la ligne de commande du Pi soit via SSH, soit en y branchant un écran et un clavier.
+* Accédez à la ligne de commande du Pi soit [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh), soit en y branchant un écran et un clavier.
 * Vous devez monter la clé pour que son contenu soit accessible.
   + Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.
 
     Terminal
 
+    
+```
     sudo mkdir /mnt/cleusb
+```
   + Vous pouvez maintenant monter la clé. Généralement, elle est reconnue comme /dev/sda1 mais elle pourrait être autre chose, par exemple /dev/sdb1.
 
     Terminal
 
+```
     sudo mount /dev/sda1 /mnt/cleusb
+```
 * Copiez le fichier de la clé USB vers le dossier désiré sur le Pi.
 
   Terminal
 
+```
   cp /mnt/cleusb/monfichier.extension /dossier/sous-dossier
+```
 * Démontez la clé USB avant de la retirer du Pi.
 
   Terminal
 
+```
   sudo umount /dev/sda1
+```
 
 ## Source
 
@@ -698,7 +842,10 @@ Pour tuer un processus au terminal, vous pouvez utiliser la commande [pkill](ht
 
 Terminal du Raspberry Pi
 
-sudo pkill -f mon\_script.py
+```
+sudo pkill -f mon\_script.py
+```
+
 
 Une autre approche consiste à utiliser le numéro de processus.
 
@@ -706,20 +853,32 @@ Ce numéro peut être trouvé à l'aide de la commande ps.
 
 Terminal du Raspberry Pi
 
+
+```
 ps -ef mon\_script.py
+```
+
 
 Notez qu'il est possible de faire afficher les en-têtes de colonnes comme suit :
 
 Terminal du Raspberry Pi
 
+
+```
 ps -ef | head -1;ps -ef mon\_script.py
+```
+
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon\_script.py  
-UID     PID     PPID   C   TIME   TTY          TIME   CMD  
- 501   84833    33164   0   8:49   ttys006   0:00.00   grep mon\_script.py  
- 501   84730   80397   0   8:49   ttys007   0:14.34   /.../Python mon\_script.py
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon\_script.py
+UID PID PPID C TIME TTY TIME CMD
+501 84833 33164 0 8:49 ttys006 0:00.00 grep mon\_script.py
+501 84730 80397 0 8:49 ttys007 0:14.34 /.../Python mon\_script.py
+```
+
 
 Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon\_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.
 
@@ -729,4 +888,7 @@ Il est désormais possible d'arrêter le processus désiré :
 
 Terminal du Raspberry Pi
 
+
+```
 kill -9 84730
+```

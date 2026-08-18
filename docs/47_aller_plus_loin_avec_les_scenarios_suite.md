@@ -12,8 +12,12 @@ Ceci sera réalisé en exécutant la commande de type action configurée dans l'
 
 Bloc de code du scénario (PHP)
 
-$cmd = cmd::byString('#[Cuisine][Lumière][Allumer]#');  
- $cmd->execCmd();
+
+```php
+$cmd = cmd::byString('#[Cuisine][Lumière][Allumer]#');
+$cmd->execCmd();
+```
+
 
 ## 42.2 Scénario qui affiche une information dans le tableau de bord {#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord}
 
@@ -35,9 +39,13 @@ Dans le scénario, pour enregistrer une valeur dans cette commande :
 
 Bloc de code du scénario (PHP)
 
-$valeur = ...;  
-$cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');  
- $cmd->event($valeur);
+
+```php
+$valeur = ...;
+$cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');
+$cmd->event($valeur);
+```
+
 
 Puisque la commande est configurée pour être affichée sur le Dashboard, la valeur enregistrée par le scénario sera automatiquement visible.
 
@@ -47,58 +55,58 @@ Dans un scénario, une action de type bloc de code permet d'exécuter du code PH
 
 Il est donc possible d'exécuter une requête SQL et de faire différents traitements selon les résultats obtenus, par exemple :
 
-* enregistrer dans un fichier journal l'ensemble des températures de la veille;
-* afficher dans le tableau de bord la plus grande et la plus petite température enregistrée la veille;
-* allumer un voyant lumineux (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
+* [enregistrer dans un fichier journal](42_aller_plus_loin_avec_les_scenarios.md#fiche-scenario_qui_ajoute_une_entree_dans_le_fichier_journal) l'ensemble des températures de la veille;
+* [afficher dans le tableau de bord](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord) la plus grande et la plus petite température enregistrée la veille;
+* [allumer un voyant lumineux](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-bloc_de_code_qui_lance_une_commande_de_type_action) (branché sur une prise intelligente) si la température maximale enregistrée la veille est supérieure à 30.
 
 Dans ce premier exemple, le scénario ajoute une entrée dans le fichier journal du scénario pour chaque information retrouvée dans la BD.
 
 Bloc de code du scénario (PHP)
 
-$sql = "SELECT ...";  
-//$scenario->setLog("SQL = $sql");   // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 
- 
-
-try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
-    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
-
- 
-
-    foreach ($resultat as $enreg) {   
-        $valeur = $enreg['...'];  
-        $scenario->setLog("Valeur : $valeur");  
-    }   
-} catch (Throwable $e) {  
-    $scenario->setLog($e->getMessage());  
+```php
+$sql = "SELECT ...";
+//$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
+try {
+$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
+//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+foreach ($resultat as $enreg) {
+$valeur = $enreg['...'];
+$scenario->setLog("Valeur : $valeur");
 }
+} catch (Throwable $e) {
+$scenario->setLog($e->getMessage());
+}
+```
+
 
 Cette fois, il n'enregistre que la première information trouvée. Ceci sera pratique par exemple si on utilise une fonction d'aggrégation, par exemple MAX, MIN, AVG, COUNT, SUM.
 
 Bloc de code du scénario (PHP)
 
-$sql = "SELECT COUNT(\*) AS alias ...";  
-//$scenario->setLog("SQL = $sql");   // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 
- 
-
-try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
-    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
-
- 
-
-    $scenario->setLog("Nombre d'enregistrements trouvés : {$resultat[0]['alias']}");  
-} catch (Throwable $e) {  
-    $scenario->setLog($e->getMessage());  
+```php
+$sql = "SELECT COUNT(\*) AS alias ...";
+//$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
+try {
+$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
+//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+$scenario->setLog("Nombre d'enregistrements trouvés : {$resultat[0]['alias']}");
+} catch (Throwable $e) {
+$scenario->setLog($e->getMessage());
 }
+```
+
 
 Attention : dans les tables history et historyArch, le champ value est de type VARCHAR. Dans certaines requêtes SQL, il faut prendre le soin de le convertir en nombre pour assurer que la valeur 9 soit considérée inférieure à la valeur 10.
 
 Bloc de code du scénario (PHP)
 
+
+```php
 $sql = "SELECT MAX(CAST(... AS UNSIGNED)) ...";
+```
+
 
 Pour afficher cette valeur dans le tableau de bord à l'aide d'un virtuel, on ajoutera ceci après le DB::Prepare.
 
@@ -106,12 +114,19 @@ Il faut avoir auparavant créé le virtuel avec une commande de type info.
 
 Bloc de code du scénario (PHP)
 
-$cmd = cmd::byString('#[Objet][Equipement][Commande]#');  
- $cmd->event($resultat[0]['alias']);
+
+```php
+$cmd = cmd::byString('#[Objet][Equipement][Commande]#');
+$cmd->event($resultat[0]['alias']);
+```
+
 
 Et si on désire plutôt mettre une prise intelligente sous tension, on fera ceci :
 
 Bloc de code du scénario (PHP)
 
-$cmd = cmd::byString('#[Bureau][Ma prise][Allumer]#');  
+
+```php
+$cmd = cmd::byString('#[Bureau][Ma prise][Allumer]#');
 $cmd->execCmd();
+```

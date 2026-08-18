@@ -8,10 +8,10 @@ Cet exercice se déroule en deux parties.
 
 Si vous n'avez pas réalisé l'exercice optionnel sur la base de données Home Assistant, vous devez au moins réaliser les étapes suivantes.
 
-1. Installez le module complémentaire SQLite Web.
+1. [Installez le module complémentaire SQLite Web,web](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant).
 2. Faites afficher le contenu de la table states.
-3. À la ligne de commande SQLite, faites afficher les 10 derniers enregistrements ajoutés à la table statistics\_meta (l'identifiant fera foi de l'ordre d'enregistrement).
-4. Copiez la base de données de Home Assistant vers votre ordinateur.
+3. [À la ligne de commande SQLite,hassos](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant), faites afficher les 10 derniers enregistrements ajoutés à la table statistics\_meta (l'identifiant fera foi de l'ordre d'enregistrement).
+4. [Copiez la base de données de Home Assistant vers votre ordinateur,terminal](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant).
 
 ## Partie 2
 

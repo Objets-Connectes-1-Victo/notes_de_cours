@@ -10,12 +10,12 @@ Remarquez qu'il est possible de [configurer Home Assistant pour qu'il utilise un
 
 Dans cette fiche :
 
-* [Explorer la base de données dans l'interface Web](104_la_base_de_donnees_home_assistant.md#web)
-* [Explorer la base de données dans le terminal HassOS](104_la_base_de_donnees_home_assistant.md#hassos)
-  + [Liste des tables](104_la_base_de_donnees_home_assistant.md#tables)
-  + [Structure des tables](104_la_base_de_donnees_home_assistant.md#structure)
-  + [Interroger les données](104_la_base_de_donnees_home_assistant.md#donnees)
-* [Explorer la base de données dans le Terminal de votre ordinateur](104_la_base_de_donnees_home_assistant.md#terminal)
+* [Explorer la base de données dans l'interface Web](https://apical.xyz/formations/pageunique/systeme_domotique_diy#web)
+* [Explorer la base de données dans le terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#hassos)
+  + [Liste des tables](https://apical.xyz/formations/pageunique/systeme_domotique_diy#tables)
+  + [Structure des tables](https://apical.xyz/formations/pageunique/systeme_domotique_diy#structure)
+  + [Interroger les données](https://apical.xyz/formations/pageunique/systeme_domotique_diy#donnees)
+* [Explorer la base de données dans le Terminal de votre ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminal)
 
 ## Explorer la base de données dans l'interface Web {#web}
 
@@ -39,11 +39,15 @@ Il est possible d'explorer la base de données Home Assistant directement dans l
 
 Terminal HassOS
 
-# cd /mnt/data/supervisor/homeassistant/  
-# sqlite3 home-assistant\_v2.db  
-SQLite version 3.48.0 2025-01-14 11:05:00  
-Enter ".help" for usage hints.  
+
+```
+# cd /mnt/data/supervisor/homeassistant/
+# sqlite3 home-assistant\_v2.db
+SQLite version 3.48.0 2025-01-14 11:05:00
+Enter ".help" for usage hints.
 sqlite>
+```
+
 
 ### Liste des tables {#tables}
 
@@ -51,12 +55,16 @@ Utilisez la commande .tables pour obtenir la liste des tables de cette base de d
 
 Terminal HassOS
 
-sqlite> .tables  
-event\_data            schema\_changes       statistics\_meta   
-event\_types           state\_attributes     statistics\_runs   
-events                states               statistics\_short\_term  
-migration\_changes     states\_meta   
-recorder\_runs         statistics
+
+```
+sqlite> .tables
+event\_data schema\_changes statistics\_meta
+event\_types state\_attributes statistics\_runs
+events states statistics\_short\_term
+migration\_changes states\_meta
+recorder\_runs statistics
+```
+
 
 ### Structure des tables {#structure}
 
@@ -66,42 +74,54 @@ Plutôt, vous devez faire ceci :
 
 SQLite
 
+
+```sql
 .schema nomtable
+```
+
 
 Résultat à l'écran
 
-sqlite> .schema statistics  
-CREATE TABLE statistics (  
-  id INTEGER NOT NULL,    
-  created CHAR(0),  
-  created\_ts FLOAT,  
-  metadata\_id INTEGER,  
-  start CHAR(0),  
-  start\_ts FLOAT,  
-  mean FLOAT,  
-  mean\_weight FLOAT,  
-  min FLOAT,  
-  max FLOAT,  
-  last\_reset CHAR(0),  
-  last\_reset\_ts FLOAT,  
-  state FLOAT,  
-  sum FLOAT,  
-  PRIMARY KEY (id),  
-  FOREIGN KEY(metadata\_id) REFERENCES statistics\_meta (id) ON DELETE CASCADE  
-);  
-CREATE INDEX ix\_statistics\_start\_ts ON statistics (start\_ts);  
-CREATE UNIQUE INDEX ix\_statistics\_statistic\_id\_start\_ts ON statistics (metadata\_id, start\_ts);  
+
+```
+sqlite> .schema statistics
+CREATE TABLE statistics (
+id INTEGER NOT NULL,
+created CHAR(0),
+created\_ts FLOAT,
+metadata\_id INTEGER,
+start CHAR(0),
+start\_ts FLOAT,
+mean FLOAT,
+mean\_weight FLOAT,
+min FLOAT,
+max FLOAT,
+last\_reset CHAR(0),
+last\_reset\_ts FLOAT,
+state FLOAT,
+sum FLOAT,
+PRIMARY KEY (id),
+FOREIGN KEY(metadata\_id) REFERENCES statistics\_meta (id) ON DELETE CASCADE
+);
+CREATE INDEX ix\_statistics\_start\_ts ON statistics (start\_ts);
+CREATE UNIQUE INDEX ix\_statistics\_statistic\_id\_start\_ts ON statistics (metadata\_id, start\_ts);
 sqlite>
+```
+
 
 Pour connaître la structure de toutes les tables :
 
 SQLite
 
+
+```sql
 SELECT sql FROM sqlite\_master;
+```
+
 
 Je vous présente la structure des tables sous forme graphique.
 
-Pour produire ce diagramme, j'ai ouvert la base de données dans Valentina Studio après l'avoir [téléversée sur mon poste de travail](104_la_base_de_donnees_home_assistant.md#terminal).
+Pour produire ce diagramme, j'ai ouvert la base de données dans <a href="fiche-generer_un_schema_de_la_base_de_donnees_avec_valentina_studio.md#generer_un_schema_de_la_base_de_donnees_avec_valentina_studio">Valentina Studio</a> après l'avoir [téléversée sur mon poste de travail](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminal).
 
 ![Schéma BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SchemaBD-2025.png)
 
@@ -111,44 +131,60 @@ Pour produire ce diagramme, j'ai ouvert la base de données dans Valentina Stud
 
 SQLite
 
-.mode column  
+
+```sql
+.mode column
 .headers on
+```
+
 
 Et pour voir le contenu d'une table :
 
 SQLite
 
-sqlite> SELECT \* FROM statistics\_meta;  
-id   statistic\_id                                   source     unit\_of\_measurement  has\_mean   has\_sum  
---   --------------------------------------------   --------   -------------------  --------   -------  
-1    sensor.node\_14\_battery\_level                   recorder   %                    1          0   
-2    sensor.dome\_door\_window\_sensor\_battery\_level   recorder   %                    1          0   
-3    sensor.neo\_capteur\_5\_en\_1\_illuminance          recorder   Lux                  1          0   
-4    sensor.porte\_dentree\_battery\_level             recorder   %                    1          0   
-5    sensor.node\_16\_humidity                        recorder   %                    1          0   
-6    sensor.node\_16\_air\_temperature                 recorder   °C                   1          0
+
+```sql
+sqlite> SELECT \* FROM statistics\_meta;
+id statistic\_id source unit\_of\_measurement has\_mean has\_sum
+-- -------------------------------------------- -------- ------------------- -------- -------
+1 sensor.node\_14\_battery\_level recorder % 1 0
+2 sensor.dome\_door\_window\_sensor\_battery\_level recorder % 1 0
+3 sensor.neo\_capteur\_5\_en\_1\_illuminance recorder Lux 1 0
+4 sensor.porte\_dentree\_battery\_level recorder % 1 0
+5 sensor.node\_16\_humidity recorder % 1 0
+6 sensor.node\_16\_air\_temperature recorder °C 1 0
+```
+
 
 Si vous préférez, vous pouvez remplacer .mode column par :
 
 SQLite
 
+
+```sql
 .mode box
+```
+
 
 Cette fois, les données appararaîtront dans un tableau.
 
 SQLite
 
-sqlite> SELECT \* FROM statistics\_meta;  
-┌────┬──────────────────────────────────────────────┬──────────┬─────────────────────┬──────────┬─────────┐  
-│ id │ statistic\_id                                 │ source   │ unit\_of\_measurement │ has\_mean │ has\_sum │  
-├────┼──────────────────────────────────────────────┼──────────┼─────────────────────┼──────────┼─────────┤  
-│ 1  │ sensor.node\_14\_battery\_level                 │ recorder │ %                   │ 1        │ 0       │  
-│ 2  │ sensor.dome\_door\_window\_sensor\_battery\_level │ recorder │ %                   │ 1        │ 0       │  
-│ 3  │ sensor.neo\_capteur\_5\_en\_1\_illuminance        │ recorder │ Lux                 │ 1        │ 0       │  
-│ 4  │ sensor.porte\_dentree\_battery\_level           │ recorder │ %                   │ 1        │ 0       │  
-│ 5  │ sensor.node\_16\_humidity                      │ recorder │ %                   │ 1        │ 0       │  
-│ 6  │ sensor.node\_16\_air\_temperature               │ recorder │ °C                  │ 1        │ 0       │  
+
+```sql
+sqlite> SELECT \* FROM statistics\_meta;
+┌────┬──────────────────────────────────────────────┬──────────┬─────────────────────┬──────────┬─────────┐
+│ id │ statistic\_id │ source │ unit\_of\_measurement │ has\_mean │ has\_sum │
+├────┼──────────────────────────────────────────────┼──────────┼─────────────────────┼──────────┼─────────┤
+│ 1 │ sensor.node\_14\_battery\_level │ recorder │ % │ 1 │ 0 │
+│ 2 │ sensor.dome\_door\_window\_sensor\_battery\_level │ recorder │ % │ 1 │ 0 │
+│ 3 │ sensor.neo\_capteur\_5\_en\_1\_illuminance │ recorder │ Lux │ 1 │ 0 │
+│ 4 │ sensor.porte\_dentree\_battery\_level │ recorder │ % │ 1 │ 0 │
+│ 5 │ sensor.node\_16\_humidity │ recorder │ % │ 1 │ 0 │
+│ 6 │ sensor.node\_16\_air\_temperature │ recorder │ °C │ 1 │ 0 │
 └────┴──────────────────────────────────────────────┴──────────┴─────────────────────┴──────────┴─────────┘
+```
+
 
 ## Explorer la base de données dans le Terminal de votre ordinateur {#terminal}
 
@@ -160,25 +196,35 @@ Je vous propose deux techniques pour y arriver :
 
   Terminal de l'ordinateur
 
+  
+```
   scp -O -P 22222 root@192.168.1.145:/mnt/data/supervisor/homeassistant/home-assistant\_v2.db /chemin/local
-* À partir du module complémentaire File Editor : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant\_v2.db, directement dans le dossier config. Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
+```
+* À partir du [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant\_v2.db, directement dans le [dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config). Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
 
   ![File Editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-TelechargerBD.png)
 
-Sur votre poste de travail, assurez-vous que SQLite soit installé.
+Sur votre poste de travail, [assurez-vous que SQLite soit installé](103_sqlite.md#fiche-Installation_de_SQLite).
 
 Dans une fenêtre Terminal, entrez la commande sqlite3 suivie du chemin complet de la base de données (là où vous l'avez téléchargée).
 
 Terminal
 
+```
 sqlite3 chemin/home-assistant\_v2.db
+```
+
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %sqlite3 /Users/monnom/Downloads/home-assistant\_v2.db  
-SQLite version 3.43.2 2023-10-10 13:08:14  
-Enter ".help" for usage hints.  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %sqlite3 /Users/monnom/Downloads/home-assistant\_v2.db
+SQLite version 3.43.2 2023-10-10 13:08:14
+Enter ".help" for usage hints.
 sqlite>
+```
+
 
 À partir d'ici, vous pouvez effectuer les mêmes opérations que démontré plus haut.
 

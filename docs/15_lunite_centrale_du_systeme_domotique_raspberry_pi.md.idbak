@@ -4,7 +4,7 @@
 
 Il existe une quantité phénoménale de boîtes domotiques commerciales. Certaines offrent des fonctionnalités limitées, notamment au niveau des protocoles de communication supportés, alors que d'autres sont plus versatiles.
 
-Ces appareils sont des boîtes domotiques complètes (hub). Ils combinent donc [apical\_lien\_interne][qu\_est-ce\_qu\_un\_systeme\_domotique,l'unité centrale ainsi que le logiciel de domotique et la passerelle][/apical\_lien\_interne].
+Ces appareils sont des boîtes domotiques complètes (hub). Ils combinent donc <a href="fiche-qu_est-ce_qu_un_systeme_domotique.md#qu_est-ce_qu_un_systeme_domotique">l'unité centrale ainsi que le logiciel de domotique et la passerelle</a>.
 
 Remarquez que je n'ai pas testé toutes ces boîtes domotiques. Je vous fais simplement un résumé d'informations trouvées au fil de mes recherches.
 
@@ -24,7 +24,7 @@ Toute petite boîte domotique qui se branche directement dans une prise de coura
 
 ## Hubitat Elevation
 
-Cet appareil est très versatile au niveau des protocoles de communication : Zigbee, Z-Wave et Wi-Fi. Supporte [apical\_lien\_interne][ifttt,IFTTT][/apical\_lien\_interne]. Son interface est complexe mais offre plus de possibilités.
+Cet appareil est très versatile au niveau des protocoles de communication : Zigbee, Z-Wave et Wi-Fi. Supporte <a href="fiche-ifttt.md#ifttt">IFTTT</a>. Son interface est complexe mais offre plus de possibilités.
 
 ## Wink
 
@@ -38,7 +38,7 @@ Même si leurs fonctionnalités sont limitées, les assistants vocaux d'Amazon, 
 
 Amazon a sorti toute une gamme d'appareils Echo contrôlés par la voix à l'aide de l'assistant personnel Alexa : Echo Dot, Echo Show, Echo Plus, Echo Studio, etc.
 
-Un appareil Echo peut contrôler certains appareils connectés via Bluetooth ou Wi-Fi. Mais pour contrôler un appareil qui utilise le protocole [apical\_lien\_interne][le\_protocole\_z-wave,Z-Wave][/apical\_lien\_interne], il faudra connecter votre Echo à une autre boîte domotique compatible.
+Un appareil Echo peut contrôler certains appareils connectés via Bluetooth ou Wi-Fi. Mais pour contrôler un appareil qui utilise le protocole <a href="fiche-le_protocole_z-wave.md#le_protocole_z-wave">Z-Wave</a>, il faudra connecter votre Echo à une autre boîte domotique compatible.
 
 Si vous possédez un Echo Plus ou un Echo Show, vous avez probablement accès au protocole Zigbee (sur certaines versions). Malheureusement, Z-Wave n'est toujours pas supporté.
 
@@ -104,9 +104,9 @@ Attention : si vous achetez ou imprimez un boîtier, prenez soin de choisir un m
 
 ## Système d'exploitation
 
-Selon le logiciel de domotique choisi, vous pourriez avoir à installer le système d'exploitation Raspberry Pi OS (la version Lite, sans interface graphique, est généralement suffisante) puis y ajouter le logiciel de domotique. C'est le cas par exemple avec [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,Jeedom][/apical\_lien\_interne] et avec [apical\_lien\_interne][installation\_de\_domoticz,Domoticz][/apical\_lien\_interne].
+Selon le logiciel de domotique choisi, vous pourriez avoir à installer le système d'exploitation Raspberry Pi OS (la version Lite, sans interface graphique, est généralement suffisante) puis y ajouter le logiciel de domotique. C'est le cas par exemple avec <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">Jeedom</a> et avec <a href="fiche-installation_de_domoticz.md#installation_de_domoticz">Domoticz</a>.
 
-D'autres logiciels de domotique tournent sur un système d'exploitation créé spécifiquement pour eux. C'est le cas notamment avec [apical\_lien\_interne][installation\_de\_home\_assistant\_et\_premier\_acces,Home Assistant][/apical\_lien\_interne].
+D'autres logiciels de domotique tournent sur un système d'exploitation créé spécifiquement pour eux. C'est le cas notamment avec <a href="fiche-installation_de_home_assistant_et_premier_acces.md#installation_de_home_assistant_et_premier_acces">Home Assistant</a>.
 
 Notez que, selon les choix que vous ferez, vous pourriez avoir besoin d'un **écran**, d'un **clavier** pour effectuer l'installation.
 
@@ -130,7 +130,7 @@ Il pourrait arriver que le Pi chauffe. Assurez-vous que des dissipateurs thermiq
 
 Il est intéressant d'ajouter un ventilateur si le boîtier le permet.
 
-Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V ([apical\_lien\_interne][qu\_est-ce\_que\_le\_gpio,broche physique no 1,pinout][/apical\_lien\_interne]) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
+Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V (<a href="fiche-qu_est-ce_que_le_gpio.md#qu_est-ce_que_le_gpio">broche physique no 1,pinout</a>) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
 
 Notez que pour que le ventilateur tourne plus vite, il suffit de brancher le fil rouge sur une broche 5V (broche no 2 ou 4).
 
@@ -168,7 +168,7 @@ Lorsque vous effectuez des branchements au GPIO, assurez-vous que le Pi ne soit 
 
 ## Arrêt du système d'exploitation
 
-Assurez-vous d'[apical\_lien\_interne][Eteindre\_un\_systeme\_linux\_de\_facon\_securitaire,éteindre le système de façon sécuritaire][/apical\_lien\_interne] avant de débrancher le Raspberry Pi.
+Assurez-vous d'<a href="fiche-Eteindre_un_systeme_linux_de_facon_securitaire.md#Eteindre_un_systeme_linux_de_facon_securitaire">éteindre le système de façon sécuritaire</a> avant de débrancher le Raspberry Pi.
 
 ![sudo halt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-SudoHalt.png)
 

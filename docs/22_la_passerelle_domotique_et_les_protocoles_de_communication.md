@@ -8,27 +8,31 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## Adresse IP statique
+## [Adresse IP statique,terminal](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi)
 
 Terminal
 
+
+```
 sudo nmtui
+```
+
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
-## le\_protocole\_z-wave
+## [le\_protocole\_z-wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave)
 
 Z-Wave est un protocole de communication sans fil destiné principalement à la domotique.
 
 Portée théorique de 100 à 200 mètres selon la génération.
 
-## le\_protocole\_zigbee
+## [le\_protocole\_zigbee](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_zigbee)
 
 Le protocole ZigBee a été développé pour les milieux industriels afin de faciliter la transmission de données en milieu difficile.
 
 Moins grande portée que Z-Wave : 10 à 100 mètres.
 
-## precautions\_avant\_l\_achat\_d\_un\_objet\_connecte
+## [precautions\_avant\_l\_achat\_d\_un\_objet\_connecte](23_les_appareils_domotiques.md#fiche-precautions_avant_l_achat_d_un_objet_connecte)
 
 Vérifier :
 
@@ -36,7 +40,7 @@ Vérifier :
 * Fréquence
 * Compatibilité avec la boîte domotique
 
-## objets\_pour\_representer\_la\_maison
+## [objets\_pour\_representer\_la\_maison](24_commencer_a_travailler_avec_jeedom.md#fiche-objets_pour_representer_la_maison)
 
 Dans Jeedom, la notion d'objet permet de regrouper les appareils connectés.
 
@@ -56,7 +60,7 @@ Si vous avez des objets à l'exterieur de la maison, une autre configuration pou
 * Ensuite, un objet Maison et un objet Dehors qui ont Tout comme parent
 * Et ensuite, les objets sont organisés par étages et/ou par pièces.
 
-## configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom
+## [configurer\_la\_cle\_usb\_z-wave\_sur\_jeedom](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom)
 
 Bien suivre ces étapes!
 
@@ -64,10 +68,10 @@ Bien suivre ces étapes!
 
 Les appareils branchés à un système domotique peuvent communiquer à l'aide de [différentes normes et protocoles de communication](https://fr.wikipedia.org/wiki/Domotique#Technologies_radios) :
 
-* Z-Wave
-* Zigbee
-* MQTT
-* RFXCOM
+* [Z-Wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave)
+* [Zigbee](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_zigbee)
+* [MQTT](121_mqtt.md#fiche-mqtt)
+* [RFXCOM](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-interface_rfxcom)
 * Wi-Fi
 * Bluetooth
 * etc.
@@ -165,7 +169,7 @@ Les objets connectés ZigBee sont généralement moins dispendieux que les Z-Wav
 
 ## 20.5 La clé USB Z-Wave {#fiche-la_cle_usb_z-wave}
 
-Pour que le Raspberry Pi, en tant qu'unité centrale de votre système domotique, puisse émettre et recevoir des signaux avec le protocole Z-Wave, il faut lui ajouter un petit quelque chose : une clé USB Z-Wave ou encore une carte d'extension.
+Pour que le Raspberry Pi, en tant qu'[unité centrale de votre système domotique](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale), puisse émettre et recevoir des signaux avec [le protocole Z-Wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave), il faut lui ajouter un petit quelque chose : une clé USB Z-Wave ou encore une carte d'extension.
 
 ## Clé USB Z-Wave
 
@@ -211,13 +215,13 @@ Dans le monde de la domotique, il a une application intéressante : il permet �
 
 Dans cette fiche :
 
-* [Agent MQTT](121_mqtt.md#agent)
-* [Exemple de fonctionnement](121_mqtt.md#exemple)
-* [Les canaux de communication MQTT](121_mqtt.md#canal)
-* [Payload](121_mqtt.md#payload)
-* [QoS](121_mqtt.md#qos)
-* [Retain](121_mqtt.md#retain)
-* [Conditions pour qu'une communication MQTT ait lieu](121_mqtt.md#conditions)
+* [Agent MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#agent)
+* [Exemple de fonctionnement](https://apical.xyz/formations/pageunique/systeme_domotique_diy#exemple)
+* [Les canaux de communication MQTT](https://apical.xyz/formations/pageunique/systeme_domotique_diy#canal)
+* [Payload](https://apical.xyz/formations/pageunique/systeme_domotique_diy#payload)
+* [QoS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#qos)
+* [Retain](https://apical.xyz/formations/pageunique/systeme_domotique_diy#retain)
+* [Conditions pour qu'une communication MQTT ait lieu](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conditions)
 
 ## Agent MQTT
 
@@ -229,7 +233,7 @@ Il ne faut pas confondre l'agent Mosquitto avec le site Web [https://test.mosqui
 
 Attention : les informations qui transigent sur https://test.mosquitto.org sont publiques! De plus, la communication n'est pas fiable, le serveur peut arrêter de fonctionner à tout moment. C'est un serveur de test.
 
-Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT soit correctement configuré.
+Les informations qui transigent sur un agent local sont plus sécuritaires que celles qui transigent sur https://test.mosquitto.org, à condition que l'agent MQTT [soit correctement configuré](121_mqtt.md#fiche-la_securite_avec_mqtt).
 
 ## Exemple de fonctionnement
 

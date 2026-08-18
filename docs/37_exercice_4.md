@@ -2,17 +2,17 @@
 
 ## 34.1 Les scénarios Jeedom {#fiche-les_scenarios_jeedom}
 
-Dans tous vous scénario, prenez l'habitude d'utiliser les différentes techniques de débogage à votre disposition.
+Dans tous vous scénario, prenez l'habitude d'utiliser les différentes [techniques de débogage](35_les_scenarios_jeedom.md#fiche-comment_deboguer_un_scenario) à votre disposition.
 
-1. Ajoutez une porte virtuelle à votre système (c'est un capteur virtuel).
+1. [Ajoutez une porte virtuelle](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel) à votre système (c'est un capteur virtuel).
 2. Ajoutez une lumière virtuelle (le processus d'ajout est le même mais il sera utilisé comme un récepteur virtuel).
-3. Créez une adresse de courriel au format jeedom@mondomaine.com (si vous ne possédez plus de nom de domaine, entendez-vous avec un confrère de classe pour avoir votre courriel avec son nom de domaine) puis configurez Jeedom pour pouvoir utiliser cette adresse.
-4. Dans Jeedom, créez un scénario provoqué dans lequel le capteur de votre choix agit sur le récepteur de votre choix. Vous pouvez travailler avec du réel ou avec du virtuel à votre choix.
+3. [Créez une adresse de courriel](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine) au format jeedom@mondomaine.com (si vous ne possédez plus de nom de domaine, entendez-vous avec un confrère de classe pour avoir votre courriel avec son nom de domaine) puis [configurez Jeedom pour pouvoir utiliser cette adresse](36_lenvoi_de_courriel_dans_jeedom.md#fiche-envoyer_un_courriel_avec_jeedom).
+4. Dans Jeedom, [créez un scénario provoqué](35_les_scenarios_jeedom.md#fiche-creer_un_scenario_provoque) dans lequel le capteur de votre choix agit sur le récepteur de votre choix. Vous pouvez travailler avec du réel ou avec du virtuel à votre choix.
 5. Faites ce qu'il faut pour faire déclencher le scénario. Allez ensuite consulter le log du scénario (icône Log dans le haut de l'écran). Vous devez voir que l'action que vous avez configurée est bien exécutée (ligne débutant par « Exécution de la commande »).
 6. Modifiez votre scénario afin que, en plus d'agir sur le récepteur, le capteur vous envoie un courriel. Notez qu'il est possible qu'avec le réseau sans fil utilisé dans le cours, il ne soit pas possible d'envoyer du courriel. Il faut à ce moment utiliser le réseau câblé.
 7. Faites une impression d'écran de l'écran où on voit le déclencheur du scénario. Faites une autre impression d'écran, cette fois pour montrer les détails du scénario avec des blocs Action qui affichent des lignes du genre #[Cuisine][Interrupteur lumière][Switch 0 On]#. Les impressions d'écrans doivent montrer clairement le nom de la boîte Jeedom qui apparaît dans le coin supérieur droit de l'écran. Nommez vos fichiers au format nomprenom-capteurrecepteur-1.png et nomprenom-capteurrecepteur-2.png.
-8. Créez un second scénario dans lequel vous recevrez un courriel quand Jeedom démarre.
-9. OPTIONNEL : profitez-en pour que lors du démarrage, le courriel vous donne l'adresse IP du Pi.
+8. Créez un second scénario dans lequel vous recevrez un courriel [quand Jeedom démarre,evenement](35_les_scenarios_jeedom.md#fiche-creer_un_scenario_provoque).
+9. OPTIONNEL : profitez-en pour que lors du démarrage, [le courriel vous donne l'adresse IP du Pi](25_autres_aspects_interessants_avec_jeedom.md#fiche-retrouver_l_adresse_ip_du_pi_a_l_aide_de_jeedom).
 10. Faites deux impressions d'écran de ce scénario afin de montrer le déclencheur et les détails. Les impressions d'écran doivent montrer clairement le nom de la boîte Jeedom. Nommez vos fichiers au format nomprenom-courrieldemarrage-1.png et nomprenom-courrieldemarrage-2.png.
 11. Créez un troisième scénario qui effectue une action de votre choix (ex : allumer la lumière, envoyer un courriel) le mardi à 20h (ou à un autre moment de votre choix) à condition que la température extérieure soit inférieure à 1o Celcius (ou autre événement météo de votre choix).
 12. Faites deux impressions d'écran de ce scénario afin de montrer le déclencheur et les détails. Les impressions d'écran doivent montrer clairement le nom de la boîte Jeedom. Nommez vos fichiers au format nomprenom-scenarioprogramme-1.png et nomprenom-scenarioprogramme-2.png.

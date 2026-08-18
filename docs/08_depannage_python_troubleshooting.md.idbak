@@ -43,8 +43,12 @@ Ceci peut arriver, par exemple, si vous utilisez un paramètre en ligne de comma
 
 Python
 
-port = sys.argv[1]  
+
+```python
+port = sys.argv[1]
 GPIO.output(port, 1)
+```
+
 
 Solution proposée :
 
@@ -54,5 +58,8 @@ Il faut la convertir en entier pour pouvoir l'utiliser ici.
 
 Python
 
-port = int(sys.argv[1])  
+
+```python
+port = int(sys.argv[1])
 GPIO.output(port, 1)
+```

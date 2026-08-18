@@ -1,0 +1,85 @@
+# 30. Messages et mises à jour {#chapitre-messages_et_mises_a_jour}
+
+## 30.1 Le centre de messages de Jeedom {#fiche-le_centre_de_messages_de_jeedom}
+
+Pendant que vous travaillez avec Jeedom, vous avez peut-être remarqué dans le coin supérieur droit de l'écran de petits carrés de couleur avec un chiffre blanc au centre.
+
+![Notifications](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Notifications.png)
+
+Il s'agit de notifications qui vous informe sur :
+
+* Carré orange : nombre de messages dans le centre de messages
+* Carré rouge : nombre de <a href="fiche-le_centre_de_mise_a_jour_de_jeedom.md#le_centre_de_mise_a_jour_de_jeedom">mises à jour à installer</a>
+
+Un clic sur le carré orange mène vers le centre de messages.
+
+![Centre des messages](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CentreDeMessages.png)
+
+C'est à cet endroit que Jeedom vous informe de :
+
+* anomalies rencontrées
+* autres informations que Jeedom désire porter à votre attention
+
+Il est important de consulter les messages sur une base régulière afin de régler ces problèmes.
+
+## Vider le centre de messages
+
+Une fois que vous avez pris connaissance des messages, vous pouvez cliquer sur Vider pour faire disparaître le carré orange qui indique le nombre de messages présents.
+
+Ainsi, à chaque fois que vous verrez un carré orange apparaître, vous saurez que Jeedom veut porter quelque chose à votre attention.
+
+## 30.2 Le centre de mise à jour de Jeedom {#fiche-le_centre_de_mise_a_jour_de_jeedom}
+
+À chaque fois qu'une mise à jour est disponible, que ce soit pour le coeur de Jeedom ou pour un des plugins que vous avez installés, un carré rouge apparaît dans le haut de l'écran.
+
+Un clic sur ce carré affiche l'état du coeur Jeedom de même que la liste des plugins installés avec, pour chacun, une indication si une mise à jour est nécessaire.
+
+Cet écran peut également être atteint par le menu Réglages / Système / Centre de mise à jour.
+
+![Centre de mise à jour](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CentreDeMiseAJour.png)
+
+## Avant d'effectuer une mise à jour
+
+C'est une bonne idée de cliquer sur le bouton Changelog afin de prendre connaissance des modifications apportées par chacune des mise à jour.
+
+Vous pourrez ainsi décider si la mise à jour doit être effectuée immédiatement (ex : correction d'une faille de sécurité) ou non (ex : ajustement esthétique, nouvelle fonctionnalité non essentielle pour l'instant).
+
+![Changelog](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Changelog.png)
+
+## Effectuer une mise à jour
+
+Il est possible d'effectuer toutes les mises à jour en cliquant sur le bouton Mise à jour dans le haut de l'écran.
+
+Vous pouvez exclure certaines mises à jour en cochant Ne pas mettre à jour vis-à-vis des lignes concernées.
+
+## Mise à jour à partir du Terminal
+
+Parfois, le centre de mise à jour de Jeedom ne proposera pas la toute dernière version de Jeedom. J'ai vu ceci notamment lorsque la version 4.2 est sortie. Impossible de passer à cette version à partir de l'interface graphique de mon Jeedom.
+
+Il est possible d'effectuer une mise à jour à partir du Terminal de Raspberry Pi OS à l'aide des commandes suivantes.
+
+Important : vous devez d'abord <a href="fiche-copie_de_securite_de_la_carte_micro_sd_du_raspberry_pi.md#copie_de_securite_de_la_carte_micro_sd_du_raspberry_pi">effectuer une sauvegarde de la carte micro SD du Raspberry Pi</a> afin de pouvoir revenir en arrière si jamais un problème survenait.
+
+Terminal
+
+
+```
+sudo apt update
+sudo apt upgrade
+sudo php /var/www/html/install/update.php
+```
+
+
+Il est ensuite nécessaire de redonner les droits sur le dossier Jeedom.
+
+Terminal
+
+
+```
+sudo chown -R www-data:www-data /var/www/html
+```
+
+
+## Pour plus d'information
+
+« Centre de Mise à jour - Mise à jour en ligne de commande ». Jeedom. [https://doc.jeedom.com/fr\_FR/core/4.1/update](https://doc.jeedom.com/fr_FR/core/4.1/update#Mise%20%C3%A0%20jour%20en%20ligne%20de%20commande)

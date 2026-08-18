@@ -69,7 +69,7 @@ Il faut donc effectuer quelques vérifications avant de procéder à l'achat d'u
 
 ## Protocole de communication
 
-Le protocole de communication utilisé par l'objet connecté est un des principaux facteurs à considérer.
+Le [protocole de communication](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-passerelle_et_protocoles_de_communication) utilisé par l'objet connecté est un des principaux facteurs à considérer.
 
 En effet, les objets peuvent communiquer dans différentes normes ou protocoles de communication : Z-Wave, Zigbee, Wi-Fi, Bluetooth, RFXcom, etc.
 
@@ -93,7 +93,7 @@ Si l'appareil ne peut communiquer qu'en 2.4 GHz alors que la seule fréquence di
 
 ## Compatibilité avec le logiciel de domotique
 
-Il faut également vérifier la compatibilité de l'objet avec la boîte domotique que vous avec choisie.
+Il faut également vérifier la compatibilité de l'objet avec [la boîte domotique](16_le_logiciel_de_domotique.md#fiche-quelques_logiciels_de_domotique_interessants) que vous avec choisie.
 
 Avec certains logiciels de domotique, il faut utiliser une extension (plugin, add-on) pour permettre le pairage avec un appareil connecté. Ces extension sont parfois écrites spécifiquement pour une marque donnnée.
 

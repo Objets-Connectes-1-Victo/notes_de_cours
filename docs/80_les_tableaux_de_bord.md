@@ -15,7 +15,7 @@ Le nom de ce fichier vient du fait qu'auparavant, l'outil d'édition des tableau
 Attention : il est préférable de ne pas modifier le tableau de bord original (celui nommé Aperçu).  
 En effet, si vous le modifiez ou si vous y ajoutez d'autres onglets, Home Assistant n'y ajoutera plus automatiquement les entités créées par après.
 
-Si vous avez modifié le tableau de bord Aperçu, il est possible de le réinitialiser afin que Home Assistant recommence à le gérer automatiquement.
+Si vous avez modifié le tableau de bord Aperçu, [il est possible de le réinitialiser](80_les_tableaux_de_bord.md#fiche-reinitialiser_le_tableau_de_bord_apercu) afin que Home Assistant recommence à le gérer automatiquement.
 
 Prenez note que les fonctionnalités du tableau de bord ont beacoup évolué depuis quelques années. Soyez prudents lorsque vous recherchez des informations sur le Web ou à l'aide d'un outil d'intelligence artificielle. Les informations trouvées pourraient ne plus être exactes.
 
@@ -51,7 +51,7 @@ Pour créer un nouveau tableau de bord :
 
     ![Bouton pour prise intelligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Bouton.png)
 
-    La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore lancer une automatisation.
+    La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore [lancer une automatisation](83_les_automatisations_home_assistant.md#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton).
   + La carte Capteur associée à un capteur
 
     ![Sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Sensor.png)
@@ -64,9 +64,9 @@ Pour créer un nouveau tableau de bord :
   + La carte Carte associée à tous les téléphones cellulaires que vous suivez
 
     ![Carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Carte.png)
-  + Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser des modèles.
+  + Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [des modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
 
-    Pour plus d'information sur ce type de carte, consultez la fiche « les\_cartes\_de\_type\_markdown ».
+    Pour plus d'information sur ce type de carte, consultez la fiche « [les\_cartes\_de\_type\_markdown](89_les_modeles_home_assistant.md#fiche-les_cartes_de_type_markdown) ».
 
     ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
   + Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
@@ -77,49 +77,53 @@ Dans l'écran avec la barre supérieure grise, vous pouvez cliquer sur les trois
 
 Fichier /mnt/data/supervisor/homeassistant/.storage/lovelace (YAML)
 
-views:  
-  - title: Home  
-    sections:  
-    - type: grid  
-      cards:  
-      - type: heading  
-        heading\_style: title  
-         heading: Mes cartes  
-      - type: entity  
-         entity: input\_number.temperature\_virtuelle  
-      - show\_name: true  
-         show\_icon: true  
-         type: button  
-         entity: light.plug\_in\_dimmer  
-      - type: sensor  
-         entity: sensor.capteur\_5\_en\_1\_air\_temperature  
-         graph: line  
-      - type: gauge  
-         entity: sensor.capteur\_5\_en\_1\_illuminance  
-      - show\_current: true  
-         show\_forecast: true  
-         type: weather-forecast  
-         entity: weather.forecast\_maison  
-         forecast\_type: daily  
-       - type: map  
-         entities:  
-           - entity: person.christiane  
-           - entity: device\_tracker.justin  
-           - entity: zone.home  
-           - entity: zone.cegep  
-           - entity: person.yves  
-         theme\_mode: auto  
-       - type: markdown  
-         content: |-  
-           {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}   
-           Porte virtuelle ouverte  
-           {% else %}  
-           Porte virtuelle fermée  
-           {% endif %}
+
+```
+views:
+- title: Home
+sections:
+- type: grid
+cards:
+- type: heading
+heading\_style: title
+heading: Mes cartes
+- type: entity
+entity: input\_number.temperature\_virtuelle
+- show\_name: true
+show\_icon: true
+type: button
+entity: light.plug\_in\_dimmer
+- type: sensor
+entity: sensor.capteur\_5\_en\_1\_air\_temperature
+graph: line
+- type: gauge
+entity: sensor.capteur\_5\_en\_1\_illuminance
+- show\_current: true
+show\_forecast: true
+type: weather-forecast
+entity: weather.forecast\_maison
+forecast\_type: daily
+- type: map
+entities:
+- entity: person.christiane
+- entity: device\_tracker.justin
+- entity: zone.home
+- entity: zone.cegep
+- entity: person.yves
+theme\_mode: auto
+- type: markdown
+content: |-
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+Porte virtuelle ouverte
+{% else %}
+Porte virtuelle fermée
+{% endif %}
+```
+
 
 ## 71.2 Réinitialiser le tableau de bord Aperçu {#fiche-reinitialiser_le_tableau_de_bord_apercu}
 
-Il est préférable de créer un tableau de bord personnalisé plutôt que de modifier le tableau de bord Aperçu.
+Il est préférable de [créer un tableau de bord personnalisé](80_les_tableaux_de_bord.md#fiche-creer_un_tableau_de_bord_personnalise) plutôt que de modifier le tableau de bord Aperçu.
 
 En effet, le tableau de bord Aperçu est géré par Home Assistant. Dès que vous en prenez le contrôle, même si vous ne faites qu'ajouter un onglet, Home Assistant n'y ajoutera plus les nouvelles entités créées.
 
@@ -168,7 +172,10 @@ La copie du fichier de l'image peut être réalisée à l'aide de différentes t
 
   Terminal de l'ordinateur
 
+  
+```
   scp -O -P 22222 /chemin/monimage.png root@192.168.1.145:/mnt/data/supervisor/homeassistant/www
+```
 
 Une fois l'image copiée dans ce dossier, vous pourrez y accéder à partir de l'URL http://192.168.1.145:8123/local/monimage.png
 
@@ -182,13 +189,16 @@ Une fois que l'image est disponible sur le Pi, elle peut être affichée sur une
 
 ## Carte Markdown {#markdown}
 
-La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grâce aux modèles.
+La carte Markdown est encore plus puissante puisqu'elle permet entre autres de faire un affichage conditionnel grâce aux [modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
 
 Dans sa forme la plus simple, la carte Markdown affichera une image comme suit. Remarquez l'utilisation du langage de balisage [Markdown](https://commonmark.org/help/) pour identifier l'image, au format :
 
 Markdown
 
+```
 ![Texte alternatif](/local/nom-image.png)
+```
+
 
 Remarquez que le texte entre crochets carrés représente l'attribut alt de l'image.
 
@@ -229,19 +239,19 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 
 Dans le tableau de bord de Home Assistant, il est possible de configurer une carte pour que son icône soit différente selon l'état de l'entité.
 
-Les icônes seront choisies dans la bibliothèque Material Design.
+Les icônes seront choisies dans [la bibliothèque Material Design](78_les_icones.md#fiche-icones_material_design_dans_home_assistant).
 
 Dans cette fiche :
 
-* [Carte Markdown](80_les_tableaux_de_bord.md#markdown)
-* [Intégration Template](80_les_tableaux_de_bord.md#template)
-  + [Exemple avec une carte de type Entité](80_les_tableaux_de_bord.md#entite)
-  + [Exemple avec une carte de type Bouton](80_les_tableaux_de_bord.md#bouton)
-* [Et si on avait besoin de vérifier plus de deux états?](80_les_tableaux_de_bord.md#elif)
+* [Carte Markdown](https://apical.xyz/formations/pageunique/systeme_domotique_diy#markdown)
+* [Intégration Template](https://apical.xyz/formations/pageunique/systeme_domotique_diy#template)
+  + [Exemple avec une carte de type Entité](https://apical.xyz/formations/pageunique/systeme_domotique_diy#entite)
+  + [Exemple avec une carte de type Bouton](https://apical.xyz/formations/pageunique/systeme_domotique_diy#bouton)
+* [Et si on avait besoin de vérifier plus de deux états?](https://apical.xyz/formations/pageunique/systeme_domotique_diy#elif)
 
 ## Carte Markdown
 
-La carte de type Markdown permet de spécifier des conditions à l'aide d'un modèle.
+La carte de type Markdown permet de spécifier des conditions à l'aide d'un [modèle](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
 
 Dans sa forme la plus simple, le modèle fera afficher un texte différent selon l'état. C'est déjà mieux que le texte « Activé » ou « Désactivé ».
 
@@ -253,11 +263,15 @@ Remarquez que la carte Markdown est capable d'interpréter du HTML.
 
 Modèle
 
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
-  <ha-icon icon="mdi:door-open"></ha-icon> Ouverte  
-{% else %}  
-  <ha-icon icon="mdi:door-closed"></ha-icon> Fermée  
+
+```
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+<ha-icon icon="mdi:door-open"></ha-icon> Ouverte
+{% else %}
+<ha-icon icon="mdi:door-closed"></ha-icon> Fermée
 {% endif %}
+```
+
 
 Pour la condition, ce code utilise le langage [Jinja2](https://palletsprojects.com/projects/jinja). Sa syntaxe ressemble à celle de Python.
 
@@ -281,51 +295,56 @@ L'icône de l'entité est définie par un modèle qui réagit à l'état de ce m
 
 Fichier configuration.yaml
 
-sensor:  
-  - platform: template  
-    sensors:  
-      porte\_virtuelle:  
-        friendly\_name: Porte virtuelle  
-        value\_template: "{{ states('input\_boolean.porte\_virtuelle') }}"  
-        icon\_template: >-  
-          {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
-            mdi:door-open  
-          {% else %}  
-            mdi:door-closed  
-          {% endif %}
+
+```
+sensor:
+- platform: template
+sensors:
+porte\_virtuelle:
+friendly\_name: Porte virtuelle
+value\_template: "{{ states('input\_boolean.porte\_virtuelle') }}"
+icon\_template: >-
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+mdi:door-open
+{% else %}
+mdi:door-closed
+{% endif %}
+```
+
 
 Il est possible de modifier la valeur pour utiliser un texte plus significatif.
 
 Fichier configuration.yaml
 
+
+```
 sensor:
+- platform: template
+sensors:
+porte\_virtuelle:
+friendly\_name: Porte virtuelle
+value\_template: >-
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+Ouverte
+{% else %}
+Fermée
+{% endif %}
+icon\_template: >-
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+mdi:door-open
+{% else %}
+mdi:door-closed
+{% endif %}
+```
 
- 
 
-  - platform: template  
-    sensors:  
-      porte\_virtuelle:  
-        friendly\_name: Porte virtuelle  
-        value\_template: >-  
-          {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
-            Ouverte  
-          {% else %}  
-            Fermée  
-          {% endif %}  
-        icon\_template: >-  
-          {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
-            mdi:door-open  
-          {% else %}  
-            mdi:door-closed  
-          {% endif %}
-
-Après avoir rechargé les configurations, il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
+Après avoir [rechargé les configurations,rechargement](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
 
 ### Exemple avec une carte de type Entité {#entite}
 
 Dans l'exemple précédent, l'entité s'appelle porte\_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte\_virtuelle.
 
-Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont le domaine est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
+Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont [le domaine,identifiant](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
 
 ![sensor.porte_virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-sensor-porte_virtuelle.png)
 
@@ -359,14 +378,18 @@ Je vous montre ici comment faire si on doit choisir parmi trois états différen
 
 Fichier configuration.yaml
 
-icon\_template: >-  
-  {% if is\_state('input\_select.etat\_general', 'Excellent') %}  
-    mdi:rocket-launch  
-  {% elif is\_state('input\_select.etat\_general', 'Moyen') %}  
-    mdi:scale-balance  
-  {% else %}  
-    mdi:alert  
-  {% endif %}
+
+```
+icon\_template: >-
+{% if is\_state('input\_select.etat\_general', 'Excellent') %}
+mdi:rocket-launch
+{% elif is\_state('input\_select.etat\_general', 'Moyen') %}
+mdi:scale-balance
+{% else %}
+mdi:alert
+{% endif %}
+```
+
 
 ## 71.6 lovelace-card-mod - Pour styliser le tableau de bord {#fiche-lovelace-card-mod_pour_styliser_le_tableau_de_bord}
 
@@ -378,7 +401,7 @@ Le plugin [lovelace-card-mod](https://github.com/thomasloven/lovelace-card-mod) 
 
 Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est pas disponible dans le terminal HassOS alors nous allons utiliser une autre procédure pour l'installer :
 
-* Accédez au terminal HassOS en branchant clavier et écran au Raspberry Pi ou via SSH.
+* Accédez au terminal HassOS en branchant clavier et écran au Raspberry Pi ou [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh).
 * Vérifiez s'il existe un dossier www sous /mnt/data/supervisor/homeassistant. S'il n'existe pas, créez-le puis redémarrez le Raspberry Pi.
 * Rendez-vous sur la page GitHub de l'extension : <https://github.com/thomasloven/lovelace-card-mod>
 
@@ -387,18 +410,23 @@ Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est
 
   ![Fichier card-mod.js](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LovelaceCardMod-2.png)
 * Dans le haut de l'écran, faites un clic droit sur l'icône de téléchargement à droite de Raw afin de télécharger le fichier sur votre ordinateur.
-* À l'aide de la commande scp lancée dans le terminal de votre ordinateur, copiez ce fichier sur le Raspberry Pi dans le dossier /mnt/data/supervisor/homeassistant/www.
+* À l'aide de la commande [scp,scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur) lancée dans le terminal de votre ordinateur, copiez ce fichier sur le Raspberry Pi dans le dossier /mnt/data/supervisor/homeassistant/www.
 
   Terminal de l'ordinateur
 
+  
+```
   scp -O -P 22222 /chemin/card-mod.js root@192.168.1.145:/mnt/data/supervisor/homeassistant/www
-* Afin de tirer profit au maximum de card-mod.js, il faut l'installer en tant que module. Éditez le fichier configuration.yaml à l'aide de File editor ou de Studio Code Server. Ajoutez-y le code suivant :
+```
+* Afin de tirer profit au maximum de card-mod.js, il faut l'installer en tant que module. Éditez le fichier configuration.yaml à l'aide de [File editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) ou de [Studio Code Server](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_studio_code_server). Ajoutez-y le code suivant :
 
   Fichier configuration.yaml
 
-  frontend:  
-    extra\_module\_url:  
-      - /local/card-mod.js
+```
+  frontend:
+  extra\_module\_url:
+  - /local/card-mod.js
+```
 * Redémarrez Home Assistant.
 
 ## Utilisation
@@ -415,11 +443,14 @@ Dans le code YAML de la carte, ajoutez une section card\_mod.
 
 YAML
 
-card\_mod:  
-  style: |  
-    ha-card {  
-      ...  // vos règles CSS ici, comme si vous éditiez le CSS d'un site Web  
-    }
+```
+card\_mod:
+style: |
+ha-card {
+... // vos règles CSS ici, comme si vous éditiez le CSS d'un site Web
+}
+```
+
 
 ## Pour plus d'information
 

@@ -44,11 +44,19 @@ Voici, à titre d'exemple, une différence importante entre Python 2.X et 3.X :
 
 Python 2.X
 
+
+```python
 print "Hello World"
+```
+
 
 Python 3.X
 
+
+```python
 print("Hello World")
+```
+
 
 ## Vérifier si Python est installé
 
@@ -56,23 +64,39 @@ Dans une fenêtre Terminal, vous pouvez lancer cette commande pour vérifier si 
 
 Terminal
 
+
+```
 python --version
+```
+
 
 Sous Raspberry Pi OS 10 (Buster), cette commande donne le résultat suivant :
 
 Résultat à l'écran
 
+
+```
 Python 2.7.16
+```
+
 
 Plusieurs versions de Python peuvent cohabiter. Pour vérifier si Python 3 est installé :
 
 Terminal
 
+
+```
 python3 --version
+```
+
 
 Résultat à l'écran
 
+
+```
 Python 3.7.3
+```
+
 
 Ainsi, on voit que lors de l'installation de Raspberry Pi OS 10 (Buster), Python 2.7 et Python 3.7 sont installés par défaut.
 
@@ -82,11 +106,12 @@ Il est possible d'afficher la version de Python par programmation. Ceci génére
 
 Python
 
+
+```python
 import platform
-
- 
-
 platform.python\_version()
+```
+
 
 ## Pour plus d'information
 
@@ -102,13 +127,21 @@ L'usager devra avoir les droits d'exécution sur le script.
 
 Terminal
 
+
+```
 chmod u+x mon\_script.py
+```
+
 
 Le script pourra être appelé comme suit :
 
 Terminal
 
+
+```
 ./mon\_script.py
+```
+
 
 ## Shebang qui utilise la variable d'environnement $PATH
 
@@ -120,7 +153,11 @@ Ceci assure un maximum de compatibilité si le script doit être exécuté sur u
 
 Python
 
+
+```python
 #!/usr/bin/env python3
+```
+
 
 ## Shebang fixe
 
@@ -128,7 +165,11 @@ Parfois, on retrouve plutôt ceci, qui correspond au chemin donné lorsqu'on ent
 
 Python
 
+
+```python
 #!/usr/bin python3
+```
+
 
 Remarquez qu'il n'y a pas de barre oblique avant le mot python3.
 
@@ -142,7 +183,11 @@ Notez qu'à ce moment, l'usager n'a pas besoin d'avoir les droits d'exécution s
 
 Terminal
 
+
+```
 python3 mon\_script.py
+```
+
 
 ## 6.4 Exécuter un programme Python dans une fenêtre Terminal {#fiche-executer_un_programme_python_dans_une_fenetre_terminal}
 
@@ -154,28 +199,34 @@ Exemple sous Windows :
 
 Fenêtre de commande DOS
 
+
+```
 cd \Users\votrenom\Documents\mondossier
-
- 
-
 helloworld.py
+```
+
 
 Exemple sous Mac ou Linux :
 
 Terminal
 
+
+```
 cd ~/mondossier
-
- 
-
 ./helloworld.py
+```
+
 
 Il est également possible d'exéuter le programme en faisant appel à la commande python (pour Python 2.7) ou python3.
 
 Terminal
 
-cd ~/mondossier  
+
+```
+cd ~/mondossier
 python3 helloworld.py
+```
+
 
 ## 6.5 Les structures de contrôle {#fiche-les_structures_de_controle}
 
@@ -187,27 +238,16 @@ Ex :
 
 Python
 
+
+```python
 if nom == 'Annie':
-
- 
-
-    ...
-
- 
-
+...
 elif nom == 'Toto':
-
- 
-
-    ...
-
- 
-
+...
 else:
+...
+```
 
- 
-
-    ...
 
 Note : l'indentation (4 espaces) est importante : c'est elle qui indique quand un bloc d'instruction se termine.
 
@@ -219,11 +259,12 @@ Ex :
 
 Python
 
+
+```python
 while x < 10:
+...
+```
 
- 
-
-    ...
 
 ## La boucle for
 
@@ -233,11 +274,12 @@ Ex :
 
 Python
 
+
+```python
 for i in range(10):
+...
+```
 
- 
-
-    ...
 
 ## Boucler dans les éléments d'une liste
 
@@ -245,51 +287,32 @@ Ex :
 
 Python
 
+
+```python
 valeurs = ['a', 'b', 'c']
-
- 
-
- 
-
- 
-
 for valeur in valeurs:
+...
+```
 
- 
-
-    ...
 
 ## 6.6 Utilisation d'un paquet ou d'un module {#fiche-Utilisation_d_un_paquet}
 
-Pour utiliser un module ou un paquet, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
+Pour utiliser <a href="fiche-les_paquets_et_modules_python.md#les_paquets_et_modules_python">un module ou un paquet</a>, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.
 
-Bien entendu, un module ou un paquet externe devra d'abord être installé sur votre poste de travail.
+Bien entendu, un module ou un paquet externe <a href="fiche-installer_un_paquet_python.md#installer_un_paquet_python">devra d'abord être installé sur votre poste de travail</a>.
 
 Par exemple, pour utiliser le module calendar :
 
 Python
 
+
+```python
 import calendar
-
- 
-
- 
-
- 
-
 ...
-
- 
-
- 
-
- 
-
 if calendar.isleap(annee):
+...
+```
 
- 
-
-    ...
 
 ## Instruction from ... import ...
 
@@ -299,49 +322,27 @@ Il est possible de modifier ce comportement à l'aide de la syntaxe from ... imp
 
 Python
 
+
+```python
 from calendar import \*
-
- 
-
- 
-
- 
-
 ...
-
- 
-
- 
-
- 
-
 if isleap(annee):
+...
+```
 
- 
-
-    ...
 
 Autre exemple :
 
 Python
 
+
+```python
 from tkinter import \*
-
- 
-
- 
-
- 
-
 ...
-
- 
-
 canevas = Canvas(fenetre, width=150, height=150)
-
- 
-
 ...
+```
+
 
 ## Paquet contenant plusieurs modules
 
@@ -357,37 +358,43 @@ La syntaxe à utiliser est sous la forme :
 
 Syntaxe Python
 
-from *paquet*.*module* import *fonction*
+
+```python
+from paquet.module import fonction
+```
+
 
 ou
 
 Syntaxe Python
 
-from *paquet*.*module* import *Classe*
+
+```python
+from paquet.module import Classe
+```
+
 
 ou encore, si le nombre de classes ou de fonctions à utiliser est important :
 
 Syntaxe Python
 
-from *paquet*.*module* import \*
+
+```python
+from paquet.module import \*
+```
+
 
 Ex :
 
 Python
 
+
+```python
 from tkinter.font import Font
-
- 
-
- 
-
- 
-
 police = Font(family='Helvetica', size=12, weight='normal')
-
- 
-
 ...
+```
+
 
 ## Pour plus d'information
 
@@ -411,10 +418,14 @@ Si un programme Python utilise un module sans savoir à quel endroit il est plac
 
 Résultat à l'écran
 
-Traceback (most recent call last):  
- File "./mon\_programme.py", line 4, in <module>  
-import mon\_module  
+
+```
+Traceback (most recent call last):
+File "./mon\_programme.py", line 4, in <module>
+import mon\_module
 ModuleNotFoundError: No module named 'mon\_module'
+```
+
 
 Lorsqu'il rencontre une instruction import, Python recherchera un fichier dont le nom est identique au nom du module, avec l'extension .py.
 
@@ -430,9 +441,13 @@ Pour connaître la valeur de sys.path, entrez ce code à la ligne de commande Py
 
 Python
 
->>> import sys  
->>> for path in sys.path:  
-...     print(path)
+
+```python
+>>> import sys
+>>> for path in sys.path:
+... print(path)
+```
+
 
 Appuyez deux fois sur Retour et vous verrez la liste des dossiers apparaître.
 
@@ -440,18 +455,26 @@ Sur Raspberry Pi OS, voici ce que j'obtiens.
 
 Résultat à l'écran
 
-/usr/lib/python37.zip  
-/usr/lib/python3.7  
-/usr/lib/python3.7/lib-dynload  
-/usr/local/lib/python3.7/dist-packages  
+
+```
+/usr/lib/python37.zip
+/usr/lib/python3.7
+/usr/lib/python3.7/lib-dynload
+/usr/local/lib/python3.7/dist-packages
 /usr/lib/python3/dist-packages
+```
+
 
 Vous pouvez ajouter un dossier à sys.path par programmation :
 
 Python
 
-import sys  
+
+```python
+import sys
 sys.path.append("/chemin/dossier-a-ajouter")
+```
+
 
 ## PYTHONPATH
 
@@ -459,13 +482,21 @@ Pour connaître la valeur de PYTHONPATH sur un système Linux ou Mac :
 
 Terminal
 
+
+```
 echo $PYTHONPATH
+```
+
 
 Et sur un système Windows :
 
 Invite de commande (CMD)
 
+
+```
 echo %PYTHONPATH%
+```
+
 
 Il est possible d'ajouter du contenu à cette variable. Mais attention : ceci sera valable jusqu'à ce que l'ordinateur soit redémarré.
 
@@ -473,23 +504,32 @@ Sour Linux ou Mac :
 
 Terminal
 
+
+```
 export PHTYONPATH=$PYTHONPATH:/chemin/dossier-a-ajouter
+```
+
 
 ou
 
 Terminal
 
+
+```
 cd /chemin/dossier-a-ajouter
-
- 
-
 export PYTHONPATH=$PYTHONPATH:$PWD
+```
+
 
 Sous Windows :
 
 Invite de commande (CMD)
 
+
+```
 set PYTHONPATH=%PYTHONPATH%;C:\chemin\dossier-a-ajouter
+```
+
 
 Les dossiers ajoutés ainsi à PYTHONPATH seront automatiquement ajoutés à sys.path.
 
@@ -511,7 +551,11 @@ Ex :
 
 Python
 
+
+```python
 valeurs = ('a', 'b', 'c')
+```
+
 
 Dans le cas où il y a un seul élément dans le tuple, on doit faire suivre cet élément par une virgule afin que Python comprenne qu'il ne s'agit pas d'une chaîne de caractères entourée de parenthèses.
 
@@ -519,7 +563,11 @@ Ex :
 
 Python
 
+
+```python
 valeurs = ('a',)
+```
+
 
 ## Liste
 
@@ -529,7 +577,11 @@ Ex :
 
 Python
 
+
+```python
 valeurs = ['a', 'b', 'c']
+```
+
 
 ## Tableau associatif (dictionnaire)
 
@@ -539,27 +591,16 @@ Ex :
 
 Python
 
+
+```python
 configuration = {
-
- 
-
-    'menu': 'gauche',
-
- 
-
-    'langue': 'fr'
-
- 
-
+'menu': 'gauche',
+'langue': 'fr'
 }
-
- 
-
 ...
-
- 
-
 valeur = configuration['langue']
+```
+
 
 ## 6.9 Écrire nos propres fonctions {#fiche-Ecrire_nos_propres_fonctions}
 
@@ -571,7 +612,7 @@ On pourra également coder nos propres fonctions. On parlera alors de fonctions 
 
 Quel est l'intérêt de coder nos propres fonctions ? Il y a différents raisons qui justifient ce choix :
 
-* Le même code doit être exécuté à plusieurs endroits dans le programme (principe DRY : Do not Repeat Yourself).
+* Le même code doit être exécuté à plusieurs endroits dans le programme (<a href="fiche-principe_dry_do_no_repeat_yourself.md#principe_dry_do_no_repeat_yourself">principe DRY : Do not Repeat Yourself</a>).
 * Le code devient plus facile à comprendre si une partie du code est placé dans une fonction disticte ([principe KISS](http://fr.wikipedia.org/wiki/Principe_KISS) : Keep It Simple, Stupid !).
 * Il faut attacher du code à un événement (ex : un clic sur un bouton). La fonction permettra de délimiter le code à exécuter lorsque l'événement survient.
 
@@ -590,23 +631,14 @@ Ex :
 
 Python
 
+
+```python
 def ma\_fonction():
-
- 
-
-    ...
-
- 
-
-    ...
-
- 
-
- 
-
- 
-
+...
+...
 # cette ligne ne fait pas partie de la fonction
+```
+
 
 ## Appel de la fonction
 
@@ -614,11 +646,12 @@ Pour appeler une fonction, il faut écrire son nom suivi de parenthèses :
 
 Python
 
+
+```python
 # la fonction sera exécutée immédiatement
-
- 
-
 ma\_fonction()
+```
+
 
 Il est également possible de passer des paramètres à la fonction.
 
@@ -626,27 +659,15 @@ Ex :
 
 Python
 
+
+```python
 def afficher\_message(message):
-
- 
-
-    ...
-
- 
-
-    print(message)
-
- 
-
- 
-
- 
-
 ...
-
- 
-
+print(message)
+...
 afficher\_message('Bien le bonjour !')
+```
+
 
 ## Documentation de la fonction
 
@@ -656,47 +677,27 @@ Ex :
 
 Python
 
+
+```python
 def soumettre\_click():
+""" Enregistre les informations dans la base de données. """
+...
+```
 
- 
-
-    """ Enregistre les informations dans la base de données. """
-
- 
-
-    ...
 
 Python
 
+
+```python
 def ma\_fonction():
+""" Effectue telle ou telle action.
+Ceci est un commentaire sur plusieurs lignes.
+On laisse généralement une ligne blanche après la première ligne, qui est un sommaire.
+Les triple-guillemets peuvent se refermer à droite de la dernière ligne ou encore sur la ligne suivante.
+"""
+...
+```
 
- 
-
-    """ Effectue telle ou telle action.
-
- 
-
- 
-
- 
-
-    Ceci est un commentaire sur plusieurs lignes.
-
- 
-
-    On laisse généralement une ligne blanche après la première ligne, qui est un sommaire.
-
- 
-
-    Les triple-guillemets peuvent se refermer à droite de la dernière ligne ou encore sur la ligne suivante.
-
- 
-
-    """
-
- 
-
-    ...
 
 ## Indicatif visuel du début du programme principal
 
@@ -708,35 +709,16 @@ Ex :
 
 Python
 
+
+```python
 def ma\_fonction():
-
- 
-
-    ...
-
- 
-
-    ...
-
- 
-
- 
-
- 
-
-########## programme principal ##########
-
- 
-
- 
-
- 
-
-fenetre = Tk()
-
- 
-
 ...
+...
+########## programme principal ##########
+fenetre = Tk()
+...
+```
+
 
 ## 6.10 Utiliser une variable du programme principal dans une fonction (portée des variables) {#fiche-Utiliser_une_variable_du_programme_principal_dans}
 
@@ -756,32 +738,16 @@ Ex :
 
 Python
 
-def afficher\_message(nom):  
-    """Affiche un message avec le nom saisi par l'usager."""
 
- 
-
-    print('Bonjour, ' + nom + ' !')
-
- 
-
- 
-
- 
-
+```python
+def afficher\_message(nom):
+"""Affiche un message avec le nom saisi par l'usager."""
+print('Bonjour, ' + nom + ' !')
 ########## programme principal ##########
-
- 
-
- 
-
- 
-
 nom = input('Quel est ton nom ? ')
-
- 
-
 afficher\_message(nom)
+```
+
 
 ## Étendre la portée à l'aide de global
 
@@ -793,39 +759,17 @@ Soit le programme suivant, qui n'utilise ni paramètre, ni variable globale :
 
 Python
 
+
+```python
 def changer\_nom():
-
- 
-
-    """Change la valeur de la variable nom sans affecter le programme principal."""
-
- 
-
-    nom = 'abc'
-
- 
-
- 
-
- 
-
+"""Change la valeur de la variable nom sans affecter le programme principal."""
+nom = 'abc'
 ########## programme principal ##########
-
- 
-
- 
-
- 
-
 nom = input('Quel est ton nom ? ')
-
- 
-
 changer\_nom()
-
- 
-
 print('Bonjour, ' + nom + ' !')
+```
+
 
 Le message utilisera toujours le nom saisi par l'usager et ce, même si la fonction assigne la valeur 'abc' à une variable qui s'appelle elle aussi nom.
 
@@ -833,43 +777,18 @@ Si on voulait changer ce comportement :
 
 Python
 
+
+```python
 def changer\_nom():
-
- 
-
-    """Change la valeur de la variable globale nom, ce qui affectera le programme principal."""
-
- 
-
-    global nom
-
- 
-
-    nom = 'abc'
-
- 
-
- 
-
- 
-
+"""Change la valeur de la variable globale nom, ce qui affectera le programme principal."""
+global nom
+nom = 'abc'
 ########## programme principal ##########
-
- 
-
- 
-
- 
-
 nom = input('Quel est ton nom ? ')
-
- 
-
 changer\_nom()
-
- 
-
 print('Bonjour, ' + nom + ' !')
+```
+
 
  Cette fois, le programme affichera toujours « Bonjour, abc ! ».
 
@@ -879,7 +798,7 @@ Même si les concepts de programmation orientée objet sont les mêmes d'un lang
 
 Quelques faits saillants :
 
-* Le nom de la classe est écrit en casse Pascal  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
+* Le nom de la classe est écrit <a href="fiche-Casse_Pascal_LaCassePascal.md#Casse_Pascal_LaCassePascal">en casse Pascal</a>  ![Conseil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg "Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)").
 * Si la classe hérite d'une autre classe, on met le nom de la classe de base entre parenthèses.
 * Si la classe n'a pas de parent, on ne met pas de parenthèses.
 * À l'intérieur de la classe, tout le code doit être placé dans une méthode. Seule exception : l'initialisation des variables de classe.
@@ -894,26 +813,25 @@ Voici donc un exemple de classe écrite en Python pour vous guider pendant votre
 
 Python
 
-class MaClasse(ClasseDeBase):  
-  
-    # Attributs de classe  
-    un\_attribut\_de\_classe = 'valeur'  
-  
-    def \_\_init\_\_(self, parametre='Valeur par défaut'):  
-        # Initialisation des attributs (variables d'instance)  
-        self.un\_attribut = parametre  
-        self.un\_autre\_attribut = 'autre valeur'  
-  
-    def \_\_str\_\_(self):  
-        return 'Chaîne qui représente l\'objet: %d, %s' % (self.un\_attribut, self.un\_autre\_attribut)  
-  
-    def une\_methode(self):  
-        ...  
-  
-    def une\_autre\_methode(self):  
-        ...  
-        self.une\_methode()  
-        return ...
+
+```python
+class MaClasse(ClasseDeBase):
+# Attributs de classe
+un\_attribut\_de\_classe = 'valeur'
+def \_\_init\_\_(self, parametre='Valeur par défaut'):
+# Initialisation des attributs (variables d'instance)
+self.un\_attribut = parametre
+self.un\_autre\_attribut = 'autre valeur'
+def \_\_str\_\_(self):
+return 'Chaîne qui représente l\'objet: %d, %s' % (self.un\_attribut, self.un\_autre\_attribut)
+def une\_methode(self):
+...
+def une\_autre\_methode(self):
+...
+self.une\_methode()
+return ...
+```
+
 
 ## 6.12 Passer un paramètre à un script Python
 
@@ -921,13 +839,21 @@ Il est possible de passer un ou plusieurs paramètres, aussi appelés arguments,
 
 Terminal
 
+
+```
 python3 monscript.py unparametre autreparametre
+```
+
 
 Pour lire la valeur des paramètres dans le script, il faut d'abord importer le module sys.
 
 Python
 
+
+```python
 import sys
+```
+
 
 Les paramètres sont contenus dans un tableau nommé sys.argv.
 
@@ -937,9 +863,13 @@ L'élément 1 est le premier argument, l'élément 2 est le second argument et a
 
 Python
 
-nom\_script = sys.argv[0]  
-premier\_parametre = sys.argv[1]  
+
+```python
+nom\_script = sys.argv[0]
+premier\_parametre = sys.argv[1]
 deuxieme\_parametre = sys.argv[2]
+```
+
 
 ## Si aucun paramètre n'est passé (paramètre optionnel)
 
@@ -951,10 +881,14 @@ Lorsqu'aucun paramètre n'est passé, le programme réagira en conséquence. Il 
 
 Python
 
-try:  
-    valeur = sys.argv[1]  
- except IndexError:  
-    valeur = "x"
+
+```python
+try:
+valeur = sys.argv[1]
+except IndexError:
+valeur = "x"
+```
+
 
 ## Paramètre numérique
 
@@ -964,12 +898,15 @@ Si le paramètre doit être utilisé comme un nombre, il faut d'abord le convert
 
 Python
 
-try:  
-    iterations = int(sys.argv[1])  
-...  
-  
-for i in range(iterations):  
-    ...
+
+```python
+try:
+iterations = int(sys.argv[1])
+...
+for i in range(iterations):
+...
+```
+
 
 ## Paramètre numérique optionnel
 
@@ -977,12 +914,16 @@ En combinant les deux approches précédentes, on s'assure que dans le cas d'un 
 
 Python
 
-try:  
-    iterations = int(sys.argv[1])  
- except IndexError:  
-    iterations = 1   # arrivera ici si aucun paramètre n'est passé  
-except:  
-    iterations = 1   # arrivera ici si le paramètre n'était pas numérique
+
+```python
+try:
+iterations = int(sys.argv[1])
+except IndexError:
+iterations = 1 # arrivera ici si aucun paramètre n'est passé
+except:
+iterations = 1 # arrivera ici si le paramètre n'était pas numérique
+```
+
 
 ## Pour plus d'information
 
@@ -994,13 +935,13 @@ Quand vous lancez un script, que ce soit un script bash ou un script Python, il 
 
 ## Ctrl+C
 
-La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal SIGINT qui arrête gentiment le programme.
+La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal <a href="fiche-sigint.md#sigint">SIGINT</a> qui arrête gentiment le programme.
 
 Dans le cas d'un script Python, SIGINT lève une exception de type KeyboardInterrupt qui interrompt le code et qui peut être attrrapée et traitée au même titre que toute autre exception.
 
 ## Ctrl+Z
 
-Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal SIGTSTP qui arrête immédiatement le programme.
+Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal <a href="fiche-sigtstp_et_sigstop.md#sigtstp_et_sigstop">SIGTSTP</a> qui arrête immédiatement le programme.
 
 Dans les faits, le programme est mis en pause, ce qui peut causer des problèmes, par exemple en ne libérant pas les ports associés au processus.
 
@@ -1020,9 +961,13 @@ Le plus simple est de lui fournir, à l'aide de -f, le nom du script Python que 
 
 Terminal
 
-sudo pkill -f mon\_script.py
 
-Par défaut, pkill envoit un signal SIGKILL qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+```
+sudo pkill -f mon\_script.py
+```
+
+
+Par défaut, pkill envoit un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 
@@ -1034,29 +979,45 @@ Pour faut trouver le numéro du processus qui correspond au script, on peut util
 
 Terminal
 
+
+```
 ps -ef | grep python
+```
+
 
 Vous obtiendrez un résultat semblable à cet extrait :
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ ps -ef | grep python  
-pi   891    1260    0    11:16    pts/0    00:00:00    python3    clignote.py  
-pi  1288    1260    0    07:57    pts/0    00:00:00    python3    allume\_led.py
+
+```
+pi@raspberrypi:~ $ ps -ef | grep python
+pi 891 1260 0 11:16 pts/0 00:00:00 python3 clignote.py
+pi 1288 1260 0 07:57 pts/0 00:00:00 python3 allume\_led.py
+```
+
 
 La deuxième colonne indique le numéro du processus. Ainsi, pour terminer le script clignote.py, il faut faire :
 
 Terminal
 
+
+```
 kill -9 891
+```
+
 
 Il est possible d'utiliser le nom du signal à envoyer plutôt que son numéro :
 
 Terminal
 
-kill -SIGKILL 891
 
-Ces deux commandes envoient un signal SIGKILL qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
+```
+kill -SIGKILL 891
+```
+
+
+Ces deux commandes envoient un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).
 
 Aucun script ne peut ignorer ce signal.
 

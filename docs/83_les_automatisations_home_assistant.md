@@ -99,22 +99,26 @@ Une fois l'automatisation sauvegardée, vous verrez qu'elle a été enregistrée
 
 Fichier automations.yaml
 
-- id: '1666115015224'  
-  alias: Allumer lumière quand mouvement détecté  
-  description: ''  
-  trigger:  
-  - platform: state  
-    entity\_id:  
-    - binary\_sensor.5\_in\_1\_pir\_motion\_sensor\_motion\_detection  
-    from: 'off'  
-    to: 'on'  
-  condition: []  
-  action:  
-  - type: turn\_on  
-    device\_id: f138a74f3ea6ca3212b26d1e92b8cb10  
-    entity\_id: light.dimmable\_smart\_plug  
-    domain: light  
-  mode: single
+
+```
+- id: '1666115015224'
+alias: Allumer lumière quand mouvement détecté
+description: ''
+trigger:
+- platform: state
+entity\_id:
+- binary\_sensor.5\_in\_1\_pir\_motion\_sensor\_motion\_detection
+from: 'off'
+to: 'on'
+condition: []
+action:
+- type: turn\_on
+device\_id: f138a74f3ea6ca3212b26d1e92b8cb10
+entity\_id: light.dimmable\_smart\_plug
+domain: light
+mode: single
+```
+
 
 ## Source
 
@@ -132,13 +136,13 @@ Fichier automations.yaml
 
 ## 74.2 Lancer une automatisation à l'aide d'un bouton {#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton}
 
-Il est intéressant d'ajouter un bouton au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
+Il est intéressant d'ajouter [un bouton,bouton](80_les_tableaux_de_bord.md#fiche-creer_un_tableau_de_bord_personnalise) au tableau de bord pour tester une automatisation. À ce moment, un clic sur le bouton s'ajoutera aux déclencheurs de l'automatisation.
 
 Il est possible de configurer le bouton pour tenir compte ou non des conditions de l'automatisation.
 
 Pour y arriver :
 
-* Éditez le tableau de bord et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
+* [Éditez le tableau de bord](80_les_tableaux_de_bord.md#fiche-creer_un_tableau_de_bord_personnalise) et choisissez dans quelle section vous désirez ajouter la carte. Pour ma part, j'aime bien regrouper les boutons de mes automatisations dans une section nommée Automatisations.
 * Ajoutez une carte de type bouton.
 * Pour ce qu'on veut faire ici, il est inutile de choisir une entité au début de la carte. S'il y en a une qui apparaît par défaut, cliquez sur le X pour la supprimer.
 * Si désiré, indiquez quel nom doit apparaître sur la carte.
@@ -155,19 +159,23 @@ Voici ce que ceci donnera en YAML :
 
 YAML
 
-show\_name: true  
-show\_icon: true  
-type: button  
-name: Allumer lumière quand mouvement détecté  
-icon: mdi:home-automation  
-tap\_action:  
-  action: perform-action  
-  perform\_action: automation.trigger  
-  target:  
-    entity\_id: automation.allumer\_lumiere\_quand\_mouvement\_detecte  
-  data:  
-    skip\_condition: true  
+
+```
+show\_name: true
+show\_icon: true
+type: button
+name: Allumer lumière quand mouvement détecté
+icon: mdi:home-automation
+tap\_action:
+action: perform-action
+perform\_action: automation.trigger
+target:
+entity\_id: automation.allumer\_lumiere\_quand\_mouvement\_detecte
+data:
+skip\_condition: true
 icon\_height: 40px
+```
+
 
 ## 74.3 Les capteurs virtuels dans les automatisations {#fiche-les_capteurs_virtuels_dans_les_automatisations}
 
@@ -249,29 +257,33 @@ Voici un exemple de script :
 
 Fichier scripts.yaml
 
-tele\_et\_lumiere:  
-  sequence:  
-  - action: input\_boolean.turn\_on  
-    metadata: {}  
-    data: {}  
-    target:  
-    entity\_id: input\_boolean.lumiere\_salon  
-  - action: input\_boolean.turn\_on  
-    metadata: {}  
-    target:  
-    entity\_id: input\_boolean.prise\_intelligente\_tele  
-  - delay:  
-    hours: 0  
-    minutes: 5  
-    seconds: 0  
-    milliseconds: 0  
-  - action: input\_boolean.turn\_off  
-    metadata: {}  
-    data: {}  
-    target:  
-    entity\_id: input\_boolean.lumiere\_salon  
-  alias: Télé et lumière  
-  description: ''
+
+```
+tele\_et\_lumiere:
+sequence:
+- action: input\_boolean.turn\_on
+metadata: {}
+data: {}
+target:
+entity\_id: input\_boolean.lumiere\_salon
+- action: input\_boolean.turn\_on
+metadata: {}
+target:
+entity\_id: input\_boolean.prise\_intelligente\_tele
+- delay:
+hours: 0
+minutes: 5
+seconds: 0
+milliseconds: 0
+- action: input\_boolean.turn\_off
+metadata: {}
+data: {}
+target:
+entity\_id: input\_boolean.lumiere\_salon
+alias: Télé et lumière
+description: ''
+```
+
 
 ## Lancer un script
 
@@ -283,7 +295,7 @@ Pour lancer un script, vous avez plusieurs options, notamment :
 
 * À l'aide du menu Paramètres / Automatisations et scènes / onglet Scripts / clic sur les trois points verticaux à droite du script désiré / Exécuter.
 * En utilisant le script comme action dans une automatisation (Autres actions / Script / Exécuter).
-* Sur le tableau de bord, à l'aide d'une carte de type bouton qui effectue l'action de lancer le script.
+* Sur le tableau de bord, à l'aide d'une [carte de type bouton](83_les_automatisations_home_assistant.md#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton) qui effectue l'action de lancer le script.
 
 ## 74.5 Trace d'une automatisation {#fiche-trace_d_une_automatisation}
 

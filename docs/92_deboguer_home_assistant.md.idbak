@@ -19,47 +19,75 @@ Les différents fichiers journaux sont disponibles à partir de ces options de m
 
 ## Consulter les fichiers journaux à partir du terminal
 
-Certains fichiers journaux sont également disponibles à partir du [apical\_lien\_interne][la\_console\_home\_assistant,terminal HassOS,terminal][/apical\_lien\_interne].
+Certains fichiers journaux sont également disponibles à partir du <a href="fiche-la_console_home_assistant.md#la_console_home_assistant">terminal HassOS,terminal</a>.
 
 Pour afficher le contenu du fichier home-assistant.log :
 
 Terminal
 
+
+```
 cat /mnt/data/supervisor/homeassistant/home-assistant.log
+```
+
 
 Pour afficher le journal du core de Home Assistant :
 
 Terminal
 
+
+```
 ha core logs
+```
+
 
 Il est possible de voir le contenu du fichier journal du conteneur Docker de Home Assistant avec ceci :
 
 Terminal
 
+
+```
 docker logs homeassistant
+```
+
 
 Pour afficher le journal du Supervisor :
 
 Terminal
 
+
+```
 ha supervisor logs
+```
+
 
 La commande journalctl permet elle aussi d'afficher des fichiers journaux spécifiques :
 
 Terminal
 
+
+```
 journalctl -u home-assistant
+```
+
 
 Terminal
 
+
+```
 journalctl -u hassos-supervisor
+```
+
 
 ou, pour avoir toute l'information disponible :
 
 Terminal
 
+
+```
 journalctl
+```
+
 
 ## 82.2 Écrire dans un fichier journal {#fiche-Ecrire_dans_un_fichier_journal}
 
@@ -122,8 +150,12 @@ Par exemple, pour afficher les message de niveau info ou supérieur (info, warn
 
 Fichier configuration.yaml
 
-logger:  
-  default: info
+
+```
+logger:
+default: info
+```
+
 
 Il faut redémarrer Home Assistant pour que cette configuration soit prise en compte.
 
@@ -143,7 +175,7 @@ Si le niveau est inférieur à critique, vous devrez cliquer sur les trois point
 
 ## Enregistrer l'état d'un capteur dans un fichier journal {#etat}
 
-Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un [apical\_lien\_interne][les\_modeles\_dans\_home\_assistant,modèle][/apical\_lien\_interne] pour inscrire la valeur du capteur.
+Peu importe dans quel journal vous choisissez d'écrire, il est possible d'utiliser un <a href="fiche-les_modeles_dans_home_assistant.md#les_modeles_dans_home_assistant">modèle</a> pour inscrire la valeur du capteur.
 
 ![Loguer valeur capteur](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SystemLogAvecValeurCapteur.png)
 
@@ -151,13 +183,21 @@ Remarquez l'utilisation de ce modèle, qui permet de retrouver l'identifiant d'e
 
 Modèle
 
+
+```
 {{ this.entity\_id }}
+```
+
 
 Cette action enregistrera ceci dans le journal :
 
 Journal
 
+
+```
 État de la lumière : on, modifié par automation.capteur\_virtuel\_agit\_sur\_recepteur\_virtuel
+```
+
 
 ## 82.3 Vérifier une automatisation en stockant une valeur dans un capteur virtuel
 

@@ -12,7 +12,7 @@ Jeedom peut être installé gratuitement sur un Raspberry Pi en version DIY. Il 
 
 Dans la version DIY, en plus des modules existants, vous pouvez programmer vos propres modules Jeedom en PHP : <https://www.jeedom.com/site/fr/dev.html>.
 
-Jeedom vous intéresse? Commencez ici : installation\_de\_jeedom\_et\_premier\_acces.
+Jeedom vous intéresse? Commencez ici : [installation\_de\_jeedom\_et\_premier\_acces](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces).
 
 ## Home Assistant
 
@@ -20,7 +20,7 @@ Home Assistant est un excellent logiciel domotique à code source ouvert qui peu
 
 Il peut tourner par-dessus le système d'exploitation de votre choix (on parlera alors de [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer)), par-desssus Raspberry Pi OS (on parlera de [Home Assistant Core](https://www.home-assistant.io/docs/installation/raspberry-pi/)) ou, selon la technique recommandée, par-dessus le système d'exploitation Home Assistant Operating System, aussi appelé HassOS ou Hass.io. Ce système d'exploitation est basé sur resinOS.
 
-Pour vous lancer avec Home Assistant, suivez le guide : installation\_de\_home\_assistant\_et\_premier\_acces.
+Pour vous lancer avec Home Assistant, suivez le guide : [installation\_de\_home\_assistant\_et\_premier\_acces](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 
 ## Autres logiciels
 
@@ -48,7 +48,7 @@ IFTTT fonctionne avec le principe d'un déclencheur (trigger), le this et d'une 
 
 ## IFTTT vs boîte domotique
 
-Dans la plupart des boîtes domotiques, par exemple Jeedom ou Home Assistant, le système de scénarios, parfois appelés automatisation, est plus puissant que IFTTT.
+Dans la plupart des boîtes domotiques, par exemple [Jeedom](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces) ou [Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces), le système de scénarios, parfois appelés automatisation, est plus puissant que IFTTT.
 
 Cependant, IFTTT n'est pas sans intérêt puisqu'il peut être utililisé par-dessus une boîte domotique via une extension ou encore de façon autonome, appuyé par une application du genre de [Smart Life](https://ifttt.com/smartlife).
 

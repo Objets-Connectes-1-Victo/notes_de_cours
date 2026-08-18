@@ -4,7 +4,7 @@
 
 Raspberry Pi OS, connu autrefois sous le nom Raspbian, peut être installé :
 
-* Avec Raspberry Pi Imager   
+* Avec [Raspberry Pi Imager](05_raspberry_pi.md#fiche-raspberry_pi_imager)   
   ou
 * À la ligne de commande
 
@@ -12,7 +12,7 @@ Les deux techniques sont équivalentes, à vous de choisir celle qui vous convie
 
 Je vous explique ici comment travailler à la ligne de commande pour installer Raspberry Pi OS, que ce soit la version avec interface graphique (with desktop) ou sans (lite).
 
-* Téléchargez Raspberry Pi OS ici : <https://www.raspberrypi.org/downloads/raspberry-pi-os/>. Prenez soin de choisir la version qui correspond à vos besoins. Généralement, si vous souhaitez utiliser le Raspberry Pi comme serveur, par exemple dans un système domotique, la version lite est préférable.
+* Téléchargez Raspberry Pi OS ici : <https://www.raspberrypi.org/downloads/raspberry-pi-os/>. Prenez soin de choisir la version qui correspond à vos besoins. Généralement, si vous souhaitez utiliser le Raspberry Pi comme serveur, par exemple [dans un système domotique](14_la_domotique.md#fiche-qu_est-ce_qu_un_systeme_domotique), la version lite est préférable.
 * Décompressez le contenu du fichier zip sur votre ordinateur. Vous obtiendrez un fichier .img.
 * Insérez la carte micro SD dans votre ordinateur.
 * Il faut maintenant copier l'image sur la carte micro SD. On dira flasher l'image sur la carte.  
@@ -26,27 +26,27 @@ Je vous explique ici comment travailler à la ligne de commande pour installer R
 
     Terminal
 
+    
+```
     diskutil unmountDisk /dev/diskN
+    sudo dd bs=1m if=chemin/2021-03-04-raspios-buster-armhf-lite.img of=/dev/rdiskN conv=sync
+```
 
-     
+    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier\_le\_chemin\_d\_un\_fichier.md#copier\_le\_chemin\_d\_un\_fichier">copier\_le\_chemin\_d\_un\_fichier</a>.
 
-    sudo dd bs=1m if=*chemin*/2021-03-04-raspios-buster-armhf-lite.img of=/dev/rdiskN conv=sync
-
-    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : copier\_le\_chemin\_d\_un\_fichier.
-
-    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.
+    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd</a>.
   + Il est également possible de flasher l'image sur la carte à l'aide d'un utilitaire graphique, par exemple [Etcher](https://www.balena.io/etcher/). Cet utilitaire peut être utilisé sous Mac, Linux ou Windows.
 
 La carte micro SD est maintenant prête à être insérée dans le Raspberry Pi. Mais avant, vous voudrez peut-être effectuer quelques configurations directement sur la carte afin d'éviter d'avoir à brancher un écran et un clavier sur le Pi , ce qui vous permettra de réaliser une installation dite headless (littéralement : sans tête).
 
 Vous pouvez donc, si vous le désirez, réaliser les configurations qui suivent AVANT d'insérer la carte dans le Pi :
 
-* Configurer le réseau sans fil
-* Activer SSH
-* Permettre l'utilisation d'un écran directement sur le Pi
-* Donner une adresse IP statique au Pi
+* [Configurer le réseau sans fil,surcarte](05_raspberry_pi.md#fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi)
+* [Activer SSH,headless](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi)
+* [Permettre l'utilisation d'un écran directement sur le Pi](137_divers_linux_et_raspberry_pi.md#fiche-permettre_l_utilisation_d_un_ecran_directement_sur_le_pi)
+* [Donner une adresse IP statique au Pi,microsddansordi](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi)
 
-Une fois les configurations désirées complétées, retirez la carte de l'ordinateur de façon sécuritaire, insérez-la dans le Pi puis démarrez ce dernier.
+Une fois les configurations désirées complétées, <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">retirez la carte de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Pi puis démarrez ce dernier.
 
 Et voilà!
 
@@ -64,7 +64,10 @@ Si vous avez inséré la carte dans votre ordinateur, vous devez d'abord vous pl
 
 Terminal
 
+```
 cd /Volumes/boot
+```
+
 
 Maintenant, vous pouvez éditer le fichier config.txt.
 
@@ -74,7 +77,11 @@ Sous Mac ou Linux, vous pouvez, si vous préférez, utiliser cette commande :
 
 Terminal
 
+
+```
 sudo nano config.txt
+```
+
 
 ## Raspberry Pi 3 et moins
 
@@ -82,8 +89,12 @@ Le Raspberry Pi 3 ne comporte qu'un seul port HDMI. Pour activer le branchement 
 
 Fichier /boot/config.txt
 
-# uncomment if hdmi display is not detected and composite is being output  
+
+```
+# uncomment if hdmi display is not detected and composite is being output
 hdmi\_force\_hotplug=1
+```
+
 
 ## Raspberry Pi 4 et plus
 
@@ -93,9 +104,13 @@ Le :0 permet de configurer le port le plus près de la prise USB-C. Si aucun por
 
 Terminal
 
-# uncomment if hdmi display is not detected and composite is being output  
-hdmi\_force\_hotplug:0=1  
+
+```
+# uncomment if hdmi display is not detected and composite is being output
+hdmi\_force\_hotplug:0=1
 hdmi\_force\_hotplug:1=1
+```
+
 
 ![Deux ports HDMI](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi4B-DeuxPortsMicroHDMI.png)
 

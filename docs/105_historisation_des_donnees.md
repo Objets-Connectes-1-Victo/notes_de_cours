@@ -10,7 +10,7 @@ Les données détaillées enregistrées par les capteurs sont stockées dans la 
 
 Par défaut, Home Assistant enregistre ces données à toutes les secondes et les conserve dans cette table pendant 10 jours.
 
-Pour modifier ces comportements (et bien d'autres), il faut éditer le fichier configurations.yaml.
+Pour modifier ces comportements (et bien d'autres), il faut [éditer le fichier configurations.yaml](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml).
 
 C'est l'[intégration Recorder](https://www.home-assistant.io/integrations/recorder/) qui est responsable de l'enregistrement des données. Les configurations modifieront donc le comportement de cette intégration.
 
@@ -18,10 +18,14 @@ Dans cet exemple, les données seront enregistrées aux 10 secondes et elles ser
 
 Fichier configurations.yaml
 
-# Modification de l'enregistrement des données  
-recorder:  
-  purge\_keep\_days: 30  
-  commit\_interval: 10
+
+```
+# Modification de l'enregistrement des données
+recorder:
+purge\_keep\_days: 30
+commit\_interval: 10
+```
+
 
 ## Historisation des données
 

@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## telecharger\_des\_plugins\_sur\_le\_market
+## [telecharger\_des\_plugins\_sur\_le\_market](32_jeedom_market.md#fiche-telecharger_des_plugins_sur_le_market)
 
 Trois étapes pour les plugins :
 
@@ -16,7 +16,7 @@ Trois étapes pour les plugins :
 * Activer le plugin.
 * Parfois, il faut créer un nouvel équipement, par exemple Météo Victoriaville.
 
-## le\_centre\_de\_messages\_de\_jeedom
+## [le\_centre\_de\_messages\_de\_jeedom](33_messages_et_mises_a_jour.md#fiche-le_centre_de_messages_de_jeedom)
 
 Carré orange : message
 
@@ -26,23 +26,23 @@ Cliquer sur le carré pour plus d'informations.
 
 ![Notifications](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Notifications.png)
 
-## travailler\_avec\_le\_plugin\_virtuel
+## [travailler\_avec\_le\_plugin\_virtuel](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel)
 
 Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pour tester des scénarios.
 
 ![Porte virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-TuilePorteVirtuelle-2.png)
 
-## creer\_un\_scenario\_provoque
+## [creer\_un\_scenario\_provoque](35_les_scenarios_jeedom.md#fiche-creer_un_scenario_provoque)
 
  Les scénarios permettent d'automatiser des comportements, par exemple ouvrir la lumière de la cuisine quand la porte s'ouvre.
 
 Un scénario provoqué survient lorsqu'une action survient. Dans cet exemple, c'est lorsque la porte s'ouvre.
 
-## creer\_un\_scenario\_programme
+## <a href="fiche-creer\_un\_scenario\_programme.md#creer\_un\_scenario\_programme">creer\_un\_scenario\_programme</a>
 
 Un scénario programmé survient à un moment donné, par exemple le 29 août 2025 à 10h00, à tous les samedis à 9h00, etc.
 
-## envoyer\_un\_courriel\_avec\_jeedom
+## [envoyer\_un\_courriel\_avec\_jeedom](36_lenvoi_de_courriel_dans_jeedom.md#fiche-envoyer_un_courriel_avec_jeedom)
 
 Il est possible qu'un scénario envoie un courriel.
 
@@ -54,11 +54,11 @@ La plupart sont gratuits mais certains sont payants, à petit prix.
 
 Le fonctionnement de base est toujours le même :
 
-* Accédez à l'interface d'administration de Jeedom.
+* Accédez à l'[interface d'administration de Jeedom,acceder](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces).
 * Rendez-vous dans le menu Plugins / Gestion des plugins.
 
   ![Menu Plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MenuPlugins.png)
-* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market ».  
+* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market) ».  
 
   ![Gestion des plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-GestionDesPlugins.png)
 * Dans la fenêtre Market, naviguez parmi les top et nouveautés ou sélectionnez une catégorie. Vous pouvez également entrez un mot-clé pour vous aider à trouver le plugin désiré.
@@ -73,7 +73,7 @@ Le fonctionnement de base est toujours le même :
 * Une fois le plugin activé et correctement configuré, vous aurez probablement une nouvelle option de menu sous Plugins.
 
   ![Nouvelle option de menu](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-NouveauMenuPlugin.png)
-* Certains plugins, par exemple la clé Z-Wave que vous trouverez sous le menu Protocole domotique ou encore le plugin Weather que vous trouverez sous le menu Météo, vous demandent de créer un nouvel équipement.
+* Certains plugins, par exemple [la clé Z-Wave](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom) que vous trouverez sous le menu Protocole domotique ou encore [le plugin Weather](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-travailler_avec_la_meteo_sous_jeedom) que vous trouverez sous le menu Météo, vous demandent de créer un nouvel équipement.
 
   C'est dans cet équipement que des informations supplémentaires devront être entrées ou que des actions devront être posées, par exemple effectuer le pairage avec des objets connectés Z-Wave ou préciser la ville pour laquelle la météo doit être donnée.
 
@@ -88,7 +88,7 @@ Message : Vous avez un trop grand nombre de systeme jeedom déclaré, veuillez e
 
 Si, comme moi, vous installez parfois des boîtes Jeedom vierges afin d'y faire des tests, vous pourrez facilement régler le problème en supprimant les boîtes Jeedom inutiles.
 
-Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom et le compte Market. La boîte demeurera fonctionnelle mais vous ne pourrez plus y ajouter de plugins à partir du Market tant qu'il n'y aura pas un nouveau compte Market associé à la boîte.
+Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom et le compte Market. La boîte demeurera fonctionnelle mais vous ne pourrez plus y ajouter de plugins à partir du Market tant qu'il n'y aura pas [un nouveau compte Market associé à la boîte](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market).
 
 * Rendez-vous sur le site Web de Jeedom Market : [https://market.jeedom.com](https://market.jeedom.com/).
 * Cliquez sur Se connecter puis entrez vos informations d'authentification.
@@ -103,7 +103,7 @@ Comprenez-moi bien : cette manipulation supprime le lien entre la boîte Jeedom
 
 Si Jeedom Market vous empêche d'installer de nouveaux plugins, c'est peut-être parce que vous avez atteint votre limite quand au nombre de boîtes Jeedom.
 
-La première chose à vérifier, c'est le nombre de boîtes Jeedom effectivement associées à ce compte Jeedom Market et de supprimer les boîtes inutiles.
+La première chose à vérifier, c'est le nombre de boîtes Jeedom effectivement associées à ce compte Jeedom Market et de [supprimer les boîtes inutiles](32_jeedom_market.md#fiche-supprimer_les_boites_jeedom_inutiles_dans_market).
 
 Dans le cas où vous désirez conserver toutes les boîtes existantes, il vous reste l'option de vous créer un nouveau compte Jeedom puis d'asocier votre boîte Jeedom excédentaire sur ce compte.
 

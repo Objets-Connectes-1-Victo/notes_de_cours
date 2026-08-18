@@ -4,7 +4,7 @@
 
 Il existe une quantité phénoménale de boîtes domotiques commerciales. Certaines offrent des fonctionnalités limitées, notamment au niveau des protocoles de communication supportés, alors que d'autres sont plus versatiles.
 
-Ces appareils sont des boîtes domotiques complètes (hub). Ils combinent donc l'unité centrale ainsi que le logiciel de domotique et la passerelle.
+Ces appareils sont des boîtes domotiques complètes (hub). Ils combinent donc [l'unité centrale ainsi que le logiciel de domotique et la passerelle](14_la_domotique.md#fiche-qu_est-ce_qu_un_systeme_domotique).
 
 Remarquez que je n'ai pas testé toutes ces boîtes domotiques. Je vous fais simplement un résumé d'informations trouvées au fil de mes recherches.
 
@@ -24,7 +24,7 @@ Toute petite boîte domotique qui se branche directement dans une prise de coura
 
 ## Hubitat Elevation
 
-Cet appareil est très versatile au niveau des protocoles de communication : Zigbee, Z-Wave et Wi-Fi. Supporte IFTTT. Son interface est complexe mais offre plus de possibilités.
+Cet appareil est très versatile au niveau des protocoles de communication : Zigbee, Z-Wave et Wi-Fi. Supporte [IFTTT](16_le_logiciel_de_domotique.md#fiche-ifttt). Son interface est complexe mais offre plus de possibilités.
 
 ## Wink
 
@@ -38,7 +38,7 @@ Même si leurs fonctionnalités sont limitées, les assistants vocaux d'Amazon, 
 
 Amazon a sorti toute une gamme d'appareils Echo contrôlés par la voix à l'aide de l'assistant personnel Alexa : Echo Dot, Echo Show, Echo Plus, Echo Studio, etc.
 
-Un appareil Echo peut contrôler certains appareils connectés via Bluetooth ou Wi-Fi. Mais pour contrôler un appareil qui utilise le protocole Z-Wave, il faudra connecter votre Echo à une autre boîte domotique compatible.
+Un appareil Echo peut contrôler certains appareils connectés via Bluetooth ou Wi-Fi. Mais pour contrôler un appareil qui utilise le protocole [Z-Wave](22_la_passerelle_domotique_et_les_protocoles_de_communication.md#fiche-le_protocole_z-wave), il faudra connecter votre Echo à une autre boîte domotique compatible.
 
 Si vous possédez un Echo Plus ou un Echo Show, vous avez probablement accès au protocole Zigbee (sur certaines versions). Malheureusement, Z-Wave n'est toujours pas supporté.
 
@@ -104,9 +104,9 @@ Attention : si vous achetez ou imprimez un boîtier, prenez soin de choisir un m
 
 ## Système d'exploitation
 
-Selon le logiciel de domotique choisi, vous pourriez avoir à installer le système d'exploitation Raspberry Pi OS (la version Lite, sans interface graphique, est généralement suffisante) puis y ajouter le logiciel de domotique. C'est le cas par exemple avec Jeedom et avec Domoticz.
+Selon le logiciel de domotique choisi, vous pourriez avoir à installer le système d'exploitation Raspberry Pi OS (la version Lite, sans interface graphique, est généralement suffisante) puis y ajouter le logiciel de domotique. C'est le cas par exemple avec [Jeedom](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces) et avec <a href="fiche-installation_de_domoticz.md#installation_de_domoticz">Domoticz</a>.
 
-D'autres logiciels de domotique tournent sur un système d'exploitation créé spécifiquement pour eux. C'est le cas notamment avec Home Assistant.
+D'autres logiciels de domotique tournent sur un système d'exploitation créé spécifiquement pour eux. C'est le cas notamment avec [Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 
 Notez que, selon les choix que vous ferez, vous pourriez avoir besoin d'un **écran**, d'un **clavier** pour effectuer l'installation.
 
@@ -130,7 +130,7 @@ Il pourrait arriver que le Pi chauffe. Assurez-vous que des dissipateurs thermiq
 
 Il est intéressant d'ajouter un ventilateur si le boîtier le permet.
 
-Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V (broche physique no 1) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
+Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V ([broche physique no 1,pinout](52_gpio.md#fiche-qu_est-ce_que_le_gpio)) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
 
 Notez que pour que le ventilateur tourne plus vite, il suffit de brancher le fil rouge sur une broche 5V (broche no 2 ou 4).
 
@@ -168,7 +168,7 @@ Lorsque vous effectuez des branchements au GPIO, assurez-vous que le Pi ne soit 
 
 ## Arrêt du système d'exploitation
 
-Assurez-vous d'éteindre le système de façon sécuritaire avant de débrancher le Raspberry Pi.
+Assurez-vous d'[éteindre le système de façon sécuritaire](04_linux.md#fiche-Eteindre_un_systeme_linux_de_facon_securitaire) avant de débrancher le Raspberry Pi.
 
 ![sudo halt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-SudoHalt.png)
 

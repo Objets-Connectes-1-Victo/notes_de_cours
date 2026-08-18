@@ -8,15 +8,15 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## la\_detection\_de\_presence
+## [la\_detection\_de\_presence](60_detecteur_de_presence_sous_jeedom.md#fiche-la_detection_de_presence)
 
 Permet de savoir si une personne en particulier est à la maison ou pas.
 
-On peut travailler avec le plugin Networks : détectera la présence d'un téléphone via Wi-Fi.
+On peut [travailler avec le plugin Networks](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_networks) : détectera la présence d'un téléphone via Wi-Fi.
 
-On peut travailler avec le plugin Détection de téléphone : détectera la présence d'un téléphone via Bluetooth.
+On peut [travailler avec le plugin Détection de téléphone](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_detection_de_telephone) : détectera la présence d'un téléphone via Bluetooth.
 
-Si on n'a pas de téléphone, on peut utiliser un localisateur d'objets (Ex : Tile, Cube, Nut) et travailler avec plugin BLEA.
+Si on n'a pas de téléphone, on peut utiliser un localisateur d'objets (Ex : Tile, Cube, Nut) et travailler avec [plugin BLEA](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_bluetooth_advertisement_blea).
 
 Dans tous les cas, les scénarios seront plus faciles à réaliser si le déclencheur est le téléphone réel OU une présence virtuelle.
 
@@ -32,14 +32,14 @@ Et plusieurs plugins Jeedom pour y arriver.
 
 Dans le cas où l'une des personnes pour qui vous désirez détecter la présence ne possède pas de téléphone, il est possible de travailler avec un localisateur d'objets (tracker), par exemple un Tile (<https://www.thetileapp.com/en-us/store/tiles/sticker>) un Cube (<https://cubetracker.com/collections/all>) ou un Nut (<https://www.nutfind.com/collections/all>).
 
-À ce moment, vous devrez utiliser le plugin Bluetooth Advertisement (BLEA).
+À ce moment, vous devrez utiliser [le plugin Bluetooth Advertisement (BLEA)](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_bluetooth_advertisement_blea).
 
 Mais concentrons-nous pour l'instant sur l'utilisation du téléphone cellulaire.
 
 Dans les fiches qui suivent, je vous montre comment :
 
-* Détecter la présence d'un téléphone via le Wi-Fi à l'aide du plugin Networks
-* Détecter la présence d'un téléphone via Bluetooth à l'aide du plugin Détection de téléphone
+* Détecter la présence d'un téléphone via le Wi-Fi [à l'aide du plugin Networks](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_networks)
+* Détecter la présence d'un téléphone via Bluetooth [à l'aide du plugin Détection de téléphone](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_detection_de_telephone)
 
 ## 54.3 Travailler avec le plugin Networks {#fiche-travailler_avec_le_plugin_networks}
 
@@ -100,7 +100,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
 * Demander à quelqu'un de s'en aller avec son cellulaire et de revenir des dizaines de fois pendant que vous faites vos tests (ouf!).
 * Désactiver le Wi-Fi de votre téléphonee pour simuler votre départ. Jeedom vous marquera comme absent après quelques minutes (un peu long mais fonctionnel).
-* Ajouter un détecteur de présence virtuel et utiliser deux déclencheurs dans vos scénarios. L'action sera réalisée si la présence réelle change OU si la présence virtuelle change.
+* Ajouter un détecteur de présence [virtuel](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel) et utiliser deux déclencheurs dans vos scénarios. L'action sera réalisée si la présence réelle change OU si la présence virtuelle change.
 
   ![Scénario avec deux déclencheurs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-VirtuelPourSimulerDetecteurPresence.png)
 
@@ -110,7 +110,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
 Le plugin Détection de téléphone permet de réagir lorsqu'une personne – ou plutôt son téléphone – entre ou sort de la maison.
 
-Son fonctionnement est semblable à celui du plugin Networks sauf qu'il travaille en Bluetooth plutôt qu'en Wi-Fi.
+Son fonctionnement est semblable à celui du [plugin Networks](60_detecteur_de_presence_sous_jeedom.md#fiche-travailler_avec_le_plugin_networks) sauf qu'il travaille en Bluetooth plutôt qu'en Wi-Fi.
 
 À vous de voir celui que vous préférez.
 
@@ -126,7 +126,7 @@ Cliquez sur le plugin Détection de téléphone (Bluetooth) - par sebmafate.
 
 ## Configuration du Bluetooth sur le Pi
 
-Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le Bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite. Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
+Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le Bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
 
 ## Configuration du plugin
 
@@ -136,7 +136,7 @@ D'abord, activez le plugin en cliquant sur le bouton Activer dans la zone État.
 
 Dans la zone Dépendances, assurez-vous que toutes les dépendances sont installées. Si vous voyez le statut NOK, cliquez sur Relancer pour régler le problème.
 
-Dans la zone Configuration, si le Bluetooth a été correctement activé sur le Pi, la zone Contrôleur Bluetooth devrait vous offrir une adresse MAC dans la liste déroulante. Sélectionnez cette adresse puis cliquez sur Sauvegarder.
+Dans la zone Configuration, si [le Bluetooth a été correctement activé sur le Pi](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite), la zone Contrôleur Bluetooth devrait vous offrir une adresse MAC dans la liste déroulante. Sélectionnez cette adresse puis cliquez sur Sauvegarder.
 
 ![Contrôleur Bluetooth](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Plugins-DetectionDeTelephone-ControleurBluetooth.png)
 
@@ -175,10 +175,12 @@ Parfois, il faut mettre quelques efforts supplémentaires pour que le téléphon
 
   Terminal
 
-  sudo systemctl start bluetooth  
-  sudo service bluetooth status  
-  sudo systemctl start hciuart  
+```
+  sudo systemctl start bluetooth
+  sudo service bluetooth status
+  sudo systemctl start hciuart
   systemctl status hciuart
+```
 * Consultez le fichier journal phone\_detection.
 * Redémarrez le démon en cliquant sur (re)Démarrer dasn la fenêtre de configuration du plugin Détection de téléphone.
 * Patientez... parfois, le plugin peut mettre quelques minutes avant de réagir puisque s'il vérifie plus souvent, cela demandera trop de ressources au système.
@@ -191,7 +193,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
 * Demander à quelqu'un de s'en aller avec son cellulaire et de revenir des dizaines de fois pendant que vous faites vos tests (ouf!).
 * Désactiver le bluetooth de votre téléphonee pour simuler votre départ. Jeedom vous marquera comme absent après quelques minutes (un peu long mais fonctionnel).
-* Ajouter un détecteur de présence virtuel et utiliser deux déclencheurs dans vos scénarios. L'action sera réalisée si la présence réelle change OU si la présence virtuelle change.
+* Ajouter un détecteur de présence [virtuel](34_les_equipements_virtuels_dans_jeedom.md#fiche-travailler_avec_le_plugin_virtuel) et utiliser deux déclencheurs dans vos scénarios. L'action sera réalisée si la présence réelle change OU si la présence virtuelle change.
 
   ![Scénario avec deux déclencheurs](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ScenarioAvecDeuxDeclencheurs.png)
 
@@ -229,7 +231,7 @@ Cliquez sur le plugin Bluetooth Advertisement - officiel par Jeedom SAS.
 
 ## Configuration du bluetooth sur le Pi
 
-Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite. Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
+Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
 
 ## Configuration du plugin
 

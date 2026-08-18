@@ -4,11 +4,11 @@
 
 Jeedom est offert en version DIY, que vous pouvez installer directement sur un Raspberry Pi ou sur un autre ordinateur de votre choix. Il est également possible d'acheter une boîte domotique commerciale avec Jeedom préinstallé.
 
-C'est la solution DIY qui nous intéresse ici, avec un Raspberry Pi comme unité centrale.
+C'est la solution DIY qui nous intéresse ici, avec un [Raspberry Pi comme unité centrale](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale).
 
 Nous allons voir ici comment effectuer l'installation de Jeedom.
 
-Note : si vous n'avez pas accès à un écran et à un clavier pour le Raspberry Pi, il est possible d'effectuer une installation dite headless : « installation\_de\_jeedom\_sans\_clavier\_ni\_ecran ».
+Note : si vous n'avez pas accès à un écran et à un clavier pour le Raspberry Pi, il est possible d'effectuer une installation dite headless : « [installation\_de\_jeedom\_sans\_clavier\_ni\_ecran](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_sans_clavier_ni_ecran) ».
 
 Les instructions présentées ici requièrent l'utilisation d'un clavier et d'un écran.
 
@@ -16,13 +16,13 @@ Les instructions présentées ici requièrent l'utilisation d'un clavier et d'un
 
 ## Préparer le Raspberry Pi
 
-Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : un\_raspberry\_pi\_comme\_unite\_centrale.
+Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : [un\_raspberry\_pi\_comme\_unite\_centrale](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale).
 
 ## Installer Raspberry Pi OS Lite
 
 Vous êtres maintenant prêts à installer le système d'exploitation. Ici, on voudra travailler avec Raspberry Pi OS Lite.
 
-Suivez les instructions sur cette fiche : raspberry\_pi\_imager.
+Suivez les instructions sur cette fiche : [raspberry\_pi\_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
 
 ## Démarrer le Raspberry Pi {#demarrer}
 
@@ -38,7 +38,7 @@ Si vous n'avez pas modifié ces informations avec Raspberry Pi Imager, le code d
 
 ## Modifier le mot de passe
 
-Puisque vous avez activé SSH, vous devrez changer le mot de passe du Raspberry Pi afin de ne pas ouvrir un trou de sécurité.
+Puisque vous avez activé SSH, vous devrez changer le mot de passe du Raspberry Pi [afin de ne pas ouvrir un trou de sécurité,motdepasse](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi).
 
 Ceci est requis seulement si vous ne l'avez pas déjà fait dans Raspberry Pi Imager.
 
@@ -46,7 +46,11 @@ Le mot de passe peut être modifié à partir du terminal à l'aide de cette com
 
 Terminal du Raspberry Pi
 
+
+```
 passwd
+```
+
 
 ## Vérifier l'accès réseau
 
@@ -54,22 +58,30 @@ Assurez-vous que vous avez accès à Internet :
 
 Terminal du Raspberry Pi
 
+
+```
 ping 8.8.8.8
+```
+
 
 Pour arrêter l'affichage, appuyez sur Ctrl + C.
 
 Si vous obtenez un message du genre « Network in unreachable », vous devez vous assurer que le Pi a accès à un réseau :
 
 * soit il est branché à l'aide d'un câble RJ-45 (aucune configuration requise)
-* soit il est correctement configuré pour accéder au réseau sans fil
+* soit il est [correctement configuré pour accéder au réseau sans fil,networkmanager](05_raspberry_pi.md#fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi)
 
 Vérifiez ensuite s'il a accès à un serveur DNS :
 
 Terminal du Raspberry Pi
 
-ping google.com
 
-Si cela ne fonctionne pas (message du genre « Temporary failure in name resolution »), c'est que les serveurs DNS n'ont pas été correctement entrés lors de laconfiguration du réseau sans fil.
+```
+ping google.com
+```
+
+
+Si cela ne fonctionne pas (message du genre « Temporary failure in name resolution »), c'est que les serveurs DNS n'ont pas été correctement entrés lors de la[configuration du réseau sans fil,networkmanager](05_raspberry_pi.md#fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi).
 
 ## Ajuster l'heure
 
@@ -83,13 +95,21 @@ Pour vérifier la date du système :
 
 Terminal du Raspberry Pi
 
+
+```
 timedatectl
+```
+
 
 Pour ajuster la date et l'heure :
 
 Terminal du Raspberry Pi
 
+
+```
 sudo timedatectl set-time 'AAAA-MM-JJ HH:mm:ss'
+```
+
 
 ## Mettre à jour le système
 
@@ -99,14 +119,18 @@ Entez ces commandes afin de mettre à jour la liste de paquets puis de procéder
 
 Terminal du Raspberry Pi
 
-sudo apt update  
+
+```
+sudo apt update
 sudo apt upgrade
+```
+
 
 ## Donner une adresse IP statique au Pi
 
 Ceci n'est pas obligatoire mais c'est généralement recommandé pour un système domotique.
 
-Suivez les instructions données ici.
+[Suivez les instructions données ici](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi).
 
 ## Installer Jeedom
 
@@ -114,14 +138,18 @@ L'installation de Jeedom se fait à l'aide d'une instruction en ligne de command
 
 Terminal du Raspberry Pi
 
+
+```
 wget -O- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh | sudo bash
+```
+
 
 Patientez, l'installation peut prendre facilement de 15 à 30 minutes, selon la vitesse de votre réseau.
 
 Si vous obtenez une erreur du genre « Package ntp is not available », c'est qu'il y a une incompatibilité entre Jeedom et la version de Raspberry Pi OS installée. Vous pouvez installer une ancienne version du système d'exploitation à l'aide de l'une de ces techniques :
 
 * à partir de Raspberry Pi Imager : Raspberry Pi OS (other) / Raspberry Pi OS (Legacy, 64 bits) Lite
-* en faisant une installation manuelle à partir d'une image trouvée parmi la liste des anciennes versions : <https://downloads.raspberrypi.org/raspbian_lite/images/>. Relancez ensuite la commande wget.
+* en faisant une [installation manuelle](137_divers_linux_et_raspberry_pi.md#fiche-installation_de_raspberry_pi_os) à partir d'une image trouvée parmi la liste des anciennes versions : <https://downloads.raspberrypi.org/raspbian_lite/images/>. Relancez ensuite la commande wget.
 
   Au moment d'écrire ces lignes en novembre 2025, Jeedom s'installait correctement sur Raspberry Pi OS 12 (Bookworm), sorti en juin 2023, mais pas sur la version 13 (Trixie), sortie en août 2025.
 
@@ -131,21 +159,29 @@ Si le processus d'installation vous pose des questions, vous pouvez accepter ce 
 
 Résultat à l'écran
 
-==================================================  
-| TOUTES LES VERIFICATIONS SONT FAITES |  
-==================================================  
-\033[1;32métape 12 vérification de jeedom réussie\033[0;39m  
+
+```
+==================================================
+| TOUTES LES VERIFICATIONS SONT FAITES |
+==================================================
+\033[1;32métape 12 vérification de jeedom réussie\033[0;39m
 Installation finie. Un redémarrage devrait être effectué
+```
+
 
 Redémarrez ensuite votre Pi :
 
 Terminal du Raspberry Pi
 
+
+```
 reboot
+```
+
 
 ## Accéder à Jeedom
 
-Voilà, vous pouvez désormais accéder à Jeedom à partir de votre navigateur!
+Voilà, vous pouvez désormais [accéder à Jeedom](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-acceder_a_jeedom) à partir de votre navigateur!
 
 ## Pour plus d'information
 
@@ -159,7 +195,7 @@ Si vous n'avez pas accès à un clavier et à un écran pour votre Raspberry Pi,
 
 La première étape consiste à installer le système d'exploitation. Ici, on voudra travailler avec Raspberry Pi OS Lite.
 
-Suivez les instructions sur cette fiche : raspberry\_pi\_imager.
+Suivez les instructions sur cette fiche : [raspberry\_pi\_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
 
 Important : prenez le temps de modifier les réglages en cliquant sur le bouton approprié lorsqu'il apparaît.
 
@@ -188,11 +224,15 @@ Par exemple :
 
 Fichier cmdline.txt
 
+
+```
 console=... ip=192.168.1.145::192.168.1.1:255.255.255.0:raspberrypi:eth0:off
+```
+
 
 Enregistrez le fichier, le Raspberry Pi saura lire son contenu lors du démarrage.
 
-Note : puisque cette technique ralentit le processus de démarrage, une fois que vous aurez réussi à vous brancher au Raspberry Pi via SSH, je vous suggère d'effectuer la configuration de l'adresse IP statique à l'aide d'une autre technique puis de supprimer cette configuration du fichier cmdline.txt.
+Note : puisque cette technique ralentit le processus de démarrage, une fois que vous aurez réussi à vous brancher au Raspberry Pi via SSH, je vous suggère d'effectuer la configuration de l'adresse IP statique [à l'aide d'une autre technique](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi) puis de supprimer cette configuration du fichier cmdline.txt.
 
 ## Démarrer le Raspberry Pi
 
@@ -210,7 +250,11 @@ Le client SSH vous permet de vous connecter au Pi à l'aide d'une commande entr�
 
 Terminal (sur l'ordinateur)
 
+
+```
 ssh pi@192.168.1.145
+```
+
 
 ## Ajuster l'heure
 
@@ -224,13 +268,21 @@ Pour vérifier la date du système :
 
 Console SSH
 
+
+```
 timedatectl
+```
+
 
 Pour ajuster la date et l'heure :
 
 Console SSH
 
+
+```
 sudo timedatectl set-time 'AAAA-MM-JJ HH:mm:ss'
+```
+
 
 ## Mettre à jour le système
 
@@ -240,20 +292,32 @@ D'abord, assurez-vous que vous avez accès à Internet :
 
 Console SSH
 
+
+```
 ping 8.8.8.8
+```
+
 
 et à un serveur DNS :
 
 Console SSH
 
+
+```
 ping google.com
+```
+
 
 Maintenant, entez ces commandes afin de mettre à jour la liste de paquets puis de procéder à la mise à jour du système :
 
 Console SSH
 
-sudo apt update  
+
+```
+sudo apt update
 sudo apt upgrade
+```
+
 
 ## Installer Jeedom
 
@@ -261,7 +325,11 @@ L'installation de Jeedom se fait à l'aide d'une instruction en ligne de command
 
 Console SSH
 
+
+```
 wget -O- https://raw.githubusercontent.com/jeedom/core/master/install/install.sh | sudo bash
+```
+
 
 Patientez, l'installation peut prendre facilement de 15 à 30 minutes, selon la vitesse de votre réseau.
 
@@ -271,25 +339,33 @@ Si le processus d'installation vous pose des questions, vous pouvez accepter ce 
 
 Résultat à l'écran
 
-==================================================  
-| TOUTES LES VERIFICATIONS SONT FAITES |  
-==================================================  
-\033[1;32métape 12 vérification de jeedom réussie\033[0;39m  
+
+```
+==================================================
+| TOUTES LES VERIFICATIONS SONT FAITES |
+==================================================
+\033[1;32métape 12 vérification de jeedom réussie\033[0;39m
 Installation finie. Un redémarrage devrait être effectué
+```
+
 
 Redémarrez ensuite votre Pi :
 
 Console SSH
 
+
+```
 sudo reboot
+```
+
 
 ## Accéder à Jeedom
 
-Voilà, vous pouvez désormais accéder à Jeedom à partir de votre navigateur!
+Voilà, vous pouvez désormais [accéder à Jeedom](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-acceder_a_jeedom) à partir de votre navigateur!
 
 ## 15.3 Accéder à Jeedom {#fiche-acceder_a_jeedom}
 
-Une fois que Jeedom a été installé, vous êtes prêts à commencer à explorer votre nouveau joujou!
+Une fois que [Jeedom a été installé](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces), vous êtes prêts à commencer à explorer votre nouveau joujou!
 
 ## Vérifier si Jeedom est installé
 
@@ -297,13 +373,17 @@ Mais tout d'abord, si vous ne venez pas tout juste d'installer Jeedom sur votre 
 
 Terminal du Raspberry Pi
 
+
+```
 find / -name jeedom 2> /dev/null
+```
+
 
 Vous devriez obtenir quelques fichiers, par exemple /var/lib/mysql/jeedom et /etc/cron.d/jeedom.
 
 ## Lancer Jeedom
 
-Ouvrez un navigateur sur un ordinateur connecté au même réseau que le Pi et entrez-y l'adresse IP du Pi.
+Ouvrez un navigateur sur un ordinateur connecté au même réseau que le Pi et entrez-y l'[adresse IP du Pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi).
 
 Vous accéderez ainsi à l'interface de Jeedom.
 
@@ -313,4 +393,4 @@ La première fois que vous vous branchez, vous devez utiliser le code d'usager a
 
 Jeedom vous demandera ensuite de vous créer un compte sur Jeedom Market. Rassurez-vous, vous n'aurez rien à acheter pour effectuer la majorité des tâches domotiques.
 
-Voilà, vous pouvez maintenant commencer à configurer votre boîte domotique!
+Voilà, vous pouvez maintenant commencer à [configurer votre boîte domotique](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom)!

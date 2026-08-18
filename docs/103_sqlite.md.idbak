@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## [apical\_lien\_interne]Qu\_est-ce\_que\_SQLite[/apical\_lien\_interne]
+## <a href="fiche-Qu\_est-ce\_que\_SQLite.md#Qu\_est-ce\_que\_SQLite">Qu\_est-ce\_que\_SQLite</a>
 
 SQLite est un SGBD relationnel léger conçu spécifiquement pour le stockage local de données. Il ne nécessite pas l'installation d'un serveur de base de données.
 
@@ -18,13 +18,17 @@ Une base de données est constituée d'un simple fichier stocké localement. Il 
 
 SQLite est installé nativement sur macOS. Sous Windows, il faut procéder à son installation.
 
-## [apical\_lien\_interne]La\_ligne\_de\_commande\_SQLite[/apical\_lien\_interne]
+## <a href="fiche-La\_ligne\_de\_commande\_SQLite.md#La\_ligne\_de\_commande\_SQLite">La\_ligne\_de\_commande\_SQLite</a>
 
 Pour lancer la ligne de commande SQLite :
 
 Terminal
 
+
+```
 sqlite3
+```
+
 
 Il est désormais possible d'entrer des commandes à l'invite sqlite>.
 
@@ -32,13 +36,21 @@ Pour se brancher à une base de données :
 
 Terminal
 
-sqlite3 \chemin\mabd.db
+
+```
+sqlite3 \chemin\mabd.db
+```
+
 
 On peut ensuite entrer la plupart des requêtes SQL habituelles.
 
 Ligne de commande SQLite
 
+
+```sql
 SELECT id, nomfamille, prenom FROM etudiants WHERE naissance < date('2002-10-01');
+```
+
 
 La ligne de commande SQLite offre quelques fonctionnalités spécifiques avec des commandes qui débutent par un point.
 
@@ -46,15 +58,23 @@ Par exemple, pour lister les tables de la base de données active :
 
 Ligne de commande SQLite
 
+
+```sql
 .tables
+```
+
 
 Pour sortir de la ligne de commande SQLite :
 
 Ligne de commande SQLite
 
-.exit
 
-## [apical\_lien\_interne]contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant[/apical\_lien\_interne]
+```sql
+.exit
+```
+
+
+## <a href="fiche-contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant.md#contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant">contenu\_de\_la\_base\_de\_donnees\_de\_home\_assistant</a>
 
 Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
 
@@ -138,7 +158,7 @@ Si la base de données est utilisée par une application native, son fichier ser
 
 ## 92.3 Installation de SQLite {#fiche-Installation_de_SQLite}
 
-Pour travailler avec une base de données [apical\_lien\_interne][Qu\_est-ce\_que\_SQLite,SQLite][/apical\_lien\_interne], il n'y a aucun serveur à installer. Tout se déroule localement.
+Pour travailler avec une base de données <a href="fiche-Qu_est-ce_que_SQLite.md#Qu_est-ce_que_SQLite">SQLite</a>, il n'y a aucun serveur à installer. Tout se déroule localement.
 
 Il faut par contre que le service et les outils pour SQLite soient installés afin que le système d'exploitation sache comment interagir avec une base de données SQLite.
 
@@ -153,7 +173,10 @@ Pour le vérifier :
 
     Terminal
 
+    
+```
     sqlite3
+```
 
     Vous obtiendrez l'invite SQLite.
 
@@ -161,21 +184,25 @@ Pour le vérifier :
 
     Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-    Pour travailler avec une vraie base de données, il faudra soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,créer une nouvelle base de données,nouvelle][/apical\_lien\_interne], soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,ouvrir une base de données existante,existante][/apical\_lien\_interne].
+    Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">créer une nouvelle base de données,nouvelle</a>, soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">ouvrir une base de données existante,existante</a>.
 
     Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
 
   Ligne de commande SQLite
 
+```sql
   .database
+```
 
   SQLite devrait répondre qu'il est présentement branché sur une base de données nommée main (il s'agit de la base de données en mémoire vive).
 * Pour sortir de SQLite, entrez la commande suivante :
 
   Ligne de commande SQLite
 
+```sql
   .exit
+```
 
 ## Installation sous Windows
 
@@ -197,21 +224,25 @@ Pour installer SQLite sous Windows :
 
   Notez que le message « Connected to a transient in-memory database » indique qu'aucune base de données n'est ouverte alors les opérations seront effectuées en mémoire vive et seront perdues lors de la fermeture de la ligne de commande.
 
-  Pour travailler avec une vraie base de données, il faudra soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,créer une nouvelle base de données,nouvelle][/apical\_lien\_interne], soit [apical\_lien\_interne][La\_ligne\_de\_commande\_SQLite,ouvrir une base de données existante,existante][/apical\_lien\_interne].
+  Pour travailler avec une vraie base de données, il faudra soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">créer une nouvelle base de données,nouvelle</a>, soit <a href="fiche-La_ligne_de_commande_SQLite.md#La_ligne_de_commande_SQLite">ouvrir une base de données existante,existante</a>.
 
   Mais pour l'instant, nous pouvons travailler en mémoire vive pour effectuer ces vérifications.
 * Pour voir si SQLite fonctionne, entrez la commande suivante :
 
   Ligne de commande SQLite
 
+```sql
   .database
+```
 
   SQLite devrait répondre qu'il est présentement branché sur une base de données nommée main (il s'agit de la base de données en mémoire vive).
 * Pour sortir de SQLite, entrez la commande suivante :
 
   Ligne de commande SQLite
 
+```sql
   .exit
+```
 
 ## Pour plus d'information
 
@@ -221,7 +252,7 @@ Pour installer SQLite sous Windows :
 
 La ligne de commande SQLite est l'endroit où vous pouvez entrer les requêtes SQL pour effectuer les opérations CRUD sur vos données.
 
-Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord [apical\_lien\_interne][Installation\_de\_SQLite,installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH][/apical\_lien\_interne]).
+Pour lancer la ligne de commande SQLite sous Windows, vous devez d'abord <a href="fiche-Installation_de_SQLite.md#Installation_de_SQLite">installer SQLite sur votre poste de travail et faire en sorte que son dossier fasse partie du PATH</a>).
 
 Sous macOS et sous Linux, tout est disponible dès le départ.
 
@@ -230,7 +261,9 @@ Sous macOS et sous Linux, tout est disponible dès le départ.
 
   Terminal
 
+```
   sqlite3
+```
 * Vous obtiendrez l'invite sqlite>, qui vous invite à entrer vos commandes.
 
   ![Ligne de commande SQLite sous Mac](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SQLite-LigneDeCommandeSousMac-TransientInMemoryDatabase(1).png)
@@ -246,35 +279,27 @@ Voici comment combiner ces deux types de commandes afin de vérifier la liste de
 
 Ligne de commande SQLite
 
+```sql
 .tables
-
- 
-
 SELECT \* FROM etudiants;
+```
+
 
 Résultat à l'écran
 
-sqlite> .tables  
-etablissements  etudiants  
+
+```
+sqlite> .tables
+etablissements etudiants
 sqlite> SELECT \* FROM etudiants;
-
- 
-
-1|Desmarais|Louis|1178793  
-2|Bourgeois|Philippe|1161295  
+1|Desmarais|Louis|1178793
+2|Bourgeois|Philippe|1161295
 3|Meloche|Ariane|1182286
-
- 
-
 4|Gaumond|Mathieu|1121543
-
- 
-
 5|Rousseau|Isabelle|1119872
-
- 
-
 sqlite>
+```
+
 
 ## Créer une nouvelle base de données {#nouvelle}
 
@@ -293,7 +318,11 @@ La base de données sera créée si elle n'existe pas. Sinon, elle sera ouverte.
 
 Terminal
 
+
+```
 sqlite3 mabd.db
+```
+
 
 À tout moment, la commande .database lancée à l'invite de commande affichera le nom de la base de données sur laquelle les opérations sont appliquées.
 
@@ -303,7 +332,11 @@ Attention : la base de données sera créée dans le dossier courant (celui aff
 
 Terminal
 
-sqlite3 \Users\votrenom\Documents\mabd.db
+
+```
+sqlite3 \Users\votrenom\Documents\mabd.db
+```
+
 
 ### Travail dans la base de données temporaire
 
@@ -311,23 +344,15 @@ Il est également possible de travailler dans la base de données temporaire pui
 
 Ligne de commande SQLite
 
+
+```sql
 CREATE TABLE IF NOT EXISTS categories (
-
- 
-
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-
- 
-
 nom TEXT
-
- 
-
 );
-
- 
-
 .save mabd.db
+```
+
 
 ![Création d'une table dans la BD temporaire puis enregistrment](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SQLite-LigneDeCommande-CreerTableDansNouvelleBD.png)
 
@@ -335,7 +360,11 @@ Ici encore, si vous désirez enregistrer le fichier ailleurs que dans le dossier
 
 Ligne de commande SQLite
 
+
+```sql
 .save /Users/votrenom/Documents/mabd.db
+```
+
 
 ## Se brancher à une base de données {#existante}
 
@@ -350,13 +379,21 @@ L'ajout du nom de la base de données à la suite de la commande sqlite3 permet 
 
 Terminal
 
+
+```sql
 sqlite3 mabd.db
+```
+
 
 Si la base de données existait, elle sera ouverte. Sinon, elle sera créée. La commande .tables permettra de vérifier si la BD est vide ou non (si elle contient des tables ou non).
 
 Ligne de commande SQLite
 
+
+```sql
 .tables
+```
+
 
 ### Ouverture d'une base de données après coup
 
@@ -364,13 +401,21 @@ Si vous n'avez pas spécifié le nom de la base de données dès le lancement de
 
 Ligne de commande SQLite
 
+
+```sql
 .open mabd.db
+```
+
 
 Encore ici, si le fichier n'est pas dans le dossier courant, il faudra spécifier son chemin.
 
 Ligne de commande SQLite
 
+
+```sql
 .open /Users/votrenom/Documents/mabd.db
+```
+
 
 ## Quitter la ligne de commande
 
@@ -378,7 +423,11 @@ Après une séance de travail, il est important de quitter correctement la ligne
 
 Ligne de commande SQLite
 
+
+```sql
 .exit
+```
+
 
 ## Pour plus d'information
 
@@ -439,7 +488,11 @@ Lorsque ce standard est établi, il est possible d'utiliser une date dans une re
 
 SQLite
 
+
+```sql
 SELECT id, nomfamille, prenom FROM etudiants WHERE naissance < date('2002-10-01');
+```
+
 
 ## Fonctions SQLite pour manipuler les dates
 
@@ -471,31 +524,51 @@ Notez que sous Windows, pour créer un fichier dont le nom débute avec un point
 
 Ligne de commande SQLite
 
+
+```
 .tables
+```
+
 
 SQLite
 
+
+```sql
 SELECT name FROM sqlite\_master WHERE type='table';
+```
+
 
 ## Nettoyer la fenêtre de commande SQLite
 
 Ligne de commande SQLite
 
+
+```
 .shell cls
+```
+
 
 ## Formater l'affichage des données à la ligne de commande SQLite
 
 Ligne de commande SQLite
 
-.mode column  
-.headers on  
-SELECT \* FROM *nomtable*;
+
+```
+.mode column
+.headers on
+SELECT \* FROM nomtable;
+```
+
 
 Il est possible de changer .mode column par :
 
 Ligne de commande SQLite
 
+
+```sql
 .mode box
+```
+
 
 Cette fois, les données apparaîtront dans un tableau.
 
@@ -503,8 +576,12 @@ Ces configurations sont très utiles alors il est intéressant de les ajouter a
 
 Fichier .sqliterc
 
-.mode column  
+
+```
+.mode column
 .headers on
+```
+
 
 ## Ajuster la largeur de l'affichage des colonnes à la ligne de commande SQLite
 
@@ -520,13 +597,21 @@ La commande .witdh prendra la forme suivante :
 
 Syntaxe MySQL
 
-.width *largeurcolonne1*, *largeurcolonne2*, *largeurcolonne3*, *largeurcolonne4*
+
+```sql
+.width largeurcolonne1, largeurcolonne2, largeurcolonne3, largeurcolonne4
+```
+
 
 Une valeur de 0 indique que la largeur doit répondre aux règles ci-haut mentionnées.
 
 Ligne de commande SQLite
 
+
+```
 .width 0, 20
+```
+
 
 Cette commande laissera la première colonne à sa valeur par défaut et ajustera la seconde à 20 caractères. Les colonnes suivantes conserveront leur largeur actuelle.
 
@@ -534,14 +619,25 @@ Cette commande laissera la première colonne à sa valeur par défaut et ajuster
 
 Ligne de commande SQLite
 
-.schema *nomtable*
+
+```
+.schema nomtable
+```
+
 
 SQLite
 
-SELECT sql FROM sqlite\_master WHERE type = 'table' AND tbl\_name = '*nomtable*';
+
+```sql
+SELECT sql FROM sqlite\_master WHERE type = 'table' AND tbl\_name = 'nomtable';
+```
+
 
 ## Afficher les requêtes qui permettent de recréer la table et d'y insérer les données
 
 Ligne de commande SQLite
 
-.dump *nomtable*
+
+```
+.dump nomtable
+```

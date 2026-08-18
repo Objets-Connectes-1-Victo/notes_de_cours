@@ -4,32 +4,40 @@
 
 Home Assistant est capable d'envoyer du courriel lorsqu'il est correctement configuré.
 
-D'abord, créez une adresse de courriel avec votre nom de domaine. Cette adresse pourra être utilisée pour envoyer des courriels par programmation si votre fournisseur de courriel habituel (ex : GMail) ne le permet pas. L'adresse pourrait être sous la forme homeassistant@mondomaine.com.
+D'abord, [créez une adresse de courriel avec votre nom de domaine](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine). Cette adresse pourra être utilisée pour envoyer des courriels par programmation si votre fournisseur de courriel habituel (ex : GMail) ne le permet pas. L'adresse pourrait être sous la forme homeassistant@mondomaine.com.
 
-Ajoutez maintenant ces configurations dans le fichier configuration.yaml.
+Ajoutez maintenant ces configurations [dans le fichier configuration.yaml](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml).
 
 Fichier configuration.yaml
 
-notify:  
-  - name: courriel\_administrateur   
-    platform: smtp  
-    sender: homeassistant@mondomaine.com  
-    server: mail.mondomaine.com  
-    timeout: 15  
-    port: 587  
-    encryption: starttls  
-    username: homeassistant@mondomaine.com  
-    password: mot\_de\_passe\_en\_clair  
-    sender\_name: Home Assistant  
-    recipient: destinataire@sondomaine.com
+
+```
+notify:
+- name: courriel\_administrateur
+platform: smtp
+sender: homeassistant@mondomaine.com
+server: mail.mondomaine.com
+timeout: 15
+port: 587
+encryption: starttls
+username: homeassistant@mondomaine.com
+password: mot\_de\_passe\_en\_clair
+sender\_name: Home Assistant
+recipient: destinataire@sondomaine.com
+```
+
 
 Si le courriel doit être envoyé à plus d'un destinataire :
 
 Fichier configuration.yaml
 
-recipient:  
-      - destinataire@sondomaine.com  
-      - autredestinataire@autredomaine.com
+
+```
+recipient:
+- destinataire@sondomaine.com
+- autredestinataire@autredomaine.com
+```
+
 
 Attention : ne mettez pas de caractères accentués sur la ligne sender\_name.
 
@@ -61,7 +69,7 @@ Vérifiez dans la ou les boîtes de courriel qui ont été configurées (recipie
 
 Attention : le message pourrait avoir été placé dans les pourriels. Si c'est le cas, vous devrez configurer votre outil de messgerie pour ajouter l'expéditeur aux expéditeurs approuvés afin que ça ne se reproduise plus.
 
-Une fois ces configurations en place, il sera possible d'envoyer un courriel dans une automatisation, par exemple lorsque le capteur d'ouverture de porte détecte que la porte a été ouverte entre minuit et 6h00.
+Une fois ces configurations en place, il sera possible [d'envoyer un courriel dans une automatisation](94_notification_par_courriel.md#fiche-automatisation_qui_envoie_un_courriel), par exemple lorsque le capteur d'ouverture de porte détecte que la porte a été ouverte entre minuit et 6h00.
 
 ## Pour plus d'information
 
@@ -87,19 +95,22 @@ Si vous préférez travailler directement en YAML, le code du fichier automatisa
 
 Fichier automatisations.yaml
 
-- id: '1606739413415'  
-  alias: Porte ouverte envoie courriel  
-  description: ''  
-  trigger:  
-  - trigger: state  
-    entity\_id:  
-    - input\_boolean.porte\_virtuelle  
-    from: 'off'  
-    to: 'on'  
-  conditions: []  
-  actions:  
-  - action: notify.courriel\_administrateur  
-  data:  
-    message: La porte a été ouverte!  
-    title: Porte ouverte  
- mode: single
+
+```
+- id: '1606739413415'
+alias: Porte ouverte envoie courriel
+description: ''
+trigger:
+- trigger: state
+entity\_id:
+- input\_boolean.porte\_virtuelle
+from: 'off'
+to: 'on'
+conditions: []
+actions:
+- action: notify.courriel\_administrateur
+data:
+message: La porte a été ouverte!
+title: Porte ouverte
+mode: single
+```

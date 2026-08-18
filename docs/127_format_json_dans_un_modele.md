@@ -10,7 +10,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations JSON!
 
 Parfois, toutes les informations sur un objet connecté ou plus précisément sur une entité seront encodées au format JSON.
 
-Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via MQTT.
+Ce sera le cas notamment pour des informations qui seraient reçues via un API ou via [MQTT,json](121_mqtt.md#fiche-publication_et_abonnement_mqtt_avec_home_assistant).
 
 ## Encodage
 
@@ -18,24 +18,32 @@ Si vous devez encoder des données au format JSON, rappelez-vous que ce format u
 
 YAML
 
-payload: >-  
-  {  
-    "latitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }},  
-    "longitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude') }}   
-  }
+
+```
+payload: >-
+{
+"latitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }},
+"longitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude') }}
+}
+```
+
 
 La syntaxe précédente fonctionne bien. Cependant, pour vous assurer que tout soit correctement encodé, il est préférable d'utiliser le filtre [to\_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
 
 YAML
 
-payload: |-  
-  {%  
-    set valeurs = {  
-      "latitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude'),   
-      "longitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude')  
-    }  
-  %}  
-  {{ valeurs | to\_json }}
+
+```
+payload: |-
+{%
+set valeurs = {
+"latitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude'),
+"longitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude')
+}
+%}
+{{ valeurs | to\_json }}
+```
+
 
 Voici un example dans l'interface Web d'une automatisation qui doit envoyer des informations au format JSON.
 
@@ -67,12 +75,20 @@ Les deux syntaxes sont équivalentes.
 
 Modèle Home Assistant
 
+
+```
 {{ (states('domaine.identifiant\_objet') | from\_json).nom\_information }}
+```
+
 
 ou
 
 Modèle Home Assistant
 
-{{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
 
-Notez que si vous testez ce modèle dans les outils de développement et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.
+```
+{{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
+```
+
+
+Notez que si vous testez ce modèle [dans les outils de développement,editeur](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant) et que vous obtenez l'erreur « JSONDecodeError: unexpected character: line 1 column 1 (char 0) », c'est que les données que vous tentez de lire ne sont pas au format JSON.

@@ -8,38 +8,38 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## installation\_de\_home\_assistant\_et\_premier\_acces
+## [installation\_de\_home\_assistant\_et\_premier\_acces](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces)
 
 Bien suivre les étapes sur cette fiche!
 
-## la\_console\_home\_assistant
+## [la\_console\_home\_assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant)
 
 La console Home Assistant se reconnaît à l'invite ha >.
 
 Résultat à l'écran
 
-Waiting for the Home Assistant CLI to be ready...  
- \_    \_                                         \_     \_              \_  
-| |  | |                          /\           (\_)   | |            | |  
-| |\_\_| | \_\_\_  \_ \_\_ \_\_\_   \_\_\_     /  \   \_\_\_ \_\_\_ \_ \_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_  
-|  \_\_  |/ \_ \| '\_ \ \_ \ / \_ \   / /\ \ / \_\_/ \_\_| / \_\_| \_\_/ \_\ | '\_ \| \_\_|  
-| |  | | (\_) | | | | | | \_\_ /  / \_\_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_  
-|\_|  |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| /\_/    \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
-  
-Welcome on Home Assistant command line.  
-Waiting for Supervisor to start up...  
-System information  
-  IPv4 Addresses for eth0:  
-  IPv4 Adresses for wlan0: 192.168.1.145/24  
-  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
-  
-  OS Version:              Home Assistant OS 9.0  
-  Home Assistant Core:     2022.9.7  
-  
-  Home Assistant URL:      http://homeassistant.local:8123  
-  Observer URL:            http://homeassistant.local:4357  
-  
+
+```
+Waiting for the Home Assistant CLI to be ready...
+\_ \_ \_ \_ \_
+| | | | /\ (\_) | | | |
+| |\_\_| | \_\_\_ \_ \_\_ \_\_\_ \_\_\_ / \ \_\_\_ \_\_\_ \_ \_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
+| \_\_ |/ \_ \| '\_ \ \_ \ / \_ \ / /\ \ / \_\_/ \_\_| / \_\_| \_\_/ \_\ | '\_ \| \_\_|
+| | | | (\_) | | | | | | \_\_ / / \_\_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
+|\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
+Welcome on Home Assistant command line.
+Waiting for Supervisor to start up...
+System information
+IPv4 Addresses for eth0:
+IPv4 Adresses for wlan0: 192.168.1.145/24
+IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64
+OS Version: Home Assistant OS 9.0
+Home Assistant Core: 2022.9.7
+Home Assistant URL: http://homeassistant.local:8123
+Observer URL: http://homeassistant.local:4357
 ha >
+```
+
 
 Cette console vous donne accès à certaines commandes spécialisées pour Home Assistant.
 
@@ -47,13 +47,14 @@ Le terminal HassOS se reconnaît à l'invite #.
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222
 Welcome to Home Assistant OS.
-
- 
-
-Use `ha` to access the Home Assistant CLI.  
+Use `ha` to access the Home Assistant CLI.
 #
+```
+
 
 Le terminal HassOS est en fait un terminal Linux spécialisé.
 
@@ -61,13 +62,21 @@ Pour entrer une commande Home Assistant dans un terminal HassOS, faire précéde
 
 Terminal HassOS
 
-ha network info
+
+```
+ha network info
+```
+
 
 Le même résultat serait obtenu dans la console Home Assistant comme suit :
 
 Console Home Assistant
 
+
+```
 network info
+```
+
 
 Pour accéder au terminal HassOS à partir de la console Home Assistant, entrez la commande login.
 
@@ -75,11 +84,14 @@ Aucun code d'usager ni mot de passe ne vous sera demandé.
 
 Résultat à l'écran
 
-ha > login  
-  
-#
 
-## Eteindre\_home\_assistant\_de\_facon\_securitaire
+```
+ha > login
+#
+```
+
+
+## [Eteindre\_home\_assistant\_de\_facon\_securitaire](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-Eteindre_home_assistant_de_facon_securitaire)
 
 Pour arrêter ou redémarrer le système complet :
 
@@ -93,13 +105,21 @@ ou
 
 Terminal HassOS
 
+
+```
 halt
+```
+
 
 ou
 
 Terminal HassOS
 
+
+```
 reboot
+```
+
 
 Pour redémarrer seulement le coeur de Home Assistant :
 
@@ -112,9 +132,13 @@ ou
 
 Terminal HassOS
 
-ha core restart
 
-## dossier\_config
+```
+ha core restart
+```
+
+
+## [dossier\_config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config)
 
 Sur le Web, on parle souvent du dossier config de Home Assistant. C'est celui qui contient le fichier configuration.yaml. Son emplacement sera différent selon le type d'installation de Home Assistant.
 
@@ -143,15 +167,15 @@ Notez que la procédure d'installation de Home Assistant est dite headless, c'es
 
 Voici les sections couvertes dans cette procédure :
 
-* [Préparer la carte micro SD](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#carte)
-* [Configurations initiales (clé USB)](67_chapitre_de_reference_pour_home_assistant.md#usb)
-* [Démarrer le Raspberry Pi](17_jeedom_au_coeur_de_votre_systeme_domotique.md#demarrer)
-* [Accéder à Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#acceder)
-* [Vérifier la présence des fichiers de configuration de la clé USB](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#presence)
+* [Préparer la carte micro SD](https://apical.xyz/formations/pageunique/systeme_domotique_diy#carte)
+* [Configurations initiales (clé USB)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb)
+* [Démarrer le Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#demarrer)
+* [Accéder à Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#acceder)
+* [Vérifier la présence des fichiers de configuration de la clé USB](https://apical.xyz/formations/pageunique/systeme_domotique_diy#presence)
 
 ## Préparer le Raspberry Pi
 
-Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : un\_raspberry\_pi\_comme\_unite\_centrale.
+Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : [un\_raspberry\_pi\_comme\_unite\_centrale](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale).
 
 ## Préparer la carte micro SD {#carte}
 
@@ -190,71 +214,71 @@ Il s'agit de placer les fichiers de configuration sur une clé USB qui répond �
   + Sous Windows, l'utilitaire par défaut ne fait pas bien le travail. Vous devez utiliser un autre utilitaire, par exemple MiniTool (voir <https://www.minitool.com/partition-disk/fat32-not-an-option.html>).
   + Sous Mac, il n'y pas cette limite de taille. Choisissez MS-DOS (FAT) dans l'utilitaire de disque.
 * La clé doit posséder un volume nommé CONFIG (en majuscules).
-* Les fichiers de configuration doivent comporter des sauts de ligne correctement encodés pour Linux (LF).
+* Les fichiers de configuration doivent comporter des [sauts de ligne correctement encodés pour Linux (LF)](04_linux.md#fiche-encodage_des_fins_de_lignes_crlf_vs_lf).
 
-Les configurations disponibles sont détaillées sur cette fiche.
+Les configurations disponibles [sont détaillées sur cette fiche,sansfilusb](67_chapitre_de_reference_pour_home_assistant.md#fiche-configurer_l_acces_au_reseau_dans_home_assistant).
 
 Voici un exemple de base :
 
 Fichier network/my-network
 
-[connection]  
-id=my-network  
-uuid=[votre-uuid-ici](https://www.uuidgenerator.net/)  
-type=802-11-wireless  
-  
-[802-11-wireless]  
-mode=infrastructure  
-ssid=NOM-DU-RESEAU  
-# Uncomment below if your SSID is not broadcasted  
-#hidden=true  
-  
-[802-11-wireless-security]  
-auth-alg=open  
-key-mgmt=wpa-psk  
-psk=MOT-DE-PASSE-DU-RESEAU  
-  
-[ipv4]  
-method=auto  
-  
-[ipv6]  
-addr-gen-mode=stable-privacy  
+
+```
+[connection]
+id=my-network
+uuid=votre-uuid-ici
+type=802-11-wireless
+[802-11-wireless]
+mode=infrastructure
+ssid=NOM-DU-RESEAU
+# Uncomment below if your SSID is not broadcasted
+#hidden=true
+[802-11-wireless-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=MOT-DE-PASSE-DU-RESEAU
+[ipv4]
 method=auto
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+```
+
 
 Et voici un exemple avec adresse IP statique :
 
 Fichier network/my-network
 
-[connection]  
-id=my-network  
-uuid=[votre-uuid-ici](https://www.uuidgenerator.net/)  
-type=802-11-wireless  
-  
-[802-11-wireless]  
-mode=infrastructure  
-ssid=NOM-DU-RESEAU  
-# Uncomment below if your SSID is not broadcasted  
-#hidden=true  
-  
-[802-11-wireless-security]  
-auth-alg=open  
-key-mgmt=wpa-psk  
-psk=MOT-DE-PASSE-DU-RESEAU  
-  
-[ipv4]  
-method=manual  
-address=192.168.1.145/24;192.168.1.1  
-dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;  
-  
-[ipv6]  
-addr-gen-mode=stable-privacy  
-method=auto
 
-Remarquez que le réseau sans fil et l'adresse IP statique peuvent aussi être configurés via l'interface Web de Home Assistant une fois que l'installation est terminée (vous aurez cependant besoin initialement d'une connection réseau câblée).
+```
+[connection]
+id=my-network
+uuid=votre-uuid-ici
+type=802-11-wireless
+[802-11-wireless]
+mode=infrastructure
+ssid=NOM-DU-RESEAU
+# Uncomment below if your SSID is not broadcasted
+#hidden=true
+[802-11-wireless-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=MOT-DE-PASSE-DU-RESEAU
+[ipv4]
+method=manual
+address=192.168.1.145/24;192.168.1.1
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4;
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+```
+
+
+Remarquez que le réseau sans fil et l'adresse IP statique peuvent aussi [être configurés via l'interface Web de Home Assistant,web](67_chapitre_de_reference_pour_home_assistant.md#fiche-configurer_l_acces_au_reseau_dans_home_assistant) une fois que l'installation est terminée (vous aurez cependant besoin initialement d'une connection réseau câblée).
 
 ### Activation du SSH
 
-Pour pouvoir vous connecter au Raspberry Pi via SSH et ainsi avoir un accès complet du système de fichiers du Raspberry Pi, vous devez générer sur votre ordinateur la paire de clés publique et privée puis copier la clé publique dans un fichier nommmé authorized\_keys à la racine du [volume CONFIG](67_chapitre_de_reference_pour_home_assistant.md#usb).
+Pour pouvoir vous connecter au Raspberry Pi via SSH et ainsi avoir un accès complet du système de fichiers du Raspberry Pi, vous devez générer sur votre ordinateur la paire de clés publique et privée puis copier la clé publique dans un fichier nommmé authorized\_keys à la racine du [volume CONFIG](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb).
 
 Suivez bien les instructions qui suivent, un petit écart fera en sorte que ça ne fonctionne pas!
 
@@ -268,7 +292,11 @@ Pour vérifier si les clés SSH ont déjà été générées, entrez cette comma
 
 Terminal sur l'ordinateur
 
+
+```
 ls ~/.ssh
+```
+
 
 Nous allons utiliser l'algorithme Ed25519 qui est l'[algorithme recommandé de nos jours](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
 
@@ -278,7 +306,11 @@ Si les clés n'existent pas, vous devez les générer les clés à l'aide de cet
 
 Terminal sur l'ordinateur
 
-ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
+
+```
+ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
+```
+
 
 Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id\_ed25519, sous Mac : /Users/monnom/.ssh/id\_ed25519).
 
@@ -286,7 +318,7 @@ Afin d'augmenter la sécurité, vous pouvez entrer un mot de passe lorsqu'on vou
 
 #### Fichier authorized\_keys
 
-Il faut maintenant copier la clé publique dans un fichier à la racine du [volume CONFIG](67_chapitre_de_reference_pour_home_assistant.md#usb).
+Il faut maintenant copier la clé publique dans un fichier à la racine du [volume CONFIG](https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb).
 
 La technique sera différente selon votre système d'exploitation.
 
@@ -296,7 +328,11 @@ Sous macOS ou Linux, le fichier sera créé et rempli par cette commande :
 
 Terminal sur l'ordinateur
 
+
+```
 cat /Users/monnom/.ssh/id\_ed25519.pub > /Volumes/CONFIG/authorized\_keys
+```
+
 
 ##### Windows
 
@@ -304,7 +340,7 @@ Sous Windows, la redirection (caractère >) cause parfois un mauvais fonctionnem
 
 Il est donc préférable de procéder comme suit :
 
-* Créez un fichier texte vierge sur la clé USB dont l'encodage est ANSI ou UTF-8 sans BOM et nommez-le authorized\_keys (aucune extension).
+* Créez un fichier texte vierge sur la clé USB dont l'encodage est ANSI ou UTF-8 <a href="fiche-encodage_utf-8_sans_bom.md#encodage_utf-8_sans_bom">sans BOM</a> et nommez-le authorized\_keys (aucune extension).
 
   Attention : vous devez utiliser un éditeur adapté à ce type de tâche, par exemple Geany.
 
@@ -315,8 +351,11 @@ Il est donc préférable de procéder comme suit :
 
   PowerShell
 
+  
+```
   cat C:\Users\MonNom\.ssh\id\_ed25519.pub
-* Copiez-collez dans ce fichier la clé qui a été affichée à l'aide de la commande cat. Important : il faut copier le contenu du fichier et non copier le fichier lui-même car celui qui demeure sous Windows utilisera les caractères de saut de ligne de Windows (CR LF) et celui qui ira sur le système Linux utilisera les sauts de ligne de Linux (LF).
+```
+* Copiez-collez dans ce fichier la clé qui a été affichée à l'aide de la commande cat. Important : il faut copier le contenu du fichier et non copier le fichier lui-même car celui qui demeure sous Windows utilisera les caractères de saut de ligne de Windows (CR LF) et celui qui ira sur le système Linux [utilisera les sauts de ligne de Linux (LF)](04_linux.md#fiche-encodage_des_fins_de_lignes_crlf_vs_lf).
 
 ## Démarrer le Raspberry Pi
 
@@ -325,7 +364,7 @@ Le système d'exploitation est maintenant installé et les configurations de bas
 Passons maintenant à l'installation de Home Assistant.
 
 * Coupez l'alimentation du Raspberry Pi si ce n'est pas déjà fait.
-* Retirez la carte micro SD de l'ordinateur de façon sécuritaire puis insérez-la dans le Raspberry Pi.
+* <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">Retirez la carte micro SD de l'ordinateur de façon sécuritaire</a> puis insérez-la dans le Raspberry Pi.
 * Si requis, insérez également dans le Pi la clé USB qui contient vos configurations SSH, d'adresse IP et/ou de réseau sans fil.
 * Mettez le Pi sous tension.
 
@@ -335,57 +374,60 @@ Sur certains réseaux, le service NTP (protocole de diffusion du temps en résea
 
 Si vous avez un doute sur les configurations de votre réseau, branchez un clavier et un écran au Pi.
 
-Remarquez que si vous ne disposez pas d'un écran et d'un clavier, il est possible d'effectuer certaines vérifications à l'aide d'une connexion SSH mais le tout est plus facile avec écran et clavier.
+Remarquez que si vous ne disposez pas d'un écran et d'un clavier, il est possible d'effectuer certaines vérifications à l'aide d'une [connexion SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh) mais le tout est plus facile avec écran et clavier.
 
 Vous devriez voir cet écran dès que HassOS est rendu assez loin dans son travail d'installation.
 
 Résultat à l'écran
 
-Waiting for the Home Assistant CLI to be ready...  
-  
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
-▀█████▄   ███████▀  
-  
-Welcome on Home Assistant command line interface.  
+```
+Waiting for the Home Assistant CLI to be ready...
+▄██▄ \_ \_
+▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
+▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
+▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
+▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
+████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
+███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
+██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
+███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
+▀█████▄ ███████▀
+Welcome on Home Assistant command line interface.
 Waiting for Supervisor to start...
-
- 
-
-Home Assistant Supervisor is running!  
-System information  
-  IPv4 Adresses for wlan0: 192.168.1.145/24  
-  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
-  IPv4 Adresses for end0: 192.168.1.140/24  
-  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
-  
-  OS Version:              Home Assistant OS 16.2  
-  Home Assistant Core:     landingpage  
-  
-  Home Assistant URL:      http://homeassistant.local:8123  
-  Observer URL:            http://homeassistant.local:4357  
-  
-System is ready! Use browser or app to configure.  
+Home Assistant Supervisor is running!
+System information
+IPv4 Adresses for wlan0: 192.168.1.145/24
+IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64
+IPv4 Adresses for end0: 192.168.1.140/24
+IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64
+OS Version: Home Assistant OS 16.2
+Home Assistant Core: landingpage
+Home Assistant URL: http://homeassistant.local:8123
+Observer URL: http://homeassistant.local:4357
+System is ready! Use browser or app to configure.
 ha >
+```
+
 
 À partir de l'invite ha >, passez au terminal HassOS :
 
 Console Home Assistant
 
+
+```
 login
+```
+
 
 Lorsque vous voyez l'invite #, vous pouvez entrer cette commande :
 
 Terminal HassOS
 
+
+```
 date
+```
+
 
 La date pourrait être au format UTC (Coordinated Universal Time) ou encore dans le fuseau horaire configuré.
 
@@ -393,8 +435,12 @@ Si la date n'est pas valide, prenez le temps de l'ajuster. On commence par défi
 
 Terminal HassOS
 
-export TZ=America/Montreal  
+
+```
+export TZ=America/Montreal
 date -s "2025-10-13 13:50:00"
+```
+
 
 ### Vérifier les configurations réseau
 
@@ -407,18 +453,25 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
 
   Terminal HassOS
 
+  
+```
   ping 8.8.8.8
+```
 * Si vous obtenez le message 8.8.8.8 is alive!, vous pouvez vérifier si le DNS fonctionne en tentant de rejoindre le domaine de Google.
 
   Terminal HassOS
 
+```
   ping google.com
+```
 * Si vous obtenez le message google.com is alive!, vous savez que votre accès au réseau est bien configuré.
 * Pour régler un problème de réseau, vérifiez à quel réseau vous êtes branchés.
 
   Terminal HassOS
 
+```
   nmcli con show
+```
 
   Si le sans fil est correctement configuré, vous devriez avoir au moins une ligne dont la première colonne affiche le nom de votre fichier de configuration réseau et dont la dernière colonne affiche wlan0.
 
@@ -426,12 +479,14 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
 
   Résultat à l'écran
 
-  NAME                   UUID                                    TYPE        DEVICE   
-  Wired connection 1     85f43ecc-5f84-303c-8510-755f0b81e131    ethernet    end0   
-  my-network-cegep       bdc2edc4-2543-4d11-b8b3-cfb6b0b18b0e    wifi        wlan0  
-  my-network-maison      84cd8755-2349-464e-9540-6df10ba7aef6    wifi        --
+```
+  NAME UUID TYPE DEVICE
+  Wired connection 1 85f43ecc-5f84-303c-8510-755f0b81e131 ethernet end0
+  my-network-cegep bdc2edc4-2543-4d11-b8b3-cfb6b0b18b0e wifi wlan0
+  my-network-maison 84cd8755-2349-464e-9540-6df10ba7aef6 wifi --
+```
 
-  Si vous n'obtenez aucune ligne avec eth0 et aucune ligne avec wlan0, ou si malgré tout vous n'arrivez pas à faire un ping vers google.com, référez-vous à la fiche « configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant » pour régler le problème.
+  Si vous n'obtenez aucune ligne avec eth0 et aucune ligne avec wlan0, ou si malgré tout vous n'arrivez pas à faire un ping vers google.com, référez-vous à la fiche « [configurer\_l\_acces\_au\_reseau\_dans\_home\_assistant](67_chapitre_de_reference_pour_home_assistant.md#fiche-configurer_l_acces_au_reseau_dans_home_assistant) » pour régler le problème.
 
 ### Installation automatique de Home Assistant
 
@@ -439,7 +494,7 @@ Dès que le Pi est branché, qu'il a un accès réseau et que son horloge est co
 
 Soyez patients, cette opération peut prendre jusqu'à 20 minutes!
 
-Pendant que l'installation est en cours, Vous pouvez [accéder à l'interface Web de Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#acceder) pour voir la progression (voir détails plus bas).
+Pendant que l'installation est en cours, Vous pouvez [accéder à l'interface Web de Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#acceder) pour voir la progression (voir détails plus bas).
 
 Une fois l'installation complétée, vous pouvez retirer la clé USB qui contient les configurations. Vous n'en aurez plus besoin puisque les fichiers qu'elle contient ont été copiés sur le Pi.
 
@@ -461,18 +516,25 @@ Pendant que HassOS installe Home Assistant, vous obtiendrez un message à cet e
 
 Pendant l'installation, vous pouvez cliquer sur Afficher les détails afin de voir la journalisation (log) des opérations en cours.
 
-Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter à partir du terminal HassOS à l'aide de cette commande :
+Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter [à partir du terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
 
 Terminal HassOS
 
+```
 ha supervisor logs
+```
+
 
 Dans le terminal HassOS, Vous saurez que l'installation est terminée quand vous verrez des lignes de ce genre au bas du fichier journal.
 
 Résultat à l'écran
 
-INFO (MainThread) [supervisor.homeassistant.core] Detect a running Home Assistant instance  
+
+```
+INFO (MainThread) [supervisor.homeassistant.core] Detect a running Home Assistant instance
 INFO (SyncWorker\_2) [supervisor.docker.interface] Cleanup images: ['ghcr.io/home-assistant/raspberrypi3-homeassistant:landingpage']
+```
+
 
 Dans l'interface Web, vous saurez que l'installation est terminée quand vous verrez l'écran de bienvenue.![Premier écran](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PremierEcran.png)
 
@@ -488,32 +550,42 @@ Pour vérifier la présence des fichiers de configuration réseau :
 
 Terminal HassOS
 
+
+```
 ls /etc/NetworkManager/system-connections
+```
+
 
 Les fichiers que vous aviez placés dans le dossier network de la clé USB devraient avoir été copiés ici.
 
 Résultat à l'écran
 
-ha > login  
-# ls /etc/NetworkManager/system-connections
 
- 
+```
+ha > login
+# ls /etc/NetworkManager/system-connections
+my-network-cegep my-network-maison
+```
 
-my-network-cegep   my-network-maison
 
 Pour vérifier la présence de la clé SSH :
 
 Terminal HassOS
 
+
+```
 ls /root/.ssh
+```
+
 
 Résultat à l'écran
 
+
+```
 # ls /root/.ssh
-
- 
-
 authorized\_keys
+```
+
 
 Si les fichiers de configuration ne sont pas présents dans ces dossiers, c'est que le système n'a pas reconnu la clé ou encore que ses fichiers n'ont pas été reconnus comme étant des fichiers de configuration.
 
@@ -528,11 +600,15 @@ Une fois les problèmes identifiés et corrigés, attendez d'abord que l'install
 
 Rebranchez la clé USB sur le Raspberry Pi puis entrez la commande reboot dans le terminal HassOS. Si tout est correct, les fichiers seront cette fois copiés sur le Pi.
 
-Quand vous avez la confirmation que le fichier authorized\_keys a été correctement copié, vous pouvez tenter de vous connecter au Raspberry Pi via SSH :
+Quand vous avez la confirmation que le fichier authorized\_keys a été correctement copié, vous pouvez tenter de vous [connecter au Raspberry Pi via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh) :
 
 Terminal de l'ordinateur
 
+
+```
 ssh root@192.168.1.145 -p 22222
+```
+
 
 ## Pour plus d'information
 
@@ -548,22 +624,22 @@ ssh root@192.168.1.145 -p 22222
 
 ## 58.3 Le terminal HassOS et la console Home Assistant {#fiche-la_console_home_assistant}
 
-En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile avec une des adresses données ici.
+En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [avec une des adresses données ici,acceder](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 
 Cependant, plusieurs opérations intéressantes peuvent être réalisées dans le terminal HassOS, par exemple accéder au système de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le système d'exploitation.
 
 Dans cette fiche :
 
-* [Console Home Assistant vs Terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#vs)
-  + [Branchement avec clavier et écran](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#clavier)
-  + [Branchement SSH](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#ssh)
-* [Console Home Assistant](77_le_fichier_configurationyaml.md#consoleha)
-  + [Quelques commandes utiles](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#commandesconsoleha)
-  + [Passer de la console Home Assistant au terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#consolehavsterminal)
-* [Terminal HassOS](67_chapitre_de_reference_pour_home_assistant.md#terminalhassos)
+* [Console Home Assistant vs Terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#vs)
+  + [Branchement avec clavier et écran](https://apical.xyz/formations/pageunique/systeme_domotique_diy#clavier)
+  + [Branchement SSH](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ssh)
+* [Console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consoleha)
+  + [Quelques commandes utiles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandesconsoleha)
+  + [Passer de la console Home Assistant au terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consolehavsterminal)
+* [Terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos)
   + [Quelques commandes utiles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandesterminalhassos)
-  + [Effectuer une commande Home Assistant dans terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#commandeha)
-  + [Passer du terminal HassOS vers la console Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#terminalvsconsoleha)
+  + [Effectuer une commande Home Assistant dans terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandeha)
+  + [Passer du terminal HassOS vers la console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalvsconsoleha)
 
 ## Console Home Assistant vs Terminal HassOS {#vs}
 
@@ -577,13 +653,13 @@ Donc, quiconque a accès physique au Pi pourra contrôler le système!
 
 Si vous branchez un clavier et un écran au Raspberry Pi, vous verrez à l'écran la console Home Assistant.
 
-Les détails de la console Home Assistant [sont donnés plus bas](77_le_fichier_configurationyaml.md#consoleha).
+Les détails de la console Home Assistant [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consoleha).
 
 ### Branchement SSH {#ssh}
 
-Si vous vous connectez au Pi via SSH, vous accédez directement au Terminal HassOS.
+Si vous vous connectez au Pi [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh), vous accédez directement au Terminal HassOS.
 
-Les détails du Terminal HassOS [sont donnés plus bas](67_chapitre_de_reference_pour_home_assistant.md#terminalhassos).
+Les détails du Terminal HassOS [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos).
 
 ## Console Home Assistant
 
@@ -595,39 +671,35 @@ Elle se reconnaît à l'invite ha >.
 
 Résultat à l'écran
 
-Waiting for the Home Assistant CLI to be ready...  
-  
-       ▄██▄           \_   \_   
-     ▄██████▄        | | | | \_\_\_  \_ \_\_ \_\_\_   \_\_\_   
-   ▄████▀▀████▄      | |\_| |/ \_ \| '\_ ` \_ \ / \_ \   
- ▄█████    █████▄    |  \_  | (\_) | | | | | |  \_\_/   
-▄██████▄  ▄██████▄   |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_|          \_   
-████████  ██▀  ▀██      / \   \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_   
-███▀▀███  ██   ▄██     / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|  
-██    ██  ▀ ▄█████    / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_   
-███▄▄ ▀█  ▄███████   /\_/   \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|  
-▀█████▄   ███████▀  
-  
-Welcome on Home Assistant command line interface.  
+
+```
+Waiting for the Home Assistant CLI to be ready...
+▄██▄ \_ \_
+▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
+▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
+▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
+▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
+████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
+███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
+██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
+███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
+▀█████▄ ███████▀
+Welcome on Home Assistant command line interface.
 Waiting for Supervisor to start...
-
- 
-
-Home Assistant Supervisor is running!  
-System information  
-  IPv4 Adresses for wlan0: 192.168.1.145/24  
-  IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64  
-  IPv4 Adresses for end0: 192.168.1.140/24  
-  IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64  
-  
-  OS Version:              Home Assistant OS 16.2  
-  Home Assistant Core:     landingpage  
-  
-  Home Assistant URL:      http://homeassistant.local:8123  
-  Observer URL:            http://homeassistant.local:4357  
-  
-System is ready! Use browser or app to configure.  
+Home Assistant Supervisor is running!
+System information
+IPv4 Adresses for wlan0: 192.168.1.145/24
+IPV6 Adresses for wlan0: fe80:fde8:195c:eb0b:c18a/64
+IPv4 Adresses for end0: 192.168.1.140/24
+IPV6 Adresses for end0: fe80:a310:ae68:cd47:50d4/64
+OS Version: Home Assistant OS 16.2
+Home Assistant Core: landingpage
+Home Assistant URL: http://homeassistant.local:8123
+Observer URL: http://homeassistant.local:4357
+System is ready! Use browser or app to configure.
 ha >
+```
+
 
 Cette console vous donne accès à certaines commandes spécialisées pour Home Assistant.
 
@@ -635,7 +707,11 @@ Entrez la commande help pour avoir la liste des commandes disponibles.
 
 Console Home Assistant
 
+
+```
 help
+```
+
 
 ### Quelques commandes utiles {#commandesconsoleha}
 
@@ -660,9 +736,12 @@ Aucun code d'usager ni mot de passe ne vous sera demandé.
 
 Résultat à l'écran
 
-ha > login  
-  
+
+```
+ha > login
 #
+```
+
 
 ## Terminal HassOS
 
@@ -674,13 +753,14 @@ Le terminal HassOS se reconnaît à l'invite #.
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222
 Welcome to Home Assistant OS.
-
- 
-
-Use `ha` to access the Home Assistant CLI.  
+Use `ha` to access the Home Assistant CLI.
 #
+```
+
 
 HassOS utilise l'interpréteur de commande /bin/ash.
 
@@ -692,7 +772,11 @@ Pour connaître la liste des commandes disponibles :
 
 Terminal HassOS
 
+
+```
 ls /bin
+```
+
 
 ### Quelques commandes utiles
 
@@ -716,13 +800,21 @@ Il suffit de faire précéder la commande par ha.
 
 Terminal HassOS
 
+
+```
 ha network info
+```
+
 
 Le même résultat serait obtenu dans la console Home Assistant comme suit :
 
 Console Home Assistant
 
+
+```
 netword info
+```
+
 
 ### Passer du terminal HassOS vers la console Home Assistant {#terminalvsconsoleha}
 
@@ -730,7 +822,11 @@ Si vous souhaitez retourner à la console Home Assistant alors que vous travaill
 
 Terminal HassOS
 
+
+```
 exit
+```
+
 
 Dans le cas où vous êtes branchés via SSH, la commande exit mettra fin à la session SSH.
 
@@ -746,7 +842,7 @@ Dans le cas où vous êtes branchés via SSH, la commande exit mettra fin à la 
 
 Comme pour tout système Linux, il n'est pas souhaitable de fermer Home Assistant simplement en débranchant le Raspberry Pi.
 
-Je vous propose ici différentes techniques pour arrêter le système ou pour redémarrer le système complet ou encore une de ses couches logicielles.
+Je vous propose ici différentes techniques pour arrêter le système ou pour redémarrer le système complet ou encore une de ses [couches logicielles](67_chapitre_de_reference_pour_home_assistant.md#fiche-les_couches_logicielles_de_home_assistant).
 
 ## Arrêt {#arret}
 
@@ -764,11 +860,15 @@ Cliquez sur Options avancées / Arrêter le système.
 
 ### Terminal HassOS
 
-Il est également possible d'éteindre le Raspberry Pi à partir du terminal HassOS à l'aide de cette commande :
+Il est également possible d'éteindre le Raspberry Pi à partir du [terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
 
 Terminal HassOS
 
+
+```
 halt
+```
+
 
 ## Redémarrage de Home Assistant
 
@@ -788,7 +888,11 @@ Pour redémarrer seulement le coeur de Home Assistant :
 
 Terminal HassOS
 
+
+```
 ha core restart
+```
+
 
 ## Redémarrage complet {#complet}
 
@@ -808,7 +912,11 @@ Pour redémarrer le système complet :
 
 Terminal HassOS
 
+
+```
 reboot
+```
+
 
 ## 58.5 Dossier config {#fiche-dossier_config}
 

@@ -22,12 +22,20 @@ Pour connaître l'adresse IP du Pi, branchez un clavier et un écran au Raspberr
 
 Terminal
 
+
+```
 hostname -I
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ hostname -I  
+
+```
+pi@raspberrypi:~ $ hostname -I
 192.168.1.145
+```
+
 
 ### Autre cause possible :
 
@@ -47,19 +55,23 @@ Attention : vous obtiendrez le même résultat si vous travaillez avec la mauvai
 
 Résultat à l'écran
 
-MBPdeMonNom:~ monnom$ traceroute 192.168.1.145  
-traceroute to 192.168.1.145 (192.168.1.145), 64 hops max, 52 byte packets  
- 1 \* \* \*  
- 2 \* \*traceroute: sendto: No route to host  
-traceroute: wrote 192.168.1.145 52 chars, ret=-1  
- \*  
-traceroute: sendto: Host is down  
- 3 traceroute: wrote 192.168.1.145 52 chars, ret=-1  
- \*traceroute: sendto: Host is down  
-traceroute: wrote 192.168.1.145 52 chars, ret=-1  
- \*traceroute: sendto: Host is down  
-traceroute: wrote 192.168.1.145 52 chars, ret=-1  
+
+```
+MBPdeMonNom:~ monnom$ traceroute 192.168.1.145
+traceroute to 192.168.1.145 (192.168.1.145), 64 hops max, 52 byte packets
+1 \* \* \*
+2 \* \*traceroute: sendto: No route to host
+traceroute: wrote 192.168.1.145 52 chars, ret=-1
+\*
+traceroute: sendto: Host is down
+3 traceroute: wrote 192.168.1.145 52 chars, ret=-1
+\*traceroute: sendto: Host is down
+traceroute: wrote 192.168.1.145 52 chars, ret=-1
+\*traceroute: sendto: Host is down
+traceroute: wrote 192.168.1.145 52 chars, ret=-1
 ^Z
+```
+
 
 ### Solution proposée :
 
@@ -99,9 +111,12 @@ Et si vous branchez un clavier et un écran au Pi et que vous demandez l'adresse
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ hostname -I  
-  
+
+```
+pi@raspberrypi:~ $ hostname -I
 pi@raspberrypi:~ $
+```
+
 
 ### Contexte :
 
@@ -128,38 +143,40 @@ Notez que vous pourriez également effectuer les configurations directement sur 
 
   Terminal
 
-  cd /Volumes/boot  
+  
+```
+  cd /Volumes/boot
   sudo nano wpa\_supplicant.conf
+```
 
   Remarque : ce fichier sera automatiquement déplacé vers le dossier /etc/wpa\_supplicant la première fois que le Pi sera démarré.
 * Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder. Si vous n'êtes pas au Canada, changez CA pour le [code à 2 lettres de votre pays](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
   Fichier wpa\_supplicant.conf
 
-  country=CA  
-  ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+```
+  country=CA
+  ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev
   update\_config=1
-
-   
-
-  network={  
-      ssid="NOM-DU-RESEAU"  
-      psk="MOT-DE-PASSE-DU-RESEAU"  
+  network={
+  ssid="NOM-DU-RESEAU"
+  psk="MOT-DE-PASSE-DU-RESEAU"
   }
+```
 * Il est possible de configurer plusieurs réseaux si tel est votre besoin. Simplement ajouter une autre section network. Par exemple, pour pemettre de se brancher à un réseau non sécurisé (sans mot de passe) :
 
   Fichier wpa\_supplicant.conf
 
-  ...  
-    
-  network={  
-      ...  
-  }  
-    
-  network={  
-      ssid="NOM-DU-RESEAU"  
-      key\_mgmt=NONE  
+```
+  ...
+  network={
+  ...
   }
+  network={
+  ssid="NOM-DU-RESEAU"
+  key\_mgmt=NONE
+  }
+```
 * Si vous avez utilisé nano pour éditer le fichier, appuyez sur Ctrl + X puis O (ou  Y si votre OS est en anglais) pour enregistrer les modifications.
 * Redémarrez ensuite le Pi.
 
@@ -191,13 +208,20 @@ Supprimez le fichier wpa\_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+```
+sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+```
+
 
 Recréez ce fichier comme suit :
 
 Terminal
 
+
+```
 sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+```
+
 
 Inscrivez-y les informations pour votre réseau Wi-Fi tel que montré plus haut puis redémarrez le Pi.
 
@@ -211,16 +235,24 @@ D'ailleurs, ceci peut être vérifié à l'aide de cette commande :
 
 Terminal
 
+
+```
 sudo rfkill list
+```
+
 
 Résultat à l'écran
 
-0: phy0: Wireless LAN  
-        Soft blocked: yes  
-        Hard blocked: no  
-1: hci0: Bluetooth  
-        Soft blocked: yes  
-        Hard blocked: no
+
+```
+0: phy0: Wireless LAN
+Soft blocked: yes
+Hard blocked: no
+1: hci0: Bluetooth
+Soft blocked: yes
+Hard blocked: no
+```
+
 
 ### Solution proposée :
 
@@ -228,31 +260,51 @@ Débarrez le Wi-Fi avec cette commande puis redémarrez le système.
 
 Terminal
 
+
+```
 sudo rfkill unblock wifi
+```
+
 
 Demandez à Raspberry Pi OS d'activer le Wi-Fi :
 
 Terminal
 
+
+```
 sudo ip link set wlan0 up
+```
+
 
 Vérifiez maintenant que vous avez une adresse IP :
 
 Terminal
 
+
+```
 hostname -I
+```
+
 
 Si vous n'avez toujours pas d'adresse, redémarrez le Raspberry Pi.
 
 Terminal
 
+
+```
 sudo reboot
+```
+
 
 Si le problème persiste, entrez la commande suivante pour réinitialiser le réseau.
 
 Terminal
 
+
+```
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+```
+
 
 ## 5.3 Le Pi n'a que l'adresse 127.0.0.1 {#fiche-le_pi_n_a_que_l_adresse_127_0_0_1}
 
@@ -296,16 +348,24 @@ D'ailleurs, ceci peut être vérifié à l'aide de cette commande :
 
 Terminal
 
+
+```
 sudo rfkill list
+```
+
 
 Résultat à l'écran
 
-0: phy0: Wireless LAN  
-        Soft blocked: yes  
-        Hard blocked: no  
-1: hci0: Bluetooth  
-        Soft blocked: yes  
-        Hard blocked: no
+
+```
+0: phy0: Wireless LAN
+Soft blocked: yes
+Hard blocked: no
+1: hci0: Bluetooth
+Soft blocked: yes
+Hard blocked: no
+```
+
 
 ### Solution proposée :
 
@@ -313,31 +373,51 @@ Débarrez le Wi-Fi avec cette commande puis redémarrez le système.
 
 Terminal
 
+
+```
 sudo rfkill unblock wifi
+```
+
 
 Demandez à Raspberry Pi OS d'activer le Wi-Fi :
 
 Terminal
 
+
+```
 sudo ip link set wlan0 up
+```
+
 
 Vérifiez maintenant que vous avez une adresse IP :
 
 Terminal
 
+
+```
 hostname -I
+```
+
 
 Si vous n'avez toujours pas d'adresse, redémarrez le Raspberry Pi.
 
 Terminal
 
+
+```
 sudo reboot
+```
+
 
 Si le problème persiste, entrez la commande suivante pour réinitialiser le réseau.
 
 Terminal
 
+
+```
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+```
+
 
 ## 5.5 Aucun accès au réseau (message Could not communicate with wpa\_supplicant) {#fiche-aucun_acces_au_reseau_message_wi-fi_is_currently_blocked_by_rfkill_002}
 
@@ -365,28 +445,37 @@ Supprimez le fichier wpa\_supplicant.conf :
 
 Terminal
 
-sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+
+```
+sudo rm /etc/wpa\_supplicant/wpa\_supplicant.conf
+```
+
 
 Recréez ce fichier comme suit :
 
 Terminal
 
-sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+
+```
+sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf
+```
+
 
 Inscrivez-y les informations pour votre réseau Wi-Fi.
 
 Fichier wpa\_supplicant.conf
 
-country=CA  
-ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+
+```
+country=CA
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev
 update\_config=1
-
- 
-
-network={  
-    ssid="NOM-DU-RESEAU"  
-    psk="MOT-DE-PASSE-DU-RESEAU"  
+network={
+ssid="NOM-DU-RESEAU"
+psk="MOT-DE-PASSE-DU-RESEAU"
 }
+```
+
 
 Appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais) pour enregistrer les modifications.
 
@@ -394,25 +483,41 @@ Une fois les informations entrées, demandez à Raspberry Pi OS de les prendre e
 
 Terminal
 
+
+```
 sudo ip link set wlan0 up
+```
+
 
 Vérifiez maintenant que vous avez une adresse IP :
 
 Terminal
 
+
+```
 hostname -I
+```
+
 
 Si vous n'avez toujours pas d'adresse, redémarrez le Raspberry Pi.
 
 Terminal
 
+
+```
 sudo reboot
+```
+
 
 Si le problème persiste, entrez la commande suivante pour réinitialiser le réseau.
 
 Terminal
 
+
+```
 sudo wpa\_supplicant -c /etc/wpa\_supplicant/wpa\_supplicant.conf -i wlan0
+```
+
 
 ## 5.6 Aucun accès réseau (message Network is unreachable) {#fiche-aucun_acces_reseau_message_network_is_unreachable}
 
@@ -422,35 +527,35 @@ Lorsque vous démarrez votre Raspberry Pi, vous n'obtenez aucune adresse IP. Lor
 
 Résultat à l'écran
 
+
+```
 pi@raspberry:~ $ ping 8.8.8.8
-
- 
-
 connect: Network is unreachable
+```
+
 
 De plus, quand vous demandez d'afficher la table des routes à l'aide de la commande route -n, vous obtenez une table vide.
 
 Résultat à l'écran
 
+
+```
 pi@raspberry: ~ $ route -n
-
- 
-
 Kernel IP routing table
+Destination Gateway Genmask Flags Metric Ref Use Iface
+```
 
- 
-
-Destination    Gateway    Genmask    Flags Metric Ref    Use Iface
 
 Autre test : quand vous vérifiez l'état du réseau sans fil à l'aide de la commande cat /sys/class/net/wlan0/operstate, vous obtenez le mot down.
 
 Résultat à l'écran
 
-pi@raspberry: ~ $ cat /sys/class/net/wlan0/operstate
 
- 
-
+```
+pi@raspberry: ~ $ cat /sys/class/net/wlan0/operstate
 down
+```
+
 
 ### Contexte :
 
@@ -472,8 +577,12 @@ Sous Mac ou Linux, utilisez ces commandes :
 
 Terminal
 
-cd /Volumes/boot  
+
+```
+cd /Volumes/boot
 sudo nano wpa\_supplicant.conf
+```
+
 
 Copiez les instructions suivantes dans le fichier. Ajustez le nom du réseau et le mot de passe pour y accéder.
 
@@ -483,16 +592,17 @@ Même avec le Raspberry Pi 4, il arrive que le Wi-Fi de 5 GHz soit moins stable.
 
 Fichier wpa\_supplicant.conf
 
-country=CA  
-ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev  
+
+```
+country=CA
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev
 update\_config=1
-
- 
-
-network={  
-    ssid="NOM-DU-RESEAU"  
-    psk="MOT-DE-PASSE-DU-RESEAU"  
+network={
+ssid="NOM-DU-RESEAU"
+psk="MOT-DE-PASSE-DU-RESEAU"
 }
+```
+
 
 Redémarrez ensuite le Raspberry Pi pour que les configurations soient prises en compte.
 
@@ -504,8 +614,12 @@ Lorsque vous tentez de vous brancher via SSH sur le Raspberry Pi, vous obtenez 
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ssh pi@192.168.1.145  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ssh pi@192.168.1.145
 ssh: connect to host 192.168.1.145 port 22: Connection refused
+```
+
 
 ### Contexte :
 
@@ -522,8 +636,12 @@ Si vous avez accès à un clavier et à un écran branchés sur le Pi, entrez le
 
 Terminal
 
-sudo systemctl enable ssh  
+
+```
+sudo systemctl enable ssh
 sudo systemctl start ssh
+```
+
 
 Si vous ne disposez pas d'un écran et d'un clavier pour travailler directement sur le Pi, vous pouvez activer SSH avec une méthode dite headless.
 
@@ -533,7 +651,11 @@ Sous Mac ou Linux, le fichier sera créé à l'aide de la commande suivante :
 
 Terminal
 
+
+```
 touch /Volumes/boot/ssh
+```
+
 
 Sous Windows, vous pouvez ouvrir le gestionnaire de fichier, vous rendre à la racine de la partition boot puis créer le fichier à l'aide d'un clic droit / Nouveau / Document texte. Attention : le fichier doit s'appeler ssh sans extension.
 
@@ -551,39 +673,42 @@ Pour savoir si c'est le cas pour vous, branchez un écran et un clavier au Raspb
 
 Terminal du Raspberry Pi
 
+
+```
 sudo iptables -L -nv
+```
+
 
 Si vous obtenez le message « iptables: command not found », vous devrez installer iptables.
 
 Terminal du Raspberry Pi
 
+
+```
 sudo apt install iptables
+```
+
 
 Vous saurez que votre adresse IP a été bannie si vous voyez la valeur REJECTED dans la colonne target.
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ sudo iptables -L -nv  
-Chain INPUT (policy ACCEPT 0 packets, 0 bytes)  
- pkts bytes target     prot opt in    out     source             destination   
-   1    64 f2b-sshd   tcp  --  \*     \*       0.0.0.0/0          0.0.0.0/0       multiport dports 22
 
- 
+```
+pi@raspberrypi:~ $ sudo iptables -L -nv
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+pkts bytes target prot opt in out source destination
+1 64 f2b-sshd tcp -- \* \* 0.0.0.0/0 0.0.0.0/0 multiport dports 22
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+pkts bytes target prot opt in out source destination
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+pkts bytes target prot opt in out source destination
+Chain f2b-sshd (1 references)
+pkts bytes target prot opt in out source destination
+1 64 REJECT all -- \* \* 192.168.1.150 0.0.0.0/0 reject-with icmp-port-unreachable
+0 0 RETURN all -- \* \* 0.0.0.0/0 0.0.0.0/0
+```
 
-Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)  
- pkts bytes target     prot opt in    out     source             destination
-
- 
-
-Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)  
- pkts bytes target     prot opt in    out     source             destination
-
- 
-
-Chain f2b-sshd (1 references)  
- pkts bytes target     prot opt in    out     source             destination   
-   1    64 REJECT    all  --  \*     \*       192.168.1.150     0.0.0.0/0       reject-with icmp-port-unreachable  
-   0     0 RETURN     all  --  \*     \*       0.0.0.0/0          0.0.0.0/0
 
 ### Solution proposée :
 
@@ -591,19 +716,31 @@ La première étape consiste à trouver le nom du service qui vous a banni.
 
 Terminal du Raspberry Pi
 
+
+```
 sudo fail2ban-client status | grep "Jail list"
+```
+
 
 Si c'est effectivement vos tentatives de connection via SSH qui sont en cause, vous verrez sshd.
 
 Résultat à l'écran
 
+
+```
 `- Jail list: sshd
+```
+
 
 Pour que la connection SSH soit à nouveau possible à partir de votre adresse IP, lancez cette commande après avoir ajusté votre adresse IP.
 
 Terminal du Raspberry Pi
 
+
+```
 sudo fail2ban-client set sshd unbanip 192.168.1.150
+```
+
 
 ## Pour plus d'information
 
@@ -636,7 +773,11 @@ Mettez l'horloge à jour à l'aide de la commande suivante, en remplaçant A:M
 
 Terminal
 
+
+```
 sudo timedatectl set-time 'A:M:J HH:mm:ss'
+```
+
 
 ### Autre cause possible :
 
@@ -648,7 +789,11 @@ Si vous faites confiance à ce site, relancez la commande à l'aide de l'option�
 
 Terminal
 
+
+```
 sudo apt-get update --allow-releaseinfo-change
+```
+
 
 ### Autre cause possible :
 
@@ -696,14 +841,22 @@ Branchez-vous au Pi via SSH (ou retirez la carte micro SD et insérez-la dans vo
 
 Terminal
 
+
+```
 sudo nano /boot/config.txt
+```
+
 
 Vous devez enlever le # devant la ligne hdmi\_force\_hotplug afin d'activer cette configuration.
 
 Fichier /boot/config.txt
 
-# uncomment if hdmi display is not detected and composite is being output  
+
+```
+# uncomment if hdmi display is not detected and composite is being output
 hdmi\_force\_hotplug=1
+```
+
 
 ![Fichier /boot/config.txt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-ActiverHDMI.png)
 
@@ -715,16 +868,24 @@ Si ça ne fonctionne pas, enlevez le # devant une seconde configuration : hdmi\
 
 Fichier /boot/config.txt
 
-# uncomment to force a HDMI mode rather than DVI. This can make audio work in  
-# DMT (computer monitor) modes  
+
+```
+# uncomment to force a HDMI mode rather than DVI. This can make audio work in
+# DMT (computer monitor) modes
 hdmi\_drive=2
+```
+
 
 Si le problème n'est toujours pas réglé, éditez à nouveau le fichier /boot/config.txt et cette fois, enlevez le # devant la configuration hdmi\_safe = 1. Remettez un # devant les deux autres lignes.
 
 Fichier /boot/config.txt
 
-# uncomment if you get no picture on HDMI for a default "safe" mode  
+
+```
+# uncomment if you get no picture on HDMI for a default "safe" mode
 hdmi\_safe=1
+```
+
 
 Si tout se passe bien, vous devriez voir l'affichage du Raspberry Pi mais en très gros et légèrement déformé. Même si l'affichage n'est pas intéressant, ceci indique que le signal peut se rendre, donc il n'y a pas un problème de câble et on sait que le Pi est capable d'envoyer un signal assez fort.
 
@@ -746,20 +907,24 @@ Lorsque vous tentez de vous connecter au Raspberry Pi via SSH, vous obtenez le m
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145  
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
-@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @  
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!  
-Someone could be eavesdropping on you right now (man-in-the-middle attack)!  
-It is also possible that a host key has just been changed.  
-The fingerprint for the ECDSA key sent by the remote host is  
-SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
-Please contact your system administrator.  
-Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.  
-Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10  
-ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.
+Please contact your system administrator.
+Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.
+Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10
+ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.
 Host key verification failed.
+```
+
 
 ### Contexte :
 
@@ -775,7 +940,11 @@ Retirez l'information sur cette adresse IP du fichier known\_hosts comme suit en
 
 Terminal de l'ordinateur
 
+
+```
 ssh-keygen -R 192.168.1.145
+```
+
 
 Si vous utilisez un port pour la connexion SSH, par exemple le port 22222, la syntaxe sera comme suit.
 
@@ -783,22 +952,30 @@ Notez la présence des guillemets alentour de l'adresse IP et du port. Ceci est 
 
 Terminal de l'ordinateur
 
+
+```
 ssh-keygen -R "[192.168.1.145]:22222"
+```
+
 
 La prochaine fois que vous tenterez de vous connecter, vous devrez confirmer que vous désirez vous connecter.
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ssh-keygen -R 192.168.1.145  
-# Host 192.168.1.145 found: line 10  
-/Users/monnom/.ssh/known\_hosts updated.  
-Original contents retained as /Users/monnom/.ssh/known\_hosts.old  
-MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145  
-The authenticity of host '192.168.1.145 (192.168.1.145)' can't be established.  
-ECDSA key fingerprint is SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes  
-Warning: Permanently added '192.168.1.145' (ECDSA) to the list of known hosts.  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ssh-keygen -R 192.168.1.145
+# Host 192.168.1.145 found: line 10
+/Users/monnom/.ssh/known\_hosts updated.
+Original contents retained as /Users/monnom/.ssh/known\_hosts.old
+MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145
+The authenticity of host '192.168.1.145 (192.168.1.145)' can't be established.
+ECDSA key fingerprint is SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.145' (ECDSA) to the list of known hosts.
 pi@192.168.1.145's password:
+```
+
 
 ## 5.11 Erreur « Rejected request from RFC1918 IP to public server address » {#fiche-erreur_rejected_request_from_rfc1918_ip_to_public_server_address}
 
@@ -821,7 +998,7 @@ Vous tentez d'utiliser le sous-domaine alors que vous êtes déjà dans le même
 
 Utilisez un périphérique branché sur un réseau distinc pour pouvoir utiliser le sous-domaine. Par exemple, utilisez un appareil mobile avec données mobiles (Wi-Fi désactivé).
 
-Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,la technique présentée ici,acceder][/apical\_lien\_interne].
+Si vous désirez accéder à la boîte domotique à partir d'un appareil branché sur le même réseau, utilisez plutôt la technique de branchement local. Par exemple, avec Jeedom, utilisez <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">la technique présentée ici,acceder</a>.
 
 ## 5.12 Erreur « Under-voltage detected! » {#fiche-erreur_under-voltage_detected}
 
@@ -893,7 +1070,11 @@ Le système de fichiers n'a pas été monté.
 
 Terminal
 
+
+```
 mount -o remount, rw /
+```
+
 
 ## 5.15 Erreur « Sap driver initialization failed » {#fiche-erreur_sap_driver_initialization_failed}
 
@@ -903,27 +1084,28 @@ Lorsque vous tentez de vérifier l'état du service Bluetooth sur le Raspberry P
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ service bluetooth status  
-● bluetooth.service - Bluetooth service  
-    Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)  
-    Active: active (running) since Tue 2022-09-06 20:51:20 BST; 12min ago  
-      Docs: man:bluetoothd(8)  
-  Main PID: 598 (bluetoothd)  
-    Status: "Running"  
-     Tasks: 1 (limit: 4915)  
-    CGroup: /system.slice/bluetooth.service  
-            └─598 /usr/lib/bluetooth/bluetoothd
 
- 
-
-Sep 06 20:51:20 raspberrypi systemd[1]: Starting Bluetooth service...  
-Sep 06 20:51:20 raspberrypi bluetoothd[598]: Bluetooth daemon 5.50  
-Sep 06 20:51:20 raspberrypi systemd[1]: Started Bluetooth service.  
-Sep 06 20:51:20 raspberrypi bluetoothd[598]: Starting SDP server  
-Sep 06 20:51:20 raspberrypi bluetoothd[598]: Bluetooth management interface 1.18 initialized  
-Sep 06 20:51:20 raspberrypi bluetoothd[598]: Sap driver initialization failed.  
-Sep 06 20:51:20 raspberrypi bluetoothd[598]: sap-server: Operation not permitted (1)  
+```
+pi@raspberrypi:~ $ service bluetooth status
+● bluetooth.service - Bluetooth service
+Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)
+Active: active (running) since Tue 2022-09-06 20:51:20 BST; 12min ago
+Docs: man:bluetoothd(8)
+Main PID: 598 (bluetoothd)
+Status: "Running"
+Tasks: 1 (limit: 4915)
+CGroup: /system.slice/bluetooth.service
+└─598 /usr/lib/bluetooth/bluetoothd
+Sep 06 20:51:20 raspberrypi systemd[1]: Starting Bluetooth service...
+Sep 06 20:51:20 raspberrypi bluetoothd[598]: Bluetooth daemon 5.50
+Sep 06 20:51:20 raspberrypi systemd[1]: Started Bluetooth service.
+Sep 06 20:51:20 raspberrypi bluetoothd[598]: Starting SDP server
+Sep 06 20:51:20 raspberrypi bluetoothd[598]: Bluetooth management interface 1.18 initialized
+Sep 06 20:51:20 raspberrypi bluetoothd[598]: Sap driver initialization failed.
+Sep 06 20:51:20 raspberrypi bluetoothd[598]: sap-server: Operation not permitted (1)
 Sep 06 20:51:20 raspberrypi bluetoothd[598]: Failed to set privacy: Rejected (0x0b)
+```
+
 
 ### Contexte :
 
@@ -961,4 +1143,7 @@ Ajoutez l'option -O (lettre o majuscule) pour forcer l'utilisation du protocole 
 
 Terminal
 
+
+```
 scp -O pi@192.168.1.145:/dossier/sous-dossier/monfichier.extension /dossierlocal
+```

@@ -20,7 +20,7 @@ Il pourrait arriver que le Pi chauffe. Assurez-vous que des dissipateurs thermiq
 
 Il est intéressant d'ajouter un ventilateur si le boîtier le permet.
 
-Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V (broche physique no 1) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
+Pour que le ventilateur fonctionne à bas régime, il faut brancher le fil rouge sur la broche 3.3V ([broche physique no 1,pinout](52_gpio.md#fiche-qu_est-ce_que_le_gpio)) et le fil noir sur une des broches de mise à terre (broche no 6, 9, 14, 20, 25, 30, 34 ou 39).
 
 Notez que pour que le ventilateur tourne plus vite, il suffit de brancher le fil rouge sur une broche 5V (broche no 2 ou 4).
 
@@ -58,7 +58,7 @@ Lorsque vous effectuez des branchements au GPIO, assurez-vous que le Pi ne soit 
 
 ## Arrêt du système d'exploitation
 
-Assurez-vous d'éteindre le système de façon sécuritaire avant de débrancher le Raspberry Pi.
+Assurez-vous d'[éteindre le système de façon sécuritaire](04_linux.md#fiche-Eteindre_un_systeme_linux_de_facon_securitaire) avant de débrancher le Raspberry Pi.
 
 ![sudo halt](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-SudoHalt.png)
 
@@ -72,7 +72,7 @@ Si vous souhaitez installer un système Linux sur un Raspberry Pi, l'outil Raspb
 
 Il s'agit d'un petit utilitaire que vous installez sur votre poste de travail et qui permet d'installer sur une carte micro SD la toute dernière version du système d'exploitation choisi.
 
-Notez que si vous préférez installer Raspberry Pi OS sans devoir installer un logiciel sur votre poste de travail, il est possible de le faire manuellement mais les étapes sont plus nombreuses.
+Notez que si vous préférez installer Raspberry Pi OS sans devoir installer un logiciel sur votre poste de travail, [il est possible de le faire manuellement](137_divers_linux_et_raspberry_pi.md#fiche-installation_de_raspberry_pi_os) mais les étapes sont plus nombreuses.
 
 L'outil peut être installé sur un système Windows, Mac ou Linux Ubuntu.
 
@@ -114,7 +114,7 @@ Notez que vous pourriez avoir besoin du mot de passe d'un compte administrateur 
 
 Patientez, l'opération se déroule sur de nombreuses minutes.
 
-Une fois l'écriture sur la carte terminée, retirez la carte de l'ordinateur de façon sécuritaire, insérez-la dans le Pi puis démarrez ce dernier.
+Une fois l'écriture sur la carte terminée, <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">retirez la carte de l'ordinateur de façon sécuritaire</a>, insérez-la dans le Pi puis démarrez ce dernier.
 
 Et voilà!
 
@@ -124,7 +124,7 @@ Plusieurs options vous permettent de connecter le Raspberry Pi à un réseau :
 
 * câble RJ-45 (ethernet)
 * réseau Wi-Fi régulier
-* partage de la connection cellulaire d'un téléphone (ausssi appelé hot spot ou Wi-Fi access point)
+* [partage de la connection cellulaire d'un téléphone](05_raspberry_pi.md#fiche-retrouver_le_nom_du_reseau_et_le_mot_de_passe_du_partage_de_connexion_ce___) (ausssi appelé hot spot ou Wi-Fi access point)
 
 Lorsque vous travaillez avec un câble RJ-45, vous n'avez pas de configurations spécifique à faire. Le Pi saura trouver le réseau.
 
@@ -134,12 +134,12 @@ Notez que pour une connexion Wi-Fi, le Raspberry Pi 3 ne supporte que le 2.4 GHz
 
 Dans cette fiche :
 
-* [NetworkManager vs dhcpcd](05_raspberry_pi.md#environnement)
-* [Configurer le réseau à l'aide de NetworkManager](05_raspberry_pi.md#networkmanager)
-  + [Utilitaire nmtui](05_raspberry_pi.md#nmtui)
-  + [Commande nmcli](05_raspberry_pi.md#nmcli)
-  + [Configurer le réseau à l'aide de l'utilitaire raspi-config](05_raspberry_pi.md#raspi)
-* [Vérifier les configurations réseau](05_raspberry_pi.md#verification)
+* [NetworkManager vs dhcpcd](https://apical.xyz/formations/pageunique/systeme_domotique_diy#environnement)
+* [Configurer le réseau à l'aide de NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#networkmanager)
+  + [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+  + [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+  + [Configurer le réseau à l'aide de l'utilitaire raspi-config](https://apical.xyz/formations/pageunique/systeme_domotique_diy#raspi)
+* [Vérifier les configurations réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verification)
 
 ## NetworkManager vs dhcpcd {#environnement}
 
@@ -149,22 +149,30 @@ Pour vérifier si le système d'exploitation du Raspberry Pi utilise NetworkMana
 
 Terminal du Pi
 
+
+```
 nmcli device status
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ nmcli device status  
-DEVICE          TYPE       STATE                    CONNECTION   
-eth0            ethernet   connected                Wired connection 1   
-lo              loopback   connected (externally)   lo   
-wlan0           wifi       disconnected             --   
-p2p-dev-wlan0   wifi-p2p   disconnected             --
+
+```
+pi@raspberrypi:~ $ nmcli device status
+DEVICE TYPE STATE CONNECTION
+eth0 ethernet connected Wired connection 1
+lo loopback connected (externally) lo
+wlan0 wifi disconnected --
+p2p-dev-wlan0 wifi-p2p disconnected --
+```
+
 
 Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS utilise NetworkManager.
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_le_reseau_a_l_aide_de_dhcpcd) ».
 
 ## Configurer le réseau à l'aide de NetworkManager {#networkmanager}
 
@@ -180,7 +188,11 @@ Il est possible d'effectuer les configurations réseau à l'aide de l'utilitaire
 
 Terminal
 
+
+```
 sudo nmtui
+```
+
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmtui.png)
 
@@ -210,9 +222,13 @@ Entrez ces commandes en modifiant le nom du réseau (ssid) et le mot de passe (p
 
 Terminal
 
-nmcli con add type wifi con-name wifi-maison ssid "nom-du-reseau"  
-nmcli con modify wifi-maison wifi-sec.key-mgmt wpa-psk  
+
+```
+nmcli con add type wifi con-name wifi-maison ssid "nom-du-reseau"
+nmcli con modify wifi-maison wifi-sec.key-mgmt wpa-psk
 nmcli con modify wifi-maison wifi-sec.psk mot-de-passe-en-clair
+```
+
 
 #### Crypter le mot de passe
 
@@ -224,16 +240,24 @@ Pour convertir le mot de passe, utilisez le petit utilitaire wpa\_passhprase à 
 
 Terminal
 
+
+```
 wpa\_passphrase nom-du-reseau mot-de-passe-en-clair
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ wpa\_passphrase nom-du-reseau mot-de-passe-en-clair  
-network={  
-        ssid="nom-du-reseau"   
-        #psk="mot-de-passe-en-clair"   
-        psk=83205bec70146c3e7ee3915a11f565f18abef050e5d0262c0ac9bffb887acdbe  
+
+```
+pi@raspberrypi:~ $ wpa\_passphrase nom-du-reseau mot-de-passe-en-clair
+network={
+ssid="nom-du-reseau"
+#psk="mot-de-passe-en-clair"
+psk=83205bec70146c3e7ee3915a11f565f18abef050e5d0262c0ac9bffb887acdbe
 }
+```
+
 
 Il suffit d'éditer le fichier de configuration pour y copier le mot de passe crypté à la place du mot de passe en clair.
 
@@ -246,7 +270,10 @@ L'utilitaire [raspi-config](https://www.raspberrypi.org/documentation/configurat
 
   Terminal
 
+  
+```
   sudo raspi-config
+```
 * Dans le menu qui apparaît, choisissez System Options (sur d'anciennes versions, il fallait choisir Network Options).
 * Choisissez ensuite Wireless LAN (sur d'anciennes versions : Wi-fi).
 * Dans l'écran Please enter SSID, entrez le nom du réseau.
@@ -261,31 +288,43 @@ Il faut toujours effectuer ces manipulations après avoir modifié les configura
 
   Terminal
 
+```
   sudo reboot
+```
 * Vérifier sur quel réseau le Pi est connecté :
 
   Terminal
 
+```
   iwgetid
+```
 
   Résultat à l'écran
 
-  wlan0   ESSID:"nom-du-reseau"
+```
+  wlan0 ESSID:"nom-du-reseau"
+```
 * Avec NetworkManager, il est possible de vérifier l'état du réseau à l'aide de cette commande :
 
   Terminal
 
+```
   nmcli general status
+```
 
   Résultat à l'écran
 
-  STATE       CONNECTIVITY   WIFI-HW    WIFI      WWAN-HW    WWAN  
-  connected   full           enabled    enabled   enabled    enabled
+```
+  STATE CONNECTIVITY WIFI-HW WIFI WWAN-HW WWAN
+  connected full enabled enabled enabled enabled
+```
 * Vérifiez maintenant que vous avez une adresse IP :
 
   Terminal
 
+```
   hostname -I
+```
 * Si vous n'obtenez pas d'adresse IP après ces manipulations, essayez de vous brancher à un réseau 2.4 GHz. Parfois, même avec un Raspberry Pi 4, le 5 GHz ne fonctionne pas bien.
 
 ## 4.4 Retrouver le nom du réseau et le mot de passe du partage de connexion cellulaire {#fiche-retrouver_le_nom_du_reseau_et_le_mot_de_passe_du_partage_de_connexion_ce___}
@@ -313,17 +352,21 @@ Pour connaître l'adresse IP d'un Pi muni d'un écran et d'un clavier, ouvrez un
 
 Terminal
 
+```
 hostname -I
+```
+
 
 Prenez soin d'utiliser un I majuscule. L'adresse IP apparaîtra directement en réponse à cette commande.
 
 Résultat à l'écran
 
+
+```
 pi@raspberrypi:~ $ hostname -I
-
- 
-
 192.168.1.145
+```
+
 
 Si le Pi est branché à l'aide d'un câble RJ-45 et qu'il a en plus un accès Wi-Fi, vous obtiendrez deux adresses IP.
 
@@ -331,56 +374,77 @@ Selon les configurations de votre réseau, les deux adresses peuvent être dans 
 
 Résultat à l'écran
 
+
+```
 pi@raspberrypi:~ $ hostname -I
-
- 
-
 192.168.1.145 192.168.1.219
+```
+
 
 Autre alternative pour trouver l'adresse IP :
 
 Terminal
 
+
+```
 ip addr show
+```
+
 
 ou son raccourci :
 
 Terminal
 
+
+```
 ip a
+```
+
 
 L'adresse IP du Pi se trouve vers la fin des informations affichées, dans la section qui débute par eth0 pour le réseau câblé ou wlan0 pour le sans fil, tout de suite après le mot inet
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ ip addr show  
-1: lo: <LOOPBACK,UP,LOWER\_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000  
-   link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  
-   inet 127.0.0.1/8 scope host lo  
-      valid\_lft forever preferred\_lft forever  
-   inet6 ::1/128 scope host  
-      valid\_lft forever preferred\_lft forever  
-2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo\_fast state DOWN group default qlen 1000  
-   link/ether b8:27:eb:75:39:34 brd ff:ff:ff:ff:ff:ff  
-3: wlan0: <BROADCAST,MULTICAST,UP,LOWER\_UP> mtu 1500 qdisc pfifo\_fast state UP group default qlen 1000  
-   link/ether b8:27:eb:20:6c:61 brd ff:ff:ff:ff:ff:ff  
-   inet 192.168.1.145/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0  
-      valid\_lft 82089sec preferred\_lft 71289sec  
-   inet6 fe80::7fa0:10ff:f021:2519/64 scope link  
-      valid\_lft forever preferred\_lft forever
+
+```
+pi@raspberrypi:~ $ ip addr show
+1: lo: <LOOPBACK,UP,LOWER\_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid\_lft forever preferred\_lft forever
+inet6 ::1/128 scope host
+valid\_lft forever preferred\_lft forever
+2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo\_fast state DOWN group default qlen 1000
+link/ether b8:27:eb:75:39:34 brd ff:ff:ff:ff:ff:ff
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER\_UP> mtu 1500 qdisc pfifo\_fast state UP group default qlen 1000
+link/ether b8:27:eb:20:6c:61 brd ff:ff:ff:ff:ff:ff
+inet 192.168.1.145/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+valid\_lft 82089sec preferred\_lft 71289sec
+inet6 fe80::7fa0:10ff:f021:2519/64 scope link
+valid\_lft forever preferred\_lft forever
+```
+
 
 Vous pouvez également demander la sortie abrégée de cette commande afin de retrouver l'information plus rapidement.
 
 Terminal
 
+
+```
 ip --brief a
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi: ~ $ ip --brief a  
-lo              UNKNOWN       127.0.0.1/8 ::1/128  
-eth0            DOWN  
-wlan0           UP            192.168.1.145/24 fd80:7f28:f411:5847:9ccf/64
+
+```
+pi@raspberrypi: ~ $ ip --brief a
+lo UNKNOWN 127.0.0.1/8 ::1/128
+eth0 DOWN
+wlan0 UP 192.168.1.145/24 fd80:7f28:f411:5847:9ccf/64
+```
+
 
 ## Headless
 
@@ -392,10 +456,10 @@ Si vous prévoyez accéder à votre Pi uniquement via SSH, vous n'avez pas besoi
 
 Vous n'avez pas accès au routeur? Il vous reste encore deux solutions :
 
-* Donner une adresse IP statique au Pi.
+* [Donner une adresse IP statique au Pi,microsddansordi](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi).
 
   ou
-* Sur un réseau privé, utiliser Nmap pour effectuer un balayage du réseau et ainsi trouver l'adresse IP du Raspberry Pi (risque de problèmes légaux sur un réseau public).
+* Sur un réseau privé, utiliser [Nmap](04_linux.md#fiche-nmap) pour effectuer un balayage du réseau et ainsi trouver l'adresse IP du Raspberry Pi (risque de problèmes légaux sur un réseau public).
 
 ## 4.6 Afficher l'adresse IP du Pi à l'écran lors du démarrage {#fiche-afficher_l_adresse_ip_du_pi_a_l_ecran_lors_du_demarrage}
 
@@ -407,30 +471,28 @@ C'est le fichier /etc/rc.local qui est responsable de cet affichage.
 
 Fichier /etc/rc.local
 
-#!/bin/sh -e  
-#  
-# rc.local  
-#  
-# This script is executed at the end of each multiuser runlevel.  
-# Make sure that the script will "exit 0" on success or any other  
-# value on error.  
-#  
-# In order to enable or disable this script just change the execution  
-# bits.  
-#  
+
+```
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
 # By default this script does nothing.
-
- 
-
-# Print the IP address  
-\_IP=$(hostname -I) || true  
-if [ "$\_IP" ]; then  
-  printf "My IP address is %s\n" "$\_IP"  
+# Print the IP address
+\_IP=$(hostname -I) || true
+if [ "$\_IP" ]; then
+printf "My IP address is %s\n" "$\_IP"
 fi
-
- 
-
 exit 0
+```
+
 
 Si l'adresse ne s'affiche pas, la cause la plus probable est qu'il n'y a pas de connexion au réseau.
 
@@ -440,98 +502,95 @@ Si l'adresse ne s'affiche pas, la cause la plus probable est qu'il n'y a pas de 
 
 Si vous travaillez avec votre Raspberry Pi sans y brancher un écran, il peut être difficile de connaître son adresse IP.
 
-S'il a une adresse IP statique, cette adresse sera toujours la même. Mais si c'est une adresse fournie par DHCP, elle pourrait être différente d'une fois à l'autre.
+S'il a une [adresse IP statique](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi), cette adresse sera toujours la même. Mais si c'est une adresse fournie par DHCP, elle pourrait être différente d'une fois à l'autre.
 
 Ceci est encore plus vrai si vous utilisez votre Raspberry Pi à différents endroits, par exemple à l'école et à la maison.
 
 Une solution intéressante pour trouver facilement l'adresse IP du Pi consiste à lancer un script Python au démarrage du Pi qui vous enverra cette adresse par courriel.
 
-Pour réaliser cette manipulation, vous aurez besoin soit d'un clavier et d'un écran, soit de connaître l'adresse IP initiale du Pi.
+Pour réaliser cette manipulation, vous aurez besoin soit d'un clavier et d'un écran, soit de [connaître l'adresse IP initiale du Pi,headless](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi).
 
-L'idéal est d'effectuer l'envoi à partir d'un courriel que vous aurez créé chez un hébergeur Web car l'envoi de courriel avec une adresse du type Gmail ne fonctionnera pas. Puisque le mot de passe de ce courriel sera écrit en clair dans le script, il est conseillé d'utilier un compte de courriel qui ne sert qu'à cette cause.
+L'idéal est d'effectuer l'envoi à partir d'un [courriel que vous aurez créé chez un hébergeur Web](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine) car l'envoi de courriel avec une adresse du type Gmail ne fonctionnera pas. Puisque le mot de passe de ce courriel sera écrit en clair dans le script, il est conseillé d'utilier un compte de courriel qui ne sert qu'à cette cause.
 
 Voici le script Python que vous devez installer sur votre Raspberry Pi. J'ai choisi de le placer dans le dossier /home/pi et de le nommer envoyer\_ip\_courriel.py mais vous pouvez changer l'emplacement et le nom comme bon vous semble.
 
-Si vous utilisez votre ordinateur pour créer le script, vous devrez le copier sur le Raspberry Pi avant de poursuivre.
+Si vous utilisez votre ordinateur pour créer le script, vous devrez le [copier sur le Raspberry Pi,scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur) avant de poursuivre.
 
 Je me suis inspirée de [ce script](https://www.reddit.com/r/raspberry_pi/comments/11p8xj/configure_your_pi_to_autoemail_its_ip_address_on/)1, que j'ai simplifié puis adapté pour Python 3.
 
 Fichier envoyer\_ip\_courriel.py
 
-#!/usr/bin/env python3
 
- """  
-Envoie l'adresse IP du Pi par courriel  
-Paramètres : aucun  
-Auteur : Christiane Lagacé  
-Inspiré de : https://www.reddit.com/r/raspberry\_pi/comments/11p8xj/configure\_your\_pi\_to\_autoemail\_its\_ip\_address\_on/  
-et de https://realpython.com/python-send-email/  
-Date : 16 septembre 2022  
-Dernier ajustement : 12 août 2025  
-"""  
-  
- import smtplib, ssl  
-import subprocess  
-from email.mime.text import MIMEText  
-from email.mime.multipart import MIMEMultipart  
-  
- # \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-# Configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-smtp\_server = 'mail.mondomaine.com'  
-port = 587   
-sender\_email = 'monnom@mondomaine.com'  
-password = 'mon\_mot\_de\_passe'  
-receiver\_email = 'unnom@undomaine.com'  
-# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-# Fin configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*  
-  
- hostname = subprocess.getoutput('hostname')   # Par défaut, on aura une chaîne du genre "raspberrypi"  
-  
- try:  
-    adresse\_ip = subprocess.getoutput('hostname -I')  
-except Exception as e:  
-    print(f"Exception: {e}")  
-    adresse\_ip = 'aucune'  
-   
-message = MIMEMultipart()  
-message['From'] = sender\_email  
-message['To'] = receiver\_email  
-message['Subject'] = f'Adresse IP de {hostname}'  
-  
-body = f"""Informations du Raspberry Pi:  
-  
-Hostname: {hostname}  
-Adresse(s) IP: {adresse\_ip}  
-"""  
-  
-message.attach(MIMEText(body, 'plain', 'utf-8'))  
-   
-# Envoyer le courriel  
-context = ssl.create\_default\_context()  
-try:  
-     server = None  
-    server = smtplib.SMTP(smtp\_server,port)  
-    server.ehlo() # Can be omitted  
-    server.starttls(context=context) # Secure the connection  
-    server.ehlo() # Can be omitted  
-    server.login(sender\_email, password)  
-    server.sendmail(sender\_email, receiver\_email, message.as\_string())  
-   
-    print(body)  
-    print(f'Courriel envoyé à {receiver\_email}')  
-except Exception as e:  
-    print(e)  
-finally:  
-    if server is not None:  
-        server.quit()
+```python
+#!/usr/bin/env python3
+"""
+Envoie l'adresse IP du Pi par courriel
+Paramètres : aucun
+Auteur : Christiane Lagacé
+Inspiré de : https://www.reddit.com/r/raspberry\_pi/comments/11p8xj/configure\_your\_pi\_to\_autoemail\_its\_ip\_address\_on/
+et de https://realpython.com/python-send-email/
+Date : 16 septembre 2022
+Dernier ajustement : 12 août 2025
+"""
+import smtplib, ssl
+import subprocess
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+# Configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+smtp\_server = 'mail.mondomaine.com'
+port = 587
+sender\_email = 'monnom@mondomaine.com'
+password = 'mon\_mot\_de\_passe'
+receiver\_email = 'unnom@undomaine.com'
+# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+# Fin configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+# \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+hostname = subprocess.getoutput('hostname') # Par défaut, on aura une chaîne du genre "raspberrypi"
+try:
+adresse\_ip = subprocess.getoutput('hostname -I')
+except Exception as e:
+print(f"Exception: {e}")
+adresse\_ip = 'aucune'
+message = MIMEMultipart()
+message['From'] = sender\_email
+message['To'] = receiver\_email
+message['Subject'] = f'Adresse IP de {hostname}'
+body = f"""Informations du Raspberry Pi:
+Hostname: {hostname}
+Adresse(s) IP: {adresse\_ip}
+"""
+message.attach(MIMEText(body, 'plain', 'utf-8'))
+# Envoyer le courriel
+context = ssl.create\_default\_context()
+try:
+server = None
+server = smtplib.SMTP(smtp\_server,port)
+server.ehlo() # Can be omitted
+server.starttls(context=context) # Secure the connection
+server.ehlo() # Can be omitted
+server.login(sender\_email, password)
+server.sendmail(sender\_email, receiver\_email, message.as\_string())
+print(body)
+print(f'Courriel envoyé à {receiver\_email}')
+except Exception as e:
+print(e)
+finally:
+if server is not None:
+server.quit()
+```
+
 
 Après avoir copié le script sur le Pi, prenez soin de vous assurer qu'il fonctionne correctement.
 
 Terminal sur le Raspberry Pi
 
+
+```
 python3 ~/envoyer\_ip\_courriel.py
+```
+
 
 Une fois que vous êtes capables de recevoir l'adreses IP du Pi par courriel, vous pouvez automatiser le lancement du script au démarrage.
 
@@ -541,7 +600,11 @@ Pour éditer le fichier cron :
 
 Terminal sur le Raspberry Pi
 
+
+```
 crontab -e
+```
+
 
 Si on vous demande de choisir un éditeur, sélectionnez Nano.
 
@@ -551,7 +614,11 @@ Si votre usager Linux ne s'appelle pas pi, corrigez la ligne en conséquence.
 
 Fichier cron
 
+
+```
 @reboot sleep 10; bash -c '/usr/bin/python3 /home/pi/envoyer\_ip\_courriel.py > /home/pi/boot.log 2>&1' &
+```
+
 
 Cette instruction demande d'attendre 10 secondes avant de lancer le script afin de laisser le temps au Pi de se connecter au réseau. Si votre réseau est lent, vous pouvez modifier le nombre de secondes d'attente, par exemple pour 15.
 
@@ -565,45 +632,60 @@ Lors du redémarrage du Pi, vous devriez recevoir un courriel avec l'adresse IP 
 
 ## 4.8 Vérifier l'état de la connexion sans fil {#fiche-verifier_l_etat_de_la_connexion_sans_fil}
 
-Une fois la connexion au réseau configurée et le Raspberry Pi redémarré, j'aime effectuer quelques commandes pour vérifier l'étant de ma connexion :
+Une fois [la connexion au réseau configurée](05_raspberry_pi.md#fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_pi) et le Raspberry Pi redémarré, j'aime effectuer quelques commandes pour vérifier l'étant de ma connexion :
 
 * Pour connaître l'adresse IP du Raspberry Pi (remarquez le I majuscule) :
 
   Terminal du Raspberry Pi
 
+  
+```
   hostname -I
+```
 * Pour connaître le nom du réseau sans fil sur lequel le Pi est branché :
 
   Terminal du Raspberry Pi
 
+```
   iwgetid
+```
 * Pour vérifier si le Pi peut accéder au réseau :
 
   Terminal du Raspberry Pi
 
+```
   ping 8.8.8.8
+```
 * Pour vérifier si le Pi a accès à un serveur DNS :
 
   Terminal du Raspberry Pi
 
+```
   ping google.com
+```
 * Pour vérifier les serveurs DNS configurés :
 
   Terminaldu Raspberry Pi
 
+```
   cat /etc/resolv.conf
+```
 
   Résultat à l'écran
 
-  # Generated by NetworkManager  
-  search mondomaine.loc  
-  nameserver 999.999.999.999  
+```
+  # Generated by NetworkManager
+  search mondomaine.loc
   nameserver 999.999.999.999
+  nameserver 999.999.999.999
+```
 * Pour vérifier si la date du Pi est la bonne (pourrait empêcher l'installation de certains programmes) :
 
   Terminal du Raspberry Pi
 
+```
   timedatectl
+```
 
 ## 4.9 Donner une adresse IP statique au Raspberry Pi {#fiche-donner_une_adresse_ip_statique_au_raspberry_pi}
 
@@ -615,20 +697,20 @@ Une adresse IP fixe permettra également de préserver le bon fonctionnement du 
 
 Dans cette fiche :
 
-* [Retrouver les serveurs de noms actuels](67_chapitre_de_reference_pour_home_assistant.md#dns)
-* [Vérifier si votre système utilise NetworkManager](05_raspberry_pi.md#verifiernetworkmanager)
-* [Configurer l'adresse IP statique sur le Pi avec NetworkManager](05_raspberry_pi.md#surlepi)
-  + [Utilitaire nmtui](05_raspberry_pi.md#nmtui)
-  + [Commande nmcli](05_raspberry_pi.md#nmcli)
-  + [Édition des fichiers de configuration](05_raspberry_pi.md#nmconnection)
-  + [Utiliser une adresse IP différente pour un autre réseau](05_raspberry_pi.md#autrereseau)
-    - [Activer une configuration pour se brancher à un réseau](05_raspberry_pi.md#activer)
-  + [Revenir à une adresse IP fournie par DHCP](05_raspberry_pi.md#dhcp)
-* [Configurer l'adresse IP statique en insérant la carte micro SD dans votre ordinateur](05_raspberry_pi.md#microsddansordi)
-* [Configurer l'adresse IP statique sur le routeur](05_raspberry_pi.md#surlerouteur)
-  + [Adresse MAC du Raspberry Pi](05_raspberry_pi.md#adressemac)
-  + [Configuration](121_mqtt.md#configuration)
-* [Vérifier si tout a fonctionné](05_raspberry_pi.md#verifier)
+* [Retrouver les serveurs de noms actuels](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dns)
+* [Vérifier si votre système utilise NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifiernetworkmanager)
+* [Configurer l'adresse IP statique sur le Pi avec NetworkManager](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surlepi)
+  + [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+  + [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+  + [Édition des fichiers de configuration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmconnection)
+  + [Utiliser une adresse IP différente pour un autre réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#autrereseau)
+    - [Activer une configuration pour se brancher à un réseau](https://apical.xyz/formations/pageunique/systeme_domotique_diy#activer)
+  + [Revenir à une adresse IP fournie par DHCP](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dhcp)
+* [Configurer l'adresse IP statique en insérant la carte micro SD dans votre ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#microsddansordi)
+* [Configurer l'adresse IP statique sur le routeur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surlerouteur)
+  + [Adresse MAC du Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#adressemac)
+  + [Configuration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#configuration)
+* [Vérifier si tout a fonctionné](https://apical.xyz/formations/pageunique/systeme_domotique_diy#verifier)
 
 ## Retrouver les serveurs de noms actuels
 
@@ -638,59 +720,90 @@ Sous Windows, vous pouvez connaître les serveurs de noms actuellements utilisé
 
 Terminal Windows
 
+```
 ipconfig /all
+```
+
 
 Résultat à l'écran
 
-...  
-Adresse IPv4............: 192.168.1.145 (préféré)  
-...  
-Passerelle par défaut...: 192.168.1.1  
-Serveur DHCP............: 999.999.999.999  
-                          999.999.999.999  
+
+```
 ...
+Adresse IPv4............: 192.168.1.145 (préféré)
+...
+Passerelle par défaut...: 192.168.1.1
+Serveur DHCP............: 999.999.999.999
+999.999.999.999
+...
+```
+
 
 Vous pouvez également obtenir l'information comme suit :
 
 Terminal Windows
 
+
+```
 Get-NetIPConfiguration
+```
+
 
 Résultat à l'écran
 
-...  
-IPv4Address          : 192.168.1.145  
-...  
-IPv4DefaultGateway   : 192.168.1.1  
-DNSServer            : 999.999.999.999  
-                       999.999.999.999  
+
+```
 ...
+IPv4Address : 192.168.1.145
+...
+IPv4DefaultGateway : 192.168.1.1
+DNSServer : 999.999.999.999
+999.999.999.999
+...
+```
+
 
 Sous Mac, vous pouvez connaître les serveurs de noms à l'aide de la commande :
 
 Terminal Mac
 
+
+```
 scutil --dns
+```
+
 
 Résultat à l'écran
 
-resolver #1  
-  nameserver[0] : 999.999.999.999  
-  nameserver[1] : 999.999.999.999  
+
+```
+resolver #1
+nameserver[0] : 999.999.999.999
+nameserver[1] : 999.999.999.999
 ...
+```
+
 
 Et sous Linux :
 
 Terminal Linux
 
+
+```
 cat /etc/resolv.conf
+```
+
 
 Résultat à l'écran
 
-# Generated by NetworkManager  
-search mondomaine.loc  
-nameserver 999.999.999.999  
+
+```
+# Generated by NetworkManager
+search mondomaine.loc
 nameserver 999.999.999.999
+nameserver 999.999.999.999
+```
+
 
 ## Vérifier si votre système utilise NetworkManager {#verifiernetworkmanager}
 
@@ -700,30 +813,38 @@ Pour vérifier si le système d'exploitation du Raspberry Pi utilise NetworkMana
 
 Terminal du Pi
 
+
+```
 nmcli device status
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ nmcli device status  
-DEVICE          TYPE       STATE                    CONNECTION   
-eth0            ethernet   connected                Wired connection 1   
-lo              loopback   connected (externally)   lo   
-wlan0           wifi       disconnected             --   
-p2p-dev-wlan0   wifi-p2p   disconnected             --
+
+```
+pi@raspberrypi:~ $ nmcli device status
+DEVICE TYPE STATE CONNECTION
+eth0 ethernet connected Wired connection 1
+lo loopback connected (externally) lo
+wlan0 wifi disconnected --
+p2p-dev-wlan0 wifi-p2p disconnected --
+```
+
 
 Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS utilise NetworkManager.
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd) ».
 
 ## Configurer l'adresse IP statique sur le Pi avec NetworkManager {#surlepi}
 
 Avec NetworkManager, vous avez plusieurs options pour configurer une adresse IP statique. Choisissez l'option qui vous plait parmi  :
 
-* [Utilitaire nmtui](05_raspberry_pi.md#nmtui)
-* [Commande nmcli](05_raspberry_pi.md#nmcli)
-* [Édition des fichiers de connexion](05_raspberry_pi.md#nmconnection)
+* [Utilitaire nmtui](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmtui)
+* [Commande nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli)
+* [Édition des fichiers de connexion](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmconnection)
 
 ### Utilitaire nmtui
 
@@ -731,7 +852,11 @@ Il est possible d'effectuer les configurations réseau à l'aide de l'utilitaire
 
 Terminal
 
+
+```
 sudo nmtui
+```
+
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmtui.png)
 
@@ -747,7 +872,7 @@ Voici un exemple de configuration d'adresse IP statique pour Wired connection 1.
 
 Vous pouvez laisser la case Device à blanc. NetworkManager retrouvera automatiquement le nom du périphérique selon le type de connexion (Ethernet -> généralement eth0, Wi-Fi -> généralement wlan0).
 
-Référez-vous à la section sur [nmcli](05_raspberry_pi.md#nmcli) pour les détails des autres informations à entrer.
+Référez-vous à la section sur [nmcli](https://apical.xyz/formations/pageunique/systeme_domotique_diy#nmcli) pour les détails des autres informations à entrer.
 
 ![nmtui](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/nmcli-EditConnectionWiredConnection1.png)
 
@@ -761,11 +886,15 @@ Si vous préférez, vous pouvez configurer une adresse IP statique à l'aide de 
 
 Terminal
 
-sudo nmcli connection modify "Wired connection 1" \  
-pv4.method "manual" \  
-ipv4.addresses "192.168.1.145/24" \  
-ipv4.gateway "192.168.1.1" \  
+
+```
+sudo nmcli connection modify "Wired connection 1" \
+pv4.method "manual" \
+ipv4.addresses "192.168.1.145/24" \
+ipv4.gateway "192.168.1.1" \
 ipv4.dns "xxx.xxx.xxx.xxx,8.8.8.8,8.8.4.4"
+```
+
 
 ### Édition des fichiers de connexion {#nmconnection}
 
@@ -781,22 +910,29 @@ Pour y arriver :
 
   Terminal
 
+  
+```
   nmcli con show
+```
 
   On voit ici qu'il y a une configuration pour le réseau câblé (ethernet) puis une configuration pour le Wi-Fi.  
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ nmcli con show  
-  NAME                  UUID                                    TYPE        DEVICE   
-  Wired connection 1    25d6bfa8-6c8c-3f8f-be53-516bece110e9    ethernet    eth0   
-  lo                    cfbfab11-be1b-448d-846e-23608dd88ed9    loopback    lo   
-  preconfigured         e8a78fe4-2969-4cd7-9b20-295f3f8bb529    wifi        --
+```
+  pi@raspberrypi:~ $ nmcli con show
+  NAME UUID TYPE DEVICE
+  Wired connection 1 25d6bfa8-6c8c-3f8f-be53-516bece110e9 ethernet eth0
+  lo cfbfab11-be1b-448d-846e-23608dd88ed9 loopback lo
+  preconfigured e8a78fe4-2969-4cd7-9b20-295f3f8bb529 wifi --
+```
 * Vérifiez quels fichiers de configuration existent.
 
   Terminal
 
+```
   ls /etc/NetworkManager/system-connections
+```
 
   Il pourrait y avoir plusieurs fichiers. Leur nom débutera par ce qui était dans la colonne NAME de la commande nmcli con show et se terminera par .nmconnection.
 
@@ -804,33 +940,43 @@ Pour y arriver :
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ ls /etc/NetworkManager/system-connections  
+```
+  pi@raspberrypi:~ $ ls /etc/NetworkManager/system-connections
   preconfigured.nmconnection
+```
 * Si vous désirez éditer un fichier de configuration qui n'existe pas, vous devez le créer à l'aide de cette commande.  
 
   Remarquez que si le nom de la configuration comprend des espaces, il faut ajouter une barre oblique inverse devant chaque espace.
 
   Terminal
 
+```
   sudo nmcli connection modify Wired\ connection\ 1 connection.autoconnect yes
+```
 * Pour vous assurer que NetworkManager saura utiliser ce fichier pour configurer le réseau, entrez cette commande et assurez-vous que le chemin du fichier est /etc/NetworkManager/system-connection.
 
   Terminal
 
+```
   nmcli -f NAME,UUID,FILENAME connection
+```
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ nmcli -f NAME,UUID,FILENAME connection  
-  NAME                 UUID                                 FILENAME   
-  lo                   ee200fcc-dcb0-4976-a81d-65554b48c0b1 /run/NetworkManager/system-connections/lo.nmconnection   
-  preconfigured        a2aa2a5f-4bf6-46a0-9e40-fb70c86d610b /etc/NetworkManager/system-connections/preconfigured.nmconnection   
-  Wired connection 1   05e42c99-0c51-3798-aae9-e0246598d0ae /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
+```
+  pi@raspberrypi:~ $ nmcli -f NAME,UUID,FILENAME connection
+  NAME UUID FILENAME
+  lo ee200fcc-dcb0-4976-a81d-65554b48c0b1 /run/NetworkManager/system-connections/lo.nmconnection
+  preconfigured a2aa2a5f-4bf6-46a0-9e40-fb70c86d610b /etc/NetworkManager/system-connections/preconfigured.nmconnection
+  Wired connection 1 05e42c99-0c51-3798-aae9-e0246598d0ae /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
+```
 * Éditez le fichier qui correspond à la connexion pour laquelle l'adresse IP statique doit être utiilsée. Rappel : le résultat de la commande nmcli con show fait le lien entre un nom de fichier et le type de réseau.
 
   Terminal
 
+```
   sudo nano /etc/NetworkManager/system-connections/Wired\ connection\ 1.nmconnection
+```
 * Remplissez le fichier en respectant ces consignes :
   + Section [connection] :
     - id : la valeur qui apparaît correspond au nom du fichier sans l'extension.
@@ -851,41 +997,40 @@ Exemple pour une connection câblée :
 
 Fichier Wired connection 1.nmconnection
 
-[connection]  
-id=Wired connection 1  
-uuid=25d6bfa8-6c8c-3f8f-be53-516bece110e9  
+```
+[connection]
+id=Wired connection 1
+uuid=25d6bfa8-6c8c-3f8f-be53-516bece110e9
 type=ethernet
-
- 
-
-[ipv4]  
-address1=192.168.1.145/24,192.168.1.1  
-dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4  
+[ipv4]
+address1=192.168.1.145/24,192.168.1.1
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4
 method=manual
+```
+
 
 Exemple pour une connection Wi-Fi :
 
 Fichier preconfigured.nmconnection
 
-[connection]  
-id=preconfigured  
-uuid=e8a78fe4-2969-4cd7-9b20-295f3f8bb529  
-type=wifi  
-  
-[wifi]  
-mode=infrastructure  
-ssid=xxxxxx  
-  
-[wifi-security]  
-key-mgmt=wpa-psk  
+
+```
+[connection]
+id=preconfigured
+uuid=e8a78fe4-2969-4cd7-9b20-295f3f8bb529
+type=wifi
+[wifi]
+mode=infrastructure
+ssid=xxxxxx
+[wifi-security]
+key-mgmt=wpa-psk
 psk=xxxxxxxx
-
- 
-
-[ipv4]  
-address1=192.168.1.145/24,192.168.1.1  
-dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4  
+[ipv4]
+address1=192.168.1.145/24,192.168.1.1
+dns=xxx.xxx.xxx.xxx;8.8.8.8;8.8.4.4
 method=manual
+```
+
 
 Pour enregistrer les modifications, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais) pour enregistrer les modifications.
 
@@ -905,13 +1050,21 @@ Pour créer un fichier de configuration, vous pouvez utiliser l'option Edit a co
 
 Terminal
 
+
+```
 sudo nmcli connection add type wifi con-name wifi-maison ssid "nom-du-reseau"
+```
+
 
 Pour un réseau câblé :
 
 Terminal
 
+
+```
 sudo nmcli connection add type ethernet con-name cable-maison
+```
+
 
 Ceci créera un fichier wifi-maison.nmconnection ou cable-maison.nmconnection ou tout autre nom basé sur l'attribut con-name.
 
@@ -925,7 +1078,11 @@ Pour activer la configuration, vous pouvez utiliser l'option Activate a connecti
 
 Terminal
 
+
+```
 sudo nmcli con up cable-maison
+```
+
 
 Attention : si vous avez deux fichiers qui donnent une adresse IP statique pour un réseau **câblé**, celui qui s'active par défaut **pourrait être** le dernier qui a été utilisé.
 
@@ -945,11 +1102,12 @@ Si vous désirez modifier vos configurations pour revenir à une adresse IP four
 
 Fichier Fichier xxx.nmconnection
 
+
+```
 [ipv4]
-
- 
-
 method=auto
+```
+
 
 Lors du prochain redémarrage, il est fort probable que le Pi aura tout de même la même adresse IP puisque le serveur DHCP se rappellera de la dernière adresse fournie. Cependant, ceci n'est pas garanti alors sans l'adresse IP statique, vous devrez [vérifier l'adresse IP](https://apical.xyz/fiches/raspberry_pi_002/trouver_l_adresse_ip_du_raspberry_pi) en branchant un écran sur le Pi.
 
@@ -963,30 +1121,12 @@ Si vous insérez la carte micro SD directement dans votre ordinateur (Mac, Windo
 
 Résultat à l'écran
 
+
+```
 MBPdeMonNom:~ monnom$ ls /Volumes/boot/
+COPYING.linux fixup4cd.dat LICENCE.broadcom fixup4db.dat bcm2708-rpi-b-plus.dtb fixup4x.dat bcm2708-rpi-b-rev1.dtb fixup\_cd.dat bcm2708-rpi-b.dtb fixup\_db.dat bcm2708-rpi-cm.dtb fixup\_x.dat bcm2708-rpi-zero-w.dtb issue.txt bcm2708-rpi-zero.dtb kernel.img bcm2709-rpi-2-b.dtb kernel7.img bcm2710-rpi-2-b.dtb kernel7l.img bcm2710-rpi-3-b-plus.dtb kernel8.img bcm2710-rpi-3-b.dtb overlays bcm2710-rpi-cm3.dtb start.elf bcm2711-rpi-4-b.dtb start4.elf bcm2711-rpi-cm4.dtb start4cd.elf bootcode.bin start4db.elf cmdline.txt start4x.elf config.txt start\_cd.elf fixup.dat start\_db.elf fixup4.dat start\_x.elf
+```
 
- 
-
-|  COPYING.linux |  fixup4cd.dat | 
- |  LICENCE.broadcom |  fixup4db.dat | 
- |  bcm2708-rpi-b-plus.dtb |  fixup4x.dat | 
- |  bcm2708-rpi-b-rev1.dtb |  fixup\_cd.dat | 
- |  bcm2708-rpi-b.dtb |  fixup\_db.dat | 
- |  bcm2708-rpi-cm.dtb |  fixup\_x.dat | 
- |  bcm2708-rpi-zero-w.dtb |  issue.txt | 
- |  bcm2708-rpi-zero.dtb |  kernel.img | 
- |  bcm2709-rpi-2-b.dtb |  kernel7.img | 
- |  bcm2710-rpi-2-b.dtb |  kernel7l.img | 
- |  bcm2710-rpi-3-b-plus.dtb |  kernel8.img | 
- |  bcm2710-rpi-3-b.dtb |  overlays | 
- |  bcm2710-rpi-cm3.dtb |  start.elf | 
- |  bcm2711-rpi-4-b.dtb |  start4.elf | 
- |  bcm2711-rpi-cm4.dtb |  start4cd.elf | 
- |  bootcode.bin |  start4db.elf | 
- |  **cmdline.txt** |  start4x.elf | 
- |  config.txt |  start\_cd.elf | 
- |  fixup.dat |  start\_db.elf | 
- |  fixup4.dat |  start\_x.elf |
 
 Qu'à celà ne tienne, il est possible de donner une adresse statique au Pi en éditant le fichier cmdline.txt à l'aide de l'éditeur de votre choix. Pour ma part, j'aime travailler avec Geany.
 
@@ -998,7 +1138,11 @@ Voici le contenu initial de ce fichier.
 
 Fichier cmdline.txt
 
+
+```
 console=serial0,115200 console=tty1 root=PARTUUID=58ce116e-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet init=/usr/lib/raspi-config/init\_resize.sh splash plymouth.ignore-serial-consoles
+```
+
 
 Chaque configuration est séparée par un espace. Toutes les configurations doivent tenir sur une seule ligne.
 
@@ -1010,7 +1154,11 @@ Par exemple :
 
 Fichier cmdline.txt
 
+
+```
 ip=192.168.1.145::192.168.1.1:255.255.255.0:raspberrypi:eth0:off
+```
+
 
 Enregistrez le fichier puis retirez la carte micro SD de l'ordinateur de façon sécuritaire.
 
@@ -1020,7 +1168,7 @@ Soyez patients : mon Pi a mis loooooongtemps (un peu plus de 2 minutes) avant d
 
 Ce délai est normal.
 
-Si vous ne souhaitez pas attendre à chaque redémarrage du Pi, branchez-vous via SSH puis configurez l'adresse IP statique à l'aide d'une autre méthode présentée dans cette fiche. Retirez ensuite la configuration du fichier cmdline.txt.
+Si vous ne souhaitez pas attendre à chaque redémarrage du Pi, [branchez-vous via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh) puis configurez l'adresse IP statique à l'aide d'une autre méthode présentée dans cette fiche. Retirez ensuite la configuration du fichier cmdline.txt.
 
 ## Configurer l'adresse IP statique sur le routeur {#surlerouteur}
 
@@ -1030,19 +1178,27 @@ Personnellement, chez moi, je préfère travailler à partir du routeur. Ceci m'
 
 Si vous désirez configurer l'adresse IP statique à partir de votre routeur, vous aurez besoin de l'adresse MAC du Raspberry Pi.
 
-L'adresse peut être trouvée à partir de l'interface de votre routeur qui [liste les périphériques branchés](05_raspberry_pi.md#listeperipheriques) mais parfois, il est difficile de déterminer quel périphérique est le Raspberry Pi.
+L'adresse peut être trouvée à partir de l'interface de votre routeur qui [liste les périphériques branchés](https://apical.xyz/formations/pageunique/systeme_domotique_diy#listeperipheriques) mais parfois, il est difficile de déterminer quel périphérique est le Raspberry Pi.
 
 Si vous avez un doute ou si vous préférez retrouver l'adresse MAC directement à partir du Pi, branchez un écran et un clavier au Raspberry Pi, ouvrez une fenêtre Terminal puis entrez cette commande :
 
 Terminal
 
+
+```
 ifconfig
+```
+
 
 Si le Pi indique que la commande n'existe pas, vous devrez effectuer une installation supplémentaire :
 
 Terminal
 
+
+```
 sudo apt install net-tools
+```
+
 
 Dans le résultat de ifconfig, vous obtiendrez un paragraphe par carte réseau. Les plus communes sont eth0 pour le réseau câblé et wlan0 pour le sans fil.
 
@@ -1063,7 +1219,7 @@ La technique précise pour configurer l'adresse statique dépendra de la marque 
 
     Il y a autant d'organisation des options de menus qu'il y a de routeurs. Si vous ne trouvez pas l'endroit où effectuer la configuration, voyez le manuel de votre routeur.
 * Pour accéder aux configurations des adresses IP, vous devriez vous retrouver dans un des scénarios suivants :
-  + Sur certains systèmes, un bouton devrait vous permettre d'ajouter manuellement une réservation de périphérique (autre appellation possible : Réservation DHCP). Vous devrez ensuite entrer l'[adresse MAC du Raspberry Pi](05_raspberry_pi.md#adressemac) et l'adresse IP fixe que vous souhaitez lui assigner. L'adresse IP peut généralement être n'importe quoi dans la plage192.168.0.2 à 192.168.0.254 ou 192.168.1.2 à 192.168.1.254. Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
+  + Sur certains systèmes, un bouton devrait vous permettre d'ajouter manuellement une réservation de périphérique (autre appellation possible : Réservation DHCP). Vous devrez ensuite entrer l'[adresse MAC du Raspberry Pi](https://apical.xyz/formations/pageunique/systeme_domotique_diy#adressemac) et l'adresse IP fixe que vous souhaitez lui assigner. L'adresse IP peut généralement être n'importe quoi dans la plage192.168.0.2 à 192.168.0.254 ou 192.168.1.2 à 192.168.1.254. Important : l'adresse utilisée ne doit pas être déjà attribuée à un autre élément du réseau.
   + Sur d'autres systèmes , on voit la liste des périphériques branchés au routeur.
 
     L'écran pourra ressembler à un de ceux-ci :
@@ -1081,7 +1237,7 @@ La technique précise pour configurer l'adresse statique dépendra de la marque 
 
     ![Adresse statique pour Raspberry Pi](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Helix-ReservationAdresseIPStatique-2.png)
 
-    Note : vous pouvez effectuer une vérification supplémentaire pour vous assurer que vous avez donné une adresse IP statique au bon périphérique. Il suffit de comparer l'adresse IP du périphérique sélectionné avec celle donnée directement sur votre Raspberry Pi.
+    Note : vous pouvez effectuer une vérification supplémentaire pour vous assurer que vous avez donné une adresse IP statique au bon périphérique. Il suffit de comparer l'adresse IP du périphérique sélectionné avec celle donnée [directement sur votre Raspberry Pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi).
 
 ## Vérifier si tout a fonctionné {#verifier}
 
@@ -1089,7 +1245,7 @@ Comme dans toute manipulation, il faut tester si on obtient le résultat escompt
 
 Après le redémarrage, le Pi devrait avoir l'adresse IP qu'on lui a imposée.
 
-La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : trouver\_l\_adresse\_ip\_du\_raspberry\_pi
+La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : [trouver\_l\_adresse\_ip\_du\_raspberry\_pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi)
 
 ## Source
 
@@ -1111,23 +1267,31 @@ D'abord, pour vérifier si SSH est activé, branchez un clavier et un écran au 
 
 Terminal sur le Raspberry Pi
 
+
+```
 sudo systemctl status ssh
+```
+
 
 Si SSH est activé, vous verrez une ligne de ce genre :
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ sudo systemctl status ssh  
-   ssh.service - OpenBSD Secure Shell server  
-      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)  
-      Active: active (running) since Mon 2025-08-11 09:38:49 EDT; 6h ago  
-        Docs: man:sshd(8)  
-              man:sshd\_config(5)  
-     Process: 618 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)  
-    Main PID: 660 (sshd)  
-       Tasks: 1 (limit: 3921)  
-         CPU: 470ms  
-      CGroup: /system.slice/ssh.service
+
+```
+pi@raspberrypi:~ $ sudo systemctl status ssh
+ssh.service - OpenBSD Secure Shell server
+Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
+Active: active (running) since Mon 2025-08-11 09:38:49 EDT; 6h ago
+Docs: man:sshd(8)
+man:sshd\_config(5)
+Process: 618 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+Main PID: 660 (sshd)
+Tasks: 1 (limit: 3921)
+CPU: 470ms
+CGroup: /system.slice/ssh.service
+```
+
 
 S'il n'est pas activé, vous verrez plutôt une information du genre Active: inactive (dead).
 
@@ -1135,12 +1299,12 @@ S'il n'est pas activé, vous verrez plutôt une information du genre Active: ina
 
 Vous pouvez activer SSH de différentes façons :
 
-* [Sur le Pi à la ligne de commande](05_raspberry_pi.md#commande)
-* [Sur le Pi avec l'utilitaire raspi-config](05_raspberry_pi.md#raspi)
-* [Directement sur la carte micro SD lors d'une installation headless](05_raspberry_pi.md#headless)
-* [Sur le Pi avec l'interface graphique](99_detecteur_de_presence_sous_home_assistant.md#graphique)
+* [Sur le Pi à la ligne de commande](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commande)
+* [Sur le Pi avec l'utilitaire raspi-config](https://apical.xyz/formations/pageunique/systeme_domotique_diy#raspi)
+* [Directement sur la carte micro SD lors d'une installation headless](https://apical.xyz/formations/pageunique/systeme_domotique_diy#headless)
+* [Sur le Pi avec l'interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#graphique)
 
-Une fois SSH activé, il sera important de [modifier le mot de passe](104_la_base_de_donnees_home_assistant.md#motdepasse) afin de ne pas ouvrir un trou de sécurité.
+Une fois SSH activé, il sera important de [modifier le mot de passe](https://apical.xyz/formations/pageunique/systeme_domotique_diy#motdepasse) afin de ne pas ouvrir un trou de sécurité.
 
 ### Ligne de commande {#commande}
 
@@ -1148,8 +1312,12 @@ Vous pouvez aussi activer SSH à l'aide d'une fenêtre Terminal sur le Pi (aprè
 
 Terminal sur le Raspberry Pi
 
-sudo systemctl enable ssh  
+
+```
+sudo systemctl enable ssh
 sudo systemctl start ssh
+```
+
 
 ### Utilitaire raspi-config {#raspi}
 
@@ -1161,7 +1329,11 @@ Entrez la commande :
 
 Terminal sur le Raspberry Pi
 
+
+```
 sudo raspi-config
+```
+
 
 Dans le menu qui apparaît, choisissez 5 Interfacing Options.
 
@@ -1185,11 +1357,15 @@ Sous Mac ou Linux, le fichier sera créé à l'aide de la commande suivante :
 
 Terminal sur l'ordinateur
 
+
+```
 touch /Volumes/boot/ssh
+```
+
 
 Sous Windows, vous pouvez ouvrir le gestionnaire de fichier, vous rendre à la racine de la partition boot puis créer le fichier à l'aide d'un clic droit / Nouveau / Document texte. Attention : le fichier doit s'appeler ssh sans extension.
 
-Une fois le fichier créé, vous pouvez retirer la carte micro SD de façon sécuritaire, l'insérer dans le Rapsberry Pi puis mettre le Pi sous tension.
+Une fois le fichier créé, vous pouvez <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">retirer la carte micro SD de façon sécuritaire</a>, l'insérer dans le Rapsberry Pi puis mettre le Pi sous tension.
 
 Remarquez qu'au prochain démarrage du Pi, ce fichier disparaîtra. Pour savoir si le SSH est activé, vérifiez si le service sshd est actif à l'aide de la commande ps -ef | grep sshd.
 
@@ -1209,7 +1385,7 @@ Si votre Pi dispose d'une interface graphique, branchez un écran, un clavier et
 
 Une fois SSH activé, si votre PI a été installé avec le nom d'usager par défaut (pi) et le mot de passe par défaut (raspberry), n'importe qui peut se brancher à distance sur le Raspberry Pi, en autant que les règles du réseau le permettent.
 
-Afin de refermer le trou de sécurité que cela crée, vous devez absolument utiliser un mot de passe différent de celui par défaut.
+Afin de refermer le trou de sécurité que cela crée, vous devez absolument [utiliser un mot de passe différent de celui par défaut](05_raspberry_pi.md#fiche-mot_de_passe_sur_raspberry_pi_os).
 
 ## 4.11 Se brancher au Raspberry Pi via SSH {#fiche-se_brancher_au_raspberry_pi_via_ssh}
 
@@ -1218,21 +1394,21 @@ Si vous avez besoin de travailler directement sur le Raspberry Pi, plusieurs opt
 * Brancher un écran, un clavier (et une souris si l'OS possède une interface graphique) directement sur le Pi.
 
   Remarque : si vous travaillez avec un Raspberry Pi 4, seul le port du haut permet l'installation initiale. Par contre, une fois l'installation de Raspberry Pi OS complétée, vous pourrez utiliser le port de votre choix.
-* Utiliser l'écran de votre ordinateur portable comme écran du Raspberry Pi grâce à un outil de capture vidéo (un clavier externe sera requis).
-* Utiliser un outil de contrôle à distance tel que VNC Connect (mode graphique).
+* Utiliser l'écran de votre ordinateur portable comme écran du Raspberry Pi grâce à un [outil de capture vidéo](05_raspberry_pi.md#fiche-outil_de_capture_video_et_logiciel_obs_pour_utiliser_l_ecran_d_un_ordina___) (un clavier externe sera requis).
+* Utiliser un [outil de contrôle à distance tel que VNC Connect](05_raspberry_pi.md#fiche-realvnc_pour_prendre_controle_du_raspberry_pi_a_distance) (mode graphique).
 * Accéder au Pi à l'aide d'une communication SSH à partir d'un autre ordinateur (mode console).
 
 Si vous souhaitez travailler via SSH, voici la procédure à suivre.
 
 ## Adresse IP
 
-Pour vous brancher au Pi à partir de votre ordinateur, vous aurez besoin de son adresse IP. Vous pouvez la trouver facilement avec la commande hostname -I ou, si vous n'avez pas accès au Pi, à partir de l'interface de votre routeur.
+Pour vous brancher au Pi à partir de votre ordinateur, vous aurez besoin de son adresse IP. Vous pouvez la trouver facilement avec [la commande hostname -I](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi) ou, si vous n'avez pas accès au Pi, à partir de l'interface de votre routeur.
 
-Vous faites une installation headless (sans écran ni clavier sur le Pi) et vous n'avez pas accès au routeur? Il vous reste comme solution de donner une adresse IP statique au Pi.
+Vous faites une installation headless (sans écran ni clavier sur le Pi) et vous n'avez pas accès au routeur? Il vous reste comme solution de [donner une adresse IP statique au Pi,microsddansordi](05_raspberry_pi.md#fiche-donner_une_adresse_ip_statique_au_raspberry_pi).
 
 ## Activer SSH
 
-Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : activer\_ssh\_sur\_le\_raspberry\_pi.
+Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : [activer\_ssh\_sur\_le\_raspberry\_pi](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi).
 
 ## Client SSH
 
@@ -1240,7 +1416,7 @@ Si vous travaillez avec un ordinateur Mac ou Linux, vous avez déjà un client S
 
 Sous Windows, vous pouvez travailler avec un client SSH disponible à partir d'une fenêtre PowerShell ou d'une console Git Bash.
 
-Je ne vous recommande pas l'utilitaire Putty puisque, si vous choisissez de vous authentifier à l'aide de clés SSH, il travaille avec son propre format de clés SSH, non compatible avec le format généré par le traditionnel ssh-keygen.
+Je ne vous recommande pas l'utilitaire Putty puisque, si vous choisissez de [vous authentifier à l'aide de clés SSH](05_raspberry_pi.md#fiche-permettre_le_branchement_ssh_sans_demander_le_mot_de_passe_a_chaque_fois), il travaille avec son propre format de clés SSH, non compatible avec le format généré par le traditionnel ssh-keygen.
 
 ## Branchement au Pi
 
@@ -1248,9 +1424,13 @@ Le client SSH vous permet de vous connecter au Pi à l'aide d'une commande entr�
 
 Terminal (sur l'ordinateur)
 
-ssh pi@192.168.1.145
 
-Sous Raspberry Pi OS, l'usager par défaut se nomme pi (comme dans l'exemple précédent). Le mot de passe est raspberry à moins que vous ne l'ayez changé lors de l'installation de Raspberry Pi OS, ce qui est fortement recommandé.
+```
+ssh pi@192.168.1.145
+```
+
+
+Sous Raspberry Pi OS, l'usager par défaut se nomme pi (comme dans l'exemple précédent). Le mot de passe est raspberry à moins que vous ne l'ayez [changé lors de l'installation de Raspberry Pi OS](05_raspberry_pi.md#fiche-mot_de_passe_sur_raspberry_pi_os), ce qui est fortement recommandé.
 
 Selon les configurations effectuées sur le Raspberry Pi, il est possible d'utiliser un autre nom d'usager ou un autre port.
 
@@ -1258,7 +1438,11 @@ Par exemple, sous Home Assistant, l'usager à utiliser s'appelle root et le port
 
 Terminal (sur l'ordinateur)
 
+
+```
 ssh root@192.168.1.145 -p 22222
+```
+
 
 ## Erreur « REMOTE HOST IDENTIFICATION HAS CHANGED! »
 
@@ -1266,20 +1450,24 @@ Parfois, lorsqu'on tente de se brancher via SSH, on obtient le message suivant 
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145  
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
-@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @  
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!  
-Someone could be eavesdropping on you right now (man-in-the-middle attack)!  
-It is also possible that a host key has just been changed.  
-The fingerprint for the ECDSA key sent by the remote host is  
-SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.  
-Please contact your system administrator.  
-Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.  
-Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10  
-ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ssh pi@192.168.1.145
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.
+Please contact your system administrator.
+Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.
+Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10
+ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.
 Host key verification failed.
+```
+
 
 Plusieurs facteurs peuvent causer ce comportement, par exemple si le Raspberry Pi utilise une adresse IP qui était auparavant utilisée par un autre périphérique auquel un branchement a été fait via SSH.
 
@@ -1291,7 +1479,11 @@ Prenez soin d'entrer l'adresse IP du Raspberry Pi :
 
 Terminal
 
+
+```
 ssh-keygen -R 192.168.1.145
+```
+
 
 Si vous utilisez un port pour la connexion SSH, par exemple le port 22222, la syntaxe sera comme suit.
 
@@ -1299,7 +1491,11 @@ Notez la présence des guillemets alentour de l'adresse IP et du port. Ceci est 
 
 Terminal
 
+
+```
 ssh-keygen -R "[192.168.1.145]:22222"
+```
+
 
 Si ceci ne règle pas le problème, il est possible d'effacer complètement le fichier known\_hosts.
 
@@ -1319,62 +1515,50 @@ Il suffit d'ajouter l'option -v à la commande :
 
 Terminal
 
+
+```
 ssh -v pi@192.168.1.145
+```
+
 
 Résultat à l'écran
 
+
+```
 monnom@MacBook-Pro-de-MonNom ~ %ssh -v pi@192.168.1.145
-
- 
-
 OpenSSH\_8.6p1, LibreSSL 3.3.6
-
- 
-
 debug1: Reading configuration data /etc/ssh/ssh\_config
-
- 
-
 debug1: /etc/ssh/ssh\_config line 21: include /etc/ssh/ssh\_config.d/\* matched no files
-
- 
-
 debug1: /etc/ssh/ssh\_config line 54: Applying options for \*
-
- 
-
 debug1: Authenticator provider $SSH\_SK\_PROVIDER did not resolve; disabling
-
- 
-
 debug1: Connecting to 192.168.1.145 [192.168.1.145] port 22.
-
- 
-
 debug1: connect to address 192.168.1.145 port 22: Connection refused
-
- 
-
 ssh: connect to host 192.168.1.145 port 22: Connection refused
+```
+
 
 Les options -vv et -vvv donnent encore plus de détails.
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ssh -vvv pi@192.168.1.145  
-OpenSSH\_8.6p1, LibreSSL 3.3.6  
-debug1: Reading configuration data /etc/ssh/ssh\_config  
-debug1: /etc/ssh/ssh\_config line 21: include /etc/ssh/ssh\_config.d/\* matched no files  
-debug1: /etc/ssh/ssh\_config line 54: Applying options for \*  
-debug2: resolve\_canonicalize: hostname 192.168.1.145 is address  
-debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts' -> '/Users/monnom/.ssh/known\_hosts'  
-debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts2' -> '/Users/monnom/.ssh/known\_hosts2'  
-debug1: Authenticator provider $SSH\_SK\_PROVIDER did not resolve; disabling  
-debug3: ssh\_connect\_direct: entering  
-debug1: Connecting to 192.168.1.145 [192.168.1.145] port 22.  
-debug3: set\_sock\_tos: set socket 3 IP\_TOS 0x48  
-debug1: connect to address 192.168.1.145 port 22: Connection refused  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ssh -vvv pi@192.168.1.145
+OpenSSH\_8.6p1, LibreSSL 3.3.6
+debug1: Reading configuration data /etc/ssh/ssh\_config
+debug1: /etc/ssh/ssh\_config line 21: include /etc/ssh/ssh\_config.d/\* matched no files
+debug1: /etc/ssh/ssh\_config line 54: Applying options for \*
+debug2: resolve\_canonicalize: hostname 192.168.1.145 is address
+debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts' -> '/Users/monnom/.ssh/known\_hosts'
+debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts2' -> '/Users/monnom/.ssh/known\_hosts2'
+debug1: Authenticator provider $SSH\_SK\_PROVIDER did not resolve; disabling
+debug3: ssh\_connect\_direct: entering
+debug1: Connecting to 192.168.1.145 [192.168.1.145] port 22.
+debug3: set\_sock\_tos: set socket 3 IP\_TOS 0x48
+debug1: connect to address 192.168.1.145 port 22: Connection refused
 ssh: connect to host 192.168.1.145 port 22: Connection refused
+```
+
 
 ## 4.13 Permettre le branchement SSH sans demander le mot de passe à chaque fois {#fiche-permettre_le_branchement_ssh_sans_demander_le_mot_de_passe_a_chaque_fois}
 
@@ -1384,11 +1568,11 @@ La technique consiste à utiliser une paire « clé SSH publique - clé SSH pri
 
 La clé privée, qui remplace le mot de passe, doit être sur votre ordinateur avec la clé publique. La clé publique sera de plus copiée sur le Pi à un endroit précis afin de permettre l'authentification sans mot de passe.
 
-Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « comment\_fonctionne\_l\_authentification\_via\_ssh ».
+Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « [comment\_fonctionne\_l\_authentification\_via\_ssh](05_raspberry_pi.md#fiche-comment_fonctionne_l_authentification_via_ssh) ».
 
 ## Activer SSH sur le Pi
 
-Assurez-vous que votre Pi est configuré pour permettre les connexions via SSH.
+Assurez-vous que [votre Pi est configuré pour permettre les connexions via SSH](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi).
 
 ## Vérifier l'existence clés SSH
 
@@ -1404,7 +1588,11 @@ Pour vérifier si les clés SSH ont déjà été générées, entrez cette comma
 
 Terminal sur l'ordinateur
 
+
+```
 ls ~/.ssh
+```
+
 
 Nous allons utiliser l'algorithme Ed25519 qui est l'[algorithme recommandé de nos jours](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
 
@@ -1416,13 +1604,21 @@ Si les clés n'existent pas, vous devrez les générer à l'aide de cette comman
 
 Terminal sur l'ordinateur
 
+
+```
 ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
+```
+
 
 Note : certains systèmes ne supportent pas les clés générées avec ed25519. Si c'est le cas pour vous, vous pouvez utiliser l'algorithme rsa qui est moins sécuritaire mais plus largement supporté.
 
 Terminal sur l'ordinateur
 
+
+```
 ssh-keygen -t rsa -C 'moncourriel@mondomaine.com'
+```
+
 
 Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id\_ed25519, sous Mac : /Users/monnom/.ssh/id\_ed25519).
 
@@ -1432,27 +1628,31 @@ Vous obtiendrez ceci à l'écran :
 
 Résultat à l'écran
 
-monnom@MacBook-Pro-de-MonNom ~ %ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'  
-Generating public/private ed25519 key pair.  
-Enter file in which to save the key (/Users/monnom/.ssh/id\_ed25519):  
-Enter passphrase (empty for no passphrase):   
-Enter same passphrase again:   
-Your identification has been saved in /Users/monnom/.ssh/id\_ed25519  
-Your public key has been saved in /Users/monnom/.ssh/id\_ed25519.pub  
-The key fingerprint is:  
-SHA256:Ns82o1VfRLrY5sHIBiPJ3pDHGJiMTQuhixPRhAle8vI moncourriel@mondomaine.com  
-The key's randomart image is:  
-+--[ED25519 256]--+  
-|...B. o\*.o.     .|  
-|. =.o...=. + + o |  
-| .....  . . B = .|  
-|   oo.     . O \* |  
-|  o .E S    + B =|  
-|   .   . + . + = |  
-|          B    o |  
-|        + o      |  
-|       .         |  
+
+```
+monnom@MacBook-Pro-de-MonNom ~ %ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/monnom/.ssh/id\_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/monnom/.ssh/id\_ed25519
+Your public key has been saved in /Users/monnom/.ssh/id\_ed25519.pub
+The key fingerprint is:
+SHA256:Ns82o1VfRLrY5sHIBiPJ3pDHGJiMTQuhixPRhAle8vI moncourriel@mondomaine.com
+The key's randomart image is:
++--[ED25519 256]--+
+|...B. o\*.o. .|
+|. =.o...=. + + o |
+| ..... . . B = .|
+| oo. . O \* |
+| o .E S + B =|
+| . . + . + = |
+| B o |
+| + o |
+| . |
 +----[SHA256]-----+
+```
+
 
 ## Copier la clé publique sur le Raspberry Pi
 
@@ -1462,7 +1662,11 @@ Notez que si vous travaillez sous Windows, vous devrez ouvrir une fenêtre Git B
 
 Terminal sur l'ordinateur
 
+
+```
 ssh-copy-id -i ~/.ssh/id\_ed25519 pi@192.168.1.145
+```
+
 
 Vous devrez entrer le mot de passe du Pi à cette étape pour permettre la copie de la clé.
 
@@ -1480,7 +1684,11 @@ Pour savoir si vous devez poursuivre, tentez de vous connecter avec la commande,
 
 Terminal sur l'ordinateur
 
+
+```
 ssh pi@192.168.1.145
+```
+
 
 Si un mot de passe vous est tout de même demandé, il vous faut poursuivre avec ces étapes. Sinon, vous avez terminé cette configuration!
 
@@ -1488,33 +1696,53 @@ Pour poursuivre, sur le Pi, vous devez éditer le fichier /etc/ssh/sshd\_config.
 
 Terminal sur le Pi
 
-sudo nano /etc/ssh/sshd\_config
+
+```
+sudo nano /etc/ssh/sshd\_config
+```
+
 
 Il faut enlever le # devant la ligne qui permet l'authentification à partir de la clé dans le fichier .ssh/authorized\_keys.
 
 Fichier /etc/ssh/sshd\_config sur le Pi
 
-# Expect .ssh/authorized\_keys2 to be disregarded by default in future.  
+
+```
+# Expect .ssh/authorized\_keys2 to be disregarded by default in future.
 AuthorizedKeysFile .ssh/authorized\_keys .ssh/authorized\_keys2
+```
+
 
 Il faut également s'assurer que le système permet l'authentification à l'aide d'une clé plublique :
 
 Fichier /etc/ssh/sshd\_config sur le Pi
 
+
+```
 PubkeyAuthentication yes
+```
+
 
 Et désactiver le mode strict :
 
 Fichier /etc/ssh/sshd\_config sur le Pi
 
-#PermitRootLogin prohibit-password  
+
+```
+#PermitRootLogin prohibit-password
 StrictModes no
+```
+
 
 Redémarrez ensuite le service SSH :
 
 Terminal sur le Pi
 
+
+```
 sudo service ssh restart
+```
+
 
 Vous devriez désormais pouvoir vous connecter au Pi via SSH sans avoir à entrer votre mot de passe.
 
@@ -1546,7 +1774,7 @@ Le système d'exploitation, les logiciels et possiblement les données de votre 
 
 Cette carte est fragile et pourrait connaître des ratées.
 
-Une des principales causes de carte micro SD corrompue est un arrêt du Raspberry Pi non sécuritaire, par exemple une panne de courant ou encore un débranchement sans avoir fait sudo halt.
+Une des principales causes de carte micro SD corrompue est un arrêt du Raspberry Pi non [sécuritaire](04_linux.md#fiche-Eteindre_un_systeme_linux_de_facon_securitaire), par exemple une panne de courant ou encore un débranchement sans avoir fait sudo halt.
 
 Sur un système domotique, le fait d'écrire sur la carte de façon répétée est un autre facteur qui contribue au risque de bris.
 
@@ -1560,28 +1788,28 @@ Si le système domotique n'offre pas de possibilité de sauvegarde, il faudra se
 
 Dans cette fiche :
 
-* [Sauvegarde de la boîte domotique sans le système d'exploitation](05_raspberry_pi.md#sauvegarde)
-* [Copie de l'image de la carte sur un ordinateur](05_raspberry_pi.md#surordinateur)
+* [Sauvegarde de la boîte domotique sans le système d'exploitation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#sauvegarde)
+* [Copie de l'image de la carte sur un ordinateur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surordinateur)
   + [Utilitaire dd à partir d'un ordinateur Mac ou Linux](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddmaclinux)
-  + [Utilitaire dd pour Windows](05_raspberry_pi.md#ddwin)
-  + [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](05_raspberry_pi.md#ddpi)
-  + [Win32 Disk Imager et autres utilitaires pour Windows](05_raspberry_pi.md#win32diskimager)
-* [Copie de la carte sur une autre carte](05_raspberry_pi.md#surautrecarte)
-  + [Procédure sans interface graphique](05_raspberry_pi.md#console)
-  + [Procédure avec interface graphique](99_detecteur_de_presence_sous_home_assistant.md#graphique)
+  + [Utilitaire dd pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddwin)
+  + [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddpi)
+  + [Win32 Disk Imager et autres utilitaires pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#win32diskimager)
+* [Copie de la carte sur une autre carte](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surautrecarte)
+  + [Procédure sans interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#console)
+  + [Procédure avec interface graphique](https://apical.xyz/formations/pageunique/systeme_domotique_diy#graphique)
 
 ## Sauvegarde de la boîte domotique sans le système d'exploitation {#sauvegarde}
 
 Plusieurs boîtes domotiques offrent des fonctionnalités pour effectuer une sauvegarde complète des fichiers et de la base de données qu'ils utilisent.
 
-C'est le cas notamment avec Jeedom ou Home Assistant.
+C'est le cas notamment avec [Jeedom](18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md#fiche-copie_de_securite_de_jeedom) ou [Home Assistant](72_sauvegarde_de_home_assistant.md#fiche-sauvegarde_de_home_assistant).
 
 Une telle sauvegarde ne comprend que les fichiers de la boîte domotique, pas ceux du système d'exploitation. Pour la restaurer, il faut d'abord réinstaller le système d'exploitation puis une copie vierge de la boîte domotique.
 
 La procédure de différents systèmes est détaillée ici :
 
-* Jeedom
-* Home Assistant
+* [Jeedom,restaurer](18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md#fiche-copie_de_securite_de_jeedom)
+* [Home Assistant](72_sauvegarde_de_home_assistant.md#fiche-reinstaller_home_assistant_a_partir_d_une_sauvegarde)
 
 ## Copie de l'image de la carte sur un ordinateur (fichier .img) {#surordinateur}
 
@@ -1594,19 +1822,19 @@ Notez que cette technique est plus délicate à réaliser et il arrive que l'ima
 Je vous présente ici différentes façons de créer un fichier image de la carte micro SD du Raspberry Pi.
 
 * [Utilitaire dd à partir d'un ordinateur Mac ou Linux](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddmaclinux)
-* [Utilitaire dd pour Windows](05_raspberry_pi.md#ddwin)
-* [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](05_raspberry_pi.md#ddpi)
-* [Win32 Disk Imager et autres utilitaires pour Windows](05_raspberry_pi.md#win32diskimager)
+* [Utilitaire dd pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddwin)
+* [Utilitaire dd directement sur le Rapsberry Pi pendant que la carte est utilisée](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddpi)
+* [Win32 Disk Imager et autres utilitaires pour Windows](https://apical.xyz/formations/pageunique/systeme_domotique_diy#win32diskimager)
 
 ### Utilitaire dd à partir d'un ordinateur Mac ou Linux
 
-La commande Linux dd permet  d'effectuer une copie intégrale de la carte micro SD. Le résultat sera un fichier image qui pourra au besoin être réinstallé (flashé) sur une carte micro SD.
+La commande Linux <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">dd</a> permet  d'effectuer une copie intégrale de la carte micro SD. Le résultat sera un fichier image qui pourra au besoin [être réinstallé (flashé) sur une carte micro SD](04_linux.md#fiche-copier_une_image_du_systeme_d_exploitation_sur_une_carte_microsd_flasher).
 
 Cette technique nécessite de retirer la carte du Raspberry Pi pour l'insérer dans un lecteur de carte micro SD directement sur votre ordinateur ou sur un lecteur externe. Vous pouvez même insérer la carte dans un lecteur branché sur un autre Raspberry Pi (qui roulera à l'aide de sa propre carte micro SD) pour effectuer l'opération.
 
 #### macOS {#ddmac}
 
-Voici d'abord les instructions sous Mac. [Suivront les instructions sous Linux.](05_raspberry_pi.md#ddlinux) Vous remarquerez que la commande dd présente quelques différences entre les deux systèmes.
+Voici d'abord les instructions sous Mac. [Suivront les instructions sous Linux.](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ddlinux) Vous remarquerez que la commande dd présente quelques différences entre les deux systèmes.
 
 Notez que si la carte micro SD est utilisée pour un système d'exploitation HassOS, ceci ne fonctionnera pas puisque macOS n'est pas capable de lire les cartes sur lesquelles HassOS est installé.
 
@@ -1614,8 +1842,11 @@ La première étape pour effectuer la copie consite à retrouver le point de mon
 
 * Résultat à l'écran
 
-  /dev/disk2s1 5029504 4846592 182912 97% 0 0 100% /Volumes/RECOVERY  
-  /dev/disk2s6 516188   108923 407265 22% 0 0 100% /Volumes/boot
+  
+```
+  /dev/disk2s1 5029504 4846592 182912 97% 0 0 100% /Volumes/RECOVERY
+  /dev/disk2s6 516188 108923 407265 22% 0 0 100% /Volumes/boot
+```
 
   Ces entrées correspondent aux deux partitions de ma carte (s1 et s6). Le point de montage est la partie commune entre les deux, c'est-à-dire /dev/disk2.
 
@@ -1623,17 +1854,19 @@ La première étape pour effectuer la copie consite à retrouver le point de mon
 
   Résultat à l'écran
 
-  /dev/disk2 (external, physical):  
-     #:                       TYPE NAME     SIZE       IDENTIFIER  
-     0:      GUID\_partition\_scheme         \*32.0 GB    disk2  
-     1:         Microsoft Reserved ⁨⁩         33.6 MB    disk2s1  
-     2:           Linux Filesystem ⁨⁩         25.2 MB    disk2s2  
-     3:           Linux Filesystem ⁨⁩        268.4 MB    disk2s3  
-     4:           Linux Filesystem ⁨⁩         25.2 MB    disk2s4  
-     5:           Linux Filesystem ⁨⁩        268.4 MB    disk2s5  
-     6:           Linux Filesystem ⁨⁩          8.4 MB    disk2s6  
-     7:           Linux Filesystem ⁨⁩        100.7 MB    disk2s7  
-     8:           Linux Filesystem ⁨⁩         31.3 GB    disk2s8
+```
+  /dev/disk2 (external, physical):
+  #: TYPE NAME SIZE IDENTIFIER
+  0: GUID\_partition\_scheme \*32.0 GB disk2
+  1: Microsoft Reserved ⁨⁩ 33.6 MB disk2s1
+  2: Linux Filesystem ⁨⁩ 25.2 MB disk2s2
+  3: Linux Filesystem ⁨⁩ 268.4 MB disk2s3
+  4: Linux Filesystem ⁨⁩ 25.2 MB disk2s4
+  5: Linux Filesystem ⁨⁩ 268.4 MB disk2s5
+  6: Linux Filesystem ⁨⁩ 8.4 MB disk2s6
+  7: Linux Filesystem ⁨⁩ 100.7 MB disk2s7
+  8: Linux Filesystem ⁨⁩ 31.3 GB disk2s8
+```
 
   Entrez maintenant la commande dd comme suit. Ajustez le point de montage puis le nom du fichier.
 * Remarquez le r dans le point de montage (/dev/rdisk2), qui permet, sur un système macOS, une opération beaucoup plus rapide.
@@ -1642,9 +1875,11 @@ La première étape pour effectuer la copie consite à retrouver le point de mon
 
   Terminal macOS
 
+```
   sudo dd bs=32m if=/dev/rdisk2 of=nom-du-fichier-aaaa-mm-jj.img
+```
 * Le fichier sera créé dans le dossier courant. Vous pouvez utiliser la commande pwd (Print Working Directory) pour connaître son chemin exact.
-* L'opération inverse vous permettra de réinstaller votre carte à partir de cette image.
+* L'opération inverse vous permettra de <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">réinstaller votre carte à partir de cette image,recuperer</a>.
 
 #### Linux {#ddlinux}
 
@@ -1654,23 +1889,27 @@ Si vous avez accès à un ordinateur Linux ou si vous avez une autre carte micro
 
   Linux
 
-  pi@raspberrypi:~ $ lsblk -fp  
-  NAME             FSTYPE FSVER   LABEL    UUID                                  FSAVAIL FSUSE%  MOUNTPOINT  
-  /dev/sda  
-  ├─/dev/sda1      vfat   FAT32   boot    0193-3CD3  
-  └─/dev/sda2      ext4   1.0     rootfs  a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8  
-  /dev/mmcblk0  
-  ├─/dev/mmcblk0p1 vfat   FAT32   boot    0193-3CD3                              223.66M    12%  /boot  
-  └─/dev/mmcblk0p2 ext4   1.0     rootfs  a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8       26G     4%  /
+```
+  pi@raspberrypi:~ $ lsblk -fp
+  NAME FSTYPE FSVER LABEL UUID FSAVAIL FSUSE% MOUNTPOINT
+  /dev/sda
+  ├─/dev/sda1 vfat FAT32 boot 0193-3CD3
+  └─/dev/sda2 ext4 1.0 rootfs a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8
+  /dev/mmcblk0
+  ├─/dev/mmcblk0p1 vfat FAT32 boot 0193-3CD3 223.66M 12% /boot
+  └─/dev/mmcblk0p2 ext4 1.0 rootfs a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8 26G 4% /
+```
 * Entrez maintenant la commande dd comme suit. Ajustez le point de montage puis le nom du fichier.
 
   Je vous suggère de terminer le nom du fichier par la date courante au format aaaa-mm-jj.
 
   Terminal Linux
 
+```
   sudo dd bs=32M if=/dev/sda of=nom-du-fichier-aaaa-mm-jj.img
+```
 * Le fichier sera créé dans le dossier courant. Vous pouvez utiliser la commande pwd (Print Working Directory) pour connaître son chemin exact.
-* L'opération inverse vous permettra de réinstaller votre carte à partir de cette image.
+* L'opération inverse vous permettra de <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">réinstaller votre carte à partir de cette image,recuperer</a>.
 
 ### Utilitaire dd pour Windows {#ddwin}
 
@@ -1692,7 +1931,9 @@ La commande dd n'existe pas nativement sous Windows. Heureusement, il est possib
 
   PowerShell
 
+```
   ./dd if=\\?\Device\Harddisk1\Partition0 of=nom-du-fichier-aaaa-mm-jj.img bs=1M
+```
 
 ### Utilitaire dd directement sur le Raspberry Pi pendant que la carte est utilisée {#ddpi}
 
@@ -1715,37 +1956,47 @@ Pendant tout le processus, vous ne devez effectuer aucune opération sur le Rasp
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ lsblk -fp  
-  NAME             FSTYPE FSVER LABEL   UUID                                  FSAVAIL FSUSE% MOUNTPOINT  
-  /dev/sda   
-  ├─/dev/sda1      vfat   FAT32 EFI     67E3-17ED   
-  └─/dev/sda2     exfat  1.0   macle  633B-0FD4  
-  /dev/mmcblk0   
-  ├─/dev/mmcblk0p1 vfat   FAT32 boot    0193-3CD3                             223,6M   12%   /boot  
-  └─/dev/mmcblk0p2 ext4   1.0   rootfs  a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8     24G   10%   /
+```
+  pi@raspberrypi:~ $ lsblk -fp
+  NAME FSTYPE FSVER LABEL UUID FSAVAIL FSUSE% MOUNTPOINT
+  /dev/sda
+  ├─/dev/sda1 vfat FAT32 EFI 67E3-17ED
+  └─/dev/sda2 exfat 1.0 macle 633B-0FD4
+  /dev/mmcblk0
+  ├─/dev/mmcblk0p1 vfat FAT32 boot 0193-3CD3 223,6M 12% /boot
+  └─/dev/mmcblk0p2 ext4 1.0 rootfs a2e795f4-b2cf-4ea1-a687-ddf67a64c0a8 24G 10% /
+```
 * Il faut maintenant monter la clé USB, c'est-à-dire la rendre disponible pour le système d'exploitation.
 
   Terminal du Raspberry Pi
 
-  sudo mkdir /mnt/usb  
+```
+  sudo mkdir /mnt/usb
   sudo mount /dev/sda2 /mnt/usb -o uid=pi,gid=pi
+```
 * Lancez la commande dd pour effectuer la copie du système vers la clé USB.
 
   Terminal du Raspberry Pi
 
+```
   sudo dd bs=32M if=/dev/mmcblk0 of=/mnt/usb/nom-du-fichier-aaaa-mm-jj.img
+```
 
   Patientez, cette étape prendra de loooooonnngues minutes, voire même une heure entière sans que rien ne se passe à l'écran.
 * Vous pouvez maintenant copier ce fichier sur votre ordinateur. J'aime bien utiliser le terminal de l'ordinateur pour effectuer cette copie mais l'inverse est également possible. Entrez cette commande en prenant soin de changer pi pour le nom de votre usager sur Raspberry Pi OS et l'adresse IP pour celle du Pi.
 
   Terminal de l'ordinateur
 
+```
   scp pi@192.168.1.145:/mnt/usb/nom-du-fichier-aaaa-mm-jj.img /dossierlocal
+```
 * Vous devez finalement démonter la clé USB.
 
   Terminal du Raspberry Pi
 
+```
   sudo umount /dev/sda2
+```
 
 ### Win32 Disk Imager et autres utilitaires pour Windows {#win32diskimager}
 
@@ -1782,7 +2033,7 @@ Notez que comme pour la création d'un fichier image, la copie sur une autre car
 
 Sous Raspberry Pi OS Lite, il est possible d'installer une version en ligne de commande de piclone.
 
-Attention : si vous travaillez avec un autre système d'exploitation, par exemple HassOS, et qu'il n'est pas possible d'y installer Git (sudo apt install git), vous devrez plutôt créer une image de la carte sur votre ordinateur ([technique présentée plus haut](05_raspberry_pi.md#surordinateur)) puis flasher cette image sur l'autre carte.
+Attention : si vous travaillez avec un autre système d'exploitation, par exemple HassOS, et qu'il n'est pas possible d'y installer Git (sudo apt install git), vous devrez plutôt créer une image de la carte sur votre ordinateur ([technique présentée plus haut](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surordinateur)) puis flasher cette image sur l'autre carte.
 
 Les étapes qui suivent sont en fait une traduction de la procédure présentée dans le répertoire GitHub de l'utilitaire piclone\_cmd : <https://github.com/nwright-mcc/piclone_cmd>.
 
@@ -1790,36 +2041,43 @@ Les étapes qui suivent sont en fait une traduction de la procédure présentée
 
   Terminal
 
+```
   git clone https://github.com/nwright-mcc/piclone\_cmd.git
+```
 * Installez uuid :
 
   Terminal
 
+```
   sudo apt-get install uuid
+```
 * Insérez votre carte micro SD dans le lecteur connecté au port USB du Raspberry Pi.
 * Déterminez quel nom porte le point de montage :
 
   Terminal
 
+```
   ls /dev/sd\*
+```
 
   Vous obtiendrez en sortie quelque chose du genre /dev/sda /dev/sda1.
 
   Résultat à l'écran
 
-  pi@raspberrypi:~ $ ls /dev/sd\*  
+```
+  pi@raspberrypi:~ $ ls /dev/sd\*
   /dev/sda /dev/sda1
+```
 
   Ceci signifie que votre carte a comme point de montage /dev/sda. Si vous obtenez autre chose du genre /dev/sdb, il vous faudra retirer un des périphériques branchés afin de déterminer lequel correspond à la carte micro SD du lecteur USB.
 * Lancez maintenant l'opération de clonage en prenant soin d'utiliser le bon point de montage :
 
   Terminal
 
+```
   cd ~/piclone\_cmd
-
-   
-
   sudo ./piclone\_cmd /dev/sda
+```
 
   ![piclone_cmd](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/piclone_cmd.png)
 
@@ -1848,10 +2106,10 @@ Il n'est pas toujours obligatoire de brancher un écran au Raspberry Pi pour pou
 
 Les principales techniques pour opérer un Raspberry Pi sans lui brancher clavier ni écran sont :
 
-* branchement via SSH (mode console)
-* utilisation d'un outil de contrôle à distance tel que VNC Connect (mode graphique)
+* [branchement via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh) (mode console)
+* utilisation d'un [outil de contrôle à distance tel que VNC Connect](05_raspberry_pi.md#fiche-realvnc_pour_prendre_controle_du_raspberry_pi_a_distance) (mode graphique)
 
-Pourtant, même avec ces techniques, le branchement d'un écran peut être pratique, notamment si vous n'arrivez pas à retrouver l'adresse IP du Pi nécessaire pour accéder au Pi via SSH ou avec VNC Connect.
+Pourtant, même avec ces techniques, le branchement d'un écran peut être pratique, notamment si vous n'arrivez pas à [retrouver l'adresse IP du Pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi) nécessaire pour accéder au Pi via SSH ou avec VNC Connect.
 
 Si vous devez vous déplacer avec votre matériel, un moniteur est plutôt encombrant.
 
@@ -1859,7 +2117,7 @@ Vous serez heureux d'apprendre que l'écran de votre ordinateur portable peut ê
 
 En bonus, l'utilisation d'un tel outil permet d'effectuer des captures d'écran du Raspberry Pi directement à partir de votre ordinateur puisque la sortie vidéo sera affichée dans une application qui tourne sur cet ordinateur.
 
-Attention : Raspberry Pi OS devra avoir été configuré pour permettre le branchement d'un écran directement sur le Pi.
+Attention : Raspberry Pi OS devra avoir été configuré pour [permettre le branchement d'un écran directement sur le Pi](137_divers_linux_et_raspberry_pi.md#fiche-permettre_l_utilisation_d_un_ecran_directement_sur_le_pi).
 
 Notez que vous aurez tout de même besoin d'un clavier branché au Raspberry Pi – et possiblement d'une souris sous Raspberry Pi OS avec interface graphique – si vous souhaitez interagir avec lui sans passer par SSH ni par un outil de contrôle à distance.
 
@@ -1939,8 +2197,11 @@ Il est également possible d'installer VNC Connect sur le Pi à la ligne de comm
 
 Terminal
 
-sudo apt update  
+```
+sudo apt update
 sudo apt install realvnc-vnc-server realvnc-vnc-viewer
+```
+
 
 Voici maintenant les étapes à réaliser pour prendre contrôle du Raspberry Pi à partir de votre ordinateur portable.
 
@@ -1961,7 +2222,10 @@ Voici maintenant les étapes à réaliser pour prendre contrôle du Raspberry Pi
 
   Terminal
 
+  
+```
   sudo raspi-config
+```
 * Rendez-vous dans Interface Options.
 * Choisissez ensuite VNC.
 * Répondez Oui à la question Would you like the VNC Server to be enabled?.
@@ -1978,13 +2242,16 @@ Pour effectuer un contrôle par connection directe, vous devez vous assurer que 
 
 Notez qu'il est possible de travailler avec VNC Viewer à partir d'un autre réseau à condition d'avoir un compte chez Real VNC. Tout ceci est gratuit pour usage non commercial. Plus d'informations à ce propos sont données ici : h[ttps://www.realvnc.com/fr/raspberrypi/#sign-up](https://www.realvnc.com/fr/raspberrypi/#sign-up)
 
-Revenons à la connection directe. La façon la plus simple pour vérifier si l'ordinateur et le Pi sont sur le même réseau est d'ouvrir une fenêtre Terminal sur votre ordinateur et d'entrer la commande ping suivie de l'adresse IP du Raspberry Pi.
+Revenons à la connection directe. La façon la plus simple pour vérifier si l'ordinateur et le Pi sont sur le même réseau est d'ouvrir une fenêtre Terminal sur votre ordinateur et d'entrer la commande ping suivie de [l'adresse IP du Raspberry Pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi).
 
 Terminal
 
+```
 ping 192.168.1.145
+```
 
-Vous trouverez plus de détails sur cette fiche : « verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_ ».
+
+Vous trouverez plus de détails sur cette fiche : « [verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_](05_raspberry_pi.md#fiche-verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___) ».
 
 Lorsque le test est concluant, vous pouvez démarrer VNC et entrer l'adresse IP du Raspberry Pi à l'endroit indiqué.
 
@@ -2004,42 +2271,55 @@ Vous avez désormais le contrôle du Raspberry Pi à partir de votre ordinateur.
 
 Par défaut, sur Raspberry Pi OS, il y a un usager administrateur nommé pi dont le mot de passe est raspberry.
 
-Le fait de conserver ce mot de passe pour l'usager pi alors que SSH est activé ou que le serveur VNC est activé constitue un trou de sécurité.
+Le fait de conserver ce mot de passe pour l'usager pi alors que [SSH est activé](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi) ou que [le serveur VNC est activé](05_raspberry_pi.md#fiche-realvnc_pour_prendre_controle_du_raspberry_pi_a_distance) constitue un trou de sécurité.
 
 Un message à cet effet est d'ailleurs affiché lors du démarrage du Pi.
 
 Résultat à l'écran
 
-SSH is enabled and the default password for the 'pi' user has not been changed.  
+
+```
+SSH is enabled and the default password for the 'pi' user has not been changed.
 This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+```
+
 
 Il faut donc modifier ce mot de passe. Tel que mentionné dans le message à l'écran, ceci se fait à l'aide de la commande :
 
 Terminal
 
+
+```
 passwd
+```
+
 
 ## Mot de passe oublié {#oublie}
 
 Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'avoir un accès physique au Raspberry Pi avec un écran et un clavier.
 
-* Éteignez le Pi de façon sécuritaire puis retirez la carte micro SD.
+* [Éteignez le Pi de façon sécuritaire](04_linux.md#fiche-Eteindre_un_systeme_linux_de_facon_securitaire) puis retirez la carte micro SD.
 * Insérez la carte dans votre ordinateur.
 * Créez une copie du fichier cmdline.txt qui se trouve directement à la racine de la carte. Ceci permettra de revenir à la version originale si jamais vos manipulations empêchent le bon fonctionnement de l'OS.
 * Éditez le fichier cmdline.txt. Vous devez lui ajouter la configuration init=/bin/sh qui forcera le Pi à démarrer en mode mode mono-utilisateur.
 
   Fichier cmdline.txt
 
+  
+```
   console=serial0,115200 console=tty1 root=PARTUUID=6f2deb42-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait init=/bin/sh
+```
 
   Attention : dans ce fichier, chaque configuration est séparée par un espace et toutes les configurations doivent tenir sur une seule ligne.
-* Retirez la carte de l'ordinateur de façon sécuritaire, remettez-la dans le Pi et démarrez le Pi.
+* <a href="fiche-retirer_un_disque_amovible_de_facon_securitaire.md#retirer_un_disque_amovible_de_facon_securitaire">Retirez la carte de l'ordinateur de façon sécuritaire</a>, remettez-la dans le Pi et démarrez le Pi.
 * L'étape suivante dépend de votre système :
   + Si les lignes arrêtent de défiler à l'écran et que le système semble gelé (généralement après la ligne random: crng init done), appuyez sur la touche Entrée et vous obtiendrez une invite de commande (#). Entrez-y cette commande :
 
     Terminal
 
+```
     mount -o remount, rw /
+```
 
     ![mount -o remount, rw /](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-Mount-ORemountRW.png)
   + Si le démarrage s'est déroulé normalement, vous pourrez vous connecter avec le code d'usager su sans mot de passe.
@@ -2047,7 +2327,9 @@ Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'
 
   Terminal
 
+```
   passwd pi
+```
 * Refaites maintenant tout le chemin à l'envers : éteignez le Pi de façon sécuritaire, retirez la carte micro SD, insérez-la dans votre ordinateur, éditez le fichier cmdline.txt, retirez la configuration init=/bin/sh, retirez la carte de l'ordinateur, remettez-la dans le Pi puis redémarrez ce dernier.
 * Bingo!
 
@@ -2059,29 +2341,36 @@ Il est possible de réinitialiser le mot de passe de l'usager pi à condition d'
 
 ## 4.19 Vérifier si l'ordinateur et le Raspberry Pi sont branchés sur le même réseau {#fiche-verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___}
 
-Dans certains contextes, pour que l'ordinateur puisse communiquer correctement avec le Raspberry Pi, soit via SSH ou encore en affichant la page Web de la boîte domotique, il faut que l'ordinateur et le Raspberry Pi soient branchés sur le même réseau.
+Dans certains contextes, pour que l'ordinateur puisse communiquer correctement avec le Raspberry Pi, soit [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh) ou encore en affichant la page Web de la boîte domotique, il faut que l'ordinateur et le Raspberry Pi soient branchés sur le même réseau.
 
 ## ping
 
 La commande [ping](https://www.ionos.fr/digitalguide/serveur/outils/commande-ping/) permet de vérifier si un ordinateur peut rejoindre une adresse IP donnée.
 
-Ouvrez une fenêtre Terminal sur l'ordinateur puis entrez la commande ping suivie de l'adresse IP du Raspberry Pi.
+Ouvrez une fenêtre Terminal sur l'ordinateur puis entrez la commande ping suivie de l'[adresse IP du Raspberry Pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi).
 
 Terminal de l'ordinateur
 
+```
 ping 192.168.1.145
+```
+
 
 Si l'ordinateur et le Pi sont sur le même réseau, vous devriez avoir un résultat qui ressemble à ceci.
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
-PING 192.168.1.145 (192.168.1.145): 56 data bytes  
-64 bytes from 192.168.1.145: icmp\_seq=0 ttl=62 time=2.407 ms  
-64 bytes from 192.168.1.145: icmp\_seq=1 ttl=62 time=8.484 ms  
-64 bytes from 192.168.1.145: icmp\_seq=2 ttl=62 time=3.625 ms  
-^Z  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
+PING 192.168.1.145 (192.168.1.145): 56 data bytes
+64 bytes from 192.168.1.145: icmp\_seq=0 ttl=62 time=2.407 ms
+64 bytes from 192.168.1.145: icmp\_seq=1 ttl=62 time=8.484 ms
+64 bytes from 192.168.1.145: icmp\_seq=2 ttl=62 time=3.625 ms
+^Z
 [6]+ Stopped ping 192.168.1.145
+```
+
 
 Pour arrêter le défilement, appuyez sur Ctrl + C.
 
@@ -2089,27 +2378,35 @@ Dans le cas où l'ordinateur et le Pi ne sont pas sur le même réseau, vous ver
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145  
-PING 192.168.1.145 (192.168.1.145): 56 data bytes  
-Request timeout for icmp\_seq 0  
-Request timeout for icmp\_seq 1  
-Request timeout for icmp\_seq 2  
-^Z  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
+PING 192.168.1.145 (192.168.1.145): 56 data bytes
+Request timeout for icmp\_seq 0
+Request timeout for icmp\_seq 1
+Request timeout for icmp\_seq 2
+^Z
 [7]+ Stopped ping 192.168.1.145
+```
+
 
 Un message « No route to host » signifie que l'ordinateur n'a pas accès à internet. Pour le vérifiez, faites un ping vers l'adresse 8.8.8.8 qui correspond à Google.
 
 Résultat à l'écran
 
-MacBook-Pro-de-MonNom:~ monnom$ ping 8.8.8.8  
-PING 8.8.8.8 (8.8.8.8): 56 data bytes  
-ping: sendto: No route to host  
-ping: sendto: No route to host  
-Request timeout for icmp\_seq 0  
-ping: sendto: No route to host  
-Request timeout for icmp\_seq 1  
-^Z  
+
+```
+MacBook-Pro-de-MonNom:~ monnom$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: No route to host
+ping: sendto: No route to host
+Request timeout for icmp\_seq 0
+ping: sendto: No route to host
+Request timeout for icmp\_seq 1
+^Z
 [10]+ Stopped ping 8.8.8.8
+```
+
 
 ## Masque de sous-réseau
 
@@ -2145,7 +2442,11 @@ Lancez cette commande sur le Pi :
 
 Terminal
 
+
+```
 sudo service bluetooth status
+```
+
 
 Si vous obtenez une indication « active (running) », c'est que tout est ok. Vous n'avez pas à faire l'installation du paquet ni l'activation du bluetooth.
 
@@ -2155,13 +2456,21 @@ D'abord, il faut installer les paquets manquants.
 
 Terminal
 
+
+```
 sudo apt install bluetooth pi-bluetooth bluez blueman
+```
+
 
 Il faut ensuite redémarrer le Pi.
 
 Terminal
 
+
+```
 sudo reboot
+```
+
 
 Si vous étiez connecté via SSH, vous devrez refaire la connexion lorsque le Pi sera redémarré.
 
@@ -2171,52 +2480,65 @@ Pour voir si Bluetooth est activé, lancez la commande :
 
 Terminal
 
+
+```
 sudo service bluetooth status
+```
+
 
 Si vous voyez Active: inactive (dead), il faudra démarrer le service Bluetooth :
 
 Terminal
 
+
+```
 sudo systemctl start bluetooth
+```
+
 
 Si tout est OK, le statut devrait indiquer que le service Bluetooth fonctionne.
 
 Terminal
 
+
+```
 sudo service bluetooth status
+```
+
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ sudo service bluetooth status  
-● bluetooth.service - Bluetooth service  
-   Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset  
-   Active: active (running) since Mon 2020-11-02 18:11:45 EST; 2s ago  
-     Docs: man:bluetoothd(8)  
- Main PID: 12002 (bluetoothd)  
-   Status: "Running"  
-    Tasks: 1 (limit: 2063)  
-   CGroup: /system.slice/bluetooth.service  
-           └─12002 /usr/lib/bluetooth/bluetoothd
 
- 
-
- 
-
- 
-
-Nov 02 18:11:45 raspberrypi systemd[1]: Starting Bluetooth service...  
-Nov 02 18:11:45 raspberrypi bluetoothd[12002]: Bluetooth daemon 5.50  
-Nov 02 18:11:45 raspberrypi systemd[1]: Started Bluetooth service.  
-Nov 02 18:11:45 raspberrypi bluetoothd[12002]: Starting SDP server  
+```
+pi@raspberrypi:~ $ sudo service bluetooth status
+● bluetooth.service - Bluetooth service
+Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset
+Active: active (running) since Mon 2020-11-02 18:11:45 EST; 2s ago
+Docs: man:bluetoothd(8)
+Main PID: 12002 (bluetoothd)
+Status: "Running"
+Tasks: 1 (limit: 2063)
+CGroup: /system.slice/bluetooth.service
+└─12002 /usr/lib/bluetooth/bluetoothd
+Nov 02 18:11:45 raspberrypi systemd[1]: Starting Bluetooth service...
+Nov 02 18:11:45 raspberrypi bluetoothd[12002]: Bluetooth daemon 5.50
+Nov 02 18:11:45 raspberrypi systemd[1]: Started Bluetooth service.
+Nov 02 18:11:45 raspberrypi bluetoothd[12002]: Starting SDP server
 Nov 02 18:11:46 raspberrypi bluetoothd[12002]: Bluetooth management interface 1.
+```
+
 
 Si vous obtenez encore Active: inactive (dead), je vous propose une manipulation supplémentaire.
 
 Terminal
 
-sudo modprobe btusb  
-sudo systemctl start bluetooth  
+
+```
+sudo modprobe btusb
+sudo systemctl start bluetooth
 sudo service bluetooth status
+```
+
 
 Une fois que le service bluetooth est actif, il reste une dernière étape : activer le service HCI UART (Host Controller Interface - Universal Asynchronous Receiver Transmitter) afin de permettre la transmission de données.
 
@@ -2224,13 +2546,21 @@ Pour voir si c'est déjà fait :
 
 Terminal
 
+
+```
 systemctl status hciuart
+```
+
 
 Si vous voyez Active: inactive (dead), il faudra démarrer le service.
 
 Terminal
 
+
+```
 sudo systemctl start hciuart
+```
+
 
 ## Pairage avec un appareil Bluetooth
 
@@ -2244,17 +2574,22 @@ La première fois que vous le ferez, vous devrez également lancer l'agent.
 
 Terminal
 
+
+```
 sudo bluetoothctl
-
- 
-
 agent on
+```
+
 
 Pour lancer la recherche d'appareils, lancez la commande :
 
 Terminal
 
+
+```
 scan on
+```
+
 
 Vous verrez apparaître une série d'adresses MAC pour les appareils Bluetooth détectés.
 
@@ -2262,13 +2597,21 @@ Vous devez connaître l'adresse MAC de l'appareil qui doit être pairé. Une foi
 
 Terminal
 
-pair XX:XX:XX:XX:XX:XX
+
+```
+pair XX:XX:XX:XX:XX:XX
+```
+
 
 ou de façon permanente avec :
 
 Terminal
 
-trust XX:XX:XX:XX:XX:XX
+
+```
+trust XX:XX:XX:XX:XX:XX
+```
+
 
 Vous pouvez désormais utiliser votre appareil Bluetooth avec votre Raspberry Pi.
 
@@ -2340,25 +2683,41 @@ Pour obtenir le numéro de modèle et la révision :
 
 Terminal
 
+
+```
 cat /proc/device-tree/model
+```
+
 
 ### Raspberry Pi 2B
 
 Résultat à l'écran
 
+
+```
 Raspberry Pi 2 Model B Rev 1.1
+```
+
 
 ### Raspberry Pi 3B
 
 Résultat à l'écran
 
+
+```
 Raspberry Pi 3 Model B Rev 1.2
+```
+
 
 ### Raspberry Pi 4B
 
 Résultat à l'écran
 
+
+```
 Raspberry Pi 4 Model B Rev 1.2
+```
+
 
 ## Information détaillée à l'aide d'une commande au terminal
 
@@ -2366,158 +2725,162 @@ Pour obtenir encore plus d'informations :
 
 Terminal
 
+
+```
 cat /proc/cpuinfo
+```
+
 
 ### Raspberry Pi 2B
 
 Résultat à l'écran
 
-processor : 0  
-model name : ARMv7 Processor rev 5 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xc07  
-CPU revision : 5  
-  
-processor : 1  
-model name : ARMv7   
-Processor rev 5 (v7l)  
-BogoMIPS : 38.40Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xc07  
-CPU revision : 5  
-  
-processor : 2  
-model name : ARMv7 Processor rev 5 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xc07  
-CPU revision : 5  
-  
-processor : 3  
-model name : ARMv7   
-Processor rev 5 (v7l)  
-BogoMIPS : 38.40Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xc07  
-CPU revision : 5  
-  
-Hardware : BCM2835  
-Revision : a01041  
-Serial : 00000000dde81138  
+
+```
+processor : 0
+model name : ARMv7 Processor rev 5 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xc07
+CPU revision : 5
+processor : 1
+model name : ARMv7
+Processor rev 5 (v7l)
+BogoMIPS : 38.40Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xc07
+CPU revision : 5
+processor : 2
+model name : ARMv7 Processor rev 5 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xc07
+CPU revision : 5
+processor : 3
+model name : ARMv7
+Processor rev 5 (v7l)
+BogoMIPS : 38.40Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xc07
+CPU revision : 5
+Hardware : BCM2835
+Revision : a01041
+Serial : 00000000dde81138
 Model : Raspberry Pi 2 Model B Rev 1.1
+```
+
 
 ### Raspberry Pi 3B
 
 Résultat à l'écran
 
-processor : 0  
-model name : ARMv7 Processor rev 4 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd03  
-CPU revision : 4  
-  
-processor : 1  
-model name : ARMv7 Processor rev 4 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd03  
-CPU revision : 4  
-  
-processor : 2  
-model name : ARMv7 Processor rev 4 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd03  
-CPU revision : 4  
-  
-processor : 3  
-model name : ARMv7 Processor rev 4 (v7l)  
-BogoMIPS : 38.40  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd03  
-CPU revision : 4  
-  
-Hardware : BCM2835  
-Revision : a02082  
-Serial : 00000000dfa8f8ea  
+
+```
+processor : 0
+model name : ARMv7 Processor rev 4 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 4
+processor : 1
+model name : ARMv7 Processor rev 4 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 4
+processor : 2
+model name : ARMv7 Processor rev 4 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 4
+processor : 3
+model name : ARMv7 Processor rev 4 (v7l)
+BogoMIPS : 38.40
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd03
+CPU revision : 4
+Hardware : BCM2835
+Revision : a02082
+Serial : 00000000dfa8f8ea
 Model : Raspberry Pi 3 Model B Rev 1.2
+```
+
 
 ### Raspberry Pi 4B
 
 Résultat à l'écran
 
-processor : 0  
-model name : ARMv7   
-Processor rev 3 (v7l)  
-BogoMIPS : 108.00  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd08  
-CPU revision : 3  
-  
-processor : 1  
-model name : ARMv7   
-Processor rev 3 (v7l)  
-BogoMIPS : 108.00  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd08  
-CPU revision : 3  
-  
-processor : 2  
-model name : ARMv7   
-Processor rev 3 (v7l)  
-BogoMIPS : 108.00  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd08  
-CPU revision : 3  
-  
-processor : 3  
-model name : ARMv7   
-Processor rev 3 (v7l)  
-BogoMIPS : 108.00  
-Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32   
-CPU implementer : 0x41  
-CPU architecture: 7  
-CPU variant : 0x0  
-CPU part : 0xd08  
-CPU revision : 3  
-  
-Hardware : BCM2711  
-Revision : c03112  
-Serial : 1000800013a8d1d9  
+
+```
+processor : 0
+model name : ARMv7
+Processor rev 3 (v7l)
+BogoMIPS : 108.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd08
+CPU revision : 3
+processor : 1
+model name : ARMv7
+Processor rev 3 (v7l)
+BogoMIPS : 108.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd08
+CPU revision : 3
+processor : 2
+model name : ARMv7
+Processor rev 3 (v7l)
+BogoMIPS : 108.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd08
+CPU revision : 3
+processor : 3
+model name : ARMv7
+Processor rev 3 (v7l)
+BogoMIPS : 108.00
+Features : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant : 0x0
+CPU part : 0xd08
+CPU revision : 3
+Hardware : BCM2711
+Revision : c03112
+Serial : 1000800013a8d1d9
 Model : Raspberry Pi 4 Model B Rev 1.2
+```
+
 
 ## 32 ou 64 bits?
 
@@ -2531,13 +2894,21 @@ Une autre technique permet de retrouver clairement l'information. Elle nécessit
 
 Terminal
 
+
+```
 sudo apt-get install lshw
+```
+
 
 Une fois l'utilitaire installé, lancez la commande [lshw](https://linux.die.net/man/1/lshw) :
 
 Terminal
 
+
+```
 sudo lshw
+```
+
 
 Vous verrez clairement si le Pi a une architecture 32 ou 64 bits.
 
@@ -2545,107 +2916,111 @@ Voici ce que j'obtiens avec un Raspberry Pi 3B+ :
 
 Résultat à l'écran
 
-raspberrypi   
-    description: ARMv7 Processor rev 4 (v7l)  
-     product: Raspberry Pi 3 Model B Rev 1.2  
-     serial: 00000000dea8f9ea  
-     width: 32 bits  
-     capabilities: smp  
-  \*-core  
-       description: Motherboard  
-       physical id: 0  
-     \*-cpu:0  
-         description: CPU  
-         product: cpu  
-         physical id: 0  
-         bus info: cpu@0  
-         size: 1200MHz  
-         capacity: 1200MHz  
-         capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq  
-     \*-cpu:1  
-         description: CPU  
-         product: cpu  
-         physical id: 1  
-         bus info: cpu@1  
-         size: 1200MHz  
-         capacity: 1200MHz  
-         capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq  
-     \*-cpu:2  
-         description: CPU  
-         product: cpu  
-         physical id: 2  
-         bus info: cpu@2  
-         size: 1200MHz  
-         capacity: 1200MHz  
-         capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq  
-     \*-cpu:3  
-         description: CPU  
-         product: cpu  
-         physical id: 3  
-         bus info: cpu@3  
-         size: 1200MHz  
-         capacity: 1200MHz  
-         capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq  
-     \*-memory  
-         description: System memory  
-         physical id: 4  
-         size: 923MiB  
-  \*-usbhost  
-       product: DWC OTG Controller  
-       vendor: Linux 5.10.52-v7+ dwc\_otg\_hcd  
-       physical id: 1  
-       bus info: usb@1  
-       logical name: usb1  
-       version: 5.10  
-       capabilities: usb-2.00  
-       configuration: driver=hub slots=1 speed=480Mbit/s  
-     \*-usb  
-         description: USB hub  
-         product: SMC9514 Hub  
-         vendor: Standard Microsystems Corp.  
-         physical id: 1  
-         bus info: usb@1:1  
-         version: 2.00  
-         capabilities: usb-2.00  
-         configuration: driver=hub maxpower=2mA slots=5 speed=480Mbit/s  
-       \*-usb:0  
-           description: Ethernet interface  
-           product: SMSC9512/9514 Fast Ethernet Adapter  
-           vendor: Standard Microsystems Corp.  
-           physical id: 1  
-           bus info: usb@1:1.1  
-           logical name: eth0  
-           version: 2.00  
-           serial: b8:27:eb:a8:f9:ea  
-           size: 100Mbit/s  
-           capacity: 100Mbit/s  
-           capabilities: usb-2.00 ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd autonegotiation  
-           configuration: autonegotiation=on broadcast=yes driver=smsc95xx driverversion=5.10.52-v7+ duplex=full firmware=smsc95xx USB 2.0 Ethernet ip=192.168.29.10 link=yes maxpower=2mA multicast=yes port=twisted pair speed=100Mbit/s  
-       \*-usb:1  
-           description: Communication device  
-      product: Aeotec Z-Stick Gen5 (ZW090) - UZB  
-           vendor: Sigma Designs, Inc.  
-           physical id: 2  
-           bus info: usb@1:1.2  
-           version: 0.00  
-           capabilities: usb-2.00  
-           configuration: driver=cdc\_acm maxpower=100mA speed=12Mbit/s  
-       \*-usb:2  
-           description: Keyboard  
-           product: Dell USB Keyboard  
-           vendor: Dell  
-           physical id: 3  
-           bus info: usb@1:1.3  
-           version: 3.06  
-           capabilities: usb-1.10  
-           configuration: driver=usbhid maxpower=70mA speed=2Mbit/s  
-  \*-network  
-       description: Wireless interface  
-       physical id: 2  
-       logical name: wlan0  
-       serial: b8:27:eb:fd:ac:bf  
-       capabilities: ethernet physical wireless  
-       configuration: broadcast=yes driver=brcmfmac driverversion=7.45.98.94 firmware=01-3b33decd multicast=yes wireless=IEEE 802.11
+
+```
+raspberrypi
+description: ARMv7 Processor rev 4 (v7l)
+product: Raspberry Pi 3 Model B Rev 1.2
+serial: 00000000dea8f9ea
+width: 32 bits
+capabilities: smp
+\*-core
+description: Motherboard
+physical id: 0
+\*-cpu:0
+description: CPU
+product: cpu
+physical id: 0
+bus info: cpu@0
+size: 1200MHz
+capacity: 1200MHz
+capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq
+\*-cpu:1
+description: CPU
+product: cpu
+physical id: 1
+bus info: cpu@1
+size: 1200MHz
+capacity: 1200MHz
+capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq
+\*-cpu:2
+description: CPU
+product: cpu
+physical id: 2
+bus info: cpu@2
+size: 1200MHz
+capacity: 1200MHz
+capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq
+\*-cpu:3
+description: CPU
+product: cpu
+physical id: 3
+bus info: cpu@3
+size: 1200MHz
+capacity: 1200MHz
+capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 cpufreq
+\*-memory
+description: System memory
+physical id: 4
+size: 923MiB
+\*-usbhost
+product: DWC OTG Controller
+vendor: Linux 5.10.52-v7+ dwc\_otg\_hcd
+physical id: 1
+bus info: usb@1
+logical name: usb1
+version: 5.10
+capabilities: usb-2.00
+configuration: driver=hub slots=1 speed=480Mbit/s
+\*-usb
+description: USB hub
+product: SMC9514 Hub
+vendor: Standard Microsystems Corp.
+physical id: 1
+bus info: usb@1:1
+version: 2.00
+capabilities: usb-2.00
+configuration: driver=hub maxpower=2mA slots=5 speed=480Mbit/s
+\*-usb:0
+description: Ethernet interface
+product: SMSC9512/9514 Fast Ethernet Adapter
+vendor: Standard Microsystems Corp.
+physical id: 1
+bus info: usb@1:1.1
+logical name: eth0
+version: 2.00
+serial: b8:27:eb:a8:f9:ea
+size: 100Mbit/s
+capacity: 100Mbit/s
+capabilities: usb-2.00 ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd autonegotiation
+configuration: autonegotiation=on broadcast=yes driver=smsc95xx driverversion=5.10.52-v7+ duplex=full firmware=smsc95xx USB 2.0 Ethernet ip=192.168.29.10 link=yes maxpower=2mA multicast=yes port=twisted pair speed=100Mbit/s
+\*-usb:1
+description: Communication device
+product: Aeotec Z-Stick Gen5 (ZW090) - UZB
+vendor: Sigma Designs, Inc.
+physical id: 2
+bus info: usb@1:1.2
+version: 0.00
+capabilities: usb-2.00
+configuration: driver=cdc\_acm maxpower=100mA speed=12Mbit/s
+\*-usb:2
+description: Keyboard
+product: Dell USB Keyboard
+vendor: Dell
+physical id: 3
+bus info: usb@1:1.3
+version: 3.06
+capabilities: usb-1.10
+configuration: driver=usbhid maxpower=70mA speed=2Mbit/s
+\*-network
+description: Wireless interface
+physical id: 2
+logical name: wlan0
+serial: b8:27:eb:fd:ac:bf
+capabilities: ethernet physical wireless
+configuration: broadcast=yes driver=brcmfmac driverversion=7.45.98.94 firmware=01-3b33decd multicast=yes wireless=IEEE 802.11
+```
+
 
 ## Quantité de mémoire vive (RAM) {#ram}
 
@@ -2653,13 +3028,21 @@ La commande [free](https://man7.org/linux/man-pages/man1/free.1.html) permet de 
 
 Terminal
 
+
+```
 free -h
+```
+
 
 Résultat à l'écran
 
-total     used     free     shared     buff/cache     available  
-Mem:   923Mi     228Mi    207Mi     0.0Ki          488Mi         690Mi  
-Swap:  230Mi        0B    230Mi
+
+```
+total used free shared buff/cache available
+Mem: 923Mi 228Mi 207Mi 0.0Ki 488Mi 690Mi
+Swap: 230Mi 0B 230Mi
+```
+
 
  On voit que ce Raspberry Pi possède 923 Mo de mémoire vive.
 
@@ -2691,13 +3074,21 @@ Pour l'installer :
 
 Terminal
 
+
+```
 sudo apt install fbcat
+```
+
 
 Et pour l'utiliser :
 
 Terminal
 
+
+```
 fbcat > nom\_fichier.ppm
+```
+
 
 Voici ce que j'obtiens si je lance cette commande dans une fenêtre SSH alors que le Pi n'a aucun écran branché.
 
@@ -2717,7 +3108,11 @@ Pour l'utiliser :
 
 Terminal
 
+
+```
 fbgrab nom\_fichier.png
+```
+
 
 ## setterm
 
@@ -2727,7 +3122,11 @@ Ce n'est pas tout à fait une impression d'écran mais les informations trouvée
 
 Terminal
 
+
+```
 sudo setterm --dump
+```
+
 
 Par défaut, les informations seront enregistrées dans un fichier nommé screen.dump dans le dossier courant.
 
@@ -2737,80 +3136,86 @@ Il est possible de spécifier le nom du fichier désiré. Vous pouvez même util
 
 Terminal
 
+
+```
 sudo setterm --dump --file mon\_fichier.txt
+```
+
 
 Voici ce que j'obtiens si je lance la commande setterm dans une fenêtre SSH alors que le Pi n'a aucun écran branché.
 
 Fichier screen.dump
 
-[ OK ] Started Manage Sound Card State (restore and store).  
-       Starting Save/Restore Sound Card State...  
-       Starting Snappy daemon...  
-[ OK ] Started triggerhappy global hotkey daemon.  
-[ OK ] Started System Logging Service.  
-[ OK ] Started Raise network interfaces.  
-[ OK ] Started Deferred execution scheduler.  
-[ OK ] Started rng-tools.service.  
-[ OK ] Started Save/Restore Sound Card State.  
-[ OK ] Reached target Sound Card.  
-[ OK ] Started Login Service.  
-[ OK ] Started WPA supplicant.  
-[ OK ] Started Avahi mDNS/DNS-SD Stack.  
-[ OK ] Started dphys-swapfile - set up, mount/unmount, and delete a swap file.  
-       Starting Authorization Manager...  
-[ OK ] Started Authorization Manager.  
-[ OK ] Started Modem Manager.  
-[ OK ] Started Check for Raspberry Pi EEPROM updates.  
-[ OK ] Started LSB: Switch to ondemand cpu governor (unless shift key is pressed).  
-[ OK ] Started Snappy daemon.  
-       Starting Wait until snapd is fully seeded...  
-       Starting Time & Date Service...  
-[ OK ] Started Time & Date Service.  
-[ OK ] Started Wait until snapd is fully seeded.  
-       Starting Load/Save RF Kill Switch Status...  
-[ OK ] Started Configure Bluetooth Modems connected by UART.  
-[ OK ] Started Load/Save RF Kill Switch Status.  
-[ OK ] Created slice system-bthelper.slice.  
-       Starting Raspberry Pi bluetooth helper...  
-[ OK ] Started Raspberry Pi bluetooth helper.  
-       Starting Bluetooth service...  
-[ OK ] Started Bluetooth service.  
-[ OK ] Reached target Bluetooth.  
-       Starting Hostname Service...  
-[ OK ] Started Hostname Service.  
-[ OK ] Started dhcpcd on all interfaces.  
-[ OK ] Reached target Network.  
-       Starting Permit User Sessions...  
-[ OK ] Reached target Network is Online.  
-[ OK ] Started Unattended Upgrades Shutdown.  
-       Starting MariaDB 10.3.34 database server...  
-       Starting Fail2Ban Service...  
-       Starting OpenBSD Secure Shell server...  
-       Starting Network Time Service...  
-       Starting The Apache HTTP Server...  
-       Starting /etc/rc.local Compatibility...  
-My IP address is 192.168.1.113  
-[ OK ] Started Permit User Sessions.  
-[ OK ] Started Fail2Ban Service.  
-[ OK ] Started /etc/rc.local Compatibility.  
-       Starting Terminate Plymouth Boot Screen...  
-       Starting Hold until boot process finishes up...
 
- 
-
+```
+[ OK ] Started Manage Sound Card State (restore and store).
+Starting Save/Restore Sound Card State...
+Starting Snappy daemon...
+[ OK ] Started triggerhappy global hotkey daemon.
+[ OK ] Started System Logging Service.
+[ OK ] Started Raise network interfaces.
+[ OK ] Started Deferred execution scheduler.
+[ OK ] Started rng-tools.service.
+[ OK ] Started Save/Restore Sound Card State.
+[ OK ] Reached target Sound Card.
+[ OK ] Started Login Service.
+[ OK ] Started WPA supplicant.
+[ OK ] Started Avahi mDNS/DNS-SD Stack.
+[ OK ] Started dphys-swapfile - set up, mount/unmount, and delete a swap file.
+Starting Authorization Manager...
+[ OK ] Started Authorization Manager.
+[ OK ] Started Modem Manager.
+[ OK ] Started Check for Raspberry Pi EEPROM updates.
+[ OK ] Started LSB: Switch to ondemand cpu governor (unless shift key is pressed).
+[ OK ] Started Snappy daemon.
+Starting Wait until snapd is fully seeded...
+Starting Time & Date Service...
+[ OK ] Started Time & Date Service.
+[ OK ] Started Wait until snapd is fully seeded.
+Starting Load/Save RF Kill Switch Status...
+[ OK ] Started Configure Bluetooth Modems connected by UART.
+[ OK ] Started Load/Save RF Kill Switch Status.
+[ OK ] Created slice system-bthelper.slice.
+Starting Raspberry Pi bluetooth helper...
+[ OK ] Started Raspberry Pi bluetooth helper.
+Starting Bluetooth service...
+[ OK ] Started Bluetooth service.
+[ OK ] Reached target Bluetooth.
+Starting Hostname Service...
+[ OK ] Started Hostname Service.
+[ OK ] Started dhcpcd on all interfaces.
+[ OK ] Reached target Network.
+Starting Permit User Sessions...
+[ OK ] Reached target Network is Online.
+[ OK ] Started Unattended Upgrades Shutdown.
+Starting MariaDB 10.3.34 database server...
+Starting Fail2Ban Service...
+Starting OpenBSD Secure Shell server...
+Starting Network Time Service...
+Starting The Apache HTTP Server...
+Starting /etc/rc.local Compatibility...
+My IP address is 192.168.1.113
+[ OK ] Started Permit User Sessions.
+[ OK ] Started Fail2Ban Service.
+[ OK ] Started /etc/rc.local Compatibility.
+Starting Terminate Plymouth Boot Screen...
+Starting Hold until boot process finishes up...
 Raspbian GNU/Linux 10 raspberrypi tty1
-
- 
-
 raspberrypi login:
+```
+
 
 Et si je branche un clavier et un écran sur le Raspberry Pi et que je relance la commande, j'obtiendrai exactement ce que je vois à l'écran.
 
 Fichier screen.dump
 
-pi@raspberrypi:~ $ hostname -I  
-192.168.1.113  
+
+```
+pi@raspberrypi:~ $ hostname -I
+192.168.1.113
 pi@raspberrypi:~ $ sudo setterm --dump
+```
+
 
 ## Scrot
 
@@ -2832,19 +3237,31 @@ Je vous propose d'installer XFCE, un environnement graphique léger.
 
 Terminal
 
+
+```
 sudo apt install xfce4
+```
+
 
 Si vous ne souhaitez pas que votre Raspberry Pi démarre toujours en environnement graphique :
 
 Terminal
 
+
+```
 sudo systemctl set-default multi-user.target
+```
+
 
 Vous devrez cependant passer en mode graphique avant d'utiliser Scrot.
 
 Terminal
 
+
+```
 sudo service lightdm start
+```
+
 
 ### Installation de Scrot
 
@@ -2852,7 +3269,11 @@ Une fois que vous avez un environnement graphique en place, vous pouvez installe
 
 Terminal
 
+
+```
 sudo apt install scrot
+```
+
 
 ### Utilisation
 
@@ -2862,7 +3283,11 @@ Sinon, vous pouvez ouvrir une fenêtre Terminal et entrer la commande :
 
 Terminal
 
+
+```
 scrot
+```
+
 
 Ceci créera une image de l'écran au format .png, placée dans le dossier courant. Pour connaître le chemin de ce dossier, entrez la commande pwd (Print Working Directory). Sous Raspberry Pi OS, il s'agit par défaut du dossier /home/pi.
 
@@ -2872,7 +3297,11 @@ Pour ne pas avoir la fenêtre Terminal dans l'image, il est possible de demander
 
 Terminal
 
+
+```
 scrot -d 3
+```
+
 
 Vous aurez un délai de 3 secondes pour refermer la fenêtre Terminal avant que l'impression d'écran soit faite.
 
@@ -2886,19 +3315,31 @@ Pour l'éditer :
 
 Terminal
 
+
+```
 sudo nano /etc/sudoers.d/010\_pi-nopasswd
+```
+
 
 Pour que le mot de passe soit demandé à chaque commande sudo :
 
 Fichier /etc/sudoers.d/010\_pi-nopasswd
 
+
+```
 pi ALL=(ALL) PASSWD: ALL
+```
+
 
 Pour ne plus exiger le mot de passe quand une commande débute par sudo :
 
 Fichier /etc/sudoers.d/010\_pi-nopasswd
 
+
+```
 pi ALL=(ALL) NOPASSWD: ALL
+```
+
 
 Note : il faut utiliser le mot pi peu importe comment s'appelle votre usager sur le Raspberry Pi.
 

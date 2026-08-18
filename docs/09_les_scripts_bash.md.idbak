@@ -18,7 +18,11 @@ Pour appeler le script, il suffit de passer les valeurs des paramètres à la su
 
 Terminal
 
+
+```
 ./monscript.sh premierparametre deuxiemeparametre
+```
+
 
 Dans le script, le premier paramètre sera $1, le second sera $2, etc.
 
@@ -28,18 +32,22 @@ Ici, il ne fait que les afficher à l'écran.
 
 Fichier monscript.sh
 
-#!/bin/bash  
+
+```
+#!/bin/bash
 # Pour tester le passage de paramètres
-
- 
-
-echo "Premier paramètre: " $1  
+echo "Premier paramètre: " $1
 echo "Deuxième paramètre: " $2
+```
+
 
 Ce qui donnera :
 
 Résultat à l'écran
 
-pi@raspberrypi:~ $ ./monscript.sh a b  
-Premier paramètre: a  
+
+```
+pi@raspberrypi:~ $ ./monscript.sh a b
+Premier paramètre: a
 Deuxième paramètre: b
+```

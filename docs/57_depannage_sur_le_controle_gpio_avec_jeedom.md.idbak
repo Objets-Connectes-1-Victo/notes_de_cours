@@ -22,7 +22,11 @@ Donnez les droits d'exécution sur le fichier. Même si ceci n'est pas requis, o
 
 Terminal sur Raspberry Pi
 
+
+```
 chmod 777 monscript.sh
+```
+
 
 ## 51.2 Erreur « 127 : not found » {#fiche-erreur_127_not_found}
 
@@ -46,13 +50,21 @@ Pour le savoir, lancez la commande suivante sur le Raspberry Pi :
 
 Terminal
 
+
+```
 cat -v test.sh
+```
+
 
 Si une fin de ligne est marquée par CRLF (encodage requis sous Windows), elle apparaîtra sous la forme ^M.
 
 Résultat à l'écran
 
+
+```
 #!/bin/bash^M
+```
+
 
 ### Solution proposée :
 
@@ -80,11 +92,12 @@ Le script bash qui se charge d'appeler le script Python ne fait pas de sudo deva
 
 Fichier monscript.sh
 
+
+```
 #!/bin/bash
-
- 
-
 python3 /home/pi/monscript.py
+```
+
 
 ### Solution proposée :
 
@@ -92,8 +105,8 @@ Ajoutez sudo devant la commande.
 
 Fichier monscript.sh
 
+
+```
 #!/bin/bash
-
- 
-
 sudo python3 /home/pi/monscript.py
+```

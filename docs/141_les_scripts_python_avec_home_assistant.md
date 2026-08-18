@@ -10,7 +10,11 @@ Ceci est réalisé en ajoutant cette ligne dans le fichier configuration.yaml.
 
 Fichier configuration.yaml
 
+
+```
 python\_script:
+```
+
 
 Un redémarrage du système est requis pour que ce soit disponible mais attendez, un redémarrage sera également requis à une prochaine étape.
 
@@ -26,13 +30,17 @@ Vous pouvez également créer le dossier directement au terminal HassOS.
 
 Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
 
-Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi à l'aide de scp.
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python\_scripts sur le Pi [à l'aide de scp,scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur).
 
 Son nom doit se terminer par l'extension .py.
 
 Fichier test.py
 
+
+```python
 xxx
+```
+
 
 ## Déclaration du service
 
@@ -48,9 +56,13 @@ Dans cet exemple, j'ai inscrit la valeur du paramètre en dur mais il aurait ét
 
 configuration.yaml
 
-service: python\_script.test  
-data:  
-  nom: 'Annie'
+
+```
+service: python\_script.test
+data:
+nom: 'Annie'
+```
+
 
 Une fois cette configuration en place, vous devez redémarrer le système pour qu'elle soit prise en compte.
 

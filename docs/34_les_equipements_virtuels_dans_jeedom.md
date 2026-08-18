@@ -16,7 +16,7 @@ Dans la zone de recherche, entrez ***virtuel***.
 
 Cliquez sur le plugin Virtuel - officiel par Jeedom SAS.
 
-Note : si le plugin n'est pas disponible, c'est peut-être parce que vous devez mettre à jour votre système.
+Note : si le plugin n'est pas disponible, c'est peut-être parce que vous devez [mettre à jour votre système](33_messages_et_mises_a_jour.md#fiche-le_centre_de_mise_a_jour_de_jeedom).
 
 ![Plugin Virtuel](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-PluginVirtuel.png)
 
@@ -68,7 +68,7 @@ Cliquez sur Sauvegarder.
 
 Puisque dans ce cas, l'équipement virtuel ne peut avoir que deux états, modifiez la ligne État pour que le type doit une information binaire.
 
-Si vous comptez améliorer l'apparence de la tuile à l'aide des widgets, vous pouvez enlever le crochet devant Afficher sur cette ligne. Sinon, conservez le crochet.
+Si vous comptez améliorer l'apparence de la tuile <a href="fiche-widget_pour_ajuster_l_apparence_d_une_tuile.md#widget_pour_ajuster_l_apparence_d_une_tuile">à l'aide des widgets</a>, vous pouvez enlever le crochet devant Afficher sur cette ligne. Sinon, conservez le crochet.
 
 Une fois ces manipulations terminées, vous obtiendrez ceci :
 

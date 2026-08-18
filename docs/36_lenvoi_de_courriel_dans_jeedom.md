@@ -101,13 +101,21 @@ Si Homebrew n'est pas déjà installé :
 
 Terminal
 
+
+```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
 
 Pour installer Telnet :
 
 Terminal
 
+
+```
 brew install telnet
+```
+
 
 ## Connexion au serveur SMTP
 
@@ -131,29 +139,33 @@ Pour vous connecter au serveur d'envoi de courriel, suivez ces instructions. Ell
 
   Terrminal
 
-  telnet  *mail.mondomaine.com* 587
+  
+```
+  telnet mail.mondomaine.com 587
+```
 
   ou
 
   Terminal
 
+```
   telnet
-
-   
-
-  open *mail.mondomaine.com* 587
+  open mail.mondomaine.com 587
+```
 
   Si la commande fonctionne, vous devriez obtenir une réponse débutant par 220 suivi du nom de domaine puis de la version du protocole SMTP. La sortie exacte pourra être différente selon le fournisseur.
 
   Résultat à l'écran
 
-  MBPdeMonNom:~ monnom$ telnet mail.mondomaine.com 587  
-  Trying 999.999.999.999...  
-  Connected to mail.mondomaine.  
-  Escape character is '^]'.  
-  220-az1-ss23.fournisseur.com ESMTP Exim 4.93 #2 Mon, 02 Nov 2020 11:17:39 -0700   
-  220-We do not authorize the use of this system to transport unsolicited,   
+```
+  MBPdeMonNom:~ monnom$ telnet mail.mondomaine.com 587
+  Trying 999.999.999.999...
+  Connected to mail.mondomaine.
+  Escape character is '^]'.
+  220-az1-ss23.fournisseur.com ESMTP Exim 4.93 #2 Mon, 02 Nov 2020 11:17:39 -0700
+  220-We do not authorize the use of this system to transport unsolicited,
   220 and/or bulk e-mail.
+```
 * Remarquez le message « We do not authorize the use of this system to transport unsolicited, and/or bulk e-mail. ». Il ne fait que vous avertir que vous n'êtes pas autorisés à envoyer du courriel non sollicité ni du courriel en lot.
 * Lancez la communication entre le client Telnet et le serveur SMTP à l'aide de la commande EHLO suivie de localhost.
 
@@ -163,20 +175,24 @@ Pour vous connecter au serveur d'envoi de courriel, suivez ces instructions. Ell
 
   Console Telnet
 
+```
   EHLO localhost
+```
 
   Le serveur SMTP répondra en donnant un code 250 suivi d'une liste des commandes qu'il supporte. Ces commandes pourront être différentes selon le serveur SMTP que vous tentez de joindre.
 
   Résultat à l'écran
 
-  EHLO localhost  
-  250-az1-ss23.fournisseur.com Hello localhost [999.999.999.999]  
-  250-SIZE 52428800  
-  250-8BITMIME  
-  250-PIPELINING  
-  250-AUTH PLAIN LOGIN  
-  250-STARTTLS  
+```
+  EHLO localhost
+  250-az1-ss23.fournisseur.com Hello localhost [999.999.999.999]
+  250-SIZE 52428800
+  250-8BITMIME
+  250-PIPELINING
+  250-AUTH PLAIN LOGIN
+  250-STARTTLS
   250 HELP
+```
 
 ## Code et mot de passe du compte de courriel
 
@@ -194,15 +210,12 @@ Vous devrez crypter votre code d'usager et votre mot de passe en base64. Ceci pe
 
 Console Telnet
 
+```
 AUTH LOGIN
-
- 
-
 code-en-base64
-
- 
-
 mdp-en-base64
+```
+
 
 Il est possible que le serveur affiche un numéro de ligne et une série de caractères après chaque entrée.
 
@@ -210,12 +223,16 @@ Si les informations sont bonnes, le serveur répondra Authentication succeeded.
 
 Résultat à l'écran
 
-AUTH LOGIN  
-334 VXNlcm5hbWU6  
-bm8tcmVwbHlAbW9uZG9tYWluZS5jb20=  
-334 UGFzc3dvcmQ6  
-bW90ZGVwYXNzZWRlbW9uY29tcHRl  
+
+```
+AUTH LOGIN
+334 VXNlcm5hbWU6
+bm8tcmVwbHlAbW9uZG9tYWluZS5jb20=
+334 UGFzc3dvcmQ6
+bW90ZGVwYXNzZWRlbW9uY29tcHRl
 235 Authentication succeeded
+```
+
 
 ## FROM et TO
 
@@ -225,26 +242,28 @@ Le From sera souvent la même adresse que le compte utilisé pour l'envoi mais c
 
 Console Telnet
 
+
+```
 MAIL FROM:annie.gagnon@mondomaine.com
-
- 
-
 RCPT TO:toto.lacasse@hotmail.com
-
- 
-
 DATA
+```
+
 
 telnet vous indiquera après chaque ligne si tout est correct.
 
 Message à l'écran
 
-MAIL FROM:annie.gagnon@mondomaine.com  
-250 OK  
-RCPT TO:toto.lacasse@hotmail.com  
-250 Accepted  
-DATA  
+
+```
+MAIL FROM:annie.gagnon@mondomaine.com
+250 OK
+RCPT TO:toto.lacasse@hotmail.com
+250 Accepted
+DATA
 354 Enter message, ending with "." on a line by itself
+```
+
 
 ## Corps du message
 
@@ -252,21 +271,23 @@ Si l'étape précédente a fonctionné, vous êtes maintenant prêt à entrer le
 
 Console Telnet
 
+
+```
 Subject: message test
-
- 
-
 Ceci est un message test envoyé via telnet.
-
- 
-
 .
+```
+
 
 Vous pouvez finalement refermer la connexion en entrant la commande QUIT :
 
 Console Telnet
 
+
+```
 QUIT
+```
+
 
 Consultez le courriel de destination : si les configurations ont été bien entrées, le message devrait y être.
 
@@ -280,51 +301,22 @@ De cette façon, il sera plus facile d'effectuer vos tests.
 
 Terminal
 
-telnet monserveursmtp.com 587
 
- 
-
+```
+telnet monserveursmtp.com 587
 EHLO localhost
-
- 
-
 AUTH LOGIN
-
- 
-
 code-en-base64
-
- 
-
 mdp-en-base64
-
- 
-
 MAIL FROM:annie.gagnon@mondomaine.com
-
- 
-
 RCPT TO:toto.lacasse@hotmail.com
-
- 
-
 DATA
-
- 
-
 Subject: message test
-
- 
-
 Ceci est un message test envoyé via telnet.
-
- 
-
 .
-
- 
-
 QUIT
+```
+
 
 ## Pour plus d'information
 
@@ -362,7 +354,7 @@ Donnez un nom de votre choix à l'équipement, par exemple « Courriel administ
 
 Vous devez ensuite remplir le formulaire pour indiquer avec quel serveur, de la part de qui et vers qui le courriel sera expédié.
 
-Je vous conseille de travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient, par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
+Je vous conseille de [travailler avec une adresse de courriel qui utilise un nom de domaine qui vous appartient](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine), par exemple jeedom@mondomaine.com. Ceci assurera que le serveur SMTP acceptera d'envoyer le courriel à partir d'une application tierce.
 
 ![Configuration du mail](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationMail.png)
 

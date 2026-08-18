@@ -13,20 +13,22 @@
 
    Résultat à l'écran
 
-   | 2021-09-24 07:05:00 | 122.605 | 113 | Voltage 16     | 15 | Prise intelligente Zooz |  
-   | 2021-09-24 07:05:00 | 2       | 191 | Burglar 10     | 28 | Neo détecteur 5 en 1    |  
-   | 2021-09-24 07:05:00 | 0       | 192 | SourceNodeId 2 | 28 | Neo détecteur 5 en 1    |  
-   | 2021-09-24 07:05:00 | 0.012   | 110 | Energy 0       | 15 | Prise intelligente Zooz |  
-   | 2021-09-24 07:05:00 | 0       | 189 | Alarm Level 1  | 28 | Neo détecteur 5 en 1    |  
-   | 2021-09-24 07:05:00 | 0       | 114 | Current 20     | 15 | Prise intelligente Zooz |  
-   | 2021-09-24 07:05:00 | 0       | 188 | Alarm Type 0   | 28 | Neo détecteur 5 en 1    |  
-   | 2021-09-24 07:05:00 | 0       | 112 | Power 8        | 15 | Prise intelligente Zooz |  
-   | 2021-09-24 07:05:00 | 245.5   | 183 | Luminance 3    | 28 | Neo détecteur 5 en 1    |  
-   | 2021-09-24 07:10:00 | 0.012   | 110 | Energy 0       | 15 | Prise intelligente Zooz |  
-   | 2021-09-24 07:10:00 | 0       | 112 | Power 8        | 15 | Prise intelligente Zooz |
+```
+   | 2021-09-24 07:05:00 | 122.605 | 113 | Voltage 16 | 15 | Prise intelligente Zooz |
+   | 2021-09-24 07:05:00 | 2 | 191 | Burglar 10 | 28 | Neo détecteur 5 en 1 |
+   | 2021-09-24 07:05:00 | 0 | 192 | SourceNodeId 2 | 28 | Neo détecteur 5 en 1 |
+   | 2021-09-24 07:05:00 | 0.012 | 110 | Energy 0 | 15 | Prise intelligente Zooz |
+   | 2021-09-24 07:05:00 | 0 | 189 | Alarm Level 1 | 28 | Neo détecteur 5 en 1 |
+   | 2021-09-24 07:05:00 | 0 | 114 | Current 20 | 15 | Prise intelligente Zooz |
+   | 2021-09-24 07:05:00 | 0 | 188 | Alarm Type 0 | 28 | Neo détecteur 5 en 1 |
+   | 2021-09-24 07:05:00 | 0 | 112 | Power 8 | 15 | Prise intelligente Zooz |
+   | 2021-09-24 07:05:00 | 245.5 | 183 | Luminance 3 | 28 | Neo détecteur 5 en 1 |
+   | 2021-09-24 07:10:00 | 0.012 | 110 | Energy 0 | 15 | Prise intelligente Zooz |
+   | 2021-09-24 07:10:00 | 0 | 112 | Power 8 | 15 | Prise intelligente Zooz |
+```
 7. Raffinez cette requête afin qu'elle affiche les unes à la suite des autres les informations de l'équipement tirées de la table history ET les informations tirées de la table historyArch, le tout en ordre de date. Notez que puisque votre système domotique est rarement branché de soir, il se peut que votre table d'archive soit pratiquement vide. Prenez cette requête en note dans votre fichier texte.
 8. Copiez le résultat de la requête au bas du fichier texte. Notez que si vous travaillez en ligne de commande MySQL, pour pouvoir copier du texte en provenance du Pi vers votre ordinateur, vous devez travailler en SSH.
-9. Créez un nouveau scénario qui effectue une requête SQL pour retrouver la plus haute température enregistrée hier et qui affiche cette information dans le tableau de bord.
+9. Créez un nouveau scénario qui [effectue une requête SQL](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_execute_une_requete_sql) pour retrouver la plus haute température enregistrée hier et qui [affiche cette information dans le tableau de bord](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord).
 
    Ce scénario sera lancé à tous les jours 10 minutes après la tâche d'archivage. Vous devrez retrouver dans la table cron l'heure programmée pour la tâche history archive et entrer cette valeur plus 10 minutes dans le déclencheur du scénario.
 

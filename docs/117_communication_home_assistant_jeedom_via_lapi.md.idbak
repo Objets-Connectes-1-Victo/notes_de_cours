@@ -10,12 +10,12 @@ Grâce à certaines techniques de communication, ce n'est pas un problème, on p
 
 Les deux principales techniques sont :
 
-* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche [apical\_lien\_interne][jeedom\_recuperer\_la\_valeur\_d\_un\_capteur\_branche\_sur\_home\_assistant\_ou\_la\_\_\_,et dans la suivante][/apical\_lien\_interne])
-* [apical\_lien\_interne][publication\_et\_abonnement\_mqtt\_avec\_home\_assistant,MQTT][/apical\_lien\_interne]
+* Travailler avec un API (Application Programming Interface) (expliqué dans la présente fiche <a href="fiche-jeedom_recuperer_la_valeur_d_un_capteur_branche_sur_home_assistant_ou_la___.md#jeedom_recuperer_la_valeur_d_un_capteur_branche_sur_home_assistant_ou_la___">et dans la suivante</a>)
+* <a href="fiche-publication_et_abonnement_mqtt_avec_home_assistant.md#publication_et_abonnement_mqtt_avec_home_assistant">MQTT</a>
 
 Pour que la communication entre deux applications ait lieu à l'aide d'un API, il faut qu'une application ait le moyen de lancer une commande sur l'autre application. Le plus souvent, cette commande passera par un URL. On dira alors qu'on travaille avec un API REST.
 
-Sous Jeedom, [apical\_lien\_interne][url\_d\_un\_objet\_connecte\_jeedom,un URL est assigné à chaque commande ou état d'un objet connecté][/apical\_lien\_interne]. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
+Sous Jeedom, <a href="fiche-url_d_un_objet_connecte_jeedom.md#url_d_un_objet_connecte_jeedom">un URL est assigné à chaque commande ou état d'un objet connecté</a>. C'est grâce à cet URL, que Home Assistant pourra récupérer la valeur d'un capteur branché sur une boîte domotique Jeedom ou encore de modifier la valeur d'un récepteur.
 
 ## Récupérer la valeur d'un capteur Jeedom dans Home Assistant
 
@@ -33,10 +33,14 @@ Pour voir la valeur de la commande dans Home Assistant, il suffit d'ajouter dans
 
 Fichier configuration.yaml
 
-sensor:  
-  - platform: rest  
-    resource: http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=234  
-    name: porte d'entrée Jeedom
+
+```
+sensor:
+- platform: rest
+resource: http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=234
+name: porte d'entrée Jeedom
+```
+
 
 Une fois Home Assistant redémarré (un rechargement des configurations n'est pas suffisant), le capteur de Jeedom pourra être utilisé au même titre que n'importe quel autre qui serait branché directement dans Home Assistant.
 
@@ -60,11 +64,15 @@ Ici, j'ai ajouté deux commandes : une pour allumer la prise et l'autre, pour l'
 
 Fichier configuration.yaml
 
-rest\_command:  
-  allumer\_lumiere\_jeedom:  
-    url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=271"  
-  eteindre\_lumiere\_jeedom:  
-    url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=272"
+
+```
+rest\_command:
+allumer\_lumiere\_jeedom:
+url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=271"
+eteindre\_lumiere\_jeedom:
+url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=272"
+```
+
 
 Après un redémarrage de Home Assistant, il est possible d'utiliser ces commandes en tant qu'action pour interagir avec le récepteur de Jeedom.
 
@@ -78,9 +86,13 @@ Après avoir récupéré l'URL qui permet d'accéder à la valeur du virtuel, il
 
 Fichier configuration.yaml
 
-rest\_command:  
-  temperature\_virtuelle\_jeedom\_chaud:  
-  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
+
+```
+rest\_command:
+temperature\_virtuelle\_jeedom\_chaud:
+url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=209&value=30"
+```
+
 
 ## 103.2 Jeedom : récupérer la valeur d'un capteur branché sur Home Assistant {#fiche-jeedom_recuperer_la_valeur_d_un_capteur_branche_sur_home_assistant_ou_la___}
 
@@ -88,7 +100,7 @@ Vous avez un objet connecté dans Home Assistant et vous désirez l'utiliser dan
 
 Il est possible de configurer Home Assistant pour qu'il envoie des informations à un autre système, par exemple Jeedom.
 
-La technique est tout à fait opposée à celle utilisée pour [apical\_lien\_interne][home\_assistant\_interagir\_avec\_un\_objet\_branche\_sur\_jeedom,récupérer dans Home Assistant une valeur en provenance de Jeedom][/apical\_lien\_interne].
+La technique est tout à fait opposée à celle utilisée pour <a href="fiche-home_assistant_interagir_avec_un_objet_branche_sur_jeedom.md#home_assistant_interagir_avec_un_objet_branche_sur_jeedom">récupérer dans Home Assistant une valeur en provenance de Jeedom</a>.
 
 Sous Home Assistant, les objets connectés n'ont pas d'URL que l'on peut récupérer. Il faudra plutôt que Home Assistant pousse vers Jeedom la valeur souhaitée, dans un objet virtuel dont on connaîtra l'URL.
 
@@ -96,7 +108,7 @@ Home Assistant utilisera pour cela des commandes de type [REST](https://www.home
 
 Voici comment y parvenir :
 
-* Dans Jeedom, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,créez un équipement virtuel][/apical\_lien\_interne] qui recevra la valeur de Home Assistant.
+* Dans Jeedom, <a href="fiche-travailler_avec_le_plugin_virtuel.md#travailler_avec_le_plugin_virtuel">créez un équipement virtuel</a> qui recevra la valeur de Home Assistant.
 
   Donnez-lui un nom clair, par exemple Luminosité cuisine - Home Assistant.
 
@@ -109,9 +121,12 @@ Voici comment y parvenir :
 
   Fichier configuration.yaml
 
-  rest\_command:  
-    pousser\_eclairement\_vers\_jeedom:  
-      url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=71&value={{ states('sensor.neo\_capteur\_5\_en\_1\_illuminance')}}"
+  
+```
+  rest\_command:
+  pousser\_eclairement\_vers\_jeedom:
+  url: "http://192.168.1.145/core/api/jeeApi.php?apikey=NptrtQxE...iXI6LsiU&type=cmd&id=71&value={{ states('sensor.neo\_capteur\_5\_en\_1\_illuminance')}}"
+```
 * Redémarrez Home Assistant.
 * Pour tester la commande, rendez-vous dans les outils de développement de Home Assistant, onglet Actions, et exécutez l'action RESTful Command: pousser\_eclairement\_vers\_jeedom.
 
@@ -165,11 +180,14 @@ Le format de la commande cURL à utiliser sera affiché.
 
 cURL
 
-curl \  
-  -H "Authorization: Bearer TOKEN" \  
-  -H "Content-Type: application/json" \  
-  -d '{"entity\_id": "switch.christmas\_lights"}' \  
-  http://localhost:8123/api/services/switch/turn\_on
+```
+curl \
+-H "Authorization: Bearer TOKEN" \
+-H "Content-Type: application/json" \
+-d '{"entity\_id": "switch.christmas\_lights"}' \
+http://localhost:8123/api/services/switch/turn\_on
+```
+
 
 Quelques explications sur cette commande :
 
@@ -191,25 +209,29 @@ cURL répondra en vous donnant de l'information sur le ou les états qui ont ét
 
 Résultat à l'écran
 
-[{  
-    "entity\_id":"light.dimmable\_smart\_plug",  
-    "state":"on",  
-    "attributes":{  
-        "supported\_color\_modes":["brightness"],  
-        "color\_mode":"brightness",  
-        "brightness":139,  
-        "friendly\_name":"Prise intelligente ",  
-        "supported\_features":32  
-    },  
-    "last\_changed":"2025-11-17T20:28:08.585502+00:00",  
-    "last\_reported":"2025-11-17T20:28:08.585502+00:00",  
-    "last\_updated":"2025-11-17T20:28:08.585502+00:00",  
-    "context":{  
-        "id":"01KA9R1R854XR5ZRP504AN6RHZ",  
-        "parent\_id":null,  
-        "user\_id":"cbc1d1e7099c42129153b19c8c8fcd7c"  
-    }  
+
+```
+[{
+"entity\_id":"light.dimmable\_smart\_plug",
+"state":"on",
+"attributes":{
+"supported\_color\_modes":["brightness"],
+"color\_mode":"brightness",
+"brightness":139,
+"friendly\_name":"Prise intelligente ",
+"supported\_features":32
+},
+"last\_changed":"2025-11-17T20:28:08.585502+00:00",
+"last\_reported":"2025-11-17T20:28:08.585502+00:00",
+"last\_updated":"2025-11-17T20:28:08.585502+00:00",
+"context":{
+"id":"01KA9R1R854XR5ZRP504AN6RHZ",
+"parent\_id":null,
+"user\_id":"cbc1d1e7099c42129153b19c8c8fcd7c"
+}
 }]
+```
+
 
 Pour tester la commande, branchez-vous en SSH sur le Raspberry Pi **qui héberge Jeedom** puis lancez-y la commande cURL qui agira sur Home Assistant. Vous devriez voir la prise de courant s'allumer!
 
@@ -246,7 +268,7 @@ Lorsqu'un objet connecté est pairé à une boîte domotique Jeedom, il se voit 
 
 Pour connaître l'URL d'un objet, et plus spécifiquement l'URL qui permet de lancer une commande donnée sur cet objet :
 
-* Dans [apical\_lien\_interne][installation\_de\_jeedom\_et\_premier\_acces,l'interface Web de Jeedom,acceder][/apical\_lien\_interne], rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
+* Dans <a href="fiche-installation_de_jeedom_et_premier_acces.md#installation_de_jeedom_et_premier_acces">l'interface Web de Jeedom,acceder</a>, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave (ou autre menu qui donne accès à l'équipement recherché s'il ne s'agit pas d'un objet connecté Z-Wave).
 * Cliquez sur l'objet connecté désiré.
 * Sélectionnez l'onglet Commandes.
 * Retrouvez la commande que vous désirez lancer à l'aide d'un URL. Si vous désirez effectuer une action sur l'objet, ce sera une commande de type Action. Si vous désirez retrouver de l'information fournie par l'objet, ce sera une commande de type Info.
@@ -290,7 +312,7 @@ Par contre, dans le cas d'un équipement virtuel, il peut être intéressant de 
 
 Prenons par exemple un virtuel qui sert à stocker une valeur.
 
-Dans les configurations de cet équipement, [apical\_lien\_interne][travailler\_avec\_le\_plugin\_virtuel,on créera une commande,actions][/apical\_lien\_interne] de type info. C'est dans cette info que la valeur sera stockée.
+Dans les configurations de cet équipement, <a href="fiche-travailler_avec_le_plugin_virtuel.md#travailler_avec_le_plugin_virtuel">on créera une commande,actions</a> de type info. C'est dans cette info que la valeur sera stockée.
 
 Ici, j'ai simplement appelé cette info Ma valeur. Jeedom lui a attribué l'identifiant 74.
 

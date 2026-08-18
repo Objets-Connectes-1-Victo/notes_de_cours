@@ -35,11 +35,15 @@ On peut également retrouver des paires clé-valeur au format cle: valeur.
 
 YAML
 
-nom\_du\_bloc:  
-  - item1: valeur1  
-    autrecleitem1: autrevaleuritem1  
-  - item2: valeur2  
-    autrecleitem2: autrevaleuritem2
+
+```
+nom\_du\_bloc:
+- item1: valeur1
+autrecleitem1: autrevaleuritem1
+- item2: valeur2
+autrecleitem2: autrevaleuritem2
+```
+
 
 Il est possible d'imbriquer les collections et les paires clé-valeur. L'indentation est la seule façon pour indiquer une imbrication.
 
@@ -61,12 +65,16 @@ Dans les deux cas, on peut ajouter un trait d'union après le caractère afin d'
 
 YAML
 
-value\_template: >-  
-  {% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}  
-    Ouverte  
-  {% else %}  
-    Fermée  
-  {% endif %}
+
+```
+value\_template: >-
+{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+Ouverte
+{% else %}
+Fermée
+{% endif %}
+```
+
 
 ## Quelques exemples
 
@@ -78,35 +86,32 @@ Ce fichier est utilisé par le logiciel domotique Home Assistant.
 
 Fichier configuration.yaml
 
-# Configure a default setup of Home Assistant (frontend, api, etc)  
+
+```
+# Configure a default setup of Home Assistant (frontend, api, etc)
 default\_config:
-
- 
-
-# SMTP  
-notify:  
-  - name: courriel\_administrateur  
-    platform: smtp  
-    sender: homeassistant@mondomaine.com  
-    server: mail.mondomaine.com  
-    timeout: 15  
-    port: 587  
-    encryption: starttls  
-    username: homeassistant@mondomaine.com  
-    password: mot\_de\_passse\_en\_clair  
-    sender\_name: Home Assistant  
-    recipient: destinataire@sondomaine.com  
-   
-# Text to speech  
-tts:  
-  - platform: google\_translate
-
- 
-
-group: !include groups.yaml  
-automation: !include automations.yaml  
-script: !include scripts.yaml  
+# SMTP
+notify:
+- name: courriel\_administrateur
+platform: smtp
+sender: homeassistant@mondomaine.com
+server: mail.mondomaine.com
+timeout: 15
+port: 587
+encryption: starttls
+username: homeassistant@mondomaine.com
+password: mot\_de\_passse\_en\_clair
+sender\_name: Home Assistant
+recipient: destinataire@sondomaine.com
+# Text to speech
+tts:
+- platform: google\_translate
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
 scene: !include scenes.yaml
+```
+
 
 ### Homestead.yaml
 
@@ -114,42 +119,30 @@ Ce fichier est utilisé par les développeurs Laravel pour configurer leur envir
 
 Fichier Homestead.yaml
 
----  
-ip: "192.168.10.10"  
-memory: 2048  
-cpus: 1  
+
+```
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
 provider: virtualbox
-
- 
-
 authorize: ~/.ssh/id\_rsa.pub
-
- 
-
 backup: true
+keys:
+- ~/.ssh/id\_rsa
+folders:
+- map: ~/Documents/CodeLaravel
+to: /home/vagrant/code
+sites:
+- map: monsite.test
+to: /home/vagrant/code/monsite/public
+php : "7.4"
+- map: autresite.test
+to: /home/vagrant/code/autresite/public
+databases:
+- homestead
+```
 
- 
-
-keys:  
-    - ~/.ssh/id\_rsa
-
- 
-
-folders:  
-    - map: ~/Documents/CodeLaravel  
-      to: /home/vagrant/code
-
- 
-
-sites:  
-    - map: monsite.test  
-      to: /home/vagrant/code/monsite/public  
-      php : "7.4"  
-    - map: autresite.test  
-      to: /home/vagrant/code/autresite/public  
-   
-databases:  
-    - homestead
 
 ## Pour plus d'information
 
@@ -171,7 +164,7 @@ databases:
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons File Editor et Studio Code Server.
+Parmi ceux-ci, notons File Editor et [Studio Code Server](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_studio_code_server).
 
 Je vous montre ici comment installer File Editor.
 
@@ -215,13 +208,13 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 * Rendez-vous dans le menu Paramètres / Modules complémentaires / Tuile File editor / onglet Configuration.
 * Au-dessus de la zone Ignore Pattern, enlever .storage.
 
-Dans une prochaine fiche, je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
+[Dans une prochaine fiche](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
 ## 68.3 Travailler avec le module complémentaire Studio Code Server {#fiche-travailler_avec_le_module_complementaire_studio_code_server}
 
 Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
-Parmi ceux-ci, notons File Editor et Studio Code Server.
+Parmi ceux-ci, notons [File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) et Studio Code Server.
 
 Je vous montre ici comment installer Studio Code Server.
 
@@ -272,7 +265,7 @@ Le fichier configuration.yaml permet d'effectuer une foule de configurations dan
 
 Physiquement, il est placé dans le dossier /mnt/data/supervisor/homeassistant/configuration.yaml. Mais il est plus simple de travailler dans l'interface Web pour y accéder.
 
-Pour l'éditer, ouvrez l'extension File editor ou Studio Code Server.
+Pour l'éditer, [ouvrez l'extension File editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) ou [Studio Code Server](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_studio_code_server).
 
 Cette démonstration est réalisée à l'aide de File editor.
 
@@ -280,7 +273,7 @@ Cliquez sur l'icône de chemise à gauche de la barre bleue.
 
 ![File editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Interface.png)
 
-Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant (aussi appelé dossier config). C'est justement là que se trouve notre fichier.
+Par défaut, l'extension présente les fichiers du dossier /mnt/data/supervisor/homeassistant ([aussi appelé dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config)). C'est justement là que se trouve notre fichier.
 
 Cliquez sur le fichier configuration.yaml.
 
@@ -290,20 +283,18 @@ Voici le contenu initial de ce fichier.
 
 Fichier configuration.yaml
 
-# Loads default set of integrations. Do not remove.  
+
+```
+# Loads default set of integrations. Do not remove.
 default\_config:
-
- 
-
-# Load frontend themes from the themes folder  
-frontend:  
-  themes: !include\_dir\_merge\_named themes
-
- 
-
-automation: !include automations.yaml  
-script: !include scripts.yaml  
+# Load frontend themes from the themes folder
+frontend:
+themes: !include\_dir\_merge\_named themes
+automation: !include automations.yaml
+script: !include scripts.yaml
 scene: !include scenes.yaml
+```
+
 
 ## Chargement des configurations par défaut
 
@@ -319,9 +310,9 @@ C'est ce qui est fait par défaut avec les fichiers automations.yaml, scripts.ya
 
 Il est possible d'ajouter des instructions dans le fichier configuration.yaml, notamment pour :
 
-* ajouter des capteurs virtuels
-* effectuer des configurations pour pouvoir envoyer du courriel
-* effectuer des configurations  pour s'abonner à un canal MQTT
+* ajouter des capteurs [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel)
+* effectuer des configurations pour pouvoir [envoyer du courriel](94_notification_par_courriel.md#fiche-configurer_home_assistant_pour_l_envoi_de_courriel)
+* effectuer des configurations  pour [s'abonner à un canal MQTT,abonnement](121_mqtt.md#fiche-publication_et_abonnement_mqtt_avec_home_assistant)
 * etc.
 
 Chacune des configurations doit être placée dans une section avec un nom unique.
@@ -332,35 +323,47 @@ Le code peut être ajouté à différents endroits dans le fichier. J'ai choisi 
 
 Fichier configuration.yaml
 
-input\_boolean:  
-  porte\_virtuelle:  
-    name: Porte virtuelle  
-    icon: mdi:door
+
+```
+input\_boolean:
+porte\_virtuelle:
+name: Porte virtuelle
+icon: mdi:door
+```
+
 
 Puisque le nom de la section doit être unique, ceci n'est pas valide :
 
 Fichier configuration.yaml
 
-input\_boolean:  
-  porte\_virtuelle:  
-    name: Porte virtuelle  
-    icon: mdi:door  
-input\_boolean:  
-  ventilateur\_virtuel:  
-    name: Ventilateur virtuel  
-    icon: mdi:fan
+
+```
+input\_boolean:
+porte\_virtuelle:
+name: Porte virtuelle
+icon: mdi:door
+input\_boolean:
+ventilateur\_virtuel:
+name: Ventilateur virtuel
+icon: mdi:fan
+```
+
 
 Lorsque plusieurs configurations doivent faire partie d'une même section, il faut plutôt faire ceci :
 
 Fichier configuration.yaml
 
-input\_boolean:  
-  porte\_virtuelle:  
-    name: Porte virtuelle  
-    icon: mdi:door  
-  ventilateur\_virtuel:  
-    name: Ventilateur virtuel  
-    icon: mdi:fan
+
+```
+input\_boolean:
+porte\_virtuelle:
+name: Porte virtuelle
+icon: mdi:door
+ventilateur\_virtuel:
+name: Ventilateur virtuel
+icon: mdi:fan
+```
+
 
 N'oubliez pas d'enregistrer vos modifications en cliquant sur l'icône de disquette dans le haut de l'écran ou en appuyant sur Ctrl+S (Windows) ou ⌘ Cmd+S (macOS).
 
@@ -372,7 +375,7 @@ La couleur rouge indique que les modifications n'ont pas été enregistrées.
 
 Avant de poursuivre, il est important de vérifier votre travail.
 
-Suivez les conseils « validation\_des\_configurations » pour vous assurer que vos configurations sont valides.
+Suivez les conseils « [validation\_des\_configurations](77_le_fichier_configurationyaml.md#fiche-validation_des_configurations) » pour vous assurer que vos configurations sont valides.
 
 ## Pour que les configurations soient prises en compte {#rechargement}
 
@@ -394,7 +397,7 @@ Parfois, un redémarrage de Home Assistant sera nécessaire : Paramètres / Syst
 
 ## 68.5 Validation des configurations {#fiche-validation_des_configurations}
 
-Une fois vos configurations en place dans le fichier configuration.yaml, il faut s'assurer que le tout soit valide avant de poursuivre.
+Une fois vos configurations en place [dans le fichier configuration.yaml](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), il faut s'assurer que le tout soit valide avant de poursuivre.
 
 Si vous essayez un redémarrage alors que le fichier de configuration n'est pas valide, Home Assistant ne le permettra pas.
 
@@ -432,54 +435,56 @@ Un clic sur cette pastille nous confirme que la notification concerne une erreur
 
 ## Console Home Assistant {#consoleha}
 
-Le fichier de configurations peut également être validé à la console Home Assistant.
+Le fichier de configurations peut également être validé [à la console Home Assistant](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant).
 
 Entrez la commande suivante :
 
 Terminal HassOS
 
+
+```
 ha core check
+```
+
 
 Si les configurations sont valides, vous obtiendrez le message « Command completed successfully ».
 
 Résultat à l'écran
 
-# ha core check  
+
+```
+# ha core check
 Processing... Done.
-
- 
-
 Command completed successfully.
+```
+
 
 En cas d'erreur, vous obtiendrez plutôt un message d'erreur.
 
 Résultat à l'écran
 
-# ha core check  
+
+```
+# ha core check
 Processing... Done.
-
- 
-
-Error: Testing configuration at /config  
-  
-ERROR:annotatedyaml.loader:while scanning a simple key  
- in "/config/configuration.yaml", line 12, column 1  
-could not find expected ':'  
- in "/config/configuration.yaml", line 13, column 18  
-Fatal error while loading config: while scanning a simple key  
- in "/config/configuration.yaml", line 12, column 1  
-could not find expected ':'  
- in "/config/configuration.yaml", line 13, column 18  
-Failed config  
- General Errors:   
- - while scanning a simple key  
- in "/config/configuration.yaml", line 12, column 1  
-could not find expected ':'  
- in "/config/configuration.yaml", line 13, column 18
-
- 
-
+Error: Testing configuration at /config
+ERROR:annotatedyaml.loader:while scanning a simple key
+in "/config/configuration.yaml", line 12, column 1
+could not find expected ':'
+in "/config/configuration.yaml", line 13, column 18
+Fatal error while loading config: while scanning a simple key
+in "/config/configuration.yaml", line 12, column 1
+could not find expected ':'
+in "/config/configuration.yaml", line 13, column 18
+Failed config
+General Errors:
+- while scanning a simple key
+in "/config/configuration.yaml", line 12, column 1
+could not find expected ':'
+in "/config/configuration.yaml", line 13, column 18
 Successful config (partial)
+```
+
 
 ## Validateur YAML
 

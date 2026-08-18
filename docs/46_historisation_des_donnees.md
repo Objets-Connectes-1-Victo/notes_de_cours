@@ -8,7 +8,7 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## configurer\_l\_historique\_des\_commandes
+## [configurer\_l\_historique\_des\_commandes](46_historisation_des_donnees.md#fiche-configurer_l_historique_des_commandes)
 
 Pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -20,56 +20,64 @@ Vous pouvez retrouver l'identifiant d'une commande à partir de la table cmd.
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select id, eqType, name from cmd;  
-+-----+-----------+-------------------------------------------------------+  
-| id  | eqType    | name                                                  |  
-+-----+-----------+-------------------------------------------------------+  
-...  
-| 14  | weather   | Température                                           |  
-| 15  | weather   | Humidité                                              |  
-| 16  | weather   | Pression                                              |  
-| 17  | weather   | Vitesse du vent                                       |  
-...  
-| 37  | openzwave | Info Switch 0 2                                       |  
-| 38  | openzwave | Switch 0 2 On                                         |  
-| 39  | openzwave | Switch 0 2 Off                                        |  
-| 40  | openzwave | Info Switch 0 4                                       |  
-| 41  | openzwave | Switch 0 4 On                                         |  
-| 42  | openzwave | Switch 0 4 Off                                        |  
-| 43  | openzwave | Info Switch 0 3                                       |  
-| 44  | openzwave | Switch 0 3 On                                         |  
-| 45  | openzwave | Switch 0 3 Off                                        |  
-| 46  | openzwave | Info Basic                                            |  
-| 47  | openzwave | Basic                                                 |  
-| 48  | openzwave | Temperature                                           |  
-| 49  | openzwave | Luminance                                            |  
-| 50  | openzwave | Relative Humidity                                     |  
+
+```
+MariaDB [jeedom]> select id, eqType, name from cmd;
 +-----+-----------+-------------------------------------------------------+
+| id | eqType | name |
++-----+-----------+-------------------------------------------------------+
+...
+| 14 | weather | Température |
+| 15 | weather | Humidité |
+| 16 | weather | Pression |
+| 17 | weather | Vitesse du vent |
+...
+| 37 | openzwave | Info Switch 0 2 |
+| 38 | openzwave | Switch 0 2 On |
+| 39 | openzwave | Switch 0 2 Off |
+| 40 | openzwave | Info Switch 0 4 |
+| 41 | openzwave | Switch 0 4 On |
+| 42 | openzwave | Switch 0 4 Off |
+| 43 | openzwave | Info Switch 0 3 |
+| 44 | openzwave | Switch 0 3 On |
+| 45 | openzwave | Switch 0 3 Off |
+| 46 | openzwave | Info Basic |
+| 47 | openzwave | Basic |
+| 48 | openzwave | Temperature |
+| 49 | openzwave | Luminance |
+| 50 | openzwave | Relative Humidity |
++-----+-----------+-------------------------------------------------------+
+```
+
 
 Voici un extrait de la table history pour la commande dont l'id est 49, un capteur de luminosité.
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;  
-+--------+---------------------+----------------+  
-| cmd\_id | datetime            | value          |  
-+--------+---------------------+----------------+  
-|     49 | 2021-09-23 16:15:00 | 1485.75        |  
-|     49 | 2021-09-23 16:20:00 | 1445.5         |  
-|     49 | 2021-09-23 16:25:00 | 1203.845703125 |  
-|     49 | 2021-09-23 16:30:00 | 1210.375       |  
-|     49 | 2021-09-23 16:35:00 | 865.03125      |  
-|     49 | 2021-09-23 16:45:00 | 757            |  
-|     49 | 2021-09-23 16:50:00 | 1050           |  
-|     49 | 2021-09-23 16:55:00 | 775.1875       |  
-|     49 | 2021-09-23 17:00:00 | 1227.5         |  
-|     49 | 2021-09-23 17:05:00 | 1242.796875    |  
-|     49 | 2021-09-23 17:10:00 | 1129.25        |  
-|     49 | 2021-09-23 17:15:00 | 1146.5         |  
-|     49 | 2021-09-23 17:20:00 | 1153.125       |  
-|     49 | 2021-09-23 17:25:00 | 958.919921875  |  
-|     49 | 2021-09-23 17:30:00 | 823.5          |  
+
+```
+MariaDB [jeedom]> select \* from history where cmd\_id = 49;
 +--------+---------------------+----------------+
+| cmd\_id | datetime | value |
++--------+---------------------+----------------+
+| 49 | 2021-09-23 16:15:00 | 1485.75 |
+| 49 | 2021-09-23 16:20:00 | 1445.5 |
+| 49 | 2021-09-23 16:25:00 | 1203.845703125 |
+| 49 | 2021-09-23 16:30:00 | 1210.375 |
+| 49 | 2021-09-23 16:35:00 | 865.03125 |
+| 49 | 2021-09-23 16:45:00 | 757 |
+| 49 | 2021-09-23 16:50:00 | 1050 |
+| 49 | 2021-09-23 16:55:00 | 775.1875 |
+| 49 | 2021-09-23 17:00:00 | 1227.5 |
+| 49 | 2021-09-23 17:05:00 | 1242.796875 |
+| 49 | 2021-09-23 17:10:00 | 1129.25 |
+| 49 | 2021-09-23 17:15:00 | 1146.5 |
+| 49 | 2021-09-23 17:20:00 | 1153.125 |
+| 49 | 2021-09-23 17:25:00 | 958.919921875 |
+| 49 | 2021-09-23 17:30:00 | 823.5 |
++--------+---------------------+----------------+
+```
+
 
 L'historique peut être consulté graphiquement à partir du menu Analyse / Historique. Sélectionnez la commande désirée dans la zone de gauche et le graphique de son historique apparaîtra.
 
@@ -83,15 +91,19 @@ C'est une tâche cron qui se charge de lancer l'opération d'archivage. L'heure 
 
 Résultat à l'écran
 
-MariaDB [jeedom]> SELECT \* FROM cron;  
-+----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+  
-| id | enable | class    | function    | schedule           | timeout | deamon | deamonSleepTime | option           | once |  
-+----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+  
-...  
-| 18 |      1 | history | archive    | 00 5 \* \* \*        |     240 |      0 |               1 | NULL             |    0 |  
-...
 
-## scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord
+```
+MariaDB [jeedom]> SELECT \* FROM cron;
++----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+
+| id | enable | class | function | schedule | timeout | deamon | deamonSleepTime | option | once |
++----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+
+...
+| 18 | 1 | history | archive | 00 5 \* \* \* | 240 | 0 | 1 | NULL | 0 |
+...
+```
+
+
+## [scenario\_qui\_affiche\_une\_information\_dans\_le\_tableau\_de\_bord](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_affiche_une_information_dans_le_tableau_de_bord)
 
 Il faut créer un virtuel avec au moins une commande de type info.
 
@@ -99,36 +111,38 @@ La valeur sera enregistrée dans cette commande comme suit :
 
 Bloc de code du scénario (PHP)
 
-$valeur = ...;  
-$cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');  
-$cmd->event($valeur);
 
-## scenario\_qui\_execute\_une\_requete\_sql
+```php
+$valeur = ...;
+$cmd = cmd::byString('#[Partout][Mon équipement][Ma valeur]#');
+$cmd->event($valeur);
+```
+
+
+## [scenario\_qui\_execute\_une\_requete\_sql](47_aller_plus_loin_avec_les_scenarios_suite.md#fiche-scenario_qui_execute_une_requete_sql)
 
 Bloc de code du scénario (PHP)
 
-$sql = "SELECT ...";  
-//$scenario->setLog("SQL = $sql");   // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 
- 
-
-try {  
-    $resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);  
-    //$scenario->setLog(print\_r($resultat, true));   // pour voir les données brutes dans cette variable
-
- 
-
-    foreach ($resultat as $enreg) {  
-        $valeur = $enreg['...'];  
-        $scenario->setLog("Valeur : $valeur");  
-    }  
-} catch (Throwable $e) {  
-    $scenario->setLog($e->getMessage());  
+```php
+$sql = "SELECT ...";
+//$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
+try {
+$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
+//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+foreach ($resultat as $enreg) {
+$valeur = $enreg['...'];
+$scenario->setLog("Valeur : $valeur");
 }
+} catch (Throwable $e) {
+$scenario->setLog($e->getMessage());
+}
+```
+
 
 ## 41.2 Configurer l'historique des commandes {#fiche-configurer_l_historique_des_commandes}
 
-Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles l'historisation a été activée, Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
+Par défaut, pour chaque équipement, et plus précisément pour leurs commandes pour lesquelles <a href="fiche-selectionner_les_commandes_a_afficher_sur_une_tuile.md#selectionner_les_commandes_a_afficher_sur_une_tuile">l'historisation a été activée,historique</a>, Jeedom va enregistrer les valeurs dans la base de données à toutes les 5 minutes dans la table history.
 
 Rappel : pour activer ou désactiver l'historisation des données d'un capteur, rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez modifier puis sélectionnez l'onglet Commandes. Vous pouvez ajouter ou enlever le crochet devant historiser vis-à-vis une commande de type info.
 
@@ -142,31 +156,35 @@ Vous pouvez retrouver l'identifiant d'une commande à partir de la table cmd.
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select id, eqType, name from cmd;  
-+-----+-----------+-------------------------------------------------------+  
-| id  | eqType    | name                                                  |  
-+-----+-----------+-------------------------------------------------------+  
-...  
-| 14  | weather   | Température                                           |  
-| 15  | weather   | Humidité                                              |  
-| 16  | weather   | Pression                                              |  
-| 17  | weather   | Vitesse du vent                                       |  
-...  
-| 37  | openzwave | Info Switch 0 2                                       |  
-| 38  | openzwave | Switch 0 2 On                                         |  
-| 39  | openzwave | Switch 0 2 Off                                        |  
-| 40  | openzwave | Info Switch 0 4                                       |  
-| 41  | openzwave | Switch 0 4 On                                         |  
-| 42  | openzwave | Switch 0 4 Off                                        |  
-| 43  | openzwave | Info Switch 0 3                                       |  
-| 44  | openzwave | Switch 0 3 On                                         |  
-| 45  | openzwave | Switch 0 3 Off                                        |  
-| 46  | openzwave | Info Basic                                            |  
-| 47  | openzwave | Basic                                                 |  
-| 48  | openzwave | Temperature                                           |  
-| 49  | openzwave | Luminance                                            |  
-| 50  | openzwave | Relative Humidity                                     |  
+
+```
+MariaDB [jeedom]> select id, eqType, name from cmd;
 +-----+-----------+-------------------------------------------------------+
+| id | eqType | name |
++-----+-----------+-------------------------------------------------------+
+...
+| 14 | weather | Température |
+| 15 | weather | Humidité |
+| 16 | weather | Pression |
+| 17 | weather | Vitesse du vent |
+...
+| 37 | openzwave | Info Switch 0 2 |
+| 38 | openzwave | Switch 0 2 On |
+| 39 | openzwave | Switch 0 2 Off |
+| 40 | openzwave | Info Switch 0 4 |
+| 41 | openzwave | Switch 0 4 On |
+| 42 | openzwave | Switch 0 4 Off |
+| 43 | openzwave | Info Switch 0 3 |
+| 44 | openzwave | Switch 0 3 On |
+| 45 | openzwave | Switch 0 3 Off |
+| 46 | openzwave | Info Basic |
+| 47 | openzwave | Basic |
+| 48 | openzwave | Temperature |
+| 49 | openzwave | Luminance |
+| 50 | openzwave | Relative Humidity |
++-----+-----------+-------------------------------------------------------+
+```
+
 
 L'identifiant est également visible dans l'interface Web de Jeedom à partir du menu Plugins / Protocole domotique / Z-Wave. Cliquez sur l'équipement que vous désirez consulter, sélectionnez l'onglet Commandes puis cliquez sur l'engrenage à droite de la commande pour connaître cet identifiant.
 
@@ -176,26 +194,30 @@ Voici un extrait de la table history pour la commande dont l'id est 49, un capte
 
 Résultat à l'écran
 
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;  
-+--------+---------------------+----------------+  
-| cmd\_id | datetime            | value          |  
-+--------+---------------------+----------------+  
-|     49 | 2021-09-23 16:15:00 | 1485.75        |  
-|     49 | 2021-09-23 16:20:00 | 1445.5         |  
-|     49 | 2021-09-23 16:25:00 | 1203.845703125 |  
-|     49 | 2021-09-23 16:30:00 | 1210.375       |  
-|     49 | 2021-09-23 16:35:00 | 865.03125      |  
-|     49 | 2021-09-23 16:45:00 | 757            |  
-|     49 | 2021-09-23 16:50:00 | 1050           |  
-|     49 | 2021-09-23 16:55:00 | 775.1875       |  
-|     49 | 2021-09-23 17:00:00 | 1227.5         |  
-|     49 | 2021-09-23 17:05:00 | 1242.796875    |  
-|     49 | 2021-09-23 17:10:00 | 1129.25        |  
-|     49 | 2021-09-23 17:15:00 | 1146.5         |  
-|     49 | 2021-09-23 17:20:00 | 1153.125       |  
-|     49 | 2021-09-23 17:25:00 | 958.919921875  |  
-|     49 | 2021-09-23 17:30:00 | 823.5          |  
+
+```
+MariaDB [jeedom]> select \* from history where cmd\_id = 49;
 +--------+---------------------+----------------+
+| cmd\_id | datetime | value |
++--------+---------------------+----------------+
+| 49 | 2021-09-23 16:15:00 | 1485.75 |
+| 49 | 2021-09-23 16:20:00 | 1445.5 |
+| 49 | 2021-09-23 16:25:00 | 1203.845703125 |
+| 49 | 2021-09-23 16:30:00 | 1210.375 |
+| 49 | 2021-09-23 16:35:00 | 865.03125 |
+| 49 | 2021-09-23 16:45:00 | 757 |
+| 49 | 2021-09-23 16:50:00 | 1050 |
+| 49 | 2021-09-23 16:55:00 | 775.1875 |
+| 49 | 2021-09-23 17:00:00 | 1227.5 |
+| 49 | 2021-09-23 17:05:00 | 1242.796875 |
+| 49 | 2021-09-23 17:10:00 | 1129.25 |
+| 49 | 2021-09-23 17:15:00 | 1146.5 |
+| 49 | 2021-09-23 17:20:00 | 1153.125 |
+| 49 | 2021-09-23 17:25:00 | 958.919921875 |
+| 49 | 2021-09-23 17:30:00 | 823.5 |
++--------+---------------------+----------------+
+```
+
 
 L'historique peut être consulté graphiquement à partir du menu Analyse / Historique. Sélectionnez la commande désirée dans la zone de gauche et le graphique de son historique apparaîtra.
 
@@ -215,13 +237,17 @@ C'est une tâche cron qui se charge de lancer l'opération d'archivage. L'heure 
 
 Résultat à l'écran
 
-MariaDB [jeedom]> SELECT \* FROM cron;  
-+----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+  
-| id | enable | class    | function    | schedule           | timeout | deamon | deamonSleepTime | option           | once |  
-+----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+  
-...  
-| 18 |      1 | history | archive    | 00 5 \* \* \*        |     240 |      0 |               1 | NULL             |    0 |  
+
+```
+MariaDB [jeedom]> SELECT \* FROM cron;
++----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+
+| id | enable | class | function | schedule | timeout | deamon | deamonSleepTime | option | once |
++----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+
 ...
+| 18 | 1 | history | archive | 00 5 \* \* \* | 240 | 0 | 1 | NULL | 0 |
+...
+```
+
 
 ## Modifier le mode de lissage d'une commande
 

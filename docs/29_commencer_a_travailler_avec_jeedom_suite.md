@@ -8,25 +8,25 @@ Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne 
 
 Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.
 
-## le\_dashboard\_jeedom
+## [le\_dashboard\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_dashboard_jeedom)
 
 Le dashboard permet de voir en un seul endroit l'état de nos objets connectés et la possibilité de leur envoyer un ordre.
 
 ![Dashboard](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Dashboard.png)
 
-## ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom
+## [ajouter\_un\_appareil\_connecte\_z-wave\_a\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom)
 
 Bien suivre ces étapes!
 
-## configurer\_une\_tuile
+## [configurer\_une\_tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile)
 
-Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « le\_noeud\_n\_a\_pas\_encore\_de\_commande ».
+Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « [le\_noeud\_n\_a\_pas\_encore\_de\_commande](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_noeud_n_a_pas_encore_de_commande) ».
 
 Vous pouvez, pour chaque tuile, déterminer ce qui doit être affiché et comment l'information doit être affichée.
 
 N'hésitez pas à explorer!
 
-## travailler\_avec\_la\_meteo\_sous\_jeedom
+## [travailler\_avec\_la\_meteo\_sous\_jeedom](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-travailler_avec_la_meteo_sous_jeedom)
 
 Bien suivre ces étapes!
 
@@ -76,13 +76,13 @@ Le fonctionnement est légèrement différent pour les objets qui représentent 
 
 ## 26.3 Ajouter un appareil connecté Z-Wave à Jeedom {#fiche-ajouter_un_appareil_connecte_z-wave_a_jeedom}
 
-Une fois que vous avez ajouté votre clé USB Z-Wave dans Jeedom, vous pouvez y ajouter des appareils connectés.
+Une fois que vous avez [ajouté votre clé USB Z-Wave dans Jeedom](24_commencer_a_travailler_avec_jeedom.md#fiche-configurer_la_cle_usb_z-wave_sur_jeedom), vous pouvez y ajouter des appareils connectés.
 
 L'ajout d'un objet connecté se fait à l'aide du mode Inclusion. Une fois l'objet connecté correctement intégré au système, vous n'aurez plus besoin du mode inclusion.
 
 Dans cet exemple, je vais vous expliquer comment ajouter une prise de courant intelligente Z-Wave (smart plug). Les étapes sont sensiblement les mêmes pour tout type d'objet connecté Z-Wave.
 
-* Accédez à l'interface d'administration de Jeedom.
+* Accédez à l'[interface d'administration de Jeedom,acceder](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces).
 * Rendez-vous dans le menu Plugins / Protocole domotique / Z-Wave JS.
 
   ![Protocole domotique / Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MenuProtocoleZWave.png)
@@ -131,7 +131,7 @@ Dans cet exemple, je vais vous expliquer comment ajouter une prise de courant in
   Remplissez les informations demandées :
 
   + Nom de l'équipement
-  + Objet parent
+  + [Objet parent](24_commencer_a_travailler_avec_jeedom.md#fiche-objets_pour_representer_la_maison)
   + Si désiré : Catégorie
 
   ![Configuration de la prise interlligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ConfigurationsSmartPlug.png)
@@ -172,18 +172,24 @@ Pour régler ce problème :
 
   Terminal du Raspberry Pi
 
-  sudo cp /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php /var/www/html/plugins/zwavejs/core/class/zwavejs.class-original.php
+```
+  sudo cp /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php /var/www/html/plugins/zwavejs/core/class/zwavejs.class-original.php
+```
 * Éditez maintenant le fichier /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php.
 
   Terminal du Raspberry Pi
 
+```
   sudo nano /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php
+```
 * Rendez-vous à la ligne 1595 en appuyant sur les touches Ctrl + \_.
 * Modifiez la ligne log::add(\_\_CLASS\_\_, 'debug', '[' . \_\_FUNCTION\_\_ . ']' . \_("Création d'une commande info", \_\_FILE\_\_) . ' ' . $\_path); pour
 
   Fichier zwavejs.class.php
 
+```php
   log::add(\_\_CLASS\_\_, 'debug', '[' . \_\_FUNCTION\_\_ . ']' . \_("Création d'une commande info") . ' ' . $\_path);
+```
 * Appuyez sur Ctrl + W pour rechercher d'autres lignes avec log::add.
 * Si la même erreur est présente, enlevez le paramètre \_\_FILE\_\_ dans la fonction \_() (il ne doit y avoir qu'un \_ dans le nom de la fonction).
 * Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais).
@@ -192,7 +198,7 @@ Pour régler ce problème :
 
 Il est possible d'ajouter des commandes manuellement afin d'obtenir les informations désirées sur un objet connecté. Les commandes peuvent aussi se traduire en boutons pour envoyer des ordres à l'objet connecté (ex : Allume-toi!).
 
-Suivez les étapes données sur la fiche « configurer\_une\_tuile ».
+Suivez les étapes données sur la fiche « [configurer\_une\_tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile) ».
 
 ## 26.5 Configurer une tuile {#fiche-configurer_une_tuile}
 
@@ -216,7 +222,7 @@ Pour ajouter une information sur une tuile du Dashboard :
 
   ![Commande TargetValue](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-CommandeTargetValueMultilevelSwitch.png)
 
-  Important : si vous voyez un carré rouge sans texte qui apparaît au bas de l'écran, c'est que vous n'avez pas corrigé les erreurs de programmation dans le fichier /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php.
+  Important : si vous voyez un carré rouge sans texte qui apparaît au bas de l'écran, c'est que vous n'avez pas [corrigé les erreurs de programmation](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_noeud_n_a_pas_encore_de_commande) dans le fichier /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php.
 * Une fois la commande ajoutée, refermez cette fenêtre puis cliquez sur l'onglet Commandes.
 * Vous verrez au moins une nouvelle commande pour chaque ajout que vous avez réalisé. Dans cet exemple, une commande de type Info permet de savoir si la prise est allumée ou éteinte. Deux commandes de type Action ont été ajoutées, la première pour éteindre la prise, la seconde pour l'allumer.
 
@@ -295,7 +301,7 @@ Les prises Wi-Fi Teckin sont conçues pour travailler avec l'application SmartLi
 
 ![Application Smart Life](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/SmartLife-Application.png)
 
-Suivez les étapes détaillées pour le pairage dans l'application SmartLife. Ne suivez que les instructions de la section « Configuration de la prise Wi-Fi sur votre téléphone » car les autres sections ne concernent pas Jeedom.
+Suivez [les étapes détaillées pour le pairage dans l'application SmartLife,telephone](67_chapitre_de_reference_pour_home_assistant.md#fiche-integration_tuya_pour_ajouter_des_prises_wi-fi_teckin_dans_home_assistant). Ne suivez que les instructions de la section « Configuration de la prise Wi-Fi sur votre téléphone » car les autres sections ne concernent pas Jeedom.
 
 ## Plugin SmartLife dans Jeedom
 
@@ -356,7 +362,7 @@ Les coordonnées GPS peuvent être retrouvées sur Google Maps.
 
 Si vous avez sélectionné un objet parent qui est visible sur le Dashboard et que vous avez rendu l'équipement de météo visible, vous pourrez voir la météo directement sur le Dashboard.
 
-Pour voir toutes les informations présentées, vous devrez peut-être redimensionner la tuile de la météo.
+Pour voir toutes les informations présentées, vous devrez peut-être [redimensionner la tuile,redimensionner](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_dashboard_jeedom) de la météo.
 
 Si aucune donnée météo n'est affichée, vous devez cliquer sur l'icône de rafraîchissement au coin supérieur droit de la tuile.
 
