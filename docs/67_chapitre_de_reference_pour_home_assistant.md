@@ -787,16 +787,7 @@ Il est également possible de voir l'adresse en faisant réafficher la page d'ac
 
 ```
 Waiting for the Home Assistant CLI to be ready...
-▄██▄ \_ \_
-▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
-▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
-▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
-▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
-████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
-███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
-██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
-███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
-▀█████▄ ███████▀
+[LOGO]
 Welcome on Home Assistant command line interface.
 Home Assistant Supervisor is running!
 System information:
@@ -828,17 +819,8 @@ Résultat à l'écran
 
 ```
 ha > banner
-▄██▄ \_ \_
-▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
-▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
-▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
-▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
-████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
-███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
-██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
-███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
-▀█████▄ ███████▀
-Welcome on Home Assistant command line interface.
+[LOGO]
+]Welcome on Home Assistant command line interface.
 Home Assistant Supervisor is running!
 System information:
 IPv4 Adresses for wlan0: 192.168.1.145/24
@@ -1856,3 +1838,46 @@ vi /chemin/nom-du-fichier
 Pour enregistrer le document puis fermer l'éditeur : Échap suivi de : w q (ce qui signifie Write and Quit).
 
 Pour fermer l'éditeur sans enregistrer : Échap suivi de : q !.
+
+## 59.15 Éteindre ou redémarrer le Raspberry Pi (host shutdown / host reboot) {#fiche-eteindre_ou_redemarrer_le_raspberry_pi}
+
+Pour éteindre ou redémarrer proprement le Raspberry Pi hébergeant Home Assistant sans risquer d'endommager le système de fichiers, vous pouvez utiliser les commandes `host shutdown` ou `host reboot`.
+
+### Éteindre le Raspberry Pi (host shutdown)
+
+Dans la **console Home Assistant** (invite `ha >`) :
+
+Console Home Assistant
+
+```
+host shutdown
+```
+
+Dans le **terminal HassOS** (invite `#`) ou lors d'une session SSH :
+
+Terminal HassOS
+
+```
+ha host shutdown
+```
+
+### Redémarrer le Raspberry Pi (host reboot)
+
+Dans la **console Home Assistant** (invite `ha >`) :
+
+Console Home Assistant
+
+```
+host reboot
+```
+
+Dans le **terminal HassOS** (invite `#`) ou lors d'une session SSH :
+
+Terminal HassOS
+
+```
+ha host reboot
+```
+
+*(Note : pour redémarrer uniquement le conteneur Home Assistant Core sans redémarrer le Raspberry Pi au complet, utilisez plutôt `ha core restart`).*
+

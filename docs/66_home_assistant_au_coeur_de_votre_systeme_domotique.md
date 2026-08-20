@@ -183,19 +183,15 @@ Pour installer le système d'exploitation HassOS sur votre Rapsberry Pi :
 
 * Insérez la carte micro SD dans votre ordinateur.
 * Si ce n'est pas déjà fait, installez [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager) sur votre ordinateur puis lancez cette application.
-* Cliquez sur Choisir l'OS.
+* Choisir Raspberry Pi 4 comme appareil
 * Cliquez sur Other specific-purpose OS.
 
   ![Other specific-purpose OS](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-OtherSpecificPurposeOS.png)
-* Choisissez Home assistants and home automation.
+* Choisissez *Home automation*.
+* Cliquez sur *Home Assistant*.
+* Finalement, choisissez la version la version la plus récente qui correspond à votre Raspberry Pi.
 
-  ![Home assistants and home automation](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantsAndHomeAutomation.png)
-* Cliquez sur Home Assistant.
-
-  ![Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistant.png)
-* Finalement, choisissez la version qui correspond à votre Raspberry Pi.
-
-  ![Home Assistant pour Raspberry Pi 4](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantPourRaspberryPi4.png)
+  ![Home Assistant OS 18.2 (RPi 4/400)](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantPourRaspberryPi4.png)
 * Spécifiez sur quelle carte l'image doit être installée puis cliquez sur Écrire.
 * Une fois l'image en place sur la carte micro SD, vous pourriez avoir à l'écran un message du genre « Le disque que vous avez attaché n’est pas lisible par cet ordinateur. » ou, en anglais « The disk you connected cannot be read on this computer ».
 * Ceci est normal, cliquez sur Ignorer.
@@ -382,16 +378,7 @@ Résultat à l'écran
 
 ```
 Waiting for the Home Assistant CLI to be ready...
-▄██▄ \_ \_
-▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
-▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
-▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
-▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
-████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
-███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
-██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
-███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
-▀█████▄ ███████▀
+[LOGO]
 Welcome on Home Assistant command line interface.
 Waiting for Supervisor to start...
 Home Assistant Supervisor is running!
@@ -504,9 +491,7 @@ L'accès se fait via un navigateur sur votre ordinateur ou via l'application Hom
 
 Dans votre navigateur ou dans l'application Home Assistant, entrez l'un des URL suivants :
 
-* http://homeassistant.local:8123
-* http://homeassistant:8123
-* http://192.168.1.145:8123 (remplacez 192.168.1.145 par l'adresse IP du Pi)
+* http://172.19.240.200:8123 (remplacez 172.19.240.200 par l'adresse IP du Pi)
 
 Notez que si vous travaillez dans un environnement qui comprend plusieurs installations de Home Assistant, par exemple une salle de classe, seule la version avec l'adresse IP fonctionnera.
 
@@ -521,11 +506,11 @@ Les informations qui apparaissent sont également enregistrées dans un fichier 
 Terminal HassOS
 
 ```
-ha supervisor logs
+supervisor logs -f
 ```
 
 
-Dans le terminal HassOS, Vous saurez que l'installation est terminée quand vous verrez des lignes de ce genre au bas du fichier journal.
+Dans le terminal HassOS, vous saurez que l'installation est terminée quand vous verrez des lignes de ce genre au bas du fichier journal.
 
 Résultat à l'écran
 
@@ -534,7 +519,6 @@ Résultat à l'écran
 INFO (MainThread) [supervisor.homeassistant.core] Detect a running Home Assistant instance
 INFO (SyncWorker\_2) [supervisor.docker.interface] Cleanup images: ['ghcr.io/home-assistant/raspberrypi3-homeassistant:landingpage']
 ```
-
 
 Dans l'interface Web, vous saurez que l'installation est terminée quand vous verrez l'écran de bienvenue.![Premier écran](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PremierEcran.png)
 
@@ -674,16 +658,7 @@ Résultat à l'écran
 
 ```
 Waiting for the Home Assistant CLI to be ready...
-▄██▄ \_ \_
-▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
-▄████▀▀████▄ | |\_| |/ \_ \| '\_ ` \_ \ / \_ \
-▄█████ █████▄ | \_ | (\_) | | | | | | \_\_/
-▄██████▄ ▄██████▄ |\_| |\_|\\_\_\_/|\_| |\_| |\_|\\_\_\_| \_
-████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
-███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
-██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
-███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
-▀█████▄ ███████▀
+[LOGO]
 Welcome on Home Assistant command line interface.
 Waiting for Supervisor to start...
 Home Assistant Supervisor is running!
@@ -725,6 +700,8 @@ Voici quelques commandes Home Assistant utiles.
 * core update (pour mettre à jour le coeur de Home Assistant)
 * core check (pour vérifier l'état du coeur de Home Assistant)
 * backups new --name nomdubackup (pour effectuer une sauvegarde de Home Assistant)
+* host shutdown (pour éteindre proprement le Raspberry Pi)
+* host reboot (pour redémarrer complètement le Raspberry Pi)
 
 Pour plus de détails : <https://www.home-assistant.io/common-tasks/os/>
 
