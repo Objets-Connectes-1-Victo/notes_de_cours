@@ -198,7 +198,57 @@ Pour installer le système d'exploitation HassOS sur votre Rapsberry Pi :
 
   ![Le disque que vous avez inséré n’est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LeDisqueQueVousAvezInsereNEstPasLisibleParCetOrdinateur.png) ![Le disque que vous avez inséré n’est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Mac-LeDisqueQueVousAvezAttacheNEstPasLisibleParCetOrdinateur-BigSur.png)
 
-## Configurations initiales (clé USB)
+
+## Lancement intial
+
+Lancer le Pi avec la carte que vous venez de préparer. Le système d'exploitation HassOS va démarrer et tenter de télécharger la dernière version de Home Assistant. La connectivité au réseau est tentée via connexion filaire (Ethernet) initialement.
+
+# Si connection ethernet n'est pas disponible
+
+Connecter écran et clavier (attention écran noir si res. trop élevée)
+
+Attendre que *System is ready!* apparaisse à la console.  À ce point L'installation accède à internet pour télécharger du code
+
+
+On doit indiquer quel réseau Wi-Fi à utiliser
+>login
+nmcli device wifi rescan
+nmcli device wifi
+nmcli device wifi connect CEGEPVICTO
+exit
+
+---
+
+>supervisor logs -f
+Downloading Home Assistant Core Image, %
+Detect a running Home Assistant instance
+
+----
+
+>login
+nmcli device wifi rescan
+nmcli device wifi
+nmcli device wifi connect "Domotique-Pedago" password "domoinfo36"
+exit
+banner (pour voir IP)
+---
+
+>host options --hostname ha<num kit>
+>banner 
+Home Assistant URL:  http://ha<num-kit>.local:8123
+(.local: utilise la résolution mDNS)
+
+--
+
+Connecter son laptop au réseau Wi-Fi Domotique-Pedago (pwd: domoinfo36)
+http://ha<num-kit>.local:8123
+Créer un compte
+Entrer le CÉGEP comme localisation
+Une fois configuré le UI est accessible via http://ha<num-kit>.local  (port 80)
+Mettre à jour le firmware du Pi si offert dans le Home Assistant
+
+
+## Configurations initiales (clé USB) - RÉFÉRENCE
 
 Vous l'avez peut-être remarqué, lors de l'installation de Home Assistant, Raspberry Pi Imager ne vous a pas offert l'option MODIFIER RÉGLAGES. En effet, cette option n'est disponible que lors de l'installation de Raspberry Pi OS.
 
