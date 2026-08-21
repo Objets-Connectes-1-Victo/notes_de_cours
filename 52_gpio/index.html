@@ -1,0 +1,4797 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>46. GPIO - Notes de cours - Objets connectés 1 (420-3A4-VI)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapitre-gpio" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-header__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes de cours - Objets connectés 1 (420-3A4-VI)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              46. GPIO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01_deroulement_du_cours/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Divers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../10__semaine_1_/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Notes de cours
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-nav__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes de cours - Objets connectés 1 (420-3A4-VI)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Divers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_deroulement_du_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Déroulement du cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ou_trouver_de_laide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Où trouver de l'aide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03__chapitres_de_reference_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_depannage_sur_le_raspberry_pi_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dépannage sur le Raspberry Pi (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_depannage_python_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dépannage Python (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_les_scripts_bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Les scripts bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10__semaine_1_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_situation_du_cours_dans_le_programme_detudes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Situation du cours dans le programme d'études
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_utilisation_de_lintelligence_artificielle_pendant_le_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Utilisation de l'intelligence artificielle pendant le cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_quelques_trucs_pour_vous_aider_dans_ce_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Quelques trucs pour vous aider dans ce cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_la_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_lunite_centrale_du_systeme_domotique_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. L'unité centrale du système domotique (Raspberry Pi)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16_le_logiciel_de_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Le logiciel de domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22_la_passerelle_domotique_et_les_protocoles_de_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. La passerelle domotique et les protocoles de communication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_les_appareils_domotiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Les appareils domotiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../66_home_assistant_au_coeur_de_votre_systeme_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    58. Home Assistant au coeur de votre système domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../67_chapitre_de_reference_pour_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    59. Chapitre de référence pour Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../68_depannage_home_assistant_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60. Dépannage Home Assistant (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../69_exercice_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    61. Exercice 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28__semaine_2_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../71_commencer_a_travailler_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    63. Commencer à travailler avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../72_sauvegarde_de_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    64. Sauvegarde de Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../73_exercice_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    65. Exercice 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../74_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    66. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../75_semaine_de_relache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    67. Semaine de relâche!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../77_le_fichier_configurationyaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    68. Le fichier configuration.yaml
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../78_les_icones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    69. Les icônes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../79_les_capteurs_virtuels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    70. Les capteurs virtuels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_les_tableaux_de_bord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    71. Les tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../81_exercice_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    72. Exercice 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../82_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    73. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39__semaine_3_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../83_les_automatisations_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    74. Les automatisations Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../84_le_soleil_et_la_meteo_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    75. Le soleil et la météo sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../85_depannage_sur_les_automatisations_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Dépannage sur les automatisations (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../86_exercice_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    77. Exercice 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../87_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    78. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../89_les_modeles_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    79. Les modèles Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_exercice_14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    80. Exercice 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../91_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    81. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45__semaine_4_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../92_deboguer_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    82. Déboguer Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../93_automatisations_qui_tiennent_compte_de_lheure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    83. Automatisations qui tiennent compte de l'heure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../94_notification_par_courriel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    84. Notification par courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../95_depannage_sur_lenvoi_de_courriel_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    85. Dépannage sur l'envoi de courriel (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../96_depannage_sur_les_positions_gps_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    86. Dépannage sur les positions GPS (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../97_exercice_15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    87. Exercice 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    88. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_detecteur_de_presence_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    89. Détecteur de présence sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100_exercice_16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90. Exercice 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    91. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../51__semaine_5_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../103_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    92. SQLite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../104_la_base_de_donnees_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    93. La base de données Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../105_historisation_des_donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    94. Historisation des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../106_exercice_17_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    95. Exercice 17 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../107_exercice_18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    96. Exercice 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../108_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    97. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../63__semaine_6_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110_exercice_19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    98. Exercice 19
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../111_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    99. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../65__semaine_7_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../113_examen_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    100. Examen 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../112__semaine_12_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../114_exercice_20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    101. Exercice 20
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../115_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    102. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S13
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../116__semaine_13_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../117_communication_home_assistant_jeedom_via_lapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    103. Communication Home Assistant - Jeedom via l'API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../118_exercice_21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    104. Exercice 21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../119_exercice_22_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    105. Exercice 22 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    106. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../121_mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    107. MQTT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../122_exercice_23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    108. Exercice 23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../123_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    109. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S14
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../124__semaine_14_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../125_exercice_24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    110. Exercice 24
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../126_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    111. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../127_format_json_dans_un_modele/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    112. Format JSON dans un modèle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../128_exercice_25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    113. Exercice 25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../129_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    114. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130_simulation_dexamen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    115. Simulation d'examen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S15
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../131__semaine_15_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../132_examen_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    116. Examen 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../133__chapitres_supplementaires_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres supplémentaires ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../134_installer_un_store_controle_a_distance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    117. Installer un store contrôlé à distance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../135_les_servomoteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    118. Les servomoteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../136__aller_plus_loin_avec_linux_et_le_raspberry_pi_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Linux et le Raspberry Pi ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../137_divers_linux_et_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    119. Divers Linux et Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../138_configurations_reseau_avec_dhcpcd_wpa_supplicant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    120. Configurations réseau avec dhcpcd (wpa_supplicant)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../139_raspberry_pi_comme_simple_serveur_http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Raspberry Pi comme simple serveur HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140__aller_plus_loin_avec_home_assistant_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Home Assistant ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../141_les_scripts_python_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    122. Les scripts Python avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../142_appeler_un_script_python_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    123. Appeler un script Python dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../143_les_themes_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    124. Les thèmes dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../144_les_watchdog_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    125. Les watchdog Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-en_resume_023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46.1 En résumé...
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qu-est-ce-que-le-gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu est-ce que le gpio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brancher-une-del-au-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brancher une del au raspberry pi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-base-des-scripts-avec-rpi-gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La base des scripts avec rpi gpio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancer-un-script-python-avec-le-plugin-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lancer un script python avec le plugin script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-qu_est-ce_que_le_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46.2 Qu'est-ce que le GPIO?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma des broches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tension-des-broches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tension des broches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-brancher_une_del_au_raspberry_pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46.3 Brancher une DEL au Raspberry Pi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail-avec-une-planche-de-maquettage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail avec une planche de maquettage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precautions-lors-du-montage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Précautions lors du montage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Précautions lors du montage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-fils-du-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les fils du circuit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branchement-dune-del" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branchement d'une DEL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emplacement-de-la-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emplacement de la résistance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broche-33v-vs-broche-programmable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Broche 3.3V vs broche programmable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branchement-sans-planche-de-maquettage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branchement sans planche de maquettage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-les_resistances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46.4 Les résistances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lire-la-valeur-dune-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lire la valeur d'une résistance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valeur de résistance sure, sans calculs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-tester_les_broches_du_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        46.5 Tester les broches du GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapitre-gpio">46. GPIO<a class="headerlink" href="#chapitre-gpio" title="Permanent link">&para;</a></h1>
+<h2 id="fiche-en_resume_023">46.1 En résumé...<a class="headerlink" href="#fiche-en_resume_023" title="Permanent link">&para;</a></h2>
+<p>Voici un résumé des informations essentielles du ou des prochains chapitres.</p>
+<p>Notez que certaines fiches, qui font partie intégrante du cours, pourraient ne pas figurer dans ce résumé.</p>
+<p>Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapitres afin de bien saisir les enjeux.</p>
+<h2 id="qu-est-ce-que-le-gpio"><a href="./#fiche-qu_est-ce_que_le_gpio">Qu est-ce que le gpio</a><a class="headerlink" href="#qu-est-ce-que-le-gpio" title="Permanent link">&para;</a></h2>
+<p>Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).</p>
+<p><img alt="GPIO sur Raspberry Pi 4" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/apical.xyz-GPIORaspberryPi4.png" /></p>
+<p>Il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC channel : BCM).</p>
+<p><img alt="Schéma officicel GPIO Raspberry Pi 4" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png" /></p>
+<h2 id="brancher-une-del-au-raspberry-pi"><a href="./#fiche-brancher_une_del_au_raspberry_pi">Brancher une del au raspberry pi</a><a class="headerlink" href="#brancher-une-del-au-raspberry-pi" title="Permanent link">&para;</a></h2>
+<p>La planche de maquettage :</p>
+<p><img alt="Planche de maquettage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PlancheDeMaquettage.png" /></p>
+<p>Dos de la planche de maquettage :</p>
+<p><img alt="Dos d'une planche de maquettage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PlancheDeMaquettage-dos.png" /></p>
+<p>Ça prend toujours une résistance pour protéger la DEL et le Raspberry Pi.</p>
+<p>Sans entrer dans les détails de calcul, disons qu'une résistance de 330 ohm est un bon passe partout pour un petit montage avec une seule DEL.</p>
+<p>Exemple de branchement avec tension de 3.3V :</p>
+<p><img alt="Montage de la DEL et de la résistance sur un breadboard" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-LEDCircuit_bb.png" /></p>
+<p>Exemple de branchement sur une broche programmable :</p>
+<p><img alt="Branchement de la DEL sur la broche 17" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-switchingcircuit.png" /></p>
+<p>Important ! Sens de la DEL :</p>
+<ul>
+<li>Longue patte (moins de matériel dans le bulbe) : côté tension (power)</li>
+<li>Courte patte : côté mise à terre (GND)</li>
+</ul>
+<p><img alt="Anode et cathode d'une DEL blanche" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DELBlanche-AnodeCathode.png" /> <img alt="Anode et cathode d'une DEL bleue" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DELBleue-AnodeCathode.png" /></p>
+<p><img alt="Photo du montage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png" /></p>
+<h2 id="la-base-des-scripts-avec-rpi-gpio"><a href="../53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio/#fiche-la_base_des_scripts_avec_rpi_gpio">La base des scripts avec rpi gpio</a><a class="headerlink" href="#la-base-des-scripts-avec-rpi-gpio" title="Permanent link">&para;</a></h2>
+<p>Il y a un <a href="../07_python/#fiche-Qu_est-ce_que_Python">chapitre de référence sur Python</a> au début de la formation.</p>
+<p>Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez le copier sur le Pi après l'avoir édité.</p>
+<p>Nom du fichier : entièrement en minuscules (ex : monscript.py) ou casse serpent (ex : mon_script.py).</p>
+<p>Petit script qui fait clignoter une DEL jusqu'à ce que quelqu'un appuie sur Ctrl+C.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># -\*- coding:utf-8 -\*-</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">"""</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">Fait clignoter une DEL rouge sur le Raspberry Pi</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">Paramètres : aucun</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sd">Auteur : Christiane Lagacé</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">Date : 17 septembre 2025</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="sd">"""</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span> <span class="c1"># il faudra mettre GPIO. devant le nom des classes du paquet</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># les classes du paquets peuvent être utilisées directement sans le nom du paquet</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span> <span class="c1"># type d'adressage broadcom (numéros de ports)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">led</span> <span class="o">=</span> <span class="mi">23</span> <span class="c1"># adresse broadcom du branchement de la DEL</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Programme qui fait clignoter une DEL'</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Appuyez sur Ctrl+C pour terminer.'</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># envoie 3.3V au port</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># n'envoie rien au port</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nb">print</span> <span class="p">(</span><span class="s1">'Fin du programme, vous avez appuyé sur Ctrl+C.'</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Une exception est survenue.'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span> <span class="c1"># réinitialise les ports</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Nettoyage final réalisé avec succès!'</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Exécution du script :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3 monscript.py
+</span></code></pre></div>
+<h2 id="lancer-un-script-python-avec-le-plugin-script"><a href="../56_controle_gpio_avec_jeedom/#fiche-lancer_un_script_python_avec_le_plugin_script">Lancer un script python avec le plugin script</a><a class="headerlink" href="#lancer-un-script-python-avec-le-plugin-script" title="Permanent link">&para;</a></h2>
+<p>Voir détails sur la fiche.</p>
+<h2 id="fiche-qu_est-ce_que_le_gpio">46.2 Qu'est-ce que le GPIO?<a class="headerlink" href="#fiche-qu_est-ce_que_le_gpio" title="Permanent link">&para;</a></h2>
+<p>Le sigle GPIO signifie General Purpose Input Output (littéralement : Entrée-sortie à usage général).</p>
+<p>Il s'agit d'une série de 40 broches (en anglais : pins) qui permettent de contrôler différents composants électroniques.</p>
+<p><img alt="GPIO sur Raspberry Pi 4" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/apical.xyz-GPIORaspberryPi4.png" /></p>
+<p>Un circuit électronique pourra être réalisé en branchant des composants électroniques sur des broches ciblées du GPIO. Les branchements seront réalisés à l'aide de fils spécialisés appelés <a href="https://en.wikipedia.org/wiki/Jump_wire">câbles DuPont</a>.</p>
+<p>Notez que pour les modèles qui ont précédé le Raspberry Pi 1B+ (2014), le GPIO n'avait que 26 broches. Et pour le Raspberry Pi Zero, il y a 40 trous auxquels les broches peuvent être soudées.</p>
+<h2 id="schema">Schéma des broches<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h2>
+<p>Certaines broches jouent un rôle particulier. Il faut se référer au schéma officiel du GPIO<a href="https://www.raspberrypi.org/documentation/usage/gpio/">1</a> pour connaître leur rôle.</p>
+<p>L'application Web Raspberry Pi Pinout (<a href="https://pinout.xyz/">https://pinout.xyz/</a>) est également très aidante.</p>
+<p>Attention : il existe deux systèmes de numérotation : physique et broadcom (Broadcom SOC channel : BCM).</p>
+<p>Dans le schéma qui suit, les numéros 1 à 40 réfèrent à la numérotation physique. Vous remarquerez que certaines broches, par exemple la 11, sont libellées GPIO 17. Dans ce cas, 17 correspond à la numérotation broadcom.</p>
+<p>La numérotation physique permet de retrouver la bonne broche sur le Pi. La numérotation broadcom sera souvent utilisée en programmation.</p>
+<p><a href="https://www.raspberrypi.org/documentation/usage/gpio/"><img alt="Schéma officicel GPIO Raspberry Pi 4" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GPIO-Pinout-Diagram-2.png" /></a></p>
+<p>Source de l'image : <a href="https://www.raspberrypi.org/documentation/usage/gpio/">https://www.raspberrypi.org/documentation/usage/gpio/</a></p>
+<h2 id="tension-des-broches">Tension des broches<a class="headerlink" href="#tension-des-broches" title="Permanent link">&para;</a></h2>
+<p>Les broches qui permettent de fournir une source électrique (power) à un composant travaillent avec une tension de 5V ou de 3.3V.</p>
+<p>Les autres broches travaillent avec une tension de 3.3V. Attention : si vous leur envoyez 5V, vous allez briser le GPIO et peut-être même le Pi au complet. Ouch $$__$$</p>
+<p>Lorsqu'une broche reçoit une tension suffisamment haute (ex : 3.3V), son état est à 1 (ON). Sinon, elle est à 0 (OFF).</p>
+<p>L'état d'une broche peut être contrôlé par programmation avec des langages comme le Python, le JavaScript et bien d'autres.</p>
+<p>Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « <a href="./#fiche-brancher_une_del_au_raspberry_pi">brancher_une_del_au_raspberry_pi</a> ».</p>
+<h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
+<ol>
+<li>« GPIO ». Raspberry Pi. <a href="https://www.raspberrypi.org/documentation/usage/gpio/">https://www.raspberrypi.org/documentation/usage/gpio/</a></li>
+</ol>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« General Purpose Input/Output ». Wikipédia. <a href="https://fr.wikipedia.org/wiki/General_Purpose_Input/Output">https://fr.wikipedia.org/wiki/General_Purpose_Input/Output</a></p>
+<p>« GPIO ». Raspberry Pi. <a href="https://www.raspberrypi.org/documentation/usage/gpio/">https://www.raspberrypi.org/documentation/usage/gpio/</a></p>
+<p>« Raspberry Pi GPIO Pinout: What Each Pin Does on Pi 4, Earlier Models ». Tom's hardware. <a href="https://www.tomshardware.com/reviews/raspberry-pi-gpio-pinout,6122.html">https://www.tomshardware.com/reviews/raspberry-pi-gpio-pinout,6122.html</a></p>
+<p>« Allumer et éteindre une LED avec la Raspberry Pi et Python ». Raspberry Pi FR. <a href="https://raspberry-pi.fr/led-raspberry-pi/">https://raspberry-pi.fr/led-raspberry-pi/</a></p>
+<p>« Raspberry Pi Pinout ». Raspberry Pi Pinout. <a href="https://pinout.xyz/">https://pinout.xyz/</a></p>
+<h2 id="fiche-brancher_une_del_au_raspberry_pi">46.3 Brancher une DEL au Raspberry Pi<a class="headerlink" href="#fiche-brancher_une_del_au_raspberry_pi" title="Permanent link">&para;</a></h2>
+<p>Si vous branchez une petite diode électroluminescente (DEL, en anglais light-emitting diode ou LED) au GPIO de votre Raspberry Pi, votre système domotique pourrait par exemple allumer la DEL quand quelqu'un entre dans la pièce.</p>
+<p>Ce type de composant électronique est peu dispendieux. Vous trouverez des DEL à deux pattes en vente pour environ 10$ le paquet de 100.</p>
+<p><img alt="DEL claire" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-DELClaire.png" /></p>
+<h2 id="travail-avec-une-planche-de-maquettage">Travail avec une planche de maquettage<a class="headerlink" href="#travail-avec-une-planche-de-maquettage" title="Permanent link">&para;</a></h2>
+<p>Une planche de maquettage (aussi appelée platine d'essai, platine de prototypage ou, en anglais, breadboard) est un petite plaque de plastique munie de trous dans lesquels il est possible de brancher des composants électroniques sans nécessiter de soudure. Les trous de chaque rangée sont reliés entre eux par une plaque métallique, ce qui permet de former un circuit électronique.</p>
+<p>Saviez-vous que le terme breadboard vient effectivement d'une planche pour découper du pain? C'est que dans les premiers temps où l'électronique s'est développée, des gens utilisaient une vraie planche à pain sur laquelle ils vissaient les composants électronique de leur montage<a href="https://www.instructables.com/Use-a-real-Bread-Board-for-prototyping-your-circui/">1</a>!</p>
+<p>Vous pouvez faire le montage de la DEL et d'une résistance sur une planche de maquettage branchée au GPIO à l'aide de fils appelés câbles DuPont. On utilisera ici des câbles mâle-femelle avec l'extrémité mâle branchée à la planche de maquettage et l'extrémité femelle branchée au GPIO.</p>
+<p><img alt="Montage de la DEL et de la résistance sur un breadboard" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-LEDCircuit_bb.png" /></p>
+<p>Montage A</p>
+<p>Source de l'image : <a href="https://magpi.raspberrypi.org/articles/get-started-with-electronics-and-raspberry-pi">https://magpi.raspberrypi.org/articles/get-started-with-electronics-and-raspberry-pi</a></p>
+<h2 id="precautions-lors-du-montage">Précautions lors du montage<a class="headerlink" href="#precautions-lors-du-montage" title="Permanent link">&para;</a></h2>
+<p>Il est important de couper le courant du Raspberry Pi avant d'effectuer les branchements. Sinon, vous risquez d'endommager le composant électronique, le GPIO ou même le Raspberry Pi.</p>
+<h3 id="les-fils-du-circuit">Les fils du circuit<a class="headerlink" href="#les-fils-du-circuit" title="Permanent link">&para;</a></h3>
+<p>La couleur des fils utilisés pour brancher les composants sur la planche de maquettage n'a pas d'importance.</p>
+<p>Cependant, par convention, on utilisera un fil noir pour brancher à la mise à terre (ground ou GND).</p>
+<p>Sur la planche de maquettage, le fil de mise à terre sera généralement – mais pas obligatoirement – branché dans le rail d'alimentation négatif.</p>
+<p>Les rails d'alimentation sont les deux premières et les deux dernières rangées de trous sur le côté long de la planche de maquettage. Le rail négatif est généralement marqué d'une ligne bleue ou noire.</p>
+<p><img alt="Planche de maquettage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PlancheDeMaquettage.png" /></p>
+<p>Sur certaines planches, le sens des raccordements internes est visible lorsqu'on retire la feuille de protection arrière.</p>
+<p><img alt="Dos d'une planche de maquettage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/PlancheDeMaquettage-dos.png" /></p>
+<h3 id="branchement-dune-del">Branchement d'une DEL<a class="headerlink" href="#branchement-dune-del" title="Permanent link">&para;</a></h3>
+<p>Lorsque vous branchez une DEL, il ne faut pas que les deux pattes soient branchées sur des trous qui sont interconnectés. On pourra les brancher, par exemple :</p>
+<ul>
+<li>sur deux barrettes de raccordement différentes (voir montage A)</li>
+<li>une patte le rail positif (ou négatif) et l'autre, sur une barrette de raccordement au centre (voir montage B)</li>
+<li>de chaque côté de la goutière, c'est-à-dire la partie encavées au centre (voir montage C)</li>
+</ul>
+<p>Lors du branchement de la DEL, assurez-vous que la longue patte soit branchée du côté de la source de tension (power). La patte la plus courte sera branchée du côté de la mise à terre.</p>
+<p>Si vous avez de la difficulté à déterminer quelle est la patte la plus longue (c'est parfois le cas après qu'une soudure ait été faite), regardez à l'intérieur du bulbe. La patte longue (à gauche sur les images) a généralement moins de matériel que la courte.</p>
+<p>Donc, le côté avec moins de matériel dans le bulbe (la patte la plus longue) doit être branché du côté de la source de tension.</p>
+<p><img alt="Anode et cathode d'une DEL blanche" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DELBlanche-AnodeCathode.png" /> <img alt="Anode et cathode d'une DEL bleue" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DELBleue-AnodeCathode.png" /></p>
+<p><img alt="Photo du montage" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPi-LEDSurBreadboard.png" /></p>
+<p>Montage B</p>
+<h3 id="emplacement-de-la-resistance">Emplacement de la résistance<a class="headerlink" href="#emplacement-de-la-resistance" title="Permanent link">&para;</a></h3>
+<p>Dans un petit circuit qui implique seulement une DEL et une résistance, la résistance peut être placée de n'importe quel côté de la DEL.</p>
+<p><img alt="Résistance côté source de courant" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DEL-ResistanceCotePower.png" />             <img alt="Résistance côté mise à terre" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/DEL-ResistanceCoteGround.png" /></p>
+<p>Circuits réalisés à l'aide du logiciel <a href="https://fritzing.org/">Fritzing</a>.</p>
+<p>Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « <a href="./#fiche-les_resistances">les_resistances</a> ».</p>
+<h2 id="broche-33v-vs-broche-programmable">Broche 3.3V vs broche programmable<a class="headerlink" href="#broche-33v-vs-broche-programmable" title="Permanent link">&para;</a></h2>
+<p>Vous devez déterminer quelle broche du GPIO fournira la tension à votre circuit.</p>
+<p>Avec un branchement directement sur la broche no 1 (3V3 power), comme sur le montage A, la DEL s'allumera dès que le Raspberry Pi sera sous tension.</p>
+<p>Si vous préférez allumer la DEL par programmation, il faudra brancher sa longue patte sur une autre broche du GPIO, par exemple la broche 17, comme sur le montage C.</p>
+<p>Il faudra alors écrire un petit programme qui enverra ou non un signal à cette broche, par exemple <a href="../53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio/#fiche-la_base_des_scripts_avec_rpi_gpio">en utilisant la bibliothèque RPi.GPIO</a>.</p>
+<p><img alt="Branchement de la DEL sur la broche 17" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-switchingcircuit.png" /></p>
+<p>Montage C</p>
+<p>Source de l'image : <a href="https://www.futurelearn.com/courses/physical-computing-raspberry-pi-python/0/steps/76169">https://www.futurelearn.com/courses/physical-computing-raspberry-pi-python/0/steps/76169</a></p>
+<h2 id="branchement-sans-planche-de-maquettage">Branchement sans planche de maquettage<a class="headerlink" href="#branchement-sans-planche-de-maquettage" title="Permanent link">&para;</a></h2>
+<p>Si vous préférez, il est même possible de brancher la DEL et sa résistance directement au GPIO. Pour effectuer ce branchement, les câbles DuPont auront des extrémités femelle-femelle.</p>
+<p>Un peu de soudure sera nécessaire entre la DEL et la résistance.</p>
+<p><img alt="DEL branchée directement sur le GPIO" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-led-3v3.png" /></p>
+<p>Source de l'image : <a href="https://projects.raspberrypi.org/en/projects/physical-computing-with-scratch/3">https://projects.raspberrypi.org/en/projects/physical-computing-with-scratch/3</a></p>
+<h2 id="source_1">Source<a class="headerlink" href="#source_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>« Use a Real Bread-Board for Prototyping Your Circuit ». Instructables Circuits. <a href="https://www.instructables.com/Use-a-real-Bread-Board-for-prototyping-your-circui/">https://www.instructables.com/Use-a-real-Bread-Board-for-prototyping-your-circui/</a></li>
+</ol>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« Get started with electronics and Raspberry Pi ». The MagPi Magazine. <a href="https://magpi.raspberrypi.org/articles/get-started-with-electronics-and-raspberry-pi">https://magpi.raspberrypi.org/articles/get-started-with-electronics-and-raspberry-pi</a></p>
+<p>« Breadboard tutorial: learn electronics with Raspberry Pi ». The MagPi Magazine. <a href="https://magpi.raspberrypi.org/articles/breadboard-tutorial">https://magpi.raspberrypi.org/articles/breadboard-tutorial</a></p>
+<p>« LED ». Framboise 314. <a href="https://www.framboise314.fr/scratch-raspberry-pi-composants/led/">https://www.framboise314.fr/scratch-raspberry-pi-composants/led/</a></p>
+<p>« Introduction aux circuits ». CCDMD - Apprendre à programmer pour rendre des objets connectés à Internet à l’aide des plateformes Arduino et Raspberry PI. <a href="https://objets.ccdmd.qc.ca/manuel/2-1-introduction-aux-circuits/">https://objets.ccdmd.qc.ca/manuel/2-1-introduction-aux-circuits/</a></p>
+<h2 id="fiche-les_resistances">46.4 Les résistances<a class="headerlink" href="#fiche-les_resistances" title="Permanent link">&para;</a></h2>
+<p>Dans tout circuit électronique qui comporte une DEL, il faut ajouter une résistance. Ceci assure que le courant ne grillera pas la DEL, le GPIO ou même le Raspberry Pi.</p>
+<p>Généralement, les tensions maximales supportées parr les DEL (forward voltage) sont de<a href="https://electronics.stackexchange.com/questions/297356/how-much-voltage-does-a-green-led-need-to-be-supplied-will-it-handle-5v">1</a> :</p>
+<ul>
+<li>DEL blanche : 3.3V</li>
+<li>DEL bleue  : 3.3V</li>
+<li>DEL verte : 2.2V</li>
+<li>DEL jaune : 2.1V</li>
+<li>DEL rouge : 2.0V</li>
+</ul>
+<p>Même si la DEL supporte la tension fournie par le Pi sur la broche de 3.3V, il faut utiliser une résistance pour protéger la DEL et le Raspberry Pi. En effet, une fois la DEL allumée, elle risque de consommer trop de courant (le I dans V=RI) et de finir par faire griller soit la DEL, soit le Pi. Ouch!</p>
+<p>Pour connaître la valeur requise pour la résistance, consultez la fiche technique de la DEL afin de connaître la tension maximale qu'elle peut accepter.</p>
+<p>À titre d'exemple, voici un extrait d'une fiche technique pour une DEL blanche.</p>
+<p>Remarquez que la tension maximale de la DEL est ici de 3.6V, soit un peu plus que la tension maximale habituelle pour une DEL blanche. Si vous n'avez pas accès à la fiche technique de votre DEL, vous pouvez utiliser les valeurs habituelles.</p>
+<p><img alt="Fiche technique DEL Blanche" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Domotique-FicheTechniqueDELBlanche.png" /></p>
+<p>Source de l'extrait de fiche technique : <a href="http://www1.futureelectronics.com/doc/EVERLIGHT%C2%A0/334-15__T1C1-4WYA.pdf">http://www1.futureelectronics.com/doc/EVERLIGHT%C2%A0/334-15__T1C1-4WYA.pdf</a></p>
+<p>La colonne condition est importante : c'est elle qui dit quelle quantité de courant la DEL peut supporter, ici 20mA. Il s'agit de la valeur habituelle pour une DEL de cette taille.</p>
+<p>Cette valeur doit être utilisée dans les calculs de la résistance requise. Dans les faits, on pourrait utiliser une valeur inférieure qui ferait en sorte que la DEL éclaire moins. Une DEL allumée nécessite au moins 1mA pour être visible.</p>
+<p>L'important, c'est de ne pas dépasser la valeur maximale.</p>
+<p>Vous pouvez utiliser un petit outil en ligne pour calculer la valeur de la résistance à utiliser.</p>
+<p>En voici quelques-uns :</p>
+<ul>
+<li><a href="https://www.hobby-hour.com/electronics/ledcalc.php">https://www.hobby-hour.com/electronics/ledcalc.php</a></li>
+<li><a href="http://www.muzique.com/schem/led.htm">http://www.muzique.com/schem/led.htm</a></li>
+<li><a href="https://www.circuitbread.com/tools/led-resistor-calculator">https://www.circuitbread.com/tools/led-resistor-calculator</a></li>
+</ul>
+<p>Il faut utiliser une résistance égale ou plus grande que la valeur donnée dans le calcul. Mais si la valeur est trop élevée, il risque de ne pas y avoir assez de courant pour allumer la DEL.</p>
+<h2 id="lire-la-valeur-dune-resistance">Lire la valeur d'une résistance<a class="headerlink" href="#lire-la-valeur-dune-resistance" title="Permanent link">&para;</a></h2>
+<p>Maintenant, quand on a une résistance en main, et qu'elle est détachée du petit papier qui donnait sa valeur, comment peut-on trouver cette information?</p>
+<p>Il est possible de déterminer la valeur d'une résistance à partir de ses bandes de couleur. Un exemple vous est donné ici : <a href="https://www.positron-libre.com/cours/electronique/resistances/code-couleurs-resistances.php">https://www.positron-libre.com/cours/electronique/resistances/code-couleurs-resistances.php</a>.</p>
+<p>La valeur de la résistance  peut également être lue avec un multimètre.</p>
+<h2 id="sure">Valeur de résistance sure, sans calculs<a class="headerlink" href="#sure" title="Permanent link">&para;</a></h2>
+<p>Sur plusieurs sites, vous verrez qu'on utilise une résistance de 330 Ohms.</p>
+<p>Pourtant, si on fait le calcul avec :</p>
+<ul>
+<li>une source de tension de 3.3V</li>
+<li>une tension maximale de 2V (DEL rouge)</li>
+<li>un courant de 20mA (c'est la valeur maximale supportée)</li>
+</ul>
+<p>on obtient plutôt une résistance de 65 Ohms.</p>
+<p>Alors, pourquoi 330 Ohms? C'est simplement une valeur de résistance suffisante pour :</p>
+<ul>
+<li>une source de tension de 5V (sur le Raspberry Pi, seules les broches non programmables 2 et 4 peuvent fournir cette tension)</li>
+<li>une tension maximale de 2V (DEL rouge)</li>
+<li>un courant de 10mA (la DEL sera moins lumineuse)</li>
+</ul>
+<p>En fait, ce calcul donnerait 300 Ohms mais cette valeur est moins courante dans les kits électroniques de démarrage alors on utilise la prochaine valeur disponible : 330 Ohms.</p>
+<p>Dans le cas où on travaille avec une source de tension de 3.3V, on pourrait faire le calcul suivant :</p>
+<ul>
+<li>une source de tension de 3.3V</li>
+<li>une tension maximale de 2V (DEL rouge)</li>
+<li>un courant de 10mA</li>
+</ul>
+<p>on obtient une résistance de 130 Ohms. Ici encore, dans les kits électroniques de démarrage, la prochaine valeur courante disponible est de 330 Ohms.</p>
+<p>Pour obtenir une DEL plus lumineuse, il suffit de diminuer la valeur de la résistance jusqu'à concurrence de la valeur exacte calculée avec un courant de 20mA.</p>
+<h2 id="source_2">Source<a class="headerlink" href="#source_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>« How much voltage does a green LED need to be supplied? Will it handle 5V? ». StackExchange. <a href="https://electronics.stackexchange.com/questions/297356/how-much-voltage-does-a-green-led-need-to-be-supplied-will-it-handle-5v">https://electronics.stackexchange.com/questions/297356/how-much-voltage-does-a-green-led-need-to-be-supplied-will-it-handle-5v</a></li>
+</ol>
+<h2 id="pour-plus-dinformation_2">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_2" title="Permanent link">&para;</a></h2>
+<p>« Basics: Picking Resistors for LEDs ». Evil Mad Scientist. <a href="https://www.evilmadscientist.com/2012/resistors-for-leds/">https://www.evilmadscientist.com/2012/resistors-for-leds/</a></p>
+<p>« Connaitre les résistances Arduino ». Electronique Kit. <a href="https://www.electronique-kit.com/les-r%C3%A9sistances-arduino">https://www.electronique-kit.com/les-r%C3%A9sistances-arduino</a></p>
+<h2 id="fiche-tester_les_broches_du_gpio">46.5 Tester les broches du GPIO<a class="headerlink" href="#fiche-tester_les_broches_du_gpio" title="Permanent link">&para;</a></h2>
+<p>Vous avez modifié les branchements du GPIO alors que le Raspberry Pi était sous tension? Il se peut que le GPIO ne fonctionne plus correctement.</p>
+<p>Pour le vérifier, vous pouvez utiliser un petit utilitaire en ligne de commande : <a href="https://github.com/joan2937/pigpio/blob/master/EXAMPLES/Shell/GPIOTEST/gpiotest">gpiotest</a>.</p>
+<p>Pour l'utiliser, suivez ces étapes :</p>
+<ul>
+<li>Vous devez avoir en main un Raspberry Pi sur lequel <a href="../05_raspberry_pi/#fiche-raspberry_pi_imager">Raspberry Pi OS est installé</a>. La version Lite est suffisante.</li>
+<li>Il ne doit rien y avoir de branché sur les broches du GPIO, pas même le ventilateur du boîtier du Pi. Toutes les broches doivent être libres.</li>
+<li>Pour lancer les commandes sur le Pi, vous pouvez y brancher un écran et un clavier ou encore vous y connecter <a href="../05_raspberry_pi/#fiche-se_brancher_au_raspberry_pi_via_ssh">via SSH</a>.</li>
+<li>Le script nécessite que la bibliothèque <a href="http://abyz.me.uk/rpi/pigpio/">pigpio</a> soit installée sur le Pi. Pour le savoir, entrez cette commande :</li>
+</ul>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>  sudo pigpiod
+</span></code></pre></div>
+<p>Le message Can't lock /var/run/pigpio.pid ou aucun message signifie que le démon de cette bibliothèque est déjà en cours d'exécution. Poursuivez à l'étape de téléchargement plus bas.</p>
+<p>Le message pigpiod: command not found indique que vous devrez installer la bibliothèque.</p>
+<ul>
+<li>
+<p>Pour installer la bibliothèque, le Raspberry Pi aura besoin d'un <a href="fiche-configurer_le_reseau_wi-fi_sur_le_raspberry_p.md#configurer_le_reseau_wi-fi_sur_le_raspberry_p">accès à Internet</a>.</p>
+<p>Lancez cette commande pour procéder à l'installation :</p>
+<p>Terminal</p>
+</li>
+</ul>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    sudo apt install pigpio
+</span></code></pre></div>
+  + Lancez maintenant le démon.</p>
+<div class="language-text highlight"><pre><span></span><code>Terminal
+</code></pre></div>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    sudo pigpiod
+</span></code></pre></div>
+* Poursuivez ici si le démon était déjà en cours d'utilisation. Téléchargez le script qui permet de tester le GPIO :</p>
+<p>Terminal</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  wget http://abyz.me.uk/rpi/pigpio/code/gpiotest.zip
+</span></code></pre></div>
+* Décompressez le fichier :</p>
+<p>Terminal</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>  unzip gpiotest.zip
+</span></code></pre></div>
+* Lancez le script :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  ./gpiotest
+</span></code></pre></div>
+<p>Si vous obtenez le message socket connect failed, c'est que vous n'avez pas lancé le démon avec la commande sudo pigpiod.</p>
+<p>Voici un exemple du résultat lorsque toutes les broches fonctionnent correctement :</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>  pi@raspberrypi:~ $ ./gpiotest
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  This program checks the Pi's (user) gpios.
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  The program reads and writes all the gpios. Make sure NOTHING
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  is connected to the gpios during this test.
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  The program uses the pigpio daemon which must be running.
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  To start the daemon use the command sudo pigpiod.
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  Press the ENTER key to continue or ctrl-C to abort...
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  Testing...
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  Skipped non-user gpios: 0 1 28 29 30 31
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  Tested user gpios: 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  Failed user gpios: None
+</span></code></pre></div>
+<p>Si une broche ne fonctionne plus, vous obtiendrez un message du genre Write 1 to gpio 17 failed.</p>
+<h2 id="pour-plus-dinformation_3">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_3" title="Permanent link">&para;</a></h2>
+<p>« R-Pi Troubleshooting - Testing ». Embedded Linux Wiki. <a href="https://elinux.org/R-Pi_Troubleshooting#Testing">https://elinux.org/R-Pi_Troubleshooting#Testing</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
