@@ -207,21 +207,10 @@ Lancer le Pi avec la carte que vous venez de préparer. Le système d'exploitati
 
 Connecter écran et clavier (attention écran noir si res. trop élevée)
 
-Attendre que *System is ready!* apparaisse à la console.  À ce point L'installation accède à internet pour télécharger du code
+Attendre que *System is ready!* apparaisse à la console.  À ce point L'installation tente d'accèder à internet pour télécharger du code.
 
 
 On doit indiquer quel réseau Wi-Fi à utiliser
->login
-nmcli device wifi rescan
-nmcli device wifi
-nmcli device wifi connect CEGEPVICTO
-exit
-
----
-
->supervisor logs -f
-Downloading Home Assistant Core Image, %
-Detect a running Home Assistant instance
 
 ----
 
@@ -231,16 +220,36 @@ nmcli device wifi
 nmcli device wifi connect "Domotique-Pedago" password "domoinfo36"
 exit
 banner (pour voir IP)
+
+---
+
+Suivre le progrès de l'installation via le web (portable doit être le réseau Wi-Fi Domotique-Pedago - pwd: domoinfo36):
+
+http://<ip>:8123
+
+Via les logs du terminal:
+
+>supervisor logs -f
+
+----
+
+Downloading Home Assistant Core Image, %
+NOTE: peut rester près de 10 mins sur le meme pourcentage.
+
+"Detect a running Home Assistant instance" veut dire installation terminée.
+
 ---
 
 >host options --hostname ha<num kit>
 >banner 
 Home Assistant URL:  http://ha<num-kit>.local:8123
+
 (.local: utilise la résolution mDNS)
 
 --
 
-Connecter son laptop au réseau Wi-Fi Domotique-Pedago (pwd: domoinfo36)
+Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déja fait (pwd: domoinfo36)
+
 http://ha<num-kit>.local:8123
 Créer un compte
 Entrer le CÉGEP comme localisation
