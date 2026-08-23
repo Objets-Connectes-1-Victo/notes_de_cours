@@ -243,7 +243,7 @@ method=disabled
 
 Connectez écran et clavier et lancez le Pi avec la carte que vous venez de préparer. Le système d'exploitation HassOS va démarrer, faire la configuration initiale (en utilisant votre configuration réseau) et tenter de télécharger la dernière version de Home Assistant.
 
-Le lancement avec l'instalation initiale peut prendre 20 à 30 minutes.  Soyez patients.
+Le lancement avec l’installation initiale peut prendre 20 à 30 minutes.  Soyez patients.
 
 Le logo de Home Assistant devrait apparaître à l'écran après quelques minutes.  Le texte *System is ready!* devrait apparaître à la console après un certain temps.  À ce moment, l'installation tente d'accéder à internet pour télécharger du code.  
 
@@ -254,17 +254,33 @@ L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP,
 # Première connexion à Home Assistant via le Web
 
 - Connectez votre portable au réseau Wi-Fi Domotique-Pedago.
-- Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le servise web ne répond pas, utilisez l'URL suivante : http://'<IP>':8123)
+- Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le service web ne répond pas, utilisez l'URL suivante : http://'<IP>':8123)
 
-TODO  autres instructions
-changement nom reseau
+# Changement du nom de l'appareil dans le réseau
+
+- Dans le menu Paramètres / Système / Réseau, changer le nom de l'appareil pour *ha<num kit>* (ex. ha1, ha2, etc.) afin de pouvoir y accéder via *http://ha<num kit>.local*
+- Attendez quelques instants pour que le changement de nom soit pris en compte par le réseau.  Vous pouvez vérifier le changement de nom en utilisant la commande *ping ha<num kit>.local* dans un terminal sur votre portable.
+- Connectez-vous via *http://ha<num kit>.local* sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL *http://ha<num kit>.local* restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
+- N'oubliez pas que vous devez utiliser le réseau Wi-Fi Domotique-Pedago sur votre portable pour accéder à Home Assistant sur le Pi.
+
+# Accès à Home Assistant via SSH
+
+Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulations.  Voici comment activer SSH dans HomeAssistant pour éviter l'utilisation d'un écran et d'un clavier branchés au Pi:
+
+- Paramètres / Système / Add-ons / Magasin d'add-ons / Terminal & SSH
+- Bouton *Installer*
+- (laissez l'installation se terminer - peut prendre quelques minutes)
+- Bouton *Démarrer*
+- Bouton *Ouvrir le Web UI* pour accéder à la console SSH via le Web
+- ha [commande] pour exécuter une commande Home Assistant
+
 
 # REFERENCE
-# Si connection ethernet n'est pas disponible
+# Si connection Ethernet n'est pas disponible
 
 Connecter écran et clavier (attention écran noir si res. trop élevée)
 
-Attendre que *System is ready!* apparaisse à la console.  À ce point L'installation tente d'accèder à internet pour télécharger du code.
+Attendre que *System is ready!* apparaisse à la console.  À ce point L'installation tente d’accéder à internet pour télécharger du code.
 
 
 On doit indiquer quel réseau Wi-Fi à utiliser
@@ -305,7 +321,7 @@ Home Assistant URL:  http://ha<num-kit>.local:8123
 
 --
 
-Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déja fait
+Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déjà fait
 
 http://ha<num-kit>.local:8123
 Créer un compte
