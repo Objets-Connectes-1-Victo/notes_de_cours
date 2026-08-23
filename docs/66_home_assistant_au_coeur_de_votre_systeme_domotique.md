@@ -192,17 +192,74 @@ Pour installer le système d'exploitation HassOS sur votre Rapsberry Pi :
 * Finalement, choisissez la version la version la plus récente qui correspond à votre Raspberry Pi.
 
   ![Home Assistant OS 18.2 (RPi 4/400)](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-HomeAssistantPourRaspberryPi4.png)
-* Spécifiez sur quelle carte l'image doit être installée puis cliquez sur Écrire.
+* Spécifiez sur quelle carte l'image doit être installée puis cliquez sur Écrire. Un message de confirmation vous demandera de confirmer que vous voulez bien écraser le contenu de la carte micro SD (SDHC). Cliquez sur Oui.
+  ![Écrire sur la carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/RaspberryPiImager-EcrireSurLaCarte.png)
 * Une fois l'image en place sur la carte micro SD, vous pourriez avoir à l'écran un message du genre « Le disque que vous avez attaché n’est pas lisible par cet ordinateur. » ou, en anglais « The disk you connected cannot be read on this computer ».
 * Ceci est normal, cliquez sur Ignorer.
 
   ![Le disque que vous avez inséré n’est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-LeDisqueQueVousAvezInsereNEstPasLisibleParCetOrdinateur.png) ![Le disque que vous avez inséré n’est pas lisible par cet ordinateur.](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Mac-LeDisqueQueVousAvezAttacheNEstPasLisibleParCetOrdinateur-BigSur.png)
 
+## Préconfiguration du réseau à même la carte SD
 
-## Lancement intial
+Le Raspberry Pi Imager ne permet pas de configurer le réseau sans fil lors de l'écriture de l'image de Home Assistant. Par contre, il est possible de créer un fichier de configuration réseau sur la carte micro SD avant de démarrer le Pi.
 
-Lancer le Pi avec la carte que vous venez de préparer. Le système d'exploitation HassOS va démarrer et tenter de télécharger la dernière version de Home Assistant. La connectivité au réseau est tentée via connexion filaire (Ethernet) initialement.
+De cette manière, le Pi pourra se connecter au réseau sans fil dès le démarrage.  Cela est particulièrement utile si vous n'avez pas de connexion filaire (Ethernet) disponible.
 
+Dans le contexte de ce cours, nous allons utiliser le réseau Wi-Fi Domotique-Pedago (mot de passe fourni par l'enseignant).  Ce réseau permet à votre portable de se connecter à Home Assistant sur le Raspberry Pi directement (le réseau Domotique-Pedago doit être utilisé sur le portable pour accéder à Home Assistant sur le Pi).
+
+## Configurer le réseau sans fil sur la carte micro SD
+
+- Utiliser Windows File Explorer pour accéder à la carte micro SD.  Le volume de la carte devrait s'appeler hassos-boot.  
+- Créer un dossier nommé *CONFIG* à la racine de la carte micro SD.
+- Sous ce fichier, créer un dossier nommé *network*.
+- Dans le dossier *network*, créer un fichier texte nommé *my-network* (aucune extension).
+- Utilise ce contenu pour le fichier *my-network* (remplacer MOT-DE-PASSE-DU-RESEAU par la valeur appropriée) Attention : les fins de ligne doivent être au format Linux (LF - Line Feed) et non Windows (CR LF - Carriage Return Line Feed).  Voir la fiche [fiche-encodage_des_fins_de_lignes_crlf_vs_lf](04_linux.md#fiche-encodage_des_fins_de_lignes_crlf_vs_lf) pour plus de détails. :
+
+```
+[connection]
+id=my-network
+uuid=d42a82b9-487d-4706-b52d-6ba68bad9e81
+type=wifi
+
+[wifi]
+mode=infrastructure
+ssid=Domotique-Pedago
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=MOT-DE-PASSE-DU-RESEAU
+
+[ipv4]
+method=auto
+
+[ipv6]
+method=disabled
+```
+
+### NOTE pour les étudiants : un fichier déjà complété et dans le bon format vous sera remis par l'enseignant.
+
+## Lancement initial
+
+Connectez écran et clavier et lancez le Pi avec la carte que vous venez de préparer. Le système d'exploitation HassOS va démarrer, faire la configuration initiale (en utilisant votre configuration réseau) et tenter de télécharger la dernière version de Home Assistant.
+
+Le lancement avec l'instalation initiale peut prendre 20 à 30 minutes.  Soyez patients.
+
+Le logo de Home Assistant devrait apparaître à l'écran après quelques minutes.  Le texte *System is ready!* devrait apparaître à la console après un certain temps.  À ce moment, l'installation tente d'accéder à internet pour télécharger du code.  
+
+L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP, vous en aurez besoin pour accéder à Home Assistant via le Web.  
+
+** IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24 **
+
+# Première connexion à Home Assistant via le Web
+
+- Connectez votre portable au réseau Wi-Fi Domotique-Pedago.
+- Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le servise web ne répond pas, utilisez l'URL suivante : http://'<IP>':8123)
+
+TODO  autres instructions
+changement nom reseau
+
+# REFERENCE
 # Si connection ethernet n'est pas disponible
 
 Connecter écran et clavier (attention écran noir si res. trop élevée)
@@ -217,13 +274,13 @@ On doit indiquer quel réseau Wi-Fi à utiliser
 >login
 nmcli device wifi rescan
 nmcli device wifi
-nmcli device wifi connect "Domotique-Pedago" password "domoinfo36"
+nmcli device wifi connect "Domotique-Pedago" password "MOT-DE-PASSE-DU-RESEAU"
 exit
 banner (pour voir IP)
 
 ---
 
-Suivre le progrès de l'installation via le web (portable doit être le réseau Wi-Fi Domotique-Pedago - pwd: domoinfo36):
+Suivre le progrès de l'installation via le web (portable doit être le réseau Wi-Fi Domotique-Pedago):
 
 http://<ip>:8123
 
@@ -248,7 +305,7 @@ Home Assistant URL:  http://ha<num-kit>.local:8123
 
 --
 
-Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déja fait (pwd: domoinfo36)
+Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déja fait
 
 http://ha<num-kit>.local:8123
 Créer un compte
