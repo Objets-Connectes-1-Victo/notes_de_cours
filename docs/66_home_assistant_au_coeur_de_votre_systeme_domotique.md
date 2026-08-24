@@ -263,19 +263,33 @@ L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP,
 
 - Dans le menu Paramètres / Système / Réseau, changer le nom de l'appareil pour `ha<num kit>` (ex. ha1, ha2, etc.) afin de pouvoir y accéder via `http://ha<num kit>.local`
 - Attendez quelques instants pour que le changement de nom soit pris en compte par le réseau.  Vous pouvez vérifier le changement de nom en utilisant la commande `ping ha<num kit>.local` dans un terminal sur votre portable.
-- Connectez-vous via `http://ha<num kit>.local` sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL `http://ha<num kit>.local` restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
+- Connectez-vous via `http://ha<num kit>.local` sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  
+  - Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL `http://ha<num kit>.local` restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
 - N'oubliez pas que vous devez utiliser le réseau Wi-Fi Domotique-Pedago sur votre portable pour accéder à Home Assistant sur le Pi.
 
-# Accès à Home Assistant via SSH
+# Accès à Home Assistant CLI et HAOS terminal à distance  
 
-Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulations.  Voici comment activer SSH dans HomeAssistant pour éviter l'utilisation d'un écran et d'un clavier branchés au Pi:
+Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulations.  Voici comment activer un Web terminal dans HomeAssistant pour éviter l'utilisation d'un écran et d'un clavier branchés au Pi:
 
 - Paramètres / Système / Add-ons / Magasin d'add-ons / Terminal & SSH
 - Bouton *Installer*
 - (laissez l'installation se terminer - peut prendre quelques minutes)
 - Bouton *Démarrer*
-- Bouton *Ouvrir le Web UI* pour accéder à la console SSH via le Web
+- Bouton *Ouvrir l'interface utilisateur web* pour accéder à un terminal HAOS via le Web
 - `ha [commande]` pour exécuter une commande Home Assistant
+
+# Explorateur/Éditeur de fichiers
+
+Pour éditer des fichiers de configuration sur le Pi, vous pouvez utiliser l'add-on File Editor.  Il est disponible dans le magasin d'add-ons de Home Assistant.  Il permet d'éditer les fichiers de configuration directement dans Home Assistant via le Web.
+
+- Paramètres / Système / Add-ons / Magasin d'add-ons / File Editor
+- Bouton *Installer*
+- Onglet *Configuration* en haut 
+  - Désactivez *Enforce Basepath* (sinon limité au répertoire */homeassistant*)
+  - Bouton *Enregistrer*
+- Onglet *Info* en haut
+  - Bouton *Démarrer*
+  - Bouton *Ouvrir l'interface utilisateur web* pour accéder à l'éditeur de fichiers via le Web
 
 
 [Suite: La console Home Assistant](#fiche-la_console_home_assistant)
