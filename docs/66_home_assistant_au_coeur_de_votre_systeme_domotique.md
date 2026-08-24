@@ -249,21 +249,21 @@ Le logo de Home Assistant devrait apparaître à l'écran après quelques minute
 
 L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP, vous en aurez besoin pour accéder à Home Assistant via le Web.  
 
-** IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24 **
+*IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24*
 
 # Première connexion à Home Assistant via le Web
 
 - Connectez votre portable au réseau Wi-Fi Domotique-Pedago.
-- Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le service web ne répond pas, utilisez l'URL suivante : http://'<IP>':8123)
+- Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le service web ne répond pas, utilisez l'URL suivante : /`http://<IP>:8123`)
 - Créer un compte (notez le mot de passe choisi!)
-- Entrer CEGEP Victoriaville comme localisation
+- Entrer *CEGEP Victoriaville* comme localisation
 - Mettre à jour le firmware du Pi si offert dans Home Assistant
 
 # Changement du nom de l'appareil dans le réseau
 
-- Dans le menu Paramètres / Système / Réseau, changer le nom de l'appareil pour *ha<num kit>* (ex. ha1, ha2, etc.) afin de pouvoir y accéder via *http://ha<num kit>.local*
-- Attendez quelques instants pour que le changement de nom soit pris en compte par le réseau.  Vous pouvez vérifier le changement de nom en utilisant la commande *ping ha<num kit>.local* dans un terminal sur votre portable.
-- Connectez-vous via *http://ha<num kit>.local* sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL *http://ha<num kit>.local* restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
+- Dans le menu Paramètres / Système / Réseau, changer le nom de l'appareil pour `ha<num kit>` (ex. ha1, ha2, etc.) afin de pouvoir y accéder via `http://ha<num kit>.local`
+- Attendez quelques instants pour que le changement de nom soit pris en compte par le réseau.  Vous pouvez vérifier le changement de nom en utilisant la commande `ping ha<num kit>.local` dans un terminal sur votre portable.
+- Connectez-vous via `http://ha<num kit>.local` sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL `http://ha<num kit>`.local* restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
 - N'oubliez pas que vous devez utiliser le réseau Wi-Fi Domotique-Pedago sur votre portable pour accéder à Home Assistant sur le Pi.
 
 # Accès à Home Assistant via SSH
@@ -321,9 +321,11 @@ NOTE: peut rester près de 10 mins sur le meme pourcentage.
 
 ---
 
+```
 >host options --hostname ha<num kit>
 >banner 
 Home Assistant URL:  http://ha<num-kit>.local:8123
+```
 
 (.local: utilise la résolution mDNS)
 
@@ -331,11 +333,11 @@ Home Assistant URL:  http://ha<num-kit>.local:8123
 
 Connecter son laptop au réseau Wi-Fi Domotique-Pedago
 
-http://ha<num-kit>.local
+`http://ha<num-kit>.local`
 
 Créer un compte (notez le mot de passe choisi!)
 Entrer CEGEP Victoriaville comme localisation
-Une fois configuré le UI est accessible via http://ha<num-kit>.local  (port 80)
+Une fois configuré le UI est accessible via `http://ha<num-kit>.local`  (port 80)
 
 
 
