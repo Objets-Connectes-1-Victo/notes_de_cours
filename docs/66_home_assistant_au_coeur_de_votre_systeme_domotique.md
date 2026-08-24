@@ -249,7 +249,7 @@ Le logo de Home Assistant devrait apparaître à l'écran après quelques minute
 
 L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP, vous en aurez besoin pour accéder à Home Assistant via le Web.  
 
-*IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24*
+`IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24`
 
 # Première connexion à Home Assistant via le Web
 
@@ -263,7 +263,7 @@ L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP,
 
 - Dans le menu Paramètres / Système / Réseau, changer le nom de l'appareil pour `ha<num kit>` (ex. ha1, ha2, etc.) afin de pouvoir y accéder via `http://ha<num kit>.local`
 - Attendez quelques instants pour que le changement de nom soit pris en compte par le réseau.  Vous pouvez vérifier le changement de nom en utilisant la commande `ping ha<num kit>.local` dans un terminal sur votre portable.
-- Connectez-vous via `http://ha<num kit>.local` sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL `http://ha<num kit>`.local* restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
+- Connectez-vous via `http://ha<num kit>.local` sur votre portable via un navigateur Web: se sera l'URL à utiliser pour accéder à Home Assistant sur le Pi par la suite.  Même si l'adresse IP du Pi change suite à un redémarrage ou un changement de configuration, l'URL `http://ha<num kit>.local` restera valide.  Vous n'aurez donc pas besoin de d'un moniteur pour vérifier l'adresse IP du Pi à chaque fois que vous voulez accéder à Home Assistant.
 - N'oubliez pas que vous devez utiliser le réseau Wi-Fi Domotique-Pedago sur votre portable pour accéder à Home Assistant sur le Pi.
 
 # Accès à Home Assistant via SSH
@@ -275,7 +275,7 @@ Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulat
 - (laissez l'installation se terminer - peut prendre quelques minutes)
 - Bouton *Démarrer*
 - Bouton *Ouvrir le Web UI* pour accéder à la console SSH via le Web
-- ha [commande] pour exécuter une commande Home Assistant
+- `ha [commande]` pour exécuter une commande Home Assistant
 
 
 [Suite: La console Home Assistant](#fiche-la_console_home_assistant)
@@ -293,33 +293,28 @@ Attendre que *System is ready!* apparaisse à la console.  À ce point L'install
 
 On doit indiquer quel réseau Wi-Fi à utiliser
 
-----
-
+```
 >login
 nmcli device wifi rescan
 nmcli device wifi
 nmcli device wifi connect "Domotique-Pedago" password "MOT-DE-PASSE-DU-RESEAU"
 exit
 banner (pour voir IP)
-
----
+```
 
 Suivre le progrès de l'installation via le web (portable doit être le réseau Wi-Fi Domotique-Pedago):
 
-http://<ip>:8123
+`http://<ip>:8123`
 
 Via les logs du terminal:
 
->supervisor logs -f
+`>supervisor logs -f`
 
-----
 
 Downloading Home Assistant Core Image, %
 NOTE: peut rester près de 10 mins sur le meme pourcentage.
 
 "Detect a running Home Assistant instance" veut dire installation terminée.
-
----
 
 ```
 >host options --hostname ha<num kit>
@@ -755,7 +750,7 @@ ssh root@192.168.1.145 -p 22222
 
 ## 58.3 Le terminal HAOS et la console Home Assistant {#fiche-la_console_home_assistant}
 
-En général, il n'est pas nécessaire d'accéder au terminal HAOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [avec une des adresses données ici,acceder](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
+En général, il n'est pas nécessaire d'accéder au terminal HAOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [avec une des adresses données ici](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 
 Cependant, plusieurs opérations intéressantes peuvent être réalisées dans le terminal HAOS, par exemple accéder au système de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le système d'exploitation.
 
@@ -799,7 +794,7 @@ La console Home Assistant permet d'entrer des commandes propres à Home Assistan
 
 On l'appelle aussi Home Assistant Command Line Interface ou Home Assistant CLI.
 
-Elle se reconnaît à l'invite ha >.
+Elle se reconnaît à l'invite `ha >`.
 
 Résultat à l'écran
 
@@ -841,6 +836,8 @@ help
 Voici quelques commandes Home Assistant utiles.
 
 * banner (pour faire afficher l'écran d'accueil avec les adresses IP)
+* host shutdown (pour éteindre proprement le Raspberry Pi)
+* host reboot (pour redémarrer complètement le Raspberry Pi)
 * login (pour passer au terminal HAOS)
 * network info (informations sur le réseau)
 * info (pour connaître la version de différentes couches de Home Assistant)
@@ -848,8 +845,6 @@ Voici quelques commandes Home Assistant utiles.
 * core update (pour mettre à jour le coeur de Home Assistant)
 * core check (pour vérifier l'état du coeur de Home Assistant)
 * backups new --name nomdubackup (pour effectuer une sauvegarde de Home Assistant)
-* host shutdown (pour éteindre proprement le Raspberry Pi)
-* host reboot (pour redémarrer complètement le Raspberry Pi)
 
 Pour plus de détails : <https://www.home-assistant.io/common-tasks/os/>
 
