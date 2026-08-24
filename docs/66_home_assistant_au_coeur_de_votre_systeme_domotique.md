@@ -43,7 +43,7 @@ ha >
 
 Cette console vous donne accès à certaines commandes spécialisées pour Home Assistant.
 
-Le terminal HassOS se reconnaît à l'invite #.
+Le terminal HAOS se reconnaît à l'invite #.
 
 Résultat à l'écran
 
@@ -56,11 +56,11 @@ Use `ha` to access the Home Assistant CLI.
 ```
 
 
-Le terminal HassOS est en fait un terminal Linux spécialisé.
+Le terminal HAOS est en fait un terminal Linux spécialisé.
 
-Pour entrer une commande Home Assistant dans un terminal HassOS, faire précéder son nom par ha.
+Pour entrer une commande Home Assistant dans un terminal HAOS, faire précéder son nom par ha.
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -78,7 +78,7 @@ network info
 ```
 
 
-Pour accéder au terminal HassOS à partir de la console Home Assistant, entrez la commande login.
+Pour accéder au terminal HAOS à partir de la console Home Assistant, entrez la commande login.
 
 Aucun code d'usager ni mot de passe ne vous sera demandé.
 
@@ -103,7 +103,7 @@ Dans le coin supérieur droit, cliquez sur les trois points verticaux.
 
 ou
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -113,7 +113,7 @@ halt
 
 ou
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -130,7 +130,7 @@ Pour redémarrer seulement le coeur de Home Assistant :
 
 ou
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -142,7 +142,7 @@ ha core restart
 
 Sur le Web, on parle souvent du dossier config de Home Assistant. C'est celui qui contient le fichier configuration.yaml. Son emplacement sera différent selon le type d'installation de Home Assistant.
 
-Avec HassOS, il s'agit en fait du dossier /mnt/data/supervisor/homeassistant.
+Avec HAOS, il s'agit en fait du dossier /mnt/data/supervisor/homeassistant.
 
 Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutôt le placer dans le dossier /mnt/data/supervisor/homeassistant/www.
 
@@ -153,15 +153,15 @@ Home Assistant est un excellent logiciel domotique à code source ouvert qui peu
 Dans les faits, il peut :
 
 * tourner par-dessus le système d'exploitation de votre choix (on parlera de Home Assistant Core)
-* tourner par-desssus un système Linux de votre choix, par exemple Raspberry Pi OS (on parlera alors de Home Assistant Supervised)
+* tourner par-dessus un système Linux de votre choix, par exemple Raspberry Pi OS (on parlera alors de Home Assistant Supervised)
 * tourner dans un conteneur Docker que vous gérez vous-mêmes (on parlera de Home Assistant Container)
-* selon la technique recommandée, tourner par-dessus le système d'exploitation Home Assistant Operating System ou HassOS pour les intimes, autrefois appelé Hass.io. HassOS est un système d'exploitation GNU/Linux léger spécifiquement conçu pour exécuter des conteneurs Docker sur des systèmes embarqués. Auparavant, il était basé sur [resinOS](https://www.balena.io/blog/introducing-resinos/). Aujourd'hui, il est bâti à partir de [Buildroot](https://buildroot.org/).
+* selon la technique recommandée, tourner par-dessus le système d'exploitation Home Assistant Operating System ou HAOS pour les intimes, autrefois appelé Hass.io. HAOS est un système d'exploitation GNU/Linux léger spécifiquement conçu pour exécuter des conteneurs Docker sur des systèmes embarqués. Auparavant, il était basé sur [resinOS](https://www.balena.io/blog/introducing-resinos/). Aujourd'hui, il est bâti à partir de [Buildroot](https://buildroot.org/).
 
-Nous travaillerons ici avec la version installée sur HassOS.
+Nous travaillerons ici avec la version installée sur HAOS.
 
-Pour installer Home Assistant selon cette technique, il faut installer une image de HassOS sur la carte micro SD. L'image est disponible directement dans [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager).
+Pour installer Home Assistant selon cette technique, il faut installer une image de HAOS sur la carte micro SD. L'image est disponible directement dans [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager).
 
-Une fois le Pi démarré, HassOS téléchargera puis installera automatiquement la toute dernière version de Home Assistant.
+Une fois le Pi démarré, HAOS téléchargera puis installera automatiquement la toute dernière version de Home Assistant.
 
 Notez que la procédure d'installation de Home Assistant est dite headless, c'est-à-dire que vous n'avez pas besoin de brancher écran ni clavier au Raspberry Pi. La seule utilité d'un écran serait de voir l'état d'avancement de l'installation, mais ce n'est pas nécessaire.
 
@@ -179,7 +179,7 @@ Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bo
 
 ## Préparer la carte micro SD {#carte}
 
-Pour installer le système d'exploitation HassOS sur votre Rapsberry Pi :
+Pour installer le système d'exploitation HAOS sur votre Rapsberry Pi :
 
 * Insérez la carte micro SD dans votre ordinateur.
 * Si ce n'est pas déjà fait, installez [Raspberry Pi Imager](https://www.raspberrypi.com/software/#:~:text=Raspberry%20Pi%20Imager) sur votre ordinateur puis lancez cette application.
@@ -209,7 +209,7 @@ Dans le contexte de ce cours, nous allons utiliser le réseau Wi-Fi Domotique-Pe
 
 ## Configurer le réseau sans fil sur la carte micro SD
 
-- Utiliser Windows File Explorer pour accéder à la carte micro SD.  Le volume de la carte devrait s'appeler hassos-boot.  
+- Utiliser Windows File Explorer pour accéder à la carte micro SD.  Le volume de la carte s'appelle *hassos-boot*.
 - Créer un dossier nommé *CONFIG* à la racine de la carte micro SD.
 - Sous ce fichier, créer un dossier nommé *network*.
 - Dans le dossier *network*, créer un fichier texte nommé *my-network* (aucune extension).
@@ -241,7 +241,7 @@ method=disabled
 
 ## Lancement initial
 
-Connectez écran et clavier et lancez le Pi avec la carte que vous venez de préparer. Le système d'exploitation HassOS va démarrer, faire la configuration initiale (en utilisant votre configuration réseau) et tenter de télécharger la dernière version de Home Assistant.
+Connectez écran et clavier et lancez le Pi avec la carte que vous venez de préparer. Le système d'exploitation HAOS va démarrer, faire la configuration initiale (en utilisant votre configuration réseau) et tenter de télécharger la dernière version de Home Assistant.
 
 Le lancement avec l’installation initiale peut prendre 20 à 30 minutes.  Soyez patients.
 
@@ -255,6 +255,9 @@ L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP,
 
 - Connectez votre portable au réseau Wi-Fi Domotique-Pedago.
 - Accédez à Home Assistant via le Web en utilisant l'adresse IP affichée à l'écran. (Si le service web ne répond pas, utilisez l'URL suivante : http://'<IP>':8123)
+- Créer un compte (notez le mot de passe choisi!)
+- Entrer CEGEP Victoriaville comme localisation
+- Mettre à jour le firmware du Pi si offert dans Home Assistant
 
 # Changement du nom de l'appareil dans le réseau
 
@@ -275,7 +278,12 @@ Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulat
 - ha [commande] pour exécuter une commande Home Assistant
 
 
+[Suite: La console Home Assistant](#fiche-la_console_home_assistant)
+
+-----------------
+
 # REFERENCE
+
 # Si connection Ethernet n'est pas disponible
 
 Connecter écran et clavier (attention écran noir si res. trop élevée)
@@ -321,13 +329,14 @@ Home Assistant URL:  http://ha<num-kit>.local:8123
 
 --
 
-Connecter son laptop au réseau Wi-Fi Domotique-Pedago si pas déjà fait
+Connecter son laptop au réseau Wi-Fi Domotique-Pedago
 
-http://ha<num-kit>.local:8123
-Créer un compte
-Entrer le CÉGEP comme localisation
+http://ha<num-kit>.local
+
+Créer un compte (notez le mot de passe choisi!)
+Entrer CEGEP Victoriaville comme localisation
 Une fois configuré le UI est accessible via http://ha<num-kit>.local  (port 80)
-Mettre à jour le firmware du Pi si offert dans le Home Assistant
+
 
 
 ## Configurations initiales (clé USB) - RÉFÉRENCE
@@ -504,7 +513,7 @@ Si vous avez un doute sur les configurations de votre réseau, branchez un clavi
 
 Remarquez que si vous ne disposez pas d'un écran et d'un clavier, il est possible d'effectuer certaines vérifications à l'aide d'une [connexion SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh) mais le tout est plus facile avec écran et clavier.
 
-Vous devriez voir cet écran dès que HassOS est rendu assez loin dans son travail d'installation.
+Vous devriez voir cet écran dès que HAOS est rendu assez loin dans son travail d'installation.
 
 Résultat à l'écran
 
@@ -528,7 +537,7 @@ ha >
 ```
 
 
-À partir de l'invite ha >, passez au terminal HassOS :
+À partir de l'invite ha >, passez au terminal HAOS :
 
 Console Home Assistant
 
@@ -540,7 +549,7 @@ login
 
 Lorsque vous voyez l'invite #, vous pouvez entrer cette commande :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -552,7 +561,7 @@ La date pourrait être au format UTC (Coordinated Universal Time) ou encore dans
 
 Si la date n'est pas valide, prenez le temps de l'ajuster. On commence par définir le fuseau horaire puis on entre la date et l'heure selon ce fuseau.
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -563,14 +572,14 @@ date -s "2025-10-13 13:50:00"
 
 ### Vérifier les configurations réseau
 
-Pour installer Home Assistant, HassOS aura besoin d'accéder à Internet.
+Pour installer Home Assistant, HAOS aura besoin d'accéder à Internet.
 
 Prenez le temps de vérifier si vos configurations sont bonnes :
 
-* Accédez au terminal HassOS comme vous l'avez fait pour vérifier la date.
+* Accédez au terminal HAOS comme vous l'avez fait pour vérifier la date.
 * Tentez de rejoindre l'adresse IP de Google.
 
-  Terminal HassOS
+  Terminal HAOS
 
   
 ```
@@ -578,7 +587,7 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
 ```
 * Si vous obtenez le message 8.8.8.8 is alive!, vous pouvez vérifier si le DNS fonctionne en tentant de rejoindre le domaine de Google.
 
-  Terminal HassOS
+  Terminal HAOS
 
 ```
   ping google.com
@@ -586,7 +595,7 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
 * Si vous obtenez le message google.com is alive!, vous savez que votre accès au réseau est bien configuré.
 * Pour régler un problème de réseau, vérifiez à quel réseau vous êtes branchés.
 
-  Terminal HassOS
+  Terminal HAOS
 
 ```
   nmcli con show
@@ -609,7 +618,7 @@ Prenez le temps de vérifier si vos configurations sont bonnes :
 
 ### Installation automatique de Home Assistant
 
-Dès que le Pi est branché, qu'il a un accès réseau et que son horloge est correctement configurée, HassOS pourra finaliser l'installation.
+Dès que le Pi est branché, qu'il a un accès réseau et que son horloge est correctement configurée, HAOS pourra finaliser l'installation.
 
 Soyez patients, cette opération peut prendre jusqu'à 20 minutes!
 
@@ -627,22 +636,22 @@ Dans votre navigateur ou dans l'application Home Assistant, entrez l'un des URL 
 
 Notez que si vous travaillez dans un environnement qui comprend plusieurs installations de Home Assistant, par exemple une salle de classe, seule la version avec l'adresse IP fonctionnera.
 
-Pendant que HassOS installe Home Assistant, vous obtiendrez un message à cet effet :
+Pendant que HAOS installe Home Assistant, vous obtiendrez un message à cet effet :
 
 ![Preparing Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EcranPreparingHomeAssistant.png)
 
 Pendant l'installation, vous pouvez cliquer sur Afficher les détails afin de voir la journalisation (log) des opérations en cours.
 
-Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter [à partir du terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
+Les informations qui apparaissent sont également enregistrées dans un fichier journal que vous pouvez consulter [à partir du terminal HAOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
 
-Terminal HassOS
+Terminal HAOS
 
 ```
 supervisor logs -f
 ```
 
 
-Dans le terminal HassOS, vous saurez que l'installation est terminée quand vous verrez des lignes de ce genre au bas du fichier journal.
+Dans le terminal HAOS, vous saurez que l'installation est terminée quand vous verrez des lignes de ce genre au bas du fichier journal.
 
 Résultat à l'écran
 
@@ -664,7 +673,7 @@ Notez que la clé USB n'a plus besoin d'être branchée au Pi à cette étape.
 
 Pour vérifier la présence des fichiers de configuration réseau :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -686,7 +695,7 @@ my-network-cegep my-network-maison
 
 Pour vérifier la présence de la clé SSH :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -714,7 +723,7 @@ Pistes de vérifications :
 
 Une fois les problèmes identifiés et corrigés, attendez d'abord que l'installation de Home Assistant soit terminée.
 
-Rebranchez la clé USB sur le Raspberry Pi puis entrez la commande reboot dans le terminal HassOS. Si tout est correct, les fichiers seront cette fois copiés sur le Pi.
+Rebranchez la clé USB sur le Raspberry Pi puis entrez la commande reboot dans le terminal HAOS. Si tout est correct, les fichiers seront cette fois copiés sur le Pi.
 
 Quand vous avez la confirmation que le fichier authorized\_keys a été correctement copié, vous pouvez tenter de vous [connecter au Raspberry Pi via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh) :
 
@@ -738,30 +747,34 @@ ssh root@192.168.1.145 -p 22222
 
 « Guide: Connecting Pi with Home Assistant OS to wifi (or other networking changes) ». Home Assistant. <https://community.home-assistant.io/t/guide-connecting-pi-with-home-assistant-os-to-wifi-or-other-networking-changes/98768>
 
-## 58.3 Le terminal HassOS et la console Home Assistant {#fiche-la_console_home_assistant}
 
-En général, il n'est pas nécessaire d'accéder au terminal HassOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [avec une des adresses données ici,acceder](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 
-Cependant, plusieurs opérations intéressantes peuvent être réalisées dans le terminal HassOS, par exemple accéder au système de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le système d'exploitation.
+
+
+## 58.3 Le terminal HAOS et la console Home Assistant {#fiche-la_console_home_assistant}
+
+En général, il n'est pas nécessaire d'accéder au terminal HAOS. Tout se fait via la page Web de votre Home Assistant ou via l'application mobile [avec une des adresses données ici,acceder](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
+
+Cependant, plusieurs opérations intéressantes peuvent être réalisées dans le terminal HAOS, par exemple accéder au système de fichiers complet sur le Raspberry Pi ainsi qu'aux utilitaires fournis par le système d'exploitation.
 
 Dans cette fiche :
 
-* [Console Home Assistant vs Terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#vs)
+* [Console Home Assistant vs Terminal HAOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#vs)
   + [Branchement avec clavier et écran](https://apical.xyz/formations/pageunique/systeme_domotique_diy#clavier)
   + [Branchement SSH](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ssh)
 * [Console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consoleha)
   + [Quelques commandes utiles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandesconsoleha)
-  + [Passer de la console Home Assistant au terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consolehavsterminal)
-* [Terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos)
+  + [Passer de la console Home Assistant au terminal HAOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#consolehavsterminal)
+* [Terminal HAOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos)
   + [Quelques commandes utiles](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandesterminalhassos)
-  + [Effectuer une commande Home Assistant dans terminal HassOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandeha)
-  + [Passer du terminal HassOS vers la console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalvsconsoleha)
+  + [Effectuer une commande Home Assistant dans terminal HAOS](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commandeha)
+  + [Passer du terminal HAOS vers la console Home Assistant](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalvsconsoleha)
 
-## Console Home Assistant vs Terminal HassOS {#vs}
+## Console Home Assistant vs Terminal HAOS {#vs}
 
-La console Home Assistant et le terminal HassOS sont deux environnements en ligne de commande qui vous permettent d'effectuer différentes opérations sur le Raspberry Pi et sur Home Assistant.
+La console Home Assistant et le terminal HAOS sont deux environnements en ligne de commande qui vous permettent d'effectuer différentes opérations sur le Raspberry Pi et sur Home Assistant.
 
-Attention : aucun code d'accès n'est demandé pour accéder à la console Home Assistant ou au terminal HassOS à partir d'un clavier et d'un écran branchés directement sur le Raspberry Pi.   
+Attention : aucun code d'accès n'est demandé pour accéder à la console Home Assistant ou au terminal HAOS à partir d'un clavier et d'un écran branchés directement sur le Raspberry Pi.   
   
 Donc, quiconque a accès physique au Pi pourra contrôler le système!
 
@@ -773,11 +786,12 @@ Les détails de la console Home Assistant [sont donnés plus bas](https://apical
 
 ### Branchement SSH {#ssh}
 
-Si vous vous connectez au Pi [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh), vous accédez directement au Terminal HassOS.
+Si vous vous connectez au Pi [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh), vous accédez directement au Terminal HAOS.
 
-Les détails du Terminal HassOS [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos).
+Les détails du Terminal HAOS [sont donnés plus bas](https://apical.xyz/formations/pageunique/systeme_domotique_diy#terminalhassos).
 
-## Console Home Assistant
+
+## Console Home Assistant  {#consoleha}
 
 La console Home Assistant permet d'entrer des commandes propres à Home Assistant.
 
@@ -825,7 +839,7 @@ help
 Voici quelques commandes Home Assistant utiles.
 
 * banner (pour faire afficher l'écran d'accueil avec les adresses IP)
-* login (pour passer au terminal HassOS)
+* login (pour passer au terminal HAOS)
 * network info (informations sur le réseau)
 * info (pour connaître la version de différentes couches de Home Assistant)
 * core restart (pour redémarrer seulement le coeur de Home Assistant)
@@ -837,9 +851,9 @@ Voici quelques commandes Home Assistant utiles.
 
 Pour plus de détails : <https://www.home-assistant.io/common-tasks/os/>
 
-### Passer de la console Home Assistant au terminal HassOS {#consolehavsterminal}
+### Passer de la console Home Assistant au terminal HAOS {#consolehavsterminal}
 
-Pour accéder au terminal HassOS à partir de la console Home Assistant, entrez la commande login.
+Pour accéder au terminal HAOS à partir de la console Home Assistant, entrez la commande login.
 
 Aucun code d'usager ni mot de passe ne vous sera demandé.
 
@@ -852,13 +866,13 @@ ha > login
 ```
 
 
-## Terminal HassOS
+## Terminal HAOS
 
-Le terminal HassOS est un terminal Linux.
+Le terminal HAOS est un terminal Linux.
 
-Les commandes qui y sont disponibles sont passablement différentes de celles qui sont disponibles sur d'autres distributions Linux puisque HassOS est un système d'exploitation optimisé pour Home Assistant.
+Les commandes qui y sont disponibles sont passablement différentes de celles qui sont disponibles sur d'autres distributions Linux puisque HAOS est un système d'exploitation optimisé pour Home Assistant.
 
-Le terminal HassOS se reconnaît à l'invite #.
+Le terminal HAOS se reconnaît à l'invite #.
 
 Résultat à l'écran
 
@@ -871,7 +885,7 @@ Use `ha` to access the Home Assistant CLI.
 ```
 
 
-HassOS utilise l'interpréteur de commande /bin/ash.
+HAOS utilise l'interpréteur de commande /bin/ash.
 
 Selon Wikipédia[1](https://fr.wikipedia.org/wiki/Almquist_shell) :
 
@@ -879,7 +893,7 @@ Selon Wikipédia[1](https://fr.wikipedia.org/wiki/Almquist_shell) :
 
 Pour connaître la liste des commandes disponibles :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -889,7 +903,7 @@ ls /bin
 
 ### Quelques commandes utiles
 
-Voici quelques commandes utiles à effectuer sur le terminal HassOS :
+Voici quelques commandes utiles à effectuer sur le terminal HAOS :
 
 * ls, cp, mv, rm, mkdir (commandes habituelles pour gérer fichiers et dossiers)
 * halt (pour arrêter complètement le système)
@@ -901,13 +915,13 @@ Voici quelques commandes utiles à effectuer sur le terminal HassOS :
 * docker ps (pour afficher la liste des conteneurs Docker)
 * lsusb (pour voir si la clé USB Z-Wave est reconnue)
 
-### Effectuer une commande Home Assistant dans terminal HassOS {#commandeha}
+### Effectuer une commande Home Assistant dans terminal HAOS {#commandeha}
 
-Si vous êtes dans le terminal HassOS et que vous désirez entrer une commande spécifique à Home Assistant, il est possible de le faire sans sortir du terminal HassOS.
+Si vous êtes dans le terminal HAOS et que vous désirez entrer une commande spécifique à Home Assistant, il est possible de le faire sans sortir du terminal HAOS.
 
 Il suffit de faire précéder la commande par ha.
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -925,11 +939,11 @@ netword info
 ```
 
 
-### Passer du terminal HassOS vers la console Home Assistant {#terminalvsconsoleha}
+### Passer du terminal HAOS vers la console Home Assistant {#terminalvsconsoleha}
 
 Si vous souhaitez retourner à la console Home Assistant alors que vous travaillez directement sur le Raspberry Pi à l'aide d'un clavier et d'un écran, vous pouvez entrer cette commande :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -967,11 +981,11 @@ Cliquez sur Options avancées / Arrêter le système.
 
 ![Options avancées](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-IconeDemarrageOptionsAvancees.png)
 
-### Terminal HassOS
+### Terminal HAOS
 
-Il est également possible d'éteindre le Raspberry Pi à partir du [terminal HassOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
+Il est également possible d'éteindre le Raspberry Pi à partir du [terminal HAOS](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) à l'aide de cette commande :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -991,11 +1005,11 @@ Pour redémarrer seulement le coeur de Home Assistant :
 * Dans le coin supérieur droit, cliquez sur l'icône de démarrage.
 * Cliquez sur Redémarrer Home Assistant.
 
-### Terminal HassOS
+### Terminal HAOS
 
 Pour redémarrer seulement le coeur de Home Assistant :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -1015,11 +1029,11 @@ Pour redémarrer complètement le Raspberry Pi :
 * Dans le coin supérieur droit, cliquez sur l'icône de démarrage.
 * Cliquez sur Options avancées / Redémarrer le système.
 
-### Terminal HassOS
+### Terminal HAOS
 
 Pour redémarrer le système complet :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
@@ -1033,7 +1047,7 @@ Dans la documentation officielle de Home Assistant et dans des groupes de discus
 
 Ce dossier est celui qui contient le fichier configuration.yaml. Selon le type d'installation que vous avez effectué, il peut être situé à différents endroits.
 
-Par exemple, si vous avez installé Home Assistant par-dessus le système d'exploitation HassOS, tel que recommandé, le dossier config est en fait /mnt/data/supervisor/homeassistant.
+Par exemple, si vous avez installé Home Assistant par-dessus le système d'exploitation HAOS, tel que recommandé, le dossier config est en fait /mnt/data/supervisor/homeassistant.
 
 Ainsi, si on vous demande de placer un fichier dans le dossier config/www, il faut plutôt le placer dans le dossier /mnt/data/supervisor/homeassistant/www.
 
