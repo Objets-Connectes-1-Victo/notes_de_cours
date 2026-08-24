@@ -1003,6 +1003,8 @@ Terminal HAOS
 halt
 ```
 
+## ** ATTENTION: attendre qu'il n'y ait plus d'activité de la DEL verte avant de débrancher le Raspberry Pi **
+
 
 ## Redémarrage de Home Assistant
 
