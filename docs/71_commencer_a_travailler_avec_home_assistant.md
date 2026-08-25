@@ -86,6 +86,14 @@ Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travaille
 
   ![Nom de l'appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomDeLAppareil.png)
 
+
+## Manuels d'utilisation des périphériques Z-Wave de votre kit
+
+- [Capteur 5 en 1 Neo CoolCam](assets/Neo-PIRMotionSensor5in1UserManual-Numerise.pdf)
+- [Prise intelligente Eva Logic](assets/EvaLogic-SmartPlugUserManual-Numerise.pdf)
+- [Prise intelligente ZLink](assets/ZLink-SmartPlugUserManual-Numerise.pdf)
+
+
 ## Tester les appareils connectés
 
 Avant d'aller plus loin, il est intéressant de tester les capteurs et les récepteurs qui ont été ajoutés à Home Assistant.
