@@ -56,6 +56,12 @@ Pour supprimer un appareil dont le nom débute par Node :
 
 ## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant {#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant}
 
+**Manuels d'utilisation des périphériques Z-Wave de votre kit**
+
+- [Capteur 5 en 1 Neo CoolCam](assets/Neo-PIRMotionSensor5in1UserManual-Numerise.pdf)
+- [Prise intelligente Eva Logic](assets/EvalLogik-SmartPlug-ZW39-manual.pdf)
+- [Prise intelligente ZLink](assets/ZLink-PlugInDimmer-ZL-PD-100_Users_Guide.pdf)
+
 Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travailler_avec_home_assistant.md#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant), il est possible d'intégrer des appareils connectés Z-Wave à Home Assistant.
 
 - Si l'appareil a déjà été inclus dans un système domotique, il faut effectuer une réinitialisation de l'appareil (factory reset) sans quoi, il ne sera pas disponible pour une nouvelle inclusion. Consultez le manuel de l'appareil pour connaître la procédure.
@@ -86,13 +92,9 @@ Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travaille
 
   ![Nom de l'appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomDeLAppareil.png)
 
+### ATTENTION - La prise intelligente Eva Logic ne demande pas de confirmation du numéro de série, alors vous pouvez inclure une prise d'un autre élève par accident.  Le prof vous présentera une manière de faire ces inclusions un à un.
 
-## Manuels d'utilisation des périphériques Z-Wave de votre kit
-
-- [Capteur 5 en 1 Neo CoolCam](assets/Neo-PIRMotionSensor5in1UserManual-Numerise.pdf)
-- [Prise intelligente Eva Logic](assets/EvalLogik-SmartPlug-ZW39-manual.pdf)
-- [Prise intelligente ZLink](assets/ZLink-PlugInDimmer-ZL-PD-100_Users_Guide.pdf)
-
+### La lumière des prises intelligentes ZLink et Eva Logic s'éteint lorsque la prise est active (ie fournit de l'électricité).  La lumière s'allume lorsque la prise est inactive (ie ne fournit pas d'électricité).  Il est donc normal que la lumière de la prise soit éteinte lorsque vous l'allumez dans Home Assistant.
 
 ## Tester les appareils connectés
 
