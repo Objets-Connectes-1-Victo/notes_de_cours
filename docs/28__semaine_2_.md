@@ -4,7 +4,6 @@
 - [64. Sauvegarde de Home Assistant](72_sauvegarde_de_home_assistant.md)
 - [65. Exercice 11](73_exercice_11.md)
 - [66. Pour le prochain cours](74_pour_le_prochain_cours.md)
-- [67. Semaine de relâche!](75_semaine_de_relache.md)
 - [68. Le fichier configuration.yaml](77_le_fichier_configurationyaml.md)
 - [69. Les icônes](78_les_icones.md)
 - [70. Les capteurs virtuels](79_les_capteurs_virtuels.md)

@@ -10,15 +10,9 @@ Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapi
 
 ## [Configurer la cle usb z-wave sur home assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant)
 
-Bien suivre les étapes sur cette fiche!
-
 ## [Ajouter un appareil connecte z-wave a home assistant](71_commencer_a_travailler_avec_home_assistant.md#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant)
 
-Bien suivre les étapes sur cette fiche!
-
 ## [Sauvegarde de home assistant](72_sauvegarde_de_home_assistant.md#fiche-sauvegarde_de_home_assistant)
-
-Bien suivre les étapes sur cette fiche!
 
 ## 63.2 Configurer la clé USB Z-Wave sur Home Assistant {#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant}
 
@@ -28,15 +22,17 @@ C'est à l'aide d'une intégration que la clé USB Z-Wave sera ajoutée à Home 
 
 Cette procédure installera deux choses :
 
-* un module complémentaire (add-on), qui est en fait le serveur Z-Wave JS
-* [l'intégration Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/), qui est en fait une fonctionnalité dans Home Assistant.
+- [l'intégration Z-Wave](https://www.home-assistant.io/integrations/zwave_js/), qui est une fonctionnalité dans Home Assistant.
+- Une application: le serveur Z-Wave JS qui communiquera avec la clé USB Z-Wave et les périphériques connectés.
+  - L'application sera installée automatiquement par l'intégration Z-Wave JS.
 
 Pour configurer la clé USB Z-Wave, suivez ces étapes :
 
-* D'abord, assurez-vous que la clé USB Z-Wave soit connectée au Raspberry Pi.
-* Rendez-vous dans le menu Paramètres / Appareils et services / onglet Intégrations.
-* Dans cerrtains cas, l'écran vous présentera dès le départ l'intégration [Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/). Elle apparaîtra probablement sous le nom ttyACM0 Z-Wave. Cliquez sur Configurer sur cette tuile. Effectuez l'installation recommandée (Recommanded installation). Vous n'avez aucune information à entrer, à part sélectionner le USB device path proposé.
-* Si l'intégration n'apparaît pas automatiquement, vous devrez l'ajouter manuellement en cliquant sur Ajouter une intégration puis en recherchant Z-Wave. Effectuez l'installation recommandée (Recommanded installation). Vous n'avez aucune information à entrer, à part sélectionner le USB device path proposé.
+- D'abord, assurez-vous que la clé USB Z-Wave soit connectée au Raspberry Pi.
+- Rendez-vous dans le menu Paramètres / Appareils et services / onglet Intégrations.
+- Habituellement, l'écran vous présentera dès le départ l'intégration [Z-Wave JS](https://www.home-assistant.io/integrations/zwave_js/). Elle apparaîtra probablement sous le nom ttyACM0 Z-Wave. Cliquez sur Configurer sur cette tuile. Effectuez l'installation recommandée (*Recommended installation*).
+  - À la fin de l'installation vous devez assigner la clé Z-Wave à une pièce de la maison (choisissez n'importe laquelle). Appuyer ensuite sur le bouton *Terminer*.
+- Si l'intégration n'apparaît pas automatiquement, vous devrez l'ajouter manuellement en cliquant sur Ajouter une intégration puis en recherchant Z-Wave. Effectuez l'installation recommandée (Recommended installation). Vous n'avez aucune information à entrer, à part sélectionner le USB device path proposé.
 
   ![USB device path](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ConfigurerZWaveJS.png)
 
@@ -50,9 +46,9 @@ Par défaut, vous verrez probablement une série d'appareils dont le nom débute
 
 Ces appareils ne nuisent pas à votre système mais si vous le souhaitez, il est possible de les supprimer.
 
-Attention : il ne faut pas supprimer celui qui s'appelle USB Controller.
+Attention : il ne faut pas supprimer celui qui s'appelle USB Controller!
 
-Pour supprimer unappareil dont le nom débute par Node :
+Pour supprimer un appareil dont le nom débute par Node :
 
 * Cliquez sur la ligne de l'appareil (pas sur un des icônes d'actions).
 * Cliquez sur les trois points verticaux à droite de Configurer.
@@ -66,19 +62,20 @@ Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travaille
 * Pour inclure l'appareil dans Home Assistant, rendez-vous dans le panneau de contrôle Z-Wave : Paramètres / Appareils et services / onglet Intégrations et cliquez sur la tuile Z-Wave.
 
   ![Tuile Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TuileZWave.png)
-* Cliquez sur Ajouter un appareil.
+* Cliquez sur *Ajouter un appareil*.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil.png)
-* Dans l'écran qui suit, cliquez sur Rechercher l'appareil.
+* Dans l'écran qui suit, cliquez sur *Rechercher l'appareil*.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-2.png)
-* J-Wave JS commencera la recherche d'appareils. Par défaut, il tentera de faire l'ajout en mode sécurisé et basculera automatiquement en mode non sécurisé si l'appareil ne le supporte pas. Si vous désirez modifier ce comportement, cliquez sur Options de sécurité avancées.
+* J-Wave JS commencera la recherche d'appareils. Par défaut, il tentera de faire l'ajout en mode sécurisé et basculera automatiquement en mode non sécurisé si l'appareil ne le supporte pas. Si vous désirez modifier ce comportement, cliquez sur *Options de sécurité avancées*.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-3.png)
-* Si vous avez cliqué sur Options de sécurité avancées, vous pouvez choisir la stratégie d'inclusion désirée.
+* Si vous avez cliqué sur *Options de sécurité avancées*, vous pouvez choisir la stratégie d'inclusion désirée.
 
   ![Choose strategy](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChooseStrategyPourPeripheriqueZWave.png)
-* Pour que votre appareil puisse être détecté, vous devez effectuer l'opération de pairage sur l'appareil. Il s'agit généralement de cliquer sur un bouton un nombre déterminé de fois. Consultez le manuel de l'appareil pour connaître la procédure.
+* Pour que votre appareil puisse être détecté, vous devez effectuer l'opération de pairage sur l'appareil. Il s'agit généralement de cliquer sur un bouton un nombre déterminé de fois ou le laissé appuyer pour un certain temps. 
+Consultez le manuel de l'appareil pour connaître la procédure.
 * Dans certains cas, vous serez invité à entrer un code de sécurité. Ce code devrait se trouver dans la documentation de l'appareil. Si l'appareil est équipé d'un écran, le code apparaîtra sur cet écran.
 
   Si vous n'avez pas accès au code de sécurité, entrez une série de zéros puis cliquez sur Submit.
@@ -97,7 +94,7 @@ Dans le menu Aperçu, vous pouvez voir l'état des capteurs et vous pouvez contr
 
 Par exemple, le capteur 5-en-1 affiche les valeurs pour chacun de ses capteurs.
 
-Si vous mettez la main dessus afin de réduire la luminosité, la valeur devrait être ajustée quasi instantannément.
+Si vous mettez la main dessus afin de réduire la luminosité, la valeur devrait être ajustée quasi instantanément.
 
 La prise intelligente, quant à elle, peut être allumée ou éteinte en cliquant sur le bouton à bascule.
 
