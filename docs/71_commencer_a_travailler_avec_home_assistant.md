@@ -90,8 +90,8 @@ Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travaille
 ## Manuels d'utilisation des périphériques Z-Wave de votre kit
 
 - [Capteur 5 en 1 Neo CoolCam](assets/Neo-PIRMotionSensor5in1UserManual-Numerise.pdf)
-- [Prise intelligente Eva Logic](assets/EvaLogic-SmartPlugUserManual-Numerise.pdf)
-- [Prise intelligente ZLink](assets/ZLink-SmartPlugUserManual-Numerise.pdf)
+- [Prise intelligente Eva Logic](assets/EvalLogik-SmartPlug-ZW39-manual.pdf)
+- [Prise intelligente ZLink](assets/ZLink-PlugInDimmer-ZL-PD-100_Users_Guide.pdf)
 
 
 ## Tester les appareils connectés
