@@ -50,39 +50,39 @@ Attention : il ne faut pas supprimer celui qui s'appelle USB Controller!
 
 Pour supprimer un appareil dont le nom débute par Node :
 
-* Cliquez sur la ligne de l'appareil (pas sur un des icônes d'actions).
-* Cliquez sur les trois points verticaux à droite de Configurer.
-* Cliquez sur Supprimer.
+- Cliquez sur la ligne de l'appareil (pas sur un des icônes d'actions).
+- Cliquez sur les trois points verticaux à droite de Configurer.
+- Cliquez sur Supprimer.
 
 ## 63.3 Ajouter un appareil connecté Z-Wave à Home Assistant {#fiche-ajouter_un_appareil_connecte_z-wave_a_home_assistant}
 
 Maintenant que [la clé USB Z-Wave a été configurée](71_commencer_a_travailler_avec_home_assistant.md#fiche-configurer_la_cle_usb_z-wave_sur_home_assistant), il est possible d'intégrer des appareils connectés Z-Wave à Home Assistant.
 
-* Si l'appareil a déjà été inclus dans un système domotique, il faut effectuer une réinitialisation de l'appareil (factory reset) sans quoi, il ne sera pas disponible pour une nouvelle inclusion. Consultez le manuel de l'appareil pour connaître la procédure.
-* Pour inclure l'appareil dans Home Assistant, rendez-vous dans le panneau de contrôle Z-Wave : Paramètres / Appareils et services / onglet Intégrations et cliquez sur la tuile Z-Wave.
+- Si l'appareil a déjà été inclus dans un système domotique, il faut effectuer une réinitialisation de l'appareil (factory reset) sans quoi, il ne sera pas disponible pour une nouvelle inclusion. Consultez le manuel de l'appareil pour connaître la procédure.
+- Pour inclure l'appareil dans Home Assistant, rendez-vous dans le panneau de contrôle Z-Wave : Paramètres / Appareils et services / onglet Intégrations et cliquez sur la tuile Z-Wave.
 
   ![Tuile Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TuileZWave.png)
-* Cliquez sur *Ajouter un appareil*.
+- Cliquez sur Ajouter un appareil.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil.png)
-* Dans l'écran qui suit, cliquez sur *Rechercher l'appareil*.
+- Dans l'écran qui suit, cliquez sur Rechercher l'appareil.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-2.png)
-* J-Wave JS commencera la recherche d'appareils. Par défaut, il tentera de faire l'ajout en mode sécurisé et basculera automatiquement en mode non sécurisé si l'appareil ne le supporte pas. Si vous désirez modifier ce comportement, cliquez sur *Options de sécurité avancées*.
+- J-Wave JS commencera la recherche d'appareils. Par défaut, il tentera de faire l'ajout en mode sécurisé et basculera automatiquement en mode non sécurisé si l'appareil ne le supporte pas. Si vous désirez modifier ce comportement, cliquez sur Options de sécurité avancées.
 
   ![Ajouter un appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUnAppareil-3.png)
-* Si vous avez cliqué sur *Options de sécurité avancées*, vous pouvez choisir la stratégie d'inclusion désirée.
+- Si vous avez cliqué sur Options de sécurité avancées, vous pouvez choisir la stratégie d'inclusion désirée.
 
   ![Choose strategy](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChooseStrategyPourPeripheriqueZWave.png)
-* Pour que votre appareil puisse être détecté, vous devez effectuer l'opération de pairage sur l'appareil. Il s'agit généralement de cliquer sur un bouton un nombre déterminé de fois ou le laissé appuyer pour un certain temps. 
-Consultez le manuel de l'appareil pour connaître la procédure.
-* Dans certains cas, vous serez invité à entrer un code de sécurité. Ce code devrait se trouver dans la documentation de l'appareil. Si l'appareil est équipé d'un écran, le code apparaîtra sur cet écran.
+- Pour que votre appareil puisse être détecté, vous devez effectuer l'opération de pairage sur l'appareil. Il s'agit généralement de cliquer sur un bouton un nombre déterminé de fois ou le laissé appuyer pour un certain temps.
+  Consultez le manuel de l'appareil pour connaître la procédure.
+- Dans certains cas, vous serez invité à entrer un code de sécurité. Ce code devrait se trouver dans la documentation de l'appareil. Si l'appareil est équipé d'un écran, le code apparaîtra sur cet écran.
 
   Si vous n'avez pas accès au code de sécurité, entrez une série de zéros puis cliquez sur Submit.
 
   ![Enter 5 digit PIN](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-PleaseEnter5DigitPIN.png)
-* Dès que Home Assistant a tout ce qu'il lui faut, une fenêtre vous avertira que l'appareil est en cours d'interrogation.
-* Vous serez ensuite invités à entrer le nom de l'appareil et à l'associer à une pièce de la maison.
+- Dès que Home Assistant a tout ce qu'il lui faut, une fenêtre vous avertira que l'appareil est en cours d'interrogation.
+- Vous serez ensuite invités à entrer le nom de l'appareil et à l'associer à une pièce de la maison.
 
   ![Nom de l'appareil](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NomDeLAppareil.png)
 
