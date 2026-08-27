@@ -247,9 +247,11 @@ Le lancement avec l’installation initiale peut prendre 20 à 30 minutes.  Soye
 
 Le logo de Home Assistant devrait apparaître à l'écran après quelques minutes.  Le texte *System is ready!* devrait apparaître à la console après un certain temps.  À ce moment, l'installation tente d'accéder à internet pour télécharger du code.  
 
-L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP, vous en aurez besoin pour accéder à Home Assistant via le Web.  
+L'adresse IP du Pi devrait être affichée à l'écran.  Notez cette adresse IP, vous en aurez besoin pour accéder à Home Assistant via le Web.
 
 `IPv4 addresses for wlan0: xxx.xxx.xxx.xxx/24`
+
+> ATTENTION: ne jamais utiliser `homeassistant.local` pour accéder à Home Assistant même si affiché à l'écran.  Vous risquez d'atterrir sur le Pi d'un autre élève sans le savoir. Utilisez plutôt l'adresse IP affichée à l'écran.
 
 # Première connexion à Home Assistant via le Web
 
