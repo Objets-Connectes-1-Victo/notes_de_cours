@@ -277,12 +277,12 @@ Vous aurez besoin de vous connecter à la console du Pi pour certaines manipulat
 - Bouton *Installer*
 - (laissez l'installation se terminer - peut prendre quelques minutes)
 - Bouton *Démarrer*
-- Bouton *Ouvrir l'interface utilisateur web* pour accéder à un terminal HAOS via le Web
+- Bouton *Ouvrir l'interface utilisateur web* pour accéder *directement à un terminal HAOS* via le Web
 - `ha [commande]` pour exécuter une commande Home Assistant
 
 # Explorateur/Éditeur de fichiers
 
-Pour éditer des fichiers de configuration sur le Pi, vous pouvez utiliser l'add-on File Editor.  Il est disponible dans le magasin d'add-ons de Home Assistant.  Il permet d'éditer les fichiers de configuration directement dans Home Assistant via le Web.
+Pour éditer des fichiers de configuration sur le Pi, vous pouvez utiliser l'application (`add-on`) *File Editor*.  Il est disponible dans le magasin d'add-ons de Home Assistant.  Il permet d'éditer les fichiers de configuration directement dans Home Assistant via le Web.
 
 - Paramètres / Système / Add-ons / Magasin d'add-ons / File Editor
 - Bouton *Installer*
@@ -885,13 +885,13 @@ Le terminal HAOS est un terminal Linux.
 
 Les commandes qui y sont disponibles sont passablement différentes de celles qui sont disponibles sur d'autres distributions Linux puisque HAOS est un système d'exploitation optimisé pour Home Assistant.
 
-Le terminal HAOS se reconnaît à l'invite #.
+Le terminal HAOS se reconnaît à l'invite `#` ou encore un invite du type `[core-ssh ~]$` si vous êtes branché via SSH.
 
 Résultat à l'écran
 
 
 ```
-monnom@MacBook-Pro-de-MonNom ~ %ssh root@192.168.1.145 -p 22222
+nom@hostname~ %ssh root@192.168.1.145 -p 22222
 Welcome to Home Assistant OS.
 Use `ha` to access the Home Assistant CLI.
 #

@@ -24,7 +24,7 @@ Vous devez absolument avoir terminé avant le prochain cours.
 - Accédez à l'interface Web de Home Assistant [via l'URL `http://ha<num kit>.local`](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces).
 - Configurer votre nom de réseau tel que demandé  (ex. ha1, ha2, etc.) dans Home Assistant.
 - Mettez à jour Home Assistant si nécessaire.
-- Installer les Add-ons *Terminal & SSH* et *File Editor* dans Home Assistant.
+- Installer les applications (`add-ons`) *Terminal & SSH* et *File Editor* dans Home Assistant.
 - Connectez-vous à Home Assistant via le Web terminal de l'add-on *Terminal & SSH*.
 - Faites afficher les informations sur le réseau dans Home Assistant via la commande `ha banner` et notez l'adresse IP du Pi.
 - Faites une impression d'écran qui montre l'adresse IP ainsi trouvée.

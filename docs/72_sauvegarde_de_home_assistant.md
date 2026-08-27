@@ -4,9 +4,7 @@
 
 Une sauvegarde Home Assistant permet de remettre le système dans l'état où il était lorsque la sauvegarde a été réalisée.
 
-Cette fonctionnalité portait auparavant le nom snapshot. Ces mots réfèrent donc à la même chose.
-
-Pour créer une sauvegarde, rendez-vous dans le menu Paramètres / Système / Sauvegardes puis cliquez sur Sauvegarder maintenant au bas de l'écran.
+Pour créer une sauvegarde, rendez-vous dans le menu `Paramètres / Système / Sauvegardes` puis cliquez sur Sauvegarder maintenant au bas de l'écran.
 
 Les sauvegardes Home Assistant sont protégées par une clé de chiffrement. Dans l'écran qui suit, cliquez sur Télécharger pour conserver une copie de cette clé. Placez le fichier dans un endroit sûr.
 
@@ -57,7 +55,7 @@ Pour vous assurer de pouvoir utiliser la sauvegarde en cas de panne de votre sys
 
 Il faut donc le copier sur votre ordinateur.
 
-La technique la plus simple consiste à utiliser l'interface graphique. Dans le menuParamètres / Système / Sauvegardes, cliquez sur les trois points à droite dela sauvegarde désirée puis choisissez Télécharger la sauvegarde.
+La technique la plus simple consiste à utiliser l'interface graphique. Dans le menu `Paramètres / Système / Sauvegardes`, cliquez sur les trois points à droite de la sauvegarde désirée puis choisissez Télécharger la sauvegarde.
 
 ![Télécharger la sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TelechargerLaSauvegarde.png)
 
@@ -93,16 +91,15 @@ S'il ne fonctionne plus du tout, vous devrez d'abord effectuer une [réinstallat
 * Alternativement, si le système avait déjà été initialisé, vous pouvez restaurer une sauvegarde à partir du menu Paramètres / Système / Sauvegardes / clic sur les trois points verticaux dans le coin supérieur droit de l'écran / Téléverser une sauvegarde.
 
   ![Téléverser une sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TeleverserUneSauvegarde.png)
-* Poursuivez avec [les étapes communes pour la réinstallation et la restauration](https://apical.xyz/formations/pageunique/systeme_domotique_diy#commune).
 
 ## Étapes communes pour la réinstallation et la restauration {#commune}
 
-* Dans tous les cas, retrouvez le fichier de sauvegarde sur votre ordinateur. Il s'agit d'un fichier dont le nom se termine par .tar.
+* Retrouvez le fichier de sauvegarde sur votre ordinateur. Il s'agit d'un fichier dont le nom se termine par .tar.
 
 * Home Assistant vous offrira alors de restaurer la sauvegarde complète ou seulement une partie de celle-ci.
 
   ![Fichier de sauvegarde](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerUneSauvegarde.png)
-* Si vous ciiquez sur Sauvegarde partielle, Home Assistant vous demandera de choisir quelles parties vous désirez sauvegarder.
+* Si vous cliquez sur Sauvegarde partielle, Home Assistant vous demandera de choisir quelles parties vous désirez sauvegarder.
 
   ![Restaurer sauvegarde partielle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-RestaurerSauvegardePartielle.png)
 * Dans tous les cas, vous devrez confirmer avant de poursuivre puisque cette opération écrasera votre installation actuelle de Home Assistant.
