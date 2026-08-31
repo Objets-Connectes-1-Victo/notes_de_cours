@@ -8,7 +8,7 @@ Vous désirez tester une automatisation basée sur la présence et vous ne souha
 
 Ou encore, vous désirez tester une automatisation basée sur la température et vous ne souhaitez pas devoir attendre l'hiver pour la tester?
 
-Les capteurs virtuels vous permettront de faire vos tests facilement.
+Les **capteurs virtuels** (entrées) vous permettront de faire vos tests facilement.
 
 Les capteurs virtuels permettent également d'étendre les fonctionnalités de Home Assistant, par exemple [créer une automatisation qui tient compte de l'heure](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-automatisation_qui_tient_compte_de_l_heure).
 

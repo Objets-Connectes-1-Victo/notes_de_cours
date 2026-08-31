@@ -4,9 +4,9 @@
 
 Home Assistant permet d'associer une icône à différentes entités.
 
-Il utilise pour celà la bibliothèque Material Design.
+Il utilise pour cela la bibliothèque Material Design.
 
-Parfois, il est possible de sélectionner l'icône directement dans l'interface utilisateur. D'autres fois, il faut connaître le nom de l'iccône.
+Parfois, il est possible de sélectionner l'icône directement dans l'interface utilisateur. D'autres fois, il faut connaître le nom de l'icône.
 
 Dans tous les cas, il est possible d'utiliser un site Web pour faciliter la recherche d'icônes.
 

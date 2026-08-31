@@ -26,6 +26,7 @@ La valeur peut être:
 * un booléen
 * une liste (séquence)
 * un dictionnaire (association)
+* une valeur nulle
 
 YAML
 
@@ -37,6 +38,9 @@ prenom: Stéphane
 # Exemple de nombre
 age: 55
 
+# Exemple de booléen
+actif: true
+
 # Exemple de liste (séquence)
 fruits:
   - pomme
@@ -47,6 +51,10 @@ fruits:
 personne:
   nom: Toto
   age: 12
+
+# Exemple de valeur nulle
+config:
+
 ```
 
 Il est possible d'imbriquer les listes et les dictionnaires.  Dans l'exemple ci-dessous, la clé *personnes* contient une liste de dictionnaires. Chaque dictionnaire contient les clés *nom* et *age*.
@@ -73,8 +81,14 @@ Les fichiers YAML doivent répondre à ces exigences :
 
 * utiliser des espaces (les tabulations ne fonctionnent pas)
 * être consistant dans l'utilisation de l'indentation (généralement 2 ou 4 espaces)
-* la valeur booléenne vrai peut être entrée avec une de ces valeurs : True, On, Yes
-* la valeur booléenne faux peut être entrée avec une de ces valeurs: False, Off, No
+* la valeur booléenne **vrai** peut être entrée comme
+  * true
+  * on
+  * yes
+* la valeur booléenne **faux** peut être entrée comme:
+  * false
+  * off
+  * no
 
 ## Configuration sur plusieurs lignes
 
@@ -154,7 +168,7 @@ scene: !include scenes.yaml
 
 ## 68.2 Travailler avec le module complémentaire File editor {#fiche-travailler_avec_le_module_complementaire_file_editor}
 
-Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
+Il existe quelques Applications qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
 Parmi ceux-ci, notons File Editor et [Studio Code Server](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_studio_code_server).
 
@@ -171,7 +185,7 @@ Je vous montre ici comment installer File Editor.
 
 ## Installation
 
-Pour l'installer, rendez-vous dans le menu Paramètres / Modules complémentaires puis cliquez sur Boutique des modules complémentaires au bas de l'écran.
+Pour l'installer, rendez-vous dans le menu Paramètres / Applications puis cliquez sur Boutique des Applications au bas de l'écran.
 
 Dans la zone de recherche, tapez File editor.
 
@@ -181,7 +195,7 @@ Cliquez sur la tuile du module complémentaire puis, dans l'écran suivant, cliq
 
 Une fois le module installé, cliquez sur Démarrer.
 
-Le module complémentaire est prêt à être utilisé. Vous pourrez revenir à cet écran à tout moment à partir de l'option de menu Paramètres / Modules complémentaires / Clic sur la tuile File editor.
+Le module complémentaire est prêt à être utilisé. Vous pourrez revenir à cet écran à tout moment à partir de l'option de menu Paramètres / Applications / Clic sur la tuile File editor.
 
 Pour un accès plus rapide, vous pouvez activer l'option Ajouter à la barre latérale.
 
@@ -197,14 +211,14 @@ Vous avez maintenant atteint l'écran qui permet d'ouvrir le fichier de votre ch
 
 Note : pour afficher les fichiers du dossier .storage dans File Editor :
 
-* Rendez-vous dans le menu Paramètres / Modules complémentaires / Tuile File editor / onglet Configuration.
+* Rendez-vous dans le menu Paramètres / Applications / Tuile *File editor* / onglet Configuration.
 * Au-dessus de la zone Ignore Pattern, enlever .storage.
 
 [Dans une prochaine fiche](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
 ## 68.3 Travailler avec le module complémentaire Studio Code Server {#fiche-travailler_avec_le_module_complementaire_studio_code_server}
 
-Il existe quelques modules complémentaires qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
+Il existe quelques Applications qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
 
 Parmi ceux-ci, notons [File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) et Studio Code Server.
 
@@ -223,7 +237,7 @@ Je vous montre ici comment installer Studio Code Server.
 
 ## Installation
 
-Pour l'installer, rendez-vous dans le menu Paramètres / Modules complémentaires puis cliquez sur Boutique des modules complémentaires au bas de l'écran.
+Pour l'installer, rendez-vous dans le menu Paramètres / Applications puis cliquez sur Boutique des Applications au bas de l'écran.
 
 Dans la zone de recherche, tapez Studio Code Server.
 
@@ -235,7 +249,7 @@ Cliquez sur la tuile du module complémentaire trouvé puis, dans l'écran suiva
 
 Une fois le module installé, cliquez sur Démarrer.
 
-Le module complémentaire est prêt à être utilisé. Vous pourrez revenir à cet écran à tout moment à partir de l'option de menu Paramètres / Modules complémentaires / Clic sur la tuile Studio Code Server.
+Le module complémentaire est prêt à être utilisé. Vous pourrez revenir à cet écran à tout moment à partir de l'option de menu Paramètres / Applications / Clic sur la tuile Studio Code Server.
 
 ## Édition d'un fichier
 
