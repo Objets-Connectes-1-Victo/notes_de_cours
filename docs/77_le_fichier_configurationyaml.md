@@ -4,7 +4,7 @@
 
 YAML est un format de représentation des données semblable à XML ou JSON.
 
-Originalement, cet acronyme venait de Yet Another Markup Language. Ironiquement, il signifie maintenant YAml ain't Markup Language.
+Originalement, cet acronyme venait de Yet Another Markup Language. Ironiquement, il signifie maintenant YAML Ain't Markup Language.
 
 Le format YAML ressemble énormément au JSON. En fait, YAML est un sur-ensemble de JSON.
 
@@ -15,48 +15,70 @@ En effet, contrairement à JSON, le format YAML permet :
 * l'ajout de commentaires
 * les chaînes sur plusieurs lignes
 * une lecture plus facile puisqu'il utilise l'indentation plutôt que les délimiteurs
-* la référence à une autre section du même fichier à l'aide d'ancres
-* etc.
+* la référence à une autre section du même fichier à l'aide d'ancres# Structure d'un fichier YAML
 
-## Structure d'un fichier YAML
+Les données dans un fichier YAML apparaissent sous forme de clé avec une valeur associée. Chaque clé est suivie d'un deux-points (:). 
 
-Dans un fichier YAML, on retrouve une série de blocs de configuration.
+La valeur peut être:
 
-On donnera un nom à chacun des blocs.
-
-Le nom d'un bloc doit respecter ces conditions :
-
-* Être unique
-* Utiliser seulement des lettres minuscules, des chiffres et des barres de soulignement
-
-Dans un bloc, on peut retrouver des collections dans lesquelles chaque item débute par un trait d'union.
-
-On peut également retrouver des paires clé-valeur au format cle: valeur.
+* une chaîne de caractères
+* un nombre
+* un booléen
+* une liste (séquence)
+* un dictionnaire (association)
 
 YAML
 
+```
+# Exemple de chaîne de caractères
+nom: ROBERT
+prenom: Stéphane
+
+# Exemple de nombre
+age: 55
+
+# Exemple de liste (séquence)
+fruits:
+  - pomme
+  - banane
+  - orange
+
+# Exemple de dictionnaire (association)
+personne:
+  nom: Toto
+  age: 12
+```
+
+Il est possible d'imbriquer les listes et les dictionnaires.  Dans l'exemple ci-dessous, la clé *personnes* contient une liste de dictionnaires. Chaque dictionnaire contient les clés *nom* et *age*.
+
+YAML
 
 ```
-nom\_du\_bloc:
-- item1: valeur1
-autrecleitem1: autrevaleuritem1
-- item2: valeur2
-autrecleitem2: autrevaleuritem2
+personnes:
+  - nom: Alice
+    age: 25
+  - nom: Bob
+    age: 30
 ```
 
+[Exemples tirés de stephane-robert.info](https://blog.stephane-robert.info/docs/developper/autres-langages/yaml/#structure-de-base-du-yaml)
 
-Il est possible d'imbriquer les collections et les paires clé-valeur. L'indentation est la seule façon pour indiquer une imbrication.
+
+Le nom des clés doit respecter ces conditions :
+
+* Être unique dans son contexte
+* Utiliser seulement des lettres minuscules, des chiffres et des barres de soulignement
 
 Les fichiers YAML doivent répondre à ces exigences :
 
 * utiliser des espaces (les tabulations ne fonctionnent pas)
-* délimiter le code à l'aide d'indentations (généralement 2 ou 4 espaces pour une indentation)
+* être consistant dans l'utilisation de l'indentation (généralement 2 ou 4 espaces)
 * la valeur booléenne vrai peut être entrée avec une de ces valeurs : True, On, Yes
 * la valeur booléenne faux peut être entrée avec une de ces valeurs: False, Off, No
 
 ## Configuration sur plusieurs lignes
 
-Lorsqu'une configuration comporte plusieurs lignes, il faut utliser l'un de ces caractères :
+Lorsqu'une configuration comporte plusieurs lignes, il faut utiliser l'un de ces caractères :
 
 * | : signifie que les sauts de lignes sont importants dans ce qui suit
 * > : signifie que les sauts de lignes sont remplacés par des espaces. Autrement dit, la configuration pourrait être entrée sur une seule ligne et donner le même résultat.
@@ -67,8 +89,8 @@ YAML
 
 
 ```
-value\_template: >-
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+value_template: >-
+{% if is_state('input_boolean.porte_virtuelle', 'on') %}
 Ouverte
 {% else %}
 Fermée
@@ -174,7 +196,7 @@ Je vous montre ici comment installer File Editor.
 
 ## Inconvénients
 
-* Comme tout autre éditeur disponible à partir de l'interface Web de Home Assistant, File Editor ne peut éditeur que les fichiers du dossier config (sous HassoS : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
+* Comme tout autre éditeur disponible à partir de l'interface Web de Home Assistant, File Editor ne peut éditeur que les fichiers du dossier config (sous HAOS : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
 * Ne fonctionne pas s'il n'y a pas accès à Internet (Home Assistant pourrait être utilisé avec un Intranet seulement)
 
 ## Installation
@@ -227,7 +249,7 @@ Je vous montre ici comment installer Studio Code Server.
 ## Inconvénients
 
 * Lent à charger
-* Comme tout autre éditeur disponible à partir de l'interface Web de Home ASsistant, Studio Code Server ne peut éditeur que les fichiers du dossier config (sous HassoS : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
+* Comme tout autre éditeur disponible à partir de l'interface Web de Home ASsistant, Studio Code Server ne peut éditeur que les fichiers du dossier config (sous HAOS : /mnt/data/supervisor/homeassistant) et de ses sous-dossiers
 
 ## Installation
 
@@ -439,7 +461,7 @@ Le fichier de configurations peut également être validé [à la console Home A
 
 Entrez la commande suivante :
 
-Terminal HassOS
+Terminal HAOS
 
 
 ```
