@@ -321,7 +321,6 @@ Il est possible d'ajouter des instructions dans le fichier configuration.yaml, n
 * ajouter des capteurs [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel)
 * effectuer des configurations pour pouvoir [envoyer du courriel](94_notification_par_courriel.md#fiche-configurer_home_assistant_pour_l_envoi_de_courriel)
 * effectuer des configurations pour [s'abonner à un canal MQTT](121_mqtt.md#fiche-publication_et_abonnement_mqtt_avec_home_assistant)
-* etc.
 
 Chacune des configurations doit être placée dans une section avec un nom unique.
 

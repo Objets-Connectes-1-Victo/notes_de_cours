@@ -22,53 +22,38 @@ Pour créer un nouveau tableau de bord :
 * Cliquez sur le menu Paramètres / Tableaux de bord.
 * Cliquez sur le bouton Ajouter un tableau de bord dans le coin inférieur droit.
 * Sélectionnez le type de tableau de bord. Je vais ici faire la démonstration avec un nouveau tableau de bord vide.
-
   ![Nouveau tableau de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CreerUnTableauDeBord.png)
 * Remplissez les informations demandées.
-
   ![Nouveau tableau de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CreerUnTableauDeBord-2.png)
 * Le tableau de bord apparaît désormais dans la liste des tableaux de bord. Cliquez sur Ouvrir à droite de la ligne de votre nouveau tableau de bord.
-
   ![Liste des tableaux de bord](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ListeTableauxDeBord.png)
 * Cliquez sur le crayon dans le coin supérieur droit. La barre supérieure de l'écran est maintenant grise pour indiquer que le tableau de bord est en édition.
-
   ![Édition](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TableauDeBordEnEdition.png)
 * Pour ajouter des cartes au tableau de bord, vous devez d'abord ajouter une section. Cliquez dans la grande zone pointillée au centre de l'écran.
-
   ![Nouvelle section](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvelleSection.png)
 * Renommez la section. Si vous n'avez pas d'inspiration, un nom générique tel que Mes cartes fera l'affaire.
 * Ajoutez maintenant une carte en cliquant sur le + dans la zone pointillée.
 * L'écran vous présente une série de cartes parmi lesquelles vous devez choisir.
-
   ![Cartes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUneCarte.png)
 * Voici quelques combinaisons intéressantes :
-  * La carte Entité permet d'afficher la valeur d'une entité réelle ou virtuelle. Si l'entité le permet, un clic sur la carte permettra de modifier la valeur de l'entité.
-
+    * La carte Entité permet d'afficher la valeur d'une entité réelle ou virtuelle. Si l'entité le permet, un clic sur la carte permettra de modifier la valeur de l'entité.
     ![Carte entité](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-CarteEntite.png)
-  * La carte Bouton associée à une prise intelligente (ou autre récepteur) : vous pourrez changer l'état du récepteur en cliquant dessus.
-
+    * La carte Bouton associée à une prise intelligente (ou autre récepteur) : vous pourrez changer l'état du récepteur en cliquant dessus.
     ![Bouton pour prise intelligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Bouton.png)
-
     La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore [lancer une automatisation](83_les_automatisations_home_assistant.md#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton).
-  * La carte Capteur associée à un capteur
-
+    * La carte Capteur associée à un capteur
     ![Sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Sensor.png)
-  * La carte Jauge associée à un capteur
-
+    * La carte Jauge associée à un capteur
     ![Jauge](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Jauge.png)
-  * La carte Prévision météo associée à l'outil Météo installé par défaut dans Home Assistant
-
+    * La carte Prévision météo associée à l'outil Météo installé par défaut dans Home Assistant
     ![Météo](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Meteo.png)
-  * La carte Carte associée à tous les téléphones cellulaires que vous suivez
-
+    * La carte Carte associée à tous les téléphones cellulaires que vous suivez
     ![Carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Carte.png)
-  * Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [des modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
-
+    * Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [des modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
     Pour plus d'information sur ce type de carte, consultez la fiche « [les_cartes_de_type_markdown](89_les_modeles_home_assistant.md#fiche-les_cartes_de_type_markdown) ».
-
     ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
-  * Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
-  * Les cartes Pile horizontale, Pile verticale et Grille servent à gérer la mise en forme du tableau de bord.
+    * Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
+    * Les cartes Pile horizontale, Pile verticale et Grille servent à gérer la mise en forme du tableau de bord.
 
 
 Dans l'écran avec la barre supérieure grise, vous pouvez cliquer sur les trois points verticaux et choisir Éditeur de configuration afin de voir le code YAML associé à l'ensemble de vos tableaux de bord.
