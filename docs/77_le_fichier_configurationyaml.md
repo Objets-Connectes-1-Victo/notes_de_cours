@@ -82,13 +82,13 @@ Les fichiers YAML doivent répondre à ces exigences :
 * utiliser des espaces (les tabulations ne fonctionnent pas)
 * être consistant dans l'utilisation de l'indentation (généralement 2 ou 4 espaces)
 * la valeur booléenne **vrai** peut être entrée comme:
-  * true
-  * on
-  * yes
+    * true
+    * on
+    * yes
 * la valeur booléenne **faux** peut être entrée comme:
-  * false
-  * off
-  * no
+    * false
+    * off
+    * no
 
 ## Configuration sur plusieurs lignes
 
@@ -116,8 +116,7 @@ Fermée
 
 Ce fichier est utilisé par le logiciel domotique Home Assistant.
 
-Fichier configuration.yaml
-
+Fichier *configuration.yaml*
 
 ```
 # Configure a default setup of Home Assistant (frontend, api, etc)
@@ -216,6 +215,7 @@ Note : pour afficher les fichiers du dossier .storage dans File Editor :
 
 [Dans une prochaine fiche](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), je vous explique comment utiliser File editor pour éditer le fichier configuration.yaml.
 
+<!--
 ## 68.3 Travailler avec le module complémentaire Studio Code Server {#fiche-travailler_avec_le_module_complementaire_studio_code_server}
 
 Il existe quelques Applications qui permettent d'éditer des fichiers à partir de l'interface graphique de Home Assistant.
@@ -264,6 +264,8 @@ Vous avez maintenant atteint l'écran qui permet d'ouvrir le fichier de votre ch
 Par défaut, le module ne présente pas de barre de menu. Pour la faire apparaître, cliquez sur l'icône Customize Layout puis choisissez Menu Bar.
 
 ![Customize Layout](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-StudioCodeServer-IconeCustomizeLayout.png)
+
+-->
 
 ## 68.4 Éditer le fichier configuration.yaml {#fiche-Editer_le_fichier_configuration_yaml}
 
