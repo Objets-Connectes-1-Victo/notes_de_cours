@@ -81,9 +81,9 @@ Les fichiers YAML doivent répondre à ces exigences :
 Lorsqu'une configuration comporte plusieurs lignes, il faut utiliser l'un de ces caractères :
 
 * | : signifie que les sauts de lignes sont importants dans ce qui suit
-* > : signifie que les sauts de lignes sont remplacés par des espaces. Autrement dit, la configuration pourrait être entrée sur une seule ligne et donner le même résultat.
+* \> : signifie que les sauts de lignes sont remplacés par des espaces. Autrement dit, la configuration pourrait être entrée sur une seule ligne et donner le même résultat.
 
-Dans les deux cas, on peut ajouter un trait d'union après le caractère afin d'indiquer qu'il faut enlever les sauts de ligne à la fin de la chaîne.
+Dans les deux cas, on peut ajouter un trait d'union après le caractère afin d'indiquer qu'il faut enlever les sauts de ligne à la toute fin de la chaîne.
 
 YAML
 
@@ -98,11 +98,7 @@ Fermée
 ```
 
 
-## Quelques exemples
-
-Voici quelques exemples de fichiers de configuration YAML.
-
-### configuration.yaml
+## Le fichier configuration.yaml
 
 Ce fichier est utilisé par le logiciel domotique Home Assistant.
 
@@ -111,59 +107,32 @@ Fichier configuration.yaml
 
 ```
 # Configure a default setup of Home Assistant (frontend, api, etc)
-default\_config:
+default_config:
+
 # SMTP
 notify:
-- name: courriel\_administrateur
-platform: smtp
-sender: homeassistant@mondomaine.com
-server: mail.mondomaine.com
-timeout: 15
-port: 587
-encryption: starttls
-username: homeassistant@mondomaine.com
-password: mot\_de\_passse\_en\_clair
-sender\_name: Home Assistant
-recipient: destinataire@sondomaine.com
+  - name: courriel_administrateur
+    platform: smtp
+    sender: homeassistant@mondomaine.com
+    server: mail.mondomaine.com
+    timeout: 15
+    port: 587
+    encryption: starttls
+    username: homeassistant@mondomaine.com
+    password: mot_de_passse_en_clair
+    sender_name: Home Assistant
+    recipient: destinataire@sondomaine.com
+
 # Text to speech
 tts:
-- platform: google\_translate
+  - platform: google_translate
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 ```
 
-
-### Homestead.yaml
-
-Ce fichier est utilisé par les développeurs Laravel pour configurer leur environnement Homestead.
-
-Fichier Homestead.yaml
-
-
-```
----
-ip: "192.168.10.10"
-memory: 2048
-cpus: 1
-provider: virtualbox
-authorize: ~/.ssh/id\_rsa.pub
-backup: true
-keys:
-- ~/.ssh/id\_rsa
-folders:
-- map: ~/Documents/CodeLaravel
-to: /home/vagrant/code
-sites:
-- map: monsite.test
-to: /home/vagrant/code/monsite/public
-php : "7.4"
-- map: autresite.test
-to: /home/vagrant/code/autresite/public
-databases:
-- homestead
-```
 
 
 ## Pour plus d'information
@@ -181,6 +150,7 @@ databases:
 « YAML Multiline ». YAML Multiline. <https://yaml-multiline.info/>
 
 « YAML Ain’t Markup Language (YAML™) version 1.2 - Scalars ». yaml.org. <https://yaml.org/spec/1.2.2/#23-scalars>
+
 
 ## 68.2 Travailler avec le module complémentaire File editor {#fiche-travailler_avec_le_module_complementaire_file_editor}
 
@@ -308,10 +278,10 @@ Fichier configuration.yaml
 
 ```
 # Loads default set of integrations. Do not remove.
-default\_config:
+default_config:
 # Load frontend themes from the themes folder
 frontend:
-themes: !include\_dir\_merge\_named themes
+themes: !include_dir_merge_named themes
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
@@ -320,7 +290,7 @@ scene: !include scenes.yaml
 
 ## Chargement des configurations par défaut
 
-La toute première ligne du fichier, default\_config:, permet de charger [les configurations par défaut de Home Assistant](https://www.home-assistant.io/integrations/default_config/).
+La toute première ligne du fichier, default_config:, permet de charger [les configurations par défaut de Home Assistant](https://www.home-assistant.io/integrations/default_config/).
 
 ## Chargement d'autres fichiers YAML
 
@@ -334,7 +304,7 @@ Il est possible d'ajouter des instructions dans le fichier configuration.yaml, n
 
 * ajouter des capteurs [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel)
 * effectuer des configurations pour pouvoir [envoyer du courriel](94_notification_par_courriel.md#fiche-configurer_home_assistant_pour_l_envoi_de_courriel)
-* effectuer des configurations  pour [s'abonner à un canal MQTT,abonnement](121_mqtt.md#fiche-publication_et_abonnement_mqtt_avec_home_assistant)
+* effectuer des configurations pour [s'abonner à un canal MQTT](121_mqtt.md#fiche-publication_et_abonnement_mqtt_avec_home_assistant)
 * etc.
 
 Chacune des configurations doit être placée dans une section avec un nom unique.
@@ -347,29 +317,28 @@ Fichier configuration.yaml
 
 
 ```
-input\_boolean:
-porte\_virtuelle:
-name: Porte virtuelle
-icon: mdi:door
+input_boolean:
+  porte_virtuelle:
+    name: Porte virtuelle
+    icon: mdi:door
 ```
 
-
-Puisque le nom de la section doit être unique, ceci n'est pas valide :
+Puisque le nom de la section doit être unique dans son contexte, ceci n'est pas valide :
 
 Fichier configuration.yaml
 
 
 ```
-input\_boolean:
-porte\_virtuelle:
-name: Porte virtuelle
-icon: mdi:door
-input\_boolean:
-ventilateur\_virtuel:
-name: Ventilateur virtuel
-icon: mdi:fan
+# INVALIDE
+input_boolean:
+  porte_virtuelle:
+    name: Porte virtuelle
+    icon: mdi:door
+input_boolean:
+  ventilateur_virtuel:
+    name: Ventilateur virtuel
+    icon: mdi:fan
 ```
-
 
 Lorsque plusieurs configurations doivent faire partie d'une même section, il faut plutôt faire ceci :
 
@@ -377,19 +346,20 @@ Fichier configuration.yaml
 
 
 ```
-input\_boolean:
-porte\_virtuelle:
-name: Porte virtuelle
-icon: mdi:door
-ventilateur\_virtuel:
-name: Ventilateur virtuel
-icon: mdi:fan
+input_boolean:
+  porte_virtuelle:
+    name: Porte virtuelle
+    icon: mdi:door
+  ventilateur_virtuel:
+    name: Ventilateur virtuel
+    icon: mdi:fan
 ```
-
 
 N'oubliez pas d'enregistrer vos modifications en cliquant sur l'icône de disquette dans le haut de l'écran ou en appuyant sur Ctrl+S (Windows) ou ⌘ Cmd+S (macOS).
 
 La couleur rouge indique que les modifications n'ont pas été enregistrées.
+
+>Note: il est possible d'ajouter des capteurs virtuels à l'aide de l'UI. Pour ce faire, rendez-vous dans le menu Paramètres / Appareils et services / onglet *Entrées* puis cliquez sur le bouton Ajouter une entité, puis choisissez Interrupteur.
 
 ![Icône Enregistrer](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-Save.png)
 
@@ -397,7 +367,7 @@ La couleur rouge indique que les modifications n'ont pas été enregistrées.
 
 Avant de poursuivre, il est important de vérifier votre travail.
 
-Suivez les conseils « [validation\_des\_configurations](77_le_fichier_configurationyaml.md#fiche-validation_des_configurations) » pour vous assurer que vos configurations sont valides.
+Suivez les conseils « [validation_des_configurations](77_le_fichier_configurationyaml.md#fiche-validation_des_configurations) » pour vous assurer que vos configurations sont valides.
 
 ## Pour que les configurations soient prises en compte {#rechargement}
 
