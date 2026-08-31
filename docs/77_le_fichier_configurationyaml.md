@@ -81,7 +81,7 @@ Les fichiers YAML doivent répondre à ces exigences :
 
 * utiliser des espaces (les tabulations ne fonctionnent pas)
 * être consistant dans l'utilisation de l'indentation (généralement 2 ou 4 espaces)
-* la valeur booléenne **vrai** peut être entrée comme
+* la valeur booléenne **vrai** peut être entrée comme:
   * true
   * on
   * yes
