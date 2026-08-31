@@ -2,13 +2,11 @@
 
 ## 71.1 Créer un tableau de bord personnalisé {#fiche-creer_un_tableau_de_bord_personnalise}
 
-Par défaut, dans Home Assistant, un tableau de bord est disponible dans le menu Aperçu et il contient absolument tout ce qui est ajouté à Home Assistant.
-
-Ceci mène souvent à un tableau de bord plutôt encombré.
+Par défaut, dans Home Assistant, un tableau de bord nommé *Aperçu* est disponible dans le menu et il contient quelques zones pour des pièces de maison et une zone *Appareils* qui est la zone par défaut pour les nouveaux appareils physiques.
 
 Il est possible de modifier le tableau de bord original ou encore de créer des tableaux de bord supplémentaires.
 
-Les informations sur un tableau de bord sont stockées dans un fichier dont le nom est au format /mnt/data/supervisor/homeassistant/.storage/lovelace.dashboard\_nom\_du\_tableau ou, selon votre version de Home Assistant, /mnt/data/supervisor/homeassistant/.storage/lovelace.nom\_du\_tableau.
+Les informations sur un tableau de bord sont stockées dans un fichier dont le nom est au format /mnt/data/supervisor/homeassistant/.storage/lovelace.dashboard_nom_du_tableau ou, selon votre version de Home Assistant, /mnt/data/supervisor/homeassistant/.storage/lovelace.nom_du_tableau.
 
 Le nom de ce fichier vient du fait qu'auparavant, l'outil d'édition des tableaux de bord de Home Assistant s'appelait Lovelace.
 
@@ -17,7 +15,7 @@ En effet, si vous le modifiez ou si vous y ajoutez d'autres onglets, Home Assist
 
 Si vous avez modifié le tableau de bord Aperçu, [il est possible de le réinitialiser](80_les_tableaux_de_bord.md#fiche-reinitialiser_le_tableau_de_bord_apercu) afin que Home Assistant recommence à le gérer automatiquement.
 
-Prenez note que les fonctionnalités du tableau de bord ont beacoup évolué depuis quelques années. Soyez prudents lorsque vous recherchez des informations sur le Web ou à l'aide d'un outil d'intelligence artificielle. Les informations trouvées pourraient ne plus être exactes.
+Prenez note que les fonctionnalités du tableau de bord ont beaucoup évolué depuis quelques années. Soyez prudents lorsque vous recherchez des informations sur le Web ou à l'aide d'un outil d'intelligence artificielle. Les informations trouvées pourraient ne plus être exactes.
 
 Pour créer un nouveau tableau de bord :
 
@@ -44,34 +42,34 @@ Pour créer un nouveau tableau de bord :
 
   ![Cartes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AjouterUneCarte.png)
 * Voici quelques combinaisons intéressantes :
-  + La carte Entité permet d'afficher la valeur d'une entité réelle ou virtuelle. Si l'entité le permet, un clic sur la carte permettra de modifier la valeur de l'entité.
+  * La carte Entité permet d'afficher la valeur d'une entité réelle ou virtuelle. Si l'entité le permet, un clic sur la carte permettra de modifier la valeur de l'entité.
 
     ![Carte entité](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-CarteEntite.png)
-  + La carte Bouton associée à une prise intelligente (ou autre récepteur) : vous pourrez changer l'état du récepteur en cliquant dessus.
+  * La carte Bouton associée à une prise intelligente (ou autre récepteur) : vous pourrez changer l'état du récepteur en cliquant dessus.
 
     ![Bouton pour prise intelligente](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Bouton.png)
 
     La carte Bouton permet également d'effecteur d'autres opérations, par exemple appeler un service (exécuter une action) ou encore [lancer une automatisation](83_les_automatisations_home_assistant.md#fiche-lancer_une_automatisation_a_l_aide_d_un_bouton).
-  + La carte Capteur associée à un capteur
+  * La carte Capteur associée à un capteur
 
     ![Sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Sensor.png)
-  + La carte Jauge associée à un capteur
+  * La carte Jauge associée à un capteur
 
     ![Jauge](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Jauge.png)
-  + La carte Prévision météo associée à l'outil Météo installé par défaut dans Home Assistant
+  * La carte Prévision météo associée à l'outil Météo installé par défaut dans Home Assistant
 
     ![Météo](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Meteo.png)
-  + La carte Carte associée à tous les téléphones cellulaires que vous suivez
+  * La carte Carte associée à tous les téléphones cellulaires que vous suivez
 
     ![Carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-Carte.png)
-  + Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [des modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
+  * Les cartes Markdown permettent d'inscrire un texte et de le formater à l'aide de la [syntaxe Markdown](https://commonmark.org/help/) ou encore d'utiliser [des modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
 
-    Pour plus d'information sur ce type de carte, consultez la fiche « [les\_cartes\_de\_type\_markdown](89_les_modeles_home_assistant.md#fiche-les_cartes_de_type_markdown) ».
+    Pour plus d'information sur ce type de carte, consultez la fiche « [les_cartes_de_type_markdown](89_les_modeles_home_assistant.md#fiche-les_cartes_de_type_markdown) ».
 
     ![Markdown](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Lovelace-MarkdownCard.png)
-  + Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
-  + Les cartes Pile horizontale, Pile verticale et Grille servent à gérer la mise en forme du tableau de bord.
-  + etc.
+  * Les cartes Conditionnelle et Filtre d'entité pourront afficher des informations conditionnellement à certains états.
+  * Les cartes Pile horizontale, Pile verticale et Grille servent à gérer la mise en forme du tableau de bord.
+
 
 Dans l'écran avec la barre supérieure grise, vous pouvez cliquer sur les trois points verticaux et choisir Éditeur de configuration afin de voir le code YAML associé à l'ensemble de vos tableaux de bord.
 
@@ -81,43 +79,43 @@ Fichier /mnt/data/supervisor/homeassistant/.storage/lovelace (YAML)
 ```
 views:
 - title: Home
-sections:
-- type: grid
-cards:
-- type: heading
-heading\_style: title
-heading: Mes cartes
-- type: entity
-entity: input\_number.temperature\_virtuelle
-- show\_name: true
-show\_icon: true
-type: button
-entity: light.plug\_in\_dimmer
-- type: sensor
-entity: sensor.capteur\_5\_en\_1\_air\_temperature
-graph: line
-- type: gauge
-entity: sensor.capteur\_5\_en\_1\_illuminance
-- show\_current: true
-show\_forecast: true
-type: weather-forecast
-entity: weather.forecast\_maison
-forecast\_type: daily
-- type: map
-entities:
-- entity: person.christiane
-- entity: device\_tracker.justin
-- entity: zone.home
-- entity: zone.cegep
-- entity: person.yves
-theme\_mode: auto
-- type: markdown
-content: |-
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
-Porte virtuelle ouverte
-{% else %}
-Porte virtuelle fermée
-{% endif %}
+  sections:
+  - type: grid
+    cards:
+    - type: heading
+      heading_style: title
+      heading: Mes cartes
+    - type: entity
+      entity: input_number.temperature_virtuelle
+    - show_name: true
+      show_icon: true
+      type: button
+      entity: light.plug_in_dimmer
+    - type: sensor
+      entity: sensor.capteur_5_en_1_air_temperature
+      graph: line
+    - type: gauge
+      entity: sensor.capteur_5_en_1_illuminance
+    - show_current: true
+      show_forecast: true
+      type: weather-forecast
+      entity: weather.forecast_maison
+      forecast_type: daily
+    - type: map
+      entities:
+      - entity: person.christiane
+      - entity: device_tracker.justin
+      - entity: zone.home
+      - entity: zone.cegep
+      - entity: person.yves
+    - theme_mode: auto
+    - type: markdown
+      content: |-
+        {% if is_state('input_boolean.porte_virtuelle', 'on') %}
+        Porte virtuelle ouverte
+        {% else %}
+        Porte virtuelle fermée
+        {% endif %}
 ```
 
 
@@ -233,7 +231,6 @@ Pour assigner un appareil à une pièce, la technique la plus simple est la suiv
 
   ![Appareil assigné à une pièce](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AssignerAppareilPiece.png)
 
-##
 
 ## 71.5 Changer l'icône d'une entité selon son état {#fiche-changer_l_icone_d_une_entite_selon_son_etat}
 
@@ -265,7 +262,7 @@ Modèle
 
 
 ```
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+{% if is_state('input_boolean.porte_virtuelle', 'on') %}
 <ha-icon icon="mdi:door-open"></ha-icon> Ouverte
 {% else %}
 <ha-icon icon="mdi:door-closed"></ha-icon> Fermée
@@ -289,7 +286,7 @@ La technique consiste à ajouter une couche par-dessus un capteur. Dans le table
 
 Dans l'exemple qui suit, les couleurs permettent de faire des liens entre les différentes parties du code.
 
-La valeur de l'entité provient d'un capteur virtuel de type input\_boolean. Il s'agira du mot Activé ou Désactivé.
+La valeur de l'entité provient d'un capteur virtuel de type input_boolean. Il s'agira du mot Activé ou Désactivé.
 
 L'icône de l'entité est définie par un modèle qui réagit à l'état de ce même capteur virtuel.
 
@@ -299,16 +296,16 @@ Fichier configuration.yaml
 ```
 sensor:
 - platform: template
-sensors:
-porte\_virtuelle:
-friendly\_name: Porte virtuelle
-value\_template: "{{ states('input\_boolean.porte\_virtuelle') }}"
-icon\_template: >-
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
-mdi:door-open
-{% else %}
-mdi:door-closed
-{% endif %}
+  sensors:
+    porte_virtuelle:
+      friendly_name: Porte virtuelle
+      value_template: "{{ states('input_boolean.porte_virtuelle') }}"
+      icon_template: >-
+        {% if is_state('input_boolean.porte_virtuelle', 'on') %}
+        mdi:door-open
+        {% else %}
+        mdi:door-closed
+        {% endif %}
 ```
 
 
@@ -320,21 +317,21 @@ Fichier configuration.yaml
 ```
 sensor:
 - platform: template
-sensors:
-porte\_virtuelle:
-friendly\_name: Porte virtuelle
-value\_template: >-
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
-Ouverte
-{% else %}
-Fermée
-{% endif %}
-icon\_template: >-
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
-mdi:door-open
-{% else %}
-mdi:door-closed
-{% endif %}
+  sensors:
+    porte_virtuelle:
+      friendly_name: Porte virtuelle
+      value_template: >-
+        {% if is_state('input_boolean.porte_virtuelle', 'on') %}
+        Ouverte
+        {% else %}
+        Fermée
+        {% endif %}
+      icon_template: >-
+        {% if is_state('input_boolean.porte_virtuelle', 'on') %}
+        mdi:door-open
+        {% else %}
+        mdi:door-closed
+        {% endif %}
 ```
 
 
@@ -342,17 +339,17 @@ Après avoir [rechargé les configurations,rechargement](77_le_fichier_configura
 
 ### Exemple avec une carte de type Entité {#entite}
 
-Dans l'exemple précédent, l'entité s'appelle porte\_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte\_virtuelle.
+Dans l'exemple précédent, l'entité s'appelle porte_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte_virtuelle.
 
 Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont [le domaine,identifiant](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
 
 ![sensor.porte_virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-sensor-porte_virtuelle.png)
 
-Voici la carte d'entité dont l'icône et la valeurs proviennent de l'entité sensor.porte\_virtuelle.
+Voici la carte d'entité dont l'icône et la valeurs proviennent de l'entité sensor.porte_virtuelle.
 
 ![Icône porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Sensor-IconePorteOuverte.png) ![Icône porte fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Sensor-IconePorteFermee.png)
 
-En comparaison, voici ce qu'on aurait obtenu avec une carte d'entité associée à l'entité input\_boolean.porte\_virtuelle.
+En comparaison, voici ce qu'on aurait obtenu avec une carte d'entité associée à l'entité input_boolean.porte_virtuelle.
 
 ![Porte ouverte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteOuverte.png) ![Porte fermée](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputBoolean-PorteFermee.png)
 
@@ -360,9 +357,9 @@ En comparaison, voici ce qu'on aurait obtenu avec une carte d'entité associée 
 
 Un résultat encore plus intéressant peut être obtenu à l'aide d'une carte de type Bouton.
 
-Ici aussi, il faut associer la carte à l'entité sensor.porte\_virtuelle, soit celle pour laquelle l'icône change selon l'état.
+Ici aussi, il faut associer la carte à l'entité sensor.porte_virtuelle, soit celle pour laquelle l'icône change selon l'état.
 
-Un clic sur la carte modifiera l'état de l'entité input\_boolean.porte\_virtuelle, ce qui affectera automatiquement la valeur et l'icône de l'autre.
+Un clic sur la carte modifiera l'état de l'entité input_boolean.porte_virtuelle, ce qui affectera automatiquement la valeur et l'icône de l'autre.
 
 ![Carte bouton](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ButtonCardAvecEntiteIconeSelonEtat.png)
 
@@ -380,10 +377,10 @@ Fichier configuration.yaml
 
 
 ```
-icon\_template: >-
-{% if is\_state('input\_select.etat\_general', 'Excellent') %}
+icon_template: >-
+{% if is_state('input_select.etat_general', 'Excellent') %}
 mdi:rocket-launch
-{% elif is\_state('input\_select.etat\_general', 'Moyen') %}
+{% elif is_state('input_select.etat_general', 'Moyen') %}
 mdi:scale-balance
 {% else %}
 mdi:alert
@@ -424,7 +421,7 @@ Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est
 
 ```
   frontend:
-  extra\_module\_url:
+  extra_module_url:
   - /local/card-mod.js
 ```
 * Redémarrez Home Assistant.
@@ -439,12 +436,12 @@ Pour éditer le code YAML d'une carte :
 * Cliquez sur la carte à modifier.
 * Cliquez sur le bouton Afficher l'éditeur de code.
 
-Dans le code YAML de la carte, ajoutez une section card\_mod.
+Dans le code YAML de la carte, ajoutez une section card_mod.
 
 YAML
 
 ```
-card\_mod:
+card_mod:
 style: |
 ha-card {
 ... // vos règles CSS ici, comme si vous éditiez le CSS d'un site Web
