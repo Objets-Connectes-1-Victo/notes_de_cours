@@ -6,7 +6,7 @@ Par défaut, dans Home Assistant, un tableau de bord nommé *Aperçu* est dispon
 
 Il est possible de modifier le tableau de bord original ou encore de créer des tableaux de bord supplémentaires.
 
-Les informations sur un tableau de bord sont stockées dans un fichier dont le nom est au format /mnt/data/supervisor/homeassistant/.storage/lovelace.dashboard_nom_du_tableau ou, selon votre version de Home Assistant, /mnt/data/supervisor/homeassistant/.storage/lovelace.nom_du_tableau.
+Les informations sur un tableau de bord sont stockées dans un fichier dont le nom est au format */mnt/data/supervisor/homeassistant/.storage/lovelace.dashboard_nom_du_tableau* ou, selon votre version de Home Assistant, */mnt/data/supervisor/homeassistant/.storage/lovelace.nom_du_tableau*.
 
 Le nom de ce fichier vient du fait qu'auparavant, l'outil d'édition des tableaux de bord de Home Assistant s'appelait Lovelace.
 
@@ -73,7 +73,7 @@ Pour créer un nouveau tableau de bord :
 
 Dans l'écran avec la barre supérieure grise, vous pouvez cliquer sur les trois points verticaux et choisir Éditeur de configuration afin de voir le code YAML associé à l'ensemble de vos tableaux de bord.
 
-Fichier /mnt/data/supervisor/homeassistant/.storage/lovelace (YAML)
+Fichier */mnt/data/supervisor/homeassistant/.storage/lovelace* (YAML)
 
 
 ```
@@ -153,11 +153,11 @@ Mieux encore, elles peuvent être stockées directement sur le Pi.
 
 C'est cette dernière alternative que nous allons utiliser ici.
 
-Pour que l'image soit disponible localement à partir de Home Assistant, vous devez d'abord créer le dossier www sous /mnt/data/supervisor/homeassistant .
+Pour que l'image soit disponible localement à partir de Home Assistant, vous devez d'abord créer le dossier www sous */mnt/data/supervisor/homeassistant* .
 
-Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier /mnt/data/supervisor/homeassistant (ceci est le dossier config).
+Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier */mnt/data/supervisor/homeassistant* (ceci est le dossier config).
 
-Vous pouvez également créer le dossier directement au terminal HassOS.
+Vous pouvez également créer le dossier directement au terminal HAOS.
 
 Dans tous les cas, il faut redémarrer Home Assistant pour qu'il reconnaisse le dossier.
 
@@ -242,8 +242,8 @@ Dans cette fiche :
 
 * [Carte Markdown](https://apical.xyz/formations/pageunique/systeme_domotique_diy#markdown)
 * [Intégration Template](https://apical.xyz/formations/pageunique/systeme_domotique_diy#template)
-  + [Exemple avec une carte de type Entité](https://apical.xyz/formations/pageunique/systeme_domotique_diy#entite)
-  + [Exemple avec une carte de type Bouton](https://apical.xyz/formations/pageunique/systeme_domotique_diy#bouton)
+  * [Exemple avec une carte de type Entité](https://apical.xyz/formations/pageunique/systeme_domotique_diy#entite)
+  * [Exemple avec une carte de type Bouton](https://apical.xyz/formations/pageunique/systeme_domotique_diy#bouton)
 * [Et si on avait besoin de vérifier plus de deux états?](https://apical.xyz/formations/pageunique/systeme_domotique_diy#elif)
 
 ## Carte Markdown
@@ -290,7 +290,7 @@ La valeur de l'entité provient d'un capteur virtuel de type input_boolean. Il 
 
 L'icône de l'entité est définie par un modèle qui réagit à l'état de ce même capteur virtuel.
 
-Fichier configuration.yaml
+Fichier *configuration.yaml*
 
 
 ```
@@ -311,7 +311,7 @@ sensor:
 
 Il est possible de modifier la valeur pour utiliser un texte plus significatif.
 
-Fichier configuration.yaml
+Fichier *configuration.yaml*
 
 
 ```
@@ -335,13 +335,13 @@ sensor:
 ```
 
 
-Après avoir [rechargé les configurations,rechargement](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
+Après avoir [rechargé les configurations](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), il est possible d'ajouter une carte dans le tableau de bord pour représenter cette nouvelle entité.
 
 ### Exemple avec une carte de type Entité {#entite}
 
 Dans l'exemple précédent, l'entité s'appelle porte_virtuelle et elle prend sa valeur d'une autre entité qui  s'appelle elle aussi porte_virtuelle.
 
-Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont [le domaine,identifiant](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
+Lors de la configuration de la carte, il faut prendre soin de choisir l'entité dont [le domaine](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) est sensor puisque c'est pour elle que l'icône personnalisée a été définie.
 
 ![sensor.porte_virtuelle](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-sensor-porte_virtuelle.png)
 
@@ -396,9 +396,9 @@ Le plugin [lovelace-card-mod](https://github.com/thomasloven/lovelace-card-mod) 
 
 ## Installation
 
-Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est pas disponible dans le terminal HassOS alors nous allons utiliser une autre procédure pour l'installer :
+Le plugin lovelace-card-mod est disponible sur GitHub mais la commande git n'est pas disponible dans le terminal HAOS alors nous allons utiliser une autre procédure pour l'installer :
 
-* Accédez au terminal HassOS en branchant clavier et écran au Raspberry Pi ou [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh).
+* Accédez au terminal HAOS en branchant clavier et écran au Raspberry Pi ou [via SSH](67_chapitre_de_reference_pour_home_assistant.md#fiche-se_brancher_a_home_assistant_via_ssh).
 * Vérifiez s'il existe un dossier www sous /mnt/data/supervisor/homeassistant. S'il n'existe pas, créez-le puis redémarrez le Raspberry Pi.
 * Rendez-vous sur la page GitHub de l'extension : <https://github.com/thomasloven/lovelace-card-mod>
 

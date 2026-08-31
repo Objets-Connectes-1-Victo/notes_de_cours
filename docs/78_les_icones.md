@@ -15,9 +15,9 @@ Les icônes Material Design sont listés sur ces sites :
 * <https://pictogrammers.com/library/mdi/>
 * <https://pictogrammers.github.io/@mdi/font/7.4.47/> (vous pouvez modifier la version de la bibliothèque dans l'URL)
 
-Si le site présente les icônes avec un nom qui débute par mdi-, il suffit de modifier dans son nom mdi- par mdi: pour que Home Assistant la reconnaisse.
+Si le site présente les icônes avec un nom qui débute par `mdi-`, il suffit de modifier dans son nom `mdi-` par `mdi:` pour que Home Assistant la reconnaisse.
 
-Sinon, il faut ajouter mdi: devant le nom.
+Sinon, il faut ajouter `mdi:` devant le nom.
 
 ![Icônes](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Icon-1.png)
 

@@ -4,7 +4,6 @@
 
 1. À l'aide de l'interface graphique, [créez un capteur virtuel](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel) pour simuler un capteur d'ouverture de porte. Il doit être représenté par l'icône door.
 1. Installez [le module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) si ce n'est pas déjà fait.
-fait.
 1. [À l'aide du fichier configuration.yaml](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml), créez un second capteur virtuel pour simuler le nombre de chats qui sont entrés dans une chatière. Vous pouvez utiliser le module complémentaire de votre choix pour éditer le fichier configuration.yaml.
 1. Prenez soin de [valider vos configurations](77_le_fichier_configurationyaml.md#fiche-validation_des_configurations) avant de [les recharger,recharger](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml) (inutile de redémarrer le système au complet).
 1. À l'aide de la technique de votre choix, créez un récepteur virtuel pour simuler une ampoule.
