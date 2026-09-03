@@ -149,7 +149,6 @@ Dans tous les cas, il faut redémarrer Home Assistant pour qu'il reconnaisse le 
 La copie du fichier de l'image peut être réalisée à l'aide de différentes techniques :
 
 * à l'aide de File Editor : cliquez sur l'enveloppe blanche puis sélectionnez le dossier www. L'icône Upload File vous permettra de téléverser votre image.
-
   ![Upload file](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-UploadFile.png)
 * à l'aide de la commande scp :
 
