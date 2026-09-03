@@ -1,0 +1,6200 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../06_depannage_sur_le_raspberry_pi_troubleshooting/">
+      
+      
+        <link rel="next" href="../08_depannage_python_troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. Python - Notes de cours - Objets connectés 1 (420-3A4-VI)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapitre-python" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-header__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes de cours - Objets connectés 1 (420-3A4-VI)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_deroulement_du_cours/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Divers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../10__semaine_1_/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Notes de cours
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-nav__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes de cours - Objets connectés 1 (420-3A4-VI)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Divers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_deroulement_du_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Déroulement du cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ou_trouver_de_laide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Où trouver de l'aide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03__chapitres_de_reference_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_depannage_sur_le_raspberry_pi_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dépannage sur le Raspberry Pi (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Python
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Qu_est-ce_que_Python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Qu'est-ce que Python ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Python_2_X_vs_3_X" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Python 2.X vs 3.X
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-si-python-est-installe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérifier si Python est installé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-la-version-de-python-par-programmation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Afficher la version de Python par programmation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Shebang_ou_hash_bang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Shebang ou hash bang : #!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shebang-qui-utilise-la-variable-denvironnement-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shebang qui utilise la variable d'environnement $PATH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shebang-fixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shebang fixe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-sans-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script sans shebang
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-executer_un_programme_python_dans_une_fenetre_terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Exécuter un programme Python dans une fenêtre Terminal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-les_structures_de_controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Les structures de contrôle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La condition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-boucle-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La boucle while
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-boucle-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La boucle for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boucler-dans-les-elements-dune-liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boucler dans les éléments d'une liste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Utilisation_d_un_paquet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Utilisation d'un paquet ou d'un module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instruction-from-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction from ... import ...
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paquet-contenant-plusieurs-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paquet contenant plusieurs modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-A_quel_endroit_python_recherche-t-il_les_modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 À quel endroit Python recherche-t-il les modules?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syspath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sys.path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pythonpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PYTHONPATH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-les_tableaux_listes_et_tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Les tableaux, listes et tuples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-associatif-dictionnaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau associatif (dictionnaire)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Ecrire_nos_propres_fonctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Écrire nos propres fonctions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaration-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déclaration de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appel-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appel de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicatif-visuel-du-debut-du-programme-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicatif visuel du début du programme principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Utiliser_une_variable_du_programme_principal_dans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Utiliser une variable du programme principal dans une fonction (portée des variables)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passer-un-parametre-a-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passer un paramètre à la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etendre-la-portee-a-laide-de-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étendre la portée à l'aide de global
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-la_programmation_objet_en_python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 La programmation objet en Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-passer-un-parametre-a-un-script-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Passer un paramètre à un script Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#si-aucun-parametre-nest-passe-parametre-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si aucun paramètre n'est passé (paramètre optionnel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique optionnel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-forcer_l_arret_d_un_script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 Forcer l'arrêt d'un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctrlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctrlz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+Z
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuer-le-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuer le processus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuer le processus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pkill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pkill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-erreurs_frequentes_002" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 Erreurs fréquentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-la-syntaxe-python-vs-autres-langages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 La syntaxe Python vs autres langages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_depannage_python_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dépannage Python (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_les_scripts_bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Les scripts bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10__semaine_1_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_situation_du_cours_dans_le_programme_detudes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Situation du cours dans le programme d'études
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_utilisation_de_lintelligence_artificielle_pendant_le_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Utilisation de l'intelligence artificielle pendant le cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_quelques_trucs_pour_vous_aider_dans_ce_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Quelques trucs pour vous aider dans ce cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_la_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_lunite_centrale_du_systeme_domotique_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. L'unité centrale du système domotique (Raspberry Pi)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16_le_logiciel_de_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Le logiciel de domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22_la_passerelle_domotique_et_les_protocoles_de_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. La passerelle domotique et les protocoles de communication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_les_appareils_domotiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Les appareils domotiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../66_home_assistant_au_coeur_de_votre_systeme_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    58. Home Assistant au coeur de votre système domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../67_chapitre_de_reference_pour_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    59. Chapitre de référence pour Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../68_depannage_home_assistant_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60. Dépannage Home Assistant (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../69_exercice_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    61. Exercice 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28__semaine_2_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../71_commencer_a_travailler_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    63. Commencer à travailler avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../72_sauvegarde_de_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    64. Sauvegarde de Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../73_exercice_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    65. Exercice 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../74_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    66. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../77_le_fichier_configurationyaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    68. Le fichier configuration.yaml
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../78_les_icones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    69. Les icônes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../79_les_capteurs_virtuels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    70. Les capteurs virtuels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_les_tableaux_de_bord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    71. Les tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../81_exercice_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    72. Exercice 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../82_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    73. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39__semaine_3_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../83_les_automatisations_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    74. Les automatisations Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../84_le_soleil_et_la_meteo_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    75. Le soleil et la météo sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../85_depannage_sur_les_automatisations_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Dépannage sur les automatisations (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../86_exercice_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    77. Exercice 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../87_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    78. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../89_les_modeles_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    79. Les modèles Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_exercice_14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    80. Exercice 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../91_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    81. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45__semaine_4_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../92_deboguer_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    82. Déboguer Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../93_automatisations_qui_tiennent_compte_de_lheure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    83. Automatisations qui tiennent compte de l'heure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../94_notification_par_courriel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    84. Notification par courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../95_depannage_sur_lenvoi_de_courriel_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    85. Dépannage sur l'envoi de courriel (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../96_depannage_sur_les_positions_gps_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    86. Dépannage sur les positions GPS (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../97_exercice_15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    87. Exercice 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    88. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_detecteur_de_presence_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    89. Détecteur de présence sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100_exercice_16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90. Exercice 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    91. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../51__semaine_5_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../103_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    92. SQLite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../104_la_base_de_donnees_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    93. La base de données Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../105_historisation_des_donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    94. Historisation des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../106_exercice_17_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    95. Exercice 17 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../107_exercice_18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    96. Exercice 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../108_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    97. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../63__semaine_6_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110_exercice_19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    98. Exercice 19
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../111_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    99. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../65__semaine_7_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../113_examen_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    100. Examen 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../112__semaine_12_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../114_exercice_20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    101. Exercice 20
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../115_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    102. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S13
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../116__semaine_13_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../117_communication_home_assistant_jeedom_via_lapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    103. Communication Home Assistant - Jeedom via l'API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../118_exercice_21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    104. Exercice 21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../119_exercice_22_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    105. Exercice 22 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    106. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../121_mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    107. MQTT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../122_exercice_23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    108. Exercice 23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../123_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    109. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S14
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../124__semaine_14_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../125_exercice_24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    110. Exercice 24
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../126_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    111. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../127_format_json_dans_un_modele/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    112. Format JSON dans un modèle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../128_exercice_25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    113. Exercice 25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../129_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    114. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130_simulation_dexamen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    115. Simulation d'examen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S15
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../131__semaine_15_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../132_examen_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    116. Examen 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../133__chapitres_supplementaires_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres supplémentaires ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../134_installer_un_store_controle_a_distance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    117. Installer un store contrôlé à distance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../135_les_servomoteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    118. Les servomoteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../136__aller_plus_loin_avec_linux_et_le_raspberry_pi_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Linux et le Raspberry Pi ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../137_divers_linux_et_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    119. Divers Linux et Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../138_configurations_reseau_avec_dhcpcd_wpa_supplicant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    120. Configurations réseau avec dhcpcd (wpa_supplicant)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../139_raspberry_pi_comme_simple_serveur_http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Raspberry Pi comme simple serveur HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140__aller_plus_loin_avec_home_assistant_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Home Assistant ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../141_les_scripts_python_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    122. Les scripts Python avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../142_appeler_un_script_python_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    123. Appeler un script Python dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../143_les_themes_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    124. Les thèmes dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../144_les_watchdog_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    125. Les watchdog Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Qu_est-ce_que_Python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Qu'est-ce que Python ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Python_2_X_vs_3_X" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Python 2.X vs 3.X
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifier-si-python-est-installe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérifier si Python est installé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-la-version-de-python-par-programmation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Afficher la version de Python par programmation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Shebang_ou_hash_bang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Shebang ou hash bang : #!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shebang-qui-utilise-la-variable-denvironnement-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shebang qui utilise la variable d'environnement $PATH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shebang-fixe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shebang fixe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-sans-shebang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script sans shebang
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-executer_un_programme_python_dans_une_fenetre_terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Exécuter un programme Python dans une fenêtre Terminal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-les_structures_de_controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Les structures de contrôle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La condition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-boucle-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La boucle while
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-boucle-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La boucle for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boucler-dans-les-elements-dune-liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boucler dans les éléments d'une liste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Utilisation_d_un_paquet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Utilisation d'un paquet ou d'un module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instruction-from-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction from ... import ...
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paquet-contenant-plusieurs-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paquet contenant plusieurs modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-A_quel_endroit_python_recherche-t-il_les_modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 À quel endroit Python recherche-t-il les modules?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syspath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sys.path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pythonpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PYTHONPATH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-les_tableaux_listes_et_tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Les tableaux, listes et tuples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuple
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liste
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-associatif-dictionnaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau associatif (dictionnaire)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Ecrire_nos_propres_fonctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Écrire nos propres fonctions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaration-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déclaration de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appel-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appel de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-de-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation de la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicatif-visuel-du-debut-du-programme-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicatif visuel du début du programme principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-Utiliser_une_variable_du_programme_principal_dans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Utiliser une variable du programme principal dans une fonction (portée des variables)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passer-un-parametre-a-la-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passer un paramètre à la fonction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etendre-la-portee-a-laide-de-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étendre la portée à l'aide de global
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-la_programmation_objet_en_python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 La programmation objet en Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-passer-un-parametre-a-un-script-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12 Passer un paramètre à un script Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#si-aucun-parametre-nest-passe-parametre-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si aucun paramètre n'est passé (paramètre optionnel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique optionnel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-forcer_l_arret_d_un_script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.13 Forcer l'arrêt d'un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctrlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctrlz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ctrl+Z
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuer-le-processus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuer le processus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuer le processus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pkill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pkill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-erreurs_frequentes_002" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.14 Erreurs fréquentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#615-la-syntaxe-python-vs-autres-langages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.15 La syntaxe Python vs autres langages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapitre-python">6. Python<a class="headerlink" href="#chapitre-python" title="Permanent link">&para;</a></h1>
+<h2 id="fiche-Qu_est-ce_que_Python">6.1 Qu'est-ce que Python ?<a class="headerlink" href="#fiche-Qu_est-ce_que_Python" title="Permanent link">&para;</a></h2>
+<p>Selon <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipédia</a> :</p>
+<blockquote>
+<p>Python est un langage de programmation objet, multi-paradigme et multiplateformes. [...] Il peut s'utiliser dans de nombreux contextes et s'adapter à tout type d'utilisation grâce à des bibliothèques spécialisées. Il est cependant particulièrement utilisé comme langage de script pour automatiser des tâches simples mais fastidieuses.</p>
+</blockquote>
+<p>La première version publique de Python est sortie en 1991. Son auteur, le programmeur Guido van Rossum, était un fan de la série télévisée Monty Python's Flying Circus, une série humoristique sous forme de sketches. C'est de cette série que le langage de programmation tient son nom.</p>
+<p>Python est un langage de programmation interprété. Il est reconnu pour sa syntaxe concise et élégante ainsi que la rapidité avec laquelle il permet de développer un programme. De plus, il est possible de lui programmer des modules d'extension en C ou en C++.</p>
+<p>Ces caractéristiques combinées au fait qu'il est un logiciel libre font de lui un langage de progammation très prisé.</p>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« Learning Python: From Zero to Hero ». Medium. <a href="https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567">https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567</a></p>
+<p>« The Python Tutorial ». Python. <a href="https://docs.python.org/3.6/tutorial/index.html">https://docs.python.org/3.6/tutorial/index.html</a></p>
+<p>« Python 3.6.4 documentation ». Python. <a href="https://docs.python.org/3.6/index.html">https://docs.python.org/3.6/index.html</a></p>
+<p>« Apprendre le langage de programmation python ». apprendre-python.com. <a href="http://apprendre-python.com/">http://apprendre-python.com/</a></p>
+<p>« Apprenez à programmer en Python ». Open Classrooms. <a href="https://openclassrooms.com/courses/apprenez-a-programmer-en-python">https://openclassrooms.com/courses/apprenez-a-programmer-en-python</a></p>
+<p>« Introduction au langage de programmation Python 3 ». Fabrice Sincère. <a href="http://fsincere.free.fr/isn/python/cours_python.php?version=3">http://fsincere.free.fr/isn/python/cours_python.php?version=3</a></p>
+<p>« Petites choses diverses à savoir pour débuter en Python ». Formation Django. <a href="http://www.formation-django.fr/python/petites-choses-a-savoir.html">http://www.formation-django.fr/python/petites-choses-a-savoir.html</a></p>
+<h2 id="fiche-Python_2_X_vs_3_X">6.2 Python 2.X vs 3.X<a class="headerlink" href="#fiche-Python_2_X_vs_3_X" title="Permanent link">&para;</a></h2>
+<p>Comme tout langage de programmation, Python a subi de nombreuses modifications à mesure qu'il évoluait et prenait de la maturité. À un certain stade, ses concepteurs sont venus à un point où ils ont dû briser la compatibilité avec les anciennes versions afin d'offrir de nouvelles possibilités.</p>
+<p>C'est pour cette raison qu'il existe deux « familles » de programmes Python : ceux qui sont conçus pour la branche 2.X et ceux pour la branche 3.X.</p>
+<p>La version 2.7 est la dernière version de la première branche. Aucune autre version majeure ne sera produite pour la branche 2.X. Elle n'évoluera donc plus mais en revanche, elle est très stable et ceci est vu d'un bon oeil par de nombreux programmeurs.</p>
+<p>Dans la branche 3.X, qui évolue depuis 2008, de nombreuses modifications et ajouts visent à améliorer l'expérience des programmeurs et les performances des programmes. C'est pourquoi cette branche est vue comme le présent et le futur de Python.</p>
+<p>Si vous hésitez entre Python 2.X et 3.X, vous devriez choisir 3.X. Le seul cas où Python 2.X devrait être utilisé est lorsque vous n'avez pas le choix, par exemple lorsque vous avez besoin d'un paquet qui n'a pas été migré vers 3.X.</p>
+<p>Voici, à titre d'exemple, une différence importante entre Python 2.X et 3.X : la commande print est devenue une fonction. À elle seule, cette différence a empêché la rétro-compatibilité avec de nombreux programmes.</p>
+<p>Python 2.X</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span> <span class="s2">"Hello World"</span>
+</span></code></pre></div>
+<p>Python 3.X</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World"</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="verifier-si-python-est-installe">Vérifier si Python est installé<a class="headerlink" href="#verifier-si-python-est-installe" title="Permanent link">&para;</a></h2>
+<p>Dans une fenêtre Terminal, vous pouvez lancer cette commande pour vérifier si Python est installé et obtenir le numéro de version :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python --version
+</span></code></pre></div>
+<p>Sous Raspberry Pi OS 10 (Buster), cette commande donne le résultat suivant :</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Python 2.7.16
+</span></code></pre></div>
+<p>Plusieurs versions de Python peuvent cohabiter. Pour vérifier si Python 3 est installé :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3 --version
+</span></code></pre></div>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Python 3.7.3
+</span></code></pre></div>
+<p>Ainsi, on voit que lors de l'installation de Raspberry Pi OS 10 (Buster), Python 2.7 et Python 3.7 sont installés par défaut.</p>
+<h2 id="afficher-la-version-de-python-par-programmation">Afficher la version de Python par programmation<a class="headerlink" href="#afficher-la-version-de-python-par-programmation" title="Permanent link">&para;</a></h2>
+<p>Il est possible d'afficher la version de Python par programmation. Ceci générera un affichage à la console :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">platform</span><span class="o">.</span><span class="n">python</span>\<span class="n">_version</span><span class="p">()</span>
+</span></code></pre></div>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« Should I use Python 2 or Python 3 for my development activity? ». Python. <a href="https://wiki.python.org/moin/Python2orPython3">https://wiki.python.org/moin/Python2orPython3</a></p>
+<h2 id="fiche-Shebang_ou_hash_bang">6.3 Shebang ou hash bang : #!<a class="headerlink" href="#fiche-Shebang_ou_hash_bang" title="Permanent link">&para;</a></h2>
+<p>Les script Python commencent généralement par une ligne qui débute par les caractères #! suivis par le chemin de l'interpréteur Python. Cette ligne se nomme shebang ou hash bang.</p>
+<p>La présence du shebang permet d'appeler le script Python sans avoir à préciser le nom de son interpréteur.</p>
+<p>L'usager devra avoir les droits d'exécution sur le script.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chmod u+x mon\_script.py
+</span></code></pre></div>
+<p>Le script pourra être appelé comme suit :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>./mon\_script.py
+</span></code></pre></div>
+<h2 id="shebang-qui-utilise-la-variable-denvironnement-path">Shebang qui utilise la variable d'environnement $PATH<a class="headerlink" href="#shebang-qui-utilise-la-variable-denvironnement-path" title="Permanent link">&para;</a></h2>
+<p>La meilleure technique consiste à utiliser /usr/bin/env devant le nom de l'interpréteur.</p>
+<p>Cette formulation fait en sorte que le système retrouvera le chemin exact de l'interpréteur à partir de la variable d'environnement $PATH de l'usager.</p>
+<p>Ceci assure un maximum de compatibilité si le script doit être exécuté sur un autre système ou même par un autre usager.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span></code></pre></div>
+<h2 id="shebang-fixe">Shebang fixe<a class="headerlink" href="#shebang-fixe" title="Permanent link">&para;</a></h2>
+<p>Parfois, on retrouve plutôt ceci, qui correspond au chemin donné lorsqu'on entre la commande which python3 dans une fenêtre terminal.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/usr/bin python3</span>
+</span></code></pre></div>
+<p>Remarquez qu'il n'y a pas de barre oblique avant le mot python3.</p>
+<p>Cette formulation fonctionne également mais elle risque de ne plus fonctionner si le script est utilisé sur un autre système ou par un autre usager.</p>
+<h2 id="script-sans-shebang">Script sans shebang<a class="headerlink" href="#script-sans-shebang" title="Permanent link">&para;</a></h2>
+<p>Dans le cas où le script Phython ne débute pas par un shebang, il faudra ajouter python3 devant son nom pour pouvoir l'exécuter.</p>
+<p>Notez qu'à ce moment, l'usager n'a pas besoin d'avoir les droits d'exécution sur le fichier.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python3 mon\_script.py
+</span></code></pre></div>
+<h2 id="fiche-executer_un_programme_python_dans_une_fenetre_terminal">6.4 Exécuter un programme Python dans une fenêtre Terminal<a class="headerlink" href="#fiche-executer_un_programme_python_dans_une_fenetre_terminal" title="Permanent link">&para;</a></h2>
+<p>Pour tester un programme Python, il est possible de l'exécuter dans une fenêtre Terminal.</p>
+<p>Déplacez-vous dans le dossier qui contient le programme puis tapez son nom avec son extension.</p>
+<p>Exemple sous Windows :</p>
+<p>Fenêtre de commande DOS</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cd \Users\votrenom\Documents\mondossier
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>helloworld.py
+</span></code></pre></div>
+<p>Exemple sous Mac ou Linux :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cd ~/mondossier
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>./helloworld.py
+</span></code></pre></div>
+<p>Il est également possible d'exéuter le programme en faisant appel à la commande python (pour Python 2.7) ou python3.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cd ~/mondossier
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>python3 helloworld.py
+</span></code></pre></div>
+<h2 id="fiche-les_structures_de_controle">6.5 Les structures de contrôle<a class="headerlink" href="#fiche-les_structures_de_controle" title="Permanent link">&para;</a></h2>
+<p>Les structures de contrôles permettent de contrôler le flux d'un programme grâce à des conditions et à des boucles.</p>
+<h2 id="la-condition">La condition<a class="headerlink" href="#la-condition" title="Permanent link">&para;</a></h2>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">if</span> <span class="n">nom</span> <span class="o">==</span> <span class="s1">'Annie'</span><span class="p">:</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="o">...</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">elif</span> <span class="n">nom</span> <span class="o">==</span> <span class="s1">'Toto'</span><span class="p">:</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="o">...</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="o">...</span>
+</span></code></pre></div>
+<p>Note : l'indentation (4 espaces) est importante : c'est elle qui indique quand un bloc d'instruction se termine.</p>
+<h2 id="la-boucle-while">La boucle while<a class="headerlink" href="#la-boucle-while" title="Permanent link">&para;</a></h2>
+<p>Pour boucler tant qu'une condition est vraie.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="la-boucle-for">La boucle for<a class="headerlink" href="#la-boucle-for" title="Permanent link">&para;</a></h2>
+<p>Cette boucle permet de faire une itération un nombre défini de fois.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="boucler-dans-les-elements-dune-liste">Boucler dans les éléments d'une liste<a class="headerlink" href="#boucler-dans-les-elements-dune-liste" title="Permanent link">&para;</a></h2>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">valeurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">for</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">valeurs</span><span class="p">:</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="fiche-Utilisation_d_un_paquet">6.6 Utilisation d'un paquet ou d'un module<a class="headerlink" href="#fiche-Utilisation_d_un_paquet" title="Permanent link">&para;</a></h2>
+<p>Pour utiliser <a href="fiche-les_paquets_et_modules_python.md#les_paquets_et_modules_python">un module ou un paquet</a>, peut importe s'il fait partie de la bibliothèque standard ou s'il est externe, faut débuter le script Python par une instruction import.</p>
+<p>Bien entendu, un module ou un paquet externe <a href="fiche-installer_un_paquet_python.md#installer_un_paquet_python">devra d'abord être installé sur votre poste de travail</a>.</p>
+<p>Par exemple, pour utiliser le module calendar :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">calendar</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="o">...</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">if</span> <span class="n">calendar</span><span class="o">.</span><span class="n">isleap</span><span class="p">(</span><span class="n">annee</span><span class="p">):</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="instruction-from-import">Instruction from ... import ...<a class="headerlink" href="#instruction-from-import" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'on utilise l'instruction import, chaque classe ou fonction importée doit être précédée par le nom du module ou du paquet, comme démontré plus haut avec calendar.isleap().</p>
+<p>Il est possible de modifier ce comportement à l'aide de la syntaxe from ... import *. Les classes et fonctions seront désormais accessibles comme si elles faisaient partie du coeur de Python.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">calendar</span><span class="w"> </span><span class="kn">import</span> \<span class="o">*</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">...</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">if</span> <span class="n">isleap</span><span class="p">(</span><span class="n">annee</span><span class="p">):</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="o">...</span>
+</span></code></pre></div>
+<p>Autre exemple :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> \<span class="o">*</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="o">...</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">canevas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">fenetre</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="paquet-contenant-plusieurs-modules">Paquet contenant plusieurs modules<a class="headerlink" href="#paquet-contenant-plusieurs-modules" title="Permanent link">&para;</a></h2>
+<p>Puisqu'un paquet est un dossier qui contient des modules, Python devait avoir un moyen de comprendre ce qu'il doit faire lorsqu'on lui lance une instruction import sur un paquet.</p>
+<p>Dans les faits, lorsqu'il rencontre le nom d'un paquet dans une instruction import, Python recherchera un fichier nommé __init__.py dans ce dossier. Autrement dit, l'importation d'un paquet consiste à importer le module __init__ présent dans ce paquet.</p>
+<p>Certains paquets sont configurés pour que tous leurs modules soient importés automatiquement. D'autres laissent le soin au programmeur d'importer seulement les modules désirés.</p>
+<p>C'est pourquoi, lorsque vous avez besoin d'une fonction ou d'une classe définie dans un autre module du paquet, il se peut que vous ayez besoin de faire une importation précise du module désiré.</p>
+<p>La syntaxe à utiliser est sous la forme :</p>
+<p>Syntaxe Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paquet.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">fonction</span>
+</span></code></pre></div>
+<p>ou</p>
+<p>Syntaxe Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paquet.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Classe</span>
+</span></code></pre></div>
+<p>ou encore, si le nombre de classes ou de fonctions à utiliser est important :</p>
+<p>Syntaxe Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paquet.module</span><span class="w"> </span><span class="kn">import</span> \<span class="o">*</span>
+</span></code></pre></div>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tkinter.font</span><span class="w"> </span><span class="kn">import</span> <span class="n">Font</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">police</span> <span class="o">=</span> <span class="n">Font</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">'Helvetica'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">'normal'</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="pour-plus-dinformation_2">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_2" title="Permanent link">&para;</a></h2>
+<p>« Python 101: All about imports ». Mouse vs Python. <a href="https://www.blog.pythonlibrary.org/2016/03/01/python-101-all-about-imports/">https://www.blog.pythonlibrary.org/2016/03/01/python-101-all-about-imports/</a></p>
+<p>« The Python Standard Library ». Python. <a href="https://docs.python.org/3/library/index.html">https://docs.python.org/3/library/index.html</a></p>
+<p>« UsefulModules ». Python. <a href="https://wiki.python.org/moin/UsefulModules">https://wiki.python.org/moin/UsefulModules</a></p>
+<p>« PyPI - the Python Package Index ». Python. <a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></p>
+<p>« Python 3 Module of the Week ». PyMOTW-3. <a href="https://pymotw.com/3/index.html">https://pymotw.com/3/index.html</a></p>
+<p>« Les imports en Python ». Sam &amp; Max. <a href="http://sametmax.com/les-imports-en-python/">http://sametmax.com/les-imports-en-python/</a></p>
+<p>« Structuring Your Project - Packages ». The Hitchhiker's guide to Python. <a href="http://docs.python-guide.org/en/latest/writing/structure/#packages">http://docs.python-guide.org/en/latest/writing/structure/#packages</a></p>
+<h2 id="fiche-A_quel_endroit_python_recherche-t-il_les_modules">6.7 À quel endroit Python recherche-t-il les modules?<a class="headerlink" href="#fiche-A_quel_endroit_python_recherche-t-il_les_modules" title="Permanent link">&para;</a></h2>
+<p>Si un programme Python utilise un module sans savoir à quel endroit il est placé, vous obtiendrez une erreur du genre :</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Traceback (most recent call last):
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>File "./mon\_programme.py", line 4, in &lt;module&gt;
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>import mon\_module
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>ModuleNotFoundError: No module named 'mon\_module'
+</span></code></pre></div>
+<p>Lorsqu'il rencontre une instruction import, Python recherchera un fichier dont le nom est identique au nom du module, avec l'extension .py.</p>
+<p>Il recherchera ce fichier :</p>
+<ul>
+<li>dans le dossier courant</li>
+<li>dans la liste des dossiers de la variable d'environnement Python sys.path</li>
+<li>dans la liste des dossiers de la variable d'environnement de l'OS PYTHONPATH</li>
+</ul>
+<h2 id="syspath">sys.path<a class="headerlink" href="#syspath" title="Permanent link">&para;</a></h2>
+<p>Pour connaître la valeur de sys.path, entrez ce code à la ligne de commande Python (rappel : entrez python3 dans une fenêtre Terminal pour obtenir la ligne de commande Python).</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="o">...</span> <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Appuyez deux fois sur Retour et vous verrez la liste des dossiers apparaître.</p>
+<p>Sur Raspberry Pi OS, voici ce que j'obtiens.</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>/usr/lib/python37.zip
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>/usr/lib/python3.7
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>/usr/lib/python3.7/lib-dynload
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>/usr/local/lib/python3.7/dist-packages
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>/usr/lib/python3/dist-packages
+</span></code></pre></div>
+<p>Vous pouvez ajouter un dossier à sys.path par programmation :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"/chemin/dossier-a-ajouter"</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="pythonpath">PYTHONPATH<a class="headerlink" href="#pythonpath" title="Permanent link">&para;</a></h2>
+<p>Pour connaître la valeur de PYTHONPATH sur un système Linux ou Mac :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>echo $PYTHONPATH
+</span></code></pre></div>
+<p>Et sur un système Windows :</p>
+<p>Invite de commande (CMD)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>echo %PYTHONPATH%
+</span></code></pre></div>
+<p>Il est possible d'ajouter du contenu à cette variable. Mais attention : ceci sera valable jusqu'à ce que l'ordinateur soit redémarré.</p>
+<p>Sour Linux ou Mac :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>export PHTYONPATH=$PYTHONPATH:/chemin/dossier-a-ajouter
+</span></code></pre></div>
+<p>ou</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>cd /chemin/dossier-a-ajouter
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>export PYTHONPATH=$PYTHONPATH:$PWD
+</span></code></pre></div>
+<p>Sous Windows :</p>
+<p>Invite de commande (CMD)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>set PYTHONPATH=%PYTHONPATH%;C:\chemin\dossier-a-ajouter
+</span></code></pre></div>
+<p>Les dossiers ajoutés ainsi à PYTHONPATH seront automatiquement ajoutés à sys.path.</p>
+<p>Si vous voulez faire un ajout permanent, ajoutez cette instruction dans le fichier .bashrc ou, si vous travaillez sous Windows, passez par le panneau de configuration.</p>
+<h2 id="pour-plus-dinformation_3">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_3" title="Permanent link">&para;</a></h2>
+<p>« Where does Python look for modules? ». Matthew Brett. <a href="https://bic-berkeley.github.io/psych-214-fall-2016/sys_path.html">https://bic-berkeley.github.io/psych-214-fall-2016/sys_path.html</a></p>
+<p>« Python import, sys.path, and PYTHONPATH Tutorial ». Dev Dungeon. <a href="https://www.devdungeon.com/content/python-import-syspath-and-pythonpath-tutorial#:~:text=PYTHONPATH%20is%20related%20to%20sys,for%20modules%20when%20using%20import%20.">https://www.devdungeon.com/content/python-import-syspath-and-pythonpath-tutorial#:~:text=PYTHONPATH%20is%20related%20to%20sys,for%20modules%20when%20using%20import%20.</a></p>
+<h2 id="fiche-les_tableaux_listes_et_tuples">6.8 Les tableaux, listes et tuples<a class="headerlink" href="#fiche-les_tableaux_listes_et_tuples" title="Permanent link">&para;</a></h2>
+<h2 id="tuple">Tuple<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
+<p>En Python, un <a href="https://docs.python.org/3/tutorial/datastructures.html#tut-tuples">tuple</a> est un tableau immuable et très performant. On utilisera les parenthèses pour l'initialiser.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">valeurs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Dans le cas où il y a un seul élément dans le tuple, on doit faire suivre cet élément par une virgule afin que Python comprenne qu'il ne s'agit pas d'une chaîne de caractères entourée de parenthèses.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">valeurs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,)</span>
+</span></code></pre></div>
+<h2 id="liste">Liste<a class="headerlink" href="#liste" title="Permanent link">&para;</a></h2>
+<p>Une liste est un tableau modifiable de longueur variable. On utilisera les crochets carrés pour l'initialiser.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">valeurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="tableau-associatif-dictionnaire">Tableau associatif (dictionnaire)<a class="headerlink" href="#tableau-associatif-dictionnaire" title="Permanent link">&para;</a></h2>
+<p>Un tableau associatif est caractérisé par des éléments qui portent un nom plutôt qu'un indice. On utilisera les accolades pour l'initialiser.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">configuration</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="s1">'menu'</span><span class="p">:</span> <span class="s1">'gauche'</span><span class="p">,</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="s1">'langue'</span><span class="p">:</span> <span class="s1">'fr'</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="p">}</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="o">...</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="n">valeur</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">'langue'</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="fiche-Ecrire_nos_propres_fonctions">6.9 Écrire nos propres fonctions<a class="headerlink" href="#fiche-Ecrire_nos_propres_fonctions" title="Permanent link">&para;</a></h2>
+<p>Il est très rare qu'une application soit écrite tout d'un bout sans utiliser de fonctions.</p>
+<p>On utilisera souvent des fonctions qui font partie intégrante de Python (ex : print()). On parlera de fonctions préprogrammées.</p>
+<p>On pourra également coder nos propres fonctions. On parlera alors de fonctions utilisateur, fonctions définies par l'utilisateur ou encore, en anglais, user-defined functions (UDF).</p>
+<p>Quel est l'intérêt de coder nos propres fonctions ? Il y a différents raisons qui justifient ce choix :</p>
+<ul>
+<li>Le même code doit être exécuté à plusieurs endroits dans le programme (<a href="fiche-principe_dry_do_no_repeat_yourself.md#principe_dry_do_no_repeat_yourself">principe DRY : Do not Repeat Yourself</a>).</li>
+<li>Le code devient plus facile à comprendre si une partie du code est placé dans une fonction disticte (<a href="http://fr.wikipedia.org/wiki/Principe_KISS">principe KISS</a> : Keep It Simple, Stupid !).</li>
+<li>Il faut attacher du code à un événement (ex : un clic sur un bouton). La fonction permettra de délimiter le code à exécuter lorsque l'événement survient.</li>
+</ul>
+<p>Comme dans tous les langages de programmation, lorsqu'on code une fonction, il y a deux étapes à réaliser :</p>
+<ul>
+<li>la déclaration de la fonction</li>
+<li>l'appel de la fonction</li>
+</ul>
+<h2 id="declaration-de-la-fonction">Déclaration de la fonction<a class="headerlink" href="#declaration-de-la-fonction" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'une fonction est déclarée, son code n'est pas exécuté tout de suite. Il le sera seulement lorsque la fonction sera appelée.</p>
+<p>La déclaration d'une fonction se fait à l'aide du mot-clé def. Tout le code de la fonction sera décalé de 4 espaces par rapport au programme principal. Ainsi, Python saura que le code de la fonction est terminé lorsqu'il rencontrera une ligne qui n'est pas décalée.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ma</span>\<span class="n">_fonction</span><span class="p">():</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="o">...</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="o">...</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1"># cette ligne ne fait pas partie de la fonction</span>
+</span></code></pre></div>
+<h2 id="appel-de-la-fonction">Appel de la fonction<a class="headerlink" href="#appel-de-la-fonction" title="Permanent link">&para;</a></h2>
+<p>Pour appeler une fonction, il faut écrire son nom suivi de parenthèses :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># la fonction sera exécutée immédiatement</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">ma</span>\<span class="n">_fonction</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Il est également possible de passer des paramètres à la fonction.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher</span>\<span class="n">_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="o">...</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="o">...</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="n">afficher</span>\<span class="n">_message</span><span class="p">(</span><span class="s1">'Bien le bonjour !'</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="documentation-de-la-fonction">Documentation de la fonction<a class="headerlink" href="#documentation-de-la-fonction" title="Permanent link">&para;</a></h2>
+<p>Pour chacune des fonctions que vous coderez, il est d'usage de commencer par un commentaire <a href="https://www.python.org/dev/peps/pep-0257/">Docstring</a> qui indique ce que la fonction fait. Le commentaire Docstring est constitué d'une ou plusieurs lignes de texte entourées par des triples apostrophes (""").</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">soumettre</span>\<span class="n">_click</span><span class="p">():</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="sd">""" Enregistre les informations dans la base de données. """</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="o">...</span>
+</span></code></pre></div>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ma</span>\<span class="n">_fonction</span><span class="p">():</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="sd">""" Effectue telle ou telle action.</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="sd">Ceci est un commentaire sur plusieurs lignes.</span>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="sd">On laisse généralement une ligne blanche après la première ligne, qui est un sommaire.</span>
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="sd">Les triple-guillemets peuvent se refermer à droite de la dernière ligne ou encore sur la ligne suivante.</span>
+</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="sd">"""</span>
+</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="indicatif-visuel-du-debut-du-programme-principal">Indicatif visuel du début du programme principal<a class="headerlink" href="#indicatif-visuel-du-debut-du-programme-principal" title="Permanent link">&para;</a></h2>
+<p>En Python, il faut toujours placer une fonction avant le programme qui l'utilise. C'est pourquoi on retrouvera les définitions de fonctions en haut du programme et le programme principal dans le bas.</p>
+<p>Puisque les fonctions doivent être définies avant le programme principal, il est pratique d'ajouter un commentaire qui indique clairement à quel endroit le programme principal commence.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ma</span>\<span class="n">_fonction</span><span class="p">():</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="o">...</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="o">...</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1">########## programme principal ##########</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="n">fenetre</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="fiche-Utiliser_une_variable_du_programme_principal_dans">6.10 Utiliser une variable du programme principal dans une fonction (portée des variables)<a class="headerlink" href="#fiche-Utiliser_une_variable_du_programme_principal_dans" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'une application Python contient des fonctions utilisateur et que ces fonctions doivent utiliser des variables, il faut prendre le temps de comprendre la portée des variables.</p>
+<p>La portée d'une variable (variable scope) indique à quel endroit elle peut être utilisée dans le programme.</p>
+<p>Une variable qui est créée dans une fonction ne risque pas d'entrer en conflit avec une autre variable du même nom créée dans une autre fonction ni même avec une variable du même nom créée dans le programme principal.</p>
+<p>La portée d'une variable est limitée à la fonction dans laquelle elle a été créée.</p>
+<h2 id="passer-un-parametre-a-la-fonction">Passer un paramètre à la fonction<a class="headerlink" href="#passer-un-parametre-a-la-fonction" title="Permanent link">&para;</a></h2>
+<p>Il arrive cependant des cas où on voudra créer une variable dans le programme principal et utiliser cette même variable dans une fonction. La technique par excellence consiste à passer la variable en paramètre à la fonction.</p>
+<p>Ex :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher</span>\<span class="n">_message</span><span class="p">(</span><span class="n">nom</span><span class="p">):</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="sd">"""Affiche un message avec le nom saisi par l'usager."""</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Bonjour, '</span> <span class="o">+</span> <span class="n">nom</span> <span class="o">+</span> <span class="s1">' !'</span><span class="p">)</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1">########## programme principal ##########</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="n">nom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Quel est ton nom ? '</span><span class="p">)</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="n">afficher</span>\<span class="n">_message</span><span class="p">(</span><span class="n">nom</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="etendre-la-portee-a-laide-de-global">Étendre la portée à l'aide de global<a class="headerlink" href="#etendre-la-portee-a-laide-de-global" title="Permanent link">&para;</a></h2>
+<p>Certaines situations nous empêchent de passer des paramètres à une fonction. Ce sera le cas, notamment, lorsque la fonction est appelée par Python en réponse à un événement.</p>
+<p>À ce moment, on pourra indiquer à Python que la variable qu'on utilise dans la fonction est la même que celle créée dans le programme principal. Ceci sera fait à l'aide du mot-clé global.</p>
+<p>Soit le programme suivant, qui n'utilise ni paramètre, ni variable globale :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">changer</span>\<span class="n">_nom</span><span class="p">():</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="sd">"""Change la valeur de la variable nom sans affecter le programme principal."""</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="n">nom</span> <span class="o">=</span> <span class="s1">'abc'</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="c1">########## programme principal ##########</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="n">nom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Quel est ton nom ? '</span><span class="p">)</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="n">changer</span>\<span class="n">_nom</span><span class="p">()</span>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Bonjour, '</span> <span class="o">+</span> <span class="n">nom</span> <span class="o">+</span> <span class="s1">' !'</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Le message utilisera toujours le nom saisi par l'usager et ce, même si la fonction assigne la valeur 'abc' à une variable qui s'appelle elle aussi nom.</p>
+<p>Si on voulait changer ce comportement :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">changer</span>\<span class="n">_nom</span><span class="p">():</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="sd">"""Change la valeur de la variable globale nom, ce qui affectera le programme principal."""</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="k">global</span> <span class="n">nom</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="n">nom</span> <span class="o">=</span> <span class="s1">'abc'</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="c1">########## programme principal ##########</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="n">nom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Quel est ton nom ? '</span><span class="p">)</span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="n">changer</span>\<span class="n">_nom</span><span class="p">()</span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Bonjour, '</span> <span class="o">+</span> <span class="n">nom</span> <span class="o">+</span> <span class="s1">' !'</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Cette fois, le programme affichera toujours « Bonjour, abc ! ».</p>
+<h2 id="fiche-la_programmation_objet_en_python">6.11 La programmation objet en Python<a class="headerlink" href="#fiche-la_programmation_objet_en_python" title="Permanent link">&para;</a></h2>
+<p>Même si les concepts de programmation orientée objet sont les mêmes d'un langage de programmation à l'autre, les différences de syntaxe peuvent parfois être déconcertantes.</p>
+<p>Quelques faits saillants :</p>
+<ul>
+<li>Le nom de la classe est écrit <a href="fiche-Casse_Pascal_LaCassePascal.md#Casse_Pascal_LaCassePascal">en casse Pascal</a>  <img alt="Conseil" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg" title="Première lettre majuscule de même que la première lettre de chaque mot (ex : JourDePluie)" />.</li>
+<li>Si la classe hérite d'une autre classe, on met le nom de la classe de base entre parenthèses.</li>
+<li>Si la classe n'a pas de parent, on ne met pas de parenthèses.</li>
+<li>À l'intérieur de la classe, tout le code doit être placé dans une méthode. Seule exception : l'initialisation des variables de classe.</li>
+<li>Chaque méthode est déclarée avec le mot-clé def.</li>
+<li>Le constructeur s'appelle __init__.</li>
+<li>Le constructeur et les autres méthodes reçoivent toujours self comme premier paramètre.</li>
+<li>Lors de l'appel d'une méthode, on ignore le paramètre self puisque c'est le noyau qui se chargera de le passer en paramètre.</li>
+<li>Un point sépare le nom d'un objet de ses membres.</li>
+<li>Lorsqu'une méthode doit appeler une autre méthode de la classe, il faut faire précéder le nom par self.</li>
+</ul>
+<p>Voici donc un exemple de classe écrite en Python pour vous guider pendant votre programmation.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MaClasse</span><span class="p">(</span><span class="n">ClasseDeBase</span><span class="p">):</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="c1"># Attributs de classe</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="n">un</span>\<span class="n">_attribut</span>\<span class="n">_de</span>\<span class="n">_classe</span> <span class="o">=</span> <span class="s1">'valeur'</span>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="k">def</span><span class="w"> </span>\<span class="n">_</span>\<span class="n">_init</span>\<span class="n">_</span>\<span class="n">_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parametre</span><span class="o">=</span><span class="s1">'Valeur par défaut'</span><span class="p">):</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="c1"># Initialisation des attributs (variables d'instance)</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">un</span>\<span class="n">_attribut</span> <span class="o">=</span> <span class="n">parametre</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="bp">self</span><span class="o">.</span><span class="n">un</span>\<span class="n">_autre</span>\<span class="n">_attribut</span> <span class="o">=</span> <span class="s1">'autre valeur'</span>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="k">def</span><span class="w"> </span>\<span class="n">_</span>\<span class="n">_str</span>\<span class="n">_</span>\<span class="n">_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="k">return</span> <span class="s1">'Chaîne qui représente l</span><span class="se">\'</span><span class="s1">objet: </span><span class="si">%d</span><span class="s1">, </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">un</span>\<span class="n">_attribut</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">un</span>\<span class="n">_autre</span>\<span class="n">_attribut</span><span class="p">)</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">une</span>\<span class="n">_methode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a><span class="o">...</span>
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">une</span>\<span class="n">_autre</span>\<span class="n">_methode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="o">...</span>
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="bp">self</span><span class="o">.</span><span class="n">une</span>\<span class="n">_methode</span><span class="p">()</span>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a><span class="k">return</span> <span class="o">...</span>
+</span></code></pre></div>
+<h2 id="612-passer-un-parametre-a-un-script-python">6.12 Passer un paramètre à un script Python<a class="headerlink" href="#612-passer-un-parametre-a-un-script-python" title="Permanent link">&para;</a></h2>
+<p>Il est possible de passer un ou plusieurs paramètres, aussi appelés arguments, à un script Python à partir de la ligne de commande.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>python3 monscript.py unparametre autreparametre
+</span></code></pre></div>
+<p>Pour lire la valeur des paramètres dans le script, il faut d'abord importer le module sys.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span></code></pre></div>
+<p>Les paramètres sont contenus dans un tableau nommé sys.argv.</p>
+<p>L'élément 0 du tableau est toujours le nom du script.</p>
+<p>L'élément 1 est le premier argument, l'élément 2 est le second argument et ainsi de suite.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">nom</span>\<span class="n">_script</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">premier</span>\<span class="n">_parametre</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="n">deuxieme</span>\<span class="n">_parametre</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="si-aucun-parametre-nest-passe-parametre-optionnel">Si aucun paramètre n'est passé (paramètre optionnel)<a class="headerlink" href="#si-aucun-parametre-nest-passe-parametre-optionnel" title="Permanent link">&para;</a></h2>
+<p>Si le script tente de lire un paramètre alors qu'aucun n'a été passé, le script lèvera une exception de type IndexError.</p>
+<p>Il faut donc toujours lire le paramètre dans un try... except.</p>
+<p>Lorsqu'aucun paramètre n'est passé, le programme réagira en conséquence. Il pourrait, par exemple, fournir une valeur par défaut.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="n">valeur</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="n">valeur</span> <span class="o">=</span> <span class="s2">"x"</span>
+</span></code></pre></div>
+<h2 id="parametre-numerique">Paramètre numérique<a class="headerlink" href="#parametre-numerique" title="Permanent link">&para;</a></h2>
+<p>À la base, les paramètres sont tous de type texte.</p>
+<p>Si le paramètre doit être utilisé comme un nombre, il faut d'abord le convertir.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="o">...</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="parametre-numerique-optionnel">Paramètre numérique optionnel<a class="headerlink" href="#parametre-numerique-optionnel" title="Permanent link">&para;</a></h2>
+<p>En combinant les deux approches précédentes, on s'assure que dans le cas d'un paramètre numérique, le programme fonctionne s'il n'est pas passé ou si sa valeur n'est pas numérique.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># arrivera ici si aucun paramètre n'est passé</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="k">except</span><span class="p">:</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># arrivera ici si le paramètre n'était pas numérique</span>
+</span></code></pre></div>
+<h2 id="pour-plus-dinformation_4">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_4" title="Permanent link">&para;</a></h2>
+<p>« Python Command Line Arguments ». Real Python. <a href="https://realpython.com/python-command-line-arguments/#the-sysargv-array">https://realpython.com/python-command-line-arguments/#the-sysargv-array</a></p>
+<h2 id="fiche-forcer_l_arret_d_un_script">6.13 Forcer l'arrêt d'un script<a class="headerlink" href="#fiche-forcer_l_arret_d_un_script" title="Permanent link">&para;</a></h2>
+<p>Quand vous lancez un script, que ce soit un script bash ou un script Python, il pourrait arriver une situation où vous devez en forcer l'arrêt, par exemple si le script entre dans une boucle sans fin.</p>
+<h2 id="ctrlc">Ctrl+C<a class="headerlink" href="#ctrlc" title="Permanent link">&para;</a></h2>
+<p>La façon la plus intéressante pour terminer un programme est d'appuyez sur les touches Ctrl+C. Ceci émet un signal <a href="fiche-sigint.md#sigint">SIGINT</a> qui arrête gentiment le programme.</p>
+<p>Dans le cas d'un script Python, SIGINT lève une exception de type KeyboardInterrupt qui interrompt le code et qui peut être attrrapée et traitée au même titre que toute autre exception.</p>
+<h2 id="ctrlz">Ctrl+Z<a class="headerlink" href="#ctrlz" title="Permanent link">&para;</a></h2>
+<p>Dans le cas où Ctrl+C ne fonctionne pas, on peut se tourner vers une action un peu plus corsée : appuyer sur les touches Ctrl+Z . Ceci émet un signal <a href="fiche-sigtstp_et_sigstop.md#sigtstp_et_sigstop">SIGTSTP</a> qui arrête immédiatement le programme.</p>
+<p>Dans les faits, le programme est mis en pause, ce qui peut causer des problèmes, par exemple en ne libérant pas les ports associés au processus.</p>
+<p>Dans le cas d'un script Python, SIGTSTP ne laisse pas le temps au script de se terminer normalement.</p>
+<p>Il est à noter que certains scripts pourrraient ignorer ce signal.</p>
+<h2 id="tuer-le-processus">Tuer le processus<a class="headerlink" href="#tuer-le-processus" title="Permanent link">&para;</a></h2>
+<p>Dans d'autres situations plus complexes, par exemple si le script est lancé par un intermédiaire comme une boîte domotique, alors on n'a pas accès à Ctrl+C ou Ctrl+Z pour l'arrêter. À ce moment, il faut tuer le processus à l'aide de la commande kill ou pkill.</p>
+<h3 id="pkill">pkill<a class="headerlink" href="#pkill" title="Permanent link">&para;</a></h3>
+<p>La commande <a href="https://linux.die.net/man/1/pkill">pkill</a> tue un processus à partir de son nom.</p>
+<p>Le plus simple est de lui fournir, à l'aide de -f, le nom du script Python que l'on veut arrêter.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>sudo pkill -f mon\_script.py
+</span></code></pre></div>
+<p>Par défaut, pkill envoit un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).</p>
+<p>Aucun script ne peut ignorer ce signal.</p>
+<h3 id="kill">kill<a class="headerlink" href="#kill" title="Permanent link">&para;</a></h3>
+<p>La commande <a href="https://man7.org/linux/man-pages/man1/kill.1.html">kill</a> tue un processus à partir de son numéro généré par le système d'exploitation.</p>
+<p>Pour faut trouver le numéro du processus qui correspond au script, on peut utiliser la commande <a href="http://www.linux-france.org/article/man-fr/man1/ps-1.html">ps</a>. On précisera qu'on ne veut voir que les processus dont le nom contient python.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>ps -ef | grep python
+</span></code></pre></div>
+<p>Vous obtiendrez un résultat semblable à cet extrait :</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>pi@raspberrypi:~ $ ps -ef | grep python
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>pi 891 1260 0 11:16 pts/0 00:00:00 python3 clignote.py
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>pi 1288 1260 0 07:57 pts/0 00:00:00 python3 allume\_led.py
+</span></code></pre></div>
+<p>La deuxième colonne indique le numéro du processus. Ainsi, pour terminer le script clignote.py, il faut faire :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>kill -9 891
+</span></code></pre></div>
+<p>Il est possible d'utiliser le nom du signal à envoyer plutôt que son numéro :</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>kill -SIGKILL 891
+</span></code></pre></div>
+<p>Ces deux commandes envoient un signal <a href="fiche-sigkill.md#sigkill">SIGKILL</a> qui tue brutalement le processsus sans lui laisser la chance de se terminer de façon gracieuse (libération de la mémoire et tout et tout).</p>
+<p>Aucun script ne peut ignorer ce signal.</p>
+<p>Remarquez que le même résultat que Ctrl+C peut être obtenu en entrant ceci dans une seconde fenêtre Terminal :</p>
+<ul>
+<li>kill -2 suivi du numéro de processus</li>
+</ul>
+<p>ou
+* kill -SIGINT suivi du numéro de processus</p>
+<h2 id="pour-plus-dinformation_5">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_5" title="Permanent link">&para;</a></h2>
+<p>« Signal (IPC) ». Wikipedia. <a href="https://en.wikipedia.org/wiki/Signal_(IPC)">https://en.wikipedia.org/wiki/Signal_(IPC)</a></p>
+<p>« kill - Envoyer un signal à un processus ». MAN Linux Magique. <a href="http://www.man-linux-magique.net/man1/kill.html">http://www.man-linux-magique.net/man1/kill.html</a></p>
+<p>« What to do when a Linux desktop freezes? - If all else fails, you Raise The Elephant ». Stack Exchange. <a href="https://unix.stackexchange.com/questions/31818/what-to-do-when-a-linux-desktop-freezes#answer-33891">https://unix.stackexchange.com/questions/31818/what-to-do-when-a-linux-desktop-freezes#answer-33891</a></p>
+<h2 id="fiche-erreurs_frequentes_002">6.14 Erreurs fréquentes<a class="headerlink" href="#fiche-erreurs_frequentes_002" title="Permanent link">&para;</a></h2>
+<p>Information à venir...</p>
+<h2 id="pour-plus-dinformation_6">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_6" title="Permanent link">&para;</a></h2>
+<p>« Invalid Syntax in Python: Common Reasons for SyntaxError ». Real Python. <a href="https://realpython.com/invalid-syntax-python/">https://realpython.com/invalid-syntax-python/</a></p>
+<h2 id="615-la-syntaxe-python-vs-autres-langages">6.15 La syntaxe Python vs autres langages<a class="headerlink" href="#615-la-syntaxe-python-vs-autres-langages" title="Permanent link">&para;</a></h2>
+<p>Si vous avez déjà travaillé avec quelques langages de programmation, vous savez que la syntaxe varie d'un langage à l'autre. Parfois, les différences sont minimes mais d'autre fois, elles peuvent être déroutantes.</p>
+<p>Pour vous aider à vous acclimater à Python, voici quelques éléments de syntaxe à connaître et leur comparaison avec d'autres langages.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Python</th>
+<th>JavaScript</th>
+<th>PHP</th>
+<th>C#</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chaînes de caractères</td>
+<td>nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!'</td>
+<td>nom = "Annie";  ou  nom = 'Annie';</td>
+<td>$nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide.</td>
+<td>nom = "Annie";</td>
+</tr>
+<tr>
+<td>Booléens</td>
+<td>True  False    Sensible à la casse</td>
+<td>true  false    Sensible à la casse</td>
+<td>True ou true ou TRUE  False ou false ou FALSE    Insensible à la casse</td>
+<td>true  false    Certaines fonctions C# retournent cependant True ou False...    bool valeur = true;  Console.WriteLine(valeur); // True</td>
+</tr>
+<tr>
+<td>Opérateurs booléens</td>
+<td>and  or  not</td>
+<td>&amp;&amp;</td>
+<td></td>
+<td>!</td>
+</tr>
+<tr>
+<td>Concaténation</td>
+<td>nom_complet = prenom + ' ' + nom_famille</td>
+<td>nomComplet = prenom + ' ' + nomFamille;</td>
+<td>$nomComplet = $prenom . ' ' . $nomFamille;</td>
+<td>nomComplet = prenom + '" " + nomFamille;</td>
+</tr>
+<tr>
+<td>Incrémentation</td>
+<td>i += 1</td>
+<td>i += 1; (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Addition_assignment">affectation après addition</a>)  i++ (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Increment">opérateur d'incrémentation en suffixe</a>)  ++i (opérateur d'incrémentation en préfixe)</td>
+<td>$i += 1;  $i++ (<a href="https://www.php.net/manual/fr/language.operators.increment.php">post-incrémente</a>)  ++$i (pré-incrémente)</td>
+<td>i += 1;  i++  ++i</td>
+</tr>
+<tr>
+<td>Conversion de type</td>
+<td>nombre= int(saisie)</td>
+<td>nombre = parseInt(saisie);</td>
+<td>$nombre = (int)$saisie;  ou  $nombre = intval($saisie);</td>
+<td>nombre = Convert.ToInt32(saisie);  ou  Int32.TryParse(saisie, out nombre);</td>
+</tr>
+<tr>
+<td>Affichage à l'écran</td>
+<td>print(nom)  ou, pour éviter les sauts de ligne :  print(nom, end='')    On peut interpréter des variables dans une chaîne : print(f"Votre score est {score}")</td>
+<td>L'affichage se fait à l'aide de manipulations du DOM :  balise.innerHTML = nom;    Si on utilise jQuery :  $(balise).html(nom);    Pour afficher à la console :  console.log(nom);    Pour afficher dans une fenêtre popup :  window.alert(nom);</td>
+<td>echo $nom;</td>
+<td>Dans une page Web :  Response.Write(nom);    À la console :  Console.WriteLine(nom);</td>
+</tr>
+<tr>
+<td>Lecture à la console</td>
+<td>nombre = input('Veuillez entrer un nombre : ')</td>
+<td></td>
+<td></td>
+<td>Console.WriteLine("Veuillez entrer un nombre : ");  nombre = Console.ReadLine();</td>
+</tr>
+<tr>
+<td>Tableaux</td>
+<td>valeurs = ['a', 'b', 'c']  En Python, on dit que c'est une <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">liste</a> (modifiable, longueur variable)  Il existe également des <a href="https://docs.python.org/3/tutorial/datastructures.html#tut-tuples">tuples</a> (immuables mais plus performants) :  valeurs = ('a', 'b', 'c')  ou, s'il y a un seul élément dans le tuple :  valeurs = ('a',)</td>
+<td>var valeurs = ['a', 'b', 'c'];</td>
+<td>$valeurs = ['a', 'b', 'c'];</td>
+<td>string[] valeurs = {"a", "b", "c"};</td>
+</tr>
+<tr>
+<td>Tableaux associatifs (dictionnaires)</td>
+<td>configuration = {      'menu': 'gauche',      'langue': 'fr'  }  ...  valeur = configuration['langue']</td>
+<td>var configuration = {      'menu' : 'gauche',      'langue': 'fr' };  ...  valeur = configuration['langue'];</td>
+<td>$configuration = [      'menu' =&gt; 'gauche',      'langue' =&gt; 'fr',  ];  ...  $valeur = $configuration['langue']</td>
+<td>Dictionary<string, string> configuration = new Dictionary<string, string>()  {      {"menu","gauche"},      {"langue", "fr"}  };  ...  valeur = configuration["langue"];</td>
+</tr>
+<tr>
+<td>Vérifier si une valeur fait partie d'une liste de valeurs</td>
+<td>if i in (3, 6, 9):      ...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Conditions</td>
+<td>if nom == 'Annie':      ...  elif nom == 'Toto':      ...  else:      ...    Note : l'indentation (4 espaces) est importante : c'est elle qui indique quand un bloc d'instruction se termine.</td>
+<td>if (nom == 'Annie') {      ...  } else if (nom == 'Toto') {      ...  } else {      ...  }</td>
+<td>if ($nom == 'Annie') {      ...  } elseif ($nom == 'Toto') {      ...  } else {      ...  }</td>
+<td>if (nom == "Annie)  {      ...  }  else if (nom == "Toto")  {      ...  }  else  {      ...  }</td>
+</tr>
+<tr>
+<td>Boucles while</td>
+<td>while x &lt; 10:      ...</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+</tr>
+<tr>
+<td>Boucles sur un nombre déterminé d'itérations</td>
+<td>for i in range(10):      ...    La boucle pourrait commencer à une autre valeur que 0, il est possible de spécifier le départ, la fin (exclue de la boucle) et la valeur du saut :  for i in range(1, 10, 1)      ...</td>
+<td _=" " class="..">for (i = 0; i &lt; 10; i++)</td>
+<td _=" " class="..">for ($i = 0; $i &lt; 10; $i++)</td>
+<td _=" " class="..">for (i = 0; i &lt; 10; i++)</td>
+</tr>
+<tr>
+<td>Boucles sur les éléments d'un tableau</td>
+<td>valeurs = ['a', 'b', 'c']  for valeur in valeurs:      ...</td>
+<td _=" " class="..">var valeurs = ['a', 'b', 'c'];    for (var valeur in valeurs)</td>
+<td _=" " class="..">$valeurs = ['a', 'b', 'c'];    foreach ($valeurs as $valeur)</td>
+<td>string[] valeurs = {"a", "b", "c"};    foreach (int valeur in valeurs)  {      ...  }</td>
+</tr>
+<tr>
+<td>Opérateur ternaire (inline if)</td>
+<td>valeur_si_vrai if condition else valeur_si_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age &gt;= 18 else False</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>try:      ...  except TypeException as e:      ... # traitement d'une exception précise  except Exception as e:      ... # traitement des autres exceptions  else:      ... # traitement si pas d'exception  finally:      ... # traitement si exception ou non</td>
+<td>try {      ...  } catch (e) {      if (e instanceof TypeException) {          ... // traitement d'une exception précise      } else {          ... // traitement des autres exceptions      }  }  finally {      ... // traitement si exception ou non  }</td>
+<td>try {      ...  } catch (TypeException $e) {      ... // traitement d'une exception précise  } catch (Throwable $e) {      ... // traitement des autres exceptions si PHP 7  } catch (Exception $e) {      ... // traitement des autres exceptions si PHP 5.X  } finally {      ... // traitement si exception ou non  }</td>
+<td>try  {      ...  }  catch (TypeException)  {      ... // traitement d'une exception précise  }  catch (Exception e)  {      ... // traitement des autres exceptions  }  finally  {      ... // traitement si exception ou non  }</td>
+</tr>
+<tr>
+<td>Commentaires</td>
+<td>#</td>
+<td>//  /* ... */</td>
+<td>#  //  /* ... */</td>
+<td>//  /* ... */</td>
+</tr>
+<tr>
+<td>Commentaires de documentation</td>
+<td>Cette documentation d'appelle <a href="https://www.python.org/dev/peps/pep-0257/">Docstring</a>.    def ma_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ...</td>
+<td _=" " _wzxhzdk:84_Résumé="<summary>Résumé" _wzxhzdk:86_Description="<param name="parametre" type="Number">Description" _wzxhzdk:88_Description="<returns type="Number">Description" class=".." de="de" du="du" fonction._wzxhzdk:85_="fonction.</summary>" la="la" paramètre._wzxhzdk:87_="paramètre.</param>" retour._wzxhzdk:89_="retour.</returns>" valeur="valeur">function maFonction(parametre)</td>
+<td _=" " class="..">Cette documentation s'appelle <a href="https://www.phpdoc.org/">phpDocumentor</a>.    /**   * Résumé de la fonction.   *   * @param int $parametre Description du paramètre.   *   * @author Annie Gagnon <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#110;&#105;&#101;&#103;&#97;&#103;&#110;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#110;&#110;&#105;&#101;&#103;&#97;&#103;&#110;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>   * @return int Description de la valeur de retour.   *   */  function maFonction(int $parametre) : int</td>
+<td _=" " class="..">/// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)</td>
+</tr>
+<tr>
+<td>Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows)</td>
+<td><a href="https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep">os.linesep</a></td>
+<td></td>
+<td><a href="http://php.net/manual/en/reserved.constants.php#constant.php-eol">PHP_EOL</a></td>
+<td><a href="https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx">Environment.NewLine</a></td>
+</tr>
+<tr>
+<td>Valeur nulle</td>
+<td>variable = None</td>
+<td>let variable = null;</td>
+<td>$variable = NULL;</td>
+<td>string variable = null;</td>
+</tr>
+<tr>
+<td></td>
+<td>Python</td>
+<td>JavaScript</td>
+<td>PHP</td>
+<td>C#</td>
+</tr>
+</tbody>
+</table>
+<p>Pour compléter ce tableau, voici quelques normes de programmation généralement appliquées dans différents langages.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><a href="https://www.python.org/dev/peps/pep-0008/">Python</a></th>
+<th><a href="https://google.github.io/styleguide/jsguide.html">JavaScript</a></th>
+<th><a href="http://www.php-fig.org/psr/psr-1/">PHP</a></th>
+<th><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions">C#</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projets</td>
+<td>Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console_sans_bd et dans un autre projet graphique_sans_bd.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Espaces de noms</td>
+<td>toutenminuscules</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fichiers</td>
+<td>toutenminuscules  ou  casse_serpent</td>
+<td>toutenminuscules  ou  minuscules-avec-traits-d-union</td>
+<td>Dépend du framework utilisé</td>
+<td></td>
+</tr>
+<tr>
+<td>Noms de variables</td>
+<td>casse_serpent</td>
+<td>casseChameau</td>
+<td>Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $.</td>
+<td>casseChameau</td>
+</tr>
+<tr>
+<td>Noms de classes</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td>Noms de fonctions</td>
+<td>casse_serpent</td>
+<td>casseChameau</td>
+<td>casseChameau</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td>Noms de constantes</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td></td>
+<td>Python</td>
+<td>JavaScript</td>
+<td>PHP</td>
+<td>C#</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pour-plus-dinformation_7">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_7" title="Permanent link">&para;</a></h2>
+<p>« Python 3.6.4 documentation ». Python. <a href="https://docs.python.org/3.6/index.html">https://docs.python.org/3.6/index.html</a></p>
+<p>« Learning Python: From Zero to Hero ». Medium. <a href="https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567">https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567</a></p>
+<p>« PEP 8 -- Style Guide for Python Code ». Python. <a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>« PEP257: Good Python docstrings by example ». Dolph Mathews. <a href="http://blog.dolphm.com/pep257-good-python-docstrings-by-example/">http://blog.dolphm.com/pep257-good-python-docstrings-by-example/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

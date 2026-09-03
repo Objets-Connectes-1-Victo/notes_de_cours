@@ -1,0 +1,5333 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>47. Scripts Python pour envoyer et recevoir du signal sur le GPIO - Notes de cours - Objets connectés 1 (420-3A4-VI)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapitre-scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-header__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes de cours - Objets connectés 1 (420-3A4-VI)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              47. Scripts Python pour envoyer et recevoir du signal sur le GPIO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01_deroulement_du_cours/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Divers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../10__semaine_1_/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Notes de cours
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notes de cours - Objets connectés 1 (420-3A4-VI)" class="md-nav__button md-logo" aria-label="Notes de cours - Objets connectés 1 (420-3A4-VI)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes de cours - Objets connectés 1 (420-3A4-VI)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Divers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_deroulement_du_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Déroulement du cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ou_trouver_de_laide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Où trouver de l'aide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03__chapitres_de_reference_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_depannage_sur_le_raspberry_pi_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dépannage sur le Raspberry Pi (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_depannage_python_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dépannage Python (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_les_scripts_bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Les scripts bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes de cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes de cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S01
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10__semaine_1_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_situation_du_cours_dans_le_programme_detudes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Situation du cours dans le programme d'études
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_utilisation_de_lintelligence_artificielle_pendant_le_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Utilisation de l'intelligence artificielle pendant le cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_quelques_trucs_pour_vous_aider_dans_ce_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Quelques trucs pour vous aider dans ce cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_la_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_lunite_centrale_du_systeme_domotique_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. L'unité centrale du système domotique (Raspberry Pi)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16_le_logiciel_de_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Le logiciel de domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22_la_passerelle_domotique_et_les_protocoles_de_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. La passerelle domotique et les protocoles de communication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_les_appareils_domotiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Les appareils domotiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../66_home_assistant_au_coeur_de_votre_systeme_domotique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    58. Home Assistant au coeur de votre système domotique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../67_chapitre_de_reference_pour_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    59. Chapitre de référence pour Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../68_depannage_home_assistant_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    60. Dépannage Home Assistant (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../69_exercice_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    61. Exercice 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    62. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S02
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28__semaine_2_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../71_commencer_a_travailler_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    63. Commencer à travailler avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../72_sauvegarde_de_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    64. Sauvegarde de Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../73_exercice_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    65. Exercice 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../74_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    66. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../77_le_fichier_configurationyaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    68. Le fichier configuration.yaml
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../78_les_icones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    69. Les icônes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../79_les_capteurs_virtuels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    70. Les capteurs virtuels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_les_tableaux_de_bord/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    71. Les tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../81_exercice_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    72. Exercice 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../82_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    73. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S03
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39__semaine_3_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../83_les_automatisations_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    74. Les automatisations Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../84_le_soleil_et_la_meteo_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    75. Le soleil et la météo sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../85_depannage_sur_les_automatisations_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    76. Dépannage sur les automatisations (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../86_exercice_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    77. Exercice 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../87_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    78. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../89_les_modeles_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    79. Les modèles Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_exercice_14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    80. Exercice 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../91_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    81. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S04
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45__semaine_4_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../92_deboguer_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    82. Déboguer Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../93_automatisations_qui_tiennent_compte_de_lheure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    83. Automatisations qui tiennent compte de l'heure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../94_notification_par_courriel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    84. Notification par courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../95_depannage_sur_lenvoi_de_courriel_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    85. Dépannage sur l'envoi de courriel (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../96_depannage_sur_les_positions_gps_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    86. Dépannage sur les positions GPS (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../97_exercice_15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    87. Exercice 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    88. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_detecteur_de_presence_sous_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    89. Détecteur de présence sous Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100_exercice_16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    90. Exercice 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    91. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S05
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../51__semaine_5_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../103_sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    92. SQLite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../104_la_base_de_donnees_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    93. La base de données Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../105_historisation_des_donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    94. Historisation des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../106_exercice_17_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    95. Exercice 17 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../107_exercice_18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    96. Exercice 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../108_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    97. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S06
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../63__semaine_6_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110_exercice_19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    98. Exercice 19
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../111_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    99. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S07
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../65__semaine_7_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../113_examen_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    100. Examen 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S12
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../112__semaine_12_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../114_exercice_20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    101. Exercice 20
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../115_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    102. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S13
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../116__semaine_13_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../117_communication_home_assistant_jeedom_via_lapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    103. Communication Home Assistant - Jeedom via l'API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../118_exercice_21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    104. Exercice 21
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../119_exercice_22_optionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    105. Exercice 22 - OPTIONNEL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    106. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../121_mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    107. MQTT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../122_exercice_23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    108. Exercice 23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../123_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    109. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S14
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../124__semaine_14_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../125_exercice_24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    110. Exercice 24
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../126_pour_le_prochain_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    111. Pour le prochain cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../127_format_json_dans_un_modele/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    112. Format JSON dans un modèle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../128_exercice_25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    113. Exercice 25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../129_pour_le_prochain_cours_deux_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    114. Pour le prochain cours (deux cours)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130_simulation_dexamen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    115. Simulation d'examen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S15
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../131__semaine_15_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../132_examen_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    116. Examen 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../133__chapitres_supplementaires_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres supplémentaires ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../134_installer_un_store_controle_a_distance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    117. Installer un store contrôlé à distance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../135_les_servomoteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    118. Les servomoteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../136__aller_plus_loin_avec_linux_et_le_raspberry_pi_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Linux et le Raspberry Pi ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../137_divers_linux_et_raspberry_pi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    119. Divers Linux et Raspberry Pi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../138_configurations_reseau_avec_dhcpcd_wpa_supplicant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    120. Configurations réseau avec dhcpcd (wpa_supplicant)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../139_raspberry_pi_comme_simple_serveur_http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    121. Raspberry Pi comme simple serveur HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140__aller_plus_loin_avec_home_assistant_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Aller plus loin avec Home Assistant ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../141_les_scripts_python_avec_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    122. Les scripts Python avec Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../142_appeler_un_script_python_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    123. Appeler un script Python dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../143_les_themes_dans_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    124. Les thèmes dans Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../144_les_watchdog_home_assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    125. Les watchdog Home Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.1 Langages et bibliothèques pour communiquer avec le GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-installation_de_la_bibliotheque_rpi_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.2 Installation de la bibliothèque RPi.GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-de-la-bibliotheque-rpigpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation de la bibliothèque RPi.GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installer-la-derniere-version-de-rpigpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installer la dernière version de RPi.GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-la_base_des_scripts_avec_rpi_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.3 La base des scripts avec RPi.GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nom-du-fichier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nom du fichier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entete-du-script-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entête du script Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choisir-le-type-dadressage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choisir le type d'adressage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-pour-les-numeros-de-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables pour les numéros de ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determiner-le-sens-du-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Déterminer le sens du signal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Déterminer le sens du signal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpioout-le-pi-peut-envoyer-un-signal-au-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO.OUT : le Pi peut envoyer un signal au port
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpioin-le-pi-peut-recevoir-un-signal-du-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO.IN : le Pi peut recevoir un signal du port
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#envoi-dun-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Envoi d'un signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reception-dun-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réception d'un signal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Réception d&#39;un signal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evenements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Événements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinitialisation-des-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réinitialisation des ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-de-base-allumer-une-del" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple de base : allumer une DEL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clignoter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple complet : faire clignoter une DEL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lancer le script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.4 Script pour réinitialiser toutes les broches programmables du GPIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-passer_un_parametre_a_un_script_python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.5 Passer un paramètre à un script Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#si-aucun-parametre-nest-passe-parametre-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si aucun paramètre n'est passé (paramètre optionnel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametre-numerique-optionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètre numérique optionnel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-La_syntaxe_Python_vs_autres_langages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.6 La syntaxe Python vs autres langages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.7 Copier un fichier sur une machine Linux à partir d'un autre ordinateur et vice-versa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commande-scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commande scp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commande scp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copie-de-lordinateur-vers-le-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copie de l'ordinateur vers le Raspberry Pi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versordi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copier du Raspberry Pi vers l'ordinateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copie-dun-dossier-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copie d'un dossier complet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acces-qui-necessite-un-port-particulier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès qui nécessite un port particulier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreur-serveur-non-trouve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreur serveur non trouvé
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copie-a-laide-dune-cle-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copie à l'aide d'une clé USB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-plus-dinformation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pour plus d'information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fiche-tuer_un_processus_linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        47.8 Tuer un processus Linux
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapitre-scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio">47. Scripts Python pour envoyer et recevoir du signal sur le GPIO<a class="headerlink" href="#chapitre-scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio" title="Permanent link">&para;</a></h1>
+<h2 id="fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio">47.1 Langages et bibliothèques pour communiquer avec le GPIO<a class="headerlink" href="#fiche-langages_et_bibliotheques_pour_communiquer_avec_le_gpio" title="Permanent link">&para;</a></h2>
+<p>Il est possible de communiquer avec le <a href="../52_gpio/#fiche-qu_est-ce_que_le_gpio">GPIO</a> à l'aide de différents langages de programmation, par exemple en C, Python ou même PHP.</p>
+<p>Plusieurs bibliothèques permettent d'y arriver. En voici quelques-unes :</p>
+<ul>
+<li>RPi.GPIO : <a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Examples/">https://sourceforge.net/p/raspberry-gpio-python/wiki/Examples/</a> (Python)</li>
+<li>gpiozero : <a href="https://gpiozero.readthedocs.io/en/stable/">https://gpiozero.readthedocs.io/en/stable/</a> (Python)</li>
+<li>pigpio : <a href="http://abyz.me.uk/rpi/pigpio/python.html">http://abyz.me.uk/rpi/pigpio/python.html</a> (Python)</li>
+<li>Wiring Pi : <a href="http://wiringpi.com/reference/">http://wiringpi.com/reference/</a> (peut être utilisé avec plusieurs langages)</li>
+</ul>
+<p>La bibliothèque RPi.GPIO sera utilisée dans <a href="./#fiche-installation_de_la_bibliotheque_rpi_gpio">les fiches qui suivent</a> pour démontrer comment programmer un script qui interagit avec le GPIO du Raspberry Pi.</p>
+<h2 id="fiche-installation_de_la_bibliotheque_rpi_gpio">47.2 Installation de la bibliothèque RPi.GPIO<a class="headerlink" href="#fiche-installation_de_la_bibliotheque_rpi_gpio" title="Permanent link">&para;</a></h2>
+<p>La bibliothèque <a href="https://pypi.org/project/RPi.GPIO/">RPi.GPIO</a> est très utilisée pour envoyer et recevoir du signal sur le GPIO du Raspberry Pi.</p>
+<h2 id="installation-de-la-bibliotheque-rpigpio">Installation de la bibliothèque RPi.GPIO<a class="headerlink" href="#installation-de-la-bibliotheque-rpigpio" title="Permanent link">&para;</a></h2>
+<p>Cette bibliothèque est installée par défaut sur Raspberry Pi OS.</p>
+<p>Pour vérifier quelle version est installée, lancez cette commande sur le Pi, lancez la console Python.</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3
+</span></code></pre></div>
+<p>Pour charger la bibliothèque et vérifier sa version :</p>
+<p>Console Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">VERSION</span>
+</span></code></pre></div>
+<p>Et pour refermer la console Python :</p>
+<p>Console Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">quit</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Vous obtiendrez ceci :</p>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pi@raspberrypi:~ $ python3
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Python 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0] on linux
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Type "help", "copyright", "credits" or "license" for more information.
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&gt;&gt;&gt; import RPi.GPIO as GPIO
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&gt;&gt;&gt; GPIO.VERSION
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>'0.7.2'
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>&gt;&gt;&gt; quit()
+</span></code></pre></div>
+<h2 id="installer-la-derniere-version-de-rpigpio">Installer la dernière version de RPi.GPIO<a class="headerlink" href="#installer-la-derniere-version-de-rpigpio" title="Permanent link">&para;</a></h2>
+<p>Si vous êtes aux prises avec une vieille version que vous devez mettre à jour, lancez cette commande. Mais attention : ceci peut prendre de longue, longues minutes.</p>
+<p>Ne le faites que si la version actuelle pose problème.</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo apt update &amp;&amp; sudo apt install python-rpi.gpio python3-rpi.gpio
+</span></code></pre></div>
+<h2 id="fiche-la_base_des_scripts_avec_rpi_gpio">47.3 La base des scripts avec RPi.GPIO<a class="headerlink" href="#fiche-la_base_des_scripts_avec_rpi_gpio" title="Permanent link">&para;</a></h2>
+<p>Le script Python qui sera en charge d'envoyer ou de recevoir un signal des <a href="../52_gpio/#fiche-qu_est-ce_que_le_gpio">broches GPIO</a> du Raspberry Pi peut être écrit :</p>
+<ul>
+<li>directement sur le Pi à l'aide d'un éditeur comme nano.</li>
+<li>sur l'ordinateur à l'aide de l'éditeur de votre choix, par exemple Geany ou PyCharm.</li>
+</ul>
+<p>La bibliothèque <a href="./#fiche-installation_de_la_bibliotheque_rpi_gpio">RPi.GPIO</a> sera utilisée dans cette démonstration. Elle est installée par défaut sur Raspberry Pi OS.</p>
+<p>Notez que si vous utilisez un éditeur comme PyCharm sur votre ordinateur, il vous donnera des erreurs si votre code utilise des bibliothèques qui sont sur le Pi mais pas sur votre ordinateur. Vous pourrez ignorer ces erreurs.</p>
+<p>Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez <a href="./#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">le copier sur le Pi</a> <img alt="Conseil" src="../NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Ampoule.svg" title="scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossier/sous-dossier" /> après l'avoir édité.</p>
+<h2 id="nom-du-fichier">Nom du fichier<a class="headerlink" href="#nom-du-fichier" title="Permanent link">&para;</a></h2>
+<p>Par convention, les scripts Python seront inscrits dans un fichier texte dont le nom se termine par .py.</p>
+<p>Le nom du fichier peut :</p>
+<ul>
+<li>être tout en minuscules (ex : monscript.py)</li>
+</ul>
+<p>ou
+* utiliser la casse serpent (ex : mon_script.py)</p>
+<h2 id="entete-du-script-python">Entête du script Python<a class="headerlink" href="#entete-du-script-python" title="Permanent link">&para;</a></h2>
+<p>Lançons-nous dans la programmation!</p>
+<p>Tout programme Python doit débuter par une ligne, qu'on appellera shebang ou hash bang.</p>
+<p>Le <a href="../07_python/#fiche-Shebang_ou_hash_bang">shebang</a> permet de spécifier quel interpréteur doit être utilisé.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span></code></pre></div>
+<p>Vient ensuite une ligne qui indique l'encodage du fichier. Cette ligne était nécessaire en Python 2 mais elle est optionnelle en Python 3 puisque l'encodage par défaut est UTF-8.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># -\*- coding:utf-8 -\*-</span>
+</span></code></pre></div>
+<p>Tout programme qui se respecte doit contenir un en-tête standard. Cet en-tête indique notamment le but du script, les paramètres attendus, le montage physique requis, la date de création et l'auteur.</p>
+<p>En Python, les commentaires de documentation utilisent la syntaxe <a href="https://www.python.org/dev/peps/pep-0257/">DocString</a> et sont placés entre triples guillemets.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sd">"""</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="sd">Fait clignoter une DEL rouge sur le Raspberry Pi</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="sd">Paramètres : aucun</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="sd">Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="sd">Auteur : Christiane Lagacé</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="sd">Date : 17 septembre 2025</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="sd">"""</span>
+</span></code></pre></div>
+<p>Vient ensuite le chargement des bibliothèques, ici RPi.GPIO.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+</span></code></pre></div>
+<h2 id="choisir-le-type-dadressage">Choisir le type d'adressage<a class="headerlink" href="#choisir-le-type-dadressage" title="Permanent link">&para;</a></h2>
+<p>Les broches du GPIO peuvent être référées par leur adresse physique (position de la broche sur le Pi, numérotée de 1 à 40) ou par leur adresse broadcom (numéros de ports).</p>
+<p>L'adresse BCM est généralement utilisée. Il faut l'indiquer au script comme suit :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="variables-pour-les-numeros-de-ports">Variables pour les numéros de ports<a class="headerlink" href="#variables-pour-les-numeros-de-ports" title="Permanent link">&para;</a></h2>
+<p>Le script sera plus facile à lire si vous utilisez des variables pour reternir les numéros des ports que vous utilisez.</p>
+<p>Attention : del est un mot réservé en Python. Nous allons utiliser led comme nom de variable.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">led</span> <span class="o">=</span> <span class="mi">23</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">bouton</span> <span class="o">=</span> <span class="mi">25</span>
+</span></code></pre></div>
+<h2 id="determiner-le-sens-du-signal">Déterminer le sens du signal<a class="headerlink" href="#determiner-le-sens-du-signal" title="Permanent link">&para;</a></h2>
+<p>Pour chaque port que vous souhaitez utiliser dans le script, il faut indiquer si le signal sera en entrée ou en sortie.</p>
+<h3 id="gpioout-le-pi-peut-envoyer-un-signal-au-port">GPIO.OUT : le Pi peut envoyer un signal au port<a class="headerlink" href="#gpioout-le-pi-peut-envoyer-un-signal-au-port" title="Permanent link">&para;</a></h3>
+<p>Par exemple, pour que le Pi envoie un signal au port 23 afin d'allumer une DEL :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Il est possible de changer l'état (d'envoyer un signal) dans une instruction indépendante (voir plus bas) ou encore de le faire dans la même instruction :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Attention : si vous faites GPIO.setup(led, GPIO.OUT) sans préciser l'état initial, votre script devra par la suite se charger d'envoyer un signal au port pour allumer ou éteindre la DEL.</p>
+<p>Si vous ne le faites pas, le port demeurera dans un état flottant. La DEL pourrait donc s'allumer même si vous ne lui avez envoyé aucun signal.</p>
+<h3 id="gpioin-le-pi-peut-recevoir-un-signal-du-port">GPIO.IN : le Pi peut recevoir un signal du port<a class="headerlink" href="#gpioin-le-pi-peut-recevoir-un-signal-du-port" title="Permanent link">&para;</a></h3>
+<p>Si le programme devait lire la valeur envoyée par un composant branché sur le port 12, par exemple un bouton poussoir :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">bouton</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Et pour éviter un état flottant :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">bouton</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">pull</span>\<span class="n">_up</span>\<span class="n">_down</span><span class="o">=</span><span class="n">GPIO</span><span class="o">.</span><span class="n">PUD</span>\<span class="n">_DOWN</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="envoi-dun-signal">Envoi d'un signal<a class="headerlink" href="#envoi-dun-signal" title="Permanent link">&para;</a></h2>
+<p>Pour les ports qui reçoivent un signal du Pi (GPIO.OUT), le Pi peut envoyer un signal à l'aide de trois systèmes qui sont équivalents :</p>
+<ul>
+<li>GPIO.HIGH, GPIO.LOW</li>
+<li>True, False</li>
+<li>1, 0</li>
+</ul>
+<p>Pour allumer la DEL, on envoie un signal positif :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Pour l'éteindre, on envoie un signal non positif :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Pour savoir par programmation dans quel état est le port :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">etat</span> <span class="o">=</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">led</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="reception-dun-signal">Réception d'un signal<a class="headerlink" href="#reception-dun-signal" title="Permanent link">&para;</a></h2>
+<p>Pour les ports qui envoient un signal au pi (GPIO.IN), le Pi peut lire la valeur envoyée :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">valeur</span> <span class="o">=</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">bouton</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="evenements">Événements<a class="headerlink" href="#evenements" title="Permanent link">&para;</a></h3>
+<p>Pour détecter quand un port reçoit un signal, par exemple quand un bouton est pressé, deux choix s'offrent à nous :</p>
+<ul>
+<li>lire continuellement l'état dans une boucle</li>
+<li>travailler avec les événements</li>
+</ul>
+<p>L'événement sera rattaché à une fonction de rappel qui doit être définie dans le haut du programme.</p>
+<p>La définition de la fonction commence par le mot-clé def et tout le corps de la fonction doit être décalé de 4 espaces.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">bouton</span>\<span class="n">_presse</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Le bouton est enfoncé!"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Pour associer l'événement à la fonction de rappel :</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">add</span>\<span class="n">_event</span>\<span class="n">_detect</span><span class="p">(</span><span class="n">bouton</span><span class="p">,</span><span class="n">GPIO</span><span class="o">.</span><span class="n">RISING</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="n">bouton</span>\<span class="n">_presse</span><span class="p">)</span>
+</span></code></pre></div>
+<p>ou</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">add</span>\<span class="n">_event</span>\<span class="n">_detect</span><span class="p">(</span><span class="n">bouton</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">RISING</span><span class="p">)</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">add</span>\<span class="n">_event</span>\<span class="n">_callback</span><span class="p">(</span><span class="n">bouton</span><span class="p">,</span> <span class="n">bouton</span>\<span class="n">_presse</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="reinitialisation-des-ports">Réinitialisation des ports<a class="headerlink" href="#reinitialisation-des-ports" title="Permanent link">&para;</a></h2>
+<p>En terminant, il est conseillé de réinitialiser les ports qui ont été utilisés dans le script. Ceci permet de les protéger d'un bris dû à un court-circuit.</p>
+<p>Attention : si un script a pour but d'allumer une lumière et de la laisser allumée, il ne faut pas qu'il réinitialise les ports.</p>
+<p>Quand on réinitialise les ports, ils sont de nouveau disponibles pour un autre script Python.</p>
+<p>De plus, les DEL allumées seront éteintes dès que la réinitialisation est faite.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Pour assurer que la réinitialisation ait lieu même si le programme plante ou s'il se termine quand l'usager appuie sur les touches Ctrl+C, on placera le code dans un try et on fera la réinitialisation dans le finally.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="o">...</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="k">except</span><span class="p">:</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="o">...</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Note : le finally ne sera pas exécuté si l'usager termine le programme avec les touches Ctrl+Z. En effet, alors que Ctrl+C émet un signal SIGINT – qui arrête gentiment le programme, Ctrl+Z émet un signal SIGTSTP qui arrête immédiatement le programme.</p>
+<h2 id="exemple-de-base-allumer-une-del">Exemple de base : allumer une DEL<a class="headerlink" href="#exemple-de-base-allumer-une-del" title="Permanent link">&para;</a></h2>
+<p>Voici un tout petit script qui s'occupe d'envoyer un signal pour allumer une DEL.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1"># -\*- coding:utf-8 -\*-</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="sd">"""</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="sd">Allume une DEL rouge sur le Raspberry Pi</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="sd">Paramètres : aucun</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="sd">Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="sd">Auteur : Christiane Lagacé</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="sd">Date : 17 septembre 2025</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="sd">"""</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span> <span class="c1"># il faudra mettre GPIO. devant le nom des classes du paquet</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span> <span class="c1"># type d'adressage broadcom (numéros de ports)</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="n">led</span> <span class="o">=</span> <span class="mi">23</span> <span class="c1"># adresse broadcom du branchement de la DEL</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Programme qui allume une DEL branchée au port BCM </span><span class="si">{</span><span class="n">led</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># envoie 3.3V au port</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="c1"># pas de GPIO.cleanup() ici sinon la DEL serait immédiatement éteinte.</span>
+</span></code></pre></div>
+<h2 id="clignoter">Exemple complet : faire clignoter une DEL<a class="headerlink" href="#clignoter" title="Permanent link">&para;</a></h2>
+<p>Pour faire exemple un peu plus complexe, voici un petit script qui fait clignoter une DEL jusqu'à ce que quelqu'un appuie sur Ctrl+C.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># -\*- coding:utf-8 -\*-</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="sd">"""</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="sd">Fait clignoter une DEL rouge sur le Raspberry Pi</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="sd">Paramètres : aucun</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="sd">Montage : DEL rouge branchée sur GPIO.BCM 23 et résistance de 330 Ohms</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="sd">Auteur : Christiane Lagacé</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="sd">Date : 17 septembre 2025</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="sd">"""</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span> <span class="c1"># il faudra mettre GPIO. devant le nom des classes du paquet</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span> <span class="c1"># les classes du paquets peuvent être utilisées directement sans le nom du paquet</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span> <span class="c1"># type d'adressage broadcom (numéros de ports)</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="n">led</span> <span class="o">=</span> <span class="mi">23</span> <span class="c1"># adresse broadcom du branchement de la DEL</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span> <span class="c1"># sens du signal : le Pi peut envoyer un signal à sa broche (ici, au port 23)</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Programme qui fait clignoter une DEL'</span><span class="p">)</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Appuyez sur Ctrl+C pour terminer.'</span><span class="p">)</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># envoie 3.3V au port</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># n'envoie rien au port</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Fin du programme, vous avez appuyé sur Ctrl+C.'</span><span class="p">)</span>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Une exception est survenue.'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span> <span class="c1"># réinitialise les ports</span>
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Nettoyage final réalisé avec succès!'</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="lancer-le-script">Lancer le script<a class="headerlink" href="#lancer-le-script" title="Permanent link">&para;</a></h2>
+<p>Pour exécuter le script, entrez la commande python3 suivie du nom du fichier.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>python3 monscript.py
+</span></code></pre></div>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« RasPi.TV - RPi.GPIO Quick Reference ». RasPi.TV. <a href="https://raspi.tv/download/RPi.GPIO-Cheat-Sheet.pdf">https://raspi.tv/download/RPi.GPIO-Cheat-Sheet.pdf</a></p>
+<p>« RPi.GPIO basics 3 – How to Exit GPIO programs cleanly, avoid warnings and protect your Pi ». RasPi.TV. <a href="https://raspi.tv/2013/rpi-gpio-basics-3-how-to-exit-gpio-programs-cleanly-avoid-warnings-and-protect-your-pi">https://raspi.tv/2013/rpi-gpio-basics-3-how-to-exit-gpio-programs-cleanly-avoid-warnings-and-protect-your-pi</a></p>
+<p>« RPi.GPIO basics 6 – Using inputs and outputs together with RPi.GPIO – pull-ups and pull-downs ». RasPi.TV. <a href="https://raspi.tv/2013/rpi-gpio-basics-6-using-inputs-and-outputs-together-with-rpi-gpio-pull-ups-and-pull-downs">https://raspi.tv/2013/rpi-gpio-basics-6-using-inputs-and-outputs-together-with-rpi-gpio-pull-ups-and-pull-downs</a></p>
+<h2 id="fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio">47.4 Script pour réinitialiser toutes les broches programmables du GPIO<a class="headerlink" href="#fiche-script_pour_reinitialiser_toutes_les_broches_programmables_du_gpio" title="Permanent link">&para;</a></h2>
+<p>Si vous travaillez avec la bibliothèque <a href="./#fiche-installation_de_la_bibliotheque_rpi_gpio">RPi.GPIO</a>, vous savez que la méthode GPIO.cleanup() réinitialise les ports que vous avez utilisés.</p>
+<p>Il est donc bon de terminer vos scripts par un appel à cette méthode.</p>
+<p>Mais si vous avez lancé un script qui allume une DEL sur une planche de maquettage et que ce script ne s'est pas terminé normalement, la DEL restera allumée.</p>
+<p>Il vous faut une méthode pour réinitialiser les broches du GPIO.</p>
+<p>Puisque GPIO.cleanup() ne travaille que sur les ports qui ont été utilisés dans le même script, je vous ai concocté un petit script qui utilise tous les ports afin de pouvoir bien les réinitialiser.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="c1"># -\*- coding:utf-8 -\*-</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="sd">"""</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="sd">Réinitialise toutes les broches programmables sur le Raspberry Pi</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="sd">Paramètres : aucun</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="sd">Montage : aucun</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="sd">Auteur : Christiane Lagacé</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="sd">Date : 16 septembre 2021</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="sd">"""</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="c1"># Le but du script est justement de libérer les ports alors on ne veut pas voir le message :</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="c1"># RuntimeWarning: This channel is already in use, continuing anywa</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setwarnings</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BOARD</span><span class="p">)</span>
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Programme qui réinitialise toutes les broches programmables du Raspberry Pi'</span><span class="p">)</span>
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a><span class="n">broches</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Sens actuel des broches (numérotation physique) :'</span><span class="p">)</span>
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">broches</span><span class="p">:</span>
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a><span class="n">sens</span> <span class="o">=</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">gpio</span>\<span class="n">_function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a><span class="c1"># On réassigne le même sens que la broche avait car le cleanup n'a d'effet que pour les broches affectées par le script</span>
+</span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a><span class="k">if</span> <span class="n">sens</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+</span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-27-24"><a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+</span><span id="__span-27-25"><a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">': '</span> <span class="o">+</span> <span class="p">(</span><span class="s1">'IN'</span> <span class="k">if</span> <span class="n">sens</span> <span class="k">else</span> <span class="s1">'OUT'</span><span class="p">))</span>
+</span><span id="__span-27-26"><a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a><span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</span><span id="__span-27-27"><a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a><span class="nb">print</span><span class="p">(</span><span class="s1">'Réinitialisation réalisée avec succès!'</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="fiche-passer_un_parametre_a_un_script_python">47.5 Passer un paramètre à un script Python<a class="headerlink" href="#fiche-passer_un_parametre_a_un_script_python" title="Permanent link">&para;</a></h2>
+<p>Il est possible de passer un ou plusieurs paramètres, aussi appelés arguments, à un script Python à partir de la ligne de commande.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>python3 monscript.py unparametre autreparametre
+</span></code></pre></div>
+<p>Pour lire la valeur des paramètres dans le script, il faut d'abord importer le module sys.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span></code></pre></div>
+<p>Les paramètres sont contenus dans un tableau nommé sys.argv.</p>
+<p>L'élément 0 du tableau est toujours le nom du script.</p>
+<p>L'élément 1 est le premier argument, l'élément 2 est le second argument et ainsi de suite.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">nom</span>\<span class="n">_script</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">premier</span>\<span class="n">_parametre</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">deuxieme</span>\<span class="n">_parametre</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="si-aucun-parametre-nest-passe-parametre-optionnel">Si aucun paramètre n'est passé (paramètre optionnel)<a class="headerlink" href="#si-aucun-parametre-nest-passe-parametre-optionnel" title="Permanent link">&para;</a></h2>
+<p>Si le script tente de lire un paramètre alors qu'aucun n'a été passé, le script lèvera une exception de type IndexError.</p>
+<p>Il faut donc toujours lire le paramètre dans un try... except.</p>
+<p>Lorsqu'aucun paramètre n'est passé, le programme réagira en conséquence. Il pourrait, par exemple, fournir une valeur par défaut.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">valeur</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="n">valeur</span> <span class="o">=</span> <span class="s2">"x"</span>
+</span></code></pre></div>
+<h2 id="parametre-numerique">Paramètre numérique<a class="headerlink" href="#parametre-numerique" title="Permanent link">&para;</a></h2>
+<p>À la base, les paramètres sont tous de type texte.</p>
+<p>Si le paramètre doit être utilisé comme un nombre, il faut d'abord le convertir.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="o">...</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="o">...</span>
+</span></code></pre></div>
+<h2 id="parametre-numerique-optionnel">Paramètre numérique optionnel<a class="headerlink" href="#parametre-numerique-optionnel" title="Permanent link">&para;</a></h2>
+<p>En combinant les deux approches précédentes, on s'assure que dans le cas d'un paramètre numérique, le programme fonctionne s'il n'est pas passé ou si sa valeur n'est pas numérique.</p>
+<p>Python</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">iterations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># arrivera ici si aucun paramètre n'est passé</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="k">except</span><span class="p">:</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># arrivera ici si le paramètre n'était pas numérique</span>
+</span></code></pre></div>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« Python Command Line Arguments ». Real Python. <a href="https://realpython.com/python-command-line-arguments/#the-sysargv-array">https://realpython.com/python-command-line-arguments/#the-sysargv-array</a></p>
+<h2 id="fiche-La_syntaxe_Python_vs_autres_langages">47.6 La syntaxe Python vs autres langages<a class="headerlink" href="#fiche-La_syntaxe_Python_vs_autres_langages" title="Permanent link">&para;</a></h2>
+<p>Si vous avez déjà travaillé avec quelques langages de programmation, vous savez que la syntaxe varie d'un langage à l'autre. Parfois, les différences sont minimes mais d'autre fois, elles peuvent être déroutantes.</p>
+<p>Pour vous aider à vous acclimater à Python, voici quelques éléments de syntaxe à connaître et leur comparaison avec d'autres langages.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Python</th>
+<th>JavaScript</th>
+<th>PHP</th>
+<th>C#</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chaînes de caractères</td>
+<td>nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!'</td>
+<td>nom = "Annie";  ou  nom = 'Annie';</td>
+<td>$nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide.</td>
+<td>nom = "Annie";</td>
+</tr>
+<tr>
+<td>Booléens</td>
+<td>True  False    Sensible à la casse</td>
+<td>true  false    Sensible à la casse</td>
+<td>True ou true ou TRUE  False ou false ou FALSE    Insensible à la casse</td>
+<td>true  false    Certaines fonctions C# retournent cependant True ou False...    bool valeur = true;  Console.WriteLine(valeur); // True</td>
+</tr>
+<tr>
+<td>Opérateurs booléens</td>
+<td>and  or  not</td>
+<td>&amp;&amp;</td>
+<td></td>
+<td>!</td>
+</tr>
+<tr>
+<td>Concaténation</td>
+<td>nom_complet = prenom + ' ' + nom_famille</td>
+<td>nomComplet = prenom + ' ' + nomFamille;</td>
+<td>$nomComplet = $prenom . ' ' . $nomFamille;</td>
+<td>nomComplet = prenom + '" " + nomFamille;</td>
+</tr>
+<tr>
+<td>Incrémentation</td>
+<td>i += 1</td>
+<td>i += 1; (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Addition_assignment">affectation après addition</a>)  i++ (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Increment">opérateur d'incrémentation en suffixe</a>)  ++i (opérateur d'incrémentation en préfixe)</td>
+<td>$i += 1;  $i++ (<a href="https://www.php.net/manual/fr/language.operators.increment.php">post-incrémente</a>)  ++$i (pré-incrémente)</td>
+<td>i += 1;  i++  ++i</td>
+</tr>
+<tr>
+<td>Conversion de type</td>
+<td>nombre= int(saisie)</td>
+<td>nombre = parseInt(saisie);</td>
+<td>$nombre = (int)$saisie;  ou  $nombre = intval($saisie);</td>
+<td>nombre = Convert.ToInt32(saisie);  ou  Int32.TryParse(saisie, out nombre);</td>
+</tr>
+<tr>
+<td>Affichage à l'écran</td>
+<td>print(nom)  ou, pour éviter les sauts de ligne :  print(nom, end='')    On peut interpréter des variables dans une chaîne : print(f"Votre score est {score}")</td>
+<td>L'affichage se fait à l'aide de manipulations du DOM :  balise.innerHTML = nom;    Si on utilise jQuery :  $(balise).html(nom);    Pour afficher à la console :  console.log(nom);    Pour afficher dans une fenêtre popup :  window.alert(nom);</td>
+<td>echo $nom;</td>
+<td>Dans une page Web :  Response.Write(nom);    À la console :  Console.WriteLine(nom);</td>
+</tr>
+<tr>
+<td>Lecture à la console</td>
+<td>nombre = input('Veuillez entrer un nombre : ')</td>
+<td></td>
+<td></td>
+<td>Console.WriteLine("Veuillez entrer un nombre : ");  nombre = Console.ReadLine();</td>
+</tr>
+<tr>
+<td>Tableaux</td>
+<td>valeurs = ['a', 'b', 'c']  En Python, on dit que c'est une <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">liste</a> (modifiable, longueur variable)  Il existe également des <a href="https://docs.python.org/3/tutorial/datastructures.html#tut-tuples">tuples</a> (immuables mais plus performants) :  valeurs = ('a', 'b', 'c')  ou, s'il y a un seul élément dans le tuple :  valeurs = ('a',)</td>
+<td>var valeurs = ['a', 'b', 'c'];</td>
+<td>$valeurs = ['a', 'b', 'c'];</td>
+<td>string[] valeurs = {"a", "b", "c"};</td>
+</tr>
+<tr>
+<td>Tableaux associatifs (dictionnaires)</td>
+<td>configuration = {      'menu': 'gauche',      'langue': 'fr'  }  ...  valeur = configuration['langue']</td>
+<td>var configuration = {      'menu' : 'gauche',      'langue': 'fr' };  ...  valeur = configuration['langue'];</td>
+<td>$configuration = [      'menu' =&gt; 'gauche',      'langue' =&gt; 'fr',  ];  ...  $valeur = $configuration['langue']</td>
+<td>Dictionary<string, string> configuration = new Dictionary<string, string>()  {      {"menu","gauche"},      {"langue", "fr"}  };  ...  valeur = configuration["langue"];</td>
+</tr>
+<tr>
+<td>Vérifier si une valeur fait partie d'une liste de valeurs</td>
+<td>if i in (3, 6, 9):      ...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Conditions</td>
+<td>if nom == 'Annie':      ...  elif nom == 'Toto':      ...  else:      ...    Note : l'indentation (4 espaces) est importante : c'est elle qui indique quand un bloc d'instruction se termine.</td>
+<td>if (nom == 'Annie') {      ...  } else if (nom == 'Toto') {      ...  } else {      ...  }</td>
+<td>if ($nom == 'Annie') {      ...  } elseif ($nom == 'Toto') {      ...  } else {      ...  }</td>
+<td>if (nom == "Annie)  {      ...  }  else if (nom == "Toto")  {      ...  }  else  {      ...  }</td>
+</tr>
+<tr>
+<td>Boucles while</td>
+<td>while x &lt; 10:      ...</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+<td _=" " class="..">while (x &lt; 10)</td>
+</tr>
+<tr>
+<td>Boucles sur un nombre déterminé d'itérations</td>
+<td>for i in range(10):      ...    La boucle pourrait commencer à une autre valeur que 0, il est possible de spécifier le départ, la fin (exclue de la boucle) et la valeur du saut :  for i in range(1, 10, 1)      ...</td>
+<td _=" " class="..">for (i = 0; i &lt; 10; i++)</td>
+<td _=" " class="..">for ($i = 0; $i &lt; 10; $i++)</td>
+<td _=" " class="..">for (i = 0; i &lt; 10; i++)</td>
+</tr>
+<tr>
+<td>Boucles sur les éléments d'un tableau</td>
+<td>valeurs = ['a', 'b', 'c']  for valeur in valeurs:      ...</td>
+<td _=" " class="..">var valeurs = ['a', 'b', 'c'];    for (var valeur in valeurs)</td>
+<td _=" " class="..">$valeurs = ['a', 'b', 'c'];    foreach ($valeurs as $valeur)</td>
+<td>string[] valeurs = {"a", "b", "c"};    foreach (int valeur in valeurs)  {      ...  }</td>
+</tr>
+<tr>
+<td>Opérateur ternaire (inline if)</td>
+<td>valeur_si_vrai if condition else valeur_si_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age &gt;= 18 else False</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+<td>condition ? valeurSiVrai : valeurSiFaux</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>try:      ...  except TypeException as e:      ... # traitement d'une exception précise  except Exception as e:      ... # traitement des autres exceptions  else:      ... # traitement si pas d'exception  finally:      ... # traitement si exception ou non</td>
+<td>try {      ...  } catch (e) {      if (e instanceof TypeException) {          ... // traitement d'une exception précise      } else {          ... // traitement des autres exceptions      }  }  finally {      ... // traitement si exception ou non  }</td>
+<td>try {      ...  } catch (TypeException $e) {      ... // traitement d'une exception précise  } catch (Throwable $e) {      ... // traitement des autres exceptions si PHP 7  } catch (Exception $e) {      ... // traitement des autres exceptions si PHP 5.X  } finally {      ... // traitement si exception ou non  }</td>
+<td>try  {      ...  }  catch (TypeException)  {      ... // traitement d'une exception précise  }  catch (Exception e)  {      ... // traitement des autres exceptions  }  finally  {      ... // traitement si exception ou non  }</td>
+</tr>
+<tr>
+<td>Commentaires</td>
+<td>#</td>
+<td>//  /* ... */</td>
+<td>#  //  /* ... */</td>
+<td>//  /* ... */</td>
+</tr>
+<tr>
+<td>Commentaires de documentation</td>
+<td>Cette documentation d'appelle <a href="https://www.python.org/dev/peps/pep-0257/">Docstring</a>.    def ma_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ...</td>
+<td _=" " _wzxhzdk:60_Résumé="<summary>Résumé" _wzxhzdk:62_Description="<param name="parametre" type="Number">Description" _wzxhzdk:64_Description="<returns type="Number">Description" class=".." de="de" du="du" fonction._wzxhzdk:61_="fonction.</summary>" la="la" paramètre._wzxhzdk:63_="paramètre.</param>" retour._wzxhzdk:65_="retour.</returns>" valeur="valeur">function maFonction(parametre)</td>
+<td _=" " class="..">Cette documentation s'appelle <a href="https://www.phpdoc.org/">phpDocumentor</a>.    /**   * Résumé de la fonction.   *   * @param int $parametre Description du paramètre.   *   * @author Annie Gagnon <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#110;&#105;&#101;&#103;&#97;&#103;&#110;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#110;&#110;&#105;&#101;&#103;&#97;&#103;&#110;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>   * @return int Description de la valeur de retour.   *   */  function maFonction(int $parametre) : int</td>
+<td _=" " class="..">/// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)</td>
+</tr>
+<tr>
+<td>Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows)</td>
+<td><a href="https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep">os.linesep</a></td>
+<td></td>
+<td><a href="http://php.net/manual/en/reserved.constants.php#constant.php-eol">PHP_EOL</a></td>
+<td><a href="https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx">Environment.NewLine</a></td>
+</tr>
+<tr>
+<td>Valeur nulle</td>
+<td>variable = None</td>
+<td>let variable = null;</td>
+<td>$variable = NULL;</td>
+<td>string variable = null;</td>
+</tr>
+<tr>
+<td></td>
+<td>Python</td>
+<td>JavaScript</td>
+<td>PHP</td>
+<td>C#</td>
+</tr>
+</tbody>
+</table>
+<p>Pour compléter ce tableau, voici quelques normes de programmation généralement appliquées dans différents langages.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><a href="https://www.python.org/dev/peps/pep-0008/">Python</a></th>
+<th><a href="https://google.github.io/styleguide/jsguide.html">JavaScript</a></th>
+<th><a href="http://www.php-fig.org/psr/psr-1/">PHP</a></th>
+<th><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions">C#</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projets</td>
+<td>Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console_sans_bd et dans un autre projet graphique_sans_bd.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Espaces de noms</td>
+<td>toutenminuscules</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fichiers</td>
+<td>toutenminuscules  ou  casse_serpent</td>
+<td>toutenminuscules  ou  minuscules-avec-traits-d-union</td>
+<td>Dépend du framework utilisé</td>
+<td></td>
+</tr>
+<tr>
+<td>Noms de variables</td>
+<td>casse_serpent</td>
+<td>casseChameau</td>
+<td>Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $.</td>
+<td>casseChameau</td>
+</tr>
+<tr>
+<td>Noms de classes</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td>Noms de fonctions</td>
+<td>casse_serpent</td>
+<td>casseChameau</td>
+<td>casseChameau</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td>Noms de constantes</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>MAJUSCULES_AVEC_CASSE_SERPENT</td>
+<td>CassePascal</td>
+</tr>
+<tr>
+<td></td>
+<td>Python</td>
+<td>JavaScript</td>
+<td>PHP</td>
+<td>C#</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pour-plus-dinformation_2">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_2" title="Permanent link">&para;</a></h2>
+<p>« Python 3.6.4 documentation ». Python. <a href="https://docs.python.org/3.6/index.html">https://docs.python.org/3.6/index.html</a></p>
+<p>« Learning Python: From Zero to Hero ». Medium. <a href="https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567">https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567</a></p>
+<p>« PEP 8 -- Style Guide for Python Code ». Python. <a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>« PEP257: Good Python docstrings by example ». Dolph Mathews. <a href="http://blog.dolphm.com/pep257-good-python-docstrings-by-example/">http://blog.dolphm.com/pep257-good-python-docstrings-by-example/</a></p>
+<h2 id="fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur">47.7 Copier un fichier sur une machine Linux à partir d'un autre ordinateur et vice-versa<a class="headerlink" href="#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur" title="Permanent link">&para;</a></h2>
+<p>Dans cette fiche :</p>
+<ul>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#scp">Commande scp</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#ordiverspi">Copie de l'ordinateur vers le Raspberry Pi</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#piversordi">Copier du Raspberry Pi vers l'ordinateur</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#dossiercomplet">Copie d'un dossier complet</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#port">Accès qui nécessite un port particulier</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#nontrouve">Erreur serveur non trouvé</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/systeme_domotique_diy#usb">Copie à l'aide d'une clé USB</a></li>
+</ul>
+<h2 id="commande-scp">Commande scp<a class="headerlink" href="#commande-scp" title="Permanent link">&para;</a></h2>
+<p>La commande scp (Secure CoPy), est très intéressante pour copier des fichiers d'un ordinateur vers un autre.</p>
+<p>Il est possible de l'utiliser, par exemple, pour copier un fichier d'un ordinateur vers un Raspberry Pi ou vice-versa.</p>
+<p>On appellera machine locale la machine (l'ordinateur ou le Pi) sur laquelle on entre la commande.</p>
+<p>On appellera machine distante l'autre machine impliquée dans l'échange.</p>
+<p>Un <a href="../05_raspberry_pi/#fiche-activer_ssh_sur_le_raspberry_pi">le serveur SSH doit être activé</a> sur la machine distante. C'est généralement le cas sur le Raspberry Pi mais pas sur l'ordinateur.</p>
+<p>C'est pourquoi la commande sera entrée sur le terminal de l'ordinateur, peu importe quelle machine contient le fichier à copier.</p>
+<p>Le format de la commande scp est :</p>
+<p>Syntaxe sur le terminal de l'ordinateur</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="err">scp</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">cible</span>
+</span></code></pre></div>
+<p>Pour identifier la machine distante, on fera précéder la source ou la cible, selon le cas, par usager@adresse IP de la machine distante, suivi de deux points. Des exemples sont donnés dans les sections qui suivent.</p>
+<h3 id="copie-de-lordinateur-vers-le-raspberry-pi">Copie de l'ordinateur vers le Raspberry Pi<a class="headerlink" href="#copie-de-lordinateur-vers-le-raspberry-pi" title="Permanent link">&para;</a></h3>
+<p>Pour copier un fichier à partir de l'ordinateur vers le Pi, la machine distante sera la cible.</p>
+<p>Entrez cette commande en prenant soin de changer pi pour le nom de votre usager sur Raspberry Pi OS et l'adresse IP pour celle du Pi.</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>scp dossierlocal/monfichier.extension pi@192.168.1.145:/dossierdistant/sous-dossier
+</span></code></pre></div>
+<h3 id="versordi">Copier du Raspberry Pi vers l'ordinateur<a class="headerlink" href="#versordi" title="Permanent link">&para;</a></h3>
+<p>Pour copier un fichier du Pi vers votre ordinateur, la machine distante sera la source.</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>scp pi@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+</span></code></pre></div>
+<h3 id="copie-dun-dossier-complet">Copie d'un dossier complet<a class="headerlink" href="#copie-dun-dossier-complet" title="Permanent link">&para;</a></h3>
+<p>L'option -r permet de copier un dossier complet entre le Raspberry Pi et l'ordinateur.</p>
+<p>Il faut spécifier le nom du dossier à copier sans le faire suivre d'une barre oblique ni d'un astérisque.</p>
+<p>Pour copier le dossier de l'ordinateur vers le Pi :</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>scp -r /dossierlocal pi@192.168.1.145:/dossierdistant
+</span></code></pre></div>
+<p>Pour copier le dossier du Pi vers l'ordinateur :</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>scp -r pi@192.168.1.145:/dossierdistant /dossierlocal
+</span></code></pre></div>
+<h3 id="acces-qui-necessite-un-port-particulier">Accès qui nécessite un port particulier<a class="headerlink" href="#acces-qui-necessite-un-port-particulier" title="Permanent link">&para;</a></h3>
+<p>Certains systèmes, par exemple Home Assistant, exigent l'utilisation d'un port particulier pour un accès SSH. Ce port devra lui aussi être utilisé avec scp.</p>
+<p>Dans cet exemple, j'ai travaillé avec l'usager root et le port 22222 puisque ce sont ces valeurs qui sont utilisées sous Home Assistant.</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>scp -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+</span></code></pre></div>
+<p>ou, pour copier de l'ordinateur vers le Pi :</p>
+<p>Terminal de l'ordinateur</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>scp -P 22222 /dossierlocal root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension
+</span></code></pre></div>
+<h3 id="erreur-serveur-non-trouve">Erreur serveur non trouvé<a class="headerlink" href="#erreur-serveur-non-trouve" title="Permanent link">&para;</a></h3>
+<p>Lors de l'utilisation de la commande scp, le serveur SSH pourrait être configuré pour travailler par défaut en mode sécurisé.</p>
+<p>Vous le saurez si vous obtenez le message d'erreur suivant :</p>
+<p>sh: /usr/libexec/sftp-server: not found<br />
+scp: Connection closed</p>
+<p>Vous pourrez régler le problème en ajoutant l'option -O.</p>
+<p>Selon la documentation de scp<a href="https://man7.org/linux/man-pages/man1/scp.1.html#:~:text=Use%20the%20legacy%20SCP%20protocol">1</a> :</p>
+<blockquote>
+<p>-O : Use the legacy SCP protocol for file transfers instead of the SFTP protocol. Forcing the use of the SCP protocol may be necessary for servers that do not implement SFTP, for backwards-compatibility for particular filename wildcard patterns and for expanding paths with a ‘~’ prefix for older SFTP servers.</p>
+</blockquote>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>scp -O -P 22222 root@192.168.1.145:/dossierdistant/sous-dossier/monfichier.extension /dossierlocal
+</span></code></pre></div>
+<h2 id="copie-a-laide-dune-cle-usb">Copie à l'aide d'une clé USB<a class="headerlink" href="#copie-a-laide-dune-cle-usb" title="Permanent link">&para;</a></h2>
+<p>Pour effectuer une copie de fichier à l'aide d'une clé USB, suivez ces étapes :</p>
+<ul>
+<li>Copiez le fichier de l'ordinateur sur une clé USB puis insérez la clé dans le Raspberry Pi.</li>
+<li>Accédez à la ligne de commande du Pi soit <a href="../05_raspberry_pi/#fiche-se_brancher_au_raspberry_pi_via_ssh">via SSH</a>, soit en y branchant un écran et un clavier.</li>
+<li>Vous devez monter la clé pour que son contenu soit accessible.</li>
+<li>
+<p>Si c'est la première fois que vous utilisez une clé USB sur le Pi, créez le dossier de montage.</p>
+<p>Terminal</p>
+</li>
+</ul>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>    sudo mkdir /mnt/cleusb
+</span></code></pre></div>
+  + Vous pouvez maintenant monter la clé. Généralement, elle est reconnue comme /dev/sda1 mais elle pourrait être autre chose, par exemple /dev/sdb1.</p>
+<div class="language-text highlight"><pre><span></span><code>Terminal
+</code></pre></div>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>    sudo mount /dev/sda1 /mnt/cleusb
+</span></code></pre></div>
+* Copiez le fichier de la clé USB vers le dossier désiré sur le Pi.</p>
+<p>Terminal</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>  cp /mnt/cleusb/monfichier.extension /dossier/sous-dossier
+</span></code></pre></div>
+* Démontez la clé USB avant de la retirer du Pi.</p>
+<p>Terminal</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>  sudo umount /dev/sda1
+</span></code></pre></div>
+<h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
+<ol>
+<li>« scp(1) — Linux manual page ». man7.org. <a href="https://man7.org/linux/man-pages/man1/scp.1.html#:~:text=Use%20the%20legacy%20SCP%20protocol">https://man7.org/linux/man-pages/man1/scp.1.html</a></li>
+</ol>
+<h2 id="pour-plus-dinformation_3">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_3" title="Permanent link">&para;</a></h2>
+<p>« SCP (Secure Copy) ». Raspberry Pi. <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md</a></p>
+<h2 id="fiche-tuer_un_processus_linux">47.8 Tuer un processus Linux<a class="headerlink" href="#fiche-tuer_un_processus_linux" title="Permanent link">&para;</a></h2>
+<p>Quand un script Python est lancé, il est associé à un processus dans le système d'exploitation.</p>
+<p>Si vous lancez un script Python qui est très long à exécuter ou qui comporte une boucle sans fin, il faudra le tuer pour qu'il se termine et libère les ressources qu'il utilise.</p>
+<p>Pour tuer un processus au terminal, vous pouvez utiliser la commande <a href="https://linuxize.com/post/pkill-command-in-linux/">pkill</a> suivie de -f puis du nom du script Python.</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo pkill -f mon\_script.py
+</span></code></pre></div>
+<p>Une autre approche consiste à utiliser le numéro de processus.</p>
+<p>Ce numéro peut être trouvé à l'aide de la commande ps.</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>ps -ef mon\_script.py
+</span></code></pre></div>
+<p>Notez qu'il est possible de faire afficher les en-têtes de colonnes comme suit :</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>ps -ef | head -1;ps -ef mon\_script.py
+</span></code></pre></div>
+<p>Résultat à l'écran</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon\_script.py
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>UID PID PPID C TIME TTY TIME CMD
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>501 84833 33164 0 8:49 ttys006 0:00.00 grep mon\_script.py
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>501 84730 80397 0 8:49 ttys007 0:14.34 /.../Python mon\_script.py
+</span></code></pre></div>
+<p>Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.</p>
+<p>La ou les autres lignes correspondent à des scripts en cours d'exécution. Le numéro de processus apparaît dans le seconde colonne.</p>
+<p>Il est désormais possible d'arrêter le processus désiré :</p>
+<p>Terminal du Raspberry Pi</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>kill -9 84730
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
