@@ -50,7 +50,7 @@ Modèle
 
 
 ```
-{{ states('input\_boolean.porte\_virtuelle') }}
+{{ states('input_boolean.porte_virtuelle') }}
 ```
 
 
@@ -62,7 +62,7 @@ Modèle
 
 
 ```
-{{ states.input\_boolean.porte\_virtuelle['state'] }}
+{{ states.input_boolean.porte_virtuelle['state'] }}
 ```
 
 
@@ -72,19 +72,19 @@ Modèle
 
 
 ```
-{{ states.input\_boolean.porte\_virtuelle.state }}
+{{ states.input_boolean.porte_virtuelle.state }}
 ```
 
 
 Cependant, selon la documentation officielle de Home Assistant[1](https://www.home-assistant.io/docs/configuration/templating/):
 
-> Avoid using states.sensor.temperature.state, instead use states('sensor.temperature'). It is strongly advised to use the states(), is\_state(), state\_attr() and is\_state\_attr() as much as possible, to avoid errors and error message when the entity isn’t ready yet (e.g., during Home Assistant startup).
+> Avoid using states.sensor.temperature.state, instead use states('sensor.temperature'). It is strongly advised to use the states(), is_state(), state_attr() and is_state_attr() as much as possible, to avoid errors and error message when the entity isn’t ready yet (e.g., during Home Assistant startup).
 
 ## Capteur avec attributs {#attributs}
 
 Certains capteurs ont plusieurs attributs.
 
-Pour le savoir, utilisez un modèle qui constiste en le mot states suivi d'un point puis de l'identifiant du capteur.
+Pour le savoir, utilisez un modèle qui consiste en le mot states suivi d'un point puis de l'identifiant du capteur.
 
 Cette syntaxe ne doit pas être utilisée dans une automatisation mais elle est utile dans les outils de développement.
 
@@ -92,7 +92,7 @@ Modèle
 
 
 ```
-{{ states.weather.forecast\_maison }}
+{{ states.weather.forecast_maison }}
 ```
 
 
@@ -116,7 +116,7 @@ Modèle
 
 
 ```
-{{ states.weather.forecast\_maison.attributes }}
+{{ states.weather.forecast_maison.attributes }}
 ```
 
 
@@ -130,7 +130,7 @@ Modèle
 
 
 ```
-{{ state\_attr('weather.forecast\_maison', 'humidity') }}
+{{ state_attr('weather.forecast_maison', 'humidity') }}
 ```
 
 
@@ -138,33 +138,33 @@ Modèle
 
 ## Conditions
 
-La fonction is\_state() retourne true si un capteur correspond à la valeur passée en paramètre :
+La fonction is_state() retourne true si un capteur correspond à la valeur passée en paramètre :
 
 Modèle
 
 
 ```
-{{ is\_state('sun', 'rising') }}
+{{ is_state('sun', 'rising') }}
 ```
 
 
-Avec is\_state\_attr(), on peut vérifier si un attribut a une valeur donnée :
+Avec is_state_attr(), on peut vérifier si un attribut a une valeur donnée :
 
 Modèle
 
 
 ```
-{{ is\_state\_attr('weather.forecast\_maison', 'temperature', 20 ) }}
+{{ is_state_attr('weather.forecast_maison', 'temperature', 20 ) }}
 ```
 
 
-Le test conditionnel combiné à states(), state\_attr(), is\_state() ou is\_state\_attr() offre des possibilités intéressantes :
+Le test conditionnel combiné à states(), state_attr(), is_state() ou is_state_attr() offre des possibilités intéressantes :
 
 Modèle
 
 
 ```
-{% if is\_state('input\_boolean.porte\_virtuelle', 'on') %}
+{% if is_state('input_boolean.porte_virtuelle', 'on') %}
 ouverte
 {% else %}
 fermée
@@ -206,7 +206,7 @@ Modèle
 
 
 ```
-{{ states('sensor.5\_in\_1\_pir\_motion\_sensor\_air\_temperature') | int < 20 }}
+{{ states('sensor.5_in_1_pir_motion_sensor_air_temperature') | int < 20 }}
 ```
 
 
@@ -218,7 +218,7 @@ Modèle
 
 
 ```
-{% set humidite = state\_attr('weather.forecast\_maison', 'humidity') %}
+{% set humidite = state_attr('weather.forecast_maison', 'humidity') %}
 {% if humidite > 40 %}
 Humidité élevée
 {% else %}
@@ -237,8 +237,8 @@ Modèle
 
 
 ```
-{% for state in states.input\_boolean %}
-{{ state.entity\_id }}
+{% for state in states.input_boolean %}
+{{ state.entity_id }}
 {% endfor %}
 ```
 
@@ -277,13 +277,13 @@ Si, lorsque vous testez un tel modèle dans l'éditeur, vous obtenez un message 
 
 ![Template syntax error](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Modele-TemplateSyntaxError.png)
 
-Pour régler ce problème, vous pouvez utiliser cette syntaxe (remplacez sensor par le domaine et identifiant\_objet\_problematique par l'identifiant de l'objet) :
+Pour régler ce problème, vous pouvez utiliser cette syntaxe (remplacez sensor par le domaine et identifiant_objet_problematique par l'identifiant de l'objet) :
 
 Modèle
 
 
 ```
-{{ states.sensor['identifiant\_objet\_problematique'] }}
+{{ states.sensor['identifiant_objet_problematique'] }}
 ```
 
 
@@ -301,14 +301,14 @@ Dans tous les cas, il est conseillé de travailler avec states() plutôt qu'avec
 
 | Syntaxe | Description | Résultat |
 | --- | --- | --- |
-| {{ states('weather.forecast\_maison') }}  Syntaxes équivalentes à éviter :  {{ states.weather.forecast\_maison['state'] }}  {{ states.weather.forecast\_maison.state }} | Donne la valeur principale d'une entité. | cloudy |
-| Autre exemple :  {{ states('input\_boolean.porte\_virtuelle') }} |  | on |
-| {{ states.weather.forecast\_maison }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'] }} | Donne la valeur principale d'une entité de même que de tous ses attributs.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [l'identifiant de l'objet,objet](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) débute par un chiffre. | <template TemplateState(<state weather.forecast\_maison=partlycloudy; temperature=4.5, dew\_point=3.7, temperature\_unit=°C, humidity=95, cloud\_coverage=71.1, uv\_index=0.1, pressure=1025.2, pressure\_unit=hPa, wind\_bearing=217.2, wind\_speed=9.4, wind\_speed\_unit=km/h, visibility\_unit=km, precipitation\_unit=mm, attribution=Weather forecast from met.no, delivered by the Norwegian Meteorological Institute., friendly\_name=Forecast Maison, supported\_features=3 @ 2025-10-25T08:45:35.357881-04:00>)> |
-| Autre exemple :  {{ states.input\_boolean.porte\_virtuelle }} |  | <template TemplateState(<state input\_boolean.porte\_virtuelle=off; editable=False, icon=mdi:door, friendly\_name=Porte virtuelle @ 2025-10-22T19:27:16.228318-04:00>)> |
-| {{ states.weather.forecast\_maison.attributes }}  Syntaxe équivalente :  {{ states.weather['forecast\_maison'].attributes }} | Donne la valeur de tous les attributs d'une entité.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [l'identifiant de l'objet,objet](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) débute par un chiffre. | {'temperature': 4.5, 'dew\_point': 3.7, 'temperature\_unit': <UnitOfTemperature.CELSIUS: '°C'>, 'humidity': 95, 'cloud\_coverage': 71.1, 'uv\_index': 0.1, 'pressure': 1025.2, 'pressure\_unit': <UnitOfPressure.HPA: 'hPa'>, 'wind\_bearing': 217.2, 'wind\_speed': 9.4, 'wind\_speed\_unit': <UnitOfSpeed.KILOMETERS\_PER\_HOUR: 'km/h'>, 'visibility\_unit': <UnitOfLength.KILOMETERS: 'km'>, 'precipitation\_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>, 'attribution': 'Weather forecast from met.no, delivered by the Norwegian Meteorological Institute.', 'friendly\_name': 'Forecast Maison', 'supported\_features': <WeatherEntityFeature.FORECAST\_DAILY|FORECAST\_HOURLY: 3>} |
-| {{ state\_attr('weather.forecast\_maison', 'humidity') }} | Donne la valeur d'un attribut de l'entité. | 79 |
-| {{ is\_state('sun', 'rising') }} | Vérifie si l'état correspond à une valeur. | False |
-| {{ is\_state\_attr('weather.forecast\_maison', 'temperature', 20 ) }} | Vérifie si un attribut correspond à une valeur. | True |
+| {{ states('weather.forecast_maison') }}  Syntaxes équivalentes à éviter :  {{ states.weather.forecast_maison['state'] }}  {{ states.weather.forecast_maison.state }} | Donne la valeur principale d'une entité. | cloudy |
+| Autre exemple :  {{ states('input_boolean.porte_virtuelle') }} |  | on |
+| {{ states.weather.forecast_maison }}  Syntaxe équivalente :  {{ states.weather['forecast_maison'] }} | Donne la valeur principale d'une entité de même que de tous ses attributs.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [l'identifiant de l'objet,objet](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) débute par un chiffre. | <template TemplateState(<state weather.forecast_maison=partlycloudy; temperature=4.5, dew_point=3.7, temperature_unit=°C, humidity=95, cloud_coverage=71.1, uv_index=0.1, pressure=1025.2, pressure_unit=hPa, wind_bearing=217.2, wind_speed=9.4, wind_speed_unit=km/h, visibility_unit=km, precipitation_unit=mm, attribution=Weather forecast from met.no, delivered by the Norwegian Meteorological Institute., friendly_name=Forecast Maison, supported_features=3 @ 2025-10-25T08:45:35.357881-04:00>)> |
+| Autre exemple :  {{ states.input_boolean.porte_virtuelle }} |  | <template TemplateState(<state input_boolean.porte_virtuelle=off; editable=False, icon=mdi:door, friendly_name=Porte virtuelle @ 2025-10-22T19:27:16.228318-04:00>)> |
+| {{ states.weather.forecast_maison.attributes }}  Syntaxe équivalente :  {{ states.weather['forecast_maison'].attributes }} | Donne la valeur de tous les attributs d'une entité.  À utiliser seulement dans les outils de développement.  La première syntaxe ne fonctionne pas si [l'identifiant de l'objet,objet](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) débute par un chiffre. | {'temperature': 4.5, 'dew_point': 3.7, 'temperature_unit': <UnitOfTemperature.CELSIUS: '°C'>, 'humidity': 95, 'cloud_coverage': 71.1, 'uv_index': 0.1, 'pressure': 1025.2, 'pressure_unit': <UnitOfPressure.HPA: 'hPa'>, 'wind_bearing': 217.2, 'wind_speed': 9.4, 'wind_speed_unit': <UnitOfSpeed.KILOMETERS_PER_HOUR: 'km/h'>, 'visibility_unit': <UnitOfLength.KILOMETERS: 'km'>, 'precipitation_unit': <UnitOfPrecipitationDepth.MILLIMETERS: 'mm'>, 'attribution': 'Weather forecast from met.no, delivered by the Norwegian Meteorological Institute.', 'friendly_name': 'Forecast Maison', 'supported_features': <WeatherEntityFeature.FORECAST_DAILY|FORECAST_HOURLY: 3>} |
+| {{ state_attr('weather.forecast_maison', 'humidity') }} | Donne la valeur d'un attribut de l'entité. | 79 |
+| {{ is_state('sun', 'rising') }} | Vérifie si l'état correspond à une valeur. | False |
+| {{ is_state_attr('weather.forecast_maison', 'temperature', 20 ) }} | Vérifie si un attribut correspond à une valeur. | True |
 
 ## Source
 
@@ -334,8 +334,8 @@ Fichier automations.yaml
 
 
 ```
-- condition: numeric\_state
-entity\_id: input\_number.ma\_variable\_numerique
+- condition: numeric_state
+entity_id: input_number.ma_variable_numerique
 above: '20'
 below: '30'
 ```
@@ -357,7 +357,7 @@ Modèle
 
 
 ```
-{% set maVariable = states('input\_number.ma\_variable\_numerique') %}
+{% set maVariable = states('input_number.ma_variable_numerique') %}
 {{ maVariable | int > 20 and maVariable | int < 30 }}
 ```
 
@@ -368,7 +368,7 @@ Modèle
 
 
 ```
-{% if states('input\_number.ma\_variable\_numerique') | int > 20 and states('input\_number.ma\_variable\_numerique') | int < 30 %}
+{% if states('input_number.ma_variable_numerique') | int > 20 and states('input_number.ma_variable_numerique') | int < 30 %}
 true
 {% else %}
 false
@@ -382,7 +382,7 @@ Modèle
 
 
 ```
-{{ states('input\_number.ma\_variable\_numerique') | int > 20 and states('input\_number.ma\_variable\_numerique') | int < 30 }}
+{{ states('input_number.ma_variable_numerique') | int > 20 and states('input_number.ma_variable_numerique') | int < 30 }}
 ```
 
 
@@ -401,7 +401,7 @@ Fichier automations.yaml
 
 ```
 - condition: template
-value\_template: '{% set maVariable = states(''input\_number.ma\_variable\_numerique'')
+value_template: '{% set maVariable = states(''input_number.ma_variable_numerique'')
 %} {{ maVariable | int > 20 and maVariable | int < 30 }}'
 ```
 
@@ -418,11 +418,11 @@ Fichier automations.yaml
 
 
 ```
-- action: input\_number.set\_value
+- action: input_number.set_value
 data:
-value: "{{ states('domaine.identifiant\_objet') | int }}"
+value: "{{ states('domaine.identifiant_objet') | int }}"
 target:
-entity\_id: input\_number.mon\_virtuel
+entity_id: input_number.mon_virtuel
 ```
 
 
@@ -457,7 +457,7 @@ Modèle Home Assistant
 
 
 ```
-{{ states('sensor.capteur\_5\_en\_1\_air\_temperature') }}
+{{ states('sensor.capteur_5_en_1_air_temperature') }}
 ```
 
 
@@ -475,7 +475,7 @@ Modèle Home Assistant
 
 
 ```
-{{ states('device\_tracker.position\_virtuelle\_annie') }}
+{{ states('device_tracker.position_virtuelle_annie') }}
 ```
 
 
@@ -483,7 +483,7 @@ Résultat à l'écran
 
 
 ```
-not\_home
+not_home
 ```
 
 
@@ -499,7 +499,7 @@ Modèle Home Assistant
 
 
 ```
-{{ states.sensor.capteur\_5\_en\_1\_air\_temperature }}
+{{ states.sensor.capteur_5_en_1_air_temperature }}
 ```
 
 
@@ -513,11 +513,11 @@ Résultat à l'écran
 ```
 <
 template TemplateState(<
-state sensor.capteur\_5\_en\_1\_air\_temperature=22.2777777777778;
-state\_class=measurement,
-unit\_of\_measurement=°C,
-device\_class=temperature,
-friendly\_name=Capteur 5-en-1 Air temperature
+state sensor.capteur_5_en_1_air_temperature=22.2777777777778;
+state_class=measurement,
+unit_of_measurement=°C,
+device_class=temperature,
+friendly_name=Capteur 5-en-1 Air temperature
 @ 2025-10-25T08:45:35.306584-04:00
 >)
 >
@@ -530,7 +530,7 @@ Modèle Home Assistant
 
 
 ```
-{{ states.device\_tracker.position\_virtuelle\_annie}}
+{{ states.device_tracker.position_virtuelle_annie}}
 ```
 
 
@@ -540,25 +540,25 @@ Résultat à l'écran
 ```
 <
 template TemplateState(<
-state device\_tracker.position\_virtuelle\_annie=not\_home;
-source\_type=gps,
+state device_tracker.position_virtuelle_annie=not_home;
+source_type=gps,
 latitude=46.06010262108603,
 longitude=-71.94367076350665,
-gps\_accuracy=0,
-friendly\_name=position\_virtuelle\_annie
+gps_accuracy=0,
+friendly_name=position_virtuelle_annie
 @ 2025-10-25T08:46:50.141120-04:00
 >)
 >
 ```
 
 
-Il sera possible de connaître directement la valeur d'un de ces attributs à l'aide d'un modèle du genre state\_attr('id\_de\_l\_entite', 'nom\_attribut').
+Il sera possible de connaître directement la valeur d'un de ces attributs à l'aide d'un modèle du genre state_attr('id_de_l_entite', 'nom_attribut').
 
 Modèle Home Assistant
 
 
 ```
-{{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }}
+{{ state_attr('device_tracker.position_virtuelle_annie', 'latitude') }}
 ```
 
 
@@ -586,7 +586,7 @@ Modèle
 
 
 ```
-{% set longueur = ma\_chaine | length %}
+{% set longueur = ma_chaine | length %}
 ```
 
 
@@ -596,7 +596,7 @@ Modèle
 
 
 ```
-{% set position\_virgule = ma\_chaine.find(",") %}
+{% set position_virgule = ma_chaine.find(",") %}
 ```
 
 
@@ -606,7 +606,7 @@ Modèle
 
 
 ```
-{% set sous\_chaine = ma\_chaine[position\_debut:position\_fin] %}
+{% set sous_chaine = ma_chaine[position_debut:position_fin] %}
 ```
 
 
@@ -616,7 +616,7 @@ Modèle
 
 
 ```
-{% set sous\_chaine = ma\_chaine[position\_debut:] %}
+{% set sous_chaine = ma_chaine[position_debut:] %}
 ```
 
 
@@ -681,7 +681,7 @@ Mais pour y arriver, il faut bien comprendre la représentation des dates et les
   + [timestamp d'une date sous forme de chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#chaine)
   + [timestamp d'un objet de type datetime](https://apical.xyz/formations/pageunique/systeme_domotique_diy#datetime)
   + [timestamp d'une date codée en dur](https://apical.xyz/formations/pageunique/systeme_domotique_diy#dur)
-  + [timestamp d'un sensor.date\_time](https://apical.xyz/formations/pageunique/systeme_domotique_diy#sensor)
+  + [timestamp d'un sensor.date_time](https://apical.xyz/formations/pageunique/systeme_domotique_diy#sensor)
   + [timestamp d'un sensor.time](https://apical.xyz/formations/pageunique/systeme_domotique_diy#time)
 * [Conversion d'un timestamp en chaîne](https://apical.xyz/formations/pageunique/systeme_domotique_diy#conversiontimestampchaine)
 * [Calculs avec un timestamp](https://apical.xyz/formations/pageunique/systeme_domotique_diy#calculstimestamp)
@@ -737,7 +737,7 @@ Attention : l'heure n'est pas réévaluée à chaque seconde. Selon la document
 
 > Using now() will cause templates to be refreshed at the start of every new minute.
 
-Il est aussi possible de travailler avec [un capteur virtuel qui affiche la date et l'heure actuelles](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord), par exemple sensor.date, sensor.time, sensor.date\_time.
+Il est aussi possible de travailler avec [un capteur virtuel qui affiche la date et l'heure actuelles](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord), par exemple sensor.date, sensor.time, sensor.date_time.
 
 Remarquez qu'on obtient ici une chaîne de caractères.
 
@@ -745,7 +745,7 @@ Modèle
 
 
 ```
-{{ states('sensor.date\_time') }}
+{{ states('sensor.date_time') }}
 ```
 
 
@@ -773,7 +773,7 @@ Modèle
 
 
 ```
-{{ now().timetuple().tm\_isdst }}
+{{ now().timetuple().tm_isdst }}
 ```
 
 
@@ -781,7 +781,7 @@ Modèle
 
 La conversion d'une date en timestamp permettra d'utiliser cette date dans des calculs et dans des comparaisons.
 
-Dans les exemples suivants, je travaille avec un virtuel de type input\_datetime. Il s'agit d'une case dans laquelle on peut inscrire la date et l'heure de notre choix.
+Dans les exemples suivants, je travaille avec un virtuel de type input_datetime. Il s'agit d'une case dans laquelle on peut inscrire la date et l'heure de notre choix.
 
 ![input_datetime](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-InputDateTime.png)
 
@@ -791,7 +791,7 @@ Modèle
 
 
 ```
-{{ states('input\_datetime.date\_et\_heure') }}
+{{ states('input_datetime.date_et_heure') }}
 ```
 
 
@@ -803,8 +803,8 @@ Modèle
 
 
 ```
-{% set mon\_timestamp = ... %}
-{{ mon\_timestamp + 60\*60\*24\*7 }}
+{% set mon_timestamp = ... %}
+{{ mon_timestamp + 60\*60\*24\*7 }}
 ```
 
 
@@ -818,49 +818,49 @@ Modèle
 
 
 ```
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') }}
 ```
 
 
-La conversion en timestamp peut se faire également à l'aide du filtre as\_timestamp :
+La conversion en timestamp peut se faire également à l'aide du filtre as_timestamp :
 
 Modèle
 
 
 ```
-{{ states('input\_datetime.date\_et\_heure') | as\_timestamp }}
+{{ states('input_datetime.date_et_heure') | as_timestamp }}
 ```
 
 
-ou encore avec la fonction as\_timestamp() :
+ou encore avec la fonction as_timestamp() :
 
 Modèle
 
 
 ```
-{{ as\_timestamp(states('input\_datetime.date\_et\_heure')) }}
+{{ as_timestamp(states('input_datetime.date_et_heure')) }}
 ```
 
 
 ### timestamp d'un objet de type datetime {#datetime}
 
-Avec un objet de type datetime, il faut utiliser la fonction as\_timestamp() pour obtenir un timestamp :
+Avec un objet de type datetime, il faut utiliser la fonction as_timestamp() pour obtenir un timestamp :
 
 Modèle
 
 
 ```
-{{ as\_timestamp(now()) }}
+{{ as_timestamp(now()) }}
 ```
 
 
-ou encore le filtre as\_timestamp :
+ou encore le filtre as_timestamp :
 
 Modèle
 
 
 ```
-{{ now() | as\_timestamp }}
+{{ now() | as_timestamp }}
 ```
 
 
@@ -870,7 +870,7 @@ Modèle
 
 
 ```
-{{ as\_timestamp(utcnow()) }}
+{{ as_timestamp(utcnow()) }}
 ```
 
 
@@ -882,13 +882,13 @@ Si vous avez besoin d'effectuer des calculs à partir d'une date codée en dur (
 
 Vous pouvez utiliser les formats documentés ici : <https://docs.python.org/3/library/time.html#time.strftime>.
 
-La fonction as\_timestamp() pourra alors générer le timestamp.
+La fonction as_timestamp() pourra alors générer le timestamp.
 
 Modèle
 
 
 ```
-{{ as\_timestamp(strptime('2005-10-18', '%Y-%m-%d')) }}
+{{ as_timestamp(strptime('2005-10-18', '%Y-%m-%d')) }}
 ```
 
 
@@ -898,17 +898,17 @@ Modèle
 
 
 ```
-{{ as\_timestamp(strptime('2005-10-18 10:00:00', '%Y-%m-%d %H:%M:%S')) }}
+{{ as_timestamp(strptime('2005-10-18 10:00:00', '%Y-%m-%d %H:%M:%S')) }}
 ```
 
 
-### timestamp d'un sensor.date\_time {#sensor}
+### timestamp d'un sensor.date_time {#sensor}
 
-Avec un sensor.date\_time, il faut utiliser une astuce supplémentaire.
+Avec un sensor.date_time, il faut utiliser une astuce supplémentaire.
 
 En effet, ce capteur virtuel affiche la date au format AAAA-MM-JJ, HH:MM
 
-alors que as\_timestamp attend une chaîne au format AAAA-MM-JJ HH:MM:SS, avec ou sans l'heure.
+alors que as_timestamp attend une chaîne au format AAAA-MM-JJ HH:MM:SS, avec ou sans l'heure.
 
 ![sensor.date_time](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-SensorDateTime.png)
 
@@ -920,7 +920,7 @@ Modèle
 
 
 ```
-{{ as\_timestamp(states('sensor.date\_time').replace(',','')) }}
+{{ as_timestamp(states('sensor.date_time').replace(',','')) }}
 ```
 
 
@@ -930,17 +930,17 @@ Modèle
 
 
 ```
-{{ as\_timestamp(strptime(states('sensor.date\_time'), '%Y-%m-%d, %H:%M')) }}
+{{ as_timestamp(strptime(states('sensor.date_time'), '%Y-%m-%d, %H:%M')) }}
 ```
 
 
-Une autre option est de travailler avec un sensor.date\_time\_iso, qui représente la date et l'heure actuelles au format AAAA-MM-JJTHH:MM:SS (remarquez le T entre la date et l'heure) et qui peut être directement converti en timestamp.
+Une autre option est de travailler avec un sensor.date_time_iso, qui représente la date et l'heure actuelles au format AAAA-MM-JJTHH:MM:SS (remarquez le T entre la date et l'heure) et qui peut être directement converti en timestamp.
 
 Modèle
 
 
 ```
-{{ as\_timestamp(states('sensor.date\_time\_iso')) }}
+{{ as_timestamp(states('sensor.date_time_iso')) }}
 ```
 
 
@@ -956,7 +956,7 @@ Modèle
 
 
 ```
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) }}
 ```
 
 
@@ -964,7 +964,7 @@ Modèle
 
 Une fois les calculs de dates effectués, on obtient généralement un timestamp. Il faudra le reconvertir en chaîne afin de bien voir la date qu'il représente.
 
-Il est possible de convertir un timestamp en objet Python à l'aide de as\_datetime() puis d'effectuer la conversion en chaîne à l'aide de la fonction Python [strftime()](https://www.programiz.com/python-programming/datetime/strftime).
+Il est possible de convertir un timestamp en objet Python à l'aide de as_datetime() puis d'effectuer la conversion en chaîne à l'aide de la fonction Python [strftime()](https://www.programiz.com/python-programming/datetime/strftime).
 
 Vous aurez alors la possibilité du format d'affichage de votre choix (ici, j'ai utilisé le format AAAA/MM/JJ pour la date et j'ai laissé tomber les secondes).
 
@@ -972,15 +972,15 @@ Modèle
 
 
 ```
-{% set mon\_timestamp = ... %}
+{% set mon_timestamp = ... %}
 ...
-{{ as\_datetime(mon\_timestamp).strftime('%Y/%m/%d %H:%M') }}
+{{ as_datetime(mon_timestamp).strftime('%Y/%m/%d %H:%M') }}
 ```
 
 
 Home Assistant met à notre disposition des filtres qui permettent d'effectuer la conversion plus simplement.
 
-Le filtre timestamp\_utc permet de convertir un timestamp en une chaîne qui représente la date UTC.
+Le filtre timestamp_utc permet de convertir un timestamp en une chaîne qui représente la date UTC.
 
 La chaîne sera au format AAAA-MM-JJ HH:MM:SS.
 
@@ -988,7 +988,7 @@ Modèle
 
 
 ```
-{{ mon\_timestamp | timestamp\_utc }}
+{{ mon_timestamp | timestamp_utc }}
 ```
 
 
@@ -998,11 +998,11 @@ Modèle
 
 
 ```
-{{ states('sensor.date\_time\_iso') | timestamp\_utc }}
+{{ states('sensor.date_time_iso') | timestamp_utc }}
 ```
 
 
-Le filtre timestamp\_local permet de convertir un timestamp en une chaîne qui représente la date dans le fuseau horaire local.
+Le filtre timestamp_local permet de convertir un timestamp en une chaîne qui représente la date dans le fuseau horaire local.
 
 La chaîne sera ici aussi au format AAAA-MM-JJ HH:MM:SS.
 
@@ -1010,11 +1010,11 @@ Modèle
 
 
 ```
-{{ mon\_timestamp | timestamp\_local }}
+{{ mon_timestamp | timestamp_local }}
 ```
 
 
-Le filtre timestamp\_custom permet de convertir un timestamp en une chaîne qui représente la date dans le format souhaité, en heure locale ou UTC.
+Le filtre timestamp_custom permet de convertir un timestamp en une chaîne qui représente la date dans le format souhaité, en heure locale ou UTC.
 
 Le premier paramètre représente le format souhaité.
 
@@ -1026,7 +1026,7 @@ Modèle
 
 
 ```
-{{ mon\_timestamp | timestamp\_custom("%Y-%m-%d %H:%M:%S", true) }}
+{{ mon_timestamp | timestamp_custom("%Y-%m-%d %H:%M:%S", true) }}
 ```
 
 
@@ -1036,7 +1036,7 @@ Modèle
 
 
 ```
-{{ mon\_timestamp | timestamp\_custom("%Y-%m-%d", true) }}
+{{ mon_timestamp | timestamp_custom("%Y-%m-%d", true) }}
 ```
 
 
@@ -1052,7 +1052,7 @@ Modèle
 
 
 ```
-{{ (as\_timestamp(states('input\_datetime.date\_et\_heure')) + 604800) | timestamp\_local }}
+{{ (as_timestamp(states('input_datetime.date_et_heure')) + 604800) | timestamp_local }}
 ```
 
 
@@ -1066,27 +1066,27 @@ Modèle
 
 
 ```
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') < as\_timestamp(now()) }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') < as_timestamp(now()) }}
 ```
 
 
-ou avec un sensor.date\_time\_iso, qui représente lui aussi la date du jour :
+ou avec un sensor.date_time_iso, qui représente lui aussi la date du jour :
 
 Modèle
 
 
 ```
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') < as\_timestamp(states('sensor.date\_time\_iso')) }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') < as_timestamp(states('sensor.date_time_iso')) }}
 ```
 
 
-ou encore avec un sensor.date\_time, qui représente également la date du jour mais nécessite une manipulation supplémentire :
+ou encore avec un sensor.date_time, qui représente également la date du jour mais nécessite une manipulation supplémentire :
 
 Modèle
 
 
 ```
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') < as\_timestamp(states('sensor.date\_time').replace(',','')) }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') < as_timestamp(states('sensor.date_time').replace(',','')) }}
 ```
 
 
@@ -1098,7 +1098,7 @@ Modèle
 
 
 ```
-{{ states('sensor.time') <= states('input\_datetime.heure') }}
+{{ states('sensor.time') <= states('input_datetime.heure') }}
 ```
 
 
@@ -1110,9 +1110,9 @@ Quand Home Assistant fait des calculs qui impliquent des heures, ces heures sero
 
 La majorité des heures sont affichées par défaut dans le fuseau horaire local, mais il y a des exceptions. La principale difficulté lorsqu'on compare des heures est donc de s'assurer que le tout soit dans le même fuseau horaire.
 
-### input\_datetime qui saisit la date et l'heure : affiché en local
+### input_datetime qui saisit la date et l'heure : affiché en local
 
-Un capteur virtuel input\_datetime qui saisit une date et une heure est affiché en heure locale, tel qu'on s'y attend.
+Un capteur virtuel input_datetime qui saisit une date et une heure est affiché en heure locale, tel qu'on s'y attend.
 
 À preuve, voici quelques modèles qui effectuent la conversion entre l'heure locale et l'heure UTC. Les résultats obtenus sont affichés plus bas.
 
@@ -1121,13 +1121,13 @@ Modèle
 
 ```
 date et heure (saisi)
-{{ states('input\_datetime.date\_et\_heure') }}
+{{ states('input_datetime.date_et_heure') }}
 date et heure (UTC)
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') | timestamp\_utc }}
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') | timestamp\_custom("%H:%M:%S", false) }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') | timestamp_utc }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') | timestamp_custom("%H:%M:%S", false) }}
 date et heure (local)
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') | timestamp\_local }}
-{{ state\_attr('input\_datetime.date\_et\_heure', 'timestamp') | timestamp\_custom("%H:%M:%S", true) }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') | timestamp_local }}
+{{ state_attr('input_datetime.date_et_heure', 'timestamp') | timestamp_custom("%H:%M:%S", true) }}
 ```
 
 
@@ -1157,11 +1157,11 @@ Modèle
 sensor.time (affiché):
 {{ states('sensor.time') }}
 sensor.time (UTC)
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp\_utc }}
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp\_custom("%H:%M:%S", false) }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp_utc }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp_custom("%H:%M:%S", false) }}
 sensor.time (local)
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp\_local }}
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp\_custom("%H:%M:%S", true) }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp_local }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) | timestamp_custom("%H:%M:%S", true) }}
 ```
 
 
@@ -1180,9 +1180,9 @@ sensor.time (local)
 ```
 
 
-### input\_datetime qui ne saisit que l'heure : affiché en UTC si on ne prend pas de précautions
+### input_datetime qui ne saisit que l'heure : affiché en UTC si on ne prend pas de précautions
 
-Avec un input\_datetime qui ne saisit que l'heure, par contre, l'heure affichée est en UTC si on ne prend pas les précautions nécessaires.
+Avec un input_datetime qui ne saisit que l'heure, par contre, l'heure affichée est en UTC si on ne prend pas les précautions nécessaires.
 
 Donc, s'il contient la valeur 10h30, c'est 10h30 UTC qui sera utilisé dans les calculs et non 10h30 local converti en UTC comme on s'y attendrait.
 
@@ -1193,13 +1193,13 @@ Modèle
 
 ```
 heure (saisi)
-{{ states('input\_datetime.heure') }}
+{{ states('input_datetime.heure') }}
 heure (UTC)
-{{ state\_attr('input\_datetime.heure', 'timestamp') | timestamp\_utc }}
-{{ state\_attr('input\_datetime.heure', 'timestamp') | timestamp\_custom("%H:%M:%S", false) }}
+{{ state_attr('input_datetime.heure', 'timestamp') | timestamp_utc }}
+{{ state_attr('input_datetime.heure', 'timestamp') | timestamp_custom("%H:%M:%S", false) }}
 heure (local)
-{{ state\_attr('input\_datetime.heure', 'timestamp') | timestamp\_local }}
-{{ state\_attr('input\_datetime.heure', 'timestamp') | timestamp\_custom("%H:%M:%S", true) }}
+{{ state_attr('input_datetime.heure', 'timestamp') | timestamp_local }}
+{{ state_attr('input_datetime.heure', 'timestamp') | timestamp_custom("%H:%M:%S", true) }}
 ```
 
 
@@ -1225,13 +1225,13 @@ Modèle
 
 ```
 heure (saisi)
-{{ states('input\_datetime.heure') }}
+{{ states('input_datetime.heure') }}
 heure en ajoutant date (UTC)
-{{ as\_timestamp('1970-01-01 ' + states('input\_datetime.heure')) | timestamp\_utc }}
-{{ as\_timestamp('1970-01-01 ' + states('input\_datetime.heure')) | timestamp\_custom("%H:%M:%S", false) }}
+{{ as_timestamp('1970-01-01 ' + states('input_datetime.heure')) | timestamp_utc }}
+{{ as_timestamp('1970-01-01 ' + states('input_datetime.heure')) | timestamp_custom("%H:%M:%S", false) }}
 heure en ajoutant date (local)
-{{ as\_timestamp('1970-01-01 ' + states('input\_datetime.heure')) | timestamp\_local }}
-{{ as\_timestamp('1970-01-01 ' + states('input\_datetime.heure')) | timestamp\_custom("%H:%M:%S", true) }}
+{{ as_timestamp('1970-01-01 ' + states('input_datetime.heure')) | timestamp_local }}
+{{ as_timestamp('1970-01-01 ' + states('input_datetime.heure')) | timestamp_custom("%H:%M:%S", true) }}
 ```
 
 
@@ -1252,21 +1252,21 @@ heure en ajoutant date (local)
 
 ### Comparaison avec calculs maintenant possible!
 
-Après avoir appliqué la technique pour ramener le input\_datetime dans le bon fuseau horaire, il est possible de faire des calculs puis de les comparer.
+Après avoir appliqué la technique pour ramener le input_datetime dans le bon fuseau horaire, il est possible de faire des calculs puis de les comparer.
 
-Ici, on utilise un modèle pour déclencher une action 30 minutes avant l'heure saisie dans le input\_datetime.
+Ici, on utilise un modèle pour déclencher une action 30 minutes avant l'heure saisie dans le input_datetime.
 
 Modèle
 
 
 ```
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) >= as\_timestamp('1970-01-01 ' + states('input\_datetime.heure')) - 60\*30 }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) >= as_timestamp('1970-01-01 ' + states('input_datetime.heure')) - 60\*30 }}
 ```
 
 
 ### Autre astuce
 
-Il aurait également été possible d'ajouter 5 heures au input\_datetime alors qu'il est au format timestamp afin de le mettre sur le fuseau horaire local (le nombre d'heures sera différent selon votre fuseau horaire).
+Il aurait également été possible d'ajouter 5 heures au input_datetime alors qu'il est au format timestamp afin de le mettre sur le fuseau horaire local (le nombre d'heures sera différent selon votre fuseau horaire).
 
 Mais ceci est moins intéressant puisqu'il faudra gérer nous-mêmes les passages à l'heure avancée.
 
@@ -1274,7 +1274,7 @@ Modèle
 
 
 ```
-{{ (state\_attr('input\_datetime.heure', 'timestamp') + 5\*60\*60) | timestamp\_local }}
+{{ (state_attr('input_datetime.heure', 'timestamp') + 5\*60\*60) | timestamp_local }}
 ```
 
 
@@ -1284,7 +1284,7 @@ Modèle
 
 
 ```
-{{ as\_timestamp('1970-01-01 ' + states('sensor.time')) >= (state\_attr('input\_datetime.heure', 'timestamp') + 5\*60\*60) }}
+{{ as_timestamp('1970-01-01 ' + states('sensor.time')) >= (state_attr('input_datetime.heure', 'timestamp') + 5\*60\*60) }}
 ```
 
 
@@ -1314,13 +1314,13 @@ L'utilisation de < ou de > n'est pas non plus souhaitable puisque vos déclenche
 
 Les modèles permettent de vérifier la présence d'une entité dans une zone lorsque cette entité gère la position par rapport aux zones Home Assistant.
 
-Si vous lisez ceci alors que vous n'avez pas encore travaillé avec de telles entités, par exemple les device\_trackers, je vous conseille de passer à la fiche suivante et de revenir ici seulement quand le besoin se fera sentir.
+Si vous lisez ceci alors que vous n'avez pas encore travaillé avec de telles entités, par exemple les device_trackers, je vous conseille de passer à la fiche suivante et de revenir ici seulement quand le besoin se fera sentir.
 
 Sinon, vous êtes au bon endroit pour comprendre les manipulations des positions par rapport aux zones!
 
 La gestion de la position GPS est bien intégrée à Home Assistant.
 
-Une fois qu'on a défini une entité qui gère la position GPS, que ce soit [avec l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) ou encore [avec device\_tracker.see](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see), il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
+Une fois qu'on a défini une entité qui gère la position GPS, que ce soit [avec l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) ou encore [avec device_tracker.see](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see), il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
 
 Pour savoir dans quelle zone une personne se trouve :
 
@@ -1328,11 +1328,11 @@ Modèle
 
 
 ```
-{{ states('device\_tracker.position\_virtuelle\_annie') }}
+{{ states('device_tracker.position_virtuelle_annie') }}
 ```
 
 
-Ceci affichera home ou le nom de la zone ou not\_home si la personne est en dehors de toutes les zones définies.
+Ceci affichera home ou le nom de la zone ou not_home si la personne est en dehors de toutes les zones définies.
 
 Pour vérifier si une personne est dans la zone Maison (elle peut porter un autre nom selon votre configuration de Home Assistant, mais elle sera toujours nommée home dans le code) :
 
@@ -1340,7 +1340,7 @@ Modèle
 
 
 ```
-{{ is\_state('device\_tracker.position\_virtuelle\_annie','home') }}
+{{ is_state('device_tracker.position_virtuelle_annie','home') }}
 ```
 
 
@@ -1350,7 +1350,7 @@ Modèle
 
 
 ```
-{{ is\_state('device\_tracker.position\_virtuelle\_annie','Cégep') }}
+{{ is_state('device_tracker.position_virtuelle_annie','Cégep') }}
 ```
 
 
@@ -1360,7 +1360,7 @@ Modèle
 
 
 ```
-{{ is\_state('device\_tracker.position\_virtuelle\_annie','not\_home') }}
+{{ is_state('device_tracker.position_virtuelle_annie','not_home') }}
 ```
 
 
@@ -1386,13 +1386,13 @@ YAML
 ```
 payload: >-
 {
-"latitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }},
-"longitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude') }}
+"latitude": {{ state_attr('device_tracker.position_virtuelle_annie', 'latitude') }},
+"longitude": {{ state_attr('device_tracker.position_virtuelle_annie', 'longitude') }}
 }
 ```
 
 
-La syntaxe précédente fonctionne bien. Cependant, pour vous assurer que tout soit correctement encodé, il est préférable d'utiliser le filtre [to\_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
+La syntaxe précédente fonctionne bien. Cependant, pour vous assurer que tout soit correctement encodé, il est préférable d'utiliser le filtre [to_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
 
 YAML
 
@@ -1401,11 +1401,11 @@ YAML
 payload: |-
 {%
 set valeurs = {
-"latitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude'),
-"longitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude')
+"latitude": state_attr('device_tracker.position_virtuelle_annie', 'latitude'),
+"longitude": state_attr('device_tracker.position_virtuelle_annie', 'longitude')
 }
 %}
-{{ valeurs | to\_json }}
+{{ valeurs | to_json }}
 ```
 
 
@@ -1431,7 +1431,7 @@ Les objets qui fournissent une position GPS travailleront souvent avec cette str
 
 {"latitude": 46.06027408131711, "longitude": -71.9437545693869}
 
-Pour connaître la valeur d'une de ces informations,  il faudra d'abord désérialiser la chaîne JSON à l'aide du filtre [from\_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
+Pour connaître la valeur d'une de ces informations,  il faudra d'abord désérialiser la chaîne JSON à l'aide du filtre [from_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
 
 L'information sera ensuite disponible soit comme une propriété (avec un point), soit comme un élément de tableau (avec des crochets carrés).
 
@@ -1441,7 +1441,7 @@ Modèle Home Assistant
 
 
 ```
-{{ (states('domaine.identifiant\_objet') | from\_json).nom\_information }}
+{{ (states('domaine.identifiant_objet') | from_json).nom_information }}
 ```
 
 
@@ -1451,7 +1451,7 @@ Modèle Home Assistant
 
 
 ```
-{{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
+{{ (states('domaine.identifiant_objet') | from_json)['nom_information'] }}
 ```
 
 
@@ -1473,13 +1473,13 @@ Ceci vous permet de modifier l'affichage selon la condition que vous désirez me
 
 Quand une automatisation a plusieurs déclencheurs, il est intéressant de savoir lequel a effectivement causé le déclenchement.
 
-On pourrait, par exemple, [envoyer un courriel](94_notification_par_courriel.md#fiche-configurer_home_assistant_pour_l_envoi_de_courriel), [une notification](99_detecteur_de_presence_sous_home_assistant.md#fiche-envoyer_une_notification_a_l_application_mobile) ou encore <a href="fiche-slug_de_la_fiche.md#slug_de_la_fiche">enregistrer une information dans un journal</a> avec ce modèle, qui permet de retrouver l'identifiant du déclencheur (ex : device\_tracker.position\_virtuelle\_annie).
+On pourrait, par exemple, [envoyer un courriel](94_notification_par_courriel.md#fiche-configurer_home_assistant_pour_l_envoi_de_courriel), [une notification](99_detecteur_de_presence_sous_home_assistant.md#fiche-envoyer_une_notification_a_l_application_mobile) ou encore <a href="fiche-slug_de_la_fiche.md#slug_de_la_fiche">enregistrer une information dans un journal</a> avec ce modèle, qui permet de retrouver l'identifiant du déclencheur (ex : device_tracker.position_virtuelle_annie).
 
 Modèle
 
 
 ```
-{{ trigger.entity\_id }}
+{{ trigger.entity_id }}
 ```
 
 
@@ -1489,7 +1489,7 @@ Modèle
 
 
 ```
-{{ trigger.to\_state.name }}
+{{ trigger.to_state.name }}
 ```
 
 
@@ -1499,7 +1499,7 @@ Modèle
 
 
 ```
-{{ trigger.to\_state.state }}
+{{ trigger.to_state.state }}
 ```
 
 
@@ -1509,5 +1509,5 @@ Modèle
 
 
 ```
-{{ this.entity\_id }}
+{{ this.entity_id }}
 ```
