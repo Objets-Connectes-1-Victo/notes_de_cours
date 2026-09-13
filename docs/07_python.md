@@ -109,7 +109,7 @@ Python
 
 ```python
 import platform
-platform.python\_version()
+platform.python_version()
 ```
 
 
@@ -129,7 +129,7 @@ Terminal
 
 
 ```
-chmod u+x mon\_script.py
+chmod u+x mon_script.py
 ```
 
 
@@ -139,7 +139,7 @@ Terminal
 
 
 ```
-./mon\_script.py
+./mon_script.py
 ```
 
 
@@ -185,7 +185,7 @@ Terminal
 
 
 ```
-python3 mon\_script.py
+python3 mon_script.py
 ```
 
 
@@ -348,7 +348,7 @@ canevas = Canvas(fenetre, width=150, height=150)
 
 Puisqu'un paquet est un dossier qui contient des modules, Python devait avoir un moyen de comprendre ce qu'il doit faire lorsqu'on lui lance une instruction import sur un paquet.
 
-Dans les faits, lorsqu'il rencontre le nom d'un paquet dans une instruction import, Python recherchera un fichier nommé \_\_init\_\_.py dans ce dossier. Autrement dit, l'importation d'un paquet consiste à importer le module \_\_init\_\_ présent dans ce paquet.
+Dans les faits, lorsqu'il rencontre le nom d'un paquet dans une instruction import, Python recherchera un fichier nommé __init__.py dans ce dossier. Autrement dit, l'importation d'un paquet consiste à importer le module __init__ présent dans ce paquet.
 
 Certains paquets sont configurés pour que tous leurs modules soient importés automatiquement. D'autres laissent le soin au programmeur d'importer seulement les modules désirés.
 
@@ -421,9 +421,9 @@ Résultat à l'écran
 
 ```
 Traceback (most recent call last):
-File "./mon\_programme.py", line 4, in <module>
-import mon\_module
-ModuleNotFoundError: No module named 'mon\_module'
+File "./mon_programme.py", line 4, in <module>
+import mon_module
+ModuleNotFoundError: No module named 'mon_module'
 ```
 
 
@@ -633,7 +633,7 @@ Python
 
 
 ```python
-def ma\_fonction():
+def ma_fonction():
 ...
 ...
 # cette ligne ne fait pas partie de la fonction
@@ -649,7 +649,7 @@ Python
 
 ```python
 # la fonction sera exécutée immédiatement
-ma\_fonction()
+ma_fonction()
 ```
 
 
@@ -661,11 +661,11 @@ Python
 
 
 ```python
-def afficher\_message(message):
+def afficher_message(message):
 ...
 print(message)
 ...
-afficher\_message('Bien le bonjour !')
+afficher_message('Bien le bonjour !')
 ```
 
 
@@ -679,7 +679,7 @@ Python
 
 
 ```python
-def soumettre\_click():
+def soumettre_click():
 """ Enregistre les informations dans la base de données. """
 ...
 ```
@@ -689,7 +689,7 @@ Python
 
 
 ```python
-def ma\_fonction():
+def ma_fonction():
 """ Effectue telle ou telle action.
 Ceci est un commentaire sur plusieurs lignes.
 On laisse généralement une ligne blanche après la première ligne, qui est un sommaire.
@@ -711,7 +711,7 @@ Python
 
 
 ```python
-def ma\_fonction():
+def ma_fonction():
 ...
 ...
 ########## programme principal ##########
@@ -740,12 +740,12 @@ Python
 
 
 ```python
-def afficher\_message(nom):
+def afficher_message(nom):
 """Affiche un message avec le nom saisi par l'usager."""
 print('Bonjour, ' + nom + ' !')
 ########## programme principal ##########
 nom = input('Quel est ton nom ? ')
-afficher\_message(nom)
+afficher_message(nom)
 ```
 
 
@@ -761,12 +761,12 @@ Python
 
 
 ```python
-def changer\_nom():
+def changer_nom():
 """Change la valeur de la variable nom sans affecter le programme principal."""
 nom = 'abc'
 ########## programme principal ##########
 nom = input('Quel est ton nom ? ')
-changer\_nom()
+changer_nom()
 print('Bonjour, ' + nom + ' !')
 ```
 
@@ -779,13 +779,13 @@ Python
 
 
 ```python
-def changer\_nom():
+def changer_nom():
 """Change la valeur de la variable globale nom, ce qui affectera le programme principal."""
 global nom
 nom = 'abc'
 ########## programme principal ##########
 nom = input('Quel est ton nom ? ')
-changer\_nom()
+changer_nom()
 print('Bonjour, ' + nom + ' !')
 ```
 
@@ -803,7 +803,7 @@ Quelques faits saillants :
 * Si la classe n'a pas de parent, on ne met pas de parenthèses.
 * À l'intérieur de la classe, tout le code doit être placé dans une méthode. Seule exception : l'initialisation des variables de classe.
 * Chaque méthode est déclarée avec le mot-clé def.
-* Le constructeur s'appelle \_\_init\_\_.
+* Le constructeur s'appelle __init__.
 * Le constructeur et les autres méthodes reçoivent toujours self comme premier paramètre.
 * Lors de l'appel d'une méthode, on ignore le paramètre self puisque c'est le noyau qui se chargera de le passer en paramètre.
 * Un point sépare le nom d'un objet de ses membres.
@@ -817,18 +817,18 @@ Python
 ```python
 class MaClasse(ClasseDeBase):
 # Attributs de classe
-un\_attribut\_de\_classe = 'valeur'
-def \_\_init\_\_(self, parametre='Valeur par défaut'):
+un_attribut_de_classe = 'valeur'
+def __init__(self, parametre='Valeur par défaut'):
 # Initialisation des attributs (variables d'instance)
-self.un\_attribut = parametre
-self.un\_autre\_attribut = 'autre valeur'
-def \_\_str\_\_(self):
-return 'Chaîne qui représente l\'objet: %d, %s' % (self.un\_attribut, self.un\_autre\_attribut)
-def une\_methode(self):
+self.un_attribut = parametre
+self.un_autre_attribut = 'autre valeur'
+def __str__(self):
+return 'Chaîne qui représente l\'objet: %d, %s' % (self.un_attribut, self.un_autre_attribut)
+def une_methode(self):
 ...
-def une\_autre\_methode(self):
+def une_autre_methode(self):
 ...
-self.une\_methode()
+self.une_methode()
 return ...
 ```
 
@@ -865,9 +865,9 @@ Python
 
 
 ```python
-nom\_script = sys.argv[0]
-premier\_parametre = sys.argv[1]
-deuxieme\_parametre = sys.argv[2]
+nom_script = sys.argv[0]
+premier_parametre = sys.argv[1]
+deuxieme_parametre = sys.argv[2]
 ```
 
 
@@ -963,7 +963,7 @@ Terminal
 
 
 ```
-sudo pkill -f mon\_script.py
+sudo pkill -f mon_script.py
 ```
 
 
@@ -993,7 +993,7 @@ Résultat à l'écran
 ```
 pi@raspberrypi:~ $ ps -ef | grep python
 pi 891 1260 0 11:16 pts/0 00:00:00 python3 clignote.py
-pi 1288 1260 0 07:57 pts/0 00:00:00 python3 allume\_led.py
+pi 1288 1260 0 07:57 pts/0 00:00:00 python3 allume_led.py
 ```
 
 
@@ -1052,10 +1052,10 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 
 |  | Python | JavaScript | PHP | C# |
 | --- | --- | --- | --- | --- |
-| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine\_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
+| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
 | Booléens | True  False    Sensible à la casse | true  false    Sensible à la casse | True ou true ou TRUE  False ou false ou FALSE    Insensible à la casse | true  false    Certaines fonctions C# retournent cependant True ou False...    bool valeur = true;  Console.WriteLine(valeur); // True |
 | Opérateurs booléens | and  or  not | &&  ||  ! | && ou and  || ou or  ! | &&  ||  ! |
-| Concaténation | nom\_complet = prenom + ' ' + nom\_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
+| Concaténation | nom_complet = prenom + ' ' + nom_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
 | Incrémentation | i += 1 | i += 1; ([affectation après addition](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Addition_assignment))  i++ ([opérateur d'incrémentation en suffixe](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Increment))  ++i (opérateur d'incrémentation en préfixe) | $i += 1;  $i++ ([post-incrémente](https://www.php.net/manual/fr/language.operators.increment.php))  ++$i (pré-incrémente) | i += 1;  i++  ++i |
 | Conversion de type | nombre= int(saisie) | nombre = parseInt(saisie); | $nombre = (int)$saisie;  ou  $nombre = intval($saisie); | nombre = Convert.ToInt32(saisie);  ou  Int32.TryParse(saisie, out nombre); |
 | Affichage à l'écran | print(nom)  ou, pour éviter les sauts de ligne :  print(nom, end='')    On peut interpréter des variables dans une chaîne : print(f"Votre score est {score}") | L'affichage se fait à l'aide de manipulations du DOM :  balise.innerHTML = nom;    Si on utilise jQuery :  $(balise).html(nom);    Pour afficher à la console :  console.log(nom);    Pour afficher dans une fenêtre popup :  window.alert(nom); | echo $nom; | Dans une page Web :  Response.Write(nom);    À la console :  Console.WriteLine(nom); |
@@ -1067,11 +1067,11 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 | Boucles while | while x < 10:      ... | while (x < 10) {      ...  } | while (x < 10) {      ...  } | while (x < 10) {      ...  } |
 | Boucles sur un nombre déterminé d'itérations | for i in range(10):      ...    La boucle pourrait commencer à une autre valeur que 0, il est possible de spécifier le départ, la fin (exclue de la boucle) et la valeur du saut :  for i in range(1, 10, 1)      ... | for (i = 0; i < 10; i++) {      ...  } | for ($i = 0; $i < 10; $i++) {      ...  } | for (i = 0; i < 10; i++)  {      ...  } |
 | Boucles sur les éléments d'un tableau | valeurs = ['a', 'b', 'c']  for valeur in valeurs:      ... | var valeurs = ['a', 'b', 'c'];    for (var valeur in valeurs) {      ...  } | $valeurs = ['a', 'b', 'c'];    foreach ($valeurs as $valeur) {      ...  } | string[] valeurs = {"a", "b", "c"};    foreach (int valeur in valeurs)  {      ...  } |
-| Opérateur ternaire (inline if) | valeur\_si\_vrai if condition else valeur\_si\_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
+| Opérateur ternaire (inline if) | valeur_si_vrai if condition else valeur_si_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
 | Exceptions | try:      ...  except TypeException as e:      ... # traitement d'une exception précise  except Exception as e:      ... # traitement des autres exceptions  else:      ... # traitement si pas d'exception  finally:      ... # traitement si exception ou non | try {      ...  } catch (e) {      if (e instanceof TypeException) {          ... // traitement d'une exception précise      } else {          ... // traitement des autres exceptions      }  }  finally {      ... // traitement si exception ou non  } | try {      ...  } catch (TypeException $e) {      ... // traitement d'une exception précise  } catch (Throwable $e) {      ... // traitement des autres exceptions si PHP 7  } catch (Exception $e) {      ... // traitement des autres exceptions si PHP 5.X  } finally {      ... // traitement si exception ou non  } | try  {      ...  }  catch (TypeException)  {      ... // traitement d'une exception précise  }  catch (Exception e)  {      ... // traitement des autres exceptions  }  finally  {      ... // traitement si exception ou non  } |
 | Commentaires | # | //  /\* ... \*/ | #  //  /\* ... \*/ | //  /\* ... \*/ |
-| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma\_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
-| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP\_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
+| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
+| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
 | Valeur nulle | variable = None | let variable = null; | $variable = NULL; | string variable = null; |
 |  | Python | JavaScript | PHP | C# |
 
@@ -1079,13 +1079,13 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 |  | [Python](https://www.python.org/dev/peps/pep-0008/) | [JavaScript](https://google.github.io/styleguide/jsguide.html) | [PHP](http://www.php-fig.org/psr/psr-1/) | [C#](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions) |
 | --- | --- | --- | --- | --- |
-| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse\_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console\_sans\_bd et dans un autre projet graphique\_sans\_bd. |  |  |  |
+| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console_sans_bd et dans un autre projet graphique_sans_bd. |  |  |  |
 | Espaces de noms | toutenminuscules |  |  |  |
-| Fichiers | toutenminuscules  ou  casse\_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
-| Noms de variables | casse\_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
+| Fichiers | toutenminuscules  ou  casse_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
+| Noms de variables | casse_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
 | Noms de classes | CassePascal | CassePascal | CassePascal | CassePascal |
-| Noms de fonctions | casse\_serpent | casseChameau | casseChameau | CassePascal |
-| Noms de constantes | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | CassePascal |
+| Noms de fonctions | casse_serpent | casseChameau | casseChameau | CassePascal |
+| Noms de constantes | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | CassePascal |
 |  | Python | JavaScript | PHP | C# |
 
 ## Pour plus d'information

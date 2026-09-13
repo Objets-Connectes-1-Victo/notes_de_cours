@@ -18,7 +18,7 @@ Fichier configuration.yaml
 
 
 ```
-python\_script:
+python_script:
 ```
 
 
@@ -26,7 +26,7 @@ python\_script:
 
 Les scripts Python doivent être sur le Rapsbery Pi. Vous pouvez les créer à partir d'une fenêtre SSH ou encore directement dans le [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
 
-Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python\_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
+Dans le dossier /mnt/data/supervisor/homeassistant/, là où se trouve le fichier configuration.yaml, vous devez créer un sous-dossier nommé python_scripts. C'est dans ce dossier que vous placerez les fichiers qui contiennent le code Python.
 
 ## Lancer le script Python
 
@@ -45,9 +45,9 @@ alias: ...
 trigger:
 - ...
 action:
-- service: python\_script.nom\_du\_fichier\_python
+- service: python_script.nom_du_fichier_python
 target:
-entity\_id: sensor.cleaning\_ladies\_time\_at\_house
+entity_id: sensor.cleaning_ladies_time_at_house
 data:
 variable: donnee
 mode: single
@@ -56,13 +56,13 @@ mode: single
 
 ## Code Python
 
-Le code Python récupérera le entity\_id comme suit :
+Le code Python récupérera le entity_id comme suit :
 
 Python
 
 
 ```python
-entity\_id = data.get("entity\_id")
+entity_id = data.get("entity_id")
 ```
 
 
@@ -72,7 +72,7 @@ Python
 
 
 ```python
-ma\_variable = data.get("variable", valeur\_par\_defaut)
+ma_variable = data.get("variable", valeur_par_defaut)
 ```
 
 
@@ -84,14 +84,14 @@ Python
 
 
 ```python
-service\_data = {"variable": donnee, "variable2": donnee2}
-hass.services.call("domaine", "service", service\_data, False)
+service_data = {"variable": donnee, "variable2": donnee2}
+hass.services.call("domaine", "service", service_data, False)
 ```
 
 
-Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input\_text.set\_value, le domaine est input\_text.
+Le domaine est la partie avant le point dans le nom du service. Par exemple, pour le service input_text.set_value, le domaine est input_text.
 
-Le service est la partie après le point, par exemple set\_value.
+Le service est la partie après le point, par exemple set_value.
 
 ...
 

@@ -260,7 +260,7 @@ Pour qu'un canal existe, il suffit qu'un publieur et un abonné l'utilisent. Il 
 
 [Le nom d'un canal](https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/) contient généralement plusieurs niveaux afin de bien organiser les canaux que l'agent MQTT doit gérer.
 
-Le nom sera sous la forme : un\_niveau/un\_sous\_niveau/un\_nom.
+Le nom sera sous la forme : un_niveau/un_sous_niveau/un_nom.
 
 Il sera écrit entièrement en lettre minuscules avec possiblement des barres de soulignement pour séparer les mots.
 

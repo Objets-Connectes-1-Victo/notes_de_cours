@@ -126,7 +126,7 @@ Cliquez sur le plugin Détection de téléphone (Bluetooth) - par sebmafate.
 
 ## Configuration du Bluetooth sur le Pi
 
-Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le Bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
+Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le Bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer_bluetooth_sur_raspberry_pi_os_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
 
 ## Configuration du plugin
 
@@ -181,7 +181,7 @@ Parfois, il faut mettre quelques efforts supplémentaires pour que le téléphon
   sudo systemctl start hciuart
   systemctl status hciuart
 ```
-* Consultez le fichier journal phone\_detection.
+* Consultez le fichier journal phone_detection.
 * Redémarrez le démon en cliquant sur (re)Démarrer dasn la fenêtre de configuration du plugin Détection de téléphone.
 * Patientez... parfois, le plugin peut mettre quelques minutes avant de réagir puisque s'il vérifie plus souvent, cela demandera trop de ressources au système.
 
@@ -199,7 +199,7 @@ Pour tester vos scénarios, vous avez trois choix :
 
 ## Pour plus d'information
 
-« sebmafate/phone\_detection ». GitHub - sebmafate/phone\_detection. <https://github.com/sebmafate/phone_detection>
+« sebmafate/phone_detection ». GitHub - sebmafate/phone_detection. <https://github.com/sebmafate/phone_detection>
 
 « Gestion de la présence avancées ». La domotique pratique. <https://www.ladomopratique.com/jeedom-scenario-gestion-de-la-presence-avancees/>
 
@@ -231,7 +231,7 @@ Cliquez sur le plugin Bluetooth Advertisement - officiel par Jeedom SAS.
 
 ## Configuration du bluetooth sur le Pi
 
-Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer\_bluetooth\_sur\_raspberry\_pi\_os\_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
+Avant d'aller plus loin, effectuez les manipulations nécessaires pour activer le bluetooth sur le Raspberry Pi, tel qu'expliqué sur cette fiche : [activer_bluetooth_sur_raspberry_pi_os_lite](05_raspberry_pi.md#fiche-activer_bluetooth_sur_raspberry_pi_os_lite). Remarquez que vous n'aurez pas à effectuer de pairage à ce stade.
 
 ## Configuration du plugin
 

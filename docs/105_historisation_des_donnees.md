@@ -22,8 +22,8 @@ Fichier configurations.yaml
 ```
 # Modification de l'enregistrement des données
 recorder:
-purge\_keep\_days: 30
-commit\_interval: 10
+purge_keep_days: 30
+commit_interval: 10
 ```
 
 

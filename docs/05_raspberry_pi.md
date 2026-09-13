@@ -172,7 +172,7 @@ Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS u
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer\_le\_reseau\_a\_l\_aide\_de\_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_le_reseau_a_l_aide_de_dhcpcd) ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer_le_reseau_a_l_aide_de_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_le_reseau_a_l_aide_de_dhcpcd) ».
 
 ## Configurer le réseau à l'aide de NetworkManager {#networkmanager}
 
@@ -236,13 +236,13 @@ Il est possible de modifier le fichier ainsi créé (/etc/NetworkManager/system-
 
 Ceci est optionnel.
 
-Pour convertir le mot de passe, utilisez le petit utilitaire wpa\_passhprase à la ligne de commande.
+Pour convertir le mot de passe, utilisez le petit utilitaire wpa_passhprase à la ligne de commande.
 
 Terminal
 
 
 ```
-wpa\_passphrase nom-du-reseau mot-de-passe-en-clair
+wpa_passphrase nom-du-reseau mot-de-passe-en-clair
 ```
 
 
@@ -250,7 +250,7 @@ Résultat à l'écran
 
 
 ```
-pi@raspberrypi:~ $ wpa\_passphrase nom-du-reseau mot-de-passe-en-clair
+pi@raspberrypi:~ $ wpa_passphrase nom-du-reseau mot-de-passe-en-clair
 network={
 ssid="nom-du-reseau"
 #psk="mot-de-passe-en-clair"
@@ -408,20 +408,20 @@ Résultat à l'écran
 
 ```
 pi@raspberrypi:~ $ ip addr show
-1: lo: <LOOPBACK,UP,LOWER\_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 inet 127.0.0.1/8 scope host lo
-valid\_lft forever preferred\_lft forever
+valid_lft forever preferred_lft forever
 inet6 ::1/128 scope host
-valid\_lft forever preferred\_lft forever
-2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo\_fast state DOWN group default qlen 1000
+valid_lft forever preferred_lft forever
+2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
 link/ether b8:27:eb:75:39:34 brd ff:ff:ff:ff:ff:ff
-3: wlan0: <BROADCAST,MULTICAST,UP,LOWER\_UP> mtu 1500 qdisc pfifo\_fast state UP group default qlen 1000
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
 link/ether b8:27:eb:20:6c:61 brd ff:ff:ff:ff:ff:ff
 inet 192.168.1.145/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
-valid\_lft 82089sec preferred\_lft 71289sec
+valid_lft 82089sec preferred_lft 71289sec
 inet6 fe80::7fa0:10ff:f021:2519/64 scope link
-valid\_lft forever preferred\_lft forever
+valid_lft forever preferred_lft forever
 ```
 
 
@@ -486,9 +486,9 @@ Fichier /etc/rc.local
 #
 # By default this script does nothing.
 # Print the IP address
-\_IP=$(hostname -I) || true
-if [ "$\_IP" ]; then
-printf "My IP address is %s\n" "$\_IP"
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+printf "My IP address is %s\n" "$_IP"
 fi
 exit 0
 ```
@@ -512,13 +512,13 @@ Pour réaliser cette manipulation, vous aurez besoin soit d'un clavier et d'un �
 
 L'idéal est d'effectuer l'envoi à partir d'un [courriel que vous aurez créé chez un hébergeur Web](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine) car l'envoi de courriel avec une adresse du type Gmail ne fonctionnera pas. Puisque le mot de passe de ce courriel sera écrit en clair dans le script, il est conseillé d'utilier un compte de courriel qui ne sert qu'à cette cause.
 
-Voici le script Python que vous devez installer sur votre Raspberry Pi. J'ai choisi de le placer dans le dossier /home/pi et de le nommer envoyer\_ip\_courriel.py mais vous pouvez changer l'emplacement et le nom comme bon vous semble.
+Voici le script Python que vous devez installer sur votre Raspberry Pi. J'ai choisi de le placer dans le dossier /home/pi et de le nommer envoyer_ip_courriel.py mais vous pouvez changer l'emplacement et le nom comme bon vous semble.
 
 Si vous utilisez votre ordinateur pour créer le script, vous devrez le [copier sur le Raspberry Pi,scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur) avant de poursuivre.
 
 Je me suis inspirée de [ce script](https://www.reddit.com/r/raspberry_pi/comments/11p8xj/configure_your_pi_to_autoemail_its_ip_address_on/)1, que j'ai simplifié puis adapté pour Python 3.
 
-Fichier envoyer\_ip\_courriel.py
+Fichier envoyer_ip_courriel.py
 
 
 ```python
@@ -527,7 +527,7 @@ Fichier envoyer\_ip\_courriel.py
 Envoie l'adresse IP du Pi par courriel
 Paramètres : aucun
 Auteur : Christiane Lagacé
-Inspiré de : https://www.reddit.com/r/raspberry\_pi/comments/11p8xj/configure\_your\_pi\_to\_autoemail\_its\_ip\_address\_on/
+Inspiré de : https://www.reddit.com/r/raspberry_pi/comments/11p8xj/configure_your_pi_to_autoemail_its_ip_address_on/
 et de https://realpython.com/python-send-email/
 Date : 16 septembre 2022
 Dernier ajustement : 12 août 2025
@@ -539,41 +539,41 @@ from email.mime.multipart import MIMEMultipart
 # \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 # Configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 # \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-smtp\_server = 'mail.mondomaine.com'
+smtp_server = 'mail.mondomaine.com'
 port = 587
-sender\_email = 'monnom@mondomaine.com'
-password = 'mon\_mot\_de\_passe'
-receiver\_email = 'unnom@undomaine.com'
+sender_email = 'monnom@mondomaine.com'
+password = 'mon_mot_de_passe'
+receiver_email = 'unnom@undomaine.com'
 # \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 # Fin configurations \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 # \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 hostname = subprocess.getoutput('hostname') # Par défaut, on aura une chaîne du genre "raspberrypi"
 try:
-adresse\_ip = subprocess.getoutput('hostname -I')
+adresse_ip = subprocess.getoutput('hostname -I')
 except Exception as e:
 print(f"Exception: {e}")
-adresse\_ip = 'aucune'
+adresse_ip = 'aucune'
 message = MIMEMultipart()
-message['From'] = sender\_email
-message['To'] = receiver\_email
+message['From'] = sender_email
+message['To'] = receiver_email
 message['Subject'] = f'Adresse IP de {hostname}'
 body = f"""Informations du Raspberry Pi:
 Hostname: {hostname}
-Adresse(s) IP: {adresse\_ip}
+Adresse(s) IP: {adresse_ip}
 """
 message.attach(MIMEText(body, 'plain', 'utf-8'))
 # Envoyer le courriel
-context = ssl.create\_default\_context()
+context = ssl.create_default_context()
 try:
 server = None
-server = smtplib.SMTP(smtp\_server,port)
+server = smtplib.SMTP(smtp_server,port)
 server.ehlo() # Can be omitted
 server.starttls(context=context) # Secure the connection
 server.ehlo() # Can be omitted
-server.login(sender\_email, password)
-server.sendmail(sender\_email, receiver\_email, message.as\_string())
+server.login(sender_email, password)
+server.sendmail(sender_email, receiver_email, message.as_string())
 print(body)
-print(f'Courriel envoyé à {receiver\_email}')
+print(f'Courriel envoyé à {receiver_email}')
 except Exception as e:
 print(e)
 finally:
@@ -588,7 +588,7 @@ Terminal sur le Raspberry Pi
 
 
 ```
-python3 ~/envoyer\_ip\_courriel.py
+python3 ~/envoyer_ip_courriel.py
 ```
 
 
@@ -616,7 +616,7 @@ Fichier cron
 
 
 ```
-@reboot sleep 10; bash -c '/usr/bin/python3 /home/pi/envoyer\_ip\_courriel.py > /home/pi/boot.log 2>&1' &
+@reboot sleep 10; bash -c '/usr/bin/python3 /home/pi/envoyer_ip_courriel.py > /home/pi/boot.log 2>&1' &
 ```
 
 
@@ -836,7 +836,7 @@ Dans la colonne STATE, si vous voyez connected ou disconnected, c'est que l'OS u
 
 Si vous voyez plutôt unmanaged, ou encore si la commande nmcli n'est pas reconnue, c'est que l'OS utilise un auytre système pour gérer le réseau.
 
-Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer\_l\_adresse\_ip\_statique\_du\_raspberry\_pi\_avec\_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd) ».
+Si votre système n'utilise pas NetworkManager, référez-vous à la fiche « [configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd](138_configurations_reseau_avec_dhcpcd_wpa_supplicant.md#fiche-configurer_l_adresse_ip_statique_du_raspberry_pi_avec_dhcpcd) ».
 
 ## Configurer l'adresse IP statique sur le Pi avec NetworkManager {#surlepi}
 
@@ -1124,7 +1124,7 @@ Résultat à l'écran
 
 ```
 MBPdeMonNom:~ monnom$ ls /Volumes/boot/
-COPYING.linux fixup4cd.dat LICENCE.broadcom fixup4db.dat bcm2708-rpi-b-plus.dtb fixup4x.dat bcm2708-rpi-b-rev1.dtb fixup\_cd.dat bcm2708-rpi-b.dtb fixup\_db.dat bcm2708-rpi-cm.dtb fixup\_x.dat bcm2708-rpi-zero-w.dtb issue.txt bcm2708-rpi-zero.dtb kernel.img bcm2709-rpi-2-b.dtb kernel7.img bcm2710-rpi-2-b.dtb kernel7l.img bcm2710-rpi-3-b-plus.dtb kernel8.img bcm2710-rpi-3-b.dtb overlays bcm2710-rpi-cm3.dtb start.elf bcm2711-rpi-4-b.dtb start4.elf bcm2711-rpi-cm4.dtb start4cd.elf bootcode.bin start4db.elf cmdline.txt start4x.elf config.txt start\_cd.elf fixup.dat start\_db.elf fixup4.dat start\_x.elf
+COPYING.linux fixup4cd.dat LICENCE.broadcom fixup4db.dat bcm2708-rpi-b-plus.dtb fixup4x.dat bcm2708-rpi-b-rev1.dtb fixup_cd.dat bcm2708-rpi-b.dtb fixup_db.dat bcm2708-rpi-cm.dtb fixup_x.dat bcm2708-rpi-zero-w.dtb issue.txt bcm2708-rpi-zero.dtb kernel.img bcm2709-rpi-2-b.dtb kernel7.img bcm2710-rpi-2-b.dtb kernel7l.img bcm2710-rpi-3-b-plus.dtb kernel8.img bcm2710-rpi-3-b.dtb overlays bcm2710-rpi-cm3.dtb start.elf bcm2711-rpi-4-b.dtb start4.elf bcm2711-rpi-cm4.dtb start4cd.elf bootcode.bin start4db.elf cmdline.txt start4x.elf config.txt start_cd.elf fixup.dat start_db.elf fixup4.dat start_x.elf
 ```
 
 
@@ -1140,7 +1140,7 @@ Fichier cmdline.txt
 
 
 ```
-console=serial0,115200 console=tty1 root=PARTUUID=58ce116e-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet init=/usr/lib/raspi-config/init\_resize.sh splash plymouth.ignore-serial-consoles
+console=serial0,115200 console=tty1 root=PARTUUID=58ce116e-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet init=/usr/lib/raspi-config/init_resize.sh splash plymouth.ignore-serial-consoles
 ```
 
 
@@ -1245,7 +1245,7 @@ Comme dans toute manipulation, il faut tester si on obtient le résultat escompt
 
 Après le redémarrage, le Pi devrait avoir l'adresse IP qu'on lui a imposée.
 
-La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : [trouver\_l\_adresse\_ip\_du\_raspberry\_pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi)
+La technique pour retrouver l'adresse IP du Pi est donnée sur cette fiche : [trouver_l_adresse_ip_du_raspberry_pi](05_raspberry_pi.md#fiche-trouver_l_adresse_ip_du_raspberry_pi)
 
 ## Source
 
@@ -1284,7 +1284,7 @@ ssh.service - OpenBSD Secure Shell server
 Loaded: loaded (/lib/systemd/system/ssh.service; enabled; preset: enabled)
 Active: active (running) since Mon 2025-08-11 09:38:49 EDT; 6h ago
 Docs: man:sshd(8)
-man:sshd\_config(5)
+man:sshd_config(5)
 Process: 618 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
 Main PID: 660 (sshd)
 Tasks: 1 (limit: 3921)
@@ -1408,7 +1408,7 @@ Vous faites une installation headless (sans écran ni clavier sur le Pi) et vous
 
 ## Activer SSH
 
-Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : [activer\_ssh\_sur\_le\_raspberry\_pi](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi).
+Assurez-vous que le Raspberry Pi est configuré pour permettre la communication via SSH. Les instructions sont données ici : [activer_ssh_sur_le_raspberry_pi](05_raspberry_pi.md#fiche-activer_ssh_sur_le_raspberry_pi).
 
 ## Client SSH
 
@@ -1462,8 +1462,8 @@ It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is
 SHA256:XuhSy6HE1PkibkA17UpvKSLNuStDY73bfGhip7KVQ6U.
 Please contact your system administrator.
-Add correct host key in /Users/monnom/.ssh/known\_hosts to get rid of this message.
-Offending ECDSA key in /Users/monnom/.ssh/known\_hosts:10
+Add correct host key in /Users/monnom/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/monnom/.ssh/known_hosts:10
 ECDSA host key for 192.168.1.145 has changed and you have requested strict checking.
 Host key verification failed.
 ```
@@ -1471,9 +1471,9 @@ Host key verification failed.
 
 Plusieurs facteurs peuvent causer ce comportement, par exemple si le Raspberry Pi utilise une adresse IP qui était auparavant utilisée par un autre périphérique auquel un branchement a été fait via SSH.
 
-Ceci se traduit par une mauvaise information dans le fichier known\_hosts.
+Ceci se traduit par une mauvaise information dans le fichier known_hosts.
 
-Pour corriger la situation, toujours dans une fenêtre Terminal sur votre ordinateur, retirez l'information sur cette adresse IP du fichier known\_hosts à l'aide de la commande ssh-keygen -R.
+Pour corriger la situation, toujours dans une fenêtre Terminal sur votre ordinateur, retirez l'information sur cette adresse IP du fichier known_hosts à l'aide de la commande ssh-keygen -R.
 
 Prenez soin d'entrer l'adresse IP du Raspberry Pi :
 
@@ -1497,7 +1497,7 @@ ssh-keygen -R "[192.168.1.145]:22222"
 ```
 
 
-Si ceci ne règle pas le problème, il est possible d'effacer complètement le fichier known\_hosts.
+Si ceci ne règle pas le problème, il est possible d'effacer complètement le fichier known_hosts.
 
 ## Pour plus d'information
 
@@ -1526,11 +1526,11 @@ Résultat à l'écran
 
 ```
 monnom@MacBook-Pro-de-MonNom ~ %ssh -v pi@192.168.1.145
-OpenSSH\_8.6p1, LibreSSL 3.3.6
-debug1: Reading configuration data /etc/ssh/ssh\_config
-debug1: /etc/ssh/ssh\_config line 21: include /etc/ssh/ssh\_config.d/\* matched no files
-debug1: /etc/ssh/ssh\_config line 54: Applying options for \*
-debug1: Authenticator provider $SSH\_SK\_PROVIDER did not resolve; disabling
+OpenSSH_8.6p1, LibreSSL 3.3.6
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/\* matched no files
+debug1: /etc/ssh/ssh_config line 54: Applying options for \*
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
 debug1: Connecting to 192.168.1.145 [192.168.1.145] port 22.
 debug1: connect to address 192.168.1.145 port 22: Connection refused
 ssh: connect to host 192.168.1.145 port 22: Connection refused
@@ -1544,17 +1544,17 @@ Résultat à l'écran
 
 ```
 monnom@MacBook-Pro-de-MonNom ~ %ssh -vvv pi@192.168.1.145
-OpenSSH\_8.6p1, LibreSSL 3.3.6
-debug1: Reading configuration data /etc/ssh/ssh\_config
-debug1: /etc/ssh/ssh\_config line 21: include /etc/ssh/ssh\_config.d/\* matched no files
-debug1: /etc/ssh/ssh\_config line 54: Applying options for \*
-debug2: resolve\_canonicalize: hostname 192.168.1.145 is address
-debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts' -> '/Users/monnom/.ssh/known\_hosts'
-debug3: expanded UserKnownHostsFile '~/.ssh/known\_hosts2' -> '/Users/monnom/.ssh/known\_hosts2'
-debug1: Authenticator provider $SSH\_SK\_PROVIDER did not resolve; disabling
-debug3: ssh\_connect\_direct: entering
+OpenSSH_8.6p1, LibreSSL 3.3.6
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 21: include /etc/ssh/ssh_config.d/\* matched no files
+debug1: /etc/ssh/ssh_config line 54: Applying options for \*
+debug2: resolve_canonicalize: hostname 192.168.1.145 is address
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/Users/monnom/.ssh/known_hosts'
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/Users/monnom/.ssh/known_hosts2'
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug3: ssh_connect_direct: entering
 debug1: Connecting to 192.168.1.145 [192.168.1.145] port 22.
-debug3: set\_sock\_tos: set socket 3 IP\_TOS 0x48
+debug3: set_sock_tos: set socket 3 IP_TOS 0x48
 debug1: connect to address 192.168.1.145 port 22: Connection refused
 ssh: connect to host 192.168.1.145 port 22: Connection refused
 ```
@@ -1568,7 +1568,7 @@ La technique consiste à utiliser une paire « clé SSH publique - clé SSH pri
 
 La clé privée, qui remplace le mot de passe, doit être sur votre ordinateur avec la clé publique. La clé publique sera de plus copiée sur le Pi à un endroit précis afin de permettre l'authentification sans mot de passe.
 
-Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « [comment\_fonctionne\_l\_authentification\_via\_ssh](05_raspberry_pi.md#fiche-comment_fonctionne_l_authentification_via_ssh) ».
+Pour comprendre le fonctionnement des clés publiques et privées, vous pouvez consulter cette fiche : « [comment_fonctionne_l_authentification_via_ssh](05_raspberry_pi.md#fiche-comment_fonctionne_l_authentification_via_ssh) ».
 
 ## Activer SSH sur le Pi
 
@@ -1596,7 +1596,7 @@ ls ~/.ssh
 
 Nous allons utiliser l'algorithme Ed25519 qui est l'[algorithme recommandé de nos jours](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54).
 
-La clé publique est stockée dans le fichier id\_ed25519.pub et la clé privée, dans le fichier id\_ed25519.
+La clé publique est stockée dans le fichier id_ed25519.pub et la clé privée, dans le fichier id_ed25519.
 
 ## Générer les clés SSH
 
@@ -1620,7 +1620,7 @@ ssh-keygen -t rsa -C 'moncourriel@mondomaine.com'
 ```
 
 
-Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id\_ed25519, sous Mac : /Users/monnom/.ssh/id\_ed25519).
+Acceptez l'emplacement par défaut (sous Windows : C:\Users\MonNom\.ssh\id_ed25519, sous Mac : /Users/monnom/.ssh/id_ed25519).
 
 Afin d'augmenter la sécurité, vous pouvez entrer un mot de passe lorsqu'on vous demande un passphrase. Par contre, ceci obligera à entrer ce mot de passe à chaque connexion. Vous pouvez donc appuyer sur Entrée sans entrer de mot de passe.
 
@@ -1632,11 +1632,11 @@ Résultat à l'écran
 ```
 monnom@MacBook-Pro-de-MonNom ~ %ssh-keygen -t ed25519 -C 'moncourriel@mondomaine.com'
 Generating public/private ed25519 key pair.
-Enter file in which to save the key (/Users/monnom/.ssh/id\_ed25519):
+Enter file in which to save the key (/Users/monnom/.ssh/id_ed25519):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
-Your identification has been saved in /Users/monnom/.ssh/id\_ed25519
-Your public key has been saved in /Users/monnom/.ssh/id\_ed25519.pub
+Your identification has been saved in /Users/monnom/.ssh/id_ed25519
+Your public key has been saved in /Users/monnom/.ssh/id_ed25519.pub
 The key fingerprint is:
 SHA256:Ns82o1VfRLrY5sHIBiPJ3pDHGJiMTQuhixPRhAle8vI moncourriel@mondomaine.com
 The key's randomart image is:
@@ -1664,17 +1664,17 @@ Terminal sur l'ordinateur
 
 
 ```
-ssh-copy-id -i ~/.ssh/id\_ed25519 pi@192.168.1.145
+ssh-copy-id -i ~/.ssh/id_ed25519 pi@192.168.1.145
 ```
 
 
 Vous devrez entrer le mot de passe du Pi à cette étape pour permettre la copie de la clé.
 
-Ceci créera le fichier ~/.ssh/authorized\_keys sur le Pi et y copiera la clé publique.
+Ceci créera le fichier ~/.ssh/authorized_keys sur le Pi et y copiera la clé publique.
 
 Si le fichier existait déjà, la clé sera ajoutée à la fin du contenu présent. Ceci permet de configurer la connexion sans mot de passe à partir de plusieurs ordinateurs.
 
-Note : dans le cas où cette commande ne fonctionne pas, vous pouvez afficher la valeur de la clé publique sur votre ordinateur à l'aide de la commande cat ~/.ssh/id\_ed25519.pub et copier cette valeur dans un fichier nommé authorized\_keys que vous transférerez sur le Pi dans le dossier ~/.ssh à l'aide de la commande scp.
+Note : dans le cas où cette commande ne fonctionne pas, vous pouvez afficher la valeur de la clé publique sur votre ordinateur à l'aide de la commande cat ~/.ssh/id_ed25519.pub et copier cette valeur dans un fichier nommé authorized_keys que vous transférerez sur le Pi dans le dossier ~/.ssh à l'aide de la commande scp.
 
 ## Activer l'authentification via les clés SSH
 
@@ -1692,30 +1692,30 @@ ssh pi@192.168.1.145
 
 Si un mot de passe vous est tout de même demandé, il vous faut poursuivre avec ces étapes. Sinon, vous avez terminé cette configuration!
 
-Pour poursuivre, sur le Pi, vous devez éditer le fichier /etc/ssh/sshd\_config.
+Pour poursuivre, sur le Pi, vous devez éditer le fichier /etc/ssh/sshd_config.
 
 Terminal sur le Pi
 
 
 ```
-sudo nano /etc/ssh/sshd\_config
+sudo nano /etc/ssh/sshd_config
 ```
 
 
-Il faut enlever le # devant la ligne qui permet l'authentification à partir de la clé dans le fichier .ssh/authorized\_keys.
+Il faut enlever le # devant la ligne qui permet l'authentification à partir de la clé dans le fichier .ssh/authorized_keys.
 
-Fichier /etc/ssh/sshd\_config sur le Pi
+Fichier /etc/ssh/sshd_config sur le Pi
 
 
 ```
-# Expect .ssh/authorized\_keys2 to be disregarded by default in future.
-AuthorizedKeysFile .ssh/authorized\_keys .ssh/authorized\_keys2
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2
 ```
 
 
 Il faut également s'assurer que le système permet l'authentification à l'aide d'une clé plublique :
 
-Fichier /etc/ssh/sshd\_config sur le Pi
+Fichier /etc/ssh/sshd_config sur le Pi
 
 
 ```
@@ -1725,7 +1725,7 @@ PubkeyAuthentication yes
 
 Et désactiver le mode strict :
 
-Fichier /etc/ssh/sshd\_config sur le Pi
+Fichier /etc/ssh/sshd_config sur le Pi
 
 
 ```
@@ -1857,7 +1857,7 @@ La première étape pour effectuer la copie consite à retrouver le point de mon
 ```
   /dev/disk2 (external, physical):
   #: TYPE NAME SIZE IDENTIFIER
-  0: GUID\_partition\_scheme \*32.0 GB disk2
+  0: GUID_partition_scheme \*32.0 GB disk2
   1: Microsoft Reserved ⁨⁩ 33.6 MB disk2s1
   2: Linux Filesystem ⁨⁩ 25.2 MB disk2s2
   3: Linux Filesystem ⁨⁩ 268.4 MB disk2s3
@@ -2035,14 +2035,14 @@ Sous Raspberry Pi OS Lite, il est possible d'installer une version en ligne de c
 
 Attention : si vous travaillez avec un autre système d'exploitation, par exemple HassOS, et qu'il n'est pas possible d'y installer Git (sudo apt install git), vous devrez plutôt créer une image de la carte sur votre ordinateur ([technique présentée plus haut](https://apical.xyz/formations/pageunique/systeme_domotique_diy#surordinateur)) puis flasher cette image sur l'autre carte.
 
-Les étapes qui suivent sont en fait une traduction de la procédure présentée dans le répertoire GitHub de l'utilitaire piclone\_cmd : <https://github.com/nwright-mcc/piclone_cmd>.
+Les étapes qui suivent sont en fait une traduction de la procédure présentée dans le répertoire GitHub de l'utilitaire piclone_cmd : <https://github.com/nwright-mcc/piclone_cmd>.
 
-* Installez piclone\_cmd :
+* Installez piclone_cmd :
 
   Terminal
 
 ```
-  git clone https://github.com/nwright-mcc/piclone\_cmd.git
+  git clone https://github.com/nwright-mcc/piclone_cmd.git
 ```
 * Installez uuid :
 
@@ -2075,8 +2075,8 @@ Les étapes qui suivent sont en fait une traduction de la procédure présentée
   Terminal
 
 ```
-  cd ~/piclone\_cmd
-  sudo ./piclone\_cmd /dev/sda
+  cd ~/piclone_cmd
+  sudo ./piclone_cmd /dev/sda
 ```
 
   ![piclone_cmd](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/piclone_cmd.png)
@@ -2098,7 +2098,7 @@ Si vous travaillez avec un Raspberry Pi OS complet (donc, pas la version Lite), 
 
 « Back up your Raspberry Pi: how to save and restore files ». The MagPi Magazine. <https://magpi.raspberrypi.org/articles/back-up-raspberry-pi>
 
-« nwright-mcc/piclone\_cmd ». GitHub. <https://github.com/nwright-mcc/piclone_cmd>
+« nwright-mcc/piclone_cmd ». GitHub. <https://github.com/nwright-mcc/piclone_cmd>
 
 ## 4.16 Outil de capture vidéo et logiciel OBS : pour utiliser l'écran d'un ordinateur portable comme sortie vidéo du Raspberry Pi {#fiche-outil_de_capture_video_et_logiciel_obs_pour_utiliser_l_ecran_d_un_ordina___}
 
@@ -2251,7 +2251,7 @@ ping 192.168.1.145
 ```
 
 
-Vous trouverez plus de détails sur cette fiche : « [verifier\_si\_l\_ordinateur\_et\_le\_raspberry\_pi\_sont\_branches\_sur\_le\_meme\_re\_\_\_](05_raspberry_pi.md#fiche-verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___) ».
+Vous trouverez plus de détails sur cette fiche : « [verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___](05_raspberry_pi.md#fiche-verifier_si_l_ordinateur_et_le_raspberry_pi_sont_branches_sur_le_meme_re___) ».
 
 Lorsque le test est concluant, vous pouvez démarrer VNC et entrer l'adresse IP du Raspberry Pi à l'endroit indiqué.
 
@@ -2364,9 +2364,9 @@ Résultat à l'écran
 ```
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
 PING 192.168.1.145 (192.168.1.145): 56 data bytes
-64 bytes from 192.168.1.145: icmp\_seq=0 ttl=62 time=2.407 ms
-64 bytes from 192.168.1.145: icmp\_seq=1 ttl=62 time=8.484 ms
-64 bytes from 192.168.1.145: icmp\_seq=2 ttl=62 time=3.625 ms
+64 bytes from 192.168.1.145: icmp_seq=0 ttl=62 time=2.407 ms
+64 bytes from 192.168.1.145: icmp_seq=1 ttl=62 time=8.484 ms
+64 bytes from 192.168.1.145: icmp_seq=2 ttl=62 time=3.625 ms
 ^Z
 [6]+ Stopped ping 192.168.1.145
 ```
@@ -2382,9 +2382,9 @@ Résultat à l'écran
 ```
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
 PING 192.168.1.145 (192.168.1.145): 56 data bytes
-Request timeout for icmp\_seq 0
-Request timeout for icmp\_seq 1
-Request timeout for icmp\_seq 2
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+Request timeout for icmp_seq 2
 ^Z
 [7]+ Stopped ping 192.168.1.145
 ```
@@ -2400,9 +2400,9 @@ MacBook-Pro-de-MonNom:~ monnom$ ping 8.8.8.8
 PING 8.8.8.8 (8.8.8.8): 56 data bytes
 ping: sendto: No route to host
 ping: sendto: No route to host
-Request timeout for icmp\_seq 0
+Request timeout for icmp_seq 0
 ping: sendto: No route to host
-Request timeout for icmp\_seq 1
+Request timeout for icmp_seq 1
 ^Z
 [10]+ Stopped ping 8.8.8.8
 ```
@@ -2414,7 +2414,7 @@ Le [masque de sous-réseau](https://openclassrooms.com/fr/courses/1561696-les-re
 
 Parfois, le masque de sous-réseau est représenté en ajoutant une barre oblique ainsi qu'un nombre à la suite de l'adresse IP, par exemple 192.168.1.145/24. On parlera de notation CIDR (Classless Inter-Domain Routing). Dans cet exemple, le nombre 24 indique qu'il y a 24 bits dans le masque de sous-réseau, soit les trois premier nombres de l'adresse IP (chaque nombre est encodé en binaire sur 8 bits). La notation CIDR /24 représente donc un masque de sous-réseau 255.255.255.0.
 
-On peut également retrouver le masque de sous-réseau sous sa forme hexadécimale, par exemple 0xffffff00. Dans ce cas, il est possible de le convertir en sa version décimale. Ce petit outil peut vous assister dans cette tâche : [https://www.celebrazio.net/tech/web/ip\_tools.html](https://www.celebrazio.net/tech/web/ip_tools.html#:~:text=Convert%20hex%20IP-address%20or%20mask%20dotted%20decimal).
+On peut également retrouver le masque de sous-réseau sous sa forme hexadécimale, par exemple 0xffffff00. Dans ce cas, il est possible de le convertir en sa version décimale. Ce petit outil peut vous assister dans cette tâche : [https://www.celebrazio.net/tech/web/ip_tools.html](https://www.celebrazio.net/tech/web/ip_tools.html#:~:text=Convert%20hex%20IP-address%20or%20mask%20dotted%20decimal).
 
 Pour connaître le masque de sous-réseau de votre ordinateur, lancez la commande ipconfig /all (Windows) ou ifconfig (Mac ou Linux).
 
@@ -2965,7 +2965,7 @@ physical id: 4
 size: 923MiB
 \*-usbhost
 product: DWC OTG Controller
-vendor: Linux 5.10.52-v7+ dwc\_otg\_hcd
+vendor: Linux 5.10.52-v7+ dwc_otg_hcd
 physical id: 1
 bus info: usb@1
 logical name: usb1
@@ -3002,7 +3002,7 @@ physical id: 2
 bus info: usb@1:1.2
 version: 0.00
 capabilities: usb-2.00
-configuration: driver=cdc\_acm maxpower=100mA speed=12Mbit/s
+configuration: driver=cdc_acm maxpower=100mA speed=12Mbit/s
 \*-usb:2
 description: Keyboard
 product: Dell USB Keyboard
@@ -3086,7 +3086,7 @@ Terminal
 
 
 ```
-fbcat > nom\_fichier.ppm
+fbcat > nom_fichier.ppm
 ```
 
 
@@ -3110,7 +3110,7 @@ Terminal
 
 
 ```
-fbgrab nom\_fichier.png
+fbgrab nom_fichier.png
 ```
 
 
@@ -3138,7 +3138,7 @@ Terminal
 
 
 ```
-sudo setterm --dump --file mon\_fichier.txt
+sudo setterm --dump --file mon_fichier.txt
 ```
 
 
@@ -3309,7 +3309,7 @@ Vous aurez un délai de 3 secondes pour refermer la fenêtre Terminal avant que 
 
 Lorsqu'on exécute une commande au Terminal du Raspberry Pi avec sudo, il est possible de configurer le Pi pour qu'il demande le mot de passe ou non.
 
-La configuration est dans le fichier /etc/sudoers.d/010\_pi-nopasswd.
+La configuration est dans le fichier /etc/sudoers.d/010_pi-nopasswd.
 
 Pour l'éditer :
 
@@ -3317,13 +3317,13 @@ Terminal
 
 
 ```
-sudo nano /etc/sudoers.d/010\_pi-nopasswd
+sudo nano /etc/sudoers.d/010_pi-nopasswd
 ```
 
 
 Pour que le mot de passe soit demandé à chaque commande sudo :
 
-Fichier /etc/sudoers.d/010\_pi-nopasswd
+Fichier /etc/sudoers.d/010_pi-nopasswd
 
 
 ```
@@ -3333,7 +3333,7 @@ pi ALL=(ALL) PASSWD: ALL
 
 Pour ne plus exiger le mot de passe quand une commande débute par sudo :
 
-Fichier /etc/sudoers.d/010\_pi-nopasswd
+Fichier /etc/sudoers.d/010_pi-nopasswd
 
 
 ```

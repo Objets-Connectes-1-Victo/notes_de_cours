@@ -10,7 +10,7 @@ Je vous recommande d'effectuer une lecture de l'ensemble des fiches de ces chapi
 
 ## [Retrouver le mot de passe de la base de donnees jeedom](40_la_base_de_donnees_jeedom.md#fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom)
 
-Rendez-vous dans le menu Réglages / Système / Configuration / >\_ OS/DB.
+Rendez-vous dans le menu Réglages / Système / Configuration / >_ OS/DB.
 
 Tel qu'indiqué au bas de l'écran, le code d'usager MySQL est jeedom. Le mot de passe apparaît à sa droite.
 
@@ -45,7 +45,7 @@ Résultat à l'écran
 ```
 MariaDB [jeedom]> SHOW TABLES;
 +--------------------+
-| Tables\_in\_jeedom |
+| Tables_in_jeedom |
 +--------------------+
 | cache |
 | cmd |
@@ -86,7 +86,7 @@ MariaDB [jeedom]>
 Il est également possible de consulter la base de données directement dans Jeedom :
 
 * Réglages / Système / Configuration
-* Dans l'onglet \_OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
+* Dans l'onglet _OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
 
   ![Administration BD dans Jeedom](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ContenuTableWidgets.png)
 
@@ -150,7 +150,7 @@ Mais avant de se lancer dans de telles manipulations, il est préférable d'essa
 Le mot de passe de la base de données peut être retrouvé à partir de l'interface d'administration de Jeedom.
 
 * Ouvrez [l'interface d'administration de Jeedom,acceder](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces).
-* Rendez-vous dans le menu Réglages / Système / Configuration / >\_ OS/DB.
+* Rendez-vous dans le menu Réglages / Système / Configuration / >_ OS/DB.
 * Tel qu'indiqué au bas de l'écran, le code d'usager MySQL est jeedom. Le mot de passe apparaît à sa droite.
 
   ![Mot de passe de la BD](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MotDePasseBD.png)
@@ -354,7 +354,7 @@ Je vous propose ici quelques manipulations pour explorer la base de données de 
 Attention : si vous effectuez des manipulations autres que des SELECT, vous risquez d'endommager votre système. C'est une bonne idée d'effectuer une [copie de sécurité de Jeedom](18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md#fiche-copie_de_securite_de_jeedom) avant de vous lancer.
 
 * Accédez à la ligne de commande du Pi soit [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspberry_pi_via_ssh), soit en y branchant un écran et un clavier.
-* Vous devez avoir en main le mot de passe de l'usager jeedom sur le serveur MySQL. Si vous ne le connaissez pas, suivez les instructions ici : [retrouver\_le\_mot\_de\_passe\_de\_la\_base\_de\_donnees\_jeedom](40_la_base_de_donnees_jeedom.md#fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom).
+* Vous devez avoir en main le mot de passe de l'usager jeedom sur le serveur MySQL. Si vous ne le connaissez pas, suivez les instructions ici : [retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom](40_la_base_de_donnees_jeedom.md#fiche-retrouver_le_mot_de_passe_de_la_base_de_donnees_jeedom).
 * Dans une fenêtre Terminal sur le Pi, lancez la commande suivante puis entrez le mot de passe lorsque MySQL vous le demandera.
 
   Terminal
@@ -391,7 +391,7 @@ Attention : si vous effectuez des manipulations autres que des SELECT, vous risq
   +--------------------+
   | Database |
   +--------------------+
-  | information\_schema |
+  | information_schema |
   | jeedom |
   +--------------------+
   2 rows in set (0.002 sec)
@@ -417,7 +417,7 @@ Attention : si vous effectuez des manipulations autres que des SELECT, vous risq
 ```
   MariaDB [jeedom]> SHOW TABLES;
   +--------------------+
-  | Tables\_in\_jeedom |
+  | Tables_in_jeedom |
   +--------------------+
   | cache |
   | cmd |
@@ -489,7 +489,7 @@ Notez que vous pourriez avoir quelques tables en plus ou en moins selon les plug
   | 17 | 1 | cache | persist | \*/30 \* \* \* \* | 30 | 0 | 1 | NULL | 0 |
   | 18 | 1 | history | archive | 00 5 \* \* \* | 240 | 0 | 1 | NULL | 0 |
   | 19 | 1 | plugin | heartbeat | \*/5 \* \* \* \* | 10 | 0 | 1 | NULL | 0 |
-  | 20 | 1 | weather | pull | 23 19 05 09 \* 2021 | 60 | 0 | 1 | {"weather\_id":3} | 0 |
+  | 20 | 1 | weather | pull | 23 19 05 09 \* 2021 | 60 | 0 | 1 | {"weather_id":3} | 0 |
   +----+--------+----------+-------------+--------------------+---------+--------+-----------------+------------------+------+
   20 rows in set (0.002 sec)
   MariaDB [jeedom]>
@@ -501,7 +501,7 @@ Notez que vous pourriez avoir quelques tables en plus ou en moins selon les plug
 Jeedom vous permet d'effectuer certaines manipulations de la base de données directement dans son interface Web.
 
 * Dans l'interface Web de Jeedom, rendez-vous dans le menu Réglages / Système / Configuration.
-* Dans l'onglet \_OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
+* Dans l'onglet _OS/DB, vis-à-vis Administration Base de données, cliquez sur Ouvrir.
 
   ![Administration Base de données](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-AdministrationBaseDeDonnees.png)
 * L'interface permet d'effectuer certaines opérations sur la base de données. Attention : certaines opérations modifieront les données alors vous devez être prudents avant de cliquer sur les différents boutons. C'est une bonne idée d'effectuer une [copie de sécurité de Jeedom](18_pour_vous_assurer_de_ne_rien_perdre_en_cas_de_probleme.md#fiche-copie_de_securite_de_jeedom) avant de tenter des manipulations.

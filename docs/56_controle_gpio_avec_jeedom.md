@@ -30,7 +30,7 @@ Donnez un nom à la commande (ex : Lancer).
 
 Le type doit être à Action.
 
-Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom\_du\_script.PY.
+Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom_du_script.PY.
 
 * Vous devez préciser le chemin complet du script.
 * Le nom du fichier doit se terminer par .PY en majuscules (ou autre extension de votre choix) car l'extension .py est automatiquement interprétée par Jeedom comme du Python 2.
@@ -117,7 +117,7 @@ Pour renommer votre script :
 Terminal du Raspberry Pi
 
 ```
-mv /home/pi/mon\_script.py /home/pi/mon\_script.PY
+mv /home/pi/mon_script.py /home/pi/mon_script.PY
 ```
 
 
@@ -161,7 +161,7 @@ Il est possible d'éditer le script directement dans Jeedom en cliquant sur l'ic
 
 Dans cette démonstration, j'utilise un script existant.
 
-Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom\_du\_script.PY.
+Dans la case Requête, entrez une commande sous la forme sudo python3 /chemin/nom_du_script.PY.
 
 Vous devez préciser le chemin complet du script.
 
@@ -181,7 +181,7 @@ Le script, qui est une commande d'un équipement au yeux de Jeedom, peut désorm
 
 Dans le cas d'un script Python 3, il faut changer l'extension du fichier pour .PY (en majuscules).
 
-Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fichier Python 2 et Jeedom ajoutera automatiquement la commande python devant la commande entrée. Vous obtiendrez alors un message d'erreur du genre « Erreur sur python sudo python3 /home/pi/allumer\_led.py 2>&1 valeur retournée : 2. Détails : python: can't open file 'sudo': [Errno 2] No such file or directory ».
+Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fichier Python 2 et Jeedom ajoutera automatiquement la commande python devant la commande entrée. Vous obtiendrez alors un message d'erreur du genre « Erreur sur python sudo python3 /home/pi/allumer_led.py 2>&1 valeur retournée : 2. Détails : python: can't open file 'sudo': [Errno 2] No such file or directory ».
 
 ![can't open file 'sudo': [Errno 2] No such file or directory](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurNomFichierPython3.png)
 
@@ -189,7 +189,7 @@ Si le nom se termine par .py, il sera considéré par Jeedom comme étant un fic
 
 Pour qu'un script Python puisse interagir avec le GPIO, vous devez précéder la commande par sudo.
 
-Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur python3 /home/pi/allumer\_led.PY 2>&1 valeur retournée : 1. Détails : Traceback (most recent call last): File "/home/pi/allumer\_led.PY", line 23, in GPIO.setup(led, GPIO.OUT) RuntimeError: No access to /dev/mem Try running as root! ».
+Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur python3 /home/pi/allumer_led.PY 2>&1 valeur retournée : 1. Détails : Traceback (most recent call last): File "/home/pi/allumer_led.PY", line 23, in GPIO.setup(led, GPIO.OUT) RuntimeError: No access to /dev/mem Try running as root! ».
 
 ![RuntimeError: No access to /dev/mem Try running as root!](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-PluginScript-ErreurTryRunningAsRoot.png)
 
@@ -197,7 +197,7 @@ Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur pyt
 
 Vous devez spécifier le chemin complet du script.
 
-Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sudo python3 allumer\_led.PY 2>&1 valeur retournée : 2. Détails : python3: can't open file 'allumer\_led.PY': [Errno 2] No such file or directory ».
+Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sudo python3 allumer_led.PY 2>&1 valeur retournée : 2. Détails : python3: can't open file 'allumer_led.PY': [Errno 2] No such file or directory ».
 
 ![can't open file 'allumer_led.PY': [Errno 2] No such file or directory](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurCheminNonPrecise.png)
 
@@ -205,7 +205,7 @@ Si vous ne le faites pas, vous obtiendrez un message du genre « Erreur sur sud
 
 Un script Python peut être exécuté de deux façons : en faisant précéder son nom par python3 ou <a href="fiche-La_protection_des_fichiers.md#La_protection_des_fichiers">en donnant des droits d'exécution au fichier</a>.
 
-Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n'avez pas fait précéder son nom par python3 dans la commande sous Jeedom, vous obtiendrez un message du genre « Erreursur sudo /home/pi/allumer\_led.PY 2>&1 valeur retournée : 1. Détails :sudo /home/pi/allumer\_led.PY: command not found ».
+Si l'usager courant n'a pas les droits d'exécution sur le fichier et que vous n'avez pas fait précéder son nom par python3 dans la commande sous Jeedom, vous obtiendrez un message du genre « Erreursur sudo /home/pi/allumer_led.PY 2>&1 valeur retournée : 1. Détails :sudo /home/pi/allumer_led.PY: command not found ».
 
 ![(image)](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ErreurSiPasExecutable.png)
 
@@ -221,7 +221,7 @@ Parfois, cependant, la tâche à réaliser nécessite une telle boucle, par exem
 
 Rappelez-vous que lorsqu'on lance le script Python à la ligne de commande, il faut appuyer sur Ctrl+C pour l'arrêter. Mais quand c'est Jeedom qui le lance, ceci n'est pas possible.
 
-Ceci pose problème dans un système domotique qui doit démarrer ou arrêter le clignotement à l'aide de scénarios. En effet, tant que le clignotement est en cours, aucun autre script Python ne peut travailler avec la broche utilisée, même pas pour lui envoyer le signal de s'éteindre. Si vous tentez de le faire, vous obtiendrez une erreur du genre « ... File "/home/pi/mon\_script.PY", line 34, in GPIO.setup(del, GPIO.OUT) ... lgpio.error: 'GPIO not allocated'».
+Ceci pose problème dans un système domotique qui doit démarrer ou arrêter le clignotement à l'aide de scénarios. En effet, tant que le clignotement est en cours, aucun autre script Python ne peut travailler avec la broche utilisée, même pas pour lui envoyer le signal de s'éteindre. Si vous tentez de le faire, vous obtiendrez une erreur du genre « ... File "/home/pi/mon_script.PY", line 34, in GPIO.setup(del, GPIO.OUT) ... lgpio.error: 'GPIO not allocated'».
 
 Pour qu'un scénario puisse arrêter correctement le clignotement, il doit :
 
@@ -292,6 +292,6 @@ Le plugin Script de Jeedom permet de lancer un script Python en lui passant un o
 
 Il suffit d'entrer dans la case Requête une chaîne au format :
 
-sudo python3 /chemin/nom\_script.PY paramètre
+sudo python3 /chemin/nom_script.PY paramètre
 
 ![paramètres](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-Script-parametres.png)

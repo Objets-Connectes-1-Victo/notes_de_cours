@@ -12,7 +12,7 @@ Les sauvegardes Home Assistant sont protégées par une clé de chiffrement. Dan
 
 Le fichier de secours contiendra ceci :
 
-Fichier home\_assistant\_backup\_emergency\_kit\_jj\_mm\_aaaa\_hh\_mm.txt
+Fichier home_assistant_backup_emergency_kit_jj_mm_aaaa_hh_mm.txt
 
 
 ```

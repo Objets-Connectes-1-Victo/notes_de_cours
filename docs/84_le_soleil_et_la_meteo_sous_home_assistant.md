@@ -14,7 +14,7 @@ On peut d'ailleurs voir la tuile de l'intégration dans le menu Paramètres / Ap
 
 Pour [utiliser ces prévisions météorologiques dans des automatisations](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-la_meteo_dans_les_automatisations), vous travaillerez avec [l'entité Weather](https://www.home-assistant.io/integrations/weather/).
 
-Le nom précis de l'entité sera sous la forme weather.forecast\_xxx comme déclencheur ou comme condition, selon vos besoins. Les xxx seront remplacés par le nom que vous avez donné à votre boîte Home Assistant.
+Le nom précis de l'entité sera sous la forme weather.forecast_xxx comme déclencheur ou comme condition, selon vos besoins. Les xxx seront remplacés par le nom que vous avez donné à votre boîte Home Assistant.
 
 ![Déclencheur weather](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeclencheurWeather.png)
 
@@ -41,7 +41,7 @@ Les [données météo par défaut](84_le_soleil_et_la_meteo_sous_home_assistant
 
 Si vous préférez, il est possible d'utiliser les données météo de [OpenWeatherMap](https://openweathermap.org/guide). Cette intégration offre des informations supplémentaires, par exemple les prévisions horaires.
 
-La fiche « [service\_openweathermap](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-service_openweathermap) » donne les instructions pour obtenir la clé API requise (gratuit).
+La fiche « [service_openweathermap](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-service_openweathermap) » donne les instructions pour obtenir la clé API requise (gratuit).
 
 ## Ajouter OpenWeatherMap à Home Assistant
 
@@ -73,7 +73,7 @@ Voici la tuile OpenWeatherMap ainsi obtenue :
 
 ## Utiliser OpenWeatherMap
 
-Pour [utiliser ces prévisions météorologiques dans des automatisations](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-la_meteo_dans_les_automatisations), vous travaillerez avec l'entité weather.openweathermap ou une de ses sous-entités, par exemple sensor.openweathermap\_temperature comme déclencheur ou comme condition, selon vos besoins.
+Pour [utiliser ces prévisions météorologiques dans des automatisations](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-la_meteo_dans_les_automatisations), vous travaillerez avec l'entité weather.openweathermap ou une de ses sous-entités, par exemple sensor.openweathermap_temperature comme déclencheur ou comme condition, selon vos besoins.
 
  Notez que le nom exact dépend de ce que vous avez inscrit dans la case Nom (ici : openweathermap) lorsque vous avez ajouté l'intégration OpenWeatherMap à Home Assistant.
 
@@ -93,14 +93,14 @@ Si la condition est utilisée comme condition, Home Assistant vérifiera la vale
 
 [L'intégration Sun](https://www.home-assistant.io/integrations/sun/) est disponible par défaut dans Home Assistant. Elle permet de réagir à la position du soleil, par exemple :
 
-* soleil levé : above\_horizon
-* soleil couché : below\_horizon
+* soleil levé : above_horizon
+* soleil couché : below_horizon
 
 Elle permet aussi de connaître différents états, par exemple :
 
 * en train de se lever : rising
-* date et heure du prochain lever de soleil : next\_rising
-* date et heure du prochain coucher de soleil : next\_setting
+* date et heure du prochain lever de soleil : next_rising
+* date et heure du prochain coucher de soleil : next_setting
 
 ## Déclencheur
 

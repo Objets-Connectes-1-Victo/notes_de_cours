@@ -10,9 +10,9 @@ Vous aurez des manipulations à faire sur les deux boîtes domotiques mais vous 
 2. Dans l'autre boîte, installez un client MQTT en utilisant l'option Saisir manuellement les informations de connexion du courtier MQTT. Effectuez les configurations requises pour utiliser l'agent MQTT de la première boîte Home Assistant. Dans le reste de l'exercice, cette boîte s'appellera boîte B.
 3. Assurez-vous d'avoir un capteur réel et un capteur virtuel dans chacune des boîtes Home Assistant.
 4. Testons les possibilités de publication et d'abonnement.
-   1. Dans la boîte A, [testez votre installation pour publier un mot de votre choix,publier](121_mqtt.md#fiche-client_mqtt_dans_home_assistant) sur un canal au format mon\_nom/premier\_test.
+   1. Dans la boîte A, [testez votre installation pour publier un mot de votre choix,publier](121_mqtt.md#fiche-client_mqtt_dans_home_assistant) sur un canal au format mon_nom/premier_test.
    2. Dans la boîte B, [faites un test pour savoir si vous êtes capables de recevoir des données MQTT sur le canal utilisé,tester](121_mqtt.md#fiche-client_mqtt_dans_home_assistant).
-   3. Testons l'inverse. Dans la boîte B, publiez un mot de votre choix sur un canal au format mon\_nom/second\_test.
+   3. Testons l'inverse. Dans la boîte B, publiez un mot de votre choix sur un canal au format mon_nom/second_test.
    4. Dans la boîte A, faites un test pour être capable de recevoir ce mot.
 5. Refaites les tests mais en utilisant l'agent test.mosquitto.org.
 6. À l'aide de l'agent MQTT local installé sur la boîte A ou de l'agent test.mosquitto.org, vous devez contrôler un récepteur distant.

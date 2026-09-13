@@ -97,7 +97,7 @@ Dans cette fiche :
 
 * [Écriture dans le journal des activités (logbook.log)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#logbook)
   + [Identifiant d'entité à référencer](https://apical.xyz/formations/pageunique/systeme_domotique_diy#identite)
-* [Écriture dans le journal de Home Assistant (system\_log.write)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#systemlog)
+* [Écriture dans le journal de Home Assistant (system_log.write)](https://apical.xyz/formations/pageunique/systeme_domotique_diy#systemlog)
   + [Niveau de journalisation](https://apical.xyz/formations/pageunique/systeme_domotique_diy#niveau)
   + [Écriture](https://apical.xyz/formations/pageunique/systeme_domotique_diy#ecriture)
 * [Enregistrer l'état d'un capteur dans un fichier journal](https://apical.xyz/formations/pageunique/systeme_domotique_diy#etat)
@@ -134,7 +134,7 @@ Dans cette impression d'écran, on ne voit que les activités associées à cett
 
 ![Filtre dans le journal](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationLogbookLog-Filtre.png)
 
-## Écriture dans le journal de Home Assistant (system\_log.write) {#systemlog}
+## Écriture dans le journal de Home Assistant (system_log.write) {#systemlog}
 
 Il est possible de configurer une automatisation pour qu'elle écrive dnas le fichier journal de Home Assistant ( /mnt/data/supervisor/homeassistant/home-assistant.log).
 
@@ -142,7 +142,7 @@ Le contenu de ce fichier peut être consulté via le menu Paramètres / Systèm
 
 ### Niveau de journalisation {#niveau}
 
-Par défaut, seuls les messages de niveau critical sont affichés. Tous les messages sont cependant enregistrés dans la table event\_data de la base de données.
+Par défaut, seuls les messages de niveau critical sont affichés. Tous les messages sont cependant enregistrés dans la table event_data de la base de données.
 
 Pour faire afficher les message des [niveaux](https://www.home-assistant.io/integrations/logger/#log-levels) inférieurs (debug, info, warning, error et fatal), il faut ajouter une configuration dans le fichier configuration.yaml.
 
@@ -161,7 +161,7 @@ Il faut redémarrer Home Assistant pour que cette configuration soit prise en co
 
 ### Écriture {#ecriture}
 
-Si vous utilisez l'action Écrire, qui correspond à l'action system\_log.write, vous écrirez un message dans le fichier journal de Home Assistant.
+Si vous utilisez l'action Écrire, qui correspond à l'action system_log.write, vous écrirez un message dans le fichier journal de Home Assistant.
 
 Faites attention de sélectionner un niveau de journalisation qui est correspond au niveau configuré plus haut.
 
@@ -185,7 +185,7 @@ Modèle
 
 
 ```
-{{ this.entity\_id }}
+{{ this.entity_id }}
 ```
 
 
@@ -195,7 +195,7 @@ Journal
 
 
 ```
-État de la lumière : on, modifié par automation.capteur\_virtuel\_agit\_sur\_recepteur\_virtuel
+État de la lumière : on, modifié par automation.capteur_virtuel_agit_sur_recepteur_virtuel
 ```
 
 

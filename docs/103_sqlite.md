@@ -76,7 +76,7 @@ Ligne de commande SQLite
 
 ## [Contenu de la base de donnees de home assistant](104_la_base_de_donnees_home_assistant.md#fiche-contenu_de_la_base_de_donnees_de_home_assistant)
 
-Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
+Home Assistant utilise par défaut une base de données SQLite. Elle est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant_v2.db.
 
 Elle peut être explorée via l'interface Web de Home Assistant grâce au module complémentaire SQLite Web.
 
@@ -500,7 +500,7 @@ Voici les principales fonctions qui vous aideront dans vos manipulations de date
 
 | Fonction | Utilité | Exemple |
 | --- | --- | --- |
-| [datetime](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-datetime-function/) | Manipule des dates incluant l'heure.  Entre autres, elle permet d'obtenir la date et l'heure actuelle. | UPDATE donnees(date\_modification) VALUES(datetime('now','localtime')); |
+| [datetime](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-datetime-function/) | Manipule des dates incluant l'heure.  Entre autres, elle permet d'obtenir la date et l'heure actuelle. | UPDATE donnees(date_modification) VALUES(datetime('now','localtime')); |
 | [date](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-date-function/) | Manipule des dates.  Entre autres, permet de transformer une chaîne en date afin d'effectuer des calculs. | SELECT id, nomfamille, prenom FROM etudiants WHERE naissance < date('2002-10-01'); |
 | julianday | Retourne le nombre de jours entre une date butoir et une date. | SELECT id, nomfamille, prenom FROM employes WHERE julianday('now') - julianday(embauche) >= 365; |
 
@@ -534,7 +534,7 @@ SQLite
 
 
 ```sql
-SELECT name FROM sqlite\_master WHERE type='table';
+SELECT name FROM sqlite_master WHERE type='table';
 ```
 
 
@@ -629,7 +629,7 @@ SQLite
 
 
 ```sql
-SELECT sql FROM sqlite\_master WHERE type = 'table' AND tbl\_name = 'nomtable';
+SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'nomtable';
 ```
 
 

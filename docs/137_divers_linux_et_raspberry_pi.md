@@ -32,9 +32,9 @@ Je vous explique ici comment travailler à la ligne de commande pour installer R
     sudo dd bs=1m if=chemin/2021-03-04-raspios-buster-armhf-lite.img of=/dev/rdiskN conv=sync
 ```
 
-    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier\_le\_chemin\_d\_un\_fichier.md#copier\_le\_chemin\_d\_un\_fichier">copier\_le\_chemin\_d\_un\_fichier</a>.
+    Note : sous Mac, pour copier facilement le chemin du fichier .img, vous pouvez utiliser cette technique : <a href="fiche-copier_le_chemin_d_un_fichier.md#copier_le_chemin_d_un_fichier">copier_le_chemin_d_un_fichier</a>.
 
-    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd.md#copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd">copie\_integrale\_d\_un\_disque\_avec\_la\_commande\_dd</a>.
+    Si vous voulez en savoir plus, les instructions détaillées sur la commande dd sont données ici : <a href="fiche-copie_integrale_d_un_disque_avec_la_commande_dd.md#copie_integrale_d_un_disque_avec_la_commande_dd">copie_integrale_d_un_disque_avec_la_commande_dd</a>.
   + Il est également possible de flasher l'image sur la carte à l'aide d'un utilitaire graphique, par exemple [Etcher](https://www.balena.io/etcher/). Cet utilitaire peut être utilisé sous Mac, Linux ou Windows.
 
 La carte micro SD est maintenant prête à être insérée dans le Raspberry Pi. Mais avant, vous voudrez peut-être effectuer quelques configurations directement sur la carte afin d'éviter d'avoir à brancher un écran et un clavier sur le Pi , ce qui vous permettra de réaliser une installation dite headless (littéralement : sans tête).
@@ -85,14 +85,14 @@ sudo nano config.txt
 
 ## Raspberry Pi 3 et moins
 
-Le Raspberry Pi 3 ne comporte qu'un seul port HDMI. Pour activer le branchement à chaud (hotplug), Vous devez enlever le # devant la ligne hdmi\_force\_hotplug.
+Le Raspberry Pi 3 ne comporte qu'un seul port HDMI. Pour activer le branchement à chaud (hotplug), Vous devez enlever le # devant la ligne hdmi_force_hotplug.
 
 Fichier /boot/config.txt
 
 
 ```
 # uncomment if hdmi display is not detected and composite is being output
-hdmi\_force\_hotplug=1
+hdmi_force_hotplug=1
 ```
 
 
@@ -107,8 +107,8 @@ Terminal
 
 ```
 # uncomment if hdmi display is not detected and composite is being output
-hdmi\_force\_hotplug:0=1
-hdmi\_force\_hotplug:1=1
+hdmi_force_hotplug:0=1
+hdmi_force_hotplug:1=1
 ```
 
 

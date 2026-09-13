@@ -38,7 +38,7 @@ Le plugin Virtuel permet de simuler un capteur ou un récepteur. Très utile pou
 
 Un scénario provoqué survient lorsqu'une action survient. Dans cet exemple, c'est lorsque la porte s'ouvre.
 
-## <a href="fiche-creer\_un\_scenario\_programme.md#creer\_un\_scenario\_programme">creer\_un\_scenario\_programme</a>
+## <a href="fiche-creer_un_scenario_programme.md#creer_un_scenario_programme">creer_un_scenario_programme</a>
 
 Un scénario programmé survient à un moment donné, par exemple le 29 août 2025 à 10h00, à tous les samedis à 9h00, etc.
 
@@ -58,7 +58,7 @@ Le fonctionnement de base est toujours le même :
 * Rendez-vous dans le menu Plugins / Gestion des plugins.
 
   ![Menu Plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-MenuPlugins.png)
-* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market) ».  
+* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [brancher_un_jeedom_existant_sur_un_nouveau_compte_market](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market) ».  
 
   ![Gestion des plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-GestionDesPlugins.png)
 * Dans la fenêtre Market, naviguez parmi les top et nouveautés ou sélectionnez une catégorie. Vous pouvez également entrez un mot-clé pour vous aider à trouver le plugin désiré.

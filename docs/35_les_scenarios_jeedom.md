@@ -36,9 +36,9 @@ Pour ajouter un scénario :
   Les événements sont [représentés par des mots-clés](https://doc.jeedom.com/fr_FR/core/4.1/scenario#Les%20d%C3%A9clencheurs), par exemple :
 
   + #start# pour le démarrage de Jeedom
-  + #begin\_backup# pour le début d'une sauvegarde
-  + #begin\_update# pour le début d'une mise à jour
-  + #user\_connect# lorsqu'un usager se connecte à Jeedom
+  + #begin_backup# pour le début d'une sauvegarde
+  + #begin_update# pour le début d'une mise à jour
+  + #user_connect# lorsqu'un usager se connecte à Jeedom
   + etc.
 * Pour un scénario déclenché par un événement, vous devez cliquez sur le bouton +Déclencheur puis entrer le mot-clé correspondant dans la case Evénement. Mais ce n'est pas le déclencheur qui nous intéresse dans le cas présent donc passez à l'étape suivante.
 * Pour un scénario déclenché par un équipement (c'est ce que nous voulons ici), vous devez cliquez sur le bouton +Déclencheur puis sur l'icône Choisir une commande.

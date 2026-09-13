@@ -35,8 +35,8 @@
    Afin de vous laisser vous concentrer sur le bloc de code PHP plutôt que sur la requête SQL, je vous fournis la requête à utiliser. Vous devrez évidemment ajuster le nom de votre équipement.
 
    SELECT MAX(historyArch.value) AS max FROM historyArch   
-   INNER JOIN cmd ON cmd\_id = cmd.id   
-   INNER JOIN eqLogic ON eqLogic\_id = eqLogic.id   
+   INNER JOIN cmd ON cmd_id = cmd.id   
+   INNER JOIN eqLogic ON eqLogic_id = eqLogic.id   
    WHERE eqLogic.name = 'Capteur 5-en-1 Neo'   
    AND cmd.name = 'Température'   
    AND DATE(historyArch.datetime) = CURDATE() - INTERVAL 1 DAY

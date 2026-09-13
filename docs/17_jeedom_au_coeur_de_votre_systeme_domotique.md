@@ -8,7 +8,7 @@ C'est la solution DIY qui nous intéresse ici, avec un [Raspberry Pi comme unit�
 
 Nous allons voir ici comment effectuer l'installation de Jeedom.
 
-Note : si vous n'avez pas accès à un écran et à un clavier pour le Raspberry Pi, il est possible d'effectuer une installation dite headless : « [installation\_de\_jeedom\_sans\_clavier\_ni\_ecran](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_sans_clavier_ni_ecran) ».
+Note : si vous n'avez pas accès à un écran et à un clavier pour le Raspberry Pi, il est possible d'effectuer une installation dite headless : « [installation_de_jeedom_sans_clavier_ni_ecran](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_sans_clavier_ni_ecran) ».
 
 Les instructions présentées ici requièrent l'utilisation d'un clavier et d'un écran.
 
@@ -16,13 +16,13 @@ Les instructions présentées ici requièrent l'utilisation d'un clavier et d'un
 
 ## Préparer le Raspberry Pi
 
-Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : [un\_raspberry\_pi\_comme\_unite\_centrale](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale).
+Commencez par prendre connaissance de la fiche suivante afin d'acquérir les bonnes composantes de base : [un_raspberry_pi_comme_unite_centrale](15_lunite_centrale_du_systeme_domotique_raspberry_pi.md#fiche-un_raspberry_pi_comme_unite_centrale).
 
 ## Installer Raspberry Pi OS Lite
 
 Vous êtres maintenant prêts à installer le système d'exploitation. Ici, on voudra travailler avec Raspberry Pi OS Lite.
 
-Suivez les instructions sur cette fiche : [raspberry\_pi\_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
+Suivez les instructions sur cette fiche : [raspberry_pi_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
 
 ## Démarrer le Raspberry Pi {#demarrer}
 
@@ -195,7 +195,7 @@ Si vous n'avez pas accès à un clavier et à un écran pour votre Raspberry Pi,
 
 La première étape consiste à installer le système d'exploitation. Ici, on voudra travailler avec Raspberry Pi OS Lite.
 
-Suivez les instructions sur cette fiche : [raspberry\_pi\_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
+Suivez les instructions sur cette fiche : [raspberry_pi_imager](05_raspberry_pi.md#fiche-raspberry_pi_imager).
 
 Important : prenez le temps de modifier les réglages en cliquant sur le bouton approprié lorsqu'il apparaît.
 

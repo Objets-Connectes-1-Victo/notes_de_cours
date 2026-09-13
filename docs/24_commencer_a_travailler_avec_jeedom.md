@@ -72,7 +72,7 @@ Pour que votre [boîte domotique Jeedom](17_jeedom_au_coeur_de_votre_systeme_dom
   Selon le modèle de votre clé, vous pourriez aussi avoir Silicon Labs CP210x UART Bridge.
 * Accédez à l'[interface d'administration de Jeedom,acceder](17_jeedom_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_jeedom_et_premier_acces).
 * Rendez-vous dans le menu Plugins / Gestion des plugins.
-* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [brancher\_un\_jeedom\_existant\_sur\_un\_nouveau\_compte\_market](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market) ».
+* Cliquez sur l'icône Market. Note : si vous n'aviez pas créé de compte Market lors de votre premier accès à Jeedom, vous devez vous créer un compte Market et le configurer dans Jeedom. Les instructions sont données sur cette fiche : « [brancher_un_jeedom_existant_sur_un_nouveau_compte_market](32_jeedom_market.md#fiche-brancher_un_jeedom_existant_sur_un_nouveau_compte_market) ».
 
   ![Gestion des plugins](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-GestionDesPlugins.png)
 * Recherchez « Z-Wave ».
@@ -87,7 +87,7 @@ Pour que votre [boîte domotique Jeedom](17_jeedom_au_coeur_de_votre_systeme_dom
 * Si la clé est dans l'état inactif, cliquez sur le bouton Activer.
 
   ![Activer la clé Z-Wave](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-ActiverCleZWave.png)
-* Si vous ne réussissez pas à activer la clé, ceci peut dépendre d'une erreur de programmation du côté du plugin ou à une mauvaise compatibilité du plugin avec la dernière version du système d'exploitation. Rendez-vous dans le menu Analyse / Logs / zwavejs pour voir les messages d'erreur. Si vous voyez un message du genre « file\_exists(): Argument #1 ($filename) must be of type string, array given », suivez les instructions sur la fiche <a href="fiche-erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists.md#erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists">erreur\_activation\_de\_la\_cle\_z-wave\_file\_exists</a>.
+* Si vous ne réussissez pas à activer la clé, ceci peut dépendre d'une erreur de programmation du côté du plugin ou à une mauvaise compatibilité du plugin avec la dernière version du système d'exploitation. Rendez-vous dans le menu Analyse / Logs / zwavejs pour voir les messages d'erreur. Si vous voyez un message du genre « file_exists(): Argument #1 ($filename) must be of type string, array given », suivez les instructions sur la fiche <a href="fiche-erreur_activation_de_la_cle_z-wave_file_exists.md#erreur_activation_de_la_cle_z-wave_file_exists">erreur_activation_de_la_cle_z-wave_file_exists</a>.
 * Normalement, l'activation le la clé USB lance automatiquement une mise à jour des dépendances. Dans la zone Dépendances, vous verrez alors le message  « Installation en cours ». Si, après la fin de la mise à jour, vous voyez NOK, cliquez sur Relancer.
 
   ![Dépendancecs NOK](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-DependancesZWavePasOK.png)
@@ -96,7 +96,7 @@ Pour que votre [boîte domotique Jeedom](17_jeedom_au_coeur_de_votre_systeme_dom
 
   ![Installation figée à 11%](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Jeedom-DependancesZWave-11Pourcent.png)
 
-  Si l'opération échoue, vous pouvez trouver une trace des problèmes rencontrés en allant dans le menu Analyse / Logs / openzwave\_update.
+  Si l'opération échoue, vous pouvez trouver une trace des problèmes rencontrés en allant dans le menu Analyse / Logs / openzwave_update.
 
   Parfois, un simple redémarrage du Raspberry Pi permet de compléter l'opération avec succès.
 * Plus bas dans ce même écran, vous devez préciser le port du contrôleur Z-Wave. Pour trouver le port utilisé :
@@ -113,11 +113,11 @@ Pour que votre [boîte domotique Jeedom](17_jeedom_au_coeur_de_votre_systeme_dom
 
 ```
     pi@jeedom:~ $ dmesg | grep tty
-    [ 0.000000] Kernel command line: coherent\_pool=1M 8250.nr\_uarts=0 snd\_bcm2835.enable\_compat\_alsa=0 snd\_bcm2835.enable\_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc\_mem.mem\_base=0x3f000000 vc\_mem.mem\_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+    [ 0.000000] Kernel command line: coherent_pool=1M 8250.nr_uarts=0 snd_bcm2835.enable_compat_alsa=0 snd_bcm2835.enable_hdmi=1 video=HDMI-A-1:1680x1050M@60 smsc95xx.macaddr=D8:3A:DD:24:30:4D vc_mem.mem_base=0x3f000000 vc_mem.mem_size=0x3f600000 console=ttyS0,115200 console=tty1 root=PARTUUID=c764c245-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
     [ 0.001837] printk: console [tty1] enabled
-    [ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base\_baud = 0) is a PL011 rev2
-    [ 5.314135] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device
-    [ 159.584503] cdc\_acm 1-1.3:1.0: ttyACM0: USB ACM device
+    [ 1.584526] fe201000.serial: ttyAMA0 at MMIO 0xfe201000 (irq = 36, base_baud = 0) is a PL011 rev2
+    [ 5.314135] cdc_acm 1-1.3:1.0: ttyACM0: USB ACM device
+    [ 159.584503] cdc_acm 1-1.3:1.0: ttyACM0: USB ACM device
 ```
   + Le port à utiliser apparaîtra sur la dernière ligne. C'est la valeur à choisir dans la liste déroulante vis-à-vis Port du contrôleur Z-Wave. Notez que si le port désiré n'apparaît pas dans la liste déroulante, vous pouvez essayer de régler la situation en enlevant le crochet vis-à-vis Soft Reset dans la zone Configuration. Vous devrez ensuite redémarrer Jeedom.
 

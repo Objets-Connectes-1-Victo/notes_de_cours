@@ -112,7 +112,7 @@ Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vo
 
 L'intégration [notify](https://www.home-assistant.io/integrations/notify/) permet d'envoyer une notification à l'application mobile associée à votre Home Assistant.
 
-Pour l'utiliser dans une automatisation ou dans les outils de développement, il faut exécuter l'action Notifications: Send a notification via mibile\_app\_... (notify.mobile\_app\_...), où les points de suspension sont remplacés par le nom du téléphone.
+Pour l'utiliser dans une automatisation ou dans les outils de développement, il faut exécuter l'action Notifications: Send a notification via mibile_app_... (notify.mobile_app_...), où les points de suspension sont remplacés par le nom du téléphone.
 
 ![Notification app mobile](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NotificationAppMobile.png)
 
@@ -188,27 +188,27 @@ Pour créer une telle automatisation :
 
 « Making Home Assistant’s Presence Detection not so Binary ». Phil Hawthorne. <https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/>
 
-## 89.6 Simuler la position GPS d'une personne avec device\_tracker.see {#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see}
+## 89.6 Simuler la position GPS d'une personne avec device_tracker.see {#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see}
 
 Lorsque vous désirez que Home Assistant puisse [réagir selon la position d'une personne](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence) en utilisant [l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant), il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 
-Par chance, la position géographique d'une personne peut être simulée grâce au service [device\_tracker.see](https://www.home-assistant.io/integrations/device_tracker/#device_trackersee-service).
+Par chance, la position géographique d'une personne peut être simulée grâce au service [device_tracker.see](https://www.home-assistant.io/integrations/device_tracker/#device_trackersee-service).
 
 Ce service peut modifier la position d'un système de suivi GPS réel ou virtuel.
 
-## Créer un device\_tracker
+## Créer un device_tracker
 
-Le fonctionnement d'une entité de type device\_tracker est passablement différent de celui des autres types de [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel), par exemple input\_boolean ou encore input\_text.
+Le fonctionnement d'une entité de type device_tracker est passablement différent de celui des autres types de [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel), par exemple input_boolean ou encore input_text.
 
-D'abord, pour créer une entité de type device\_tracker, il suffit d'appeler le service (exécuter l'action) device\_tracker.see.
+D'abord, pour créer une entité de type device_tracker, il suffit d'appeler le service (exécuter l'action) device_tracker.see.
 
 Ensuite, la valeur de l'entité ainsi créée sera perdue au redémarrage de Home Assistant.
 
-Voici donc comment créer un device\_tracker :
+Voici donc comment créer un device_tracker :
 
 Entrez ceci dans Outils de développement /  Actions :
 
-* Action : Voir (device\_tracker.see).
+* Action : Voir (device_tracker.see).
 
   ![device_tracker.see](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-See.png)
 
@@ -218,17 +218,17 @@ Entrez ceci dans Outils de développement /  Actions :
 
   
 ```
-  device\_tracker:
+  device_tracker:
 ```
 
   Vous devrez ensuite redémarrer Home Assistant (un rechargement des configurations n'est pas suffisant).
 * ID de l'appareil : entrez l'identifiant de l'objet à modifier. Si aucune entité ne correspond à cet identifiant, une entité virtuelle sera créée.
 
-  Attention : lorsqu'on fait appel au service device\_tracker.see, il faut préciser l'identifiant de l'objet et non l'identifiant de l'entité. Donc, il ne faut pas entrer le domaine device\_tracker, seulement l'identifiant de l'objet.
+  Attention : lorsqu'on fait appel au service device_tracker.see, il faut préciser l'identifiant de l'objet et non l'identifiant de l'entité. Donc, il ne faut pas entrer le domaine device_tracker, seulement l'identifiant de l'objet.
 
-  Par exemple, ceci ne fonctionnera pas : device\_tracker.position\_virtuelle\_annie.
+  Par exemple, ceci ne fonctionnera pas : device_tracker.position_virtuelle_annie.
 
-  il faut plutôt entrer position\_virtuelle\_annie.
+  il faut plutôt entrer position_virtuelle_annie.
 * Emplacement : si vous désirez travailler avec les zones, entrez le nom d'une zone définie dans votre système Home Assistant ou home pour simuler que la personne est à la maison.
 
   Notez que le travail avec des zones offre moins de possibilités que le travail avec une position GPS.
@@ -245,7 +245,7 @@ Entrez ceci dans Outils de développement /  Actions :
 
 Une fois le service appelé, si l'entité n'existait pas, elle est créée. Sinon, sa position est simplement mise à jour.
 
-## Retrouver l'identifiant d'un device\_tracker
+## Retrouver l'identifiant d'un device_tracker
 
 Vous pouvez confirmer que l'entité existe et retrouver son nom à partir du menu Paramètres / Appareils et services / Onglet Entités.
 
@@ -253,15 +253,15 @@ Suggestion : utilisez la case Filtre pour retrouver les entités plus rapidement
 
 ![Entité device_tracker](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EntiteDeviceTracker.png)
 
-Les informations sur le device\_tracker sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/known\_devices.yaml.
+Les informations sur le device_tracker sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/known_devices.yaml.
 
 Ce fichier peut être visualisé à l'aide du [module complémentaire File editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
 
-Fichier known\_devices.yaml
+Fichier known_devices.yaml
 
 ```
-position\_virtuelle\_annie:
-name: position\_virtuelle\_annie
+position_virtuelle_annie:
+name: position_virtuelle_annie
 mac:
 icon:
 picture:
@@ -269,21 +269,21 @@ track: true
 ```
 
 
-## device\_tracker dans une automatisation qui travaille avec une zone
+## device_tracker dans une automatisation qui travaille avec une zone
 
 Voici un problème qui peut survenir ou non selon votre version de Home Assistant.
 
-Lorsqu'une [automatisation doit réagir quand une personne virtuelle entre ou sort d'une zone donnée](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence), elle doit être en mesure de retrouver les coordonnées GPS du device\_tracker.
+Lorsqu'une [automatisation doit réagir quand une personne virtuelle entre ou sort d'une zone donnée](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence), elle doit être en mesure de retrouver les coordonnées GPS du device_tracker.
 
-Si vous avez utilisé un nom de zone pour spécifier la position d'un device\_tracker, vous pourriez obtenir un message du genre « Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value » lorsque vous enregistrez l'automatisation.
+Si vous avez utilisé un nom de zone pour spécifier la position d'un device_tracker, vous pourriez obtenir un message du genre « Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value » lorsque vous enregistrez l'automatisation.
 
 ![Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-MessageMalformed.png)
 
 Et même si vous n'obtenez pas ce message, le changement de position à l'aide d'un nom de zone pourrait ne pas être pris en compte par l'automatisation.
 
-Si vous rencontrez ce problème, vous pouvez le contourner en utilisant des coordonnées GPS pour spécifier la position du device\_tracker.
+Si vous rencontrez ce problème, vous pouvez le contourner en utilisant des coordonnées GPS pour spécifier la position du device_tracker.
 
-## Voir la position d'un device\_tracker sur une carte
+## Voir la position d'un device_tracker sur une carte
 
 Vous pouvez voir la position virtuelle dans le tableau de bord sur une carte de type Carte ou encore directement dans l'option de menu Map.
 
@@ -293,9 +293,9 @@ Par défaut, la carte affichera la première lettre de [l'identifiant de l'obje
 
 ![device_tracker sur une carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTrackerSurCarte.png)
 
-## Changer l'image d'un device\_tracker
+## Changer l'image d'un device_tracker
 
-Le fichier customize.yaml permet d'apporter des personnalisations à différentes entités, notamment l'image utilisée pour représenter un device\_tracker.
+Le fichier customize.yaml permet d'apporter des personnalisations à différentes entités, notamment l'image utilisée pour représenter un device_tracker.
 
 Si le fichier n'existe pas encore, créez-le dans le même dossier que configuration.yaml, c'est-à-dire /mnt/data/supervisor/homeassistant.
 
@@ -312,7 +312,7 @@ customize: !include customize.yaml
 ```
 
 
-Dans le fichier customize.yaml, vous pouvez désormais préciser l'image à utiliser pour le device\_tracker.
+Dans le fichier customize.yaml, vous pouvez désormais préciser l'image à utiliser pour le device_tracker.
 
 Pour utiliser vos propres images, vous devez [les téléverser sur le Pi dans un dossier précis](80_les_tableaux_de_bord.md#fiche-utiliser_vos_propres_images_dans_un_tableau_de_bord_lovelace).
 
@@ -322,8 +322,8 @@ Fichier customize.yaml
 
 
 ```
-device\_tracker.position\_virtuelle\_annie:
-entity\_picture: /local/annie.png
+device_tracker.position_virtuelle_annie:
+entity_picture: /local/annie.png
 ```
 
 
@@ -335,19 +335,19 @@ Désormais, l'image apparaît sur la carte plutôt que la première lettre de l'
 
 Source des images : <http://clipart-library.com/clip-art/kid-transparent-background-22.htm>
 
-## Retrouver la latitude et la longitude d'un device\_tracker
+## Retrouver la latitude et la longitude d'un device_tracker
 
-Grâce aux [modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant), il est possible de retrouver spécifiquement la latitude et la longitude d'un device\_tracker.
+Grâce aux [modèles](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant), il est possible de retrouver spécifiquement la latitude et la longitude d'un device_tracker.
 
 D'abord, comme avec n'importe quelle entité, il est possible de connaître les attributs disponibles à partir du menu Outils de développement / Modèle.
 
-Entrez dans la zone de gauche une chaîne au format {{ states.id\_de\_l\_entite }}.
+Entrez dans la zone de gauche une chaîne au format {{ states.id_de_l_entite }}.
 
 Modèle
 
 
 ```
-{{ states.device\_tracker.position\_virtuelle\_annie }}
+{{ states.device_tracker.position_virtuelle_annie }}
 ```
 
 
@@ -360,12 +360,12 @@ Résultat à l'écran
 
 ```
 <template TemplateState(<
-state device\_tracker.position\_virtuelle\_annie=Travail;
-source\_type=gps,
+state device_tracker.position_virtuelle_annie=Travail;
+source_type=gps,
 latitude=46.05123588418276,
 longitude=-72.00332701206209,
-gps\_accuracy=0,
-friendly\_name=position\_virtuelle\_annie
+gps_accuracy=0,
+friendly_name=position_virtuelle_annie
 @ 2025-11-03T11:04:01.874055-05:00>
 )>
 ```
@@ -378,9 +378,9 @@ Résultat à l'écran
 
 ```
 <template TemplateState(<
-state device\_tracker.position\_virtuelle\_annie=Travail;
-source\_type=gps,
-friendly\_name=position\_virtuelle\_annie
+state device_tracker.position_virtuelle_annie=Travail;
+source_type=gps,
+friendly_name=position_virtuelle_annie
 @ 2025-11-03T11:15:01.874055-05:00>
 )>
 ```
@@ -393,9 +393,9 @@ Résultat à l'écran
 
 ```
 <template TemplateState(<
-state device\_tracker.position\_virtuelle\_annie=not\_home;
-source\_type=None,
-friendly\_name=position\_virtuelle\_annie
+state device_tracker.position_virtuelle_annie=not_home;
+source_type=None,
+friendly_name=position_virtuelle_annie
 @ 2025-11-03T11:04:55.752248-05:00>
 )>
 ```
@@ -407,7 +407,7 @@ Modèle
 
 
 ```
-{{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }}
+{{ state_attr('device_tracker.position_virtuelle_annie', 'latitude') }}
 ```
 
 
@@ -415,5 +415,5 @@ Modèle
 
 
 ```
-{{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude') }}
+{{ state_attr('device_tracker.position_virtuelle_annie', 'longitude') }}
 ```

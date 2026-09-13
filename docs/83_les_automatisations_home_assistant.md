@@ -106,15 +106,15 @@ alias: Allumer lumière quand mouvement détecté
 description: ''
 trigger:
 - platform: state
-entity\_id:
-- binary\_sensor.5\_in\_1\_pir\_motion\_sensor\_motion\_detection
+entity_id:
+- binary_sensor.5_in_1_pir_motion_sensor_motion_detection
 from: 'off'
 to: 'on'
 condition: []
 action:
-- type: turn\_on
-device\_id: f138a74f3ea6ca3212b26d1e92b8cb10
-entity\_id: light.dimmable\_smart\_plug
+- type: turn_on
+device_id: f138a74f3ea6ca3212b26d1e92b8cb10
+entity_id: light.dimmable_smart_plug
 domain: light
 mode: single
 ```
@@ -161,19 +161,19 @@ YAML
 
 
 ```
-show\_name: true
-show\_icon: true
+show_name: true
+show_icon: true
 type: button
 name: Allumer lumière quand mouvement détecté
 icon: mdi:home-automation
-tap\_action:
+tap_action:
 action: perform-action
-perform\_action: automation.trigger
+perform_action: automation.trigger
 target:
-entity\_id: automation.allumer\_lumiere\_quand\_mouvement\_detecte
+entity_id: automation.allumer_lumiere_quand_mouvement_detecte
 data:
-skip\_condition: true
-icon\_height: 40px
+skip_condition: true
+icon_height: 40px
 ```
 
 
@@ -259,27 +259,27 @@ Fichier scripts.yaml
 
 
 ```
-tele\_et\_lumiere:
+tele_et_lumiere:
 sequence:
-- action: input\_boolean.turn\_on
+- action: input_boolean.turn_on
 metadata: {}
 data: {}
 target:
-entity\_id: input\_boolean.lumiere\_salon
-- action: input\_boolean.turn\_on
+entity_id: input_boolean.lumiere_salon
+- action: input_boolean.turn_on
 metadata: {}
 target:
-entity\_id: input\_boolean.prise\_intelligente\_tele
+entity_id: input_boolean.prise_intelligente_tele
 - delay:
 hours: 0
 minutes: 5
 seconds: 0
 milliseconds: 0
-- action: input\_boolean.turn\_off
+- action: input_boolean.turn_off
 metadata: {}
 data: {}
 target:
-entity\_id: input\_boolean.lumiere\_salon
+entity_id: input_boolean.lumiere_salon
 alias: Télé et lumière
 description: ''
 ```

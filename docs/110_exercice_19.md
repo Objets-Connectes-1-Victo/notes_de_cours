@@ -8,7 +8,7 @@ Vous utiliserez ici seulement des capteurs virtuels.
 
 1. Si ce n'est pas déjà fait, [définissez les zones École et Centre commercial](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant).
 2. Disons que vous avez 2 enfants : Gabriel et Élodie.
-   * Dans les outils de développement, [simulez une position GPS pour chacun de vos enfants](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see). Les positions virtuelles doivent s'appeler position\_virtuelle\_gabriel et position\_virtuelle\_elodie.
+   * Dans les outils de développement, [simulez une position GPS pour chacun de vos enfants](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see). Les positions virtuelles doivent s'appeler position_virtuelle_gabriel et position_virtuelle_elodie.
    * Assurez-vous que chaque enfant soit identifié par une photo. Attention : il ne s'agit pas d'associer une position virtuelle à une personne dans le menu Paramètres / Personnes.
 3. Ajoutez un tableau de bord nommé "Coordonnées des enfants". Affichez-y :  
    * une carte géographique qui montre les trois zones que vous avez définies ainsi que la position des enfants
@@ -23,7 +23,7 @@ Vous utiliserez ici seulement des capteurs virtuels.
    * La latitude de la zone home
    * La longitude de la zone home
    * Le rayon de la zone home
-   * La position de Gabriel, telle que retournée par le capteur virtuel (ex : École, Centre commercial, not\_home).
+   * La position de Gabriel, telle que retournée par le capteur virtuel (ex : École, Centre commercial, not_home).
 5. Écrivez une automatisation qui vous envoie un courriel dès qu'un des enfants entre dans la zone Centre commercial.
 6. Modifiez l'automatisation pour qu'elle envoie également [une notification à l'application mobile](99_detecteur_de_presence_sous_home_assistant.md#fiche-envoyer_une_notification_a_l_application_mobile). Le message devra indiquer le nom de l'enfant qui est au centre commercial.
 7. Écrivez une automatisation qui monte un chauffage virtuel de 3 degrés dès qu'un des enfants quitte la zone École.

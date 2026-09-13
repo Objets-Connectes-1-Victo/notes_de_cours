@@ -4,7 +4,7 @@
 
 Par défaut, Home Assistant utilise une base de données SQLite pour stocker les configurations de même que les données sur les capteurs.
 
-Cette base de données est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant\_v2.db.
+Cette base de données est contenue dans le fichier /mnt/data/supervisor/homeassistant/home-assistant_v2.db.
 
 Remarquez qu'il est possible de [configurer Home Assistant pour qu'il utilise un autre système de gestion de bases de données](https://www.home-assistant.io/integrations/recorder/), par exemple MySQL ou PostgreSQL.
 
@@ -42,7 +42,7 @@ Terminal HassOS
 
 ```
 # cd /mnt/data/supervisor/homeassistant/
-# sqlite3 home-assistant\_v2.db
+# sqlite3 home-assistant_v2.db
 SQLite version 3.48.0 2025-01-14 11:05:00
 Enter ".help" for usage hints.
 sqlite>
@@ -58,11 +58,11 @@ Terminal HassOS
 
 ```
 sqlite> .tables
-event\_data schema\_changes statistics\_meta
-event\_types state\_attributes statistics\_runs
-events states statistics\_short\_term
-migration\_changes states\_meta
-recorder\_runs statistics
+event_data schema_changes statistics_meta
+event_types state_attributes statistics_runs
+events states statistics_short_term
+migration_changes states_meta
+recorder_runs statistics
 ```
 
 
@@ -88,23 +88,23 @@ sqlite> .schema statistics
 CREATE TABLE statistics (
 id INTEGER NOT NULL,
 created CHAR(0),
-created\_ts FLOAT,
-metadata\_id INTEGER,
+created_ts FLOAT,
+metadata_id INTEGER,
 start CHAR(0),
-start\_ts FLOAT,
+start_ts FLOAT,
 mean FLOAT,
-mean\_weight FLOAT,
+mean_weight FLOAT,
 min FLOAT,
 max FLOAT,
-last\_reset CHAR(0),
-last\_reset\_ts FLOAT,
+last_reset CHAR(0),
+last_reset_ts FLOAT,
 state FLOAT,
 sum FLOAT,
 PRIMARY KEY (id),
-FOREIGN KEY(metadata\_id) REFERENCES statistics\_meta (id) ON DELETE CASCADE
+FOREIGN KEY(metadata_id) REFERENCES statistics_meta (id) ON DELETE CASCADE
 );
-CREATE INDEX ix\_statistics\_start\_ts ON statistics (start\_ts);
-CREATE UNIQUE INDEX ix\_statistics\_statistic\_id\_start\_ts ON statistics (metadata\_id, start\_ts);
+CREATE INDEX ix_statistics_start_ts ON statistics (start_ts);
+CREATE UNIQUE INDEX ix_statistics_statistic_id_start_ts ON statistics (metadata_id, start_ts);
 sqlite>
 ```
 
@@ -115,7 +115,7 @@ SQLite
 
 
 ```sql
-SELECT sql FROM sqlite\_master;
+SELECT sql FROM sqlite_master;
 ```
 
 
@@ -144,15 +144,15 @@ SQLite
 
 
 ```sql
-sqlite> SELECT \* FROM statistics\_meta;
-id statistic\_id source unit\_of\_measurement has\_mean has\_sum
+sqlite> SELECT \* FROM statistics_meta;
+id statistic_id source unit_of_measurement has_mean has_sum
 -- -------------------------------------------- -------- ------------------- -------- -------
-1 sensor.node\_14\_battery\_level recorder % 1 0
-2 sensor.dome\_door\_window\_sensor\_battery\_level recorder % 1 0
-3 sensor.neo\_capteur\_5\_en\_1\_illuminance recorder Lux 1 0
-4 sensor.porte\_dentree\_battery\_level recorder % 1 0
-5 sensor.node\_16\_humidity recorder % 1 0
-6 sensor.node\_16\_air\_temperature recorder °C 1 0
+1 sensor.node_14_battery_level recorder % 1 0
+2 sensor.dome_door_window_sensor_battery_level recorder % 1 0
+3 sensor.neo_capteur_5_en_1_illuminance recorder Lux 1 0
+4 sensor.porte_dentree_battery_level recorder % 1 0
+5 sensor.node_16_humidity recorder % 1 0
+6 sensor.node_16_air_temperature recorder °C 1 0
 ```
 
 
@@ -172,16 +172,16 @@ SQLite
 
 
 ```sql
-sqlite> SELECT \* FROM statistics\_meta;
+sqlite> SELECT \* FROM statistics_meta;
 ┌────┬──────────────────────────────────────────────┬──────────┬─────────────────────┬──────────┬─────────┐
-│ id │ statistic\_id │ source │ unit\_of\_measurement │ has\_mean │ has\_sum │
+│ id │ statistic_id │ source │ unit_of_measurement │ has_mean │ has_sum │
 ├────┼──────────────────────────────────────────────┼──────────┼─────────────────────┼──────────┼─────────┤
-│ 1 │ sensor.node\_14\_battery\_level │ recorder │ % │ 1 │ 0 │
-│ 2 │ sensor.dome\_door\_window\_sensor\_battery\_level │ recorder │ % │ 1 │ 0 │
-│ 3 │ sensor.neo\_capteur\_5\_en\_1\_illuminance │ recorder │ Lux │ 1 │ 0 │
-│ 4 │ sensor.porte\_dentree\_battery\_level │ recorder │ % │ 1 │ 0 │
-│ 5 │ sensor.node\_16\_humidity │ recorder │ % │ 1 │ 0 │
-│ 6 │ sensor.node\_16\_air\_temperature │ recorder │ °C │ 1 │ 0 │
+│ 1 │ sensor.node_14_battery_level │ recorder │ % │ 1 │ 0 │
+│ 2 │ sensor.dome_door_window_sensor_battery_level │ recorder │ % │ 1 │ 0 │
+│ 3 │ sensor.neo_capteur_5_en_1_illuminance │ recorder │ Lux │ 1 │ 0 │
+│ 4 │ sensor.porte_dentree_battery_level │ recorder │ % │ 1 │ 0 │
+│ 5 │ sensor.node_16_humidity │ recorder │ % │ 1 │ 0 │
+│ 6 │ sensor.node_16_air_temperature │ recorder │ °C │ 1 │ 0 │
 └────┴──────────────────────────────────────────────┴──────────┴─────────────────────┴──────────┴─────────┘
 ```
 
@@ -198,9 +198,9 @@ Je vous propose deux techniques pour y arriver :
 
   
 ```
-  scp -O -P 22222 root@192.168.1.145:/mnt/data/supervisor/homeassistant/home-assistant\_v2.db /chemin/local
+  scp -O -P 22222 root@192.168.1.145:/mnt/data/supervisor/homeassistant/home-assistant_v2.db /chemin/local
 ```
-* À partir du [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant\_v2.db, directement dans le [dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config). Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
+* À partir du [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor) : cliquez sur l'enveloppe puis retrouvez le fichier home-assistant_v2.db, directement dans le [dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config). Un clic sur les trois points verticaux vous permettra de télécharger le fichier.
 
   ![File Editor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-FileEditor-TelechargerBD.png)
 
@@ -211,7 +211,7 @@ Dans une fenêtre Terminal, entrez la commande sqlite3 suivie du chemin complet 
 Terminal
 
 ```
-sqlite3 chemin/home-assistant\_v2.db
+sqlite3 chemin/home-assistant_v2.db
 ```
 
 
@@ -219,7 +219,7 @@ Résultat à l'écran
 
 
 ```
-monnom@MacBook-Pro-de-MonNom ~ %sqlite3 /Users/monnom/Downloads/home-assistant\_v2.db
+monnom@MacBook-Pro-de-MonNom ~ %sqlite3 /Users/monnom/Downloads/home-assistant_v2.db
 SQLite version 3.43.2 2023-10-10 13:08:14
 Enter ".help" for usage hints.
 sqlite>

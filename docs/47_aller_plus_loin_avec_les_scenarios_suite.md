@@ -68,8 +68,8 @@ Bloc de code du scénario (PHP)
 $sql = "SELECT ...";
 //$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 try {
-$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
-//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+$resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);
+//$scenario->setLog(print_r($resultat, true)); // pour voir les données brutes dans cette variable
 foreach ($resultat as $enreg) {
 $valeur = $enreg['...'];
 $scenario->setLog("Valeur : $valeur");
@@ -89,8 +89,8 @@ Bloc de code du scénario (PHP)
 $sql = "SELECT COUNT(\*) AS alias ...";
 //$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 try {
-$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
-//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+$resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);
+//$scenario->setLog(print_r($resultat, true)); // pour voir les données brutes dans cette variable
 $scenario->setLog("Nombre d'enregistrements trouvés : {$resultat[0]['alias']}");
 } catch (Throwable $e) {
 $scenario->setLog($e->getMessage());

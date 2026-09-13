@@ -82,4 +82,4 @@ sudo chown -R www-data:www-data /var/www/html
 
 ## Pour plus d'information
 
-« Centre de Mise à jour - Mise à jour en ligne de commande ». Jeedom. [https://doc.jeedom.com/fr\_FR/core/4.1/update](https://doc.jeedom.com/fr_FR/core/4.1/update#Mise%20%C3%A0%20jour%20en%20ligne%20de%20commande)
+« Centre de Mise à jour - Mise à jour en ligne de commande ». Jeedom. [https://doc.jeedom.com/fr_FR/core/4.1/update](https://doc.jeedom.com/fr_FR/core/4.1/update#Mise%20%C3%A0%20jour%20en%20ligne%20de%20commande)

@@ -13,5 +13,5 @@
 1. En prévision du prochain cours, [créez-vous une clé d'API OpenWeatherMap](84_le_soleil_et_la_meteo_sous_home_assistant.md#fiche-service_openweathermap). Vous l'utiliserez seulement dans le prochain exercice mais en la créant tout de suite, vous serez assurés de ne pas avoir à attendre le délai d'activation.
 <!--
 1. Dans votre tableau de bord, ajoutez une [carte qui permet d'afficher une image de vous](80_les_tableaux_de_bord.md#fiche-utiliser_vos_propres_images_dans_un_tableau_de_bord_lovelace).
-1. [À l'aide de la commande scp,port](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur), copiez sur votre ordinateur le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry qui contient toutes les entités. Notez que ce type de manipulation pourrait vous être demandé en examen.
+1. [À l'aide de la commande scp,port](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur), copiez sur votre ordinateur le fichier /mnt/data/supervisor/homeassistant/.storage/core.entity_registry qui contient toutes les entités. Notez que ce type de manipulation pourrait vous être demandé en examen.
 -->

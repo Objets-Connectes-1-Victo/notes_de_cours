@@ -104,7 +104,7 @@ Le nom du fichier peut :
 * être tout en minuscules (ex : monscript.py)
 
   ou
-* utiliser la casse serpent (ex : mon\_script.py)
+* utiliser la casse serpent (ex : mon_script.py)
 
 ## Entête du script Python
 
@@ -237,7 +237,7 @@ Python
 
 
 ```python
-GPIO.setup(bouton, GPIO.IN, pull\_up\_down=GPIO.PUD\_DOWN)
+GPIO.setup(bouton, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 ```
 
 
@@ -306,7 +306,7 @@ Python
 
 
 ```python
-def bouton\_presse(channel):
+def bouton_presse(channel):
 print("Le bouton est enfoncé!")
 ```
 
@@ -317,7 +317,7 @@ Python
 
 
 ```python
-GPIO.add\_event\_detect(bouton,GPIO.RISING,callback=bouton\_presse)
+GPIO.add_event_detect(bouton,GPIO.RISING,callback=bouton_presse)
 ```
 
 
@@ -327,8 +327,8 @@ Python
 
 
 ```python
-GPIO.add\_event\_detect(bouton, GPIO.RISING)
-GPIO.add\_event\_callback(bouton, bouton\_presse)
+GPIO.add_event_detect(bouton, GPIO.RISING)
+GPIO.add_event_callback(bouton, bouton_presse)
 ```
 
 
@@ -488,7 +488,7 @@ print('Programme qui réinitialise toutes les broches programmables du Raspberry
 broches = (3,5,7,8,10,11,12,13,15,16,18,19,21,22,23,24,26,29,31,32,33,35,36,37,38,40)
 print('Sens actuel des broches (numérotation physique) :')
 for i in broches:
-sens = GPIO.gpio\_function(i)
+sens = GPIO.gpio_function(i)
 # On réassigne le même sens que la broche avait car le cleanup n'a d'effet que pour les broches affectées par le script
 if sens == 1:
 GPIO.setup(i, GPIO.IN)
@@ -532,9 +532,9 @@ Python
 
 
 ```python
-nom\_script = sys.argv[0]
-premier\_parametre = sys.argv[1]
-deuxieme\_parametre = sys.argv[2]
+nom_script = sys.argv[0]
+premier_parametre = sys.argv[1]
+deuxieme_parametre = sys.argv[2]
 ```
 
 
@@ -604,10 +604,10 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 
 |  | Python | JavaScript | PHP | C# |
 | --- | --- | --- | --- | --- |
-| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine\_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
+| Chaînes de caractères | nom = "Annie"  ou  nom = 'Annie'  Les deux sont équivalents mais les programmeurs préfèrent généralement les apostrophes.  Les triples apostrophes ou guillemets permettent de générer une chaîne incluant les sauts de ligne et tabulations. Très utile pour générer du HTML ou du JSON.  html = '''      <ul>      <li>Premier élément</li>      <li>Deuxième élément</li>      </ul>  '''  L'ajout d'un b devant une chaîne transformera cette chaîne en une chaîne d'octets, requis dans certains contextes précis.  chaine_octets = b"Bonjour"  L'ajout d'un f devant une chaîne permet de la formater.  nom = 'Annie'  salutation = f'Bonjour, {nom}!' | nom = "Annie";  ou  nom = 'Annie'; | $nom = "Annie";  ou  $nom = 'Annie';  La version avec guillemets permet d'interpréter des variables dans la chaîne.  $texte = "Bonjour $nom";  La version avec apostrophes est très légèrement plus rapide. | nom = "Annie"; |
 | Booléens | True  False    Sensible à la casse | true  false    Sensible à la casse | True ou true ou TRUE  False ou false ou FALSE    Insensible à la casse | true  false    Certaines fonctions C# retournent cependant True ou False...    bool valeur = true;  Console.WriteLine(valeur); // True |
 | Opérateurs booléens | and  or  not | &&  ||  ! | && ou and  || ou or  ! | &&  ||  ! |
-| Concaténation | nom\_complet = prenom + ' ' + nom\_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
+| Concaténation | nom_complet = prenom + ' ' + nom_famille | nomComplet = prenom + ' ' + nomFamille; | $nomComplet = $prenom . ' ' . $nomFamille; | nomComplet = prenom + '" " + nomFamille; |
 | Incrémentation | i += 1 | i += 1; ([affectation après addition](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Addition_assignment))  i++ ([opérateur d'incrémentation en suffixe](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Increment))  ++i (opérateur d'incrémentation en préfixe) | $i += 1;  $i++ ([post-incrémente](https://www.php.net/manual/fr/language.operators.increment.php))  ++$i (pré-incrémente) | i += 1;  i++  ++i |
 | Conversion de type | nombre= int(saisie) | nombre = parseInt(saisie); | $nombre = (int)$saisie;  ou  $nombre = intval($saisie); | nombre = Convert.ToInt32(saisie);  ou  Int32.TryParse(saisie, out nombre); |
 | Affichage à l'écran | print(nom)  ou, pour éviter les sauts de ligne :  print(nom, end='')    On peut interpréter des variables dans une chaîne : print(f"Votre score est {score}") | L'affichage se fait à l'aide de manipulations du DOM :  balise.innerHTML = nom;    Si on utilise jQuery :  $(balise).html(nom);    Pour afficher à la console :  console.log(nom);    Pour afficher dans une fenêtre popup :  window.alert(nom); | echo $nom; | Dans une page Web :  Response.Write(nom);    À la console :  Console.WriteLine(nom); |
@@ -619,11 +619,11 @@ Pour vous aider à vous acclimater à Python, voici quelques éléments de synta
 | Boucles while | while x < 10:      ... | while (x < 10) {      ...  } | while (x < 10) {      ...  } | while (x < 10) {      ...  } |
 | Boucles sur un nombre déterminé d'itérations | for i in range(10):      ...    La boucle pourrait commencer à une autre valeur que 0, il est possible de spécifier le départ, la fin (exclue de la boucle) et la valeur du saut :  for i in range(1, 10, 1)      ... | for (i = 0; i < 10; i++) {      ...  } | for ($i = 0; $i < 10; $i++) {      ...  } | for (i = 0; i < 10; i++)  {      ...  } |
 | Boucles sur les éléments d'un tableau | valeurs = ['a', 'b', 'c']  for valeur in valeurs:      ... | var valeurs = ['a', 'b', 'c'];    for (var valeur in valeurs) {      ...  } | $valeurs = ['a', 'b', 'c'];    foreach ($valeurs as $valeur) {      ...  } | string[] valeurs = {"a", "b", "c"};    foreach (int valeur in valeurs)  {      ...  } |
-| Opérateur ternaire (inline if) | valeur\_si\_vrai if condition else valeur\_si\_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
+| Opérateur ternaire (inline if) | valeur_si_vrai if condition else valeur_si_faux    Remarquez que l'ordre des opérandes est différent des autres langages.  Ex :  majeur = True if age >= 18 else False | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux | condition ? valeurSiVrai : valeurSiFaux |
 | Exceptions | try:      ...  except TypeException as e:      ... # traitement d'une exception précise  except Exception as e:      ... # traitement des autres exceptions  else:      ... # traitement si pas d'exception  finally:      ... # traitement si exception ou non | try {      ...  } catch (e) {      if (e instanceof TypeException) {          ... // traitement d'une exception précise      } else {          ... // traitement des autres exceptions      }  }  finally {      ... // traitement si exception ou non  } | try {      ...  } catch (TypeException $e) {      ... // traitement d'une exception précise  } catch (Throwable $e) {      ... // traitement des autres exceptions si PHP 7  } catch (Exception $e) {      ... // traitement des autres exceptions si PHP 5.X  } finally {      ... // traitement si exception ou non  } | try  {      ...  }  catch (TypeException)  {      ... // traitement d'une exception précise  }  catch (Exception e)  {      ... // traitement des autres exceptions  }  finally  {      ... // traitement si exception ou non  } |
 | Commentaires | # | //  /\* ... \*/ | #  //  /\* ... \*/ | //  /\* ... \*/ |
-| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma\_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
-| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP\_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
+| Commentaires de documentation | Cette documentation d'appelle [Docstring](https://www.python.org/dev/peps/pep-0257/).    def ma_fonction(parametre):      """Résumé de la fonction sous forme impérative.        Autres paragraphes pour documenter les paramètres et la valeur de retour.        """      ... | function maFonction(parametre)  {      /// <summary>Résumé de la fonction.</summary>      /// <param name="parametre" type="Number">Description du paramètre.</param>      /// <returns type="Number">Description de la valeur de retour.</returns>      ...  } | Cette documentation s'appelle [phpDocumentor](https://www.phpdoc.org/).    /\*\*   \* Résumé de la fonction.   \*   \* @param int $parametre Description du paramètre.   \*   \* @author Annie Gagnon <anniegagnon@gmail.com>   \* @return int Description de la valeur de retour.   \*   \*/  function maFonction(int $parametre) : int {      ...  } | /// <summary>  /// Résumé de la fonction.  /// </summary>  /// <param name="parametre">Description du paramètre.</param>  /// <returns>Description de la valeur de retour.</returns>  int MaFonction(int parametre)  {      ...  } |
+| Constante pour changement de ligne qui vaudra  '\n' (systèmes Unix comme Linux et Mac)  ou  '\r\n' (Windows) | [os.linesep](https://docs.python.org/fr/3/library/os.html?highlight=os%20linesep#os.linesep) |  | [PHP_EOL](http://php.net/manual/en/reserved.constants.php#constant.php-eol) | [Environment.NewLine](https://msdn.microsoft.com/fr-fr/library/system.environment.newline(v=vs.110).aspx) |
 | Valeur nulle | variable = None | let variable = null; | $variable = NULL; | string variable = null; |
 |  | Python | JavaScript | PHP | C# |
 
@@ -631,13 +631,13 @@ Pour compléter ce tableau, voici quelques normes de programmation généralemen
 
 |  | [Python](https://www.python.org/dev/peps/pep-0008/) | [JavaScript](https://google.github.io/styleguide/jsguide.html) | [PHP](http://www.php-fig.org/psr/psr-1/) | [C#](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions) |
 | --- | --- | --- | --- | --- |
-| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse\_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console\_sans\_bd et dans un autre projet graphique\_sans\_bd. |  |  |  |
+| Projets | Il n'y a pas de convention officielle pour le nom du projet.  Voici ce que je vous suggère :  touteenminuscules  ou  casse_serpent  Sous PyCharm, puisque l'environnement de développenent est copié pour chacun des projets, je vous suggère de regrouper dans un même projet tous vos exercices qui utilisent une même base de données.  Ceux qui n'utilisent aucune BD pourront être placés par exemple dans un projet console_sans_bd et dans un autre projet graphique_sans_bd. |  |  |  |
 | Espaces de noms | toutenminuscules |  |  |  |
-| Fichiers | toutenminuscules  ou  casse\_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
-| Noms de variables | casse\_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
+| Fichiers | toutenminuscules  ou  casse_serpent | toutenminuscules  ou  minuscules-avec-traits-d-union | Dépend du framework utilisé |  |
+| Noms de variables | casse_serpent | casseChameau | Le guide officiel précise qu'aucune recommandation n'est faite pour le nom des variables.  Cependant, la casseChameau est la plus utilisée.  Les variables débutent obligatoirement par un $. | casseChameau |
 | Noms de classes | CassePascal | CassePascal | CassePascal | CassePascal |
-| Noms de fonctions | casse\_serpent | casseChameau | casseChameau | CassePascal |
-| Noms de constantes | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | MAJUSCULES\_AVEC\_CASSE\_SERPENT | CassePascal |
+| Noms de fonctions | casse_serpent | casseChameau | casseChameau | CassePascal |
+| Noms de constantes | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | MAJUSCULES_AVEC_CASSE_SERPENT | CassePascal |
 |  | Python | JavaScript | PHP | C# |
 
 ## Pour plus d'information
@@ -843,7 +843,7 @@ Pour tuer un processus au terminal, vous pouvez utiliser la commande [pkill](ht
 Terminal du Raspberry Pi
 
 ```
-sudo pkill -f mon\_script.py
+sudo pkill -f mon_script.py
 ```
 
 
@@ -855,7 +855,7 @@ Terminal du Raspberry Pi
 
 
 ```
-ps -ef mon\_script.py
+ps -ef mon_script.py
 ```
 
 
@@ -865,7 +865,7 @@ Terminal du Raspberry Pi
 
 
 ```
-ps -ef | head -1;ps -ef mon\_script.py
+ps -ef | head -1;ps -ef mon_script.py
 ```
 
 
@@ -873,14 +873,14 @@ Résultat à l'écran
 
 
 ```
-monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon\_script.py
+monnom@MacBook-Pro-de-MonNom ~ %ps -ef | head -1;ps -ef mon_script.py
 UID PID PPID C TIME TTY TIME CMD
-501 84833 33164 0 8:49 ttys006 0:00.00 grep mon\_script.py
-501 84730 80397 0 8:49 ttys007 0:14.34 /.../Python mon\_script.py
+501 84833 33164 0 8:49 ttys006 0:00.00 grep mon_script.py
+501 84730 80397 0 8:49 ttys007 0:14.34 /.../Python mon_script.py
 ```
 
 
-Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon\_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.
+Peu importe si on a demandé l'affichage des en-têtes de colonnes ou non, la ligne de résultat dont la commande est grep mon_script.py correspond à la commande ps elle-même. On peut donc l'ignorer.
 
 La ou les autres lignes correspondent à des scripts en cours d'exécution. Le numéro de processus apparaît dans le seconde colonne.
 

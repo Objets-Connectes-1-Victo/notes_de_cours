@@ -20,7 +20,7 @@ Bien suivre ces étapes!
 
 ## [Configurer une tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile)
 
-Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « [le\_noeud\_n\_a\_pas\_encore\_de\_commande](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_noeud_n_a_pas_encore_de_commande) ».
+Vous aurez une petite correction à apporter au code de Jeedom. Voir la fiche « [le_noeud_n_a_pas_encore_de_commande](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-le_noeud_n_a_pas_encore_de_commande) ».
 
 Vous pouvez, pour chaque tuile, déterminer ce qui doit être affiché et comment l'information doit être affichée.
 
@@ -182,23 +182,23 @@ Pour régler ce problème :
 ```
   sudo nano /var/www/html/plugins/zwavejs/core/class/zwavejs.class.php
 ```
-* Rendez-vous à la ligne 1595 en appuyant sur les touches Ctrl + \_.
-* Modifiez la ligne log::add(\_\_CLASS\_\_, 'debug', '[' . \_\_FUNCTION\_\_ . ']' . \_("Création d'une commande info", \_\_FILE\_\_) . ' ' . $\_path); pour
+* Rendez-vous à la ligne 1595 en appuyant sur les touches Ctrl + _.
+* Modifiez la ligne log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . ']' . _("Création d'une commande info", __FILE__) . ' ' . $_path); pour
 
   Fichier zwavejs.class.php
 
 ```php
-  log::add(\_\_CLASS\_\_, 'debug', '[' . \_\_FUNCTION\_\_ . ']' . \_("Création d'une commande info") . ' ' . $\_path);
+  log::add(__CLASS__, 'debug', '[' . __FUNCTION__ . ']' . _("Création d'une commande info") . ' ' . $_path);
 ```
 * Appuyez sur Ctrl + W pour rechercher d'autres lignes avec log::add.
-* Si la même erreur est présente, enlevez le paramètre \_\_FILE\_\_ dans la fonction \_() (il ne doit y avoir qu'un \_ dans le nom de la fonction).
+* Si la même erreur est présente, enlevez le paramètre __FILE__ dans la fonction _() (il ne doit y avoir qu'un _ dans le nom de la fonction).
 * Pour enregistrer le fichier, appuyez sur Ctrl + X puis O (ou Y si votre OS est en anglais).
 
 ## Ajouter des commandes manuellement
 
 Il est possible d'ajouter des commandes manuellement afin d'obtenir les informations désirées sur un objet connecté. Les commandes peuvent aussi se traduire en boutons pour envoyer des ordres à l'objet connecté (ex : Allume-toi!).
 
-Suivez les étapes données sur la fiche « [configurer\_une\_tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile) ».
+Suivez les étapes données sur la fiche « [configurer_une_tuile](29_commencer_a_travailler_avec_jeedom_suite.md#fiche-configurer_une_tuile) ».
 
 ## 26.5 Configurer une tuile {#fiche-configurer_une_tuile}
 

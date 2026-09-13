@@ -36,7 +36,7 @@ Terminal
 
 
 ```
-php /var/www/html/install/reset\_password.php
+php /var/www/html/install/reset_password.php
 ```
 
 
@@ -48,7 +48,7 @@ Résultat à l'écran
 
 
 ```
-pi@raspberrypi:~ $ php /var/www/html/install/reset\_password.php
+pi@raspberrypi:~ $ php /var/www/html/install/reset_password.php
 Reset user password
 List of user :
 - admin
@@ -148,7 +148,7 @@ Assurez-vous d'utiliser des <a href="fiche-Gestion_des_mots_de_passe.md#Gestion_
 
 Plusieurs options s'offrent à vous pour configurer l'accès à distance :
 
-* À l'aide de l'application mobile officielle que vous pouvez acheter directement sur Jeedom Market au coût de 4 € (environ 6 $ CA). Les instructions sont données ici : « [application\_mobile\_officielle\_pour\_acceder\_a\_jeedom\_a\_distance](25_autres_aspects_interessants_avec_jeedom.md#fiche-application_mobile_officielle_pour_acceder_a_jeedom_a_distance) ».
+* À l'aide de l'application mobile officielle que vous pouvez acheter directement sur Jeedom Market au coût de 4 € (environ 6 $ CA). Les instructions sont données ici : « [application_mobile_officielle_pour_acceder_a_jeedom_a_distance](25_autres_aspects_interessants_avec_jeedom.md#fiche-application_mobile_officielle_pour_acceder_a_jeedom_a_distance) ».
 * En effectuant vous-même les configurations nécessaires et ce, tout à fait gratuitement (sauf si vous devez acheter un nom de domaine).
 
 Je vous explique ici comment effectuer les configurations afin que vous n'ayiez pas à débourser pour accéder à Jeedom à partir de n'importe où.
@@ -209,7 +209,7 @@ Pour y arriver :
 
 La procédure présentée pour les adresses IP dynamiques fonctionne aussi pour les adresses IP fixes. Cependant, une adresse IP fixe vous permet d'accéder à Jeedom à partir de votre propre nom de domaine.
 
-Si vous ne possédez pas de nom de domaine, vous devrez en réserver un et en assumer les frais. Les instructions sont données ici : « <a href="fiche-Choisir\_et\_reserver\_son\_nom\_de\_domaine.md#Choisir\_et\_reserver\_son\_nom\_de\_domaine">Choisir\_et\_reserver\_son\_nom\_de\_domaine</a> ».
+Si vous ne possédez pas de nom de domaine, vous devrez en réserver un et en assumer les frais. Les instructions sont données ici : « <a href="fiche-Choisir_et_reserver_son_nom_de_domaine.md#Choisir_et_reserver_son_nom_de_domaine">Choisir_et_reserver_son_nom_de_domaine</a> ».
 
 Notez que vous n'avez pas besoin d'hébergement Web, seul le nom de domaine est nécessaire ici.
 
@@ -373,7 +373,7 @@ Accédez au Raspberry Pi [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspb
 
 L'application mobile Jeedom vous permet d'accéder à votre boîte domotique à partir de n'importe quel endroit où un accès Internet est disponible.
 
-Vous devez savoir que cette application n'est pas gratuite. Si vous préférez ne rien débourser, je vous propose une autre technique sur cette fiche : « [acceder\_a\_jeedom\_a\_distance\_gratuitement](25_autres_aspects_interessants_avec_jeedom.md#fiche-acceder_a_jeedom_a_distance_gratuitement) ».
+Vous devez savoir que cette application n'est pas gratuite. Si vous préférez ne rien débourser, je vous propose une autre technique sur cette fiche : « [acceder_a_jeedom_a_distance_gratuitement](25_autres_aspects_interessants_avec_jeedom.md#fiche-acceder_a_jeedom_a_distance_gratuitement) ».
 
 Si vous souhaitez installer l'application Jeedom, dont la configuration est beaucoup plus simple, suivez ces étapes :
 
@@ -428,7 +428,7 @@ Cette technique fonctionne autant sur un système domotique qui tourne sur Raspb
   Résultat à l'écran
 
 ```
-  [ 6.031407] cdc\_acm 1-1.3.3:1.0: ttyACM0: USB ACM device
+  [ 6.031407] cdc_acm 1-1.3.3:1.0: ttyACM0: USB ACM device
 ```
 * Pour arrêter le clignotement, lancez cette commande en prenant le soin de changer ttyACM0 pour le port utilisé sur votre système.  
 
@@ -480,10 +480,10 @@ Accédez au Raspberry Pi [via SSH](05_raspberry_pi.md#fiche-se_brancher_au_raspb
   # /etc/apache2/sites-enabled/000-default.conf
   #Listen 80
   Listen 8088
-  <IfModule ssl\_module>
+  <IfModule ssl_module>
   Listen 443
   </IfModule>
-  <IfModule mod\_gnutls.c>
+  <IfModule mod_gnutls.c>
   Listen 443
   </IfModule>
   # vim: syntax=apache ts=4 sw=4 sts=4 sr noet

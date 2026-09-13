@@ -13,7 +13,7 @@ Fichier configuration.yaml
 
 ```
 notify:
-- name: courriel\_administrateur
+- name: courriel_administrateur
 platform: smtp
 sender: homeassistant@mondomaine.com
 server: mail.mondomaine.com
@@ -21,8 +21,8 @@ timeout: 15
 port: 587
 encryption: starttls
 username: homeassistant@mondomaine.com
-password: mot\_de\_passe\_en\_clair
-sender\_name: Home Assistant
+password: mot_de_passe_en_clair
+sender_name: Home Assistant
 recipient: destinataire@sondomaine.com
 ```
 
@@ -39,11 +39,11 @@ recipient:
 ```
 
 
-Attention : ne mettez pas de caractères accentués sur la ligne sender\_name.
+Attention : ne mettez pas de caractères accentués sur la ligne sender_name.
 
-J'ai fait des tests avec sender\_name: Home Assistant Cégep et j'obtenais ceci dans mon courriel comme nom de l'envoyeur :
+J'ai fait des tests avec sender_name: Home Assistant Cégep et j'obtenais ceci dans mon courriel comme nom de l'envoyeur :
 
-=?utf-8?q?Home\_Assistant\_C=C3=A9gep\_=3Chomeassistant...
+=?utf-8?q?Home_Assistant_C=C3=A9gep_=3Chomeassistant...
 
 Tout est entré dans l'ordre quand j'ai enlevé l'accent.
 
@@ -53,7 +53,7 @@ Il est cependant possible d'utiliser des accents dans le titre et dans le messag
 
 Pour vérifier si les configurations fonctionnent, rendez-vous dans le menu Outils de développement puis choisissez l'onglet Actions.
 
-Le nom de l'action doit être « notify. » suivi du nom que vous avez donné à votre configuration YAML (si la configuration commence par name: courriel\_administrateur, le nom du service est notify.courriel\_administrateur).
+Le nom de l'action doit être « notify. » suivi du nom que vous avez donné à votre configuration YAML (si la configuration commence par name: courriel_administrateur, le nom du service est notify.courriel_administrateur).
 
 ![Choix du service à tester](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChoixDuServiceATester.png)
 
@@ -102,13 +102,13 @@ alias: Porte ouverte envoie courriel
 description: ''
 trigger:
 - trigger: state
-entity\_id:
-- input\_boolean.porte\_virtuelle
+entity_id:
+- input_boolean.porte_virtuelle
 from: 'off'
 to: 'on'
 conditions: []
 actions:
-- action: notify.courriel\_administrateur
+- action: notify.courriel_administrateur
 data:
 message: La porte a été ouverte!
 title: Porte ouverte

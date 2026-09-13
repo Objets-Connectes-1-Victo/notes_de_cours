@@ -56,9 +56,9 @@ Résultat à l'écran
 
 
 ```
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;
+MariaDB [jeedom]> select \* from history where cmd_id = 49;
 +--------+---------------------+----------------+
-| cmd\_id | datetime | value |
+| cmd_id | datetime | value |
 +--------+---------------------+----------------+
 | 49 | 2021-09-23 16:15:00 | 1485.75 |
 | 49 | 2021-09-23 16:20:00 | 1445.5 |
@@ -128,8 +128,8 @@ Bloc de code du scénario (PHP)
 $sql = "SELECT ...";
 //$scenario->setLog("SQL = $sql"); // pour faciliter le débogage - on pourra tester cette requête directement dans MySQL
 try {
-$resultat = DB::Prepare($sql, NULL, DB::FETCH\_TYPE\_ALL);
-//$scenario->setLog(print\_r($resultat, true)); // pour voir les données brutes dans cette variable
+$resultat = DB::Prepare($sql, NULL, DB::FETCH_TYPE_ALL);
+//$scenario->setLog(print_r($resultat, true)); // pour voir les données brutes dans cette variable
 foreach ($resultat as $enreg) {
 $valeur = $enreg['...'];
 $scenario->setLog("Valeur : $valeur");
@@ -196,9 +196,9 @@ Résultat à l'écran
 
 
 ```
-MariaDB [jeedom]> select \* from history where cmd\_id = 49;
+MariaDB [jeedom]> select \* from history where cmd_id = 49;
 +--------+---------------------+----------------+
-| cmd\_id | datetime | value |
+| cmd_id | datetime | value |
 +--------+---------------------+----------------+
 | 49 | 2021-09-23 16:15:00 | 1485.75 |
 | 49 | 2021-09-23 16:20:00 | 1445.5 |

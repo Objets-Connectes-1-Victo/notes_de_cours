@@ -69,7 +69,7 @@ Syntaxe bloc de code dans scénario (PHP)
 
 
 ```php
-log::add('nom\_du\_fichier\_journal', 'niveau\_de\_log', 'message');
+log::add('nom_du_fichier_journal', 'niveau_de_log', 'message');
 ```
 
 
@@ -109,7 +109,7 @@ Voici un exemple de scénario qui illustre les différentes façons d'écrire da
 
 Il est possible d'enregistrer un message qui contient des valeurs retrouvées automatiquement par Jeedom.
 
-Pour en savoir plus : « [scenario\_qui\_inscrit\_dans\_un\_fichier\_journal\_une\_valeur\_retrouvee\_automa\_\_\_](42_aller_plus_loin_avec_les_scenarios.md#fiche-scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___) ».
+Pour en savoir plus : « [scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___](42_aller_plus_loin_avec_les_scenarios.md#fiche-scenario_qui_inscrit_dans_un_fichier_journal_une_valeur_retrouvee_automa___) ».
 
 ## 38.2 Retrouver manuellement la chaîne qui identifie une commande {#fiche-retrouver_la_chaine_qui_identifie_une_commande}
 

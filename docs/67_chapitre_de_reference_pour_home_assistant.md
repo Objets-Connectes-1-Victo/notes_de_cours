@@ -337,7 +337,7 @@ Résultat à l'écran
 ████████ ██▀ ▀██ / \ \_\_\_ \_\_\_(\_)\_\_\_| |\_ \_\_ \_ \_ \_\_ | |\_
 ███▀▀███ ██ ▄██ / \_ \ / \_\_/ \_\_| / \_\_| \_\_/ \_` | '\_ \| \_\_|
 ██ ██ ▀ ▄█████ / \_\_\_ \\\_\_ \\_\_ \ \\_\_ \ || (\_| | | | | |\_
-███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_\_/\\_\_\\_\_,\_|\_| |\_|\\_\_|
+███▄▄ ▀█ ▄███████ /\_/ \\_\\_\_\_/\_\_\_/\_|\_\_/\\_\_\\_,\_|\_| |\_|\\_\_|
 ▀█████▄ ███████▀
 Welcome on Home Assistant command line interface.
 Home Assistant Supervisor is running!
@@ -496,21 +496,21 @@ Voici donc comment accéder à un vrai terminal via SSH.
 
 ## Activation SSH
 
-Lors de l'installation de Home Assistant, vous avez peut-être déjà créé le fichier authorized\_keys installé sur une clé USB.
+Lors de l'installation de Home Assistant, vous avez peut-être déjà créé le fichier authorized_keys installé sur une clé USB.
 
-Si vous ne l'avez pas fait, effectuez la [procédure de création du fichier authorized\_keys sur la clé USB,ssh](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces), insérer la clé USB dans le Pi puis redémarrez Home Assistant.
+Si vous ne l'avez pas fait, effectuez la [procédure de création du fichier authorized_keys sur la clé USB,ssh](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-installation_de_home_assistant_et_premier_acces), insérer la clé USB dans le Pi puis redémarrez Home Assistant.
 
 Ceci aura pour effet de :
 
-* Copier le fichier authorized\_keys dans le dossier /root/.ssh.
-* Donner les droits de lecture et d'écriture à l'usager propriétaire de ce fichier (comme si vous aviez fait chmod 600 authorized\_keys).
+* Copier le fichier authorized_keys dans le dossier /root/.ssh.
+* Donner les droits de lecture et d'écriture à l'usager propriétaire de ce fichier (comme si vous aviez fait chmod 600 authorized_keys).
 * Activer le serveur SSH (comme si vous aviez fait systemctl start dropbear).
 
 Une fois le redémarrage complété, la clé USB peut être retirée et elle ne sera plus nécessaire.
 
 ## Pourquoi faut-il copier seulement la clé publique sur le Pi?
 
-Pour répondre à cette question, consultez cette fiche : « [comment\_fonctionne\_l\_authentification\_via\_ssh](05_raspberry_pi.md#fiche-comment_fonctionne_l_authentification_via_ssh) ».
+Pour répondre à cette question, consultez cette fiche : « [comment_fonctionne_l_authentification_via_ssh](05_raspberry_pi.md#fiche-comment_fonctionne_l_authentification_via_ssh) ».
 
 ## Connexion au Pi
 
@@ -552,22 +552,22 @@ Parfois, sous Windows, la copie de la clé SSH publique ne fonctionne pas correc
 Si vous n'y êtes pas arrivés, je vous propose une façon détournée pour copier cette clé publique. Vous aurez besoin de brancher un clavier et un écran au Raspberry Pi pour effectuer ces manipulations.
 
 * Sur Home Assistant, installez le [module complémentaire File Editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
-* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized\_keys. Il sera placé [dans le dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config), c'est-à-dire /mnt/data/supervisor/homeassistant.
+* À l'aide de ce module complémentaire, créez un nouveau fichier nommé authorized_keys. Il sera placé [dans le dossier config](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-dossier_config), c'est-à-dire /mnt/data/supervisor/homeassistant.
 * Sur votre système Windows, à l'aide d'une fenêtre PowerShell, affichez la valeur de votre clé publique SSH.
 
   PowerShell
 
   
 ```
-  cat C:\Users\MonNom\.ssh\id\_ed25519.pub
+  cat C:\Users\MonNom\.ssh\id_ed25519.pub
 ```
-* Dans File Editor, éditez votre nouveau fichier authorized\_keys et collez-y la valeur de la clé publique. Elle devrait commencer par ssh-ed25519 et se terminer par le courriel utilisé dans la commande ssh-keygen.
+* Dans File Editor, éditez votre nouveau fichier authorized_keys et collez-y la valeur de la clé publique. Elle devrait commencer par ssh-ed25519 et se terminer par le courriel utilisé dans la commande ssh-keygen.
 * Puisque File Editor n'a pas accès aux dossiers situés en dehors de la racine du site Web, vous devrez déplacer le fichier à l'aide du clavier branché au Raspberry Pi.
 
   Terminal HassOS
 
 ```
-  cp /mnt/data/supervisor/homeassistant/authorized\_keys /root/.ssh
+  cp /mnt/data/supervisor/homeassistant/authorized_keys /root/.ssh
 ```
 * Vous devriez maintenant avoir accès à votre Pi via SSH.
 
@@ -635,7 +635,7 @@ Pour connaître - et possiblement modifier - le fuseau horaire via l'interface g
 
 ### Date et l'heure {#dategraphique}
 
-La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une [configuration time\_date](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord).
+La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une [configuration time_date](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord).
 
 ![Capteur virtuel date and time](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-CapteurVirtuelDateAndTime.png)
 
@@ -645,7 +645,7 @@ Avec une installation sur un Raspberry Pi, c'est un système de synchronisation 
 
 Ceci est nécessaire puisque à la base, le Raspberry Pi ne contient pas d'horloge en temps réel (RTC ou, en anglais, Real Time Clock).
 
-Une horloge mal synchronisée peut poser toutes sortes de problèmes dans Home Assistant. Dans le pire des cas, c'est l'installation elle-même qui ne fonctionnera pas puisque le certificat SSL pour télécharger Home Assistant sera considéré invalide (erreur « Can't fetch Whoami data: Cannot connect to host whoami.home-assistant.io:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE\_VERIFY\_FAILED] certificate verify failed: certificate is not yet valid (\_ssl.c:1129)')] » dans le log lors de l'installation).
+Une horloge mal synchronisée peut poser toutes sortes de problèmes dans Home Assistant. Dans le pire des cas, c'est l'installation elle-même qui ne fonctionnera pas puisque le certificat SSL pour télécharger Home Assistant sera considéré invalide (erreur « Can't fetch Whoami data: Cannot connect to host whoami.home-assistant.io:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate is not yet valid (_ssl.c:1129)')] » dans le log lors de l'installation).
 
 Il faut donc faire le nécessaire pour synchroniser l'horloge correctement.
 
@@ -740,7 +740,7 @@ features:
 - network
 - hostname
 - timedate
-- os\_agent
+- os_agent
 - haos
 - resolved
 - journal
@@ -751,11 +751,11 @@ homeassistant: 2023.10.1
 hostname: homeassistant
 logging: info
 machine: raspberrypi4-64
-operating\_system: Home Assistant OS 16.2
+operating_system: Home Assistant OS 16.2
 state: running
 supervisor: 2025.10.0
 supported: true
-supported\_arch:
+supported_arch:
 - aarch64
 - armv7
 - armhf
@@ -870,7 +870,7 @@ address: 172.30.32.0/23
 dns: 172.30.32.3
 gateway: 172.30.32.1
 interface: hassio
-host\_internet: true
+host_internet: true
 interfaces:
 - connected: true
 enabled: true
@@ -1010,15 +1010,15 @@ locals:
 - dns://8.8.8.8
 mdns: true
 servers: []
-update\_available: false
+update_available: false
 version: 2025.08.0
-version\_latest: 2025.08.0
+version_latest: 2025.08.0
 ```
 
 
 ## Retrouver l'adresse IP par programmation
 
-Si vous ajoutez l'intégration [Adresse IP locale](https://www.home-assistant.io/integrations/local_ip) (local\_ip) à Home Assistant, vous pourrez retrouver l'adresse IP locale par programmation.
+Si vous ajoutez l'intégration [Adresse IP locale](https://www.home-assistant.io/integrations/local_ip) (local_ip) à Home Assistant, vous pourrez retrouver l'adresse IP locale par programmation.
 
 Une fois l'intégration installée, l'adresse IP de Home Assistant pourra être retrouvée à l'aide d'un [modèle](89_les_modeles_home_assistant.md#fiche-les_modeles_dans_home_assistant).
 
@@ -1028,7 +1028,7 @@ Modèle Home Assistant
 
 
 ```
-{{ states('sensor.local\_ip') }}
+{{ states('sensor.local_ip') }}
 ```
 
 
@@ -1048,10 +1048,10 @@ N'hésitez pas à la consulter au besoin afin de mieux vous y retrouver!
 | /etc/NetworkManager/system-connections | Contient les connexions réseau (les fichiers du dossier network de la clé USB y ont été copiés). |  |
 | /mnt/data/supervisor/homeassistant/home-assistant.log | Fichier journal principal de Home Assistant. |  |
 | /mnt/data/supervisor/backup | Contient les sauvegardes Home Assistant. Pour chaque sauvegarde, le nom du fichier est en fait un slug sous forme de nombre alphanumérique, par exemple 6a4451b2.tar. |  |
-| /root/.ssh/authorized\_keys | Contient les clés SSH publiques (notamment celle qui était dans le  fichier authorized\_keys de la clé USB). |  |
+| /root/.ssh/authorized_keys | Contient les clés SSH publiques (notamment celle qui était dans le  fichier authorized_keys de la clé USB). |  |
 | /mnt/data/supervisor/homeassistant/.storage | Contient les configurations faites par l'interface graphique. |  |
-| /mnt/data/supervisor/homeassistant/.storage/core.device\_registry | Contient les informations sur les appareils (les objets connectés) ajoutés à Home Assistant. |  |
-| /mnt/data/supervisor/homeassistant/.storage/core.entity\_registry | Contient les informations sur les entités créées dans Home Assistant. Les virtuels y figureront, qu'ils aient été créés à l'aide de l'interface graphique ou directement dans configuration.yaml. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.device_registry | Contient les informations sur les appareils (les objets connectés) ajoutés à Home Assistant. |  |
+| /mnt/data/supervisor/homeassistant/.storage/core.entity_registry | Contient les informations sur les entités créées dans Home Assistant. Les virtuels y figureront, qu'ils aient été créés à l'aide de l'interface graphique ou directement dans configuration.yaml. |  |
 | /mnt/data/supervisor/homeassistant/www | Les fichiers placés dans ce dossier sont accessibles sur le Web à partir d'une adresse du genre http://192.168.1.145:8123/local/monimage.png dans le navigateur ou /local/monimage.png dans les automatisations et dans le tableau de bord.  Notez que le dossier www n'est pas présent lors de l'installation initiale. Il faut le créer et redémarrer le système. |  |
 
 ## 59.9 Qu'est-ce qu'une entité? {#fiche-qu_est-ce_qu_une_entite}
@@ -1064,7 +1064,7 @@ Chaque entité peut apparaître dans le tableau de bord, être utilisée dans un
 
 Souvent, pour un seul objet connecté (on l'appelle appareil dans Home Assistant), il y aura plusieurs entités. Par exemple, un capteur 5-en-1 aura une entité pour chacun de ses capteurs et probablement d'autres entités, par exemple un détecteur du niveau de la pile ou même un détecteur pour la version du micrologiciel de l'objet connecté.
 
-Les informations sur les entités sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.device\_registry.
+Les informations sur les entités sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/core.device_registry.
 
 ## Identifiant d'entité {#identifiant}
 
@@ -1072,10 +1072,10 @@ Un peu partout dans Home Assistant, notamment dans les automatisation, vous trav
 
 Cet identifiant est composé de deux morceaux :
 
-* Le domaine : chaîne qui représente de quel type d'entité il s'agit, par exemple sensor, zone, sun, person, input\_number, device\_tracker
+* Le domaine : chaîne qui représente de quel type d'entité il s'agit, par exemple sensor, zone, sun, person, input_number, device_tracker
 * L'identifiant de l'objet : chaîne qui représente l'objet de façon unique pour un domaine donné
 
-L'identifiant de l'entité apparaît donc sous la forme domaine.identifiant\_objet.
+L'identifiant de l'entité apparaît donc sous la forme domaine.identifiant_objet.
 
 On peut voir l'identifiant à partir de l'onglet Aperçu, clic sur l'entité désirée / icône Paramètres (engrenage).
 
@@ -1113,7 +1113,7 @@ Console Home Assistant
 
 
 ```
-auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+auth reset --username nom_usager --password nouveau_mot_de_passe_en_clair
 ```
 
 
@@ -1123,7 +1123,7 @@ Terminal
 
 
 ```
-ha auth reset --username nom\_usager --password nouveau\_mot\_de\_passe\_en\_clair
+ha auth reset --username nom_usager --password nouveau_mot_de_passe_en_clair
 ```
 
 
@@ -1167,9 +1167,9 @@ Fichier person
 "items": [
 {
 "name": "Nom complet",
-"user\_id": "f2cd12cfc6424f518721196496cce50f",
-"device\_trackers": [],
-"id": "nom\_usager"
+"user_id": "f2cd12cfc6424f518721196496cce50f",
+"device_trackers": [],
+"id": "nom_usager"
 }
 ]
 }
@@ -1185,11 +1185,11 @@ Fichier auth
 "credentials": [
 {
 "id": "dbc82e9608534610afd72541f4c9f7a7",
-"user\_id": "f2cd12cfc6424f518721196496cce50f",
-"auth\_provider\_type": "homeassistant",
-"auth\_provider\_id": null,
+"user_id": "f2cd12cfc6424f518721196496cce50f",
+"auth_provider_type": "homeassistant",
+"auth_provider_id": null,
 "data": {
-"username": "nom\_usager"
+"username": "nom_usager"
 }
 }
 ],
@@ -1197,17 +1197,17 @@ Fichier auth
 ```
 
 
-Fichier auth\_provider.homeassistant
-
+```
+▄██▄ \_ \_
 
 ```
 {
 "version": 1,
-"key": "auth\_provider.homeassistant",
+"key": "auth_provider.homeassistant",
 "data": {
 "users": [
 {
-"username": "nom\_usager",
+"username": "nom_usager",
 "password": "JDJiJDEyJC9vSzlBamlOWE5wOTJheWdidHBJM3VKSTRONkdQbElBZnZUQmZzdWZxelBFbDkwRno1MWZh"
 }
 ]
@@ -1239,7 +1239,7 @@ Ceci détruira tous les usagers et vous ramènera à l'écran qui vous demande d
 Pour réinitialiser la phase de préparation, vous devez simplement supprimer ces fichiers :
 
 * /mnt/data/supervisor/homeassistant/.storage/auth
-* /mnt/data/supervisor/homeassistant/.storage/auth\_provider.homeassistant
+* /mnt/data/supervisor/homeassistant/.storage/auth_provider.homeassistant
 * /mnt/data/supervisor/homeassistant/.storage/onboarding
 * /mnt/data/supervisor/homeassistant/.storage/hassio
 * /mnt/data/supervisor/homeassistant/.storage/cloud
@@ -1355,9 +1355,9 @@ Résultat à l'écran
 ```
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
 PING 192.168.1.145 (192.168.1.145): 56 data bytes
-64 bytes from 192.168.1.145: icmp\_seq=0 ttl=64 time=56.139 ms
-64 bytes from 192.168.1.145: icmp\_seq=1 ttl=64 time=14.215 ms
-64 bytes from 192.168.1.145: icmp\_seq=2 ttl=64 time=13.288 ms
+64 bytes from 192.168.1.145: icmp_seq=0 ttl=64 time=56.139 ms
+64 bytes from 192.168.1.145: icmp_seq=1 ttl=64 time=14.215 ms
+64 bytes from 192.168.1.145: icmp_seq=2 ttl=64 time=13.288 ms
 ```
 
 
@@ -1369,9 +1369,9 @@ Résultat à l'écran
 ```
 MacBook-Pro-de-MonNom:~ monnom$ ping 192.168.1.145
 PING 192.168.1.145 (192.168.1.145): 56 data bytes
-Request timeout for icmp\_seq 0
-Request timeout for icmp\_seq 1
-Request timeout for icmp\_seq 2
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+Request timeout for icmp_seq 2
 ```
 
 
@@ -1459,8 +1459,8 @@ S'il y a plusieurs configurations, vérifiez ceci :
   + configurer l'accès au réseau pour qu'il laisse le serveur DHCP fournir l'adresse IP.
 
     Fichier my-network
-
-```
+    ```
+    ▄██████▄ | | | | \_\_\_ \_ \_\_ \_\_\_ \_\_\_
     ...
     [ipv4]
     method=auto
@@ -1484,7 +1484,7 @@ Si ce service ne réussit pas à faire son travail, ceci pourrait compromettre l
 
 Pour vérifier la date du système, [ouvrez le terminal HassOS,terminal](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) puis entrez la commande date. La date sera affichée au format UTC.
 
-La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une [configuration time\_date](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord).
+La date et l'heure peuvent également être affichés dans l'interface Web de Home Assistant à l'aide d'une [configuration time_date](93_automatisations_qui_tiennent_compte_de_lheure.md#fiche-afficher_la_date_et_l_heure_dans_le_tableau_de_bord).
 
 Si la date n'est pas correctement synchronisée, effectuez les vérifications suivantes :
 
@@ -1730,14 +1730,14 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
   monnom@MacBook-Pro-de-MonNom ~ %kasa
   No host name given, trying discovery..
   Discovering devices on 255.255.255.255 for 3 seconds
-  == TP-LINK\_Smart Plug\_1AF1 - KP400(US) ==
+  == TP-LINK_Smart Plug_1AF1 - KP400(US) ==
   Host: 192.168.0.1
   Device state: OFF
   == Plugs ==
-  \* Socket 'Kasa\_Smart Plug\_1AF1\_0' state: OFF on\_since: None
-  \* Socket 'Kasa\_Smart Plug\_1AF1\_1' state: OFF on\_since: None
+  \* Socket 'Kasa_Smart Plug_1AF1_0' state: OFF on_since: None
+  \* Socket 'Kasa_Smart Plug_1AF1_1' state: OFF on_since: None
   == Generic information ==
-  Time: 2000-01-01 16:01:23 (tz: {'index': 6, 'err\_code': 0}
+  Time: 2000-01-01 16:01:23 (tz: {'index': 6, 'err_code': 0}
   Hardware: 3.0
   Software: 1.0.2 Build 210105 Rel.165938
   MAC (rssi): 14:EB:C6:89:1B:F1 (-30)
@@ -1747,7 +1747,7 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
   Childs count: 2
   On since: None
   == Modules ==
-  + <Module Antitheft (anti\_theft) for 192.168.0.1>
+  + <Module Antitheft (anti_theft) for 192.168.0.1>
   + <Module Schedule (schedule) for 192.168.0.1>
   + <Module Usage (schedule) for 192.168.0.1>
   + <Module Time (time) for 192.168.0.1>
@@ -1769,8 +1769,8 @@ Pour intégrer cette prise à Home Assistant, plusieurs étapes sont nécessaire
   No --type defined, discovering..
   Scanning for wifi networks, wait a second..
   Found 2 wifi networks!
-  WifiNetwork(ssid='mon-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)
-  WifiNetwork(ssid='un-autre-reseau', key\_type=3, cipher\_type=None, bssid=None, channel=None, rssi=None)
+  WifiNetwork(ssid='mon-reseau', key_type=3, cipher_type=None, bssid=None, channel=None, rssi=None)
+  WifiNetwork(ssid='un-autre-reseau', key_type=3, cipher_type=None, bssid=None, channel=None, rssi=None)
 ```
 * Vous pouvez désormais brancher la prise au réseau désiré.
 

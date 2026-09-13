@@ -44,7 +44,7 @@ Dans sa forme la plus simple, le modèle pourra retrouver la valeur principale d
 
 Pour travailler avec les valeurs des capteurs, il faut utiliser les [objets de type state](https://www.home-assistant.io/docs/configuration/state_object/).
 
-Ici, on utilisera la fonction states() et on lui fournira en paramètre [l'identifiant de l'entité,identifiant](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite), le tout entre doubles accolades.
+Ici, on utilisera la fonction states() et on lui fournira en paramètre [l'identifiant de l'entité](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite), le tout entre doubles accolades.
 
 Modèle
 

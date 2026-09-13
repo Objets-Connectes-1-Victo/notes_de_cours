@@ -22,13 +22,13 @@ YAML
 ```
 payload: >-
 {
-"latitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude') }},
-"longitude": {{ state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude') }}
+"latitude": {{ state_attr('device_tracker.position_virtuelle_annie', 'latitude') }},
+"longitude": {{ state_attr('device_tracker.position_virtuelle_annie', 'longitude') }}
 }
 ```
 
 
-La syntaxe précédente fonctionne bien. Cependant, pour vous assurer que tout soit correctement encodé, il est préférable d'utiliser le filtre [to\_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
+La syntaxe précédente fonctionne bien. Cependant, pour vous assurer que tout soit correctement encodé, il est préférable d'utiliser le filtre [to_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
 
 YAML
 
@@ -37,11 +37,11 @@ YAML
 payload: |-
 {%
 set valeurs = {
-"latitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'latitude'),
-"longitude": state\_attr('device\_tracker.position\_virtuelle\_annie', 'longitude')
+"latitude": state_attr('device_tracker.position_virtuelle_annie', 'latitude'),
+"longitude": state_attr('device_tracker.position_virtuelle_annie', 'longitude')
 }
 %}
-{{ valeurs | to\_json }}
+{{ valeurs | to_json }}
 ```
 
 
@@ -67,7 +67,7 @@ Les objets qui fournissent une position GPS travailleront souvent avec cette str
 
 {"latitude": 46.06027408131711, "longitude": -71.9437545693869}
 
-Pour connaître la valeur d'une de ces informations,  il faudra d'abord désérialiser la chaîne JSON à l'aide du filtre [from\_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
+Pour connaître la valeur d'une de ces informations,  il faudra d'abord désérialiser la chaîne JSON à l'aide du filtre [from_json](https://www.home-assistant.io/docs/configuration/templating/#tofrom-json-examples).
 
 L'information sera ensuite disponible soit comme une propriété (avec un point), soit comme un élément de tableau (avec des crochets carrés).
 
@@ -77,7 +77,7 @@ Modèle Home Assistant
 
 
 ```
-{{ (states('domaine.identifiant\_objet') | from\_json).nom\_information }}
+{{ (states('domaine.identifiant_objet') | from_json).nom_information }}
 ```
 
 
@@ -87,7 +87,7 @@ Modèle Home Assistant
 
 
 ```
-{{ (states('domaine.identifiant\_objet') | from\_json)['nom\_information'] }}
+{{ (states('domaine.identifiant_objet') | from_json)['nom_information'] }}
 ```
 
 

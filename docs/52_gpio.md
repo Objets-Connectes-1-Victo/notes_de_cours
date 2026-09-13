@@ -55,7 +55,7 @@ Il y a un [chapitre de référence sur Python](07_python.md#fiche-Qu_est-ce_que_
 
 Le script doit être placé directement sur le Raspberry Pi pour être exécuté. Si vous l'avez écrit sur votre ordinateur, vous devrez le copier sur le Pi après l'avoir édité.
 
-Nom du fichier : entièrement en minuscules (ex : monscript.py) ou casse serpent (ex : mon\_script.py).
+Nom du fichier : entièrement en minuscules (ex : monscript.py) ou casse serpent (ex : mon_script.py).
 
 Petit script qui fait clignoter une DEL jusqu'à ce que quelqu'un appuie sur Ctrl+C.
 
@@ -141,13 +141,13 @@ Source de l'image : <https://www.raspberrypi.org/documentation/usage/gpio/>
 
 Les broches qui permettent de fournir une source électrique (power) à un composant travaillent avec une tension de 5V ou de 3.3V.
 
-Les autres broches travaillent avec une tension de 3.3V. Attention : si vous leur envoyez 5V, vous allez briser le GPIO et peut-être même le Pi au complet. Ouch $$\_\_$$
+Les autres broches travaillent avec une tension de 3.3V. Attention : si vous leur envoyez 5V, vous allez briser le GPIO et peut-être même le Pi au complet. Ouch $$__$$
 
 Lorsqu'une broche reçoit une tension suffisamment haute (ex : 3.3V), son état est à 1 (ON). Sinon, elle est à 0 (OFF).
 
 L'état d'une broche peut être contrôlé par programmation avec des langages comme le Python, le JavaScript et bien d'autres.
 
-Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « [brancher\_une\_del\_au\_raspberry\_pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi) ».
+Le branchement d'un composant électronique sur une planche de maquettage puis au GPIO est expliqué dans la fiche « [brancher_une_del_au_raspberry_pi](52_gpio.md#fiche-brancher_une_del_au_raspberry_pi) ».
 
 ## Source
 
@@ -235,7 +235,7 @@ Dans un petit circuit qui implique seulement une DEL et une résistance, la rés
 
 Circuits réalisés à l'aide du logiciel [Fritzing](https://fritzing.org/).
 
-Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « [les\_resistances](52_gpio.md#fiche-les_resistances) ».
+Notez que dans ce type de circuit, une résistance de 330 Ohms est une valeur sûre. Si vous désirez en savoir plus sur les résistances, consultez la fiche « [les_resistances](52_gpio.md#fiche-les_resistances) ».
 
 ## Broche 3.3V vs broche programmable
 
