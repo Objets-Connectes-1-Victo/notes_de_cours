@@ -97,6 +97,7 @@ nav:
       - "79. Les modèles Home Assistant": "89_les_modeles_home_assistant.md"
       - "80. Exercice 14": "90_exercice_14.md"
       - "81. Pour le prochain cours": "91_pour_le_prochain_cours.md"
+      - "Examen formatif : tableau de bord de Noël": "examen_formatif_noel.md"
     - "S04":
       - "S04": "45__semaine_4_.md"
       - "82. Déboguer Home Assistant": "92_deboguer_home_assistant.md"
