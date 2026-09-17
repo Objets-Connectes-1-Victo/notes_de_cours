@@ -2,74 +2,55 @@
 
 ## 84.1 Configurer Home Assistant pour l'envoi de courriel {#fiche-configurer_home_assistant_pour_l_envoi_de_courriel}
 
-Home Assistant est capable d'envoyer du courriel lorsqu'il est correctement configuré.
+Home Assistant est capable d'envoyer du courriel à l'aide de l'intégration *SMTP*.
 
-D'abord, [créez une adresse de courriel avec votre nom de domaine](36_lenvoi_de_courriel_dans_jeedom.md#fiche-creer_une_adresse_de_courriel_avec_votre_nom_de_domaine). Cette adresse pourra être utilisée pour envoyer des courriels par programmation si votre fournisseur de courriel habituel (ex : GMail) ne le permet pas. L'adresse pourrait être sous la forme homeassistant@mondomaine.com.
+Par exemple, vous pouvez être averti par courriel lorsqu'une porte est ouverte entre minuit et 6h00.
 
-Ajoutez maintenant ces configurations [dans le fichier configuration.yaml](77_le_fichier_configurationyaml.md#fiche-Editer_le_fichier_configuration_yaml).
+Par contre, plusieurs fournisseurs de courriel (ex : GMail, Hotmail) ne permettent plus l'envoi de courriel par programmation (SMTP). Des services comme MailJet ou SendGrid permettent l'envoi de courriel par programmation, mais si vous n'avez pas de contrôle sur le domaine de votre courriel, vos courriels risquent d'être considérés comme du pourriel par les fournisseurs de courriel des destinataires.
 
-Fichier configuration.yaml
+Donc, 2 options s'offrent à vous :
 
-
-```
-notify:
-- name: courriel_administrateur
-platform: smtp
-sender: homeassistant@mondomaine.com
-server: mail.mondomaine.com
-timeout: 15
-port: 587
-encryption: starttls
-username: homeassistant@mondomaine.com
-password: mot_de_passe_en_clair
-sender_name: Home Assistant
-recipient: destinataire@sondomaine.com
-```
+1. Utiliser un domaine de courriel que vous possédez et créer une adresse de courriel pour Home Assistant
+2. Utiliser un courriel d'un service de messagerie qui permet l'envoi de courriel par programmation
 
 
-Si le courriel doit être envoyé à plus d'un destinataire :
+### Zoho Mail
 
-Fichier configuration.yaml
+Service de messagerie gratuit qui permet l'envoi de courriel par programmation (SMTP). Voici comment créez un compte pour l'utiliser avec Home Assistant : 
+
+1. Allez sur le site de Zoho Mail : <https://www.zoho.com/mail/>
+1. Cliquez sur le bouton *Sign Up Now*.
+1. Choisissez l'option *Personal Email*.
+1. Remplissez le formulaire pour créer un compte gratuit.
+1. Utilisez votre vrai numéro de téléphone pour la vérification.
+1. Prenez bien note de votre mot de passe et de votre nom d'utilisateur (adresse de courriel).
+1. Les informations pour configurer la connexion SMTP sont affichées dans le menu *Comptes de courriel* / onglet *SMTP*
+
+Voici les informations pour la configuration SMTP de Zoho Mail (sept. 2026) :
+
+Serveur: smtp.zohocloud.ca
+Port: 465
+Protocole: SSL/TLS
+Nom d'utilisateur: votre adresse de courriel complète
+Mot de passe: le mot de passe que vous avez choisi pour votre compte Zoho Mail
 
 
-```
-recipient:
-- destinataire@sondomaine.com
-- autredestinataire@autredomaine.com
-```
+### Configuration de Home Assistant pour l'envoi de courriel
 
+1. Paramètres / Intégrations / Ajouter une intégration / SMTP
+1. Remplissez les informations demandées (voir ci-dessus pour Zoho Mail)
+1. Cliquez sur *Soumettre* pour terminer la configuration.
+1. *Ajouter un destinataire* pour ajouter l'adresse de courriel du destinataire.
+    1. Je vous conseille d'ajouter votre propre adresse de courriel (cegepvicto.ca) pour tester l'envoi de courriel.
+    1. Vous pouvez ajouter plusieurs destinataires si vous le souhaitez.
+1. Vous pouvez tester via Outils de développement / Actions / Choisir le service *Envoyer un message*
+1. Choisissez une cible (le destinataire que vous avez ajouté)
+1. Remplissez le titre et le message du courriel.
 
-Attention : ne mettez pas de caractères accentués sur la ligne sender_name.
+Vous pouvez ensuite utiliser l'action *Envoyer un message* dans vos automatisations pour envoyer un courriel à votre destinataire.
 
-J'ai fait des tests avec sender_name: Home Assistant Cégep et j'obtenais ceci dans mon courriel comme nom de l'envoyeur :
+>Attention : même avec Zoho Mail, vos courriels risquent d'être considérés comme du pourriel par les fournisseurs de courriel. Vérifiez votre dossier pourriel si vous ne les recevez pas dans votre boîte de réception et marquez-les comme *Non pourriel* pour que les prochains courriels soient reçus dans la boîte de réception.
 
-=?utf-8?q?Home_Assistant_C=C3=A9gep_=3Chomeassistant...
-
-Tout est entré dans l'ordre quand j'ai enlevé l'accent.
-
-Il est cependant possible d'utiliser des accents dans le titre et dans le message du courriel.
-
-## Tester le tout
-
-Pour vérifier si les configurations fonctionnent, rendez-vous dans le menu Outils de développement puis choisissez l'onglet Actions.
-
-Le nom de l'action doit être « notify. » suivi du nom que vous avez donné à votre configuration YAML (si la configuration commence par name: courriel_administrateur, le nom du service est notify.courriel_administrateur).
-
-![Choix du service à tester](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ChoixDuServiceATester.png)
-
-Dans les zones prévues à cet effet, donnez un titre et un message au courriel puis cliquez sur Exécuter l'action.
-
-![Tester le service](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TestServiceCourriel.png)
-
-Si vous préférez remplir les informations en mode YAML, vous obtiendrez ceci :
-
-![Mode YAML](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TesterServiceCourrielModeYaml.png)
-
-Vérifiez dans la ou les boîtes de courriel qui ont été configurées (recipient), le message devrait y avoir été envoyé.
-
-Attention : le message pourrait avoir été placé dans les pourriels. Si c'est le cas, vous devrez configurer votre outil de messgerie pour ajouter l'expéditeur aux expéditeurs approuvés afin que ça ne se reproduise plus.
-
-Une fois ces configurations en place, il sera possible [d'envoyer un courriel dans une automatisation](94_notification_par_courriel.md#fiche-automatisation_qui_envoie_un_courriel), par exemple lorsque le capteur d'ouverture de porte détecte que la porte a été ouverte entre minuit et 6h00.
 
 ## Pour plus d'information
 
