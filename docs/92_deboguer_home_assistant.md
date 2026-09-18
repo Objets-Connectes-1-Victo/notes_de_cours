@@ -1,5 +1,17 @@
 # 82. Déboguer Home Assistant {#chapitre-deboguer_home_assistant}
 
+## Journaux disponibles au niveau d'Home Assistant
+
+Il existe plusieurs types de journaux disponibles dans Home Assistant, chacun servant à un objectif spécifique :
+
+*   Le journal des activités (logbook.log) : contient les événements liés aux objets connectés.
+    * Peut être consulté via le menu *Activité* dans l'interface Web de Home Assistant.
+    * Action qui permet d'écrire dans ce journal : *Activité: Enregistrer une activité* (logbook.log)
+*   Le journal de Home Assistant (home-assistant.log) : enregistre les erreurs et avertissements du système.
+    * Peut être consulté via le menu *Paramètres / Système / Journaux* dans l'interface Web de Home Assistant.
+    * Action qui permet d'écrire dans ce journal : *System Log: Écrire dans le journal système*
+*   Le journal du supervisor (supervisor.log) : fournit des informations sur le fonctionnement du supervisor (composante de base qui lance les services de Home Assistant).
+
 ## 82.1 Les fichiers journaux de Home Assistant {#fiche-les_fichiers_journaux_de_home_assistant}
 
 À l'aide de l'intégration [System Log](https://www.home-assistant.io/integrations/system_log/), le supervisor de Home Assistant enregistre dans différents fichiers journaux (log files) de l'information sur ce qui se passe dans le système, principalement les erreurs et avertissements.
@@ -13,6 +25,7 @@ Les différents fichiers journaux sont disponibles à partir de ces options de m
 * Le menu Paramètres / Système / Journaux affiche le journal home-assistant.log sous forme brute ou condensées. Ces informations sont tirées du fichier /mnt/data/supervisor/homeassistant/home-assistant.log.
 
   ![Journal Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Journaux.png)
+
 * Dans l'option de menu Activité, disponible directement dans le menu de gauche, vous trouverez le journal des activités qui affiche des informations au sujet des objets connectés et autres événements détectés dans Home Assistant. Ces informations sont tirées de la base de données.
 
   ![Activité](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Activite.png)

@@ -29,7 +29,7 @@ display_options:
 ```
 
 
-Après un redémarrage de Home Asssistant, vous verrez dans l'onglet Aperçu une entité pour chaque option d'affichage configurée.
+Après un redémarrage de Home Assistant, vous verrez dans l'onglet Aperçu une entité pour chaque option d'affichage configurée.
 
 ![Date & time sensor](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Apercu-DateTimeSensor.png)
 
