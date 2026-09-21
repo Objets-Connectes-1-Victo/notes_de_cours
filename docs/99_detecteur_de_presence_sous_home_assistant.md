@@ -174,8 +174,8 @@ Ceci peut être réalisé à l'aide d'une automatisation qui utilise <a href="fi
 Pour créer une telle automatisation :
 
 * Paramètres / Automatisations et scènes / Créer une automatisation.
-* Le type de déclencheur sera Heure et lieu / Zone.
-* Dans la liste déroulante, choisissez la personne, le téléphone associé à la personne ou encore [le virtuel](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see) qui doit déclencher l'action.
+* Une personne ou un appareil est entré dans une zone / sortie d'une zone.
+* Comme cible, choisissez la personne, le téléphone associé à la personne ou encore [le virtuel](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see) qui doit déclencher l'action.
 
   ![Automation Zone](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationZone.png)
 * Choisissez la zone désirée puis précisez si le déclenchement doit avoir lieu quand la personne entre ou sort de la zone.
@@ -207,7 +207,7 @@ Voici donc comment créer un device_tracker :
 
 Entrez ceci dans Outils de développement /  Actions :
 
-* Action : Voir (device_tracker.see).
+* Action : Voir le tracker d'appareil(device_tracker.see).
 
   ![device_tracker.see](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-See.png)
 
