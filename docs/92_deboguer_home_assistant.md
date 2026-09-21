@@ -174,7 +174,7 @@ Il faut redémarrer Home Assistant pour que cette configuration soit prise en co
 
 ### Écriture {#ecriture}
 
-Si vous utilisez l'action Écrire, qui correspond à l'action system_log.write, vous écrirez un message dans le fichier journal de Home Assistant.
+Si vous utilisez l'action *System Log: Écrire dans le journal système*, qui correspond à l'action system_log.write, vous écrirez un message dans le fichier journal de Home Assistant.
 
 Faites attention de sélectionner un niveau de journalisation qui est correspond au niveau configuré plus haut.
 

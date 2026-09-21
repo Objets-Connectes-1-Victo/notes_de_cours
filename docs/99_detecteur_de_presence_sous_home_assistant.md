@@ -6,27 +6,26 @@ Par défaut, Home Assistant a créé une zone lors de sa configuration initiale.
 
 Pour tirer profit des fonctionnalités de localisation de Home Assistant, vous devez définir les autres zones d'importance pour votre système : École, Travail, Centre commercial, etc.
 
-Comme pour plusieurs configurations, les zones peuvent être définies à l'aide de l'interface graphique ou encore dans le fichier configuration.yaml.
+Comme pour plusieurs configurations, les zones peuvent être définies à l'aide de l'interface graphique ou encore dans le fichier `configuration.yaml`.
 
 ## Interface graphique {#graphique}
 
-Lorsque vous définissez des zones dans Home Assistant, elles sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/.storage/zone.
+Lorsque vous définissez des zones dans Home Assistant, elles sont enregistrées dans le fichier `/mnt/data/supervisor/homeassistant/.storage/zone`.
 
 Pour configurer l'emplacement de votre maison (l'endroit où se trouve Home Assistant) :
 
-* Rendez-vous dans le menu Paramètres / Pièces, étiquettes et Zones / Onglet Zones.
+* Rendez-vous dans le menu *Paramètres / Pièces, étiquettes* et *Zones* / onglet *Zones*.
 * L'icône de maison devrait apparaître dans votre zone initiale. Déplacez-la à l'endroit désiré.
 
 Pour ajouter d'autres emplacements :
 
-* Rendez-vous dans le menu Paramètres / Pièces, étiquettes et Zones / Onglet Zones.
-* Cliquez sur Ajouter une zone.
+* Rendez-vous dans le menu *Paramètres / Pièces, étiquettes et Zones* / Onglet *Zones*.
+* Cliquez sur *Ajouter une zone*.
 * Donnez un nom à l'emplacement.
 * Optionnel : choisissez une icône de [la bibliothèque Material Design](78_les_icones.md#fiche-icones_material_design_dans_home_assistant).
 * Sur la carte, placez le marqueur vis-à-vis l'emplacement souhaité.
 * Il est possible de définir un rayon pour les zones. Faites glisser le point blanc pour agrandir ou rapetisser la zone.
-* Cliquez sur Ajouter pour enregistrer vos modifications.
-
+* Cliquez sur *Ajouter* pour enregistrer vos modifications.
   ![Zone école](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ZoneEcole-SurOrdi.png)
 * Une fois les configurations terminées, vous devez redémarrer Home Assistant afin qu'elles soient prises en compte.
 
@@ -34,7 +33,7 @@ Pour ajouter d'autres emplacements :
 
 Il est également possible de définir les zones dans le fichier configuration.yaml.
 
-Fichier configuration.yaml
+Fichier `configuration.yaml`
 
 
 ```
@@ -50,15 +49,18 @@ longitude: -71.92660569775728
 ```
 
 
-##
 
-## 89.2 Travailler avec l'application Home Assistant {#fiche-travailler_avec_l_application_home_assistant}
+## 89.2 Travailler avec l'application mobile Home Assistant {#fiche-travailler_avec_l_application_home_assistant}
 
 L'application mobile Home Assistant, à installer sur le téléphone de chacune des personnes dont vous désirez connaître la position, permet de créer des automatisations qui tiennent compte de l'endroit où chaque personne se trouve.
 
-Elle ajoute un gros plus à votre système domotique mais le prix à payer est que les données de vos déplacements se retrouveront dans le nuage alors qu'un des avantages d'un système domotique DIY est justement que les données demeurent locales.
+Elle ajoute un gros plus à votre système domotique mais vous devez pouvoir rejoindre votre installation Home Assistant depuis l'extérieur de votre réseau local. Pour ce faire, vous devez configurer un accès à distance à votre Home Assistant. 
 
-Mais considérant que plusieurs applications nous suivent déjà sur nos téléphones, ça ne me pose pas problème.
+Le service Home Assistant Cloud est la solution la plus simple pour y arriver. Il est payant mais vous pouvez l'essayer gratuitement pendant 30 jours. Vous pouvez également configurer un accès à distance gratuit à l'aide de [DuckDNS](95_acces_a_distance_gratuit_avec_duckdns.md#fiche-acces_a_distance_gratuit_avec_duckdns).
+
+>Dans le cadre de notre cours, nous allons utiliser une connexion directe à votre Home Assistant via le réseau `Domotique-Pedago`. N'oubliez pas de passer à ce réseau lorsque vous désirez utiliser l'application mobile Home Assistant.
+
+## Installer l'application mobile
 
 En recherchant l'application dans l'App Store ou dans Google Play, si vous voyez plusieurs applications qui parlent de Home Assistant, choisissez celle qui utilise le logo de Home Assistant.
 
@@ -66,9 +68,7 @@ En recherchant l'application dans l'App Store ou dans Google Play, si vous voyez
 
 Grâce à l'application mobile Home Assistant, vos automatisations peuvent être plus éclatées qu'avec une simple <a href="fiche-detecter_la_presence_grace_au_wi-fi.md#detecter_la_presence_grace_au_wi-fi">détection de présence avec le Wi-Fi</a>.
 
-Vous pouvez, par exemple, démarrer le chauffage dès que vous quittez le bureau, recevoir une notification lorsqu'un de vos enfants arrive au centre commercial, allumer une lumière tamisée lorsque votre amoureux ou votre amoureuse atteint le coin de la rue pour rentrer à la maison.
-
-La seule limite est votre imagination!
+Vous pouvez, par exemple, démarrer le chauffage dès que vous quittez le bureau, recevoir une notification lorsqu'un de vos enfants arrive au centre commercial, allumer une lumière tamisée lorsque votre amoureux ou votre amoureuse atteint le coin de la rue pour rentrer à la maison. La seule limite est votre imagination!
 
 ## Autoriser l'utilisation des données de localisation {#autoriser}
 
@@ -112,11 +112,11 @@ Pour que l'application puisse indiquer à Home Assistant à quel endroit vous vo
 
 L'intégration [notify](https://www.home-assistant.io/integrations/notify/) permet d'envoyer une notification à l'application mobile associée à votre Home Assistant.
 
-Pour l'utiliser dans une automatisation ou dans les outils de développement, il faut exécuter l'action Notifications: Send a notification via mibile_app_... (notify.mobile_app_...), où les points de suspension sont remplacés par le nom du téléphone.
+Pour l'utiliser dans une automatisation ou dans les outils de développement, il faut exécuter l'action Notifications: Send a notification via mobile_app_... (notify.mobile_app_...), où les points de suspension sont remplacés par le nom du téléphone.
 
 ![Notification app mobile](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NotificationAppMobile.png)
 
-Si cette action n'apparaît pas, ouvrez l'application mobile puis rendez-vous dans le menu Paramètres / Application Companion / Notifications. Assurez-vous que la case Autorisation est à Activé.
+Si cette action n'apparaît pas, ouvrez l'application mobile puis rendez-vous dans le menu *Paramètres / Application Companion / Notifications*. Assurez-vous que la case Autorisation est à Activé.
 
 Vous devez ensuite renseigner le titre et le message.
 
@@ -130,9 +130,8 @@ Home Assistant vous permet de définir les personnes qui peuvent être « suivi
 
 Pour gérer les personnes :
 
-* Rendez-vous dans le menu Paramètres / Personnes.
-* Cliquez le nom de la personne à éditer ou sur Ajouter une personne pour ajouter une personne.
-
+* Rendez-vous dans le menu *Paramètres* / *Personnes*.
+* Cliquez le nom de la personne à éditer ou sur *Ajouter une personne*
   ![Ajouter une personne](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-NouvellePersonne.png)
 * Téléchargez une photo de la personne.
 * Remplissez les informations demandées.
