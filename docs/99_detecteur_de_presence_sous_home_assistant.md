@@ -228,7 +228,7 @@ Entrez ceci dans Outils de développement /  Actions :
   Par exemple, ceci ne fonctionnera pas : device_tracker.position_virtuelle_annie.
 
   il faut plutôt entrer position_virtuelle_annie.
-* Emplacement : si vous désirez travailler avec les zones, entrez le nom d'une zone définie dans votre système Home Assistant ou home pour simuler que la personne est à la maison.
+* Emplacement : si vous désirez travailler avec les zones, entrez le nom d'une zone définie dans votre système Home Assistant ou `home` pour simuler que la personne est à la maison.
 
   Notez que le travail avec des zones offre moins de possibilités que le travail avec une position GPS.
 
