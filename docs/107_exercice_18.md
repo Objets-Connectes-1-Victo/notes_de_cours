@@ -45,12 +45,9 @@ Vous utiliserez ici seulement des capteurs virtuels.
 * Entrez des valeurs plausibles dans les capteurs virtuels de réveil, départ, retour et coucher de même que pour la température normale de la maison.
 * Copiez le code YAML de ce tableau de bord dans un fichier texte.
 * Écrivez un modèle qui retourne true si vous êtes endormi selon les heures entrées dans vos capteurs virtuels.
-
-      Supposez que l'heure du coucher ne peut pas être après 23h59.
-
-      Optionnel : raffinez le modèle pour qu'il fonctionne même si l'heure du coucher est après 23h59.
-
-      Copiez le code du modèle dans le fichier texte. Vous ferez de même pour chacun des numéros suivants.
+* Supposez que l'heure du coucher ne peut pas être après 23h59.
+    * Optionnel : raffinez le modèle pour qu'il fonctionne même si l'heure du coucher est après 23h59.
+* Copiez le code du modèle dans le fichier texte. Vous ferez de même pour chacun des numéros suivants.
 * Écrivez un modèle qui retourne true si vous êtes absent selon les heures entrées dans vos capteurs virtuels. Vous ne devez pas travailler avec les zones ici, seulement avec les heures.
 * Écrivez un modèle qui retourne true si vous êtes à la maison et réveillé selon les heures entrées dans vos capteurs virtuels. Même chose ici : Vous ne devez pas travailler avec les zones, seulement avec les heures.
 * Écrivez un script nommé « Réveil » qui ajuste vos objets connectés virtuels :
@@ -69,7 +66,7 @@ Vous utiliserez ici seulement des capteurs virtuels.
       * à l'heure programmée de votre réveil, lance le script « réveil ».Copiez le code YAML de l'automatisation au bas de votre fichier texte.
 * Ajoutez dans le tableau de bord un bouton pour lancer cette automatisation afin faciliter vos tests. Vous ferez de même pour les autres automatisations. Faites une impression d'écran de l'écran d'édition du bouton. On doit bien voir tous les paramètres du bouton. Nommez le fichier au format NomPrenom-Bouton.png.
 * Écrivez l'automatisation qui réagira lorsque vous quittez la maison (selon l'heure programmée).
-* Écrivez l'automatisation qui réagira lorsque vous revenez à la maison(selon l'heure programmée).
+*  Écrivez l'automatisation qui réagira lorsque vous revenez à la maison(selon l'heure programmée).
 * Écrivez l'automatisaiton qui réagira lorsque vous vous couchez (selon l'heure programmée).
 * OPTIONNEL : écrivez une automatisation qui réagit quand la porte d'entrée s'ouvre. Si vous êtes absent, elle vous envoie un courriel pour vous informer de la situation. Si vous êtes endormi, elle active une sonnette pour vous réveiller (vous pouvez simuler la sonnette à l'aide d'un interrupteur virtuel qui s'activera pendant 3 secondes puis se désactivera).
 * OPTIONNEL : l'automatisation qui réagit à l'heure de votre retour à la maison doit se déclencher également lorsque vous êtes dans la zone maison et que la porte d'entrée s'ouvre.
