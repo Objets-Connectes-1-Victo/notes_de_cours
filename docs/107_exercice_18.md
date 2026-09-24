@@ -45,26 +45,26 @@ Vous devez créer les capteurs virtuels requis et les exploiter dans des cartes 
 * Entrez des valeurs plausibles dans les capteurs virtuels de réveil, départ, retour et coucher de même que pour la température normale de la maison.
 * Copiez le code YAML de ce tableau de bord dans un fichier texte.
 * Écrivez un modèle qui retourne true si vous êtes endormi selon les heures entrées dans vos capteurs virtuels.
-   * Supposez que l'heure du coucher ne peut pas être après 23h59.
-   * Optionnel : raffinez le modèle pour qu'il fonctionne même si l'heure du coucher est après 23h59.
+    * Supposez que l'heure du coucher ne peut pas être après 23h59.
+    * Optionnel : raffinez le modèle pour qu'il fonctionne même si l'heure du coucher est après 23h59.
 * Copiez le code du modèle dans le fichier texte. Vous ferez de même pour chacun des numéros suivants.
 * Écrivez un modèle qui retourne true si vous êtes absent selon les heures entrées dans vos capteurs virtuels. Vous ne devez pas travailler avec les zones ici, seulement avec les heures.
 * Écrivez un modèle qui retourne true si vous êtes à la maison et réveillé selon les heures entrées dans vos capteurs virtuels. Même chose ici : Vous ne devez pas travailler avec les zones, seulement avec les heures.
 * Écrivez un script nommé « Réveil » qui ajuste vos objets connectés virtuels :
-   * monte le chauffage de 3 degrés
-   * monte les stores
-   * allume la lumière de la chambre
-   * attend que le détecteur de mouvements de la cuisine détecte votre présence
-   * allume la lumière de la cuisine
-   * si désiré, effectue d'autres actions à votre choix
-   * Copiez le code YAML du script au bas de votre fichier texte.
+    * monte le chauffage de 3 degrés
+    * monte les stores
+    * allume la lumière de la chambre
+    * attend que le détecteur de mouvements de la cuisine détecte votre présence
+    * allume la lumière de la cuisine
+    * si désiré, effectue d'autres actions à votre choix
+    * Copiez le code YAML du script au bas de votre fichier texte.
 * Écrivez un script nommé « Départ » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
 * Écrivez un script nommé « Retour » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
 * Écrivez un script nommé « Coucher » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
 * Faites rouler vos scripts l'un à la suite de l'autre à l'aide du bouton que vous aurez créé pour chacun sur le tableau de bord et assurez-vous que tout soit cohérent (ex  : la température revient à sa valeur originale après un cycle complet). Notez que vous n'avez rien à inscrire dans le fichier texte pour ce numéro.
 * Écrivez une automatisation qui :
-   * 5 minutes avant l'heure programmée de votre réveil, démarre la cafetière (déclencheur de type template, vous devrez utiliser l'attribut timestamp du capteur virtuel de l'heure de réveil)
-   * à l'heure programmée de votre réveil, lance le script « réveil ».Copiez le code YAML de l'automatisation au bas de votre fichier texte.
+    * 5 minutes avant l'heure programmée de votre réveil, démarre la cafetière (déclencheur de type template, vous devrez utiliser l'attribut timestamp du capteur virtuel de l'heure de réveil)
+    * à l'heure programmée de votre réveil, lance le script « réveil ».Copiez le code YAML de l'automatisation au bas de votre fichier texte.
 * Ajoutez dans le tableau de bord un bouton pour lancer cette automatisation afin faciliter vos tests. Vous ferez de même pour les autres automatisations. Faites une impression d'écran de l'écran d'édition du bouton. On doit bien voir tous les paramètres du bouton. Nommez le fichier au format NomPrenom-Bouton.png.
 * Écrivez l'automatisation qui réagira lorsque vous quittez la maison (selon l'heure programmée).
 *  Écrivez l'automatisation qui réagira lorsque vous revenez à la maison(selon l'heure programmée).
