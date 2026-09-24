@@ -27,6 +27,7 @@ Pour chaque réponse, on doit voir clairement le numéro de la question.
    Pour connaître cet identifiant, rendez-vous dans l'onglet Aperçu, cliquez sur l'entité désirée puis sur l'onglet Paramètres. L'identifiant est affiché dans la case ID d'entité.
 
    Dans quel(s) champ(s) de quelle(s) table(s) retrouve-t-on cet identifiant?
+
 5. Effectuez une requête SQL pour lister seulement les identifiants d'entités. Chaque identifiant ne doit apparaître qu'une seule fois.
 6. Effectuez une requête SQL pour sortir toutes les valeurs enregistrées pour une entité de votre choix (par exemple, l'ouverture et la fermeture d'une porte ou la luminosité saisie par un capteur). Ne faites afficher que les champs intéressants afin que le résultat ne prenne pas trop de place en largeur à l'écran.
 7. Si vous regardez le contenu de la table statistics, vous ne voyez pas l'identifiant en format texte de l'entité à laquelle chaque statistique appartient. Effectuez une requête SQL pour voir cet identifiant avec chacune des statistiques.
