@@ -56,7 +56,8 @@ Vous devez créer les capteurs virtuels requis et les exploiter dans des cartes 
    * allume la lumière de la chambre
    * attend que le détecteur de mouvements de la cuisine détecte votre présence
    * allume la lumière de la cuisine
-   * si désiré, effectue d'autres actions à votre choixCopiez le code YAML du script au bas de votre fichier texte.
+   * si désiré, effectue d'autres actions à votre choix
+   * Copiez le code YAML du script au bas de votre fichier texte.
 * Écrivez un script nommé « Départ » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
 * Écrivez un script nommé « Retour » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
 * Écrivez un script nommé « Coucher » qui ajuste vos objets connectés virtuels selon ce qui vous semble intéressant.
