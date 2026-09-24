@@ -40,6 +40,7 @@ Vous utiliserez ici seulement des capteurs virtuels.
    * autres objets virtuels selon vos besoins
 
    Vous devez créer les capteurs virtuels requis et les exploiter dans des cartes du tableau de bord. Choisissez une icône appropriée pour chacun.
+
 2. Raffinez la carte qui affiche l'état des stores. Plutôt que d'afficher un mot pour indiquer leur état, elle doit afficher une image de stores ouverts ou fermés selon l'état du capteur virtuel. À vous de trouver les images sur le Web.
 3. Entrez des valeurs plausibles dans les capteurs virtuels de réveil, départ, retour et coucher de même que pour la température normale de la maison.
 4. Copiez le code YAML de ce tableau de bord dans un fichier texte.
