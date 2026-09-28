@@ -219,7 +219,11 @@ Vous pouvez aussi créer cette aide dans *Paramètres / Appareils et services / 
 
 ### Créer le suivi de personne
 
-Ajoutez ce modèle au fichier `configuration.yaml`. Il met à jour la zone et les coordonnées GPS chaque fois que la liste déroulante change.
+Paramètres / Appareils et services / Entrées
+
+Choisissez *Ajouter une entrée* / *Suivi de personne défini par un modèle*. (cherchez pour `Template`)
+
+Entrer le modèle suivant. Il met à jour la zone et les coordonnées GPS chaque fois que la liste déroulante change.
 
 ```yaml
 template:
