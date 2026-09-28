@@ -3,7 +3,7 @@
 ## 90.1 Présence {#fiche-presence}
 
 1. [Installez l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) sur votre téléphone.
-2. <a href="fiche-gerer_les_personnes.md#gerer_les_personnes">Gérez les informations associées à votre personne</a> afin d'y ajouter une photo de vous et d'y associer votre téléphone.
+2. Gérez les informations associées à votre personne (Paramètres - Personnes) afin d'y ajouter une photo de vous et d'y associer votre téléphone.
 3. [Définissez deux zones de votre choix](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant), par exemple École et Travail.
 4. Créez un [suivi virtuel défini par un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele) pour votre personne. Déplacez-vous virtuellement dans chacune des zones configurées à l'aide de la liste déroulante.
 5. Ajoutez au moins une autre personne. Il peut s'agir d'une personne qui vit sous votre toit ou non. Associez cette personne à un téléphone ou à un device_tracker.

@@ -20,7 +20,7 @@ Votre nom doit apparaître dans le haut du fichier.
 Pour chaque réponse, on doit voir clairement le numéro de la question.
 
 1. À la ligne de commande, faites afficher la date et l'heure actuelle du système à l'aide d'une requête SQLite (à vous de trouver comment!) puis vérifiez si cette heure correspond à l'heure UTC ou à l'heure réelle en comparant avec l'heure de votre poste de travail. Comme réponse, inscrivez la requête ainsi que « heure UTC » ou « heure locale ».
-2. Entrez les commandes SQLite pour assurer que les données des requêtes SQL apparaîssent en colonnes et que le nom de chaque champ soit affiché.
+2. Entrez les commandes SQLite pour assurer que les données des requêtes SQL apparaissent en colonnes et que le nom de chaque champ soit affiché.
 3. Pour chacune des tables de la base de données, faites afficher les 10 derniers enregistrements ajoutés (l'identifiant fera foi de l'ordre d'enregistrement).
 4. Pour chaque entité du système, on retrouve [un identifiant,identifiant](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite) en toutes lettres, par exemple sensor.neo_capteur_5_en_1_illuminance.
 
