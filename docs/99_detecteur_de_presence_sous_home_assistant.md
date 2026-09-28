@@ -66,7 +66,7 @@ En recherchant l'application dans l'App Store ou dans Google Play, si vous voyez
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AppStore.png)
 
-Grâce à l'application mobile Home Assistant, vos automatisations peuvent être plus éclatées qu'avec une simple <a href="fiche-detecter_la_presence_grace_au_wi-fi.md#detecter_la_presence_grace_au_wi-fi">détection de présence avec le Wi-Fi</a>.
+Grâce à l'application mobile Home Assistant (*Companion App*), vos automatisations peuvent être plus éclatées qu'avec une simple <a href="fiche-detecter_la_presence_grace_au_wi-fi.md#detecter_la_presence_grace_au_wi-fi">détection de présence avec le Wi-Fi</a>.
 
 Vous pouvez, par exemple, démarrer le chauffage dès que vous quittez le bureau, recevoir une notification lorsqu'un de vos enfants arrive au centre commercial, allumer une lumière tamisée lorsque votre amoureux ou votre amoureuse atteint le coin de la rue pour rentrer à la maison. La seule limite est votre imagination!
 
@@ -99,6 +99,12 @@ Sinon, cliquez sur Enter address manually puis entrez l'adresse IP de votre serv
 La personne en possession de ce téléphone a désormais la possibilité de contrôler votre Home Assistant à partir de celui-ci, <a href="fiche-gerer_les_personnes.md#gerer_les_personnes">dans les limites des privilèges que vous aurez accordé à l'utilisateur correspondant</a>.
 
 ![Application Home Assistant](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-ApplicationMobile-5.png)
+
+## Validation de la transmission de la position
+
+Pour valider que la position est correctement transmise, vous pouvez utiliser l'interface de développement de Home Assistant pour vérifier les états des entités liées à la localisation.
+
+Paramètres / Outils de développement / État. Vous devriez voir une entité de type `device_tracker` qui correspond à votre téléphone.
 
 ## Définir les zones {#zones}
 
@@ -137,6 +143,8 @@ Pour gérer les personnes :
 * Remplissez les informations demandées.
 * Si la personne a déjà installé [l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) sur son téléphone, choisissez le téléphone qui lui correspond dans la liste déroulante.
 * Vous pouvez également lui assigner un [suivi virtuel défini par un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele) afin de faciliter les tests de vos automatisations.
+
+>Si plusieurs appareils de suivi sont associés à une même personne, Home Assistant considère les coordonnées de l'appareil le plus récemment mis à jour.
 
 Si [l'emplacement de la maison](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant) a été correctement configuré et que les personnes sont correctement associées à leur application mobile sur leur téléphone, la tuile *Entité Image* pour le type Personne affichera le statut (*Maison* , *Absent* ou zone spécifique) de la personne en plus de son image.
 
@@ -191,20 +199,7 @@ Pour créer une telle automatisation :
 
 Lorsque vous désirez que Home Assistant puisse [réagir selon la position d'une personne](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence) en utilisant [l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant), il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 
-Pour tester les automatisations sans vous déplacer, créez un suivi de position à partir d'un modèle. Une liste déroulante permet de choisir la zone où se trouve le suivi virtuel.
-
-
-
-
-
-
-
-
-
-
-
-
-  
+Pour tester les automatisations sans vous déplacer, créez un suivi de position à partir d'un modèle. Une liste déroulante permet de choisir la zone où se trouve le suivi virtuel.  
 
 ### Définir la liste déroulante
 
@@ -212,7 +207,7 @@ Ajoutez une entrée `input_select` au fichier `configuration.yaml`. Les options 
 
 ```yaml
 input_select:
-  exercice16_selecteur_zone_personne1:
+  selecteur_zone_personne1:
     name: Zone simulée de la personne 1
     options:
       - home
@@ -220,7 +215,7 @@ input_select:
       - travail
 ```
 
-Vous pouvez aussi créer cette aide dans *Paramètres / Appareils et services / Assistants / Créer un assistant / Liste déroulante*. Dans ce cas, nommez son identifiant `input_select.exercice16_selecteur_zone_personne1`.
+Vous pouvez aussi créer cette aide dans *Paramètres / Appareils et services / Assistants / Créer un assistant / Liste déroulante*. Dans ce cas, nommez son identifiant `input_select.selecteur_zone_personne1`.
 
 ### Créer le suivi de personne
 
@@ -232,11 +227,11 @@ template:
       - name: Suivi virtuel personne 1
         unique_id: suivi_virtuel_personne_1
         in_zones: >-
-          {{ ['zone.' ~ states('input_select.exercice16_selecteur_zone_personne1')] }}
+          {{ ['zone.' ~ states('input_select.selecteur_zone_personne1')] }}
         latitude: >-
-          {{ state_attr('zone.' ~ states('input_select.exercice16_selecteur_zone_personne1'), 'latitude') }}
+          {{ state_attr('zone.' ~ states('input_select.selecteur_zone_personne1'), 'latitude') }}
         longitude: >-
-          {{ state_attr('zone.' ~ states('input_select.exercice16_selecteur_zone_personne1'), 'longitude') }}
+          {{ state_attr('zone.' ~ states('input_select.selecteur_zone_personne1'), 'longitude') }}
 ```
 
 Vérifiez la configuration puis redémarrez Home Assistant. L'entité créée sera `device_tracker.suivi_virtuel_personne_1`.
@@ -246,9 +241,6 @@ Vérifiez la configuration puis redémarrez Home Assistant. L'entité créée se
 Dans *Paramètres / Personnes*, ouvrez la personne concernée et ajoutez `device_tracker.suivi_virtuel_personne_1` parmi ses entités de suivi. Vous pourrez ensuite cibler la personne ou directement le suivi virtuel dans une automatisation de zone.
 
 Si plusieurs trackers sont associés, Home Assistant sélectionne une source pour déterminer la position et les attributs de la personne. Un tracker de connexion encore connecté peut être prioritaire. Parmi les trackers de position, les coordonnées du tracker mis à jour le plus récemment font foi. Le suivi modèle est donc sélectionné selon ces règles; il ne remplace pas automatiquement les autres trackers associés.
-
-
-
 
 
 
