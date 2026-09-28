@@ -2,7 +2,7 @@
 
 ## 89.1 Les zones dans Home Assistant {#fiche-les_zones_dans_home_assistant}
 
-Par défaut, Home Assistant a créé une zone lors de sa configuration initiale. Elle porte le nom que vous avez donné à votre boîte (ex : Maison).
+Par défaut, Home Assistant a créé une zone lors de sa configuration initiale. Elle porte le nom de `home` et s'affiche selon le nom que vous avez donné à votre boîte (ex : Maison).
 
 Pour tirer profit des fonctionnalités de localisation de Home Assistant, vous devez définir les autres zones d'importance pour votre système : École, Travail, Centre commercial, etc.
 
@@ -136,9 +136,9 @@ Pour gérer les personnes :
 * Téléchargez une photo de la personne.
 * Remplissez les informations demandées.
 * Si la personne a déjà installé [l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) sur son téléphone, choisissez le téléphone qui lui correspond dans la liste déroulante.
-* Vous pouvez également lui assigner une [position virtuelle](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see) afin de faciliter les tests de vos automatisations.
+* Vous pouvez également lui assigner un [suivi virtuel défini par un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele) afin de faciliter les tests de vos automatisations.
 
-Si [l'emplacement de la maison](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant) a été correctement configuré et que les personnes sont correctement associées à leur application mobile sur leur téléphone, l'écran Aperçu indiquera clairement qui est à la maison (on verra le nom de votre boîte Home Assistant) et qui est absent.
+Si [l'emplacement de la maison](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant) a été correctement configuré et que les personnes sont correctement associées à leur application mobile sur leur téléphone, la tuile *Entité Image* pour le type Personne affichera le statut (*Maison* , *Absent* ou zone spécifique) de la personne en plus de son image.
 
 ![Présent](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personne-Present.png) ![Absent](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-Personne-Absent.png)
 
@@ -167,7 +167,7 @@ Pour régler ce problème :
 
 ## 89.5 Automatisation qui tient compte de la présence {#fiche-automatisation_qui_tient_compte_de_la_presence}
 
-J'aime configurer Home Assistant pour que les lumières s'allument automatiquement quand une personne arrive à la maison après une heure donnée.
+Nous pouvons configurer Home Assistant pour que les lumières s'allument automatiquement quand une personne arrive à la maison après une heure donnée.
 
 Ceci peut être réalisé à l'aide d'une automatisation qui utilise <a href="fiche-gerer_les_personnes.md#gerer_les_personnes">le détecteur de présence</a>.
 
@@ -175,7 +175,7 @@ Pour créer une telle automatisation :
 
 * Paramètres / Automatisations et scènes / Créer une automatisation.
 * Une personne ou un appareil est entré dans une zone / sortie d'une zone.
-* Comme cible, choisissez la personne, le téléphone associé à la personne ou encore [le virtuel](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see) qui doit déclencher l'action.
+* Comme cible, choisissez la personne, le téléphone associé à la personne ou encore [le suivi virtuel](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele) qui doit déclencher l'action.
 
   ![Automation Zone](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationZone.png)
 * Choisissez la zone désirée puis précisez si le déclenchement doit avoir lieu quand la personne entre ou sort de la zone.
@@ -187,152 +187,71 @@ Pour créer une telle automatisation :
 
 « Making Home Assistant’s Presence Detection not so Binary ». Phil Hawthorne. <https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/>
 
-## 89.6 Simuler la position GPS d'une personne avec device_tracker.see {#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see}
+## 89.6 Créer un suivi virtuel de personne avec un modèle {#fiche-suivi_virtuel_d_une_personne_avec_un_modele}
 
 Lorsque vous désirez que Home Assistant puisse [réagir selon la position d'une personne](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence) en utilisant [l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant), il devient difficile de tester les automatisations sans devoir vous déplacer physiquement dans la ville.
 
-Par chance, la position géographique d'une personne peut être simulée grâce au service [device_tracker.see](https://www.home-assistant.io/integrations/device_tracker/#device_trackersee-service).
+Pour tester les automatisations sans vous déplacer, créez un suivi de position à partir d'un modèle. Une liste déroulante permet de choisir la zone où se trouve le suivi virtuel.
 
-Ce service peut modifier la position d'un système de suivi GPS réel ou virtuel.
 
-## Créer un device_tracker
 
-Le fonctionnement d'une entité de type device_tracker est passablement différent de celui des autres types de [virtuels](79_les_capteurs_virtuels.md#fiche-configurer_un_capteur_virtuel), par exemple input_boolean ou encore input_text.
 
-D'abord, pour créer une entité de type device_tracker, il suffit d'appeler le service (exécuter l'action) device_tracker.see.
 
-Ensuite, la valeur de l'entité ainsi créée sera perdue au redémarrage de Home Assistant.
 
-Voici donc comment créer un device_tracker :
 
-Entrez ceci dans Outils de développement /  Actions :
 
-* Action : Voir le tracker d'appareil(device_tracker.see).
 
-  ![device_tracker.see](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-See.png)
 
-  Notez que selon les configurations de votre système, il pourrait arriver que le service ne soit pas reconnu. Si c'est votre cas, ajoutez cette ligne dans le fichier configuration.yaml :
 
-  Fichier configuration.yaml
 
   
-```
-  device_tracker:
-```
 
-  Vous devrez ensuite redémarrer Home Assistant (un rechargement des configurations n'est pas suffisant).
-* ID de l'appareil : entrez l'identifiant de l'objet à modifier. Si aucune entité ne correspond à cet identifiant, une entité virtuelle sera créée.
+### Définir la liste déroulante
 
-  Attention : lorsqu'on fait appel au service device_tracker.see, il faut préciser l'identifiant de l'objet et non l'identifiant de l'entité. Donc, il ne faut pas entrer le domaine device_tracker, seulement l'identifiant de l'objet.
+Ajoutez une entrée `input_select` au fichier `configuration.yaml`. Les options doivent correspondre aux identifiants des zones, sans le préfixe `zone.`. Remplacez `ecole` et `travail` par les identifiants utilisés dans votre installation.
 
-  Par exemple, ceci ne fonctionnera pas : device_tracker.position_virtuelle_annie.
-
-  il faut plutôt entrer position_virtuelle_annie.
-* Emplacement : si vous désirez travailler avec les zones, entrez le nom d'une zone définie dans votre système Home Assistant ou `home` pour simuler que la personne est à la maison.
-
-  Notez que le travail avec des zones offre moins de possibilités que le travail avec une position GPS.
-
-  ![Service device_tracker.see](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TesterDeviceTrackerSee.png)
-* Pour tirer tout le potentiel du positionnement, if faut travailler avec des coordonnées GPS. Deux syntaxes sont disponibles :
-  + sur une ligne, le tout entre crochets carrés :   
-    [46.058476616659746, -71.94362640380861]
-  + sur deux lignes, chaque valeur précédée d'un trait d'union puis d'un espace :   
-    - 46.058476616659746  
-    - -71.94362640380861
-
-  ![Service device_tracker.see](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-TesterDeviceTrackerSeeGPS.png)
-
-Une fois le service appelé, si l'entité n'existait pas, elle est créée. Sinon, sa position est simplement mise à jour.
-
-## Retrouver l'identifiant d'un device_tracker
-
-Vous pouvez confirmer que l'entité existe et retrouver son nom à partir du menu Paramètres / Appareils et services / Onglet Entités.
-
-Suggestion : utilisez la case Filtre pour retrouver les entités plus rapidement.
-
-![Entité device_tracker](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EntiteDeviceTracker.png)
-
-Les informations sur le device_tracker sont enregistrées dans le fichier /mnt/data/supervisor/homeassistant/known_devices.yaml.
-
-Ce fichier peut être visualisé à l'aide du [module complémentaire File editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
-
-Fichier known_devices.yaml
-
-```
-position_virtuelle_annie:
-name: position_virtuelle_annie
-mac:
-icon:
-picture:
-track: true
+```yaml
+input_select:
+  exercice16_selecteur_zone_personne1:
+    name: Zone simulée de la personne 1
+    options:
+      - home
+      - ecole
+      - travail
 ```
 
+Vous pouvez aussi créer cette aide dans *Paramètres / Appareils et services / Assistants / Créer un assistant / Liste déroulante*. Dans ce cas, nommez son identifiant `input_select.exercice16_selecteur_zone_personne1`.
 
-## device_tracker dans une automatisation qui travaille avec une zone
+### Créer le suivi de personne
 
-Voici un problème qui peut survenir ou non selon votre version de Home Assistant.
+Ajoutez ce modèle au fichier `configuration.yaml`. Il met à jour la zone et les coordonnées GPS chaque fois que la liste déroulante change.
 
-Lorsqu'une [automatisation doit réagir quand une personne virtuelle entre ou sort d'une zone donnée](99_detecteur_de_presence_sous_home_assistant.md#fiche-automatisation_qui_tient_compte_de_la_presence), elle doit être en mesure de retrouver les coordonnées GPS du device_tracker.
-
-Si vous avez utilisé un nom de zone pour spécifier la position d'un device_tracker, vous pourriez obtenir un message du genre « Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value » lorsque vous enregistrez l'automatisation.
-
-![Message malformed: Entity is neither a valid entity ID nor a valid UUID for dictionary value](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-MessageMalformed.png)
-
-Et même si vous n'obtenez pas ce message, le changement de position à l'aide d'un nom de zone pourrait ne pas être pris en compte par l'automatisation.
-
-Si vous rencontrez ce problème, vous pouvez le contourner en utilisant des coordonnées GPS pour spécifier la position du device_tracker.
-
-## Voir la position d'un device_tracker sur une carte
-
-Vous pouvez voir la position virtuelle dans le tableau de bord sur une carte de type Carte ou encore directement dans l'option de menu Map.
-
-Pour que la position du virtuel apparaisse il faut donner à l'entité une position GPS et non une position à partir d'une zone.
-
-Par défaut, la carte affichera la première lettre de [l'identifiant de l'objet,objet](67_chapitre_de_reference_pour_home_assistant.md#fiche-qu_est-ce_qu_une_entite).
-
-![device_tracker sur une carte](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTrackerSurCarte.png)
-
-## Changer l'image d'un device_tracker
-
-Le fichier customize.yaml permet d'apporter des personnalisations à différentes entités, notamment l'image utilisée pour représenter un device_tracker.
-
-Si le fichier n'existe pas encore, créez-le dans le même dossier que configuration.yaml, c'est-à-dire /mnt/data/supervisor/homeassistant.
-
-Ceci peut être réalisé [dans le terminal HassOS,terminal](66_home_assistant_au_coeur_de_votre_systeme_domotique.md#fiche-la_console_home_assistant) ou encore à l'aide de [le module complémentaire File editor](77_le_fichier_configurationyaml.md#fiche-travailler_avec_le_module_complementaire_file_editor).
-
-Dans configuration.yaml, vous devez avoir une référence à ce fichier.
-
-Fichier configuration.yaml
-
-
-```
-homeassistant:
-customize: !include customize.yaml
+```yaml
+template:
+  - device_tracker:
+      - name: Suivi virtuel personne 1
+        unique_id: suivi_virtuel_personne_1
+        in_zones: >-
+          {{ ['zone.' ~ states('input_select.exercice16_selecteur_zone_personne1')] }}
+        latitude: >-
+          {{ state_attr('zone.' ~ states('input_select.exercice16_selecteur_zone_personne1'), 'latitude') }}
+        longitude: >-
+          {{ state_attr('zone.' ~ states('input_select.exercice16_selecteur_zone_personne1'), 'longitude') }}
 ```
 
+Vérifiez la configuration puis redémarrez Home Assistant. L'entité créée sera `device_tracker.suivi_virtuel_personne_1`.
 
-Dans le fichier customize.yaml, vous pouvez désormais préciser l'image à utiliser pour le device_tracker.
+### Associer le suivi à une personne
 
-Pour utiliser vos propres images, vous devez [les téléverser sur le Pi dans un dossier précis](80_les_tableaux_de_bord.md#fiche-utiliser_vos_propres_images_dans_un_tableau_de_bord_lovelace).
+Dans *Paramètres / Personnes*, ouvrez la personne concernée et ajoutez `device_tracker.suivi_virtuel_personne_1` parmi ses entités de suivi. Vous pourrez ensuite cibler la personne ou directement le suivi virtuel dans une automatisation de zone.
 
-L'image à utliiser peut ensuite être configurée comme suit :
-
-Fichier customize.yaml
-
-
-```
-device_tracker.position_virtuelle_annie:
-entity_picture: /local/annie.png
-```
+Si plusieurs trackers sont associés, Home Assistant sélectionne une source pour déterminer la position et les attributs de la personne. Un tracker de connexion encore connecté peut être prioritaire. Parmi les trackers de position, les coordonnées du tracker mis à jour le plus récemment font foi. Le suivi modèle est donc sélectionné selon ces règles; il ne remplace pas automatiquement les autres trackers associés.
 
 
-Redémarrez Home Assistant pour que les configurations soient actives.
 
-Désormais, l'image apparaît sur la carte plutôt que la première lettre de l'identifiant de l'entité.
 
-![device_tracker avec images](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTrackerSurCarte-Photos.png)
 
-Source des images : <http://clipart-library.com/clip-art/kid-transparent-background-22.htm>
+
 
 ## Retrouver la latitude et la longitude d'un device_tracker
 

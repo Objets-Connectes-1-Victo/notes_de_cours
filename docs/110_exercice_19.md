@@ -8,8 +8,8 @@ Vous utiliserez ici seulement des capteurs virtuels.
 
 1. Si ce n'est pas déjà fait, [définissez les zones École et Centre commercial](99_detecteur_de_presence_sous_home_assistant.md#fiche-les_zones_dans_home_assistant).
 2. Disons que vous avez 2 enfants : Gabriel et Élodie.
-   * Dans les outils de développement, [simulez une position GPS pour chacun de vos enfants](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see). Les positions virtuelles doivent s'appeler position_virtuelle_gabriel et position_virtuelle_elodie.
-   * Assurez-vous que chaque enfant soit identifié par une photo. Attention : il ne s'agit pas d'associer une position virtuelle à une personne dans le menu Paramètres / Personnes.
+   * Créez un [suivi virtuel défini par un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele) pour chaque enfant, avec une liste déroulante distincte. Associez chaque suivi à la personne correspondante dans *Paramètres / Personnes*.
+   * Assurez-vous que chaque enfant soit identifié par une photo.
 3. Ajoutez un tableau de bord nommé "Coordonnées des enfants". Affichez-y :  
    * une carte géographique qui montre les trois zones que vous avez définies ainsi que la position des enfants
    * un bouton qui déplace Gabriel à l'école

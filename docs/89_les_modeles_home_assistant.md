@@ -1320,7 +1320,7 @@ Sinon, vous êtes au bon endroit pour comprendre les manipulations des positions
 
 La gestion de la position GPS est bien intégrée à Home Assistant.
 
-Une fois qu'on a défini une entité qui gère la position GPS, que ce soit [avec l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) ou encore [avec device_tracker.see](99_detecteur_de_presence_sous_home_assistant.md#fiche-simuler_la_position_gps_d_une_personne_avec_device_tracker_see), il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
+Une fois qu'on a défini une entité qui gère la position GPS, que ce soit [avec l'application Home Assistant](99_detecteur_de_presence_sous_home_assistant.md#fiche-travailler_avec_l_application_home_assistant) ou encore [avec un suivi virtuel défini par un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele), il est possible de questionner l'état de cette entité pour savoir si elle est dans une des zones qu'on a définies.
 
 Pour savoir dans quelle zone une personne se trouve :
 

@@ -24,19 +24,6 @@ Lorsque vous avez initialisé la position du capteur virtuel, vous avez utilisé
 
 ### Solution proposée :
 
-Initialisez la position du capteur virtuel à l'aide d'une position GPS :
+Utilisez plutôt un suivi de position défini par un modèle :
 
-* Rendez-vous dans le menu Outils de développement / onglet Services (ou Action selon votre version de Home Assistant).
-* Choisissez le service device_tracker.see. Vous verrez apparaître à l'écran Dispoitif de suivi: See.
-* Cochez GPS Coordinates.
-* Retrouvez les coordonnées GPS désirées. Vous pouvez trouver les coordonnées GPS d'un point en faisant un clic droit à l'endroit désiré sur Google Maps
-
-  ![Google Maps](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/GoogleMaps-LatitudeEtLongitude.png)
-* Entrez les coordonnées entre crochets carrés avec une virgule entre la latitude et la longitude, par exemple [46.05970,-71.94362].
-
-  ![Position GPS](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-DeviceTracker-PositionGPS.png)
-* Votre capteur virtuel est désormais disponible dans votre automatisation.
-
-  Mais attention : si, par la suite, vous lui donnez une position en entrant le nom d'une zone dans la section Location name, votre capteur virtuel n'aura plus de coordonnées GPS.
-
-  ![Entité avec emplacement](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-EntiteAvecEmplacement.png)
+Cette fiche décrit une ancienne méthode de suivi virtuel. Pour créer un suivi compatible avec les zones à partir d'une liste déroulante, suivez la procédure [Créer un suivi virtuel de personne avec un modèle](99_detecteur_de_presence_sous_home_assistant.md#fiche-suivi_virtuel_d_une_personne_avec_un_modele). Le modèle fournit les coordonnées de la zone sélectionnée, et l'entité peut être associée à une personne.
