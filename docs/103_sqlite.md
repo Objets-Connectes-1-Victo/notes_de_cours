@@ -18,6 +18,12 @@ Une base de données est constituée d'un simple fichier stocké localement. Il 
 
 SQLite est installé nativement sur macOS. Sous Windows, il faut procéder à son installation.
 
+Sur une installation Home Assistant sur Raspberry Pi, vous pouvez installer sqlite3 dans le terminal HAOS à l'aide de la commande :
+
+```bash
+apk add sqlite
+```
+
 ## [La ligne de commande SQLite](103_sqlite.md#fiche-La_ligne_de_commande_SQLite)
 
 Pour lancer la ligne de commande SQLite :
