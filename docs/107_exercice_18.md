@@ -31,7 +31,7 @@ Dans ce tableau de bord, vous devez voir :
 * case de saisie pour votre heure de départ pour l'école ou le travail
 * case de saisie pour votre heure de retour
 * case de saisie pour votre heure de coucher
-* capteur de température virtuel
+* capteur de température virtuel (chauffage)
 * état des stores virtuels (levés ou baissés)
 * état de la cafetière (ouverte ou fermée)
 * état de la lumière virtuelle de la chambre (allumée ou éteinte)
