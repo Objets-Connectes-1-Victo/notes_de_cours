@@ -1,20 +1,22 @@
 # OBJETS CONNECTÉS 1 – Examen 1
 
+Nom : _________________________________________________________________
+
 - Cet examen pratique compte pour 25% de la note finale.
 - La grille de correction est fournie séparément.
 - Vous disposez de deux (2) périodes consécutives de 50 minutes pour effectuer le travail demandé.
-- Vous devez réaliser seul les étapes demandées.
 - Dans tout le code que vous écrirez, vous devez respecter les techniques, les pratiques et les normes enseignées. Plusieurs sont implicites, par exemple respecter la nomenclature.
--	Vous avez droit à toutes vos notes, exercices et à la consultation de documents sur Internet, incluant recherches via *udm14.org*
--	Vous n’avez pas droit aux outils de communication ni à l'IA.
--   La surveillance d'écran via Exam.net est obligatoire - le lien à suivre est fourni via Teams. Déconnectez-vous seulement après avoir remis votre travail sur Teams.
--   Ne fermez pas l'onglet du navigateur contenant la surveillance d'écran. Faire `Alt-Tab` pour passer aux autres applications sur votre portable.
+- Vous devez réaliser seul les étapes demandées.
+- Vous avez droit à toutes vos notes, exercices et à la consultation de documents sur Internet, incluant recherches via *udm14.org*
+- Vous n’avez pas droit aux outils de communication ni à l'IA.
+- La surveillance d'écran via Exam.net est obligatoire - le lien à suivre est fourni via Teams. Déconnectez-vous seulement après avoir remis votre travail sur Teams.
+-    Ne fermez pas l'onglet du navigateur contenant la surveillance d'écran. Faire `Alt-Tab` pour passer aux autres applications sur votre portable.
 
 ## Énoncé
 
 Vous désirez ajouter une fonctionnalité à votre système Home Assistant : veiller à ce que votre colocataire Olaf (le bonhomme de neige) ne fonde pas en sortant de la maison.
 
-# Instructions
+## Instructions
 
 La liste des remises est présentée plus bas. Veuillez prévoir suffisamment de temps avant la fin de l'examen pour effectuer les impressions d'écran ainsi que la copie des fichiers demandés.  Truc: vous pouvez faire les captures d'écran au fur et à mesure que vous configurez les éléments demandés.
 
@@ -28,7 +30,7 @@ La liste des remises est présentée plus bas. Veuillez prévoir suffisamment de
 
 Le tableau de bord doit afficher :
 
-- - La position d’Olaf (affichera Présent, Absent ou Chambre froide – l’affichage de base des _device_tracker_)
+- La position d’Olaf (affichera Présent, Absent ou Chambre froide – l’affichage de base des _device_tracker_)
     - La température extérieure en Celsius
     - Le texte virtuel
     - Un bouton pour déplacer Olaf à la maison
@@ -51,12 +53,13 @@ Le tableau de bord doit afficher :
 
 Remises :
 
-- Faites une impression d’écran pour montrer la liste des personnes de votre Home Assistant avec les images associées. Nommez l’image **_NomPrenom_\-Olaf-personne.png**.
-- Faites une impression d’écran de la configuration réalisée pour créer le capteur virtuel pour la température extérieure. On doit voir son ID d’entité, sa valeur minimale et sa valeur maximale. Nommez le fichier **_NomPrenom_‑Temperature.png**.
-- Faites une impression d’écran de la configuration réalisée pour créer le texte virtuel. On doit voir son ID d’entité. Nommez le fichier **_NomPrenom_‑Texte.png**.
-- Faites une impression d’écran des zones configurées. On doit y voir clairement une carte de la ville avec la zone définie, son nom et son icône. Nommez le fichier **_NomPrenom_‑NomZone.png**.
-- Faites une impression d’écran de la carte (tuile) Markdown. On doit y voir clairement le code qui détermine quelle image doit être affichée. Nommez le fichier **_NomPrenom_\-Markdown.png**.
-- Faites une impression d’écran du tableau de bord. On doit y voir clairement chaque élément affiché ainsi que le nom du tableau de bord. Assurez-vous que la photo d’Olaf de même que les zones Maison et Chambre froide soient bien visibles sur la carte. Au besoin, déplacez Olaf ailleurs et jouez avec le zoom. Nommez le fichier **_NomPrenom_‑TableauDeBord.png**.
+- Impressions d’écrans
+    - Montrer la liste des personnes de votre Home Assistant avec les images associées. Nommez l’image **_NomPrenom_\-Olaf-personne.png**.
+    - Configuration réalisée pour créer le capteur virtuel pour la température extérieure. On doit voir son ID d’entité, sa valeur minimale et sa valeur maximale. Nommez le fichier **_NomPrenom_‑Temperature.png**.
+    - Configuration réalisée pour créer le texte virtuel. On doit voir son ID d’entité. Nommez le fichier **_NomPrenom_‑Texte.png**.
+    - Zones configurées. On doit y voir clairement une carte de la ville avec la zone définie, son nom et son icône. Nommez le fichier **_NomPrenom_‑NomZone.png**.
+    - Carte (tuile) Markdown. On doit y voir clairement le code qui détermine quelle image doit être affichée. Nommez le fichier **_NomPrenom_\-Markdown.png**.
+    - Tableau de bord. On doit y voir clairement chaque élément affiché ainsi que le nom du tableau de bord. Assurez-vous que la photo d’Olaf de même que les zones Maison et Chambre froide soient bien visibles sur la carte. Au besoin, déplacez Olaf ailleurs et jouez avec le zoom. Nommez le fichier **_NomPrenom_‑TableauDeBord.png**.
 - Copiez le code YAML du tableau de bord dans un fichier texte. Nommez le fichier **_NomPrenom_‑Lovelace.txt** (peut être obtenu de *Modifier le tableau de bord -> ⋮ -> Éditeur de configuration brute*).
 - Téléchargez vos fichiers **configuration.yaml**, **automatisations.yaml**, **scripts.yaml**, et **known_devices.yaml**, (certains pourraient être vides ou ne pas avoir été modifiés pendant l’examen) sur votre ordinateur. **Assurez-vous qu’on y voit les ajouts que vous avez faits pendant l’examen, c’est parfois la seule façon de montrer ce que vous avez configuré**. Renommez les fichiers pour que leur nom débute par votre nom de famille suivi de votre prénom.
 - Une fois votre travail terminé, remettez sur Teams un .zip qui contient toutes les remises demandées. Nommer le fichier **_NomPrenom_\-Examen1.zip**. **Un fichier non remis donnera 0 pour toutes les vérifications qui ne pourront pas être faites.**
