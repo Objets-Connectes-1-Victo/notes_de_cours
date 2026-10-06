@@ -1,37 +1,8 @@
-# 100. Examen 2 {#chapitre-examen_2_006}
+# Examen 1 
 
-## 100.1 Pour vous assurer d'avoir en main tout ce qu'il vous faut pour l'examen
+## Grille de correction
 
-Vous est-il déjà arrivé de vivre une coupure d'Internet pendant un examen ou de constater que le serveur qui héberge les notes de cours avait un problème technique?
-
-Comme on n'est jamais à l'abri de problèmes potentiels, vous devriez vous assurer d'avoir en main une copie locale des notes de cours AVANT de vous présenter à votre examen si votre enseignante ou votre enseignant vous donne droit de consulter les notes de cours pendant l'examen.
-
-Pour ce faire, rendez-vous dans le menu Formations.
-
-Dans la liste des formations, cliquez sur l'icône qui permet d'afficher toute la formation dans une seule page Web : ![Icône pour afficher toute la formation dans une seule page Web](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/Web.svg).
-
-La génération automatique d'un PDF n'est pas encore disponible. Vous avez tout de même deux options pour conserver les notes de cours :
-
-* Imprimez la page au format PDF.
-* Vous pouvez également enregistrer le fichier HTML de la page qui contient toutes les fiches de la formation. Il vous sera donc possible d'ouvrir ce fichier dans un navigateur sans avoir à passer par le Web et sans devoir vous authentifier sur Apical.
-
-## 100.2 Consignes pour l'examen {#fiche-consignes_pour_l_examen_011}
-
-Cet examen est basé sur le travail que vous avez fait en classe sur la plateforme Home Assistant. Il consiste à ajouter de nouvelles fonctionnalités à votre système domotique.
-
-* Cet examen pratique compte pour 25% de la note finale.
-* Vous disposez de deux (2) périodes consécutives de 50 minutes pour effectuer le travail demandé.
-* Vous devez réaliser seul les étapes demandées.
-* Vous devez réaliser l'examen sur ordinateur.
-* Dans tout le code que vous écrirez, vous devez respecter les techniques, les pratiques et les normes enseignées. Plusieurs sont implicites, par exemple ne pas effectuer de code inutile.
-* Vous n’avez pas droit aux outils de communication comme les textos, le chat, le courriel, les blogues, les forums, les dépôts de fichiers (ex : GitHub, Google Drive) ou tout autre outil permettant de communiquer avec d’autres personnes participant ou non à cet examen. Vous n'avez pas droit aux générateurs de code ni à l'IA. Vous pouvez consulter des sites Web, à condition qu'ils n'aient pas été modifiés en fonction de l'examen, mais vous ne pouvez pas y ajouter ou modifier des questions, commentaires ou autres informations.
-* Toute tentative d’utiliser un outil de communication ou autre matériel proscrit constitue un plagiat.
-
-Bonne chance !
-
-## 100.3 Grille de correction {#fiche-grille_de_correction_009}
-
-Voici la grille de correction qui sera utilisée à l'examen no 2.
+Voici la grille de correction qui sera utilisée à l'examen no 1.
 
 Si vous le désirez, vous pouvez imprimer cette grille et l'amener à l'examen afin de vous aider à faire le suivi de votre travail.
 
