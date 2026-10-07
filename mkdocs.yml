@@ -43,6 +43,9 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji
+  - pymdownx.tasklist:
+      custom_checkbox: true   # Remplacer les cases HTML natives par des icônes personnalisées
+      clickable_checkbox: false # Passer à true pour permettre l'interaction visuelle (nécessite JS)
 
 plugins:
   - search
