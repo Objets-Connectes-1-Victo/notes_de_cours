@@ -30,13 +30,13 @@ La liste des remises est présentée plus bas. Veuillez prévoir suffisamment de
 
 Le tableau de bord doit afficher :
 
-- La position d’Olaf (affichera Présent, Absent ou Chambre froide – l’affichage de base des _device_tracker_)
-    - La température extérieure en Celsius
-    - Le texte virtuel
-    - Un bouton pour déplacer Olaf à la maison
-    - Un bouton pour déplacer Olaf dans la chambre froide
-    - Un bouton pour déplacer Olaf en dehors des zones connues
-    - Une carte qui montre les zones Maison et Chambre Froide de même que la position d’Olaf
+- La position d’Olaf (sa zone courante – l’affichage de base des _device_tracker_)
+- La température extérieure en Celsius
+- Le texte virtuel
+- Un bouton pour déplacer Olaf à la maison
+- Un bouton pour déplacer Olaf dans la chambre froide
+- Un bouton pour déplacer Olaf en dehors des zones connues
+- Une carte qui montre les zones Maison et Chambre Froide de même que la position d’Olaf
 - Dans le même tableau de bord, ajoutez une carte de type Markdown qui affichera les images suivantes selon la position d’Olaf :
     - Maison : [https://static.wikia.nocookie.net/gtawiki/images/8/84/ClintonResidence-GTAVe.png](https://static.wikia.nocookie.net/gtawiki/images/8/84/ClintonResidence-GTAVe.png)
     - Chambre froide : [https://static.wikia.nocookie.net/gtawiki/images/b/b4/AGLRefrigeratedStorageInc-GTAV.png](https://static.wikia.nocookie.net/gtawiki/images/b/b4/AGLRefrigeratedStorageInc-GTAV.png)
