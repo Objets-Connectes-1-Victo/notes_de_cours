@@ -149,7 +149,7 @@ Dans cette impression d'écran, on ne voit que les activités associées à cett
 
 ## Écriture dans le journal de Home Assistant (system_log.write) {#systemlog}
 
-Il est possible de configurer une automatisation pour qu'elle écrive dnas le fichier journal de Home Assistant ( /mnt/data/supervisor/homeassistant/home-assistant.log).
+Il est possible de configurer une automatisation pour qu'elle écrive dans le fichier journal de Home Assistant ( /mnt/data/supervisor/homeassistant/home-assistant.log).
 
 Le contenu de ce fichier peut être consulté via le menu Paramètres / Système / Journaux.
 

@@ -43,7 +43,7 @@ Le tableau de bord doit afficher :
     - Ailleurs : [https://static.wikia.nocookie.net/fictional-cities/images/2/24/Dowtown.png](https://static.wikia.nocookie.net/fictional-cities/images/2/24/Dowtown.png)
 - Créez une ou plusieurs automatisations dont le nom débute par « Suivi Olaf » qui est (ou sont) lancée(s) automatiquement lorsqu’Olaf se déplace. Le comportement attendu est le suivant :
     - Si Olaf entre à la maison et qu’il est plus que 22h :
-        - Écrire ce message dans le fichier journal : « Olaf est rentré tard à la maison! ».
+        - Écrire ce message dans le fichier journal d'Home Assistant (le *System Log*): « Olaf est rentré tard à la maison! ».
         - Écrire ce message dans le virtuel texte_examen : « Maison tard le soir ».
     - Si Olaf entre dans la chambre froide et qu’il fait au-dessus de 5 degrés :
         - Écrire ce message dans le virtuel texte_examen : « En sûreté dans la chambre froide : » suivi de la température extérieure.
