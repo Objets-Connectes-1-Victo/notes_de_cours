@@ -1,8 +1,0 @@
-1/3 des étudiants ont remis avant la fin.
-Difficulté OK, mais beaucoup de fichiers à remettre à la fin, ce qui introduit du stress.  Moyen de simplifier la remiseÉ
-
-Entités créées via le GUI (entrées/helpers) et les tableaux de bords sont persistés via fichiers sous config/.storage 
-- input_boolean et autres
-- lovelace.<nom_tableau_bord>
-
-Demander de joindre tous les fichers du répertoire (doivent maitriser zip) et download
