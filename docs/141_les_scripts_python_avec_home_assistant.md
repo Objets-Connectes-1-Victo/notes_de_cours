@@ -16,7 +16,7 @@ Un redémarrage du système est requis pour que ce soit disponible mais attendez
 
 ## Dossier qui contient les scripts
 
-Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier 'python_scripts' sous /mnt/data/supervisor/homeassistant.
+Pour qu'un script Python puisse être exposé en tant qu'action, vous devez d'abord créer le dossier 'python_scripts' sous /mnt/data/supervisor/homeassistant.
 
 Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier config (c'est ce dossier qui représente /mnt/data/supervisor/homeassistant dans l'interface Web).
 
@@ -61,12 +61,10 @@ Il est désormais possible d'utiliser votre script Python dans une automatisatio
 
 ## Exercice
 
-* Configurer votre Home Assitant pour qu'il puisse exécuter un script Python.
-  * Référez-vous à [Python Scripts](https://www.home-assistant.io/integrations/python_script/) si vous rencontrez des difficultés.
+* Configurer votre Home Assistant pour qu'il puisse exécuter un script Python.
+    * Référez-vous à [Python Scripts](https://www.home-assistant.io/integrations/python_script/) si vous rencontrez des difficultés.
 * Tester l'exécution du script hello_world.py en utilisant l'action *python_script.hello_world* dans le menu Paramètres / Outils, puis l'onglet *Actions*.
 * Vérifier que le message "Hello world at ..." apparaît dans le journal de Home Assistant.
 * Assurez-vous que Z-Wave est fonctionnel et que vous pouvez contrôler vos appareils Z-Wave à partir de Home Assistant.
 * Écrivez un script Python qui allume un appareil Z-Wave et l'exécutez-le à partir d'une automatisation.
-  * (retrouver l'entity_id de votre appareil Z-Wave dans le menu Paramètres / Appareils et services / Entités)
-
-
+    * (retrouver l'entity_id de votre appareil Z-Wave dans le menu Paramètres / Appareils et services / Entités)
