@@ -20,48 +20,11 @@ Un redémarrage du système est requis pour que ce soit disponible mais attendez
 
 ## Dossier qui contient les scripts
 
-Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier python_scripts sous /mnt/data/supervisor/homeassistant.
+Pour qu'un script Python puisse être exposé en tant que service, vous devez d'abord créer le dossier 'python_scripts' sous /mnt/data/supervisor/homeassistant.
 
 Si vous travaillez à l'aide de File Editor ceci sera réalisé en cliquant sur l'icône New Folder alors que vous êtes dans le dossier config (c'est ce dossier qui représente /mnt/data/supervisor/homeassistant dans l'interface Web).
 
 Vous pouvez également créer le dossier directement au terminal HassOS.
-
-## Écriture du script
-
-Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
-
-Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python_scripts sur le Pi [à l'aide de scp,scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur).
-
-Son nom doit se terminer par l'extension .py.
-
-Fichier test.py
-
-
-```python
-xxx
-```
-
-
-## Déclaration du service
-
-Maintenant que le script est écrit, il faut dire à Home Assistant qu'il existe.
-
-Encore une fois, c'est dans configuration.yaml que ça se passe.
-
-Il faut préciser le nom du script sans son extension (ici : test).
-
-Si le script attend des paramètres, on les précisera à l'aide de data.
-
-Dans cet exemple, j'ai inscrit la valeur du paramètre en dur mais il aurait été possible d'utiliser un modèle pour retrouver une valeur fournie par Home Assistant.
-
-configuration.yaml
-
-
-```
-service: python_script.test
-data:
-nom: 'Annie'
-```
 
 
 Une fois cette configuration en place, vous devez redémarrer le système pour qu'elle soit prise en compte.
@@ -70,24 +33,44 @@ Vous pouvez le faire maintenant puisque toutes les manipulations qui requièrent
 
 Par la suite, vous pourrez modifier votre script Python et l'automatisation qui l'utilise sans qu'un redémarrage ne soit nécessaire.
 
+## Vérification de l'installation
+
+Pour vérifier que l'intégration Python Scripts est bien installée, rendez-vous dans le menu Paramètres / Outils, puis l'onglet *Actions*,  l'action *python_script.reload* devrait apparaître.
+
+Vous pouvez utiliser cette action pour recharger les scripts Python sans avoir à redémarrer le système.
+
+## Écriture du script
+
+Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
+
+Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python_scripts sur le Pi [à l'aide de scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur).
+
+Son nom doit se terminer par l'extension .py.
+
+Fichier hello_world.py
+
+
+```python
+name = data.get("name", "world")
+
+# `logger` and `time` are available as builtin without the need of explicit import.
+logger.warn("Hello {} at {}".format(name, time.time()))
+```
+
+
+
 ## Automatisation
 
-Il est désormais possible d'utiliser votre script Python dans une automatisation.
+Il est désormais possible d'utiliser votre script Python dans une automatisation, elle apparaîtra dans la liste des actions.
 
-Créez votre automatisation, définissez le déclencheur et possiblement les conditions puis comme action, choisissez Appeler un service.
+## Exercice
 
-Dans la liste déroulante des services, vous aurez accès au service dont le nom correspond à la ligne service que vous avez écrite plus tôt dans configuration.yaml (ici : python_script.test).
+* Configurer votre Home Assitant pour qu'il puisse exécuter un script Python.
+  * Référez-vous à [Python Scripts](https://www.home-assistant.io/integrations/python_script/) si vous rencontrez des difficultés.
+* Tester l'exécution du script hello_world.py en utilisant l'action *python_script.hello_world* dans le menu Paramètres / Outils, puis l'onglet *Actions*.
+* Vérifier que le message "Hello world at ..." apparaît dans le journal de Home Assistant.
+* Assurez-vous que Z-Wave est fonctionnel et que vous pouvez contrôler vos appareils Z-Wave à partir de Home Assistant.
+* Écrivez un script Python qui allume un appareil Z-Wave et l'exécutez-le à partir d'une automatisation.
+  * (retrouver l'entity_id de votre appareil Z-Wave dans le menu Paramètres / Appareils et services / Entités)
 
-![service python_script](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/HomeAssistant-AutomatisationAvecPythonScript.png)
 
-## 122.2 Intégration AppDaemon pour exécuter des scripts Python {#fiche-integration_appdaemon_pour_executer_des_scripts_python}
-
-[AppDaemon](https://github.com/hassio-addons/repository/tree/master/appdaemon) est une intégration Home Assistant qui permet d'exécuter un script Python dans un bac de sable (sandbox) c'est-à-dire dans un environnement isolé du reste du système.
-
-Pour installer AppDaemon :
-
-* Rendez-vous dans le menu Paramètres / Modules complémentaires / Boutiques des modules complémentaires.
-* Recherchez AppDaemon.
-* Cliquez sur la tuile AppDaemon puis sur Installer.
-* Une fois l'installation complétée, cliquez sur Démarrer puis sur Ouvrir l'interface utilisateur Web.
-* ...

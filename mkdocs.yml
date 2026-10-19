@@ -127,6 +127,7 @@ nav:
     - "S07":
       - "S07": "65__semaine_7_.md"
       - "100. Examen 1": "113_examen_1.md"
+      - "122. Scripts Python dans Home Assistant": "141_les_scripts_python_avec_home_assistant.md"
     - "S12":
       - "S12": "112__semaine_12_.md"
       - "101. Exercice 20": "114_exercice_20.md"
