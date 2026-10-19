@@ -1,9 +1,5 @@
 # 122. Les scripts Python avec Home Assistant {#chapitre-les_scripts_python_avec_home_assistant}
 
-## 122.1 Automatisation qui appelle un script Python {#fiche-automatisation_qui_appelle_un_script_python}
-
-![Facultatif](NotesDeCoursApical-420_3a4_vi_objets_connectes_1_a_2025_files/ico-Facultatif.gif "Facultatif")
-
 Pour qu'une automatisation puisse appeler un script Python, vous devez d'abord ajouter l'intégration [Python Scripts](https://www.home-assistant.io/integrations/python_script/).
 
 Ceci est réalisé en ajoutant cette ligne dans le fichier configuration.yaml.
