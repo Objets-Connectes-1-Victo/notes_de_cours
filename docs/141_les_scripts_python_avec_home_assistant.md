@@ -49,10 +49,14 @@ Fichier *hello_world.py*
 
 
 ```python
+# Lit paramètre "name", default to "world"
 name = data.get("name", "world")
 
-# `logger` and `time` are available as builtin without the need of explicit import.
-logger.warn("Hello {} at {}".format(name, time.time()))
+# `logger`, 'datetime' `time` are available as builtin without the need of explicit import.
+now = datetime.datetime.now()
+iso_time = now.isoformat()
+
+logger.warn(f"Hello {name} at {iso_time}")
 ```
 
 # Appeler une action depuis un script Python
@@ -107,6 +111,6 @@ Une hystérésis est un mécanisme qui permet de ne pas déclencher une action t
 
 ![Exemple d'hystérésis](https://blogs.egu.eu/wp-content/uploads/sites/17/2020/12/Figure1.webp)
 
-* Mise en situation : vous gérez un entrepôt et vous souhaitez que le chauffage se déclenche lorsque la température descend en dessous de 18°C et qu'il s'arrête lorsque la température remonte au-dessus de 20°C (hystérésis).  Vous utilisez 2 thermomètres pour mesurer la température: comme certains équipements dégagent parfois de la chaleur à proximité d'un thermomètre, vous utilisez la moyenne des 2 thermomètres pour déterminer la température de l'entrepôt.
-* Écrivez un script Python qui calcule la moyenne de 2 thermomètres et qui active votre prise intelligent si la température est inférieure à 18°C et qui l'arrête si elle est supérieure à 20°C.
+* Mise en situation : vous gérez un entrepôt et vous souhaitez que le chauffage se déclenche lorsque la température descend en dessous de 18°C et qu'il s'arrête lorsque la température remonte au-dessus de 20°C (hystérésis).  Vous avez 2 thermomètres pour mesurer la température: comme certains équipements dégagent parfois de la chaleur à proximité d'un thermomètre, vous utilisez la moyenne des 2 thermomètres pour déterminer la température de l'entrepôt.
+* Écrivez un script Python qui calcule la moyenne de 2 thermomètres et qui active votre prise intelligente si la température est inférieure à 18°C et qui l'arrête si elle est supérieure à 20°C.
 * Vous pouvez utiliser 2 capteurs de température virtuels pour tester votre script Python.
