@@ -35,9 +35,11 @@ Pour vérifier que l'intégration Python Scripts est bien installée, rendez-vou
 
 Vous pouvez utiliser cette action pour recharger les scripts Python sans avoir à redémarrer le système.
 
+Il est également possible de faire détecter les scripts Python que vous ajoutez à partir de *Paramètres -> Outils -> YAML -> Python Scripts*
+
 ## Écriture du script
 
-Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction import.
+Important : l'intégration Python Scripts ne permet pas aux script d'utiliser l'instruction *import*.
 
 Le script peut être écrit directement dans File Editor ou encore être écrit sur votre ordinateur puis copié dans le dossier python_scripts sur le Pi [à l'aide de scp](53_scripts_python_pour_envoyer_et_recevoir_du_signal_sur_le_gpio.md#fiche-copier_un_fichier_sur_une_machine_linux_a_partir_d_un_autre_ordinateur).
 
