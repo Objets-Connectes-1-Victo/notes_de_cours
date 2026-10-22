@@ -128,6 +128,10 @@ nav:
       - "S07": "65__semaine_7_.md"
       - "100. Examen 1": "113_examen_1.md"
       - "122. Scripts Python dans Home Assistant": "141_les_scripts_python_avec_home_assistant.md"
+    - "S08":
+      - "S08": "76__semaine_8_.md"
+      - "132. Introduction à ESPHome": "152_introduction_a_esphome.md"
+      - "133. Installer ESPHome Device Builder sous Windows": "153_installer_esphome_device_builder_sur_windows.md"
     - "S12":
       - "S12": "112__semaine_12_.md"
       - "101. Exercice 20": "114_exercice_20.md"

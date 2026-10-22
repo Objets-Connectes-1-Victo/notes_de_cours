@@ -114,4 +114,5 @@ Une hystérésis est un mécanisme qui permet de ne pas déclencher une action t
 
 * Mise en situation : vous gérez un entrepôt et vous souhaitez que le chauffage se déclenche lorsque la température descend en dessous de 18°C et qu'il s'arrête lorsque la température remonte au-dessus de 20°C (hystérésis).  Vous avez 2 thermomètres pour mesurer la température: comme certains équipements dégagent parfois de la chaleur à proximité d'un thermomètre, vous utilisez la moyenne des 2 thermomètres pour déterminer la température de l'entrepôt.
 * Écrivez un script Python qui calcule la moyenne de 2 thermomètres et qui active votre prise intelligente si la température est inférieure à 18°C et qui l'arrête si elle est supérieure à 20°C.
+* Utilisez une automatisation pour exécuter votre script Python quand la température d'un des thermomètres change.
 * Vous pouvez utiliser 2 capteurs de température virtuels pour tester votre script Python.
