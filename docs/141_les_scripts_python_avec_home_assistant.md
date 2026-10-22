@@ -62,6 +62,7 @@ logger.warn(f"Hello {name} at {iso_time}")
 # Appeler une action depuis un script Python
 
 La commande pour appeler une action est `hass.services.call()`. Les actions sont définies par un domaine et un nom. 
+
 * Le domaine est le nom de l'intégration, par exemple light, switch, input_number, etc.
 * Le nom est le nom de l'action, par exemple turn_on, turn_off, set_value, etc.
 
