@@ -43,7 +43,7 @@ Le script peut être écrit directement dans File Editor ou encore être écrit 
 
 Son nom doit se terminer par l'extension .py.
 
-Fichier hello_world.py
+Fichier *hello_world.py*
 
 
 ```python
@@ -53,18 +53,58 @@ name = data.get("name", "world")
 logger.warn("Hello {} at {}".format(name, time.time()))
 ```
 
+# Appeler une action depuis un script Python
 
+La commande pour appeler une action est `hass.services.call()`. Les actions sont définies par un domaine et un nom. Le domaine est le nom de l'intégration, par exemple light, switch, input_number, etc. Le nom est le nom de l'action, par exemple turn_on, turn_off, set_value, etc.
+
+Les actions s’appelaient auparavant des services dans Home Assistant, de là le nom de la classe `hass.services`.
+
+Par exemple, pour allumer une lumière, vous pouvez utiliser le code suivant dans votre script Python.
+
+```python
+
+# Inside /python_scripts/example.py
+hass.services.call("light", "turn_on", {"entity_id": "light.salon", "brightness": 255})
+
+```
+
+# Accéder aux états et attributs
+
+```python
+
+state_obj = hass.states.get("input_number.target_temperature")
+
+if state_obj is not None:
+    # La valeur des états est un chaîne de caractères 
+    val = float(state_obj.state)
+    logger.warn(f"input_number: {val}")
+
+    min_val = state_obj.attributes.get("min")
+    if min_val is not None:
+        logger.warn(f"input_number min: {min_val}")
+
+```
 
 ## Automatisation
 
 Il est désormais possible d'utiliser votre script Python dans une automatisation, elle apparaîtra dans la liste des actions.
 
-## Exercice
+## Exercice 1 - intro
 
 * Configurer votre Home Assistant pour qu'il puisse exécuter un script Python.
-    * Référez-vous à [Python Scripts](https://www.home-assistant.io/integrations/python_script/) si vous rencontrez des difficultés.
+    * Référez-vous à la documentation officielle de [Python Scripts](https://www.home-assistant.io/integrations/python_script/) si vous rencontrez des difficultés.
 * Tester l'exécution du script hello_world.py en utilisant l'action *python_script.hello_world* dans le menu Paramètres / Outils, puis l'onglet *Actions*.
 * Vérifier que le message "Hello world at ..." apparaît dans le journal de Home Assistant.
 * Assurez-vous que Z-Wave est fonctionnel et que vous pouvez contrôler vos appareils Z-Wave à partir de Home Assistant.
 * Écrivez un script Python qui allume un appareil Z-Wave et l'exécutez-le à partir d'une automatisation.
     * (retrouver l'entity_id de votre appareil Z-Wave dans le menu Paramètres / Appareils et services / Entités)
+
+## Exercice 2 - hystérésis
+
+Une hystérésis est un mécanisme qui permet de ne pas déclencher une action tant que la valeur d'une variable n'a pas dépassé un certain seuil, puis de ne pas arrêter l'action tant que la valeur n'est pas redescendue en dessous d'un autre seuil.  Les hystérésis sont souvent utilisées pour éviter que des actions ne soient déclenchées trop fréquemment, par exemple démarrer et arrêter un système de chauffage.
+
+![Exemple d'hystérésis](https://blogs.egu.eu/wp-content/uploads/sites/17/2020/12/Figure1.webp)
+
+* Mise en situation : vous gérez un entrepôt et vous souhaitez que le chauffage se déclenche lorsque la température descend en dessous de 18°C et qu'il s'arrête lorsque la température remonte au-dessus de 20°C (hystérésis).  Vous utilisez 2 thermomètres pour mesurer la température: comme certains équipements dégagent parfois de la chaleur à proximité d'un thermomètre, vous utilisez la moyenne des 2 thermomètres pour déterminer la température de l'entrepôt.
+* Écrivez un script Python qui calcule la moyenne de 2 thermomètres et qui active votre prise intelligent si la température est inférieure à 18°C et qui l'arrête si elle est supérieure à 20°C.
+* Vous pouvez utiliser 2 capteurs de température virtuels pour tester votre script Python.
