@@ -55,23 +55,24 @@ logger.warn("Hello {} at {}".format(name, time.time()))
 
 # Appeler une action depuis un script Python
 
-La commande pour appeler une action est `hass.services.call()`. Les actions sont définies par un domaine et un nom. Le domaine est le nom de l'intégration, par exemple light, switch, input_number, etc. Le nom est le nom de l'action, par exemple turn_on, turn_off, set_value, etc.
+La commande pour appeler une action est `hass.services.call()`. Les actions sont définies par un domaine et un nom. 
+* Le domaine est le nom de l'intégration, par exemple light, switch, input_number, etc.
+* Le nom est le nom de l'action, par exemple turn_on, turn_off, set_value, etc.
 
 Les actions s’appelaient auparavant des services dans Home Assistant, de là le nom de la classe `hass.services`.
 
 Par exemple, pour allumer une lumière, vous pouvez utiliser le code suivant dans votre script Python.
 
 ```python
-
-# Inside /python_scripts/example.py
-hass.services.call("light", "turn_on", {"entity_id": "light.salon", "brightness": 255})
-
+hass.services.call("light",                      # Domaine/intégration
+                   "turn_on",                    # Nom de l'action
+                   {"entity_id": "light.salon",  # Paramètres
+                    "brightness": 255})
 ```
 
 # Accéder aux états et attributs
 
 ```python
-
 state_obj = hass.states.get("input_number.target_temperature")
 
 if state_obj is not None:
@@ -82,7 +83,6 @@ if state_obj is not None:
     min_val = state_obj.attributes.get("min")
     if min_val is not None:
         logger.warn(f"input_number min: {min_val}")
-
 ```
 
 ## Automatisation
