@@ -1,78 +1,79 @@
 # Planification ESPHome
 
-Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08, cours 2. Les 10 cours à préparer sont répartis à raison de deux cours par semaine de S09 à S13; chacun fera l'objet d'une fiche et comprendra un exercice.
+Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08 et compte comme cours 1. Les dix cours suivants sont numérotés de 2 à 11, à raison de deux cours par semaine de S09 à S13; chacun fera l'objet d'une fiche et comprendra un exercice.
 
 ## S08
 
-### Cours 2 — Introduction et première installation (déjà donné)
+### Cours 1 — Introduction et première installation (déjà donné)
 
 * **Contenu :** rôle d'ESPHome, ESPHome Device Builder, configuration initiale du XIAO ESP32-C3, installation USB et connexion à Home Assistant (fiches 152 et 153).
 * **Exercice :** créer un appareil avec un nom unique, installer son micrologiciel et vérifier qu'il se connecte au Wi-Fi et apparaît dans Home Assistant.
 
 ## S09
 
-### Cours 1 — Informations intégrées et connexion à Home Assistant
+### Cours 2 — Informations intégrées, première DEL, journaux, OTA et dépannage
 
-* **Contenu :** entités intégrées ESPHome : `internal_temperature`, `wifi_signal`, `uptime`, `status`, `wifi_info` et `version`; découverte des entités et affichage dans un tableau de bord Home Assistant.
-* **Exercice :** ajouter ces capteurs et informations à la configuration, installer la mise à jour par OTA, puis créer un tableau de bord affichant leur état. Préciser que `internal_temperature` mesure la température de la puce, et non celle de la pièce.
+* **Contenu :** exposer les entités intégrées `internal_temperature`, `wifi_signal`, `uptime`, `status`, `wifi_info` et `version` dans Home Assistant; monter et déclarer une première DEL; lire les journaux, reconnaître les erreurs fréquentes, effectuer une mise à jour OTA et savoir quand revenir à une installation USB.
+* **Exercice :** ajouter les informations intégrées à la configuration et au tableau de bord, commander une DEL avec une résistance, puis diagnostiquer un problème préparé à l'aide des journaux et effectuer une mise à jour OTA. Préciser que `internal_temperature` mesure la puce, et non la pièce.
+
+### Cours 3 — Lire un bouton et utiliser les actions ESPHome
+
+* **Contenu :** entrées numériques, capteur binaire, résistance de rappel interne, logique inversée et rebond mécanique; actions ESPHome déclenchées par `on_press` et `on_release`.
+* **Exercice :** brancher un bouton sur une broche compatible, exposer son état dans Home Assistant et configurer une action ESPHome pour basculer la DEL à chaque pression; vérifier les états relâché et appuyé.
 
 ## S10
 
-### Cours 2 — Première sortie : contrôler une DEL
+### Cours 4 — Contrôler l'intensité d'une DEL avec un potentiomètre
 
-* **Contenu :** entrées/sorties numériques, choix des broches du XIAO ESP32-C3, résistance en série et limites électriques des broches 3,3 V; déclarer une sortie et un interrupteur ESPHome.
-* **Exercice :** monter une DEL avec sa résistance et la commander depuis Home Assistant; documenter la broche utilisée et vérifier les états marche/arrêt.
+* **Contenu :** sortie PWM, configuration d'une lumière monochrome, entrée analogique (ADC) du ESP32-C3 et lecture d'un potentiomètre; associer une valeur d'entrée au réglage de la luminosité.
+* **Exercice :** transformer le montage du premier cours en lumière réglable, exposer la valeur du potentiomètre comme capteur et l'utiliser pour faire varier la luminosité de la DEL; comparer le contrôle par potentiomètre et par Home Assistant.
 
-### Cours 3 — Faire varier l'intensité d'une DEL
+### Cours 5 — Automatisations ESPHome et Home Assistant
 
-* **Contenu :** sortie PWM, configuration d'une lumière monochrome et réglage de la luminosité depuis Home Assistant.
-* **Exercice :** transformer le montage précédent en lumière réglable, tester plusieurs niveaux de luminosité et observer l'effet d'une transition.
+* **Contenu :** approfondir les actions, conditions, déclencheurs et scripts ESPHome; organiser une automatisation exécutée localement sur l'ESP32-C3. Comparer avec une automatisation Home Assistant, exécutée par le serveur et fondée sur les entités disponibles. Une logique ESPHome locale peut continuer à commander les composants reliés à la carte si Home Assistant ou la connexion Wi-Fi devient indisponible; les fonctions qui nécessitent Home Assistant ou le réseau, comme les commandes depuis son tableau de bord, ne sont alors pas disponibles.
+* **Exercice :** programmer une action locale déclenchée par le bouton, avec une condition fondée sur une mesure, puis la réutiliser dans un script ESPHome. Créer ensuite une automatisation Home Assistant équivalente et comparer leur comportement en simulant de façon contrôlée une perte de connexion avec Home Assistant. Noter ce qui continue de fonctionner sur la carte et ce qui dépend du serveur.
 
 ## S11
 
-### Cours 4 — Lire un bouton
+### Cours 6 — Modèles (templates) et lambdas
 
-* **Contenu :** entrées numériques, capteur binaire, résistance de rappel interne, logique inversée et rebond mécanique.
-* **Exercice :** brancher un bouton sur une broche compatible, exposer son état dans Home Assistant et vérifier les états relâché et appuyé.
+* **Contenu :** capteurs et sorties template; créer une valeur calculée à partir d'un capteur existant; notions de base des lambdas C++ dans ESPHome et cas où une formule YAML suffit.
+* **Exercice :** créer un capteur template qui convertit la valeur du potentiomètre en pourcentage et un second qui indique une catégorie (bas, moyen ou élevé); comparer leurs valeurs dans Home Assistant.
 
-### Cours 5 — Lire un potentiomètre
+### Cours 7 — Capteur de température et automatisation sur seuil
 
-* **Contenu :** entrée analogique (ADC) du ESP32-C3, câblage du potentiomètre, plage de tension permise et publication d'une valeur dans Home Assistant.
-* **Exercice :** exposer la position du potentiomètre comme capteur, la représenter dans Home Assistant et comparer les valeurs aux positions minimale et maximale.
+* **Contenu :** identifier le modèle du capteur de température disponible, le câbler et l'exposer dans Home Assistant; combiner sa mesure avec les actions du bouton et la valeur analogique du potentiomètre. Distinguer la température ambiante de `internal_temperature`, qui mesure la puce.
+* **Exercice :** construire un appareil où le bouton commande la DEL, le potentiomètre règle son intensité et la température est mesurée dans Home Assistant; créer une automatisation qui réagit à un seuil de température. Vérifier le fonctionnement de chaque entité.
 
 ## S12
 
-### Cours 6 — Réagir aux entrées
+### Cours 8 — Afficher et intégrer les données sur un écran LCD
 
-* **Contenu :** déclencheurs et actions ESPHome, réaction à un bouton ou à un seuil de capteur; distinction entre une logique exécutée sur l'appareil et une automatisation Home Assistant.
-* **Exercice :** faire basculer une DEL à chaque pression sur le bouton, puis créer une automatisation Home Assistant qui réagit à un changement de l'entrée.
+* **Contenu :** identifier le type d'écran disponible, son câblage et ses broches; configurer l'afficheur pour montrer les valeurs des capteurs et états de l'appareil. Organiser les entités et combiner l'écran avec les composants déjà utilisés. Privilégier un écran I2C si le matériel le permet.
+* **Exercice :** construire un appareil qui combine bouton, DEL, potentiomètre et LCD; afficher une mesure sur l'écran et exposer les entités utiles dans Home Assistant. Adapter le câblage et la configuration au modèle réel d'écran.
 
-### Cours 7 — Afficher des données sur un écran LCD
+### Cours 9 — Bluetooth LE : proxy ESPHome et Bermuda
 
-* **Contenu :** identifier le type d'écran disponible, câblage et broches requises, configuration de l'afficheur et mise à jour des informations affichées. Privilégier un écran I2C si le matériel le permet.
-* **Exercice :** afficher au minimum une valeur disponible (par exemple la durée de fonctionnement ou la force du signal Wi-Fi) et vérifier son actualisation. Adapter le câblage et la configuration au modèle réel d'écran.
+* **Contenu :** rôle du Bluetooth Low Energy (BLE), configuration du XIAO ESP32-C3 comme proxy Bluetooth ESPHome, puis utilisation de l'intégration Bermuda dans Home Assistant pour estimer la pièce où se trouve un appareil BLE compatible.
+* **Exercice :** activer le proxy BLE, le vérifier dans Home Assistant, puis configurer Bermuda avec une balise ou un appareil BLE disponible et observer les changements de pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible.
 
 ## S13
 
-### Cours 8 — Intégrer les composants dans un appareil
+### Cours 10 — Projet de synthèse : conception et réalisation
 
-* **Contenu :** organiser une configuration complète, nommer clairement les entités et combiner entrées, sorties, afficheur et informations réseau; utiliser les journaux pour diagnostiquer un problème.
-* **Exercice :** réaliser un appareil qui combine bouton, DEL, potentiomètre et LCD, et rendre ses états ou mesures utiles dans Home Assistant.
+* **Contenu :** révision du cycle configuration-compilation-installation, mise à jour OTA, lecture des journaux et dépannage; présentation des choix de broches et des entités.
+* **Exercice :** concevoir et assembler un appareil ESPHome qui combine les composants étudiés; remettre une première configuration YAML sans secrets et un schéma de branchement.
 
-### Cours 9 — Journaux, OTA et dépannage
+### Cours 11 — Projet de synthèse : démonstration et validation
 
-* **Contenu :** lire les journaux ESPHome, repérer les erreurs fréquentes de configuration ou de connexion, effectuer une mise à jour OTA et savoir quand revenir à une installation USB.
-* **Exercice :** diagnostiquer un problème préparé (entité absente, mauvaise broche ou appareil hors ligne), corriger la configuration et valider la correction par les journaux et Home Assistant.
-
-### Cours 10 — Projet de synthèse et validation
-
-* **Contenu :** révision du cycle configuration-compilation-installation, mise à jour OTA, validation du montage et dépannage; présentation des choix de broches et des entités.
-* **Exercice :** finaliser et démontrer un appareil ESPHome fonctionnel. Remettre la configuration YAML sans secrets, un schéma de branchement et une courte vérification des fonctions dans Home Assistant.
+* **Contenu :** tester le fonctionnement complet, lire les journaux, effectuer une mise à jour OTA et corriger les problèmes; présenter les choix de broches et les entités créées.
+* **Exercice :** démontrer l'appareil, diagnostiquer et corriger un problème préparé à l'aide des journaux, puis remettre la configuration YAML finale sans secrets, le schéma de branchement et une vérification des fonctions dans Home Assistant.
 
 ## Matériel et précautions
 
-* Matériel de base : XIAO ESP32-C3, DEL, résistances, boutons, potentiomètre et écran LCD disponible en classe.
+* Matériel de base : XIAO ESP32-C3, DEL, résistances, boutons, potentiomètre, écran LCD disponible en classe et capteur de température compatible (modèle à confirmer).
 * Vérifier le brochage et la compatibilité de chaque broche avec le modèle exact de carte. Ne jamais appliquer 5 V à une entrée du ESP32-C3.
 * Vérifier le type d'interface du LCD avant la séance; le câblage, les broches et la configuration varient selon le modèle.
+* Vérifier le modèle et les exigences de câblage du capteur de température avant la séance.
 * Garder les mots de passe et les clés dans `secrets.yaml`; ne pas les inclure dans les exercices remis.
 
