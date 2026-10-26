@@ -25,8 +25,8 @@ Le fichier de configuration YAML doit identifier la variante ESP32-C3. Voici un 
 
 ```yaml
 esphome:
-  name: xiao-esp32-c3
-  friendly_name: XIAO ESP32-C3
+  name: esphome_xx
+  friendly_name: ESPHOME XX
 
 esp32:
   variant: esp32c3
@@ -64,9 +64,12 @@ La toute première installation du micrologiciel doit se faire par USB. Une fois
 
 Si aucun port COM n'apparaît, vérifier que le câble USB-C permet le transfert de données, essayer un autre port USB et reconnecter la carte. La procédure de connexion physique et de dépannage est décrite dans le guide officiel [Physical Device Connection](https://esphome.io/guides/physical_device_connection/).
 
-Après le redémarrage, la carte devrait se connecter au Wi-Fi. ESPHome Device Builder peut ensuite afficher les journaux de l'appareil et son état en ligne. Si Home Assistant est sur le même réseau, il peut découvrir l'appareil et proposer l'ajout de l'intégration ESPHome.
+Après le redémarrage, la carte devrait se connecter au Wi-Fi. ESPHome Device Builder peut ensuite afficher les journaux de l'appareil et son état en ligne. 
 
-*Consulter l'intégration ESPHome de Home Assistant pour plus de détails sur l'ajout de l'appareil et la configuration des entités.*
+Si Home Assistant est sur le même réseau, il peut découvrir l'appareil et proposer l'ajout de l'intégration ESPHome
+
+* "Appareils détectés" dans la vue d'ensemble.
+* Paramètres - Intégrations - Découvertes
 
 Les installations suivantes peuvent être envoyées par OTA, sans rebrancher la carte par USB, tant qu'elle est joignable sur le réseau.
 

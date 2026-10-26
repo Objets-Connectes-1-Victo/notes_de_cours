@@ -8,4 +8,6 @@
 2. Compiler le micrologiciel et relever toute erreur de validation. Corriger la configuration avant l'installation.
 3. Installer la mise à jour par OTA. Garder la carte alimentée pendant toute l'opération.
 4. Ouvrir les journaux et repérer les messages indiquant le démarrage, la connexion Wi-Fi et la disponibilité de l'API.
-5. Dans Home Assistant, vérifier la présence des entités, puis ajouter au tableau de bord la force du signal, la durée de fonctionnement et l'état en ligne.
+5. Si ce n'est pas déjà fait, ajouter l'appareil dans Home Assistant et vérifier que les entités sont disponibles. (*Paramètres - Intégrations - Découvertes*)
+6. Entrer la clé de chiffrement de l'API dans Home Assistant pour que l'intégration puisse se connecter à l'appareil. Vérifier que l'état de l'appareil passe à "en ligne" et que les entités sont accessibles. (Dans le .yml de l'appareil: *api.encryption.key*)
+7. Dans Home Assistant, vérifier la présence des entités, puis ajouter au tableau de bord la force du signal, la durée de fonctionnement et le statut du Wi-Fi.

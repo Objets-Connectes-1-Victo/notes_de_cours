@@ -29,7 +29,7 @@ sensor:
 
 binary_sensor:
   - platform: status
-    name: "Wi-Fi connecté"
+    name: "Statut Wi-Fi"
 
 text_sensor:
   - platform: wifi_info

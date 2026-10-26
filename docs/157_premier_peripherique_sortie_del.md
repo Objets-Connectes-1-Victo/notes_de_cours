@@ -10,7 +10,7 @@ Utiliser une broche de sortie disponible sur le modèle exact de carte. Pour le 
 GPIO3 (D1) ---- résistance 220 à 330 ohms ---- anode DEL |>| cathode ---- GND
 ```
 
-La patte longue de la DEL est généralement l'anode et la patte courte, près du côté plat du boîtier, la cathode. La résistance doit être en série avec la DEL. Ne jamais brancher une DEL directement entre une broche et GND. Les broches du XIAO ESP32-C3 utilisent une logique de 3,3 V; ne pas leur appliquer 5 V.
+La patte longue de la DEL est l'anode et la patte courte, près du côté plat du boîtier, la cathode. La résistance doit être en série avec la DEL. Ne jamais brancher une DEL directement entre une broche et GND. 
 
 ## Déclarer la sortie dans ESPHome
 
@@ -24,7 +24,9 @@ switch:
     name: "DEL du montage"
 ```
 
-Après compilation et installation, cet interrupteur devrait être disponible dans Home Assistant. L'état activé applique un niveau logique haut à la broche; si la DEL est branchée avec la polarité indiquée, elle s'allume.
+Après compilation et installation, cet interrupteur devrait être disponible dans Home Assistant (section *Contrôles*). L'état activé applique un niveau logique haut à la broche; si la DEL est branchée avec la polarité indiquée, elle s'allume.
+
+Ajouter le contrôle de votre DEL à un tableau de bord Home Assistant.
 
 ## Vérifications et précautions
 
