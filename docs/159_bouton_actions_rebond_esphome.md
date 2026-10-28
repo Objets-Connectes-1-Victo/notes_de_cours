@@ -2,13 +2,30 @@
 
 ## 139.1 Lire un bouton avec une entrée GPIO {#fiche-entree_gpio}
 
+Une broche GPIO peut être configurée comme entrée ou comme sortie. Pour lire un signal numérique, ESPHome utilise un `binary_sensor` avec `platform: gpio`. L'entrée détecte deux niveaux logiques, généralement interprétés comme activé et désactivé; elle ne mesure pas une tension variable. 
+
+!!! note
+
+    Pour une tension variable, on utilise plutôt un capteur analogique ADC.
+
+
+Dans la configuration, le numéro `GPIO` désigne la broche du microcontrôleur, qui peut avoir un autre nom imprimé sur la carte. 
+
+Le mode d'entrée et une résistance de rappel (`pullup` ou `pulldown`) donnent un état stable lorsque le circuit externe n'impose pas de niveau. `inverted` permet d'inverser la correspondance entre le niveau électrique et l'état logique publié. 
+
+!!! attention
+    
+    Vérifier le brochage de la carte et les limites électriques avant de connecter un circuit; les entrées du XIAO ESP32-C3 ne tolèrent pas 5 V.
+
+### Exemple : bouton avec résistance de rappel interne
+
 Un bouton poussoir peut être lu avec une entrée numérique. Le montage ci-dessous utilise la résistance de rappel interne du XIAO ESP32-C3 : le bouton relie la broche GPIO4 à GND lorsqu'on appuie.
 
 ```text
 GPIO4 (D2) ---- bouton poussoir ---- GND
 ```
 
-Avec la résistance de rappel (`pullup`), l'entrée est normalement à l'état haut. L'appui la relie à GND; `inverted: true` fait correspondre cet état bas à l'état logique « activé » du capteur binaire. Ne jamais appliquer 5 V à une broche du ESP32-C3.
+Avec la résistance de rappel (`pullup`), l'entrée est normalement à l'état haut. L'appui la relie à GND; `inverted: true` fait correspondre cet état bas à l'état logique « activé » du capteur binaire.
 
 ```yaml
 binary_sensor:
