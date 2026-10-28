@@ -6,20 +6,41 @@ Une broche GPIO peut être configurée comme entrée ou comme sortie. Pour lire 
 
 !!! note
 
-    Pour une tension variable, on utilise plutôt un capteur analogique ADC.
-
+    Pour une tension variable, on utilise plutôt un capteur analogique ADC (`platform: adc`)
 
 Dans la configuration, le numéro `GPIO` désigne la broche du microcontrôleur, qui peut avoir un autre nom imprimé sur la carte. 
 
-Le mode d'entrée et une résistance de rappel (`pullup` ou `pulldown`) donnent un état stable lorsque le circuit externe n'impose pas de niveau. `inverted` permet d'inverser la correspondance entre le niveau électrique et l'état logique publié. 
+Le mode d'entrée et une résistance de rappel (`pullup` ou `pulldown`) donnent un état stable lorsque le circuit externe n'impose pas de niveau. Si ni résistance de rappel interne ni résistance externe n'est configurée, la broche est flottante : elle n'a pas de niveau défini et peut changer d'état sans appui sur le bouton. Dans les exemples ci-dessous, `pulldown` ou `pullup` fixe ce niveau au repos.
 
-!!! attention
+!!! warning
     
     Vérifier le brochage de la carte et les limites électriques avant de connecter un circuit; les entrées du XIAO ESP32-C3 ne tolèrent pas 5 V.
 
-### Exemple : bouton avec résistance de rappel interne
+### Exemple simple : bouton avec résistance `pulldown`
 
-Un bouton poussoir peut être lu avec une entrée numérique. Le montage ci-dessous utilise la résistance de rappel interne du XIAO ESP32-C3 : le bouton relie la broche GPIO4 à GND lorsqu'on appuie.
+La résistance de rappel interne maintient l'entrée à l'état bas lorsque le bouton est relâché. Le bouton relie GPIO4 à 3,3 V lorsqu'on appuie : l'état lu passe alors à haut.
+
+![Bouton avec résistance de rappel interne `pulldown`](img/esphome_montage_bouton_pulldown.png)
+
+```text
+
+```yaml
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO4
+      mode:
+        input: true
+        pulldown: true
+    name: "Bouton"
+    id: bouton
+```
+
+À l'appui, le capteur binaire passe directement à l'état activé. Cette première configuration ne contient aucun filtre; elle sert à comprendre la lecture de l'entrée avant d'aborder le rebond mécanique.
+
+### Variante : bouton avec `pullup`, inversion et anti-rebond
+
+Avec un câblage `pullup`, l'entrée est normalement à l'état haut et le bouton la relie à GND lorsqu'on appuie. Le niveau électrique lu à l'appui est donc bas. L'option `inverted: true` inverse cette correspondance pour que l'état logique publié par le capteur binaire soit activé pendant l'appui.
 
 ```text
 GPIO4 (D2) ---- bouton poussoir ---- GND
