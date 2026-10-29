@@ -144,10 +144,12 @@ binary_sensor:
       - delayed_off: 20ms
     on_press:
       then:
-        - switch.toggle: led_montage
+        - switch.turn_on: led_montage
+        - logger.log: "Bouton appuyé : DEL allumée"
     on_release:
       then:
-        - logger.log: "Bouton relâché"
+        - switch.turn_off: led_montage
+        - logger.log: "Bouton relâché : DEL éteinte"
 ```
 
 ## État du bouton dans Home Assistant
