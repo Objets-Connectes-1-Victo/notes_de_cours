@@ -1,6 +1,6 @@
 # Planification ESPHome
 
-Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08 et compte comme cours 1. Le cours 2 a également lieu en S08. Les cours 3 à 10 sont répartis à raison de deux cours par semaine de S09 à S12; le cours 11 termine la séquence en S13. Chaque cours comprend une fiche et un exercice.
+Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08 et compte comme cours 1. Le cours 2 a également lieu en S08. Les cours 3 à 6 ont lieu en S09 et S10. En S11, l'examen 2 a lieu dans la première partie et le cours 7 dans la deuxième. Les cours 8 et 9 ont lieu en S12, puis les cours 10 et 11 en S13. Chaque cours comprend une fiche et un exercice.
 
 ## S08
 
@@ -40,29 +40,33 @@ Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en
 
 ## S11
 
+### Examen 2
+
+L'examen 2 a lieu dans la première partie de S11.
+
 ### Cours 7 — Capteur de température et automatisation sur seuil
 
 * **Contenu :** identifier le modèle du capteur de température disponible, le câbler et l'exposer dans Home Assistant; combiner sa mesure avec les actions du bouton et la valeur analogique du potentiomètre. Distinguer la température ambiante de `internal_temperature`, qui mesure la puce.
 * **Exercice :** construire un appareil où le bouton commande la DEL, le potentiomètre règle son intensité et la température est mesurée dans Home Assistant; créer une automatisation qui réagit à un seuil de température. Vérifier le fonctionnement de chaque entité.
+
+## S12
 
 ### Cours 8 — Afficher et intégrer les données sur un écran LCD
 
 * **Contenu :** identifier le type d'écran disponible, son câblage et ses broches; configurer l'afficheur pour montrer les valeurs des capteurs et états de l'appareil. Organiser les entités et combiner l'écran avec les composants déjà utilisés. Privilégier un écran I2C si le matériel le permet.
 * **Exercice :** construire un appareil qui combine bouton, DEL, potentiomètre et LCD; afficher une mesure sur l'écran et exposer les entités utiles dans Home Assistant. Adapter le câblage et la configuration au modèle réel d'écran.
 
-## S12
-
 ### Cours 9 — Bluetooth LE : proxy ESPHome et Bermuda
 
 * **Contenu :** rôle du Bluetooth Low Energy (BLE), configuration du XIAO ESP32-C3 comme proxy Bluetooth ESPHome, puis utilisation de l'intégration Bermuda dans Home Assistant pour estimer la pièce où se trouve un appareil BLE compatible.
 * **Exercice :** activer le proxy BLE, le vérifier dans Home Assistant, puis configurer Bermuda avec une balise ou un appareil BLE disponible et observer les changements de pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible.
 
+## S13
+
 ### Cours 10 — Projet de synthèse : conception et réalisation
 
 * **Contenu :** révision du cycle configuration-compilation-installation, mise à jour OTA, lecture des journaux et dépannage; présentation des choix de broches et des entités.
 * **Exercice :** concevoir et assembler un appareil ESPHome qui combine les composants étudiés; remettre une première configuration YAML sans secrets et un schéma de branchement.
-
-## S13
 
 ### Cours 11 — Projet de synthèse : démonstration et validation
 
