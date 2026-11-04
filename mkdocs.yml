@@ -142,12 +142,12 @@ nav:
       - "139. Lire un bouton : actions et rebond mécanique": "159_bouton_actions_rebond_esphome.md"
       - "140. Exercice : bouton et filtre anti-rebond": "160_exercice_bouton_anti_rebond_esphome.md"
       - "141. Modulation de largeur d'impulsions (PWM)": "161_del_pwm_potentiometre_esphome.md"
-      - "142. Convertisseur analogique-numérique (ADC)": "165_adc_potentiometre_esphome.md"
-      - "143. Exercice : régler la luminosité avec un potentiomètre": "162_exercice_del_pwm_potentiometre_esphome.md"
+      - "142. Convertisseur analogique-numérique (ADC)": "162_adc_potentiometre_esphome.md"
+      - "143. Exercice : régler la luminosité avec un potentiomètre": "163_exercice_del_pwm_potentiometre_esphome.md"
     - "S10":
       - "S10": "102__semaine_10_.md"
-      - "144. Automatisations, substitutions et packages ESPHome": "163_automatisations_substitutions_packages_esphome.md"
-      - "145. Exercice : automatisations, substitutions et packages ESPHome": "164_exercice_automatisations_substitutions_packages_esphome.md"
+      - "144. Automatisations, substitutions et packages ESPHome": "164_automatisations_substitutions_packages_esphome.md"
+      - "145. Exercice : automatisations, substitutions et packages ESPHome": "165_exercice_automatisations_substitutions_packages_esphome.md"
     - "S12":
       - "S12": "112__semaine_12_.md"
       - "101. Exercice 20": "114_exercice_20.md"

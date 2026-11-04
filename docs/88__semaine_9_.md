@@ -8,7 +8,7 @@
 ## Cours 4
 
 - [141. Modulation de largeur d'impulsions (PWM)](161_del_pwm_potentiometre_esphome.md)
-- [142. Convertisseur analogique-numérique (ADC)](165_adc_potentiometre_esphome.md)
-- [143. Exercice : régler la luminosité avec un potentiomètre](162_exercice_del_pwm_potentiometre_esphome.md)
+- [142. Convertisseur analogique-numérique (ADC)](162_adc_potentiometre_esphome.md)
+- [143. Exercice : régler la luminosité avec un potentiomètre](163_exercice_del_pwm_potentiometre_esphome.md)
 
 
