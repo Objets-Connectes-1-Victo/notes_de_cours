@@ -28,10 +28,10 @@ Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en
 
 ## S10
 
-### Cours 5 — Automatisations ESPHome et Home Assistant
+### Cours 5 — Automatisations, substitutions et packages ESPHome
 
-* **Contenu :** approfondir les actions, conditions, déclencheurs et scripts ESPHome; organiser une automatisation exécutée localement sur l'ESP32-C3. Comparer avec une automatisation Home Assistant, exécutée par le serveur et fondée sur les entités disponibles. Une logique ESPHome locale peut continuer à commander les composants reliés à la carte si Home Assistant ou la connexion Wi-Fi devient indisponible; les fonctions qui nécessitent Home Assistant ou le réseau, comme les commandes depuis son tableau de bord, ne sont alors pas disponibles.
-* **Exercice :** programmer une action locale déclenchée par le bouton, avec une condition fondée sur une mesure, puis la réutiliser dans un script ESPHome. Créer ensuite une automatisation Home Assistant équivalente et comparer leur comportement en simulant de façon contrôlée une perte de connexion avec Home Assistant. Noter ce qui continue de fonctionner sur la carte et ce qui dépend du serveur.
+* **Contenu :** approfondir les actions, conditions, déclencheurs et scripts ESPHome; organiser une automatisation exécutée localement sur l'ESP32-C3. Introduire les `substitutions` pour paramétrer et réutiliser des valeurs dans le YAML, puis les `packages` pour séparer et réutiliser des sections de configuration. Comparer les automatisations ESPHome à celles de Home Assistant, exécutées par le serveur et fondées sur les entités disponibles. Une logique ESPHome locale peut continuer à commander les composants reliés à la carte si Home Assistant ou la connexion Wi-Fi devient indisponible; les fonctions qui nécessitent Home Assistant ou le réseau, comme les commandes depuis son tableau de bord, ne sont alors pas disponibles.
+* **Exercice :** remplacer les valeurs répétées de la configuration par des `substitutions`, puis extraire une partie réutilisable dans un fichier de package et l'inclure dans le YAML de l'appareil. Programmer ensuite une action locale déclenchée par le bouton, avec une condition fondée sur une mesure, et la réutiliser dans un script ESPHome. Créer une automatisation Home Assistant équivalente et comparer leur comportement en simulant de façon contrôlée une perte de connexion avec Home Assistant. Noter ce qui continue de fonctionner sur la carte et ce qui dépend du serveur.
 
 ### Cours 6 — Modèles (templates) et lambdas
 

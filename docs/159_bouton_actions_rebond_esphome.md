@@ -2,11 +2,15 @@
 
 ## 139.1 Lire un bouton avec une entrée GPIO {#fiche-entree_gpio}
 
-Une broche GPIO peut être configurée comme entrée ou comme sortie. Pour lire un signal numérique, ESPHome utilise un `binary_sensor` avec `platform: gpio`. L'entrée détecte deux niveaux logiques, généralement interprétés comme activé et désactivé; elle ne mesure pas une tension variable. 
+Une broche GPIO peut être configurée comme entrée ou comme sortie. Pour lire un signal numérique, ESPHome utilise un `binary_sensor` avec `platform: gpio`. 
+
+L'entrée détecte deux niveaux logiques, généralement interprétés comme activé et désactivé; elle ne mesure pas une tension variable.
+
+Un voltage lu supérieur à 2 V est considéré comme un niveau haut (activé) et un voltage inférieur à 0,8 V comme un niveau bas (désactivé). Entre ces deux valeurs, l'état est indéfini.
 
 !!! note
 
-    Pour une tension variable, on utilise plutôt un capteur analogique ADC (`platform: adc`)
+    Pour une tension d'entrée qui prend plus que 2 valeurs, on utilise plutôt un capteur analogique ADC (`platform: adc`) - vu plus tard dans le cours.
 
 Dans la configuration, le numéro `GPIO` désigne la broche du microcontrôleur, qui peut avoir un autre nom imprimé sur la carte. 
 

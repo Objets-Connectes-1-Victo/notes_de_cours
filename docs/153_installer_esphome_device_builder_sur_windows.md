@@ -49,6 +49,10 @@ wifi:
   password: !secret wifi_password
 ```
 
+!!! note
+
+    Les fichiers de configuration YAML sont localisés sous *%USERPROFILE%\esphome* dans la version Windows de ESPHome Device Builder.
+
 Les valeurs référencées avec `!secret` sont conservées dans `secrets.yaml`, dans le dossier de configuration ESPHome. Garder les valeurs générées par l'assistant pour la clé de chiffrement de l'API et le mot de passe OTA. Remplacer les noms des secrets dans la configuration si l'assistant utilise d'autres noms. Ne pas publier `secrets.yaml` ni l'ajouter à un dépôt Git.
 
 Assurez-vous que *ota* et *api* sont activés pour permettre la mise à jour OTA et la communication avec Home Assistant. L'API ESPHome est utilisée par Home Assistant pour découvrir l'appareil et accéder à ses entités.

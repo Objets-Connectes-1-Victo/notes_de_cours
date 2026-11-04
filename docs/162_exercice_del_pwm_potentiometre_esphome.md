@@ -1,6 +1,6 @@
-# 142. Exercice : régler la luminosité avec un potentiomètre {#chapitre-exercice_del_pwm_potentiometre_esphome}
+# 143. Exercice : régler la luminosité avec un potentiomètre {#chapitre-exercice_del_pwm_potentiometre_esphome}
 
-## 142.1 Travail demandé {#fiche-travail_demande}
+## 143.1 Travail demandé {#fiche-travail_demande}
 
 Effectuer le montage suivant avec commande de luminosité PWM et un potentiomètre.
 
@@ -10,6 +10,7 @@ Effectuer le montage suivant avec commande de luminosité PWM et un potentiomèt
 
 ![Montage DEL et potentiomètre - planche](img/esphome_montage_pwm_et_adc_maquette.png)
 
+1. Garder une copie de la configuration YAML de l'exercice précédent: le fichier est sous *%USERPROFILE%\esphome*.
 1. Hors tension, brancher la DEL avec sa résistance en série sur une broche de sortie compatible.
 1. Brancher les bornes extérieures du potentiomètre à 3,3 V et GND; connecter son curseur à une broche ADC compatible.
 1. Vérifier le brochage du XIAO ESP32-C3 et confirmer que la broche de la DEL et celle du potentiomètre sont différentes.
