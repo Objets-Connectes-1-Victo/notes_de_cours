@@ -4,7 +4,7 @@
 
 Le plan de brochage (pinout) indique l'emplacement des broches sur la carte, leurs noms et les fonctions qu'elles peuvent assurer. Les noms imprimés sur la carte, comme D1, ne sont pas nécessairement les numéros GPIO utilisés dans ESPHome : sur le XIAO ESP32-C3, D1 correspond à GPIO3.
 
-![Plan de brochage du XIAO ESP32-C3](https://files.seeedstudio.com/wiki/XIAO_WiFi/XIAO_ESP32-C3_front_pinout.png)
+![Plan de brochage du XIAO ESP32-C3](https://files.seeedstudio.com/wiki/XIAO_WiFi/XIAO_ESP32-C3_front_pinout.png){ width="600" }
 
 Les broches n'ont pas toutes le même rôle :
 
@@ -25,10 +25,8 @@ Une broche configurée comme sortie peut commander un périphérique simple. Pou
 
 Utiliser une broche de sortie disponible sur le modèle exact de carte. Pour le XIAO ESP32-C3, D1 correspond à GPIO3; vérifier le brochage ci-dessus avant de câbler.
 
-
-```text
-GPIO3 (D1) ---- résistance 220 à 330 ohms ---- anode DEL |>| cathode ---- GND
-```
+![Schéma du montage DEL](img/esphome_montage_del_schema.png){ width="500" }
+![Photo du montage DEL](img/esphome_montage_del_maquette.png){ width="500" }
 
 La patte longue de la DEL est l'anode et la patte courte, près du côté plat du boîtier, la cathode. La résistance doit être en série avec la DEL. Ne jamais brancher une DEL directement entre une broche et GND. 
 
