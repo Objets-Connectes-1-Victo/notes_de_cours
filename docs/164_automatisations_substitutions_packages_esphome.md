@@ -88,7 +88,7 @@ Puis inclure ce fragment dans le YAML principal :
 
 ```yaml
 packages:
-  commande_del: !include packages/commande_del.yaml
+  - !include packages/commande_del.yaml
 ```
 
 Le chemin de `!include` est relatif au fichier YAML principal. Le fichier inclus contient le fragment `script:` seulement; il ne répète pas la clé `packages:`. L'identifiant `signaliser_appui` reste utilisable dans une automatisation du fichier principal.

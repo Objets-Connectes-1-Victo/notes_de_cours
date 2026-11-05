@@ -1,4 +1,4 @@
-# 140. Exercice : bouton et filtre anti-rebond {#chapitre-exercice_bouton_anti_rebond_esphome}
+# 140. Exercice 4 : bouton et filtre anti-rebond {#chapitre-exercice_bouton_anti_rebond_esphome}
 
 ## 140.1 Travail demandé {#fiche-travail_demande}
 

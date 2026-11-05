@@ -1,4 +1,4 @@
-# 143. Exercice : régler la luminosité avec un potentiomètre {#chapitre-exercice_del_pwm_potentiometre_esphome}
+# 143. Exercice 5 : régler la luminosité avec un potentiomètre {#chapitre-exercice_del_pwm_potentiometre_esphome}
 
 ## 143.1 Travail demandé {#fiche-travail_demande}
 

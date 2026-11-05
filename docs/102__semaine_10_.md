@@ -3,6 +3,6 @@
 ## Cours 5
 
 - [144. Automatisations, substitutions et packages ESPHome](164_automatisations_substitutions_packages_esphome.md)
-- [145. Exercice : automatisations, substitutions et packages ESPHome](165_exercice_automatisations_substitutions_packages_esphome.md)
+- [145. Exercice 6 : automatisations, substitutions et packages ESPHome](165_exercice_automatisations_substitutions_packages_esphome.md)
 
 

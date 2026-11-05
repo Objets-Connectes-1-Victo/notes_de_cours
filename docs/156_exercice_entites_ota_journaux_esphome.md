@@ -1,4 +1,4 @@
-# 136. Exercice : entités intégrées, OTA et journaux {#chapitre-exercice_entites_ota_journaux_esphome}
+# 136. Exercice 2 : entités intégrées, OTA et journaux {#chapitre-exercice_entites_ota_journaux_esphome}
 
 ## 136.1 Travail demandé {#fiche-travail_demande}
 

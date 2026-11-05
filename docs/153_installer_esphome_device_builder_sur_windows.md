@@ -1,4 +1,4 @@
-# 133. Installer ESPHome Device Builder sous Windows et configurer le XIAO ESP32-C3 {#chapitre-installer_esphome_device_builder_sur_windows}
+# 133. Exercice 1 : installer ESPHome Device Builder sous Windows et configurer le XIAO ESP32-C3 {#chapitre-installer_esphome_device_builder_sur_windows}
 
 ## 133.1 Installer ESPHome Device Builder {#fiche-installer_esphome_device_builder}
 

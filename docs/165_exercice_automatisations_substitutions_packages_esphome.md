@@ -1,4 +1,4 @@
-# 145. Exercice : automatisations, substitutions et packages ESPHome {#chapitre-exercice_automatisations_substitutions_packages_esphome}
+# 145. Exercice 6 : automatisations, substitutions et packages ESPHome {#chapitre-exercice_automatisations_substitutions_packages_esphome}
 
 ## 145.1 Travail demandé {#fiche-travail_demande}
 

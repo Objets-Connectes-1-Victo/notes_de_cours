@@ -1,4 +1,4 @@
-# 138. Exercice : commander une DEL avec ESPHome {#chapitre-exercice_premier_peripherique_sortie_del}
+# 138. Exercice 3 : commander une DEL avec ESPHome {#chapitre-exercice_premier_peripherique_sortie_del}
 
 ## 138.1 Travail demandé {#fiche-travail_demande}
 
