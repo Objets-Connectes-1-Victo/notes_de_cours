@@ -47,7 +47,7 @@ api:
 
 ota:
   - platform: esphome
-    password: !secret ota_password
+    encryption: # Utilise la même clé que l'API
 
 wifi:
   ssid: !secret wifi_ssid
@@ -64,9 +64,29 @@ OTA signifie « Over-The-Air », c'est-à-dire « par les airs ». Une mise à j
 
 Pour qu'une mise à jour OTA fonctionne, la carte doit déjà exécuter un micrologiciel ESPHome qui prend en charge OTA, être alimentée et être joignable sur le réseau. On lance alors la compilation et l'envoi depuis le tableau de bord ESPHome. La première installation nécessite souvent une connexion USB; OTA sert surtout aux installations et modifications suivantes. Il ne faut pas confondre OTA avec l'intégration `api`, qui permet à Home Assistant d'échanger avec l'appareil.
 
-Dans l'exemple, le bloc `ota` active le mécanisme ESPHome et demande un mot de passe pour autoriser l'installation. Ce mot de passe est différent de la clé de chiffrement du bloc `api`. Le mot de passe OTA doit rester secret et l'envoi doit être effectué sur un réseau de confiance. OTA fonctionne sur le réseau local; il n'est pas nécessaire d'exposer l'appareil directement à Internet.
+Dans l'exemple, le bloc `ota` active le mécanisme ESPHome et demande un mot de passe pour autoriser l'installation. En utilisant un clé vide appelée *encryption*, on utilise la même clé que celle utilisée pour l'API <https://esphome.io/components/ota/esphome/#encryption>. 
+
+OTA fonctionne sur le réseau local; il n'est pas nécessaire d'exposer l'appareil directement à Internet.
 
 Si l'appareil ne répond plus après une modification, il peut être nécessaire de le reconnecter par USB pour réinstaller un micrologiciel fonctionnel. Gardez donc la carte accessible et évitez de couper son alimentation pendant une mise à jour.
+
+## Gestion des configurations
+
+Il y a une seule configuration par appareil dans ESPHome Device Builder. Il n'y a pas de mécanisme pour gérer plusieurs configurations pour le même appareil.
+
+Par contre, vous pouvez créer plusieurs appareils pour le même microcontrôleur dans ESPHome Device Builder, un par configuration (montage/exercice). Chaque appareil a son propre fichier de configuration YAML et son propre micrologiciel. Par contre il est important de *choisir un nom unique* pour chaque appareil, car le nom est utilisé par Home Assistant pour identifier l'appareil et ses entités.
+
+Utiliser *esphomeXX-<exerciceNN>* pour le nom de l'appareil, par exemple esphome55-exercice01 (XX étant votre numéro de kit) 
+
+Dans ESPHome Device Builder, quand vous choisissez *Créer un appareil*, vous pouvez importer une configuration existante dans les options avancées.
+
+### Localisation des fichiers de configuration
+
+Sous Windows, les fichiers de configuration se trouvent dans : `%USERPROFILE%\esphome`. Un raccourci vers les fichiers de configuration est fourni dans le menu contextuel de l'icône ESPHome Device Builder.
+
+![Raccourci vers les fichiers de configuration](img/esphome_config_folder.png){ width="500" }
+
+Vous pouvez sauvegarder le répertoire de configuration dans un dépôt Git. Cela permet de conserver l'historique des modifications et de revenir à une version précédente si nécessaire. 
 
 ## Précautions
 

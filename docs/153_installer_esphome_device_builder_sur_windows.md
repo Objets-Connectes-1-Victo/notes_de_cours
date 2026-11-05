@@ -5,9 +5,11 @@
 ESPHome Device Builder existe sous forme d'application de bureau pour Windows 11. Cette application est distincte du module complémentaire ESPHome installé dans Home Assistant.
 
 1. Ouvrir la page officielle [Installer ESPHome](https://esphome.io/install/) et choisir l'onglet Windows.
-2. Télécharger le fichier d'installation `.exe` à partir du lien officiel.
-3. Ouvrir le fichier téléchargé et suivre les étapes de l'installateur.
-4. Lancer ESPHome Device Builder à partir du menu Démarrer.
+1. Télécharger le fichier d'installation `.exe` à partir du lien officiel.
+1. Ouvrir le fichier téléchargé et suivre les étapes de l'installateur.
+    1. Ne pas utiliser l'option d'utiliser la compilation à distance/serveur de compilation (*Remote build*)
+    1. Vous pouvez le désactiver dans les paramètres de l'application après l'installation.
+1. Lancer ESPHome Device Builder à partir du menu Démarrer.
 
 Au premier lancement, l'application prépare les outils nécessaires et ouvre le tableau de bord dans le navigateur Web. Il n'est pas nécessaire d'installer Python séparément.
 
@@ -15,7 +17,7 @@ Au premier lancement, l'application prépare les outils nécessaires et ouvre le
 
 Utiliser un câble USB-C qui permet le transfert de données, puis connecter le XIAO ESP32-C3 à l'ordinateur.
 
-1. Dans le tableau de bord, choisir **Create device**, puis **New Device Setup**.
+1. Dans le tableau de bord, choisir **Créer un appareil**, puis **Créer un nouveau projet**.
 2. Donner un nom unique à l'appareil, *esphomeXX* 
 3. Choisir *Seeed XIAO ESP32C3* comme carte (attention il y en a un autre avec un nom semblable)
 4. Entrer le nom et le mot de passe du réseau Wi-Fi. Utiliser Domotique Pedago
@@ -25,7 +27,7 @@ Le fichier de configuration YAML doit identifier la variante ESP32-C3. Voici un 
 
 ```yaml
 esphome:
-  name: esphome_xx
+  name: esphome<XX> # Remplacer <XX> par votre numéro de kit
   friendly_name: ESPHOME XX
 
 esp32:
@@ -42,7 +44,7 @@ api:
 
 ota:
   - platform: esphome
-    password: !secret ota_password
+    encryption: # Utilise la même clé que l'API
 
 wifi:
   ssid: !secret wifi_ssid

@@ -15,7 +15,7 @@ Les broches n'ont pas toutes le même rôle :
 
 ### Broches de strapping
 
-Sur l'ESP32-C3, GPIO2, GPIO8 et GPIO9 sont des broches de strapping. Leur niveau électrique est lu au démarrage pour déterminer certaines options de démarrage. Un circuit raccordé à l'une de ces broches qui impose un niveau incompatible peut empêcher le démarrage normal ou faire démarrer la carte dans un mode différent. Elles peuvent avoir d'autres usages après le démarrage, mais il faut tenir compte de cette contrainte lors du câblage. Pour les premières expériences, choisir une broche disponible qui n'est pas une broche de strapping.
+Sur l'ESP32-C3, GPIO2, GPIO8 et GPIO9 sont des broches de *strapping* (sélection de mode de démarrage). Leur niveau électrique est lu au démarrage pour déterminer certaines options de démarrage. Un circuit raccordé à l'une de ces broches qui impose un niveau incompatible peut empêcher le démarrage normal ou faire démarrer la carte dans un mode différent. Elles peuvent avoir d'autres usages après le démarrage, mais il faut tenir compte de cette contrainte lors du câblage. Pour les premières expériences, choisir une broche disponible qui n'est pas une broche de strapping.
 
 ## 137.2 Périphérique de sortie numérique : une DEL
 
