@@ -30,7 +30,7 @@ La résistance de rappel interne maintient l'entrée à l'état bas lorsque le b
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO4
+      number: GPIO4 # À remplacer par la broche choisie pour le bouton
       mode:
         input: true
         pulldown: true

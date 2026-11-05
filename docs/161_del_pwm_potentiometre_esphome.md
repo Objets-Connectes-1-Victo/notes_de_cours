@@ -23,7 +23,9 @@ La lumière monochrome reprend la sortie PWM comme canal de luminosité :
 ```yaml
 output:
   - platform: ledc
-    pin: GPIO5
+    pin: GPIO5 # À remplacer par la broche choisie pour la DEL
+    # Fréquence du signal PWM - 1000 Hz par défaut
+    # frequency: 1000 Hz
     id: sortie_del_pwm
 
 light:

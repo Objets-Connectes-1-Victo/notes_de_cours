@@ -24,7 +24,7 @@ Par défaut, ESPHome utilise une atténuation de `0db`; la lecture plafonne alor
 ```yaml
 sensor:
   - platform: adc
-    pin: GPIO4
+    pin: GPIO4 # À remplacer par la broche choisie pour le potentiomètre
     attenuation: 12db
     id: lecture_potentiometre
     name: "Position du potentiomètre"
