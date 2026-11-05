@@ -84,7 +84,7 @@ Dans ESPHome Device Builder, quand vous choisissez *Créer un appareil*, vous po
 
 Sous Windows, les fichiers de configuration se trouvent dans : `%USERPROFILE%\esphome`. Un raccourci vers les fichiers de configuration est fourni dans le menu contextuel de l'icône ESPHome Device Builder.
 
-![Raccourci vers les fichiers de configuration](img/esphome_config_folder.png){ width="500" }
+![Raccourci vers les fichiers de configuration](img/esphome_config_folder.png)
 
 Vous pouvez sauvegarder le répertoire de configuration dans un dépôt Git. Cela permet de conserver l'historique des modifications et de revenir à une version précédente si nécessaire. 
 
