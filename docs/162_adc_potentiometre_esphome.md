@@ -82,7 +82,12 @@ Dans ESPHome, la luminosité d'une lumière est un nombre décimal (`float`) ent
         - light.turn_on:
             id: del_variable
             brightness: !lambda "return x;"
+            transition_length: 0.1s
 ```
+
+ESPHome anime la transition de luminosité sur 1s par défaut.  Comme nous demandons une mise à jour de la valeur au 100ms (*update_interval*), les animations s'accumulent et retardent l'utilisation de la luminosité courante. 
+
+La valeur `transition_length` permet de réduire le délai de transition: .1s correspond au *update_interval* et assure que les animations ne s'accumulent pas.
 
 Cette automatisation s'exécute sur l'appareil. Si Home Assistant commande aussi la même lumière, les deux commandes peuvent se remplacer; prévoir un mode qui choisit la source de commande ou désactiver temporairement l'une des deux méthodes pendant les essais.
 
