@@ -13,16 +13,19 @@ Sur le XIAO ESP32-C3, les broches analogiques exposées sont :
 | D2 / A2 | GPIO4 | ADC1_CH4 |
 | D3 / A3 | GPIO5 | ADC2_CH0 |
 
-Pour des mesures fiables, privilégier D0/A0, D1/A1 ou D2/A2, qui utilisent ADC1. Seeed signale que les lectures sur D3/A3 (ADC2) peuvent être perturbées. Ne jamais appliquer plus de 3,3 V à une entrée du XIAO. Les valeurs mesurées dépendent aussi de la carte et de sa configuration; vérifier la plage réelle avant de l'utiliser dans un calcul.
+Pour des mesures fiables, privilégier D0/A0, D1/A1 ou D2/A2, qui utilisent ADC1. Seeed signale que les lectures sur D3/A3 (ADC2) peuvent être perturbées. Ne jamais appliquer plus de 3,3 V à une entrée du XIAO.
 
 ## 142.2 Lire le potentiomètre
 
 Un potentiomètre se câble comme un diviseur de tension : ses deux bornes extérieures vont à 3,3 V et GND, et sa borne centrale (curseur) à une entrée ADC compatible. La mesure ADC est une valeur numérique proportionnelle à la tension lue.
 
+Par défaut, ESPHome utilise une atténuation de `0db`; la lecture plafonne alors autour de 1,1 V. Pour mesurer une plage de tension plus large, notamment celle d'un potentiomètre alimenté en 3,3 V, utiliser `12db`. Cette atténuation augmente la plage mesurable, mais ne permet jamais de dépasser la limite électrique de 3,3 V sur la broche. La plage réellement mesurable varie selon la puce; vérifier les valeurs obtenues et ne pas supposer que toute la plage 0–3,3 V sera mesurée sans saturation.
+
 ```yaml
 sensor:
   - platform: adc
     pin: GPIO4
+    attenuation: 12db
     id: lecture_potentiometre
     name: "Position du potentiomètre"
     update_interval: 100ms
@@ -30,28 +33,66 @@ sensor:
 
 Le capteur ADC ESPHome publie une tension en volts. La valeur réellement obtenue dépend de la carte, de l'atténuation et du potentiomètre; mesurer les valeurs minimale et maximale avant de convertir cette plage en luminosité.
 
-### Réagir à un changement dans Home Assistant
+## 142.3 Associer la mesure à la luminosité dans Home Assistant
 
 Une fois l'appareil ESPHome ajouté à Home Assistant, le capteur apparaît comme une entité de type `sensor` (par exemple `sensor.position_du_potentiometre`; le nom exact peut varier). Pour créer une réaction, ouvrir **Paramètres > Automatisations et scènes**, créer une automatisation et ajouter un déclencheur lié à cette entité :
 
-* Un déclencheur **État** réagit à chaque nouvelle valeur publiée par le capteur. Ajouter ensuite une action, par exemple envoyer une notification ou commander une autre lumière.
+* Un déclencheur **État** réagit à chaque nouvelle valeur publiée par le capteur.
 * Un déclencheur **Valeur numérique** réagit lorsque la mesure franchit un seuil. Par exemple, déclencher une action lorsque la tension passe au-dessus de 2 V. Les seuils sont en volts; les choisir après avoir observé les valeurs minimale et maximale dans Home Assistant.
 
-Avec un `update_interval` de 100 ms, les changements d'état peuvent arriver très souvent. Pour éviter des actions répétées ou instables, préférer un seuil numérique, éventuellement avec une durée minimale, plutôt qu'une action à chaque lecture. Éviter aussi de commander la même lumière à la fois depuis une automatisation Home Assistant et depuis une action ESPHome déclenchée par chaque lecture du potentiomètre.
+Pour associer la mesure à une lumière, ajouter l'action **Allumer la lumière** et sélectionner la lumière à commander. La luminosité doit être calculée à partir de la tension : utiliser les valeurs minimale et maximale observées pour faire correspondre la plage du potentiomètre à la plage de luminosité. Une automatisation déclenchée à chaque changement permet un réglage continu; un déclencheur numérique convient plutôt à une commande par seuil.
 
-## 142.3 Associer la mesure à la luminosité
+Avec un `update_interval` de 100 ms, les changements d'état peuvent arriver très souvent. Pour éviter des actions répétées ou instables, on peut arrondir la valeur lue à un multiple de 0,05 V, par exemple, pour réduire le nombre de changements d'état. Cela se fait avec un filtre dans la configuration ESPHome :
 
-Pour commander la lumière directement depuis le potentiomètre, une action déclenchée par la mise à jour du capteur peut appeler `light.turn_on`. La valeur mesurée doit être normalisée en luminosité entre 0 et 1, puis limitée à cette plage. Une lambda ESPHome peut effectuer ce calcul; la fiche sur les templates et lambdas approfondira cette syntaxe.
+```yaml
+    ...
+    update_interval: 100ms
+    filters:
+      - round_to_multiple_of: 0.05
+```
 
-On peut ainsi comparer le réglage depuis Home Assistant à celui du potentiomètre. Toutefois, si l'automatisation met à jour la lumière à chaque nouvelle lecture du potentiomètre, elle peut remplacer presque immédiatement le réglage fait dans le tableau de bord. Pour tester la commande Home Assistant seule, désactiver temporairement cette automatisation ou prévoir un mode qui choisit la source de commande.
+D'autres filtres sont disponibles pour lisser les mesures (ex: *moving_avg*), mais ils introduisent un délai dans la réaction. Le choix dépend de l'application et de la tolérance aux délais.
 
-## 142.4 Précautions
+Pour envoyer à Home Assistant une valeur correspondant directement à la plage de luminosité attendue par ses actions, calibrer la tension vers une valeur de 0 à 255 :
+
+```yaml
+    ...
+    update_interval: 100ms
+    filters:
+      - calibrate_linear:
+          - 0.0 -> 0
+          - 3.1 -> 255
+```
+
+Remplacer `0.0` et `3.1` par les tensions minimale et maximale mesurées. Après ce filtre, l'état du capteur n'est plus une tension en volts, mais une valeur calibrée de 0 à 255. La luminosité d'une lumière dans Home Assistant utilise cette même plage; dans une action YAML `light.turn_on`, on peut donc utiliser l'état du capteur comme valeur de `brightness`.
+
+## 142.4 Associer la mesure à la luminosité dans ESPHome
+
+Dans ESPHome, la luminosité d'une lumière est un nombre décimal (`float`) entre `0.0` et `1.0`. Pour commander la lumière directement depuis le potentiomètre, calibrer la tension vers cette plage, puis utiliser la valeur calibrée `x` dans l'action `on_value`. Remplacer `0.0` et `3.1` par les tensions minimale et maximale mesurées, et `del_variable` par l'identifiant de la lumière déclarée dans ESPHome.
+
+```yaml
+    ...
+    update_interval: 100ms
+    filters:
+      - calibrate_linear:
+          - 0.0 -> 0.0
+          - 3.1 -> 1.0
+    on_value:
+      then:
+        - light.turn_on:
+            id: del_variable
+            brightness: !lambda "return x;"
+```
+
+Cette automatisation s'exécute sur l'appareil. Si Home Assistant commande aussi la même lumière, les deux commandes peuvent se remplacer; prévoir un mode qui choisit la source de commande ou désactiver temporairement l'une des deux méthodes pendant les essais.
+
+## 142.5 Précautions
 
 * Ne jamais dépasser 3,3 V sur une broche du XIAO ESP32-C3.
 * Confirmer que la broche choisie est une entrée ADC compatible et ne pas la partager avec la sortie PWM.
 * Utiliser une résistance en série avec la DEL et vérifier le câblage hors tension.
 
-## 142.5 Références
+## 142.6 Références
 
 * [Capteur ADC ESPHome](https://esphome.io/components/sensor/adc/)
 * [Brochage du XIAO ESP32-C3 (Seeed Studio)](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/)
