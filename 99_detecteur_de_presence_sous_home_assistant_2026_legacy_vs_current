@@ -1,0 +1,73 @@
+# Détecteur de présence sous Home Assistant - 2026 : Legacy vs Current (Gemini AI conversation)
+
+When testing the modern `zone.entered` trigger using `device_tracker.see`, the automation often fails to fire due to differences in how modern and legacy zone triggers process state updates.
+
+---
+
+### Why `device_tracker.see` Fails with Modern Syntax
+
+1. **Modern Triggers Rely on `in_zones` and GPS Engine:**
+* **Legacy (`platform: zone`):** Primarily evaluated text state transitions (e.g., state changing from `not_home` to `home`).
+* **Modern (`zone.entered`):** Evaluates exact spatial coordinates and checks the target entity's `in_zones` attribute.
+* If you call `device_tracker.see` using only `location_name: home`, Home Assistant sets the entity's text state to `home`, but **does not** generate `latitude` / `longitude` attributes or populate `in_zones`. Because `in_zones` remains empty, `zone.entered` does not trigger.
+
+
+2. **Target Mismatch (`person` vs `device_tracker`):**
+* Modern syntax targets specific entities explicitly. If your automation targets `person.alex` but your test update only fires against `device_tracker.alex_phone` without valid GPS data, the `person` entity's `in_zones` attribute will not update.
+
+
+
+---
+
+### How to Fix / Test Modern Zone Triggers
+
+#### Method 1: Include GPS Coordinates in `device_tracker.see`
+
+To trigger `zone.entered` via `device_tracker.see`, you must pass explicit GPS coordinates that fall within the target zone's radius:
+
+```yaml
+action: device_tracker.see
+data:device2
+  dev_id: alex_phone
+  gps: [45.5017, -73.5673] # Coordinates INSIDE your target zone
+  gps_accuracy: 10
+  source_type: gps
+
+```
+
+*(Tip: Send a `gps` location outside the zone first to set the tracker to `not_home`, then send the inside coordinates to fire the trigger.)*
+
+#### Method 2: Test via Developer Tools > States
+
+1. Navigate to **Developer Tools** > **States**.
+2. Select your `device_tracker` or `person` entity.
+3. Under **State Attributes**, add or update the `latitude` and `longitude` fields to coordinates inside the zone, or add the zone ID directly:
+```yaml
+latitude: 45.5017
+longitude: -73.5673
+in_zones:
+  - zone.home
+
+```
+
+
+4. Click **Set State**.
+
+---
+
+### Note on Modern Template Device Trackers
+
+The `device_tracker.see` action is deprecated in recent Home Assistant releases in favor of **Trigger-based Template Device Trackers**. If you are creating custom or virtual device trackers for automations, use a template device tracker where `in_zones` can be set explicitly:
+
+```yaml
+template:
+  - trigger:
+      - trigger: state
+        entity_id: input_boolean.alex_at_home
+    device_tracker:
+      - name: "Alex Virtual Tracker"
+        unique_id: alex_virtual_tracker
+        in_zones: >
+          {{ ['zone.home'] if is_state('input_boolean.alex_at_home', 'on') else [] }}
+
+```
