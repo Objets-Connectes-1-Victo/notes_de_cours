@@ -9,11 +9,12 @@ Dans cet exemple, chaque nouvelle mesure du potentiomètre lance le script `acti
 ```yaml
 sensor:
   - id: lecture_potentiometre
+    [...]  
     on_value:
       then:
         - if:
             condition:
-              lambda: "return id(lecture_potentiometre).state > 2.0f;"
+              lambda: "return x > 2.0f;"
             then:
               - script.execute: activation
 ```
