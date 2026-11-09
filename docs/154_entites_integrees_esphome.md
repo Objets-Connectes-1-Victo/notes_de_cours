@@ -8,7 +8,7 @@ Un appareil ESPHome peut publier des informations sur son fonctionnement et sa c
 
 Ajouter les blocs suivants à la configuration de l'appareil créée au cours précédent. Ne pas remplacer les blocs `esphome`, `esp32`, `wifi`, `api` et `ota` déjà générés.
 
-Dans ESPHome, `sensor:` sert à déclarer des capteurs qui publient une valeur numérique, par exemple une température, une force de signal ou une durée. En comparaison, `binary_sensor:` publie un état binaire (par exemple en ligne ou hors ligne) et `text_sensor:` publie du texte (par exemple une adresse IP ou une version).
+Dans ESPHome, `sensor:` sert à déclarer des capteurs qui publient une valeur numérique de type `float` (nombre à virgule flottante), par exemple une température, une force de signal ou une durée. Même si la valeur est arrondie ou affichée sans décimales, son type reste `float`. En comparaison, `binary_sensor:` publie un état binaire (par exemple en ligne ou hors ligne) et `text_sensor:` publie du texte (par exemple une adresse IP ou une version).
 
 Le "name" de chaque entité est celui qui sera affiché dans Home Assistant. L'identifiant interne de l'entité est dérivé du nom, mais peut différer selon la langue et les caractères utilisés. 
 
