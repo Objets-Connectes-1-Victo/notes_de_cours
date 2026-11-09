@@ -112,20 +112,29 @@ Le capteur numérique et le capteur de texte sont deux nouvelles entités distin
 
 ## 146.4 Sortie template
 
-Une sortie template est un composant intermédiaire qui reçoit une valeur puis exécute des actions. Contrairement à un capteur, une sortie n'est pas une entité affichée directement dans Home Assistant. Elle peut, par exemple, transmettre un niveau à une sortie PWM déjà déclarée :
+Une sortie template est un composant intermédiaire qui reçoit une valeur puis exécute des actions. Contrairement à un capteur, une sortie n'est pas une entité affichée directement dans Home Assistant. Dans l'exemple ci-dessous, une lumière monochrome utilise la sortie template, qui transmet ensuite la moitié du niveau demandé à une sortie PWM physique :
 
 ```yaml
 output:
+  - platform: ledc
+    id: sortie_del_pwm
+    pin: GPIO5 # Remplacer par une broche compatible et libre
+
   - platform: template
     id: sortie_pwm_template
     type: float
     write_action:
       - output.set_level:
           id: sortie_del_pwm
-          level: !lambda "return state;"
+          level: !lambda "return state * 0.5f;"
+
+light:
+  - platform: monochromatic
+    name: "DEL limitée à mi-puissance"
+    output: sortie_pwm_template
 ```
 
-Ici, `state` est la valeur reçue par la sortie template. `type: float` indique qu'il s'agit d'une valeur décimale; pour un état marche/arrêt, le type serait `binary`. Une sortie template ne remplace pas une broche physique et doit être reliée à une action ou à un autre composant pour avoir un effet.
+Quand la luminosité de la lumière change, la sortie template reçoit un niveau `state` entre 0 et 1 et l'action `output.set_level` applique la moitié de ce niveau à la sortie LEDC. La lumière paraît donc moins lumineuse que le niveau demandé dans Home Assistant. `type: float` indique que la sortie transmet une valeur décimale; pour un état marche/arrêt, le type serait `binary`. La DEL doit être branchée avec une résistance en série. Vérifier la broche choisie et ne jamais appliquer plus de 3,3 V à une entrée du XIAO ESP32-C3.
 
 ## Références
 
