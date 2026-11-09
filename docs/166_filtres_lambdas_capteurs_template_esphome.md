@@ -134,7 +134,8 @@ light:
     output: sortie_pwm_template
 ```
 
-Quand la luminosité de la lumière change, la sortie template reçoit un niveau `state` entre 0 et 1 et l'action `output.set_level` applique la moitié de ce niveau à la sortie LEDC. La lumière paraît donc moins lumineuse que le niveau demandé dans Home Assistant. `type: float` indique que la sortie transmet une valeur décimale; pour un état marche/arrêt, le type serait `binary`. La DEL doit être branchée avec une résistance en série. Vérifier la broche choisie et ne jamais appliquer plus de 3,3 V à une entrée du XIAO ESP32-C3.
+Quand la luminosité de la lumière change, la sortie template reçoit un niveau `state` entre 0 et 1 et l'action `output.set_level` applique la moitié de ce niveau à la sortie LEDC. La lumière paraît donc moins lumineuse que le niveau demandé dans Home Assistant. `type: float` indique que la sortie transmet une valeur décimale; pour un état marche/arrêt, le type serait `binary`. 
+
 
 ## Références
 
