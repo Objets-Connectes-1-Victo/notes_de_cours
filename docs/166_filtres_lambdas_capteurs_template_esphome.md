@@ -43,7 +43,11 @@ Un filtre de lissage, placé avant ou après une conversion linéaire, ne donne 
 
 ## 146.2 Écrire une lambda
 
-En informatique, une expression lambda définit une fonction anonyme. Dans ESPHome, elle permet d'écrire une fonction C++ directement dans le YAML. Le fait qu'elle doive retourner une valeur dépend de son usage : un filtre ou un capteur template doit retourner la valeur à traiter ou à publier, tandis qu'une lambda utilisée pour exécuter une action peut se limiter à produire un effet, comme écrire dans les journaux. Une lambda est utile lorsque les filtres disponibles ne suffisent pas, par exemple pour effectuer plusieurs opérations ou appliquer des conditions. 
+En informatique, une expression lambda définit une fonction anonyme. Dans ESPHome, elle permet d'écrire une fonction C++ directement dans le YAML. 
+
+Qu'elle doive retourner ou pas une valeur dépend de son usage : un filtre ou un capteur template doit retourner la valeur à traiter ou à publier, tandis qu'une lambda utilisée pour exécuter une action peut se limiter à produire un effet, comme écrire dans les journaux.
+
+Une lambda est utile lorsque les filtres disponibles ne suffisent pas, par exemple pour effectuer plusieurs opérations ou appliquer des conditions. 
 
 !!! note
     Dans un filtre lambda, **x** représente la valeur reçue à cette étape de la chaîne. Le résultat retourné devient l'entrée du filtre suivant.

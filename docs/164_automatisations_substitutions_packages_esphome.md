@@ -4,25 +4,21 @@
 
 Une automatisation réagit à un événement et exécute une ou plusieurs actions. Dans ESPHome, un **déclencheur** repère l'événement, une **condition** décide si les actions doivent être exécutées et les **actions** indiquent le travail à faire.
 
-Dans cet exemple, un appui sur le bouton lance un script seulement si la tension mesurée par le potentiomètre dépasse 2 V. Il reprend les identifiants `bouton`, `lecture_potentiometre` et `signaliser_appui` des fiches précédentes et de la section sur les packages ci-dessous.
+Dans cet exemple, chaque nouvelle mesure du potentiomètre lance le script `activation` si la tension dépasse 2 V. Ajouter `on_value` à la déclaration existante du capteur ADC `lecture_potentiometre`.
 
 ```yaml
-binary_sensor:
-  - id: bouton
-    on_press:
+sensor:
+  - id: lecture_potentiometre
+    on_value:
       then:
         - if:
             condition:
-              sensor.in_range:
-                id: lecture_potentiometre
-                above: 2.0
+              lambda: "return id(lecture_potentiometre).state > 2.0f;"
             then:
-              - script.execute: signaliser_appui
-            else:
-              - logger.log: "Potentiometre sous le seuil"
+              - script.execute: activation
 ```
 
-La déclaration complète du bouton doit déjà exister. On ajoute `on_press` à cette déclaration, sans créer une seconde entrée avec le même `id`. La condition `sensor.in_range` vérifie la mesure au moment de l'appui. La valeur de 2 V est un exemple : vérifier la plage réellement obtenue avec le potentiomètre.
+`on_value` s'exécute à chaque mesure publiée. Tant que la valeur reste au-dessus de 2 V, le script peut donc être relancé après chaque exécution; `mode: single` empêche seulement deux exécutions simultanées. Pour réagir uniquement au franchissement d'un seuil, ESPHome offre aussi le déclencheur `on_value_range`. La valeur de 2 V est un exemple : vérifier la plage réellement obtenue avec le potentiomètre.
 
 ### Réutiliser une séquence avec un script
 
@@ -30,21 +26,21 @@ Un script ESPHome nomme une séquence d'actions pour pouvoir l'appeler à partir
 
 ```yaml
 script:
-  - id: signaliser_appui
+  - id: activation
     mode: single
     then:
       - light.turn_on: del_variable
-      - delay: 500ms
+      - delay: 750ms
       - light.turn_off: del_variable
 ```
 
-Un script peut être appelé avec `script.execute`. Le mode `single` évite de lancer une deuxième exécution tant que la première est en cours.
+Le script est appelé avec `script.execute: activation`. Le mode `single` évite de lancer une deuxième exécution tant que la première est en cours.
 
 ### ESPHome et Home Assistant
 
-Les automatisations ESPHome sont exécutées par le microcontrôleur. Par exemple, le bouton peut encore déclencher une action sur la DEL lorsque Home Assistant est temporairement inaccessible, tant que l'appareil est alimenté et que la logique nécessaire est dans sa configuration.
+Les automatisations ESPHome sont exécutées par le microcontrôleur. Par exemple, le capteur peut encore déclencher le script sur l'ESP32 lorsque Home Assistant est temporairement inaccessible, tant que l'appareil est alimenté et que la logique nécessaire est dans sa configuration.
 
-Une automatisation Home Assistant est exécutée par le serveur. Elle peut utiliser les entités de plusieurs appareils et les fonctions de Home Assistant, mais elle dépend de la disponibilité du serveur et de la communication avec l'appareil. Pendant une perte de connexion, Home Assistant peut ne plus recevoir l'état du bouton ou du potentiomètre et ne peut pas lui envoyer de commande.
+Une automatisation Home Assistant est exécutée par le serveur. Elle peut utiliser les entités de plusieurs appareils et les fonctions de Home Assistant, mais elle dépend de la disponibilité du serveur et de la communication avec l'appareil. Pendant une perte de connexion, Home Assistant peut ne plus recevoir les nouvelles valeurs du potentiomètre et ne peut pas lui envoyer de commande.
 
 !!! note
 
@@ -76,11 +72,11 @@ Pour ce cours, créer le fichier `packages/commande_del.yaml` à côté du YAML 
 
 ```yaml
 script:
-  - id: signaliser_appui
+  - id: activation
     mode: single
     then:
       - light.turn_on: del_variable
-      - delay: 500ms
+      - delay: 750ms
       - light.turn_off: del_variable
 ```
 
@@ -91,7 +87,7 @@ packages:
   - !include packages/commande_del.yaml
 ```
 
-Le chemin de `!include` est relatif au fichier YAML principal. Le fichier inclus contient le fragment `script:` seulement; il ne répète pas la clé `packages:`. L'identifiant `signaliser_appui` reste utilisable dans une automatisation du fichier principal.
+Le chemin de `!include` est relatif au fichier YAML principal. Le fichier inclus contient le fragment `script:` seulement; il ne répète pas la clé `packages:`. L'identifiant `activation` reste utilisable dans une automatisation du fichier principal.
 
 Les packages locaux évitent de recopier du YAML et rendent les configurations plus faciles à organiser. Ils ne créent pas un appareil distinct et ne s'exécutent pas séparément.
 
