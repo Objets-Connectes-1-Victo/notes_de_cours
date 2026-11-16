@@ -20,14 +20,3 @@
 1. Vérifier les traces de l'automatisation et les journaux ESPHome. Si la température ne franchit pas les limites pendant la séance, vérifier la configuration et la trace sans chauffer rapidement le capteur ni dépasser les limites de sa fiche technique.
 1. Comparer la température ambiante avec `internal_temperature` si cette entité est disponible. Expliquer pourquoi ces valeurs ne mesurent pas la même chose et noter ce qui dépend de Home Assistant.
 
-## Remise
-
-Remettre la configuration YAML sans secrets, un schéma de branchement indiquant le modèle du capteur et les broches, les captures ou traces montrant les entités et les automatisations, ainsi qu'une courte explication de la différence entre température ambiante et température de la puce.
-
-## Critères de réussite
-
-* Le capteur choisi est identifié et câblé selon sa documentation, sans appliquer 5 V aux entrées du microcontrôleur.
-* ESPHome détecte le capteur et publie une température plausible dans Home Assistant.
-* Le bouton et le potentiomètre commandent la DEL selon le comportement demandé.
-* L'automatisation s'exécute au franchissement du seuil et la limite de retour, si utilisée, est plus basse.
-* La configuration et le schéma remis ne contiennent aucun mot de passe ni clé.
