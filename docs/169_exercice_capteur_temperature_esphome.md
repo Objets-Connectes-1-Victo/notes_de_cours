@@ -19,4 +19,3 @@
 1. Pour vérifier le retour, créer une seconde automatisation qui éteint la DEL sous une limite plus basse que le seuil d'allumage. Cette différence entre les limites constitue une hystérésis.
 1. Vérifier les traces de l'automatisation et les journaux ESPHome. Si la température ne franchit pas les limites pendant la séance, vérifier la configuration et la trace sans chauffer rapidement le capteur ni dépasser les limites de sa fiche technique.
 1. Comparer la température ambiante avec `internal_temperature` si cette entité est disponible. Expliquer pourquoi ces valeurs ne mesurent pas la même chose et noter ce qui dépend de Home Assistant.
-
