@@ -45,7 +45,7 @@ Le balayage n'identifie **pas** le type de périphérique et ne vérifie pas que
 
 Un LCD1602 est un écran à caractères de 16 colonnes × 2 lignes. Lorsqu'il est muni d'un adaptateur I²C PCF8574, il demande deux niveaux de configuration : la section `i2c:` pour le bus, puis la plateforme d'affichage. On commence par créer une entité texte ESPHome que Home Assistant peut modifier. L'écran affiche cette valeur; il n'est pas lui-même une entité de commande Home Assistant.
 
-Dans cet exemple, le scanner a trouvé `0x27` :
+Dans cet exemple, le scanner a trouvé `0x27`. `text:` avec `platform: template` crée une entité texte virtuelle et modifiable depuis Home Assistant. On l'utilise pour recevoir le texte saisi dans Home Assistant et le transmettre à la lambda de l'écran. Ce n'est pas un texte lu depuis un capteur physique; `text_sensor:` sert plutôt à publier du texte en lecture seule vers Home Assistant.
 
 ```yaml
 i2c:
@@ -72,15 +72,33 @@ display:
       it.print(0, 1, "Controle par HA");
 ```
 
-`text:` crée une entité texte nommée « Texte du LCD » dans Home Assistant. `optimistic: true` permet à ESPHome de prendre immédiatement la valeur saisie comme nouvel état. La longueur maximale de 16 caractères correspond à une ligne du LCD1602. Après avoir installé la configuration et ajouté l'entité à une carte de type **Entité** ou **Texte** dans Home Assistant, modifier le texte et vérifier qu'il apparaît à l'écran.
+La plateforme `text.template` crée une entité de type texte dans Home Assistant. Dans cet exemple, `name` fournit son nom visible (« Texte du LCD »); Home Assistant génère son identifiant d'entité à partir du nom de l'appareil et de ce nom. La valeur exacte de l'identifiant est à vérifier dans Home Assistant.
+
+| Clé ou section YAML | Visible comme entité dans Home Assistant? | Rôle |
+| --- | --- | --- |
+| `text:` avec `platform: template` et `name` | Oui, comme entité texte « Texte du LCD » | Permet à Home Assistant de modifier le texte |
+| `id: texte_lcd` | Non | Identifiant interne utilisé dans les lambdas ESPHome |
+| `mode`, `optimistic`, `max_length`, `initial_value` | Non | Options de configuration de l'entité texte |
+| `i2c:` et `display:` | Non | Configurent le bus et l'affichage physique; le LCD n'est pas lui-même une entité Home Assistant |
+
+`optimistic: true` permet à ESPHome de prendre immédiatement la valeur saisie comme nouvel état. La longueur maximale de 16 caractères correspond à une ligne du LCD1602. Après avoir installé la configuration et ajouté l'entité à une carte de type **Entité** ou **Texte** dans Home Assistant, modifier le texte et vérifier qu'il apparaît à l'écran.
 
 Dans la lambda d'affichage, `it` représente l'écran; ses méthodes permettent d'y écrire. `it.print` écrit du texte. La lambda est exécutée à chaque rafraîchissement, ici chaque seconde. Le contenu affiché est rendu par ESPHome sur l'appareil : Home Assistant commande le texte via l'entité, plutôt que de communiquer directement avec le LCD.
 
+Dans `id(texte_lcd).state.c_str()`, `id(texte_lcd)` désigne l'entité texte déclarée plus haut et `.state` lit sa valeur courante. Cette valeur est une chaîne de caractères C++; `.c_str()` en fournit une représentation terminée par le caractère nul, que `it.print` peut recevoir pour afficher le texte.
+
 ## 150.5 Ajouter ensuite une mesure au LCD
 
-Une fois la commande du texte vérifiée, la deuxième ligne peut afficher la température ambiante. Conserver la première ligne contrôlée par Home Assistant et remplacer la ligne statique par le code suivant. L'identifiant `temperature_ambiante` doit correspondre à celui du capteur de température déjà configuré :
+Une fois la commande du texte vérifiée, remplacer le bloc `display:` par cette version complète. Elle conserve le texte contrôlé par Home Assistant sur la première ligne et affiche la température ambiante sur la deuxième. Les sections `i2c:` et `text:` précédentes sont conservées. L'identifiant `temperature_ambiante` doit correspondre à celui du capteur déjà configuré :
 
 ```yaml
+display:
+  - platform: lcd_pcf8574
+    dimensions: 16x2
+    address: 0x27
+    update_interval: 1s
+    lambda: |-
+      it.print(0, 0, id(texte_lcd).state.c_str());
       if (isnan(id(temperature_ambiante).state)) {
         it.print(0, 1, "Temp: --.- C");
       } else {
@@ -88,7 +106,7 @@ Une fois la commande du texte vérifiée, la deuxième ligne peut afficher la te
       }
 ```
 
-Si le scanner trouve `0x3F` plutôt que `0x27`, utiliser `address: 0x3F`. Remplacer aussi les broches et l'identifiant du capteur par les valeurs réelles. Les LCD à caractères ont un jeu de caractères limité; les accents peuvent ne pas être disponibles.
+Si le scanner trouve `0x3F` plutôt que `0x27`, utiliser `address: 0x3F`. Remplacer aussi l'identifiant du capteur par celui de la configuration. Les LCD à caractères ont un jeu de caractères limité; les accents peuvent ne pas être disponibles.
 
 Cette configuration concerne seulement un LCD à caractères avec un adaptateur PCF8574. Un écran graphique I²C, un écran relié directement en parallèle ou un module utilisant un autre circuit demande une autre plateforme, un autre câblage et parfois une configuration différente. Lire le marquage du module et sa documentation avant de reprendre l'exemple. Certains écrans alimentés en 5 V nécessitent aussi une vérification attentive de la tension logique et des résistances de rappel.
 

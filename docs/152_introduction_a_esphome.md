@@ -58,6 +58,28 @@ Les valeurs `!secret` sont définies dans le fichier `secrets.yaml` du dossier d
 
 Dans une configuration complète, les composants ESPHome permettent ensuite de déclarer les capteurs et les sorties utilisés par le montage. Le choix des composants et des broches dépend du modèle de carte et du circuit électrique.
 
+### Quelles sections YAML créent des entités Home Assistant?
+
+L'intégration `api:` permet à Home Assistant de communiquer avec l'appareil; elle ne crée pas à elle seule les entités des capteurs et commandes. Celles-ci sont déclarées par des composants ESPHome qui correspondent à un type d'entité. Dans le tableau, **Entrée** et **Sortie** décrivent le rôle du composant dans l'appareil ESPHome, pas le sens des échanges réseau. Un `light` ou un `switch` commande une sortie matérielle; Home Assistant lui envoie une commande et reçoit son état en retour. Voici les sections les plus utilisées dans les exercices et quelques exemples :
+
+| Section YAML | Type d'entité dans Home Assistant | Rôle dans l'appareil ESPHome | Exemples |
+| --- | --- | --- | --- |
+| `sensor:` | Capteur numérique | Entrée de mesure | Température, tension, force du signal Wi-Fi |
+| `binary_sensor:` | Capteur binaire | Entrée d'état | Bouton physique, état en ligne ou hors ligne |
+| `text_sensor:` | Capteur texte, généralement en lecture seule | Sortie d'information vers Home Assistant | Adresse IP, version ESPHome |
+| `switch:` | Interrupteur | Sortie matérielle | Relais ou sortie marche/arrêt |
+| `light:` | Lumière | Sortie matérielle | DEL contrôlable |
+| `button:` | Bouton de commande | Entrée de commande depuis Home Assistant | Action ponctuelle déclenchée depuis Home Assistant |
+| `number:` | Commande numérique réglable | Entrée de valeur depuis Home Assistant | Régler un seuil ou une consigne numérique |
+| `select:` | Choix parmi des options | Entrée de choix depuis Home Assistant | Choisir un mode, par exemple manuel ou automatique |
+| `text:` | Champ texte modifiable | Entrée de texte depuis Home Assistant | Texte saisi depuis Home Assistant |
+
+Cette liste est indicative, et non exhaustive. Dans une déclaration qui crée une entité, `name:` définit normalement le nom affiché dans Home Assistant. `id:` sert de référence interne dans la configuration ESPHome; ce n'est pas le nom de l'entité Home Assistant. Le nom exact de l'identifiant d'entité est généré par Home Assistant et peut être modifié dans son interface.
+
+`number:` et `select:` créent des commandes pour régler une valeur ou choisir une option depuis Home Assistant. Elles ne modifient pas automatiquement une sortie : la configuration ESPHome doit utiliser la valeur ou le choix reçu pour déclencher l'action souhaitée.
+
+Certaines sections configurent le fonctionnement de l'appareil sans créer elles-mêmes une entité, par exemple `i2c:`, `display:` et `output:`. Le LCD de l'exemple du cours 8 n'est donc pas une entité Home Assistant; c'est l'entité déclarée sous `text:` qui permet de modifier le texte affiché.
+
 ## Mise à jour OTA
 
 OTA signifie « Over-The-Air », c'est-à-dire « par les airs ». Une mise à jour OTA envoie un nouveau micrologiciel à la carte par le réseau Wi-Fi, sans devoir la brancher à l'ordinateur avec un câble USB.
