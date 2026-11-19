@@ -39,6 +39,10 @@ Pour le XIAO ESP32-C3 utilisé dans le cours, le diagramme de brochage associe S
 
 Au démarrage, le scanner essaie des adresses sur le bus. Lorsqu'un périphérique répond, les journaux ESPHome affichent son adresse, par exemple `0x27`. Chaque module relié au bus peut apparaître avec sa propre adresse. Ces résultats permettent de vérifier qu'un appareil répond et de connaître l'adresse à configurer dans son composant ESPHome.
 
+
+
+![esphome i2c scan](img/esphome_i2c_scan.png)
+
 Le balayage n'identifie **pas** le type de périphérique et ne vérifie pas que son pilote, son écran ou son capteur fonctionne correctement. Il indique seulement qu'une adresse a répondu. L'absence d'adresse peut venir des broches, des fils, de l'alimentation, de la masse commune, des résistances de rappel, d'une incompatibilité de tension ou d'un module défectueux. Corriger le branchement, redémarrer l'appareil et consulter de nouveau les journaux.
 
 ## 150.4 Configuration d'un LCD1602
