@@ -41,7 +41,9 @@ Au démarrage, le scanner essaie des adresses sur le bus. Lorsqu'un périphériq
 
 Le balayage n'identifie **pas** le type de périphérique et ne vérifie pas que son pilote, son écran ou son capteur fonctionne correctement. Il indique seulement qu'une adresse a répondu. L'absence d'adresse peut venir des broches, des fils, de l'alimentation, de la masse commune, des résistances de rappel, d'une incompatibilité de tension ou d'un module défectueux. Corriger le branchement, redémarrer l'appareil et consulter de nouveau les journaux.
 
-## 150.4 Exemple de configuration d'un LCD1602
+## 150.4 Configuration d'un LCD1602
+
+![LCD1602](img/LCD1602.jpg)
 
 Un LCD1602 est un écran à caractères de 16 colonnes × 2 lignes. Lorsqu'il est muni d'un adaptateur I²C PCF8574, il demande deux niveaux de configuration : la section `i2c:` pour le bus, puis la plateforme d'affichage. On peut créer une entité texte ESPHome que Home Assistant peut modifier. L'écran affiche cette valeur; il n'est pas lui-même une entité de commande Home Assistant.
 
@@ -132,6 +134,8 @@ Cette configuration concerne seulement un LCD à caractères avec un adaptateur 
     Couper l'alimentation avant de modifier le câblage. Ne jamais appliquer 5 V à une entrée du XIAO ESP32-C3. Confirmer que SDA et SCL ne peuvent pas être tirées à 5 V par l'afficheur ou son adaptateur.
 
 ## 150.6 Utiliser le MPU6050 avec ESPHome
+
+![MPU6050](img/MPU6050.jpg)
 
 Le MPU6050 réunit un accéléromètre et un gyroscope sur un bus I²C. ESPHome publie séparément les mesures des trois axes de chaque capteur; il peut aussi publier la température interne du module. Les mesures d'accélération comprennent l'effet de la gravité. Le gyroscope mesure la vitesse de rotation : il ne fournit pas directement un angle ou une orientation absolue.
 
