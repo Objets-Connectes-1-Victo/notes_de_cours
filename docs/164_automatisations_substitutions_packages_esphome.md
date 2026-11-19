@@ -47,6 +47,34 @@ Une automatisation Home Assistant est exécutée par le serveur. Elle peut utili
 
     Lors d'un test de déconnexion, garder la période courte et rétablir la connexion après l'observation. La configuration de l'API peut redémarrer l'appareil après une longue période sans connexion; un redémarrage n'indique donc pas nécessairement que l'automatisation locale dépend de Home Assistant.
 
+### Utiliser une entité Home Assistant dans ESPHome
+
+Une automatisation ESPHome peut aussi réagir à une entité qui existe dans Home Assistant. La plateforme `homeassistant` importe son état dans l'appareil via l'API native. Il faut remplacer chaque `entity_id` par l'identifiant réel de l'entité dans Home Assistant. Les trois types courants sont :
+
+```yaml
+sensor:
+  - platform: homeassistant
+    id: temperature_ha
+    entity_id: sensor.temperature_ambiante
+    internal: true
+
+binary_sensor:
+  - platform: homeassistant
+    id: presence_ha
+    entity_id: binary_sensor.presence_salon
+    internal: true
+
+text_sensor:
+  - platform: homeassistant
+    id: mode_ha
+    entity_id: input_select.mode_maison
+    internal: true
+```
+
+`sensor:` importe un état numérique; `binary_sensor:` importe un état binaire (`on` ou `off`); `text_sensor:` importe un état textuel. Ces identifiants peuvent ensuite être utilisés dans les automatisations ESPHome, par exemple `id(temperature_ha).state` dans une lambda, `on_press` pour le capteur binaire ou `id(mode_ha).state` pour comparer un texte. `internal: true` garde ces entités importées dans l'appareil sans les republier comme de nouvelles entités dans Home Assistant.
+
+Cette automatisation s'exécute sur l'ESP32, mais sa donnée vient de Home Assistant : contrairement à une lecture directe d'un capteur branché à la carte, elle dépend de l'API et de la connexion à Home Assistant pour recevoir les mises à jour. Le `sensor` ESPHome `platform: homeassistant` est réservé aux valeurs numériques; utiliser `text_sensor` pour importer du texte.
+
 ## Substitutions dans le YAML {#fiche-substitutions}
 
 Les substitutions permettent de définir une valeur une fois et de la réutiliser dans le fichier YAML. ESPHome remplace les expressions avant de valider et de compiler la configuration. Elles sont utiles pour adapter un même modèle à plusieurs appareils ou éviter les répétitions; ce ne sont pas des variables modifiables pendant l'exécution.
@@ -95,5 +123,8 @@ Les packages locaux évitent de recopier du YAML et rendent les configurations p
 ## Références
 
 * [Automatisations, actions, déclencheurs et conditions ESPHome](https://esphome.io/automations/actions/)
+* [Capteur numérique Home Assistant ESPHome](https://esphome.io/components/sensor/homeassistant/)
+* [Capteur binaire Home Assistant ESPHome](https://esphome.io/components/binary_sensor/homeassistant/)
+* [Capteur texte Home Assistant ESPHome](https://esphome.io/components/text_sensor/homeassistant/)
 * [Substitutions ESPHome](https://esphome.io/components/substitutions/)
 * [Packages ESPHome](https://esphome.io/components/packages/)

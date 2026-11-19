@@ -156,8 +156,9 @@ nav:
       - "149. Exercice 8 : température, bouton, potentiomètre et DEL": "169_exercice_capteur_temperature_esphome.md"
     - "S12":
       - "S12": "112__semaine_12_.md"
-      - "101. Exercice 20": "114_exercice_20.md"
-      - "102. Pour le prochain cours": "115_pour_le_prochain_cours.md"
+      - "150. Bus I²C, écran LCD et MPU6050 avec ESPHome": "170_bus_i2c_esphome.md"
+      - "151. Exercice 9 : capteur MPU6050 avec ESPHome": "171_exercice_mpu6050_esphome.md"
+
     - "S13":
       - "S13": "116__semaine_13_.md"
       - "103. Communication Home Assistant - Jeedom via l'API": "117_communication_home_assistant_jeedom_via_lapi.md"

@@ -51,10 +51,10 @@ L'examen 2 a lieu dans la première partie de S11.
 
 ## S12
 
-### Cours 8 — Afficher et intégrer les données sur un écran LCD
+### Cours 8 — Écran LCD (contenu) et capteur MPU6050
 
-* **Contenu :** identifier le type d'écran disponible, son câblage et ses broches; configurer l'afficheur pour montrer les valeurs des capteurs et états de l'appareil. Organiser les entités et combiner l'écran avec les composants déjà utilisés. Privilégier un écran I2C si le matériel le permet.
-* **Exercice :** construire un appareil qui combine bouton, DEL, potentiomètre et LCD; afficher une mesure sur l'écran et exposer les entités utiles dans Home Assistant. Adapter le câblage et la configuration au modèle réel d'écran.
+* **Contenu :** identifier le type d'écran LCD disponible, son câblage et ses broches; voir comment configurer l'afficheur pour montrer les valeurs des capteurs et états de l'appareil, et comment l'intégrer aux composants déjà utilisés. Pour l'écran de la classe, expliquer la différence entre ses signaux à 5 V et les entrées/sorties à 3,3 V du ESP32-C3, ainsi que la nécessité de vérifier la compatibilité électrique et d'utiliser un convertisseur de niveau au besoin. Présenter ensuite le MPU6050 (accéléromètre et gyroscope), son branchement I2C et sa configuration dans ESPHome pour exposer les axes d'accélération et de vitesse angulaire dans Home Assistant.
+* **Exercice :** brancher le MPU6050 au ESP32-C3 sur le bus I2C, configurer ses capteurs d'accélération et de gyroscope dans ESPHome, puis vérifier les mesures dans Home Assistant en inclinant et en déplaçant le module. Ne pas faire d'exercice sur le LCD.
 
 ### Cours 9 — Bluetooth LE : proxy ESPHome et Bermuda
 
@@ -77,7 +77,8 @@ L'examen 2 a lieu dans la première partie de S11.
 
 * Matériel de base : XIAO ESP32-C3, DEL, résistances, boutons, potentiomètre, écran LCD disponible en classe et capteur de température compatible (modèle à confirmer).
 * Vérifier le brochage et la compatibilité de chaque broche avec le modèle exact de carte. Ne jamais appliquer 5 V à une entrée du ESP32-C3.
-* Vérifier le type d'interface du LCD avant la séance; le câblage, les broches et la configuration varient selon le modèle.
+* Vérifier le type d'interface et les niveaux logiques du LCD avant la séance; l'écran disponible fonctionne en 5 V alors que le ESP32-C3 utilise des signaux à 3,3 V. Ne pas relier directement au ESP32-C3 un signal susceptible d'atteindre 5 V; utiliser un convertisseur de niveau compatible si nécessaire. Le LCD est présenté en cours, mais ne fait pas l'objet d'un exercice.
+* Vérifier le brochage du MPU6050 et sa compatibilité électrique avant la séance; confirmer son adresse I2C et ses broches SDA/SCL selon le module disponible.
 * Vérifier le modèle et les exigences de câblage du capteur de température avant la séance.
 * Garder les mots de passe et les clés dans `secrets.yaml`; ne pas les inclure dans les exercices remis.
 

@@ -1,4 +1,4 @@
-# 150. Bus I²C : principe, adresses et balayage ESPHome {#chapitre-bus_i2c_esphome}
+# 150. Bus I²C, écran LCD et MPU6050 avec ESPHome {#chapitre-bus_i2c_esphome}
 
 ## 150.1 Comprendre le bus I²C
 
@@ -41,9 +41,12 @@ Au démarrage, le scanner essaie des adresses sur le bus. Lorsqu'un périphériq
 
 Le balayage n'identifie **pas** le type de périphérique et ne vérifie pas que son pilote, son écran ou son capteur fonctionne correctement. Il indique seulement qu'une adresse a répondu. L'absence d'adresse peut venir des broches, des fils, de l'alimentation, de la masse commune, des résistances de rappel, d'une incompatibilité de tension ou d'un module défectueux. Corriger le branchement, redémarrer l'appareil et consulter de nouveau les journaux.
 
-## 150.4 Contrôler d'abord le LCD1602 depuis Home Assistant
+## 150.4 Exemple de configuration d'un LCD1602
 
-Un LCD1602 est un écran à caractères de 16 colonnes × 2 lignes. Lorsqu'il est muni d'un adaptateur I²C PCF8574, il demande deux niveaux de configuration : la section `i2c:` pour le bus, puis la plateforme d'affichage. On commence par créer une entité texte ESPHome que Home Assistant peut modifier. L'écran affiche cette valeur; il n'est pas lui-même une entité de commande Home Assistant.
+Un LCD1602 est un écran à caractères de 16 colonnes × 2 lignes. Lorsqu'il est muni d'un adaptateur I²C PCF8574, il demande deux niveaux de configuration : la section `i2c:` pour le bus, puis la plateforme d'affichage. On peut créer une entité texte ESPHome que Home Assistant peut modifier. L'écran affiche cette valeur; il n'est pas lui-même une entité de commande Home Assistant.
+
+!!! Attention
+    L'écran disponible en classe fonctionne en 5 V, tandis que les entrées/sorties du XIAO ESP32-C3 sont à 3,3 V. Cette partie sert à comprendre le câblage et la configuration; le LCD ne fait pas l'objet d'un exercice. Avant tout branchement, vérifier la tension d'alimentation et les niveaux logiques du module. Ne jamais relier au ESP32-C3 un signal ou une ligne I²C tirée à 5 V; utiliser un convertisseur de niveau compatible si nécessaire.
 
 Dans cet exemple, le scanner a trouvé `0x27`. `text:` avec `platform: template` crée une entité texte virtuelle et modifiable depuis Home Assistant. On l'utilise pour recevoir le texte saisi dans Home Assistant et le transmettre à la lambda de l'écran. Ce n'est pas un texte lu depuis un capteur physique; `text_sensor:` sert plutôt à publier du texte en lecture seule vers Home Assistant.
 
@@ -87,7 +90,21 @@ Dans la lambda d'affichage, `it` représente l'écran; ses méthodes permettent 
 
 Dans `id(texte_lcd).state.c_str()`, `id(texte_lcd)` désigne l'entité texte déclarée plus haut et `.state` lit sa valeur courante. Cette valeur est une chaîne de caractères C++; `.c_str()` en fournit une représentation terminée par le caractère nul, que `it.print` peut recevoir pour afficher le texte.
 
-## 150.5 Ajouter ensuite une mesure au LCD
+### Méthodes principales de l'écran (`it`)
+
+Dans la lambda, `it` représente l'écran LCD. Voici les méthodes les plus utiles pour un LCD1602 :
+
+| Méthode | Utilité | Exemple |
+| --- | --- | --- |
+| `it.clear()` | Effacer tous les caractères affichés sur le LCD. | `it.clear();` |
+| `it.print(...)` | Écrire du texte. Les coordonnées sont la colonne et la ligne, à partir de zéro. | `it.print(0, 0, "Bonjour");` |
+| `it.printf(...)` | Écrire du texte contenant une valeur formatée. | `it.printf(0, 1, "T: %.1f C", id(temperature_ambiante).state);` |
+| `it.strftime(...)` | Afficher une heure ou une date fournie par un composant `time:`. | `it.strftime("Heure %H:%M", id(heure).now());` |
+| `it.backlight()` / `it.no_backlight()` | Allumer ou éteindre le rétroéclairage d'un adaptateur PCF8574 compatible. | `it.backlight();` |
+
+`it.clear()` efface l'écran, mais ne change pas la valeur de l'entité texte. Si la lambda réécrit cette valeur au rafraîchissement suivant, le texte réapparaît. Le contrôle du rétroéclairage dépend du module PCF8574; son cavalier de rétroéclairage doit être en place. Consulter la documentation du modèle exact avant d'utiliser ces méthodes.
+
+## 150.5 Exemple d'affichage d'une mesure sur le LCD
 
 Une fois la commande du texte vérifiée, remplacer le bloc `display:` par cette version complète. Elle conserve le texte contrôlé par Home Assistant sur la première ligne et affiche la température ambiante sur la deuxième. Les sections `i2c:` et `text:` précédentes sont conservées. L'identifiant `temperature_ambiante` doit correspondre à celui du capteur déjà configuré :
 
@@ -114,9 +131,54 @@ Cette configuration concerne seulement un LCD à caractères avec un adaptateur 
 
     Couper l'alimentation avant de modifier le câblage. Ne jamais appliquer 5 V à une entrée du XIAO ESP32-C3. Confirmer que SDA et SCL ne peuvent pas être tirées à 5 V par l'afficheur ou son adaptateur.
 
+## 150.6 Utiliser le MPU6050 avec ESPHome
+
+Le MPU6050 réunit un accéléromètre et un gyroscope sur un bus I²C. ESPHome publie séparément les mesures des trois axes de chaque capteur; il peut aussi publier la température interne du module. Les mesures d'accélération comprennent l'effet de la gravité. Le gyroscope mesure la vitesse de rotation : il ne fournit pas directement un angle ou une orientation absolue.
+
+**Référence de 1 g :** lorsque le module est posé à plat, avec l'axe Z orienté vers le haut, `accel_z` indique environ **9,81 m/s²** (1 g), tandis que `accel_x` et `accel_y` sont près de **0 m/s²**. Le capteur mesure la force de soutien exercée par la table vers le haut; la grandeur de l'accélération mesurée pour un capteur immobile est toujours égale à 1 g, mais sa direction dépend de l'orientation du module. Il est donc possible de déterminer l'inclinaison du module par rapport à la verticale.
+
+Avant le branchement, repérer le modèle exact du module et vérifier sa fiche technique, sa tension d'alimentation, son brochage et les niveaux logiques de SDA et SCL. Les broches et régulateurs varient d'une carte de dérivation à l'autre. Le MPU6050 est normalement à l'adresse I²C `0x68`; selon le module et l'état de la broche AD0, l'adresse peut être `0x69`. Le balayage I²C permet de relever l'adresse qui répond.
+
+Pour le XIAO ESP32-C3 utilisé dans le cours, l'exemple ci-dessous reprend SDA sur `GPIO6` et SCL sur `GPIO7`, si ces broches sont libres. Ajouter le capteur à la section `sensor:` existante; compléter la section `i2c:` existante plutôt que d'en déclarer une deuxième :
+
+```yaml
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: true
+
+sensor:
+  - platform: mpu6050
+    address: 0x68
+    update_interval: 1s
+    accel_x:
+      name: "MPU6050 Accélération X"
+    accel_y:
+      name: "MPU6050 Accélération Y"
+    accel_z:
+      name: "MPU6050 Accélération Z"
+    gyro_x:
+      name: "MPU6050 Vitesse angulaire X"
+    gyro_y:
+      name: "MPU6050 Vitesse angulaire Y"
+    gyro_z:
+      name: "MPU6050 Vitesse angulaire Z"
+    temperature:
+      name: "MPU6050 Température"
+```
+
+Le `sensor:` ci-dessus expose sept entités numériques dans Home Assistant. Si une adresse différente est trouvée, utiliser celle des journaux, par exemple `0x69`. Compiler et installer la configuration, puis vérifier dans les journaux que le module répond et dans Home Assistant que les entités sont disponibles. En gardant le module immobile puis en l'inclinant, on observe la répartition de l'accélération entre les axes; en le faisant tourner, on observe les mesures du gyroscope. À l'arrêt, les valeurs du gyroscope devraient revenir près de zéro, sans nécessairement être exactement nulles.
+
+ESPHome applique un filtrage de base, mais ne calibre pas automatiquement le MPU6050. Les mesures peuvent comporter un décalage et varier selon l'orientation, le montage et le module. Une mesure d'accélération seule ne permet pas de déduire sans ambiguïté un mouvement ou une inclinaison dans toutes les situations.
+
+!!! warning
+
+    Couper l'alimentation avant de modifier le câblage. Ne jamais appliquer 5 V à une entrée du XIAO ESP32-C3. Vérifier que les résistances de rappel du module ne tirent pas SDA ou SCL à 5 V.
+
 ## Références
 
 * [Bus I²C ESPHome](https://esphome.io/components/i2c/)
 * [Écrans LCD à caractères ESPHome](https://esphome.io/components/display/lcd_display/)
 * [Texte template ESPHome](https://esphome.io/components/text/template/)
+* [Capteur MPU6050 ESPHome](https://esphome.io/components/sensor/mpu6050/)
 * [Brochage du XIAO ESP32-C3 (Seeed Studio)](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/)
