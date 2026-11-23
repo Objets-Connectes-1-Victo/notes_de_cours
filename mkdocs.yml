@@ -158,6 +158,8 @@ nav:
       - "S12": "112__semaine_12_.md"
       - "150. Bus I²C, écran LCD et MPU6050 avec ESPHome": "170_bus_i2c_esphome.md"
       - "151. Exercice 9 : capteur MPU6050 avec ESPHome": "171_exercice_mpu6050_esphome.md"
+      - "152. Bluetooth LE, proxy ESPHome et Bermuda": "172_bluetooth_le_esphome.md"
+      - "153. Exercice 10 : proxy BLE et présence avec Bermuda": "173_exercice_proxy_bermuda_esphome.md"
 
     - "S13":
       - "S13": "116__semaine_13_.md"

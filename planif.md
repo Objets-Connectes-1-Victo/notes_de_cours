@@ -58,8 +58,8 @@ L'examen 2 a lieu dans la première partie de S11.
 
 ### Cours 9 — Bluetooth LE : proxy ESPHome et Bermuda
 
-* **Contenu :** rôle du Bluetooth Low Energy (BLE), configuration du XIAO ESP32-C3 comme proxy Bluetooth ESPHome, puis utilisation de l'intégration Bermuda dans Home Assistant pour estimer la pièce où se trouve un appareil BLE compatible.
-* **Exercice :** activer le proxy BLE, le vérifier dans Home Assistant, puis configurer Bermuda avec une balise ou un appareil BLE disponible et observer les changements de pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible.
+* **Contenu :** distinguer Bluetooth classique et Bluetooth Low Energy (BLE), puis expliquer le principe des annonces BLE que les appareils diffusent sans nécessairement établir de connexion ou de pairage. Configurer `esp32_ble_tracker` et `bluetooth_proxy` sur le XIAO ESP32-C3 et expliquer comment le proxy transmet à Home Assistant les appareils BLE détectés. Présenter Bermuda comme une intégration qui compare les observations et l'intensité du signal (RSSI) de plusieurs récepteurs pour estimer la pièce d'un appareil; préciser que cette estimation dépend de la disposition des récepteurs, des obstacles et de la compatibilité de l'appareil BLE, et qu'elle ne constitue pas un positionnement précis.
+* **Exercice :** flasher et vérifier un proxy dans l'intégration Bluetooth de Home Assistant, puis utiliser Bermuda avec une balise ou un appareil qui diffuse des annonces BLE compatibles. Si au moins deux proxys sont disponibles dans des pièces distinctes, les associer aux pièces et observer l'estimation de présence lorsque l'appareil se déplace. Avec un seul proxy, se limiter à vérifier la détection et à observer les variations de signal; ne pas présenter cela comme une localisation par pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible et, pour comparer des pièces, de plusieurs proxys.
 
 ## S13
 
@@ -80,5 +80,6 @@ L'examen 2 a lieu dans la première partie de S11.
 * Vérifier le type d'interface et les niveaux logiques du LCD avant la séance; l'écran disponible fonctionne en 5 V alors que le ESP32-C3 utilise des signaux à 3,3 V. Ne pas relier directement au ESP32-C3 un signal susceptible d'atteindre 5 V; utiliser un convertisseur de niveau compatible si nécessaire. Le LCD est présenté en cours, mais ne fait pas l'objet d'un exercice.
 * Vérifier le brochage du MPU6050 et sa compatibilité électrique avant la séance; confirmer son adresse I2C et ses broches SDA/SCL selon le module disponible.
 * Vérifier le modèle et les exigences de câblage du capteur de température avant la séance.
+* Pour le cours 9, préparer l'intégration Bermuda et au moins deux proxys Bluetooth ESPHome placés dans des pièces distinctes afin de pouvoir démontrer l'estimation de présence par pièce. Vérifier qu'une balise ou un appareil compatible diffuse des annonces BLE repérables; à défaut, limiter l'exercice à la détection par proxy.
 * Garder les mots de passe et les clés dans `secrets.yaml`; ne pas les inclure dans les exercices remis.
 
