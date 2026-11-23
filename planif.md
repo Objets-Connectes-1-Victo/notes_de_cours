@@ -61,6 +61,8 @@ L'examen 2 a lieu dans la première partie de S11.
 * **Contenu :** distinguer Bluetooth classique et Bluetooth Low Energy (BLE), puis expliquer le principe des annonces BLE que les appareils diffusent sans nécessairement établir de connexion ou de pairage. Configurer `esp32_ble_tracker` et `bluetooth_proxy` sur le XIAO ESP32-C3 et expliquer comment le proxy transmet à Home Assistant les appareils BLE détectés. Présenter Bermuda comme une intégration qui compare les observations et l'intensité du signal (RSSI) de plusieurs récepteurs pour estimer la pièce d'un appareil; préciser que cette estimation dépend de la disposition des récepteurs, des obstacles et de la compatibilité de l'appareil BLE, et qu'elle ne constitue pas un positionnement précis.
 * **Exercice :** flasher et vérifier un proxy dans l'intégration Bluetooth de Home Assistant, puis utiliser Bermuda avec une balise ou un appareil qui diffuse des annonces BLE compatibles. Si au moins deux proxys sont disponibles dans des pièces distinctes, les associer aux pièces et observer l'estimation de présence lorsque l'appareil se déplace. Avec un seul proxy, se limiter à vérifier la détection et à observer les variations de signal; ne pas présenter cela comme une localisation par pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible et, pour comparer des pièces, de plusieurs proxys.
 
+NOTE: préparer des beacons mobiles pour l'exercice (compatibles Eddystone ou iBeacon) et vérifier qu'ils diffusent des annonces BLE repérables. Pourrait être fait avec un ESP32-C6 (antenne intégrée) avec un support à batterie (dans un boitier)
+
 ## S13
 
 ### Cours 10 — Projet de synthèse : conception et réalisation
