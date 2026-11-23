@@ -18,6 +18,7 @@ Le propriétaire du téléphone doit consentir à son utilisation comme balise e
    ```
 
    `active: false` suffit pour relayer les annonces BLE et évite de configurer des connexions GATT actives, qui ne sont pas nécessaires à cet exercice.
+   
 1. Compiler la configuration et corriger les erreurs avant l'installation. Lors de la toute première activation de `esp32_ble_tracker`, installer le micrologiciel par USB si ESPHome demande de redimensionner la partition. Après cette installation initiale, les mises à jour peuvent généralement se faire par OTA.
 1. Installer le micrologiciel et consulter les journaux ESPHome. Vérifier que l'appareil démarre et rejoint le Wi-Fi. Si des erreurs de mémoire ou de partition apparaissent, suivre le message fourni par ESPHome et demander de l'aide avant de poursuivre.
 1. Dans Home Assistant, vérifier que tous les appareils ESPHome de l'équipe sont connectés et que leurs proxys sont disponibles dans **Paramètres > Appareils et services > Bluetooth**.
