@@ -25,6 +25,8 @@ bluetooth_proxy:
   active: false
 ```
 
+Un proxy Bluetooth ESPHome ne relaie les annonces BLE qu'à un seul client Home Assistant à la fois. Même si l'API native ESPHome accepte plusieurs connexions, cela ne signifie pas que plusieurs instances Home Assistant recevront simultanément les annonces du proxy. Pour regrouper les observations de plusieurs récepteurs, connecter les proxys à la même instance Home Assistant.
+
 `active: false` désactive les connexions BLE actives, mais le proxy continue de transmettre les annonces reçues. C'est suffisant pour observer des annonces et faire l'exercice de présence; cela ne permet pas à Home Assistant d'établir des connexions GATT actives par ce proxy. Ne pas confondre cette option avec le mode d'écoute de `esp32_ble_tracker`.
 
 Ajouter ces composants à la configuration existante, sans créer un deuxième bloc de même nom. Compiler, installer le micrologiciel et vérifier les journaux ESPHome. 
