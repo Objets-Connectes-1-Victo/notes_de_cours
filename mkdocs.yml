@@ -162,16 +162,8 @@ nav:
       - "153. Exercice 10 : proxy BLE et présence avec Bermuda": "173_exercice_proxy_bermuda_esphome.md"
 
     - "S13":
-      - "S13": "116__semaine_13_.md"
-      - "103. Communication Home Assistant - Jeedom via l'API": "117_communication_home_assistant_jeedom_via_lapi.md"
-      - "104. Exercice 21": "118_exercice_21.md"
-      - "105. Exercice 22 - OPTIONNEL": "119_exercice_22_optionnel.md"
-      - "106. Pour le prochain cours": "120_pour_le_prochain_cours.md"
-      - "107. MQTT": "121_mqtt.md"
-      - "108. Exercice 23": "122_exercice_23.md"
-      - "109. Pour le prochain cours": "123_pour_le_prochain_cours.md"
-      - "154. Buzzer passif et mélodies RTTTL avec ESPHome": "174_buzzer_passif_rtttl_esphome.md"
-      - "155. Exercice 11 : buzzer passif, transistor et mélodie RTTTL": "175_exercice_buzzer_passif_rtttl_esphome.md"
+      - "154. Cours 10 : buzzer passif et mélodies RTTTL avec ESPHome": "174_buzzer_passif_rtttl_esphome.md"
+      - "155. Cours 10 — Exercice : buzzer passif, transistor et mélodie RTTTL": "175_exercice_buzzer_passif_rtttl_esphome.md"
     - "S14":
       - "S14": "124__semaine_14_.md"
       - "110. Exercice 24": "125_exercice_24.md"
