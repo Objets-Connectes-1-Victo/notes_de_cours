@@ -50,11 +50,15 @@ Si une mélodie joue déjà, l'arrêter avec `rtttl.stop` avant d'en lancer une 
 
 ## 154.3 Commander le buzzer avec un transistor
 
-Une broche GPIO du XIAO ESP32-C3 fournit un signal logique de 3,3 V et ne doit pas alimenter directement un composant qui demande une alimentation de 5 V ou un courant supérieur à ce que la broche peut fournir. Un transistor NPN peut servir d'interrupteur côté masse : le signal PWM commande sa base à travers une résistance, tandis que le courant du buzzer circule entre l'alimentation de 5 V, le buzzer, le collecteur et l'émetteur du transistor. Le montage Freenove cité en référence utilise le transistor NPN S8050 fourni dans son kit; vérifier le marquage et le brochage du composant réel avant le câblage.
+Une broche GPIO du XIAO ESP32-C3 fournit un signal logique de 3,3 V et ne doit pas alimenter directement un composant qui demande une alimentation de 5 V ou un courant supérieur à ce que la broche peut fournir. Un transistor NPN peut servir d'interrupteur côté masse : le signal PWM commande sa base à travers une résistance, tandis que le courant du buzzer circule entre l'alimentation de 5 V, le buzzer, le collecteur et l'émetteur du transistor. 
+
+Le montage Freenove cité en référence utilise le transistor NPN S8050 fourni dans son kit; vérifier le marquage et le brochage du composant réel avant le câblage. Les transistors NPN 2N2222 fonctionnent aussi.
 
 ![schema](./img/OC1_Buzzer_Schema.png)
 
 La masse du XIAO ESP32-C3 et celle de l'alimentation de 5 V doivent être communes pour que le signal de commande ait une référence partagée. Le 5 V du buzzer ne doit jamais être raccordé à une broche GPIO. Le branchement illustré est un interrupteur NPN côté masse; le brochage des pattes varie selon le modèle de transistor, il faut donc le vérifier dans sa fiche technique avant de le monter.
+
+Utiliser le 3.3V du XIAO ESP32-C3 pour alimenter le buzzer n'est pas recommandé : le courant disponible est limité et la tension peut chuter sous la charge, ce qui réduit le volume sonore. Le montage avec transistor permet d'utiliser une alimentation de 5 V séparée, plus adaptée à un buzzer passif.
 
 !!! warning
 
