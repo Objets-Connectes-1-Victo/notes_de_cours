@@ -65,6 +65,18 @@ Le téléphone diffuse alors un identifiant BLE que les proxys ESPHome à proxim
 
 La transmission régulière peut réduire l'autonomie, particulièrement à puissance élevée. Pour la démonstration, utiliser un téléphone de test autorisé, garder la transmission active pendant les mesures et la désactiver après l'exercice. Comme pour toute balise, un seul proxy permet d'observer la réception du signal, mais plusieurs proxys associés à des pièces différentes sont nécessaires pour estimer une pièce.
 
+### Créer une balise iBeacon avec ESPHome
+
+ESPHome possède aussi le composant `esp32_ble_beacon`, qui permet à un ESP32 de diffuser ses propres annonces BLE comme balise iBeacon. Il émet les annonces, contrairement à `esp32_ble_tracker` et `bluetooth_proxy`, qui servent à les recevoir et à les transmettre à Home Assistant. La configuration minimale demande un UUID unique :
+
+```yaml
+esp32_ble_beacon:
+  type: iBeacon
+  uuid: "c29ce823-e67a-4e71-bff2-abaa32e77a98"
+```
+
+Le composant utilise une quantité notable de mémoire et peut provoquer des problèmes si la configuration contient aussi plusieurs composants gourmands en ressources.
+
 ## 152.4 Considérations de confidentialité
 
 La détection BLE peut révéler la présence et les déplacements d'un appareil. Pour les démonstrations, utiliser une balise de cours ou un appareil dont la personne propriétaire a explicitement accepté le suivi. Ne pas enregistrer ou suivre les téléphones des autres personnes sans leur accord. Supprimer ensuite les appareils de test qui n'ont plus à être suivis.
@@ -73,6 +85,7 @@ La détection BLE peut révéler la présence et les déplacements d'un appareil
 
 * [ESP32 BLE Tracker ESPHome](https://esphome.io/components/esp32_ble_tracker/)
 * [Bluetooth Proxy ESPHome](https://esphome.io/components/bluetooth_proxy/)
+* [ESP32 BLE Beacon ESPHome](https://esphome.io/components/esp32_ble_beacon/)
 * [Intégration Bluetooth Home Assistant](https://www.home-assistant.io/integrations/bluetooth/)
 * [Bermuda : dépôt et documentation officielle](https://github.com/agittins/bermuda)
 * [Private BLE Device Home Assistant](https://www.home-assistant.io/integrations/private_ble_device/)

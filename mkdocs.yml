@@ -170,6 +170,8 @@ nav:
       - "107. MQTT": "121_mqtt.md"
       - "108. Exercice 23": "122_exercice_23.md"
       - "109. Pour le prochain cours": "123_pour_le_prochain_cours.md"
+      - "154. Buzzer passif et mélodies RTTTL avec ESPHome": "174_buzzer_passif_rtttl_esphome.md"
+      - "155. Exercice 11 : buzzer passif, transistor et mélodie RTTTL": "175_exercice_buzzer_passif_rtttl_esphome.md"
     - "S14":
       - "S14": "124__semaine_14_.md"
       - "110. Exercice 24": "125_exercice_24.md"

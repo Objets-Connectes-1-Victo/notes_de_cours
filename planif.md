@@ -1,6 +1,6 @@
 # Planification ESPHome
 
-Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08 et compte comme cours 1. Le cours 2 a également lieu en S08. Les cours 3 à 6 ont lieu en S09 et S10. En S11, l'examen 2 a lieu dans la première partie et le cours 7 dans la deuxième. Les cours 8 et 9 ont lieu en S12, puis les cours 10 et 11 en S13. Chaque cours comprend une fiche et un exercice.
+Le cours d'introduction basé sur les fiches 152 et 153 a déjà été donné en S08 et compte comme cours 1. Le cours 2 a également lieu en S08. Les cours 3 à 6 ont lieu en S09 et S10. En S11, l'examen 2 a lieu dans la première partie et le cours 7 dans la deuxième. Les cours 8 et 9 ont lieu en S12, le cours 10 en S13, puis les cours 11 et 12 en S14. Chaque cours comprend une fiche et un exercice.
 
 ## S08
 
@@ -61,24 +61,35 @@ L'examen 2 a lieu dans la première partie de S11.
 * **Contenu :** distinguer Bluetooth classique et Bluetooth Low Energy (BLE), puis expliquer le principe des annonces BLE que les appareils diffusent sans nécessairement établir de connexion ou de pairage. Configurer `esp32_ble_tracker` et `bluetooth_proxy` sur le XIAO ESP32-C3 et expliquer comment le proxy transmet à Home Assistant les appareils BLE détectés. Présenter Bermuda comme une intégration qui compare les observations et l'intensité du signal (RSSI) de plusieurs récepteurs pour estimer la pièce d'un appareil; préciser que cette estimation dépend de la disposition des récepteurs, des obstacles et de la compatibilité de l'appareil BLE, et qu'elle ne constitue pas un positionnement précis.
 * **Exercice :** flasher et vérifier un proxy dans l'intégration Bluetooth de Home Assistant, puis utiliser Bermuda avec une balise ou un appareil qui diffuse des annonces BLE compatibles. Si au moins deux proxys sont disponibles dans des pièces distinctes, les associer aux pièces et observer l'estimation de présence lorsque l'appareil se déplace. Avec un seul proxy, se limiter à vérifier la détection et à observer les variations de signal; ne pas présenter cela comme une localisation par pièce. L'exercice dépend de la disponibilité d'un appareil BLE compatible et, pour comparer des pièces, de plusieurs proxys.
 
-NOTE: préparer des beacons mobiles pour l'exercice (compatibles Eddystone ou iBeacon) et vérifier qu'ils diffusent des annonces BLE repérables. Pourrait être fait avec un ESP32-C6 (antenne intégrée) avec un support à batterie (dans un boitier)
+NOTE STROTTIER: préparer des beacons mobiles pour l'exercice (compatibles Eddystone ou iBeacon) et vérifier qu'ils diffusent des annonces BLE repérables. Pourrait être fait avec un ESP32-C6 (antenne intégrée) avec un support à batterie (dans un boitier)
+
+Composante esp32_ble_beacon: déjà existante dans ESPHome! 
+https://esphome.io/components/esp32_ble_beacon/
 
 ## S13
 
-### Cours 10 — Projet de synthèse : conception et réalisation
+### Cours 10 — Utiliser un buzzer passif
+
+* **Contenu :** distinguer un buzzer passif d'un buzzer actif; comprendre qu'un buzzer passif produit des sons lorsqu'on lui applique un signal périodique et que la fréquence détermine la hauteur de la note. Présenter la commande par PWM, le format RTTTL (Ring Tone Text Transfer Language) pour décrire des mélodies monophoniques et le composant `rtttl` d'ESPHome, ainsi que les précautions de branchement selon le modèle.
+* **Exercice :** brancher un buzzer passif au XIAO ESP32-C3, configurer sa sortie PWM et le composant `rtttl`, puis jouer une courte mélodie RTTTL déclenchée par le bouton.
+
+## S14
+
+### Cours 11 — Projet de synthèse : conception et réalisation
 
 * **Contenu :** révision du cycle configuration-compilation-installation, mise à jour OTA, lecture des journaux et dépannage; présentation des choix de broches et des entités.
 * **Exercice :** concevoir et assembler un appareil ESPHome qui combine les composants étudiés; remettre une première configuration YAML sans secrets et un schéma de branchement.
 
-### Cours 11 — Projet de synthèse : démonstration et validation
+### Cours 12 — Projet de synthèse : démonstration et validation
 
 * **Contenu :** tester le fonctionnement complet, lire les journaux, effectuer une mise à jour OTA et corriger les problèmes; présenter les choix de broches et les entités créées.
 * **Exercice :** démontrer l'appareil, diagnostiquer et corriger un problème préparé à l'aide des journaux, puis remettre la configuration YAML finale sans secrets, le schéma de branchement et une vérification des fonctions dans Home Assistant.
 
 ## Matériel et précautions
 
-* Matériel de base : XIAO ESP32-C3, DEL, résistances, boutons, potentiomètre, écran LCD disponible en classe et capteur de température compatible (modèle à confirmer).
+* Matériel de base : XIAO ESP32-C3, DEL, résistances, boutons, potentiomètre, buzzer passif, écran LCD disponible en classe et capteur de température compatible (modèle à confirmer).
 * Vérifier le brochage et la compatibilité de chaque broche avec le modèle exact de carte. Ne jamais appliquer 5 V à une entrée du ESP32-C3.
+* Pour le buzzer passif, vérifier le modèle et ses exigences de branchement; ne pas dépasser le courant admissible par une broche du ESP32-C3 et utiliser un circuit de commande adapté au besoin.
 * Vérifier le type d'interface et les niveaux logiques du LCD avant la séance; l'écran disponible fonctionne en 5 V alors que le ESP32-C3 utilise des signaux à 3,3 V. Ne pas relier directement au ESP32-C3 un signal susceptible d'atteindre 5 V; utiliser un convertisseur de niveau compatible si nécessaire. Le LCD est présenté en cours, mais ne fait pas l'objet d'un exercice.
 * Vérifier le brochage du MPU6050 et sa compatibilité électrique avant la séance; confirmer son adresse I2C et ses broches SDA/SCL selon le module disponible.
 * Vérifier le modèle et les exigences de câblage du capteur de température avant la séance.
